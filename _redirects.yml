@@ -1,0 +1,4 @@
+# See https://github.com/nquinlan/jekyll-pageless-redirects
+#initial-page   : /destination-page
+#other-page     : http://example.org/destination-page
+#"another/page" : /destination-page

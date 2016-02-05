@@ -1,0 +1,44 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely need to edit after that.
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'jekyll serve'. If you change this file, please restart the server process.
+
+# Site settings
+title: /dev/alias – Hack. Dev. Transcend.
+email: glenn@devalias.net
+description: >
+  Glenn 'devalias' Grant is a full-stack polyglot developer with an acute
+  interest in the offensive side of security.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "http://devalias.net" # the base hostname & protocol for your site
+
+timezone: Australia/ACT
+
+twitter_username: _devalias
+github_username:  alias1
+
+# Front Matter defaults (http://jekyllrb.com/docs/configuration/#front-matter-defaults)
+#defaults:
+
+# Conversion
+markdown: kramdown
+kramdown:
+  input: GFM
+lsi: true # Index for related posts (slow)
+
+# Sitemap Generator (https://github.com/kinnetica/jekyll-plugins)
+# sitemap:
+#   file: "/sitemap.xml"
+#   exclude:
+#     - "/atom.xml"
+#     - "/feed.xml"
+#     - "/feed/index.xml"
+#   include_posts:
+#     - "/index.html"
+#   change_frequency_name: "change_frequency"
+#   priority_name: "priority"
+
+gems:
+  - jekyll-gist # https://github.com/jekyll/jekyll-gist

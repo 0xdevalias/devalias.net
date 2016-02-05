@@ -41,4 +41,5 @@ lsi: true # Index for related posts (slow)
 #   priority_name: "priority"
 
 gems:
-  - jekyll-gist # https://github.com/jekyll/jekyll-gist
+  - jekyll-gist          # https://github.com/jekyll/jekyll-gist
+  - jekyll-redirect-from # https://github.com/jekyll/jekyll-redirect-from

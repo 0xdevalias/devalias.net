@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
-gem 'jekyll','~>3.0.1'
+gem 'jekyll','~>3.1.1'
 gem 'jekyll-gist'
+gem 'jekyll-redirect-from'
 gem 'classifier-reborn'

@@ -1,0 +1,8 @@
+fables:
+  cover: "/assets/images/cover3.jpg"
+  description: "A series of short stories that make you think."
+speeches:
+  cover: "/assets/images/cover7.jpg"
+  description: "Some of the greatest words ever spoken."
+fiction:
+  cover: "/assets/images/cover1.jpg"

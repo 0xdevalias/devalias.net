@@ -4,35 +4,23 @@ class: 'tag-template'
 current: tag
 ---
 
-<!-- < dynamically overriding backgrounds for tags as well as descriptions -->
-{% if page.url contains 'fables' %}
-   {% assign tagDescription='A series of short stories that make you think.' %}
-{% elsif page.url contains 'speeches' %}
-    {% assign newCover='/assets/images/cover7.jpg' %}
-    {% assign tagDescription='Some of the greatest words ever spoken.' %}
-{% elsif page.url contains 'fiction' %}
-    {% assign newCover='/assets/images/cover1.jpg' %}
-{% else %}
-    {% assign newCover=false %}
-{% endif %}
-
-<!-- < default}} -->
-<!-- The tag above means - insert everything in this file into the [body] of the default.hbs template -->
-
-<!-- If we have a tag cover, display that - else blog cover - else nothing -->
 {% assign tagTitle=page.tag | capitalize %}
-{% if tagDescription %}
-    {% assign tagDescription=tagDescription %}
-{% elsif page.tag %}
+{% assign tagDescription=false %}
+{% assign tagCover=false %}
+
+{% for tag in site.data.tags %}
+  {% if page.url contains tag[0] %}
+    {% assign tagDescription=tag[1].description %}
+    {% assign tagCover=tag[1].cover %}
+  {% endif %}
+{% endfor %}
+
+{% unless tagDescription %}
     {% capture tagDescription %}A {{ paginator.total_posts }}-post collection{% endcapture %}
-{% endif %}
+{% endunless %}
 
-{% include header.html title=tagTitle description=tagDescription cover=newCover %}
+{% include header.html title=tagTitle description=tagDescription cover=tagCover %}
 
-<!-- The main content area on the homepage -->
 <main id="content" class="content" role="main">
-
-    <!-- The tag below includes the post loop - partials/loop.hbs -->
     {% include loop.html %}
-
 </main>

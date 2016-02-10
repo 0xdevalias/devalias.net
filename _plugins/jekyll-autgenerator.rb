@@ -6,7 +6,10 @@ module Jekyll
 
     def generate(site)
       site.categories.each do |category|
-        build_subpages(site, "author", category)
+        # Only generate page if category is an author
+        if site.data["authors"][category[0]]
+          build_subpages(site, "author", category)
+        end
       end
     end
 

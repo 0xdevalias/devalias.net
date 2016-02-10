@@ -3,8 +3,8 @@ layout: default
 class: 'page-template'
 ---
 <!-- Layout: page -->
-{% include header.html %}
-<main class="content" role="main">
+{% include header.html title=page.title description=page.description %}
+<main id="content" class="content" role="main">
     <article class="post">
     
         <!-- <header class="post-header">

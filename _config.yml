@@ -23,6 +23,7 @@ twitter_username: _devalias
 github_username:  alias1
 
 default_cover: '/assets/images/cover4.jpg'
+default_logo: '/assets/images/devalias-prompt.png'
 favicon: '/assets/images/authors/devalias.png'
 jekyll_version: '3.x'
 
@@ -35,8 +36,6 @@ defaults:
     values:
       description: ''
       class: 'page-template'
-      cover: '/assets/images/cover4.jpg'
-      logo: '/assets/images/devalias-prompt.png'
       navigation: True
   -
     scope:
@@ -46,10 +45,7 @@ defaults:
       author: 'devalias'
       description: ''
       class: 'post-template'
-      cover: '/assets/images/cover4.jpg'
-      logo: '/assets/images/devalias-prompt.png'
       navigation: True
-      # class: 'post-template'
 
 # Conversion
 markdown: kramdown

@@ -1,32 +1,55 @@
 <!-- Template: header -->
+{% if include.logo %}
+    {% assign logoImage=include.logo %}
+{% elsif page.logo %}
+    {% assign logoImage=page.logo %}
+{% else %}
+    {% assign logoImage=site.default_logo %}
+{% endif %}
+
+{% if include.cover %}
+   {% assign coverImage=include.cover %}
+{% elsif page.cover %}
+    {% assign coverImage=page.cover %}
+{% else %}
+    {% assign coverImage=site.default_cover %}
+{% endif %}
+
 <header class="main-header
                {% if page.class == 'post-template' %}post-head{% endif %}
+               {% if page.class == 'page-template' %}post-head{% endif %}
                {% if page.class == 'author-template' %}author-head{% endif %}
-               {% if page.cover %}
-                    " style="background-image: url({{ site.baseurl | chomp_slash }}{{ page.cover }})
+               {% if page.class == 'tag-template' %}tag-head{% endif %}
+               {% if coverImage %}
+                    " style="background-image: url({{ site.baseurl | chomp_slash }}{{ coverImage }})
                 {% else %}
                     no-cover
                 {% endif %}">
-    <nav class="main-nav {% if page.cover %}overlay{% endif %} clearfix">
-        {% if page.logo %}
-          <a class="blog-logo" href="{{ site.baseurl }}"><img src="{{ site.baseurl | chomp_slash }}{{ page.logo }}" alt="Blog Logo" /></a>
+    <nav class="main-nav {% if coverImage %}overlay{% endif %} clearfix">
+        {% if logoImage %}
+          <a class="blog-logo" href="{{ site.baseurl }}"><img src="{{ site.baseurl | chomp_slash }}{{ logoImage }}" alt="Blog Logo" /></a>
         {% endif %}
         {% if page.navigation %}
             <a class="menu-button" href="#"><i class="fa fa-bars"></i> <span class="word">Menu</span></a>
         {% endif %}
     </nav>
 
-    {% unless include.hidevertical %}
-        <div class="vertical">
-            <div class="main-header-content inner">
-                <h1 class="page-title">{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</h1>
-                <!-- <h2 class="page-description">{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}</h2> -->
-                <h2 class="page-description">{{ site.description }}</h2>
+    {% unless include.hideVertical %}
+        {% if include.title or include.description %}
+            <div class="vertical">
+                <div class="main-header-content inner">
+                    {% if include.title %}
+                        <h1 class="page-title">{{ include.title }}</h1>
+                    {% endif %}
+                    {% if include.description %}
+                        <h2 class="page-description">{{ include.description }}</h2>
+                    {% endif %}
+                </div>
             </div>
-        </div>
+        {% endif %}
     {% endunless %}
 
-    {% if page.class == 'home-template' %}
+    {% if include.showScroll %}
         <a class="scroll-down" href="#content" data-offset="-45"><i class="fa fa-chevron-left"></i><span class="hidden">Scroll Down</span></a>
     {% endif %}
 </header>

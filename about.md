@@ -2,7 +2,7 @@
 layout: page
 title: About
 permalink: /about/
-class: 'page'
+class: 'page-template'
 current: about
 ---
 

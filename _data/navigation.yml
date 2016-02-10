@@ -8,10 +8,18 @@
   name: 'about'
   path: '/about'
 -
-  class: 'nav-fables'
-  name: 'foo'
-  path: '/tag/foo'
+  class: 'nav-hackables'
+  name: 'Hackables'
+  path: '/hackables'
+-
+  class: 'nav-chrome-extensions'
+  name: 'Chrome Extensions'
+  path: '/chrome-extensions'
 -
   class: 'nav-author'
-  name: 'devalias'
+  name: 'Posts by /dev/alias'
   path: '/author/devalias'
+# -
+#   class: 'nav-fables'
+#   name: 'foo'
+#   path: '/tag/foo'

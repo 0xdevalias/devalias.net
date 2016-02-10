@@ -1,0 +1,9 @@
+.page-title, .page-description {
+  font-family: "Courier New", Courier, monospace;
+}
+
+.blog-logo img {
+  height: 27px;
+  margin-top: -25px;  /* 35 - 25 = 10 */
+  margin-left: -30px; /* 40 - 30 = 10 */
+}

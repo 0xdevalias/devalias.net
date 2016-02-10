@@ -1,0 +1,16 @@
+devalias:
+  nickname: 'devalias'
+  name: "Glenn 'devalias' Grant"
+  bio: 'TODO: Bio'
+  location: 'Australia'
+  image: '/assets/images/authors/devalias.png'
+  url: 'http://www.devalias.net/'
+  short_url: 'devalias.net'
+casper:
+  nickname: 'casper'
+  name: "Default Data"
+  bio: 'TODO: Bio'
+  location: 'Ghostland'
+  image: '/assets/images/authors/devalias.png'
+  url: 'http://www.example.com/'
+  short_url: 'example.com'

@@ -1,0 +1,15 @@
+<div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+        {% for nav in site.data.navigation %}
+            <li class="{{ nav.class }} {% if page.current == '{{ nav.name }}' %}nav-current{% endif %}" role="presentation">
+                <a href="{{ site.baseurl | chomp_slash }}{{ nav.path }}">{{ nav.name | capitalize }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <a class="subscribe-button icon-feed" href="{{ site.baseurl | chomp_slash }}/rss.xml">Subscribe</a>
+</div>
+<span class="nav-cover"></span>

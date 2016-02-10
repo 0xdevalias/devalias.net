@@ -1,15 +1,112 @@
 ---
 layout: default
+disqus: false
+class: 'post-template'
 ---
-<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+<!-- Layout: Post -->
+{% include header.html %}
+<main class="content" role="main">
+    <article class="post {{ page.subclass }}">
+        <header class="post-header">
+            <h1 class="post-title">{{ page.title }}</h1>
+            <section class="post-meta">
+            <a href='{{ site.baseurl | chomp_slash }}/author/{{ page.author }}'>{{ site.data.authors[page.author].name }}</a>
+            <time class="post-date" datetime="{{ page.date | date:'%Y-%m-%d' }}">{{ page.date | date_to_string }}</time>
+                <!-- [[tags prefix=" on "]] -->
+                {% if page.tags.size > 0 %} 
+                on 
+                {% for tag in page.tags %}
+                    <a href='{{ site.baseurl | chomp_slash }}/tag/{{ tag }}'>{{ tag | capitalize }}</a>{% if forloop.index != page.tags.size %},{% endif %}
+                {% endfor %}
+                {% endif %}
+            </section>
+        </header>
 
-  <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">{{ page.title }}</h1>
-    <p class="post-meta"><time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}</time>{% if page.author %} • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>{% endif %}</p>
-  </header>
+        <section class="post-content">
+            {{ content }}
+        </section>
 
-  <div class="post-content" itemprop="articleBody">
-    {{ content }}
-  </div>
+        <footer class="post-footer">
 
-</article>
+            <!-- #author-->
+
+            {% if site.data.authors[page.author].image %}
+            <figure class="author-image">
+                <a class="img" href="{{ site.baseurl | chomp_slash }}/author/{{ page.author }}" style="background-image: url({{ site.baseurl | chomp_slash }}{{ site.data.authors[page.author].image }})"><span class="hidden">{{ page.author }}'s Picture</span></a>
+            </figure>
+            {% endif %}
+
+            <section class="author">
+                <h4><a href="{{ site.baseurl | chomp_slash }}/author/{{ page.author }}">{{ site.data.authors[page.author].name }}</a></h4>
+                
+                {% if site.data.authors[page.author].bio %}
+                    <p> {{ site.data.authors[page.author].bio }}</p>
+                {% else %}
+                    <p>Read <a href="{{ site.baseurl | chomp_slash }}/author/{{ page.author }}">more posts</a> by this author.</p>
+                {% endif %}
+                <div class="author-meta">
+                    {% if site.data.authors[page.author].location %}
+                        <span class="author-location icon-location">
+                            {{ site.data.authors[page.author].location }}
+                        </span>
+                    {% endif %} 
+                    {% if site.data.authors[page.author].url and site.data.authors[page.author].short_url %}
+                        <span class="author-link icon-link"><a href="{{ site.data.authors[page.author].url }}">{{ site.data.authors[page.author].short_url }}</a></span>
+                    {% endif %}
+                </div>
+            </section>
+
+            <!-- /author  -->
+
+            <section class="share">
+                <h4>Share this post</h4>
+                <a class="icon-twitter" href="http://twitter.com/share?text={{ page.title }}&amp;url={{ site.url }}{{ page.url }}"
+                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <span class="hidden">Twitter</span>
+                </a>
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u={{ site.url }}{{ page.url }}"
+                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <span class="hidden">Facebook</span>
+                </a>
+                <a class="icon-google-plus" href="https://plus.google.com/share?url={{ site.url }}{{ page.url }}"
+                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <span class="hidden">Google+</span>
+                </a>
+            </section>
+            
+            <!-- Add Disqus Comments -->
+            {% if page.disqus %}
+                {% include disqus.html %}
+            {% endif %}
+            
+        </footer>
+
+    </article>
+
+</main>
+
+<aside class="read-next">
+
+    <!-- [[! next_post ]] -->{{ post.url }}
+    {% if page.next %}
+        <a class="read-next-story {% if page.next.cover %}" style="background-image: url({{ site.baseurl | chomp_slash }}{{ page.next.cover }}){% else %}no-cover{% endif %}" href="{{ site.baseurl | chomp_slash }}{{ page.next.url }}">
+            <section class="post">
+                <h2>{{ page.next.title }}</h2>
+                <p>{{ page.next.content | strip_html | truncatewords:15 }}</p>
+            </section>
+        </a>
+    {% endif %}
+    <!-- [[! /next_post ]] -->
+    <!-- [[! prev_post ]] -->
+    {% if page.previous %}
+        <a class="read-next-story prev {% if page.previous.cover %}" style="background-image: url({{ site.baseurl | chomp_slash }}{{ page.previous.cover }}){% else %}no-cover{% endif %}" href="{{ site.baseurl | chomp_slash }}{{ page.previous.url }}">
+            <section class="post">
+                <h2>{{ page.previous.title }}</h2>
+                <p>{{ page.previous.content | strip_html | truncatewords:15 }}</p>
+            </section>
+        </a>
+    {% endif %}
+    <!-- [[! /prev_post ]] -->
+</aside>
+
+<!-- /Layout: Post -->

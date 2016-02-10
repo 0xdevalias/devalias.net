@@ -1,0 +1,17 @@
+# nav-home, nav-about, nav-fables, nav-speeches, nav-fiction, nav-author
+-
+  class: 'nav-home'
+  name: 'home'
+  path: '/'
+-
+  class: 'nav-about'
+  name: 'about'
+  path: '/about'
+-
+  class: 'nav-fables'
+  name: 'foo'
+  path: '/tag/foo'
+-
+  class: 'nav-author'
+  name: 'devalias'
+  path: '/author/devalias'

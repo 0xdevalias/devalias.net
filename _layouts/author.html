@@ -17,11 +17,7 @@ current: author
     </header>
 
     <section class="author-profile inner">
-        {% if site.data.authors[page.author].image %}
-        <figure class="author-image">
-            <div class="img" style="background-image: url({{ site.baseurl | chomp_slash }}{{ site.data.authors[page.author].image }})"><span class="hidden">{{ page.author }}'s Picture</span></div>
-        </figure>
-        {% endif %}
+        {% include author-image.html author=page.author %}
         <h1 class="author-title">{{ site.data.authors[page.author].name }}</h1>
         <small>({{ page.author }})</small>
         {% if site.data.authors[page.author].bio %}

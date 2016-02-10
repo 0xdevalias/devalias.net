@@ -30,11 +30,7 @@ class: 'post-template'
 
             <!-- #author-->
 
-            {% if site.data.authors[page.author].image %}
-            <figure class="author-image">
-                <a class="img" href="{{ site.baseurl | chomp_slash }}/author/{{ page.author }}" style="background-image: url({{ site.baseurl | chomp_slash }}{{ site.data.authors[page.author].image }})"><span class="hidden">{{ page.author }}'s Picture</span></a>
-            </figure>
-            {% endif %}
+            {% include author-image.html author=page.author %}
 
             <section class="author">
                 <h4><a href="{{ site.baseurl | chomp_slash }}/author/{{ page.author }}">{{ site.data.authors[page.author].name }}</a></h4>

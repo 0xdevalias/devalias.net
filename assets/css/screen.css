@@ -1203,29 +1203,29 @@ body:not(.post-template) .post-title {
    6. Author profile
    ========================================================================== */
 
-.post-head.main-header {
+.post-template .main-header {
     height: 65vh;
     min-height: 180px;
 }
 
-.no-cover.post-head.main-header {
+.post-template .no-cover.main-header {
     height: 85px;
     min-height: 0;
     margin-bottom: 0;
     background: transparent;
 }
 
-.tag-head.main-header {
+.tag-template .main-header {
     height: 40vh;
     min-height: 180px;
 }
 
-.author-head.main-header {
+.author-template .main-header {
     height: 40vh;
     min-height: 180px;
 }
 
-.no-cover.author-head.main-header {
+.author-template .no-cover.main-header {
     height: 10vh;
     min-height: 100px;
     background: transparent;
@@ -1698,21 +1698,21 @@ body:not(.post-template) .post-title {
         font-size: 1.6rem;
     }
 
-    .post-head.main-header {
+    .post-template .main-header {
         height:45vh;
     }
 
-    .tag-head.main-header,
-    .author-head.main-header {
+    .tag-template .main-header,
+    .author-template .main-header {
         height: 30vh;
     }
 
-    .no-cover.post-head.main-header {
+    .post-template .no-cover.main-header {
         height: 55px;
         padding: 0;
     }
 
-    .no-cover.author-head.main-header {
+    .author-template .no-cover.main-header {
         padding: 0;
     }
 
@@ -1967,12 +1967,12 @@ body:not(.post-template) .post-title {
         padding-bottom: 2rem;
     }
 
-    .post-head.main-header {
+    .post-template .main-header {
         height: 30vh;
     }
 
-    .tag-head.main-header,
-    .author-head.main-header {
+    .tag-template .main-header,
+    .author-template .main-header {
         height: 20vh;
     }
 

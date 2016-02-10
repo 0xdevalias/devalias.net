@@ -16,10 +16,6 @@
 {% endif %}
 
 <header class="main-header
-               {% if page.class == 'post-template' %}post-head{% endif %}
-               {% if page.class == 'page-template' %}post-head{% endif %}
-               {% if page.class == 'author-template' %}author-head{% endif %}
-               {% if page.class == 'tag-template' %}tag-head{% endif %}
                {% if coverImage %}
                     " style="background-image: url({{ site.baseurl | chomp_slash }}{{ coverImage }})
                 {% else %}

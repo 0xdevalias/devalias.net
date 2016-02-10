@@ -19,9 +19,6 @@ timezone: Australia/ACT
 google_analytics: UA-00000000-1
 disqus: devalias
 
-twitter_username: _devalias
-github_username:  alias1
-
 default_cover: '/assets/images/cover4.jpg'
 default_logo: '/assets/images/devalias-prompt.png'
 favicon: '/assets/images/authors/devalias.png'

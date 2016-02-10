@@ -11,7 +11,9 @@ baseurl: "/" # the subpath of your site, e.g. /blog
 
 permalink: pretty
 publisher: 'devalias.net'
+
 paginate: 5
+paginate_path: "/:num/"
 
 language: 'en-uk'
 timezone: Australia/ACT

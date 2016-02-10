@@ -28,7 +28,7 @@ module Jekyll
         pager = Jekyll::Paginate::Pager.new(site, num_page, posts[1], pages)
         path = "/tag/#{posts[0]}"
         if num_page > 1
-          path = path + "/page#{num_page}"
+          path = path + "/#{num_page}"
         end
         newpage = GroupSubPageTags.new(site, site.source, path, type, posts[0])
         newpage.pager = pager

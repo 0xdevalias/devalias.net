@@ -1,13 +1,9 @@
 <nav class="pagination" role="pagination">
     {% if paginator.previous_page %}
-        {% if paginator.previous_page == 1 %}
-            <a class="newer-posts" href="{{ site.baseurl | chomp_slash }}/author/{{ page.author }}" title="Previous Page">&laquo; Newer Posts</a>
-        {% else %}
-            <a class="newer-posts" href="{{ site.baseurl | chomp_slash }}/author/{{ page.author }}/page{{ paginator.previous_page }}/" title="Previous Page">&laquo; Newer Posts</a>
-      {% endif %}
+        <a class="newer-posts" href="{{ site.baseurl | chomp_slash }}/author/{{ page.author }}{{ paginator.previous_page_path }}" title="Previous Page">&laquo; Newer Posts</a>
     {% endif %}
     <span class="page-number"> Page {{ paginator.page }} of {{ paginator.total_pages }} </span>
     {% if paginator.next_page %} 
-        <a class="older-posts" href="{{ site.baseurl | chomp_slash }}/author/{{ page.author }}/page{{ paginator.next_page }}/" title="Next Page">Older Posts &raquo;</a>
+        <a class="older-posts" href="{{ site.baseurl | chomp_slash }}/author/{{ page.author }}{{ paginator.next_page_path }}" title="Next Page">Older Posts &raquo;</a>
     {% endif %} 
 </nav>

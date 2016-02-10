@@ -6,7 +6,7 @@
     <ul>
         {% for nav in site.data.navigation %}
             <li class="{{ nav.class }} {% if page.current == '{{ nav.name }}' %}nav-current{% endif %}" role="presentation">
-                <a href="{{ site.baseurl | chomp_slash }}{{ nav.path }}">{{ nav.name | capitalize }}</a>
+                <a href="{{ site.baseurl | chomp_slash }}{{ nav.path }}">{{ nav.name | titleize }}</a>
             </li>
         {% endfor %}
     </ul>

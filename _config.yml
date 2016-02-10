@@ -23,6 +23,7 @@ twitter_username: _devalias
 github_username:  alias1
 
 default_cover: '/assets/images/cover4.jpg'
+favicon: '/assets/images/authors/devalias.png'
 jekyll_version: '3.x'
 
 # Front Matter defaults (http://jekyllrb.com/docs/configuration/#front-matter-defaults)

@@ -20,7 +20,7 @@ devalias:
     keybase: 'devalias'
 casper:
   nickname: 'casper'
-  name: "Default Data"
+  name: "Casper Default"
   bio: 'TODO: Bio'
   location: 'Ghostland'
   image: '/assets/images/authors/devalias.png'

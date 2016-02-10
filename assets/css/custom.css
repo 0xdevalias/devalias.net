@@ -14,6 +14,19 @@
 
 .post-footer .share a {
   margin: 0px;
+}
+
+.tag-template .main-header {
+    height: 30vh;
+}
+
+.page-template .main-header {
+    height: 30vh;
+}
+
+.post-template .main-header {
+    height: 30vh;
+}
 
 .post-date {
   margin-left: 0px;

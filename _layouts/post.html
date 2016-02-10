@@ -9,18 +9,8 @@ class: 'post-template'
 <main id="content" class="content" role="main">
     <article class="post {{ page.subclass }}">
         <header class="post-header">
-            <section class="post-meta">
-            <a href='{{ site.baseurl | chomp_slash }}/author/{{ page.author }}'>{{ site.data.authors[page.author].name }}</a>
-            <time class="post-date" datetime="{{ page.date | date:'%Y-%m-%d' }}">{{ page.date | date_to_string }}</time>
-                <!-- [[tags prefix=" on "]] -->
-                {% if page.tags.size > 0 %} 
-                on 
-                {% for tag in page.tags %}
-                    <a href='{{ site.baseurl | chomp_slash }}/tag/{{ tag }}'>{{ tag | capitalize }}</a>{% if forloop.index != page.tags.size %},{% endif %}
-                {% endfor %}
-                {% endif %}
-            </section>
             <!-- <h1 class="post-title">{{ page.title }}</h1> -->
+            {% include post-meta.html author=page.author date=page.date tags=page.tags %}
         </header>
 
         <section class="post-content">

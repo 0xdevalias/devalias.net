@@ -14,4 +14,9 @@
 
 .post-footer .share a {
   margin: 0px;
+
+.post-date {
+  margin-left: 0px;
+  padding-left: 0px;
+  border-left: 0;
 }

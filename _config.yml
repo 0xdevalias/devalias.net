@@ -34,6 +34,7 @@ defaults:
       type: "pages"
     values:
       description: ''
+      class: 'page-template'
       cover: '/assets/images/cover4.jpg'
       logo: '/assets/images/devalias-prompt.png'
       navigation: True
@@ -44,6 +45,7 @@ defaults:
     values:
       author: 'devalias'
       description: ''
+      class: 'post-template'
       cover: '/assets/images/cover4.jpg'
       logo: '/assets/images/devalias-prompt.png'
       navigation: True

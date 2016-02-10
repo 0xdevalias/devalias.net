@@ -7,14 +7,7 @@ current: author
 ---
 
 <!-- #author  -->
-    <header class="main-header author-head {% if page.cover %}" style="background-image: url({{ site.baseurl | chomp_slash }}{{ page.cover }}) {% else %}no-cover{% endif %}">
-        <nav class="main-nav overlay clearfix">
-            {% if page.logo %}<a class="blog-logo" href="{{ site.baseurl }}"><img src="{{ site.baseurl | chomp_slash }}{{ page.logo }}" alt="Blog Logo" /></a>{% endif %}
-            {% if page.navigation %}
-                <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
-            {% endif %}
-        </nav>
-    </header>
+    {% include header.html hidevertical="True" %}
 
     <section class="author-profile inner">
         {% include author-image.html author=page.author %}

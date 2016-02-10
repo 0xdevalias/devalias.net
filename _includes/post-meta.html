@@ -2,7 +2,11 @@
     {% if site.data.authors[include.author].image %}
       <img class="author-thumb" src="{{site.baseurl | chomp_slash }}{{ site.data.authors[include.author].image }}" alt="Author image" nopin="nopin" />
     {% endif %}
-    <a href='{{ site.baseurl | chomp_slash }}/author/{{ include.author }}'>{{ site.data.authors[include.author].name }}</a>
+        {% if site.data.authors[include.author].name %}
+            <a href='{{ site.baseurl | chomp_slash }}/author/{{ include.author }}'>{{ site.data.authors[include.author].name }}</a>
+        {% else %}
+            {{ include.author }}
+        {% endif %}
     |
     <time class="post-date" datetime="{{ page.date | date:'%Y-%m-%d' }}">{{ include.date | date_to_string }}</time>
     <!-- [[tags prefix=" on "]] -->

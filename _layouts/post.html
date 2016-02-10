@@ -24,12 +24,20 @@ class: 'post-template'
             {% include author-image.html author=page.author %}
 
             <section class="author">
-                <h4><a href="{{ site.baseurl | chomp_slash }}/author/{{ page.author }}">{{ site.data.authors[page.author].name }}</a></h4>
+                <h4>
+                    {% if site.data.authors[page.author].name %}
+                        <a href="{{ site.baseurl | chomp_slash }}/author/{{ page.author }}">{{ site.data.authors[page.author].name }}</a>
+                    {% else %}
+                        {{ page.author }}
+                    {% endif %}
+                </h4>
                 
                 {% if site.data.authors[page.author].bio %}
                     <p> {{ site.data.authors[page.author].bio }}</p>
-                {% else %}
+                {% elsif site.data.authors[page.author] %}
                     <p>Read <a href="{{ site.baseurl | chomp_slash }}/author/{{ page.author }}">more posts</a> by this author.</p>
+                {% else %}
+                    <p>A contributor on {{site.short_url}}</p>
                 {% endif %}
                 {% include author-meta.html author=page.author %}
                 {% include author-social-icons.html author=page.author size="1x" %}

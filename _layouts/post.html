@@ -44,16 +44,8 @@ class: 'post-template'
                 {% else %}
                     <p>Read <a href="{{ site.baseurl | chomp_slash }}/author/{{ page.author }}">more posts</a> by this author.</p>
                 {% endif %}
-                <div class="author-meta">
-                    {% if site.data.authors[page.author].location %}
-                        <span class="author-location icon-location">
-                            {{ site.data.authors[page.author].location }}
-                        </span>
-                    {% endif %} 
-                    {% if site.data.authors[page.author].url and site.data.authors[page.author].short_url %}
-                        <span class="author-link icon-link"><a href="{{ site.data.authors[page.author].url }}">{{ site.data.authors[page.author].short_url }}</a></span>
-                    {% endif %}
-                </div>
+                {% include author-meta.html author=page.author %}
+                {% include author-social-icons.html author=page.author size="1x" %}
             </section>
 
             <!-- /author  -->

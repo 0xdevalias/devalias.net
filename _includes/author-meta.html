@@ -1,0 +1,28 @@
+<div class="author-meta">
+    {% if site.data.authors[include.author].location %}
+        <span class="author-location">
+            <i class="fa fa-location-arrow"></i>
+            {{ site.data.authors[include.author].location }}
+        </span>
+    {% endif %}
+    {% if site.data.authors[include.author].url and site.data.authors[include.author].short_url %}
+        <span class="author-link">
+            <a href="{{ site.data.authors[include.author].url }}">
+                <i class="fa fa-link"></i>
+                {{ site.data.authors[include.author].short_url }}
+            </a>
+        </span>
+    {% endif %}
+    {% if include.showstats %}
+        <span class="author-stats">
+            <i class="fa fa-tachometer"></i>
+            {% if paginator.total_posts == 0 %}
+                No posts
+            {% elsif paginator.total_posts == 1 %}
+                1 post
+            {% else %}
+                {{ paginator.total_posts }} posts
+            {% endif %}
+        </span>
+    {% endif %}
+</div>

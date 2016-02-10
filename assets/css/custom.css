@@ -7,3 +7,7 @@
   margin-top: -25px;  /* 35 - 25 = 10 */
   margin-left: -30px; /* 40 - 30 = 10 */
 }
+
+.author-meta {
+  margin-bottom: 0px;
+}

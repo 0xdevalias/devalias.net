@@ -1,11 +1,23 @@
 devalias:
   nickname: 'devalias'
   name: "Glenn 'devalias' Grant"
-  bio: 'TODO: Bio'
+  bio: >
+    Glenn is a full-stack, polyglot developer with an acute interest in the offensive side of security.
   location: 'Australia'
   image: '/assets/images/authors/devalias.png'
   url: 'http://www.devalias.net/'
   short_url: 'devalias.net'
+  social:
+    twitter: '_devalias'
+    linkedin: 'glenndevaliasgrant'
+    #facebook: '404'
+    #googleplus: '404'
+    github: 'alias1'
+    reddit: '_devalias'
+    hackernews: 'alias1'
+    stackoverflow: '1137085/devalias'
+    stackexchange: '1156663/devalias'
+    keybase: 'devalias'
 casper:
   nickname: 'casper'
   name: "Default Data"

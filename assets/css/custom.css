@@ -11,3 +11,7 @@
 .author-meta {
   margin-bottom: 0px;
 }
+
+.post-footer .share a {
+  margin: 0px;
+}

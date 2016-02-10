@@ -16,6 +16,9 @@ paginate: 5
 language: 'en-uk'
 timezone: Australia/ACT
 
+github_repo: 'alias1/devalias.net'
+github_branch: 'master'
+
 google_analytics: UA-00000000-1
 disqus: devalias
 

@@ -38,8 +38,18 @@
         {{ content }}
 
         <footer class="site-footer clearfix">
-          <section class="copyright"><a href="{{ site.baseurl }}">{{ site.publisher }}</a> &copy; {{  site.time | date: '%Y' }}</section>
-          <section class="poweredby">Proudly published with <a href="https://jekyllrb.com/">Jekyll</a> using <a href="https://github.com/biomadeira/jasper">Jasper</a></section>
+            <section class="copyright">
+                <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">devalias.net</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://www.devalias.net/" property="cc:attributionName" rel="cc:attributionURL">Glenn 'devalias' Grant</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+            </section>
+            <section class="poweredby">
+                <div>
+                    <a href="https://github.com/{{site.github_repo}}/tree/{{site.github_branch}}/{{page.path}}" target="_blank">
+                        <i class="fa fa-edit"></i>
+                        Edit on GitHub
+                    </a>
+                </div>
+                Proudly published with <a href="https://jekyllrb.com/">Jekyll</a> to GitHub using <a href="https://github.com/biomadeira/jasper">Jasper</a>
+            </section>
         </footer>
     </div>
     <!-- [[! Ghost outputs important scripts and data with this tag ]] -->

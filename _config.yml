@@ -52,7 +52,7 @@ defaults:
 markdown: kramdown
 kramdown:
   input: GFM
-lsi: true # Index for related posts (slow)
+lsi: true # Index for related posts
 
 # https://github.com/jekyll/jekyll-mentions
 jekyll-mentions:
@@ -60,6 +60,10 @@ jekyll-mentions:
 
 # https://github.com/jekyll/github-metadata
 repository: alias1/devalias.net
+
+# https://github.com/vwochnik/jekyll-deploy
+deploy:
+- echo TODO
 
 gems:
   - jekyll-redirect-from    # https://github.com/jekyll/jekyll-redirect-from

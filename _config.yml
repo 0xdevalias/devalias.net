@@ -67,6 +67,10 @@ jekyll-mentions:
 # https://github.com/jekyll/github-metadata
 repository: alias1/devalias.net
 
+# https://github.com/jekyll/jekyll-gist
+gist:
+  noscript: false
+
 # https://github.com/vwochnik/jekyll-deploy
 deploy:
 - echo TODO

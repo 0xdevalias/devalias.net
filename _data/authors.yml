@@ -18,11 +18,3 @@ devalias:
     stackoverflow: '1137085/devalias'
     stackexchange: '1156663/devalias'
     keybase: 'devalias'
-casper:
-  nickname: 'casper'
-  name: "Casper Default"
-  bio: 'TODO: Bio'
-  location: 'Ghostland'
-  image: '/assets/images/authors/devalias.png'
-  url: 'http://www.example.com/'
-  short_url: 'example.com'

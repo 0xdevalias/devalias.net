@@ -5,9 +5,9 @@ date: '2013-11-27T21:52:31-07:00'
 tags:
 - thecus
 - nas
-- 'no'
-- RAID
-tumblr_url: http://blog.devalias.net/post/68253449830/thecus-nas-devalias-says-no
+- raid
+tumblr_url: http://devalias.tumblr.com/post/68253449830/thecus-nas-devalias-says-no
+redirect_from: /post/68253449830/thecus-nas-devalias-says-no
 ---
 Spent the day today digging around in the deepest and darkest parts of my Thecus NAS, and I can now say absolutely and without a doubt not to waste your money on them.
 

@@ -8,14 +8,18 @@ tags:
 - unicoin
 - hack
 - automated
-- april fools
+- april-fools
 - '2014'
-tumblr_url: http://blog.devalias.net/post/81346968483/hacking-unicoins-for-fun-and-profit
+- gist
+tumblr_url: http://devalias.tumblr.com/post/81346968483/hacking-unicoins-for-fun-and-profit
+redirect_from: /post/81346968483/hacking-unicoins-for-fun-and-profit
 ---
-Stackoverflow introduced an amusing little April Fools feature called ‘Unicoins’. Essentially, this currency (that you can earn by mining rocks, since all of the (rather amusing) payment options are ''currently unavailable’) allows you to by silly upgrades for the website. From ''Colorful comments’ and ''Guaranteed Answer’ through to ''Voting animations’ which gives you ''happy unicorn animations everytime you vote’.
+[Stackoverflow](https://stackoverflow.com/) introduced an amusing little April Fools feature called 'Unicoins'. Essentially, this currency (that you can earn by mining rocks, since all of the (rather amusing) payment options are currently unavailable') allows you to by silly upgrades for the website. From 'Colorful comments' and 'Guaranteed Answer' through to 'Voting animations' which gives you 'happy unicorn animations everytime you vote'.
 
 Anyways, long story short, I saw a system and wondered how to beat it. Turns out each rock is simply an AJAX request to /unicoin/rock to get a rock ID, and when you sucessfully mine it, you POST back a static fkey (bound to each user I assume?) and the rockId to /unicoin/mine?rock=theRockId
 
-I’ve put together a little automagical javascript to prevent you all getting RSI over at https://gist.github.com/alias1/9905949 It’s for health reasons.. honestly.
+I’ve put together a little automagical javascript to prevent you all getting RSI. It’s for health reasons.. honestly.
 
 Enjoy your unicoins! <3 /dev/alias
+
+{% gist alias1/9905949 %}

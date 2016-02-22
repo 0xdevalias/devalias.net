@@ -6,7 +6,8 @@ tags:
 - markdown
 - tumblr
 - i need to blog more
-tumblr_url: http://blog.devalias.net/post/53084857564/markdown-on-tumblr
+tumblr_url: http://devalias.tumblr.com/post/53084857564/markdown-on-tumblr
+redirect_from: /post/53084857564/markdown-on-tumblr
 ---
 Just discovered that I can switch the rich text editor to markdown! w00t!
 

@@ -1,12 +1,12 @@
 <section class="post-meta">
     {% if site.data.authors[include.author].image %}
-      <img class="author-thumb" src="{{site.baseurl | chomp_slash }}{{ site.data.authors[include.author].image }}" alt="Author image" nopin="nopin" />
+        <img class="author-thumb" src="{{site.baseurl | chomp_slash }}{{ site.data.authors[include.author].image }}" alt="Author image" nopin="nopin" />
     {% endif %}
-        {% if site.data.authors[include.author].name %}
-            <a href='{{ site.baseurl | chomp_slash }}/author/{{ include.author }}'>{{ site.data.authors[include.author].name }}</a>
-        {% else %}
-            {{ include.author }}
-        {% endif %}
+    {% if site.data.authors[include.author].name %}
+        <a href='{{ site.baseurl | chomp_slash }}/author/{{ include.author }}'>{{ site.data.authors[include.author].name }}</a>
+    {% else %}
+        {{ include.author }}
+    {% endif %}
     |
     <time class="post-date" datetime="{{ page.date | date:'%Y-%m-%d' }}">{{ include.date | date_to_string }}</time>
     <!-- [[tags prefix=" on "]] -->
@@ -15,5 +15,9 @@
         {% for tag in include.tags %}
             <a href='{{ site.baseurl | chomp_slash }}/tag/{{ tag }}'>#{{ tag }}</a>{% if forloop.index != include.tags.size %},{% endif %}
         {% endfor %}
+    {% endif %}
+    {% if page.tumblr_url %}
+        | 
+        <a href="{{ page.tumblr_url }}" title="Imported from original post on Tumblr" target="_blank"><i class="fa fa-tumblr-square"></i></a>
     {% endif %}
 </section>

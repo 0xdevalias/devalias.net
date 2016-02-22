@@ -49,9 +49,15 @@ defaults:
       navigation: True
 
 # Conversion
-markdown: kramdown
-kramdown:
-  input: GFM
+markdown: redcarpet
+redcarpet:
+  extensions:
+    - "tables"
+    - "autolink"
+    - "strikethrough"
+    - "space_after_headers"
+    #- "with_toc_data"
+    - "fenced_code_blocks"
 lsi: true # Index for related posts
 
 # https://github.com/jekyll/jekyll-mentions

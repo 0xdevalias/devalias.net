@@ -16,4 +16,5 @@ group :jekyll_plugins do
   gem 'jekyll-github-metadata'
   gem 'jekyll_version_plugin'
   gem 'jekyll-deploy'
+  gem 'jekyll-crosspost-to-medium'
 end

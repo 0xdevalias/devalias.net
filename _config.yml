@@ -75,11 +75,20 @@ gist:
 deploy:
 - echo TODO
 
+# https://github.com/aarongustafson/jekyll-crosspost-to-medium
+jekyll-crosspost_to_medium:
+  enabled: true
+  cache: .jekyll-crosspost-to-medium
+  status: public
+  #license: all-rights-reserved
+  #text: '<p><i>This article was originally posted <a href=\"#{url}\" rel=\"canonical\">on my own site</a>.</i></p>'
+
 gems:
-  - jekyll-redirect-from    # https://github.com/jekyll/jekyll-redirect-from
-  - jekyll-paginate         # https://github.com/jekyll/jekyll-paginate
-  - jekyll-mentions         # https://github.com/jekyll/jekyll-mentions
-  - jekyll-gist             # https://github.com/jekyll/jekyll-gist
-  - jekyll-github-metadata  # https://github.com/jekyll/github-metadata
-  - jekyll-feed             # https://github.com/jekyll/jekyll-feed
-  - jekyll-sitemap          # https://github.com/jekyll/jekyll-sitemap
+  - jekyll-redirect-from        # https://github.com/jekyll/jekyll-redirect-from
+  - jekyll-paginate             # https://github.com/jekyll/jekyll-paginate
+  - jekyll-mentions             # https://github.com/jekyll/jekyll-mentions
+  - jekyll-gist                 # https://github.com/jekyll/jekyll-gist
+  - jekyll-github-metadata      # https://github.com/jekyll/github-metadata
+  - jekyll-crosspost-to-medium  # https://github.com/aarongustafson/jekyll-crosspost-to-medium
+  - jekyll-feed                 # https://github.com/jekyll/jekyll-feed
+  - jekyll-sitemap              # https://github.com/jekyll/jekyll-sitemap

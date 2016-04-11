@@ -29,6 +29,7 @@ GEM
       mercenary (~> 0.3.3)
       rouge (~> 1.7)
       safe_yaml (~> 1.0)
+    jekyll-crosspost-to-medium (0.1.13)
     jekyll-deploy (0.0.2)
     jekyll-feed (0.4.0)
     jekyll-gist (1.4.0)
@@ -83,6 +84,7 @@ PLATFORMS
 DEPENDENCIES
   classifier-reborn
   jekyll (~> 3.1.1)
+  jekyll-crosspost-to-medium
   jekyll-deploy
   jekyll-feed
   jekyll-gist

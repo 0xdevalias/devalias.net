@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-gem 'jekyll','~>3.1.1'
+gem 'jekyll','~>3.1.2'
 gem 'redcarpet'
 
 # LSI (related posts)

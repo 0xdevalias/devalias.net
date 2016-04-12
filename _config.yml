@@ -15,7 +15,7 @@ paginate: 5
 paginate_path: "/:num/"
 
 language: 'en-uk'
-timezone: Australia/ACT
+timezone: 'Australia/ACT'
 
 github_repo: 'alias1/devalias.net'
 github_branch: 'master'

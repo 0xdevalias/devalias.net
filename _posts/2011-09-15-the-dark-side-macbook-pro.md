@@ -1,7 +1,7 @@
 ---
 layout: post
 title: The Dark Side - Macbook Pro
-date: '2011-09-15T20:02:00-07:03'
+date: '2011-09-15T20:02:00-07:00'
 tags:
 - apple
 - macbook-pro

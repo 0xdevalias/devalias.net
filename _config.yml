@@ -83,6 +83,12 @@ jekyll-crosspost_to_medium:
   #license: all-rights-reserved
   #text: '<p><i>This article was originally posted <a href=\"#{url}\" rel=\"canonical\">on my own site</a>.</i></p>'
 
+# https://github.com/aarongustafson/jekyll-webmention_io
+jekyll-webmention-io:
+  domain: devalias.net
+#   redirected_from: # Does this need to be the full redirected from URL for the post?
+#     - http://blog.devalias.net
+
 gems:
   - jekyll-redirect-from        # https://github.com/jekyll/jekyll-redirect-from
   - jekyll-paginate             # https://github.com/jekyll/jekyll-paginate

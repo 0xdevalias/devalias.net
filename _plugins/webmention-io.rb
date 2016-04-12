@@ -421,8 +421,60 @@ module Jekyll
       end
     end
   end
+
+  # Begin devalias.net edits
+  class WebmentionHeaderTag < Liquid::Tag
+    @@warned = {}
+
+    def initialize(tag_name, text, tokens)
+      super
+      # @text = text
+    end
+
+    def render(context)
+      site = context.registers[:site]
+      
+      # TODO: Figure out how to check this stuff and issue warnings properly
+
+      if site.config['jekyll-webmention-io']
+        @config = site.config['jekyll-webmention-io']
+      else
+        if !@@warned.has_key?(:conf)
+          Jekyll.logger.warn "jekyll-webmention-io:", "_config.yml key not defined: jekyll-webmention-io"
+          @@warned[:conf] = true
+        end
+
+        return ""
+      end
+
+      if @config.has_key?('domain')
+        @domain = @config['domain']
+      else
+        if !@@warned.has_key?(:domain)
+          Jekyll.logger.warn "jekyll-webmention-io:", "_config.yml key not defined: jekyll-webmention-io.domain"
+          @@warned[:domain] = true
+        end
+
+        return ""
+      end
+
+      out = ""
+
+      if @domain
+        out += "<link rel=\"webmention\" href=\"https://webmention.io/#{@domain}/webmention\" />\n"
+        out += "<link rel=\"pingback\" href=\"https://webmention.io/#{@domain}/xmlrpc\" />\n"
+      end
+
+      return out
+    end
+  end
+  # End devalias.net edits
   
 end
 
 Liquid::Template.register_tag('webmentions', Jekyll::WebmentionsTag)
 Liquid::Template.register_tag('webmention_count', Jekyll::WebmentionCountTag)
+
+# Begin devalias.net edits
+Liquid::Template.register_tag('webmention_head_tags', Jekyll::WebmentionHeaderTag)
+# End devalias.net edits

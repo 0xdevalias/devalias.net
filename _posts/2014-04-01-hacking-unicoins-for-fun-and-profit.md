@@ -18,7 +18,7 @@ redirect_from: /post/81346968483/hacking-unicoins-for-fun-and-profit
 
 Anyways, long story short, I saw a system and wondered how to beat it. Turns out each rock is simply an AJAX request to /unicoin/rock to get a rock ID, and when you sucessfully mine it, you POST back a static fkey (bound to each user I assume?) and the rockId to /unicoin/mine?rock=theRockId
 
-I’ve put together a little automagical javascript to prevent you all getting RSI. It’s for health reasons.. honestly.
+I've put together a little automagical javascript to prevent you all getting RSI. It's for health reasons.. honestly.
 
 Enjoy your unicoins! <3 /dev/alias
 

@@ -17,7 +17,7 @@ tags:
 tumblr_url: http://devalias.tumblr.com/post/15535429513/plesk-adding-programs-to-a-chrooted-ssh
 redirect_from: /post/15535429513/plesk-adding-programs-to-a-chrooted-ssh
 ---
-Just a few notes today about making programs (in this case git) available to a chrooted SSH account in Plesk. I’m assuming the account is already setup for ssh, etc so I will just be covering where to copy the files to.
+Just a few notes today about making programs (in this case git) available to a chrooted SSH account in Plesk. I'm assuming the account is already setup for ssh, etc so I will just be covering where to copy the files to.
 
 **Note:** If you are here about getting an `execv("/bin/bash")` failed error, check Appendix B
 
@@ -48,9 +48,9 @@ cp -R /usr/local/share/git-core /var/www/vhosts/chroot/usr/local/share/git-core
 cp -R /usr/local/libexec /var/www/vhosts/chroot/usr/local/libexec/git-core
 ```
 
-**Note:** The libexec files are quite large (100’s of mb) so you may want to consider doing this in a better way.
+**Note:** The libexec files are quite large (100's of mb) so you may want to consider doing this in a better way.
 
-## Updating chroot’d directories
+## Updating chroot'd directories
 
 The final (rather simple) step involves updating any chrooted directories that have already been created. This can be done by running the `recreate_chroot_env.sh` script (downloadable from http://kb.parallels.com/818)
 
@@ -72,9 +72,9 @@ Now when you login to your chrooted account you should be able to use git. I mig
 * `/usr/lib64/libncurses.so.5` -> `chroot/lib/libncurses.so.5`
 * `/etc/services` -> `chroot/etc/services`
 
-## Appendix B: execv(“/bin/bash”) failed
+## Appendix B: execv("/bin/bash") failed
 
-One cause of this occuring is due to the bin files for a chrooted directory not exisiting/being properly setup. This can be fixed by following the instructions in Updating chroot’d directories above.. or if you’re too lazy to scroll (like me)
+One cause of this occuring is due to the bin files for a chrooted directory not exisiting/being properly setup. This can be fixed by following the instructions in Updating chroot'd directories above.. or if you're too lazy to scroll (like me)
 
 ```
 /usr/local/psa/admin/sbin/chrootmng --remove --source=/var/www/vhosts/chroot --target=/var/www/vhosts/<domain name>

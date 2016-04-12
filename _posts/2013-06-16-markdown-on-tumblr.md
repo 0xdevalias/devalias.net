@@ -11,4 +11,4 @@ redirect_from: /post/53084857564/markdown-on-tumblr
 ---
 Just discovered that I can switch the rich text editor to markdown! w00t!
 
-You can tell I don’t look at this blog enough eh..?
+You can tell I don't look at this blog enough eh..?

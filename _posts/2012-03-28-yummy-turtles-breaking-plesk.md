@@ -12,7 +12,7 @@ tags:
 tumblr_url: http://devalias.tumblr.com/post/20028664762/yummy-turtles-breaking-plesk
 redirect_from: /post/20028664762/yummy-turtles-breaking-plesk
 ---
-After some recent downtime due to an overzealous upgrade cycle (aka "Oh I won’t need to backup first..") I feel it warranted to put a quick post about how I went about fixing things.
+After some recent downtime due to an overzealous upgrade cycle (aka "Oh I won't need to backup first..") I feel it warranted to put a quick post about how I went about fixing things.
 
 ## How the problem started
 
@@ -48,7 +48,7 @@ We will just back out the upgrades we did the other day, all good! Well, it took
 
 ## Prerequisite?
 
-I’m not actually sure if it’s used or not in this process, but I should note that I had yum-allowdowngrade installed prior to this process
+I'm not actually sure if it's used or not in this process, but I should note that I had yum-allowdowngrade installed prior to this process
 
 `yum install yum-allowdowngrade`
 
@@ -61,8 +61,8 @@ I’m not actually sure if it’s used or not in this process, but I should note
 
 ## 1. Install/configure yum-priorities ([Webpage](https://wiki.centos.org/PackageManagement/Yum/Priorities), [Reference](http://dev.antoinesolutions.com/yum-priorities))
 
-The yum-priorities plugin enforces ordered protection of repositories (aka help prevent screwups) Here’s a quick rundown (more info at the reference/webpage links)
-It’s pretty easy to install
+The yum-priorities plugin enforces ordered protection of repositories (aka help prevent screwups) Here's a quick rundown (more info at the reference/webpage links)
+It's pretty easy to install
 
 `yum install yum-priorities`
 
@@ -117,7 +117,7 @@ erase mysql.x86_64 mysql-bench.x86_64 mysql-devel.x86_64 mysql-libs.x86_64 mysql
 install mysql.x86_64 mysql-bench.x86_64 mysql-devel.x86_64 mysql-libs.x86_64 mysql-server.x86_64 mysqlclient15.x86_64
 ```
 
-There were also a few packages that I didn’t end up reverting, but I will list them here in case I decide I need to later on.
+There were also a few packages that I didn't end up reverting, but I will list them here in case I decide I need to later on.
 
 ```
 erase perl-Archive-Tar.noarch perl-Email-Date-Format.noarch perl-Error.noarch perl-IO-Socket-INET6.noarch perl-MIME-Lite.noarch perl-MIME-Types.noarch

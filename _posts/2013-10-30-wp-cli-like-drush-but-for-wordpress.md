@@ -11,7 +11,7 @@ tags:
 tumblr_url: http://devalias.tumblr.com/post/65497370109/wp-cli-like-drush-but-for-wordpress
 redirect_from: /post/65497370109/wp-cli-like-drush-but-for-wordpress
 ---
-So there’s this cool little tool I came across, similar in function to [Drush](http://www.drush.org/en/master/) (which is an awesome tool for [Drupal](https://www.drupal.org/) that you should totally use), but for [Wordpress](https://wordpress.org/). It’s called [wp-cli](http://wp-cli.org/)
+So there's this cool little tool I came across, similar in function to [Drush](http://www.drush.org/en/master/) (which is an awesome tool for [Drupal](https://www.drupal.org/) that you should totally use), but for [Wordpress](https://wordpress.org/). It's called [wp-cli](http://wp-cli.org/)
 
 ## Installing wp-cli
 
@@ -29,7 +29,7 @@ sudo INSTALL_DIR=''/usr/share/wp-cli'' bash installer.sh
 sudo ln -s /usr/share/wp-cli/bin/wp /usr/bin/wp
 ```
 
-If you’re on OSX and running [Homebrew](http://brew.sh/) then you can use that instead!
+If you're on OSX and running [Homebrew](http://brew.sh/) then you can use that instead!
 
 ```
 brew tap josegonzalez/homebrew-php
@@ -47,7 +47,7 @@ cd /my/site/directory
 wp core download --version=3.6.1
 ```
 
-Next we’ll need to set up the options in the [config](http://wp-cli.org/commands/core/config/) file.
+Next we'll need to set up the options in the [config](http://wp-cli.org/commands/core/config/) file.
 
 ```
 wp core config --dbname=mydatabase --dbuser=myusername --dbpass=mysecurepassword
@@ -59,4 +59,4 @@ Finally, run through the [install](http://wp-cli.org/commands/core/install/) to 
 wp core install --url=mydomain.example.com --title="My Example Blog" --admin_user=myadminusername --admin_password="myadminpassword" --admin_email="myname@example.com"
 ```
 
-And that’s it! Happy hacking!
+And that's it! Happy hacking!

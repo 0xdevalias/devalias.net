@@ -18,15 +18,15 @@ tags:
 tumblr_url: http://devalias.tumblr.com/post/66844345127/sparty-sharepoint-frontpage-auditing-tool-now-with-more
 redirect_from: /post/66844345127/sparty-sharepoint-frontpage-auditing-tool-now-with-more
 ---
-I’ve been doing a little bit of poking around Sharepoint security lately, doing some research and playing with some assessment/pentest tools. One such tool (released this year at [Black Hat USA](https://www.blackhat.com/us-13/)) is called [Sparty](http://sparty.secniche.org/). Written by [0kn0ck](https://twitter.com/AdityaKSood) (aka Aditya K Sood) of [SecNiche Security Labs](http://secniche.org/), Sparty is a tool designed to assist in auditing sites built on Microsoft Sharepoint and/or Frontpage.
+I've been doing a little bit of poking around Sharepoint security lately, doing some research and playing with some assessment/pentest tools. One such tool (released this year at [Black Hat USA](https://www.blackhat.com/us-13/)) is called [Sparty](http://sparty.secniche.org/). Written by [0kn0ck](https://twitter.com/AdityaKSood) (aka Aditya K Sood) of [SecNiche Security Labs](http://secniche.org/), Sparty is a tool designed to assist in auditing sites built on Microsoft Sharepoint and/or Frontpage.
 
 From the official site:
 
 > Sparty is an open source tool written in python to audit web applications using sharepoint and frontpage architecture. The motivation behind this tool is to provide an easy and robust way to scrutinize the security configurations of sharepoint and frontpage based web applications. Due to the complex nature of these web administration software, it is required to have a simple and efficient tool that gathers information, check access permissions, dump critical information from default files and perform automated exploitation if security risks are identified. A number of automated scanners fall short of this and Sparty is a solution to that.
 
-You can download a copy from the [project page](http://sparty.secniche.org/) (I’ll be a good net citizen and won’t link directly to the `.tar.gz`)
+You can download a copy from the [project page](http://sparty.secniche.org/) (I'll be a good net citizen and won't link directly to the `.tar.gz`)
 
-I won’t dive into usage/etc here as it’s still a very early release too (v0.1!) So if you want to find out a bit more about that you should look at the [Sparty Usage](http://sparty.secniche.org/usage.html) page over at SecNiche.
+I won't dive into usage/etc here as it's still a very early release too (v0.1!) So if you want to find out a bit more about that you should look at the [Sparty Usage](http://sparty.secniche.org/usage.html) page over at SecNiche.
 
 ## Now With More NTLM Authentication!
 
@@ -38,6 +38,6 @@ The next issue was a little more frustrating at first, and took a bit longer to 
 
 ## Sharing is Caring!
 
-As we know, sharing is caring, so i’ve made my changes (and any others I may make to Sparty in the future) available over at Github.
+As we know, sharing is caring, so i've made my changes (and any others I may make to Sparty in the future) available over at Github.
 
 **Click over to [alias1/sparty](https://github.com/alias1/sparty) and check it out!**

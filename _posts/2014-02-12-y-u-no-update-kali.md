@@ -23,11 +23,11 @@ redirect_from: /post/76393663831/y-u-no-update-kali
 
 Not too long ago I was setting up a new pentest machine with Kali. Fairly straightforward a task, though slightly inconvenienced by the fact that the net was down at the time. No matter I thought, continue offline and all should be fine.. apparently not.
 
-When you don’t have a live net connection during setup Kali decides not to fill in the server details needed by apt-get to pull down anything more than security updates (no new tools for you!) Thankfully this is a simple and quick fix.
+When you don't have a live net connection during setup Kali decides not to fill in the server details needed by apt-get to pull down anything more than security updates (no new tools for you!) Thankfully this is a simple and quick fix.
 
 ## But how?
 
-Having a look over at the [Kali documentation](http://docs.kali.org/general-use/kali-linux-sources-list-repositories) we find the instructions and url’s required. Basically we just have to..
+Having a look over at the [Kali documentation](http://docs.kali.org/general-use/kali-linux-sources-list-repositories) we find the instructions and url's required. Basically we just have to..
 
 * Edit `/etc/apt/sources.list`
 * Add or ensure the following lines are present:
@@ -39,7 +39,7 @@ deb http://http.kali.org/kali kali main non-free contrib
 deb http://security.kali.org/kali-security kali/updates main contrib non-free
 ```
 
-### To use the source (aka Jedi’s)
+### To use the source (aka Jedi's)
 
 ```
 deb-src http://http.kali.org/kali kali main non-free contrib

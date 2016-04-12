@@ -25,7 +25,7 @@ redirect_from: /post/61566531090/plesk-adding-wget-tar-gzip-chmod-php-curl-clear
 
 So those of you that have been around for a while (or read back through the archive) will know that a while ago I posted [Plesk - Adding programs to a chrooted SSH](/post/15535429513/plesk-adding-programs-to-a-chrooted-ssh), giving a few hints and tips about configuring a chrooted environment in Plesk.
 
-Today I bring you a few more little tidbits to help you out with adding *wget, tar, gzip and chmod* to your Plesk chroot’d environment. I followed these steps recently in helping a client get their new site up and running.
+Today I bring you a few more little tidbits to help you out with adding *wget, tar, gzip and chmod* to your Plesk chroot'd environment. I followed these steps recently in helping a client get their new site up and running.
 
 **Edit:** So it turns out Parallels has an [updated script called chroot_update.sh](http://kb.odin.com/en/115842) which makes this even easier again (yay for easy!) So I will show you how do use that for PHP and curl (at the bottom).
 
@@ -39,7 +39,7 @@ To setup/update the initial chroot environment
 ./chroot_update.sh --update
 ```
 
-To add a new program (and it’s dependent shared libraries)
+To add a new program (and it's dependent shared libraries)
 
 ```
 ./chroot_update.sh --add /path/to/programname
@@ -88,11 +88,11 @@ cp `which wget` /var/www/vhosts/chroot/bin
 cp /lib64/libssl.so.6 /var/www/vhosts/chroot/lib64
 ```
 
-And it’s done! To update any sites already generated, checkout the [original article](/post/15535429513/plesk-adding-programs-to-a-chrooted-ssh)
+And it's done! To update any sites already generated, checkout the [original article](/post/15535429513/plesk-adding-programs-to-a-chrooted-ssh)
 
 ## Tar
 
-[Tar](https://www.gnu.org/software/tar/) is the defacto standard for archiving/unarchiving files on *nix, so.. it’s pretty useful.
+[Tar](https://www.gnu.org/software/tar/) is the defacto standard for archiving/unarchiving files on *nix, so.. it's pretty useful.
 
 To find out where the tar executable is
 
@@ -106,7 +106,7 @@ To check if it has any dependancies
 ldd `which tar`
 ```
 
-In my case, nothing needed here, so let’s just copy the executable
+In my case, nothing needed here, so let's just copy the executable
 
 ```
 cp `which tar` /var/www/vhosts/chroot/bin
@@ -116,7 +116,7 @@ Done! Same as before, to update any sites already generated, checkout the [origi
 
 ## Gzip
 
-[Gzip](http://www.gzip.org/) let’s you open gzip compressed files (funnily enough) It’s also what `tar` calls when you tell it to extract a `.tar.gz` file.
+[Gzip](http://www.gzip.org/) let's you open gzip compressed files (funnily enough) It's also what `tar` calls when you tell it to extract a `.tar.gz` file.
 
 To find out where the gzip executable is
 
@@ -130,7 +130,7 @@ To check if it has any dependancies
 ldd `which gzip`
 ```
 
-In my case, nothing needed here, so let’s just copy the executable
+In my case, nothing needed here, so let's just copy the executable
 
 ```
 cp `which gzip` /var/www/vhosts/chroot/bin
@@ -140,7 +140,7 @@ Done! Same as before, to update any sites already generated, checkout the [origi
 
 ## Chmod
 
-[Chmod](https://en.wikipedia.org/wiki/Chmod) let’s you change permissions on files, kinda useful to be able to do.
+[Chmod](https://en.wikipedia.org/wiki/Chmod) let's you change permissions on files, kinda useful to be able to do.
 
 To find out where the chmod executable is
 
@@ -154,7 +154,7 @@ To check if it has any dependancies
 ldd `which chmod`
 ```
 
-In my case, nothing needed here, so let’s just copy the executable
+In my case, nothing needed here, so let's just copy the executable
 
 ```
 cp `which chmod` /var/www/vhosts/chroot/bin

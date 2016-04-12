@@ -23,9 +23,9 @@ redirect_from: /post/56944918201/rails-omniauth-and-stealthmode-oh-my
 ---
 (**tl;dr**: [Rails](http://rubyonrails.org/) is awesome, [OmniAuth](https://github.com/intridea/omniauth) is super useful, check out my new website [currently in stealthmode])
 
-Last Friday (N.B When I started writing this article it was last friday.. it’s been sitting here half finished for a while now.. :S my bad..) while sitting at work hacking out whatever I was working on at the time, I had an idea for a simple little website I wanted to put together. I quickly jotted down some notes, then left it till later on that evening.
+Last Friday (N.B When I started writing this article it was last friday.. it's been sitting here half finished for a while now.. :S my bad..) while sitting at work hacking out whatever I was working on at the time, I had an idea for a simple little website I wanted to put together. I quickly jotted down some notes, then left it till later on that evening.
 
-I was originally thinking of hacking it together in [PHP](https://secure.php.net/) (since that’s what i have the most backend experience with), but decided that I would use this as an excuse to play with something I’ve wanted to learn for a while: [Ruby on Rails](http://rubyonrails.org/).
+I was originally thinking of hacking it together in [PHP](https://secure.php.net/) (since that's what i have the most backend experience with), but decided that I would use this as an excuse to play with something I've wanted to learn for a while: [Ruby on Rails](http://rubyonrails.org/).
 
 Needless to say, like any good little geeky hacker type, I had heard a LOT of good things about Rails (and I suppose it helps that it originated at one of my favourite tech companies [37signals](http://37signals.com/opensource)), though never quite had the project or motivation to give it a proper try.. until now..
 
@@ -50,7 +50,7 @@ If you want to read something a bit more detailed, perhaps one of these can tick
 
 ## OmniAuth
 
-Since there’s probably noone better to explain what [OmniAuth](https://github.com/intridea/omniauth) is than the developers themselves, i’ll let them describe it:
+Since there's probably noone better to explain what [OmniAuth](https://github.com/intridea/omniauth) is than the developers themselves, i'll let them describe it:
 
 > OmniAuth is a Ruby authentication framework aimed to abstract away the difficulties of working with various types of authentication providers. It is meant to be hooked up to just about any system, from social networks to enterprise systems to simple username and password authentication.
 
@@ -80,10 +80,10 @@ As far as tutorials/resources, [Google is Your Friend&trade;](https://www.youtub
 
 ## [stealthmode]
 
-So this section was going to be all about the website/webapp, why I decided to make it, what it does/will do, a link to it, etc. I was holding off on publishing this post till it went live, but due to some recent developments/talks about the projects possible futures I’ve decided to hold back on this section for the time being. Will update/link to a new post in the future!
+So this section was going to be all about the website/webapp, why I decided to make it, what it does/will do, a link to it, etc. I was holding off on publishing this post till it went live, but due to some recent developments/talks about the projects possible futures I've decided to hold back on this section for the time being. Will update/link to a new post in the future!
 
-Sooo.. for now, enjoy my new website that exists only on my devbox.. in stealthmode!! http://localhost:5000 (Unnecessary note: That link isn’t going to work for you guys.. :p)
+Sooo.. for now, enjoy my new website that exists only on my devbox.. in stealthmode!! http://localhost:5000 (Unnecessary note: That link isn't going to work for you guys.. :p)
 
 ## Oh My!
 
-I don’t actually really have anything new or interesting to say here.. aside from that with this subtitle I have now completed the pun set out by this post’s title. Winnar!
+I don't actually really have anything new or interesting to say here.. aside from that with this subtitle I have now completed the pun set out by this post's title. Winnar!

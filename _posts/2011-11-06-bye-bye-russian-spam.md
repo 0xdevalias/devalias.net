@@ -9,7 +9,7 @@ tags:
 tumblr_url: http://devalias.tumblr.com/post/12414238522/bye-bye-russian-spam
 redirect_from: /post/12414238522/bye-bye-russian-spam
 ---
-I’ve been getting hit pretty heavily lately with a pile of Russian spam, so I decided to look into adding language based spam filtering to my mailserver. This post serves as a reminder of what I did, and hopefully also helps some others in a similar situation.
+I've been getting hit pretty heavily lately with a pile of Russian spam, so I decided to look into adding language based spam filtering to my mailserver. This post serves as a reminder of what I did, and hopefully also helps some others in a similar situation.
 
 ## Location
 
@@ -18,7 +18,7 @@ I’ve been getting hit pretty heavily lately with a pile of Russian spam, so I 
 
 ## SpamAssassin Config File (local.cf)
 
-Add the following line to your config file, ensuring any other ok_locale lines are commented (#) to increase the score for all mail that isn’t English or Japanese
+Add the following line to your config file, ensuring any other ok_locale lines are commented (#) to increase the score for all mail that isn't English or Japanese
 
 `ok_locale en ja`
 

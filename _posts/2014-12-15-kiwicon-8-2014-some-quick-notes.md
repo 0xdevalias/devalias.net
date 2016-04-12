@@ -27,13 +27,13 @@ I assume slides/etc should be up later on, so if something looks interesting, ke
 
 ## [Thursday](http://2014.kiwicon.org/the-con/schedule/#Thursday11December)
 
-* [Eve, Mallory, Ocean’s 11, and Jack Bauer: Adversaries Real and Imagined](https://kiwicon.org/the-con/talks/#e146)
+* [Eve, Mallory, Ocean's 11, and Jack Bauer: Adversaries Real and Imagined](https://kiwicon.org/the-con/talks/#e146)
   * Nice overview of the different kinds of attackers, what they tend to be after, etc
   * Basically highlighted that you need to know what they are after and what it is worth, and balance security accordingly
 * [Breaking Bricks and Plumbing Pipes: Cisco ASA a Super Mario Adventure](http://2014.kiwicon.org/the-con/talks/#e149)
   * Interesting talk about a plethora of security flaws found in Cisco firewall to gain a pivot point into the network
 * [Asymmetric Defense, and your buyers guide to Threat Intelligence](http://2014.kiwicon.org/the-con/talks/#e150)
-  * Essentially talked about how a lot of 'threat intelligence’ out there is crap, and treated as 'more is better’ rather than ''better is better’
+  * Essentially talked about how a lot of 'threat intelligence' out there is crap, and treated as 'more is better' rather than ''better is better'
   * Talked about how there needs to be standardises formats for digitally sharing/consuming threat intelligence
 * [Seeing Blu](http://2014.kiwicon.org/the-con/talks/#e151)
   * Step by step walkthrough and thought process of how he hacked his BluRay player to enable multi region support so he could watch his copy of Hackers.
@@ -50,7 +50,7 @@ I assume slides/etc should be up later on, so if something looks interesting, ke
   * So many awesome points and discussions, not to mention showing just how epic a place Etsy is to work.
   * Caught up with him a decent bit after his talk and had some awesome chats, a really cool and down to earth guy
   * Etsy are a great example of continuous deployment, with upwards of 50 pushes into production every day
-  * One of the big points: Don’t hire assholes (they will ruin all of the work you put in to enhance security/etcs image and drag everyone down) https://twitter.com/hypatiadotca/status/542870405514801152
+  * One of the big points: Don't hire assholes (they will ruin all of the work you put in to enhance security/etcs image and drag everyone down) https://twitter.com/hypatiadotca/status/542870405514801152
 * [COMSEC - Beyond Encryption](http://2014.kiwicon.org/the-con/talks/#e153)
   * Discussion on maintaining communication security, tools that are good/bad, etc
   * Almost surprisingly, Apple factime rates pretty highly on the list.
@@ -68,7 +68,7 @@ I assume slides/etc should be up later on, so if something looks interesting, ke
   * Analysis of a bridge collapse and how similar events map into security
   * Some key points: compartmentalise/isolate
 * [ThruGlassXfer: The TV people? Do you see them?](http://2014.kiwicon.org/the-con/talks/#e156)
-  * Interesting proof of concept and discussion on using the pixels on a screen and a video camera, combined with a programmable keyboard to initiate an ''air gapped’ bidirectional communications channel.
+  * Interesting proof of concept and discussion on using the pixels on a screen and a video camera, combined with a programmable keyboard to initiate an ''air gapped' bidirectional communications channel.
   * Proves that if you can see it on the screen, and type into it, then you can basically bypass any other security in your way
   * http://thruglassxfer.com
 * [Cyberwar before there was Cyber: Hacking WWII Electronic Bomb Fuses](http://2014.kiwicon.org/the-con/talks/#e144)
@@ -82,12 +82,12 @@ I assume slides/etc should be up later on, so if something looks interesting, ke
 * [Manipulating Human Minds: The Psychological Side of Social Engineering](http://2014.kiwicon.org/the-con/talks/#e159)
   * Interesting talk by @0xkitty that takes a high level look at some of things involved in social engineering and manipulating the human element of security
 * Lightning talks (shorter)
-  * [Recap of the aftermath of last year’s bus hacking](http://2014.kiwicon.org/the-con/talks/#e160)
+  * [Recap of the aftermath of last year's bus hacking](http://2014.kiwicon.org/the-con/talks/#e160)
     * Decent recap of what happened/how the incident was handled (eg. poorly)
   * [The National Cyber Security Strategy and the Connect Smart Partnership](http://2014.kiwicon.org/the-con/talks/#e161)
-    * Some goverment guy that wasn’t very engaging
+    * Some goverment guy that wasn't very engaging
   * [I know what you did last Wednesday: exploitation of the humble apartment video intercom](http://2014.kiwicon.org/the-con/talks/#e162)
-    * Hacked his embedded linux apartment intercomm system to find exploits that enabled stealth monitoring of EVERY apartment in his building (100’s)
+    * Hacked his embedded linux apartment intercomm system to find exploits that enabled stealth monitoring of EVERY apartment in his building (100's)
   * [Voltron: Defender of the Universe](http://2014.kiwicon.org/the-con/talks/#e163)
     * Terminal based 'GUI' for GDB debugging
     * https://github.com/snare/voltron
@@ -99,8 +99,8 @@ I assume slides/etc should be up later on, so if something looks interesting, ke
   * Really interesting talk about just how insecure/terrible antivirus/security products in general can be (hint: VERY)
   * Showed how a large number of the top AV engines can actually end up making your system less secure due to the way they are implemented.
 * [Hackers and Hacks, or: How I Learned to Stop Worrying and Love the MSM](http://2014.kiwicon.org/the-con/talks/#e166)
-  * An enlightening talk by the reporters who engaged with ''rawshark’ and the process/pitfalls they went through to in securely communicating to release the information.
-  * Made some good points about security being hard for the ''average’ person, and how so very major stories (eg. Snowden) were almost missed out on because reporters don’t understand how to security well enough
+  * An enlightening talk by the reporters who engaged with ''rawshark' and the process/pitfalls they went through to in securely communicating to release the information.
+  * Made some good points about security being hard for the ''average' person, and how so very major stories (eg. Snowden) were almost missed out on because reporters don't understand how to security well enough
 
 ## [Saturday](http://2014.kiwicon.org/the-con/schedule/#Saturday13December)
 

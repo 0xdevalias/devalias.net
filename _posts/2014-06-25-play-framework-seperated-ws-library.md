@@ -25,7 +25,7 @@ With it comes a [whole range](https://www.playframework.com/documentation/2.3.x/
 >
 > The WS client library has been refactored into its own library which can be used outside of Play. You can now have multiple WSClient objects, rather than only using the WS singleton.
 
-This was particularly exciting for me, as I’ve grown to know, understand and love the simple abstractions the Play WS library provides.
+This was particularly exciting for me, as I've grown to know, understand and love the simple abstractions the Play WS library provides.
 
 Sweet! So how do I get it in my projects? Had a look over at [playframework@Github](https://github.com/playframework) to no avail (was expecting a new repo)
 

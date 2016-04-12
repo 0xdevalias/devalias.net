@@ -17,7 +17,7 @@ redirect_from: /post/67532513020/vfeed-wrapper-helper-scripts-for-speed-and-effi
 ---
 Just wanted to share some quick little bash scripts I threw together to make vFeed a little quicker/more efficient for my use.
 
-If you don’t know it already, [vFeed](https://github.com/toolswatch/vfeed) is an Open Source Cross Linked and Aggregated Local Vulnerability Database put together by the fine folks over at [ToolsWatch](http://www.toolswatch.org/vfeed/). You can query it for a whole bunch of information and details that may aid you in your pentests, all from the convenience of a local database.
+If you don't know it already, [vFeed](https://github.com/toolswatch/vfeed) is an Open Source Cross Linked and Aggregated Local Vulnerability Database put together by the fine folks over at [ToolsWatch](http://www.toolswatch.org/vfeed/). You can query it for a whole bunch of information and details that may aid you in your pentests, all from the convenience of a local database.
 
 To make life easier, I throw these scripts in my vFeed directory and symlink them from bin.
 

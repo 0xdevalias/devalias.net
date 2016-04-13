@@ -1,0 +1,12 @@
+{% comment %}
+Originally From https://github.com/aarongustafson/aarongustafson.github.io/blob/source/source/_includes/post/webmentions.html
+{% endcomment %}
+
+{% capture this_url %}{{ site.url | chomp_slash }}{{ page.url }}{% endcapture %}
+{% capture redirect %}{{ site.url | chomp_slash }}{{ page.redirect_from }}{% endcapture %}
+
+{% if redirect != this_url %}
+	{% webmentions this_url redirect %}
+{% else %}
+	{% webmentions this_url %}
+{% endif %}

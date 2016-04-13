@@ -50,6 +50,9 @@ class: 'post-template'
                 <!-- Add Disqus Comments -->
                 {% include post/disqus.html %}
             {% endif %}
+
+            {% if page.webmention %}
+                {% include post/webmentions.html %}
             {% endif %}
             
         </footer>

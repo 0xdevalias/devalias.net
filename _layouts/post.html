@@ -63,7 +63,7 @@ class: 'post-template'
 
 <aside class="read-next">
 
-    <!-- [[! next_post ]] -->{{ post.url }}
+    <!-- [[! next_post ]] -->
     {% if page.next %}
         <a class="read-next-story {% if page.next.cover %}" style="background-image: url({{ site.baseurl | chomp_slash }}{{ page.next.cover }}){% else %}no-cover{% endif %}" href="{{ site.baseurl | chomp_slash }}{{ page.next.url }}">
             <section class="post">

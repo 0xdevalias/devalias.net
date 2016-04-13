@@ -21,7 +21,7 @@ github_repo: 'alias1/devalias.net'
 github_branch: 'master'
 
 google_analytics: UA-00000000-1
-disqus: devalias
+disqus_shortname: devalias
 
 default_cover: '/assets/images/cover4.jpg'
 default_logo: '/assets/images/devalias-prompt.png'

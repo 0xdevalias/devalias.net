@@ -1,6 +1,5 @@
 ---
 layout: default
-disqus: false
 class: 'post-template'
 ---
 <!-- Layout: Post -->
@@ -47,9 +46,10 @@ class: 'post-template'
 
             {% include social-share.html %}
             
-            <!-- Add Disqus Comments -->
             {% if page.disqus %}
-                {% include disqus.html %}
+                <!-- Add Disqus Comments -->
+                {% include post/disqus.html %}
+            {% endif %}
             {% endif %}
             
         </footer>

@@ -78,10 +78,10 @@ deploy:
 # https://github.com/aarongustafson/jekyll-crosspost-to-medium
 jekyll-crosspost_to_medium:
   enabled: true
-  cache: .jekyll-crosspost-to-medium
-  status: public
+  cache: .cache
+  status: unlisted # public | draft | unlisted
   #license: all-rights-reserved
-  #text: '<p><i>This article was originally posted <a href=\"#{url}\" rel=\"canonical\">on my own site</a>.</i></p>'
+  text: '<p><i>This post originally appeared <a href=\"#{url}\" rel=\"canonical\">on devalias.net</a>.</i></p>'
 
 # https://github.com/aarongustafson/jekyll-webmention_io
 jekyll-webmention-io:

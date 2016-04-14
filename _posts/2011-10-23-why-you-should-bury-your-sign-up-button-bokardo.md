@@ -4,6 +4,8 @@ title: Why you Should Bury Your Sign Up Button - Bokardo
 date: '2011-10-23T11:35:39+10:00'
 tags:
 - reference
+categories:
+- devalias
 tumblr_url: http://devalias.tumblr.com/post/11764626225/why-you-should-bury-your-sign-up-button-bokardo
 redirect_from: /post/11764626225/why-you-should-bury-your-sign-up-button-bokardo
 ---

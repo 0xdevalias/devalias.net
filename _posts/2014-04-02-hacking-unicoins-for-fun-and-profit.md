@@ -11,6 +11,8 @@ tags:
 - april-fools
 - '2014'
 - gist
+categories:
+- devalias
 tumblr_url: http://devalias.tumblr.com/post/81346968483/hacking-unicoins-for-fun-and-profit
 redirect_from: /post/81346968483/hacking-unicoins-for-fun-and-profit
 ---

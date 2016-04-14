@@ -6,6 +6,8 @@ tags:
 - SpamAssassin
 - spam
 - config
+categories:
+- devalias
 tumblr_url: http://devalias.tumblr.com/post/12414238522/bye-bye-russian-spam
 redirect_from: /post/12414238522/bye-bye-russian-spam
 ---

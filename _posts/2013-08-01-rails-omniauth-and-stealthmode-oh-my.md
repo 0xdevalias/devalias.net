@@ -18,6 +18,8 @@ tags:
 - rails-casts
 - todo
 - tldr
+categories:
+- devalias
 tumblr_url: http://devalias.tumblr.com/post/56944918201/rails-omniauth-and-stealthmode-oh-my
 redirect_from: /post/56944918201/rails-omniauth-and-stealthmode-oh-my
 ---

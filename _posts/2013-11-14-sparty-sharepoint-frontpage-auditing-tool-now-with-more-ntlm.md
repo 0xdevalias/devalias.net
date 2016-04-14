@@ -15,6 +15,8 @@ tags:
 - '@AdityaKSood'
 - black-hat
 - authentication
+categories:
+- devalias
 tumblr_url: http://devalias.tumblr.com/post/66844345127/sparty-sharepoint-frontpage-auditing-tool-now-with-more
 redirect_from: /post/66844345127/sparty-sharepoint-frontpage-auditing-tool-now-with-more
 ---

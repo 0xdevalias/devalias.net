@@ -9,6 +9,8 @@ tags:
 - subscribe
 - iCal
 - iPhone
+categories:
+- devalias
 tumblr_url: http://devalias.tumblr.com/post/11504211270/syncing-facebook-bdaysevents-with-other-calendars
 redirect_from: /post/11504211270/syncing-facebook-bdaysevents-with-other-calendars
 ---

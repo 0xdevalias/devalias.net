@@ -6,6 +6,8 @@ tags:
 - git
 - github
 - gist
+categories:
+- devalias
 tumblr_url: http://devalias.tumblr.com/post/53068156751/gists-on-tumblr
 redirect_from: /post/53068156751/gists-on-tumblr
 ---

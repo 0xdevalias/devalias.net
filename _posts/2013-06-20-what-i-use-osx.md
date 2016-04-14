@@ -10,6 +10,8 @@ tags:
 - programming
 - tools
 - programs
+categories:
+- devalias
 tumblr_url: http://devalias.tumblr.com/post/53343491197/what-i-use-osx
 redirect_from: /post/53343491197/what-i-use-osx
 ---

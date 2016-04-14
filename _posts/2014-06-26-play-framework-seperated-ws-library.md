@@ -12,6 +12,8 @@ tags:
 - typesafe
 - playframework.com
 - typesafe.com
+categories:
+- devalias
 tumblr_url: http://devalias.tumblr.com/post/89810672067/play-framework-seperated-ws-library
 redirect_from: /post/89810672067/play-framework-seperated-ws-library
 ---

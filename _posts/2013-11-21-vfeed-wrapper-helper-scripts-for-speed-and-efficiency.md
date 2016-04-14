@@ -13,6 +13,8 @@ tags:
 - 'toolswatch.org'
 - tool
 - gist
+categories:
+- devalias
 tumblr_url: http://devalias.tumblr.com/post/67532513020/vfeed-wrapper-helper-scripts-for-speed-and-efficiency
 redirect_from: /post/67532513020/vfeed-wrapper-helper-scripts-for-speed-and-efficiency
 ---

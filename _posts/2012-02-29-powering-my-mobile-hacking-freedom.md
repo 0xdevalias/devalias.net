@@ -9,6 +9,8 @@ tags:
 - hyperjuice
 - macbook
 - things-i-use
+categories:
+- devalias
 tumblr_url: http://devalias.tumblr.com/post/18399358561/powering-my-mobile-hacking-freedom
 redirect_from: /post/18399358561/powering-my-mobile-hacking-freedom
 ---

@@ -10,6 +10,8 @@ tags:
 - markdown
 - github
 - gh-pages
+categories:
+- devalias
 tumblr_url: http://devalias.tumblr.com/post/92579952637/mdwiki-and-how-to-get-started
 redirect_from: /post/92579952637/mdwiki-and-how-to-get-started
 ---

@@ -7,6 +7,8 @@ tags:
 - iPhone
 - v4.0
 - iOS
+categories:
+- devalias
 tumblr_url: http://devalias.tumblr.com/post/11328710876/facebook-for-iphone-v4
 redirect_from: /post/11328710876/facebook-for-iphone-v4
 ---

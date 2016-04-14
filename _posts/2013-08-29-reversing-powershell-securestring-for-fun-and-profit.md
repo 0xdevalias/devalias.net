@@ -12,6 +12,8 @@ tags:
 - windows
 - hack
 - pentest
+categories:
+- devalias
 tumblr_url: http://devalias.tumblr.com/post/59562171885/reversing-powershell-securestring-for-fun-and
 redirect_from: /post/59562171885/reversing-powershell-securestring-for-fun-and
 ---

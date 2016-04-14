@@ -8,6 +8,8 @@ tags:
 - drush
 - drupal
 - blog
+categories:
+- devalias
 tumblr_url: http://devalias.tumblr.com/post/65497370109/wp-cli-like-drush-but-for-wordpress
 redirect_from: /post/65497370109/wp-cli-like-drush-but-for-wordpress
 ---

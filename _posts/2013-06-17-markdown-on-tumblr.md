@@ -6,6 +6,8 @@ tags:
 - markdown
 - tumblr
 - i need to blog more
+categories:
+- devalias
 tumblr_url: http://devalias.tumblr.com/post/53084857564/markdown-on-tumblr
 redirect_from: /post/53084857564/markdown-on-tumblr
 ---

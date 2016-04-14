@@ -17,6 +17,8 @@ tags:
 - social-engineering-toolkit
 - ettercap
 - aircrack
+categories:
+- devalias
 tumblr_url: http://devalias.tumblr.com/post/44051421215/ipen-hacking-with-the-idevice
 redirect_from: /post/44051421215/ipen-hacking-with-the-idevice
 ---

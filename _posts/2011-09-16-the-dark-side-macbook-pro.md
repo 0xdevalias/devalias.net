@@ -7,6 +7,8 @@ tags:
 - macbook-pro
 - iOS
 - what-i-use
+categories:
+- devalias
 tumblr_url: http://devalias.tumblr.com/post/10235644334/the-dark-side-macbook-pro
 redirect_from: /post/10235644334/the-dark-side-macbook-pro
 ---

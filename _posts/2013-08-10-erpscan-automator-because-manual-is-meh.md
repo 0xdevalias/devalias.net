@@ -10,6 +10,8 @@ tags:
 - gist
 - hack
 - pentest
+categories:
+- devalias
 tumblr_url: http://devalias.tumblr.com/post/57768165029/erpscan-automator-because-manual-is-meh
 redirect_from: /post/57768165029/erpscan-automator-because-manual-is-meh
 ---

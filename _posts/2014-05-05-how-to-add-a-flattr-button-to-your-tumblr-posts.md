@@ -6,6 +6,8 @@ tags:
 - manuelgrabowski.de
 - flattr
 - micropayments
+categories:
+- devalias
 tumblr_url: http://devalias.tumblr.com/post/84700442312/how-to-add-a-flattr-button-to-your-tumblr-posts
 redirect_from: /post/84700442312/how-to-add-a-flattr-button-to-your-tumblr-posts
 ---

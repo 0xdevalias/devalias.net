@@ -8,6 +8,8 @@ tags:
 - db-migrate
 - learned-the-hard-way
 - gist
+categories:
+- devalias
 tumblr_url: http://devalias.tumblr.com/post/57131166149/rails-lessons-learned-the-hard-way-1-db-migrate
 redirect_from: /post/57131166149/rails-lessons-learned-the-hard-way-1-db-migrate
 ---

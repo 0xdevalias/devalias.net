@@ -6,6 +6,8 @@ tags:
 - rockmelt
 - ref
 - "blog.rockmelt.com"
+categories:
+- devalias
 tumblr_url: http://devalias.tumblr.com/post/58309530845/rockmelt-blog-rockmelt-browser-retirement-july
 redirect_from: /post/58309530845/rockmelt-blog-rockmelt-browser-retirement-july
 ---

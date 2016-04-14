@@ -10,6 +10,8 @@ tags:
 - hack
 - pentest
 - gist
+categories:
+- devalias
 tumblr_url: http://devalias.tumblr.com/post/55235350835/nmap-sh-saving-precious-seconds
 redirect_from: /post/55235350835/nmap-sh-saving-precious-seconds
 ---

@@ -12,6 +12,8 @@ tags:
 - valeri-karpov
 - thecodebarbarian
 - "thecodebarbarian.wordpress.com"
+categories:
+- devalias
 tumblr_url: http://devalias.tumblr.com/post/55677624147/8-reasons-why-better-nutrition-makes-you-a-better
 redirect_from: /post/55677624147/8-reasons-why-better-nutrition-makes-you-a-better
 ---

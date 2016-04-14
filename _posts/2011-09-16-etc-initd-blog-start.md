@@ -4,6 +4,8 @@ title: "/etc/init.d/blog start"
 date: '2011-09-16T12:53:00+10:00'
 tags:
 - init
+categories:
+- devalias
 tumblr_url: http://devalias.tumblr.com/post/10235539154/etcinitdblog-start
 redirect_from: /post/10235539154/etcinitdblog-start/
 ---

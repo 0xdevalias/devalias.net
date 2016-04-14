@@ -6,6 +6,8 @@ tags:
 - browser
 - rockmelt
 - what-i-use
+categories:
+- devalias
 tumblr_url: http://devalias.tumblr.com/post/10235620180/rockmelt-beta-2-announced
 redirect_from: /post/10235620180/rockmelt-beta-2-announced
 ---

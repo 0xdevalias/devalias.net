@@ -10,6 +10,8 @@ tags:
 - data
 - legacy
 - transition
+categories:
+- devalias
 tumblr_url: http://devalias.tumblr.com/post/88422732687/rather-than-trying-to-make-everybody-everywhere
 redirect_from: /post/88422732687/rather-than-trying-to-make-everybody-everywhere
 ---

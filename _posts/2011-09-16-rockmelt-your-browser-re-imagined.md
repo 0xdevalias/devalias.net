@@ -7,6 +7,8 @@ tags:
 - rockmelt
 - wishlist
 - what-i-use
+categories:
+- devalias
 tumblr_url: http://devalias.tumblr.com/post/10235607580/rockmelt-your-browser-re-imagined
 redirect_from: /post/10235607580/rockmelt-your-browser-re-imagined
 ---

@@ -7,6 +7,8 @@ tags:
 - github
 - clone
 - fork
+categories:
+- devalias
 tumblr_url: http://devalias.tumblr.com/post/15337594635/forking-github-or-how-to-contribute-to-a
 redirect_from: /post/15337594635/forking-github-or-how-to-contribute-to-a
 ---

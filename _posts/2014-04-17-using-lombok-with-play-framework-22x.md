@@ -10,6 +10,8 @@ tags:
 - lombok
 - java
 - '2.2'
+categories:
+- devalias
 tumblr_url: http://devalias.tumblr.com/post/82877817438/using-lombok-with-play-framework-22x
 redirect_from: /post/82877817438/using-lombok-with-play-framework-22x
 ---

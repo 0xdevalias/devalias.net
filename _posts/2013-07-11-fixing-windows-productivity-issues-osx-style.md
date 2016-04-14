@@ -14,6 +14,8 @@ tags:
 - virtuawin
 - better-desktop-tool
 - emcee
+categories:
+- devalias
 tumblr_url: http://devalias.tumblr.com/post/55062785106/fixing-windows-productivity-issues-osx-style
 redirect_from: /post/55062785106/fixing-windows-productivity-issues-osx-style
 ---

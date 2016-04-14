@@ -14,6 +14,8 @@ tags:
 - execv
 - bash
 - failed
+categories:
+- devalias
 tumblr_url: http://devalias.tumblr.com/post/15535429513/plesk-adding-programs-to-a-chrooted-ssh
 redirect_from: /post/15535429513/plesk-adding-programs-to-a-chrooted-ssh
 ---

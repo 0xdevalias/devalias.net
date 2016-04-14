@@ -6,6 +6,8 @@ tags:
 - thecus
 - nas
 - raid
+categories:
+- devalias
 tumblr_url: http://devalias.tumblr.com/post/68253449830/thecus-nas-devalias-says-no
 redirect_from: /post/68253449830/thecus-nas-devalias-says-no
 ---

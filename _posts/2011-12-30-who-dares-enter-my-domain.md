@@ -7,6 +7,8 @@ tags:
 - dns
 - domain
 - url
+categories:
+- devalias
 tumblr_url: http://devalias.tumblr.com/post/14941533584/who-dares-enter-my-domain
 redirect_from: /post/14941533584/who-dares-enter-my-domain
 ---

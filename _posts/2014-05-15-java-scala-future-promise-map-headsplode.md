@@ -11,6 +11,8 @@ tags:
 - promise
 - async
 - gist
+categories:
+- devalias
 tumblr_url: http://devalias.tumblr.com/post/85700254007/javascala-futurepromise-map-headsplode
 redirect_from: /post/85700254007/javascala-futurepromise-map-headsplode
 ---

@@ -15,6 +15,8 @@ tags:
 - debug
 - hack
 - pentest
+categories:
+- devalias
 tumblr_url: http://devalias.tumblr.com/post/44676622353/how-to-ssh-to-iphoneipadidevice-via-usb
 redirect_from: /post/44676622353/how-to-ssh-to-iphoneipadidevice-via-usb
 ---

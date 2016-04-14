@@ -8,6 +8,8 @@ tags:
 - subdomain
 - nameserver
 - headdesk
+categories:
+- devalias
 tumblr_url: http://devalias.tumblr.com/post/18368234347/nameserver-whichserver
 redirect_from: /post/18368234347/nameserver-whichserver
 ---

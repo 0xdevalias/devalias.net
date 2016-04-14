@@ -9,6 +9,8 @@ tags:
 - upgrade
 - error
 - mediatemple
+categories:
+- devalias
 tumblr_url: http://devalias.tumblr.com/post/20028664762/yummy-turtles-breaking-plesk
 redirect_from: /post/20028664762/yummy-turtles-breaking-plesk
 ---

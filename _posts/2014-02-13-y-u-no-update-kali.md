@@ -16,6 +16,8 @@ tags:
 - debian
 - apt
 - setup
+categories:
+- devalias
 tumblr_url: http://devalias.tumblr.com/post/76393663831/y-u-no-update-kali
 redirect_from: /post/76393663831/y-u-no-update-kali
 ---

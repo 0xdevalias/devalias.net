@@ -18,6 +18,8 @@ tags:
 - curl
 - clear
 - tldr
+categories:
+- devalias
 tumblr_url: http://devalias.tumblr.com/post/61566531090/plesk-adding-wget-tar-gzip-chmod-php-curl-clear-to-a-chr
 redirect_from: /post/61566531090/plesk-adding-wget-tar-gzip-chmod-php-curl-clear-to-a-chr
 ---

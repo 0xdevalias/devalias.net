@@ -9,6 +9,8 @@ tags:
 - sublime-text
 - "@factormystic"
 - bootstrap
+categories:
+- devalias
 tumblr_url: http://devalias.tumblr.com/post/54304245573/software-default-programs-editor
 redirect_from: /post/54304245573/software-default-programs-editor
 ---

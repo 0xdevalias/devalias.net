@@ -9,6 +9,8 @@ tags:
 - hacking
 - new-zealand
 - '2014'
+categories:
+- devalias
 tumblr_url: http://devalias.tumblr.com/post/105233769467/kiwicon-8-2014-some-quick-notes
 redirect_from: /post/105233769467/kiwicon-8-2014-some-quick-notes
 ---

@@ -11,6 +11,8 @@ tags:
 - problem
 - error
 - 2.1.x
+categories:
+- devalias
 tumblr_url: http://devalias.tumblr.com/post/82140747557/vlc-21x-ac351-audio-issues-and-how-to-fix
 redirect_from: /post/82140747557/vlc-21x-ac351-audio-issues-and-how-to-fix
 ---

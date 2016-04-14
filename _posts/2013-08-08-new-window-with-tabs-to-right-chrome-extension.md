@@ -17,6 +17,8 @@ tags:
 - "@yujiLY"
 - todo
 - tldr
+categories:
+- devalias
 tumblr_url: http://devalias.tumblr.com/post/57586770334/new-window-with-tabs-to-right-chrome-extension
 redirect_from: /post/57586770334/new-window-with-tabs-to-right-chrome-extension
 ---

@@ -13,6 +13,8 @@ tags:
 - gist
 - 'hact.io'
 - 'dogedraw.com'
+categories:
+- devalias
 tumblr_url: http://devalias.tumblr.com/post/134563043222/dogedraw-now-with-more-nyaan
 redirect_from: /post/134563043222/dogedraw-now-with-more-nyaan
 disqus: true

@@ -86,6 +86,7 @@ jekyll-crosspost_to_medium:
 # https://github.com/aarongustafson/jekyll-webmention_io
 jekyll-webmention-io:
   domain: devalias.net
+  jsdir: assets/js/
 #   redirected_from: # Does this need to be the full redirected from URL for the post?
 #     - http://blog.devalias.net
 

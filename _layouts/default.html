@@ -12,8 +12,9 @@
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Webmentions -->
+    <!-- Webmention -->
     {% webmention_head_tags %}
+    {% webmention_redirected_from tumblr_url, redirect_from %}
 
     <link rel="shortcut icon" href="{{ site.baseurl | chomp_slash }}{{ site.favicon }}" >
 
@@ -66,7 +67,7 @@
     <!-- [[! The main JavaScript file for Casper ]] -->
     <script type="text/javascript" src="{{ site.baseurl | chomp_slash }}/assets/js/jquery.fitvids.js"></script>
     <script type="text/javascript" src="{{ site.baseurl | chomp_slash }}/assets/js/index.js"></script>
-    <script type="text/javascript" src="{{ site.baseurl | chomp_slash }}/assets/js/webmention-io.js"></script>
+    {% webmention_js_tag %}
 
     <!-- Add Google Analytics  -->
     {% include analytics.html %}   

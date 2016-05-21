@@ -1,3 +1,8 @@
+PATH
+  remote: /Users/devalias/dev/jekyll-webmention-io
+  specs:
+    jekyll-webmention-io (0.1.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -96,6 +101,7 @@ DEPENDENCIES
   jekyll-redirect-from
   jekyll-sitemap
   jekyll-time-to-read
+  jekyll-webmention-io!
   jekyll_version_plugin
   rb-gsl
   redcarpet

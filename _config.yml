@@ -90,9 +90,8 @@ jekyll-crosspost_to_medium:
 # https://github.com/aarongustafson/jekyll-webmention_io
 jekyll-webmention-io:
   domain: devalias.net
-  jsdir: assets/js/
-#   redirected_from: # Does this need to be the full redirected from URL for the post?
-#     - http://blog.devalias.net
+  cache: .cache
+  js: /assets/js/
 
 gems:
   - jekyll-redirect-from        # https://github.com/jekyll/jekyll-redirect-from
@@ -101,6 +100,7 @@ gems:
   - jekyll-gist                 # https://github.com/jekyll/jekyll-gist
   - jekyll-github-metadata      # https://github.com/jekyll/github-metadata
   - jekyll-crosspost-to-medium  # https://github.com/aarongustafson/jekyll-crosspost-to-medium
+  - jekyll-webmention-io        # https://github.com/aarongustafson/jekyll-webmention_io
   - jekyll-time-to-read         # https://github.com/gjtorikian/jekyll-time-to-read
   - jekyll-feed                 # https://github.com/jekyll/jekyll-feed
   - jekyll-sitemap              # https://github.com/jekyll/jekyll-sitemap

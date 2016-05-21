@@ -507,6 +507,33 @@ module Jekyll
   end
 
   # Begin devalias.net edits
+  # class WebmentionMetaRedirectedFromTag < Liquid::Tag
+  #   def initialize(tag_name, text, tokens)
+  #     super
+  #     @text = text
+  #   end
+
+  #   def render(context)
+  #     if site.jekyll-webmention-io
+  #       if @text
+  #         @redirected_from = @text
+  #       elsif site.jekyll-webmention-io.redirected_from
+  #         @redirected_from = site.jekyll-webmention-io.redirected_from
+  #       end
+
+  #       if @redirected_from
+  #         if @redirected_from.kind_of?(Array)
+  #           @redirected_from = @redirected_from.join(',')
+
+  #         "<meta property=\"webmention:redirected_from\" content=\"#{@redirected_from}\">"
+  #       else
+  #         ""
+  #       end
+  #     end
+  #     ""
+  #   end
+  # end
+
   class WebmentionHeaderTag < Liquid::Tag
     @@warned = {}
 

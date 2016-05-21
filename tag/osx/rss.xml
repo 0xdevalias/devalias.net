@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+   
+      <title>devalias.net</title>
+   
+   <link>http://devalias.net</link>
+   <description>My intention is for this to be a place where I post anything that interests my geeky mind. I may not update it often, and you may not find it that interesting.. You've been forewarned.
+</description>
+   <language>en-uk</language>
+   <managingEditor> </managingEditor>
+   <atom:link href="rss" rel="self" type="application/rss+xml" />
+   
+	<item>
+	  <title>Loki - Python Based Infrastructure Pentesting Tool (ARP, HSRP, OSPF, etc)</title>
+	  <link>/devalias/2013/10/24/loki-python-based-infrastructure-pentesting-tool-arp-hsr/</link>
+	  <author>devalias</author>
+	  <pubDate>2013-10-24T09:00:00+11:00</pubDate>
+	  <guid>/devalias/2013/10/24/loki-python-based-infrastructure-pentesting-tool-arp-hsr/</guid>
+	  <description><![CDATA[
+	     <p>Loki is a python based infrastructure pentesting tool focussing on layer 3 protocols, dealing with protocols such as:</p>
+
+<ul>
+<li>ARP</li>
+<li>HSRP</li>
+<li>RIP</li>
+<li>BGP</li>
+<li>OSPF</li>
+<li>EIGRP</li>
+<li>WLCCP</li>
+<li>VRRP</li>
+<li>BFD</li>
+<li>LDP</li>
+<li>MPLS</li>
+</ul>
+
+<p>In the words of the author</p>
+
+<blockquote>
+<p>At the beginning LOKI was made to combine some stand-alone command line tools, like the bgp<em>cli, the ospf</em>cli or the ldp_cli and to give them a user friendly, graphical interface. In the meantime LOKI is more than just the combination of the single tools, it gave its modules the opportunity to base upon each other (like combining ARP-spoofing from the ARP module with some man-in-the-middle actions, rewriting MPLS-labels for example) and even inter operate with each other.</p>
+</blockquote>
+
+<h2>Getting Loki</h2>
+
+<p><a href="https://c0decafe.de/svn/codename_loki/packages/">Loki is available for a number of different platforms</a> including:</p>
+
+<ul>
+<li>Kali</li>
+<li>Backtrack 4 R2</li>
+<li>OSX
+
+<ul>
+<li>Including macports</li>
+<li>Sadly no <a href="http://brew.sh/">Homebrew</a>/<a href="http://caskroom.io/">Homebrew Cask</a> version.. yet..</li>
+</ul></li>
+<li>Win32</li>
+<li>Debian-7.1</li>
+<li>Fedora-15</li>
+<li>Gentoo</li>
+<li>Sabayon-10</li>
+<li>Ubuntu-10.04</li>
+<li>Ubuntu-11.04</li>
+</ul>
+
+<h2>Installing Loki in Kali (Rebuilding the deb package)</h2>
+
+<p>When I went to install the v0.2.7-1 version of Loki in Kali, I ran into a problem with the package <code>pylibpcap</code> not existing in the repos. It seems that at some stage this changed it&#39;s name to <code>python-libpcap</code>.</p>
+
+<p>To fix this up, we can just edit the dependency in the deb package, then install it as we normally would. So without further delay…</p>
+
+<p>Download the Loki deb package to your Kali box:</p>
+<div class="highlight"><pre><code class="language-" data-lang="">wget http://c0decafe.de/svn/codename_loki/packages/kali-1/loki_0.2.7-1_amd64.deb
+</code></pre></div>
+<p>Extract the contents of the deb package into a new folder:</p>
+<div class="highlight"><pre><code class="language-" data-lang="">mkdir lokidevalias
+dpkg-deb -x loki_0.2.7-1_amd64.deb ./lokidevalias
+dpkg-deb -e loki_0.2.7-1_amd64.deb ./lokidevalias/DEBIAN
+</code></pre></div>
+<p>Edit the <code>control</code> file with your favourite editor, change <code>pylibpcap</code> to <code>python-libpcap</code>, then save the file.</p>
+<div class="highlight"><pre><code class="language-" data-lang="">vi ./lokidevalias/DEBIAN/control
+</code></pre></div>
+<p>Build the new debian package with the changes we just made:</p>
+<div class="highlight"><pre><code class="language-" data-lang="">cd lokidevalias
+dpkg-deb -b . ../loki_0.2.7-1-devalias_amd64.deb
+</code></pre></div>
+<p>Start the install with dpkg, then finish it off with the dependencies using apt-get:</p>
+<div class="highlight"><pre><code class="language-" data-lang="">cd ..
+dpkg -i loki_0.2.7-1-devalias_amd64.deb
+apt-get install -f
+</code></pre></div>
+<h2>Using Loki</h2>
+
+<p>Given the vast array of options available, I will delegate to a rather good article over at Packetstan (a little outdated, but mostly good)</p>
+
+<ul>
+<li><a href="http://www.packetstan.com/2011/02/running-loki-on-backtrack-4-r2.html">Exploiting Networks with Loki on Backtrack 4 R2</a> – Packetstan</li>
+</ul>
+
+<h2>Conclusion</h2>
+
+<p>Hopefully the above worked for you and makes your life a bit easier. Happy pentesting!</p>
+
+<h2>Appendix A - libssl.so.0.9.8</h2>
+
+<p>Depending which particular loki package you&#39;re trying to use, you may run into an issue where the <code>libssl.so.0.9.8</code> package isn&#39;t available in the repos for your system (as was the case on my Kali box). In this instance, you should try downloading the latest package for your platform</p>
+
+<p>(<strong>NB:</strong> Even if the version number is the same, it might not be exactly the same. I found the 0.2.7-1 package I was using was different to the same versioned Kali package)</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>Fixing Windows Productivity Issues OSX Style</title>
+	  <link>/devalias/2013/07/11/fixing-windows-productivity-issues-osx-style/</link>
+	  <author>devalias</author>
+	  <pubDate>2013-07-11T08:00:28+10:00</pubDate>
+	  <guid>/devalias/2013/07/11/fixing-windows-productivity-issues-osx-style/</guid>
+	  <description><![CDATA[
+	     <p>As much as past me would hate me for saying this, these days I am quite the fan of a number of Apple products. My MacBook Pro is a dream to use thanks to multitouch and some of the well thought out and designed features of OSX.</p>
+
+<p>Unfortunately, coming back to my desktop PC I very quickly realise just how much I have come to rely on a few simple features of OSX that are sorely lacking in Windows (don&#39;t worry Microsoft fans, there are a few features of Windows that OSX lacks that annoy the crap out of me too!)</p>
+
+<p>Among these there are 2 common ones (now provided by the same feature), and one less obvious thing, that together increase my productivity immensely:</p>
+
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Mission_Control_(OS_X)">Mission Control</a> 
+
+<ul>
+<li><a href="https://support.apple.com/kb/PH11158?locale=en_US">Spaces</a> (formerly) – Allows you to create and work within multiple desktops, switching between them.</li>
+<li><a href="https://support.apple.com/kb/VI22?locale=en_US">Exposé</a> (formerly) – Allows you to tile all open windows, hide application windows offscreen to show the desktop, etc</li>
+</ul></li>
+<li>The ability to scroll the window under the mouse cursor when it&#39;s not the currently focussed window</li>
+</ul>
+
+<h2>Mission Control/Spaces/Exposé (for Windows)</h2>
+
+<ul>
+<li><a href="http://www.betterdesktoptool.com/">Better Desktop Tool</a> (Vista SP2+, Win7 SP1+, Win8) – This is what I use on my main PC at home. It let&#39;s you do the tiling/hiding application windows features of exposé as well as the multiple desktops of spaces. To quote some Apple exec somewhere, it just works! Very much recommend this!</li>
+<li><a href="https://sites.google.com/site/emceesoftware1/">Emcee</a> (Win7, Win8) – I personally haven&#39;t tried this at all, but some sources on the net seem to think it&#39;s pretty cool, so.. might be worth checking out?</li>
+<li><a href="http://virtuawin.sourceforge.net/">VirtuaWin</a> (Win9x/ME/NT/Win2K/XP/Win2003/Vista/Win7) – Nowhere near as pretty or fancy looking as the other two, but if you&#39;re on an older OS then you may have to compromise. VirtuaWin has been around forever, and provides (as the name implies) virtual desktops (aka spaces) for WIndows. Supports plugins, but no decent exposé functionality to my knowledge.</li>
+</ul>
+
+<h2>Scrolling in unfocussed windows</h2>
+
+<ul>
+<li><a href="http://ehiti.de/katmouse/">KatMouse</a> – A simple tool with a single purpose, allowing you to scroll unfocussed windows. Thank F for that!</li>
+</ul>
+
+<h2>Anything Else?</h2>
+
+<p>Know of anything else that&#39;s cool/noteworthy/makes working in Windows less painful for OSX users? <a href="http://devalias.tumblr.com/ask">Let me know via ask!!!</a></p>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>What I Use - OSX</title>
+	  <link>/devalias/2013/06/20/what-i-use-osx/</link>
+	  <author>devalias</author>
+	  <pubDate>2013-06-20T10:00:00+10:00</pubDate>
+	  <guid>/devalias/2013/06/20/what-i-use-osx/</guid>
+	  <description><![CDATA[
+	     <p>I&#39;ve been meaning to write this post for a while now, but never quite got around to it. Oftentimes when a friend or colleague gets a new mac they ask me what programs I would recommend. I tend to stumble at being asked on the spot, and rattle off the couple that jump straight to mind.</p>
+
+<p>To save myself the embarassment, serve as a memory jog, and hopefully help some people out along the way, here is my list of programs I use/love on OSX (see after the break)</p>
+
+<p><strong>Note:</strong> This isn&#39;t necessarily a definitive list, but it should be the main ones, and I will try to keep it updated as I find new cool things that I love.</p>
+
+<h2>General/System</h2>
+
+<ul>
+<li><a href="http://brew.sh/">HomeBrew</a> - Think apt-get, but for mac. Awesome way to find/install commandline tools/etc for your mac.</li>
+<li><a href="https://bahoom.com/hyperdock/">HyperDock</a> - Show previews of docked program windows when you hover over them. Just like Windows 7!</li>
+<li><a href="http://totalfinder.binaryage.com/">TotalFinder</a> - Tabs and other such win for the finder!</li>
+<li><a href="http://totalterminal.binaryage.com/">TotalTerminal</a> - A systemwide terminal that hides offscreen when you&#39;re not using it. Combine the hotkey with BetterTouchTool for epic win!</li>
+<li><a href="https://www.boastr.net/">BetterTouchTool</a> - Let&#39;s you setup more touch gestures to control various things on your mac.</li>
+<li><a href="http://www.axoniclabs.com/DeepSleep/">DeepSleep</a> - Forces the system to do a full hibernate poweroff. No more losing battery while in your bag!</li>
+<li><a href="https://github.com/integralpro/nosleep">NoSleep</a> - Prevents the system from sleeping when you close the screen.</li>
+<li><a href="http://www.appzapper.com/">AppZapper</a> - The uninstall feature that&#39;s missing from so many mac programs.</li>
+</ul>
+
+<h2>Internet/Download/Etc</h2>
+
+<ul>
+<li><a href="https://www.google.com/chrome/">Google Chrome</a> - What can I say, I am very much a fan of Google, and Chrome has won my heart &lt;3</li>
+<li><a href="http://ll.www.utorrent.com/intl/en/">uTorrent</a> - For those times when a distributed download is a better source than direct.</li>
+</ul>
+
+<h2>Chat/Communication/Etc</h2>
+
+<ul>
+<li><a href="https://www.skype.com/en/">Skype</a> - I don&#39;t even need to explain this one..</li>
+<li><a href="http://www.kandasoft.com/home/kanda-apps/callnote-skype-call-recorder">Callnote for Skype</a> - Skype recording + Evernote. Because why remember details when you can just listen to them again!</li>
+</ul>
+
+<h2>Music/Media/Etc</h2>
+
+<ul>
+<li><a href="https://www.apple.com/au/itunes/">iTunes</a> - Apple, music, duh!</li>
+<li><a href="https://www.spotify.com/us/">Spotify</a> - I don&#39;t use this a lot yet, but it&#39;s pretty good when you don&#39;t want to specifically decide what you want to listen to.</li>
+<li><a href="https://www.videolan.org/vlc/index.html">VLC</a> - The only media player you&#39;ll ever need for video (or when you don&#39;t want to clutter iTunes with random stuff yet)</li>
+</ul>
+
+<h2>Games</h2>
+
+<ul>
+<li><a href="http://store.steampowered.com/about/">Steam</a> - The only game platform you should ever need.</li>
+</ul>
+
+<h2>Notes/Syncing/Cloud/Etc</h2>
+
+<ul>
+<li><a href="https://www.dropbox.com/">Dropbox</a> - Keeps my files synced/accessible from wherever I need them.</li>
+<li><a href="https://evernote.com/">Evernote</a> - Think dropbox, but more aimed at notes/etc. Available anywhere I need access to them.</li>
+<li><a href="https://www.xmind.net/">XMind</a> - Not that this fits into the cloud/syncing category by itself (dropbox!), but a good little tool for making mindmaps.</li>
+</ul>
+
+<h2>Coding/Development/Etc</h2>
+
+<ul>
+<li><a href="https://developer.apple.com/xcode/">XCode</a> - Kind of goes without saying. Apple&#39;s de-facto fully integrated coding environment.</li>
+<li><a href="https://www.sublimetext.com/2">Sublime Text 2</a> (<a href="https://www.sublimetext.com/3">Sublime Text 3</a> is currently in beta) - Tried a few others, but eventually settled on this. A REALLY nice text/code editor with tons of awesome plugins. I use the Solarized dark colour scheme.</li>
+<li><a href="https://git-scm.com/">Git</a> - A free an open source distributed version control system that is made of amazing and win.</li>
+<li><a href="http://www.git-legit.org/">Le-git</a> - A complementary command-line interface for Git that makes some of the more obscure things much easier.</li>
+<li><a href="https://www.git-tower.com/">Tower</a>/* <a href="http://gitboxapp.com/">Gitbox</a>/* <a href="https://www.sourcetreeapp.com/">Sourcetree</a>/* <a href="https://desktop.github.com/">Github for Mac</a> - Haven&#39;t really decided which one is best yet, but a selection of git frontends for the (rare) times when you want a change from the command line.</li>
+<li><a href="http://rubyonrails.org/">Ruby on Rails</a> - Only recently started playing with this, but a very nice little web app development framework/environment.</li>
+<li><a href="https://toolbelt.heroku.com/">Heroku Toolbelt</a> - Set of command line tools for working with/deploying to Heroku.</li>
+</ul>
+
+<h2>Virtualisation/Etc</h2>
+
+<ul>
+<li><a href="https://www.parallels.com/products/desktop/">Parallels Desktop</a> - IMO The better virtualisation platform for mac.</li>
+<li><a href="https://www.vmware.com/products/fusion/">VMWare Fusion</a> - For things that just don&#39;t want to work in Parallels, or just for funsies.</li>
+</ul>
+
+	  ]]></description>
+	</item>
+
+
+</channel>
+</rss>

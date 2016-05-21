@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+   
+      <title>devalias.net</title>
+   
+   <link>http://devalias.net</link>
+   <description>My intention is for this to be a place where I post anything that interests my geeky mind. I may not update it often, and you may not find it that interesting.. You've been forewarned.
+</description>
+   <language>en-uk</language>
+   <managingEditor> </managingEditor>
+   <atom:link href="rss" rel="self" type="application/rss+xml" />
+   
+	<item>
+	  <title>nmap.sh - Saving Precious Seconds</title>
+	  <link>/devalias/2013/07/13/nmap-sh-saving-precious-seconds/</link>
+	  <author>devalias</author>
+	  <pubDate>2013-07-13T08:00:00+10:00</pubDate>
+	  <guid>/devalias/2013/07/13/nmap-sh-saving-precious-seconds/</guid>
+	  <description><![CDATA[
+	     <p>In the course of my work I end up issuing the same simple commands again and again, and while they are pretty easy to remember, they still take more time than they really need to.</p>
+
+<p>With that in mind, here&#39;s a little bash script I threw together today to reduce the time it takes to kick off a standard (in my day to day usage) nmap scan. Hopefully you can get some use out of it.</p>
+
+<script src="https://gist.github.com/alias1/5963377.js"> </script>
+
+	  ]]></description>
+	</item>
+
+
+</channel>
+</rss>

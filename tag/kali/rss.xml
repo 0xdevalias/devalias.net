@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+   
+      <title>devalias.net</title>
+   
+   <link>http://devalias.net</link>
+   <description>My intention is for this to be a place where I post anything that interests my geeky mind. I may not update it often, and you may not find it that interesting.. You've been forewarned.
+</description>
+   <language>en-uk</language>
+   <managingEditor> </managingEditor>
+   <atom:link href="rss" rel="self" type="application/rss+xml" />
+   
+	<item>
+	  <title>Y U NO Update Kali?</title>
+	  <link>/devalias/2014/02/13/y-u-no-update-kali/</link>
+	  <author>devalias</author>
+	  <pubDate>2014-02-13T09:00:41+11:00</pubDate>
+	  <guid>/devalias/2014/02/13/y-u-no-update-kali/</guid>
+	  <description><![CDATA[
+	     <p><img src="/devalias/2014/02/13/y-u-no-update-kali/yunoupdatekali.jpg" alt="Kali Linux Y U No Update"></p>
+
+<p>Not too long ago I was setting up a new pentest machine with Kali. Fairly straightforward a task, though slightly inconvenienced by the fact that the net was down at the time. No matter I thought, continue offline and all should be fine.. apparently not.</p>
+
+<p>When you don&#39;t have a live net connection during setup Kali decides not to fill in the server details needed by apt-get to pull down anything more than security updates (no new tools for you!) Thankfully this is a simple and quick fix.</p>
+
+<h2>But how?</h2>
+
+<p>Having a look over at the <a href="http://docs.kali.org/general-use/kali-linux-sources-list-repositories">Kali documentation</a> we find the instructions and url&#39;s required. Basically we just have to..</p>
+
+<ul>
+<li>Edit <code>/etc/apt/sources.list</code></li>
+<li>Add or ensure the following lines are present:</li>
+</ul>
+
+<h3>For general Kali repositories (aka everyone)</h3>
+<div class="highlight"><pre><code class="language-" data-lang="">deb http://http.kali.org/kali kali main non-free contrib
+deb http://security.kali.org/kali-security kali/updates main contrib non-free
+</code></pre></div>
+<h3>To use the source (aka Jedi&#39;s)</h3>
+<div class="highlight"><pre><code class="language-" data-lang="">deb-src http://http.kali.org/kali kali main non-free contrib
+deb-src http://security.kali.org/kali-security kali/updates main contrib non-free
+</code></pre></div>
+<h3>And finally for those who like to live (and bleed) on the edge</h3>
+<div class="highlight"><pre><code class="language-" data-lang="">deb http://repo.kali.org/kali kali-bleeding-edge main
+#deb-src http://repo.kali.org/kali kali-bleeding-edge main
+</code></pre></div>
+<h2>Now we update!</h2>
+
+<p>Once this is done (and saved) we can just do our standard</p>
+<div class="highlight"><pre><code class="language-" data-lang="">apt-get update &amp;&amp; apt-get upgrade
+</code></pre></div>
+<p>or</p>
+<div class="highlight"><pre><code class="language-" data-lang="">apt-get update &amp;&amp; apt-get upgrade
+</code></pre></div>
+<p>Happy (ethical) hacking!</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>Loki - Python Based Infrastructure Pentesting Tool (ARP, HSRP, OSPF, etc)</title>
+	  <link>/devalias/2013/10/24/loki-python-based-infrastructure-pentesting-tool-arp-hsr/</link>
+	  <author>devalias</author>
+	  <pubDate>2013-10-24T09:00:00+11:00</pubDate>
+	  <guid>/devalias/2013/10/24/loki-python-based-infrastructure-pentesting-tool-arp-hsr/</guid>
+	  <description><![CDATA[
+	     <p>Loki is a python based infrastructure pentesting tool focussing on layer 3 protocols, dealing with protocols such as:</p>
+
+<ul>
+<li>ARP</li>
+<li>HSRP</li>
+<li>RIP</li>
+<li>BGP</li>
+<li>OSPF</li>
+<li>EIGRP</li>
+<li>WLCCP</li>
+<li>VRRP</li>
+<li>BFD</li>
+<li>LDP</li>
+<li>MPLS</li>
+</ul>
+
+<p>In the words of the author</p>
+
+<blockquote>
+<p>At the beginning LOKI was made to combine some stand-alone command line tools, like the bgp<em>cli, the ospf</em>cli or the ldp_cli and to give them a user friendly, graphical interface. In the meantime LOKI is more than just the combination of the single tools, it gave its modules the opportunity to base upon each other (like combining ARP-spoofing from the ARP module with some man-in-the-middle actions, rewriting MPLS-labels for example) and even inter operate with each other.</p>
+</blockquote>
+
+<h2>Getting Loki</h2>
+
+<p><a href="https://c0decafe.de/svn/codename_loki/packages/">Loki is available for a number of different platforms</a> including:</p>
+
+<ul>
+<li>Kali</li>
+<li>Backtrack 4 R2</li>
+<li>OSX
+
+<ul>
+<li>Including macports</li>
+<li>Sadly no <a href="http://brew.sh/">Homebrew</a>/<a href="http://caskroom.io/">Homebrew Cask</a> version.. yet..</li>
+</ul></li>
+<li>Win32</li>
+<li>Debian-7.1</li>
+<li>Fedora-15</li>
+<li>Gentoo</li>
+<li>Sabayon-10</li>
+<li>Ubuntu-10.04</li>
+<li>Ubuntu-11.04</li>
+</ul>
+
+<h2>Installing Loki in Kali (Rebuilding the deb package)</h2>
+
+<p>When I went to install the v0.2.7-1 version of Loki in Kali, I ran into a problem with the package <code>pylibpcap</code> not existing in the repos. It seems that at some stage this changed it&#39;s name to <code>python-libpcap</code>.</p>
+
+<p>To fix this up, we can just edit the dependency in the deb package, then install it as we normally would. So without further delay…</p>
+
+<p>Download the Loki deb package to your Kali box:</p>
+<div class="highlight"><pre><code class="language-" data-lang="">wget http://c0decafe.de/svn/codename_loki/packages/kali-1/loki_0.2.7-1_amd64.deb
+</code></pre></div>
+<p>Extract the contents of the deb package into a new folder:</p>
+<div class="highlight"><pre><code class="language-" data-lang="">mkdir lokidevalias
+dpkg-deb -x loki_0.2.7-1_amd64.deb ./lokidevalias
+dpkg-deb -e loki_0.2.7-1_amd64.deb ./lokidevalias/DEBIAN
+</code></pre></div>
+<p>Edit the <code>control</code> file with your favourite editor, change <code>pylibpcap</code> to <code>python-libpcap</code>, then save the file.</p>
+<div class="highlight"><pre><code class="language-" data-lang="">vi ./lokidevalias/DEBIAN/control
+</code></pre></div>
+<p>Build the new debian package with the changes we just made:</p>
+<div class="highlight"><pre><code class="language-" data-lang="">cd lokidevalias
+dpkg-deb -b . ../loki_0.2.7-1-devalias_amd64.deb
+</code></pre></div>
+<p>Start the install with dpkg, then finish it off with the dependencies using apt-get:</p>
+<div class="highlight"><pre><code class="language-" data-lang="">cd ..
+dpkg -i loki_0.2.7-1-devalias_amd64.deb
+apt-get install -f
+</code></pre></div>
+<h2>Using Loki</h2>
+
+<p>Given the vast array of options available, I will delegate to a rather good article over at Packetstan (a little outdated, but mostly good)</p>
+
+<ul>
+<li><a href="http://www.packetstan.com/2011/02/running-loki-on-backtrack-4-r2.html">Exploiting Networks with Loki on Backtrack 4 R2</a> – Packetstan</li>
+</ul>
+
+<h2>Conclusion</h2>
+
+<p>Hopefully the above worked for you and makes your life a bit easier. Happy pentesting!</p>
+
+<h2>Appendix A - libssl.so.0.9.8</h2>
+
+<p>Depending which particular loki package you&#39;re trying to use, you may run into an issue where the <code>libssl.so.0.9.8</code> package isn&#39;t available in the repos for your system (as was the case on my Kali box). In this instance, you should try downloading the latest package for your platform</p>
+
+<p>(<strong>NB:</strong> Even if the version number is the same, it might not be exactly the same. I found the 0.2.7-1 package I was using was different to the same versioned Kali package)</p>
+
+	  ]]></description>
+	</item>
+
+
+</channel>
+</rss>

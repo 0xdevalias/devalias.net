@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+   
+      <title>devalias.net</title>
+   
+   <link>http://devalias.net</link>
+   <description>My intention is for this to be a place where I post anything that interests my geeky mind. I may not update it often, and you may not find it that interesting.. You've been forewarned.
+</description>
+   <language>en-uk</language>
+   <managingEditor> </managingEditor>
+   <atom:link href="rss" rel="self" type="application/rss+xml" />
+   
+	<item>
+	  <title>Gists</title>
+	  <link>/devalias/2013/06/17/gists-on-tumblr/</link>
+	  <author>devalias</author>
+	  <pubDate>2013-06-17T05:00:00+10:00</pubDate>
+	  <guid>/devalias/2013/06/17/gists-on-tumblr/</guid>
+	  <description><![CDATA[
+	     <p>So I figured it might be useful to be able to post gists here. Turns out it&#39;s actually pretty easy thanks to soemarko</p>
+
+<script src="https://gist.github.com/soemarko/1395926.js"> </script>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>Plesk - Adding programs to a chrooted SSH</title>
+	  <link>/devalias/2012/01/10/plesk-adding-programs-to-a-chrooted-ssh/</link>
+	  <author>devalias</author>
+	  <pubDate>2012-01-10T05:29:00+11:00</pubDate>
+	  <guid>/devalias/2012/01/10/plesk-adding-programs-to-a-chrooted-ssh/</guid>
+	  <description><![CDATA[
+	     <p>Just a few notes today about making programs (in this case git) available to a chrooted SSH account in Plesk. I&#39;m assuming the account is already setup for ssh, etc so I will just be covering where to copy the files to.</p>
+
+<p><strong>Note:</strong> If you are here about getting an <code>execv(&quot;/bin/bash&quot;)</code> failed error, check Appendix B</p>
+
+<h2>Location</h2>
+
+<ul>
+<li><code>/usr/local/bin</code> - The git bin files we will be copying.</li>
+<li><code>/usr/local/share/git-core</code> - The shared git-core files.</li>
+<li><code>/var/www/vhosts/chroot</code> - The base directory for chroot accessible programs.</li>
+</ul>
+
+<h2>Copying Git</h2>
+
+<p>Firstly you will want to locate the git files. The easiest way to do this is by typing:</p>
+<div class="highlight"><pre><code class="language-" data-lang="">which git
+</code></pre></div>
+<p>This should tell you the path to git (in my case /usr/local/bin) Next we want to copy the files over to the equivalent path in the chroot directory (/path/to/chroot/usr/local/bin)</p>
+<div class="highlight"><pre><code class="language-" data-lang="">cp -R /usr/local/bin/git* /var/www/vhosts/chroot/usr/local/bin
+</code></pre></div>
+<p>In the case of git, we also want to copy over some other files</p>
+<div class="highlight"><pre><code class="language-" data-lang="">cp -R /usr/local/share/git-core /var/www/vhosts/chroot/usr/local/share/git-core
+cp -R /usr/local/libexec /var/www/vhosts/chroot/usr/local/libexec/git-core
+</code></pre></div>
+<p><strong>Note:</strong> The libexec files are quite large (100&#39;s of mb) so you may want to consider doing this in a better way.</p>
+
+<h2>Updating chroot&#39;d directories</h2>
+
+<p>The final (rather simple) step involves updating any chrooted directories that have already been created. This can be done by running the <code>recreate_chroot_env.sh</code> script (downloadable from <a href="http://kb.parallels.com/818">http://kb.parallels.com/818</a>)</p>
+
+<p>This can also be done without the script:</p>
+
+<p><code>
+/usr/local/psa/admin/sbin/chrootmng --remove --source=/var/www/vhosts/chroot --target=/var/www/vhosts/&lt;domain name&gt;
+/usr/local/psa/admin/sbin/chrootmng --create --source=/var/www/vhosts/chroot --target=/var/www/vhosts/&lt;domain name&gt;
+</code>`</p>
+
+<p><strong>Thats it!!</strong></p>
+
+<p>Now when you login to your chrooted account you should be able to use git. I might add the required files for some more programs as I find the need to add them.</p>
+
+<h2>Appendix A: Files required for ftp</h2>
+
+<ul>
+<li><code>/usr/bin/ftp</code> -&gt; <code>chroot/bin</code></li>
+<li><code>/usr/lib64/libreadline.so.5</code> -&gt; <code>chroot/lib/libreadline.so.5</code></li>
+<li><code>/usr/lib64/libncurses.so.5</code> -&gt; <code>chroot/lib/libncurses.so.5</code></li>
+<li><code>/etc/services</code> -&gt; <code>chroot/etc/services</code></li>
+</ul>
+
+<h2>Appendix B: execv(&quot;/bin/bash&quot;) failed</h2>
+
+<p>One cause of this occuring is due to the bin files for a chrooted directory not exisiting/being properly setup. This can be fixed by following the instructions in Updating chroot&#39;d directories above.. or if you&#39;re too lazy to scroll (like me)</p>
+<div class="highlight"><pre><code class="language-" data-lang="">/usr/local/psa/admin/sbin/chrootmng --remove --source=/var/www/vhosts/chroot --target=/var/www/vhosts/&lt;domain name&gt;
+/usr/local/psa/admin/sbin/chrootmng --create --source=/var/www/vhosts/chroot --target=/var/www/vhosts/&lt;domain name&gt;
+</code></pre></div>
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>Forking Github!! (or how to contribute to a project)</title>
+	  <link>/devalias/2012/01/06/forking-github/</link>
+	  <author>devalias</author>
+	  <pubDate>2012-01-06T13:36:18+11:00</pubDate>
+	  <guid>/devalias/2012/01/06/forking-github/</guid>
+	  <description><![CDATA[
+	     <p>I&#39;ve been following the GitHub craze for a little while now, and finally coming to a stage where I would like to start contributing to some of the projects I follow. Having looked closely at the examples for one in particular, I noticed something simple, but beneficial that I could add, so I set out to become an active member of the internet!</p>
+
+<p>I forked the repository, synced it down to my computer, made the changes, created a pull request, and got it merged with the main code. Win!!</p>
+
+<p>It wasn&#39;t until a week or two later that I was reading an article that mentioned creating pull requests from your main repos wasn&#39;t really the best idea. Woops. So, to remind myself, and hopefully help some others out in the process, I&#39;m documenting what is the &#39;proper&#39; (if such a thing exists) process for forking.</p>
+
+<ol>
+<li><strong>Fork/clone the project reposistory</strong> - Every story needs a place to start, and ours starts at the repos we want to contribute to. Fork/clone the repository to somewhere you can play around with it.</li>
+<li><strong>Create a new branch on your fork/clone</strong> - Now here is where I went wrong. Create a new branch (<code>git branch [blah]</code>) on your fork/clone and check it out (<code>git checkout [blah]</code>) before making any changes to the code. This way the changes you make will be isolated in your branch and won&#39;t mess up the master branch (that you pulled down from the original repository)</li>
+<li><strong>Make your changes</strong> - Make whatever changes you want/need/feel the desire to make. The world is your oyster. Remember that the original code is sitting in the master branch in case you need to wipe everything out and start again.</li>
+<li><strong>Commit your changes</strong> - Make sure to commit the changes you make to your branch, otherwise they aren&#39;t going to go anywhere! Also, make sure you push your local branch back up to GitHub.</li>
+<li><strong>Create a pull request</strong> - Go to GitHub and create a pull request from your branch for the original project to incorporate your changes.</li>
+</ol>
+
+<p>Hopefully theres enough info here to at least set you on the right track to contributing if (when! do it, you know you want to..) you start contributing to open source projects.</p>
+
+<h2>Sources</h2>
+
+<ul>
+<li><a href="https://github.com/primalmotion/Archipel/wiki/Developer%3A-Contributing">https://github.com/primalmotion/Archipel/wiki/Developer%3A-Contributing</a></li>
+</ul>
+
+	  ]]></description>
+	</item>
+
+
+</channel>
+</rss>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+   
+      <title>devalias.net</title>
+   
+   <link>http://devalias.net</link>
+   <description>My intention is for this to be a place where I post anything that interests my geeky mind. I may not update it often, and you may not find it that interesting.. You've been forewarned.
+</description>
+   <language>en-uk</language>
+   <managingEditor> </managingEditor>
+   <atom:link href="rss" rel="self" type="application/rss+xml" />
+   
+	<item>
+	  <title>The Dark Side - Macbook Pro</title>
+	  <link>/devalias/2011/09/16/the-dark-side-macbook-pro/</link>
+	  <author>devalias</author>
+	  <pubDate>2011-09-16T13:02:00+10:00</pubDate>
+	  <guid>/devalias/2011/09/16/the-dark-side-macbook-pro/</guid>
+	  <description><![CDATA[
+	     <p>I am a firm believer in the &#39;build it yourself&#39; aspect of computing, and with that comes an inherent dislike for the overpriced, simplistic, bright coloured devilspawn known as Apple. With that being said, there was a time that I walked among the darkness, though it was many many ages ago. Over recent years I have been drawing ever slowly back in that direction though, each shiny new device they release bringing me that much closer. It seems now that I have finally stepped over that threshold, into the darkness once more.</p>
+
+<p>Last saturday I purchased a Macbook Pro. <em>shudders</em> I swore to myself I wouldn&#39;t ever buy an overpriced, mainstream, &#39;cool&#39;, bright coloured apple computer. In my defense, the new Macbook Pro is very very shiny, decked out with a 15&quot; screen, 2.2ghz cpu, 8gb ram, 1gb graphics, 500gb 7200rpm hdd and packaged in a &#39;unibody&#39; slab of metal for the case.</p>
+
+<p>Now the case is somewhat shiny, though it could do with some harder lines/edges and a much darker shade to give it that look that I like in my hardware. As the plan currently stands, a few vinyl stickers should give it that darker and more interesting look. Probably a black background, biohazard around the apple in bright green, a BackTrack dragon, maybe a few other things, and a carbon fibre look around the keyboard.</p>
+
+<p>All in all pretty happy with my purchase. Should be powerful enough to satisfy my portable computing needs, as well as running BackTrack in Parallels for pentesting, as well as having a full coding environment set up for writing iPhone software.</p>
+
+<p>I&#39;ll post again once I have it set up, hopefully with some pictures and thoughts about the setup process.</p>
+
+	  ]]></description>
+	</item>
+
+
+</channel>
+</rss>

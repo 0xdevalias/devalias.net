@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+   
+      <title>devalias.net</title>
+   
+   <link>http://devalias.net</link>
+   <description>My intention is for this to be a place where I post anything that interests my geeky mind. I may not update it often, and you may not find it that interesting.. You've been forewarned.
+</description>
+   <language>en-uk</language>
+   <managingEditor> </managingEditor>
+   <atom:link href="rss" rel="self" type="application/rss+xml" />
+   
+	<item>
+	  <title>Nameserver? Whichserver?</title>
+	  <link>/devalias/2012/02/28/nameserver-whichserver/</link>
+	  <author>devalias</author>
+	  <pubDate>2012-02-28T23:46:00+11:00</pubDate>
+	  <guid>/devalias/2012/02/28/nameserver-whichserver/</guid>
+	  <description><![CDATA[
+	     <p><strong>Note:</strong> This had been sitting in my queue half written for a month or two now.. Woops. - alias</p>
+
+<p>I&#39;ve been having some issues getting subdomains working correctly. Put a little bit of time/effort into it here and there, but never really sat down to figure it out until tonight. Figured it out, and then promptly smacked my head on the desk at how simple the solution was.</p>
+
+<p>I&#39;ve changed the actual domains, but the process is the same.</p>
+
+<h2>The Problem</h2>
+
+<p>I recently purchased a new domain (let&#39;s call it newsite.com), which I configured to use the nameservers at ns1.hostingprovider.com and ns2.hostingprovider.com. So far so good, or so I thought. I then proceeded to configure newsite.com in Plesk on the VPS (virtual private server) that I rent from hostingprovider.com, which is setup on myvps.net.</p>
+
+<p>So far so good. I then created a subdomain in Plesk (foo.newsite.com), uploaded some test content and tried to access it. No good. Maybe it just needed to propagate? I put it aside and promptly forget about the new site for a week. Coming back to it I realised that it still wasn&#39;t working (even though the DNS had well and truly propagated by now)</p>
+
+<h2>The Solution</h2>
+
+<p>..was so simple I can&#39;t believe it took me as long as it did to figure it out. Let&#39;s go back to what i said a little earlier..</p>
+
+<blockquote>
+<p>which I configured to use the nameservers at ns1.hostingprovider.com and ns2.hostingprovider.com</p>
+</blockquote>
+
+<p>Which isn&#39;t the same as the nameserver running on my VPS (myvps.net)</p>
+
+<p>To cut what was a long story short, I turned off the nameserver on the VPS (wasn&#39;t using it, so why waste the resources) and manually created the subdomain in my hosting providers configuration. Save here. Wait there. Load the website. Oh look, it works now. Funny how updating the correct config makes things work.</p>
+
+<p><em>headdesk</em></p>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>Who dares enter my domain..</title>
+	  <link>/devalias/2011/12/30/who-dares-enter-my-domain/</link>
+	  <author>devalias</author>
+	  <pubDate>2011-12-30T05:30:00+11:00</pubDate>
+	  <guid>/devalias/2011/12/30/who-dares-enter-my-domain/</guid>
+	  <description><![CDATA[
+	     <p><img src="/devalias/2011/12/30/who-dares-enter-my-domain/cat.jpg" alt="who dares enter my domain"></p>
+
+<p>Just a short one today to point out that I finally got around to configuring the domain (read: defeated the dns dragon) to work properly with tumblr!</p>
+
+<p>From today forwards the blog will be accessible from <a href="http://blog.devalias.net">http://blog.devalias.net</a> as well as the old tumblr address (which will forward to the new domain anyway)</p>
+
+<p>Hope you guys enjoy!</p>
+
+	  ]]></description>
+	</item>
+
+
+</channel>
+</rss>

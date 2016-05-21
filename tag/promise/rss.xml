@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+   
+      <title>devalias.net</title>
+   
+   <link>http://devalias.net</link>
+   <description>My intention is for this to be a place where I post anything that interests my geeky mind. I may not update it often, and you may not find it that interesting.. You've been forewarned.
+</description>
+   <language>en-uk</language>
+   <managingEditor> </managingEditor>
+   <atom:link href="rss" rel="self" type="application/rss+xml" />
+   
+	<item>
+	  <title>Java/Scala Future/Promise Map *headsplode*</title>
+	  <link>/devalias/2014/05/15/java-scala-future-promise-map-headsplode/</link>
+	  <author>devalias</author>
+	  <pubDate>2014-05-15T08:55:00+10:00</pubDate>
+	  <guid>/devalias/2014/05/15/java-scala-future-promise-map-headsplode/</guid>
+	  <description><![CDATA[
+	     <p>A side by side comparison (now that I finally got it figured out!) of <a href="https://www.playframework.com/">Play Framework</a> v2.2.x promise unwrapping in <a href="https://www.java.com/en/">Java</a> and <a href="http://www.scala-lang.org/">Scala</a>. Hopefully this will be able to save some of you a bunch of mind numbing ponderings and failures.</p>
+
+<p>&lt;3 /dev/alias</p>
+
+<script src="https://gist.github.com/alias1/1d3b44312d8a68ddbaa5.js"> </script>
+
+	  ]]></description>
+	</item>
+
+
+</channel>
+</rss>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+   
+      <title>devalias.net</title>
+   
+   <link>http://devalias.net</link>
+   <description>My intention is for this to be a place where I post anything that interests my geeky mind. I may not update it often, and you may not find it that interesting.. You've been forewarned.
+</description>
+   <language>en-uk</language>
+   <managingEditor> </managingEditor>
+   <atom:link href="rss" rel="self" type="application/rss+xml" />
+   
+	<item>
+	  <title>Markdown!</title>
+	  <link>/devalias/2013/06/17/markdown-on-tumblr/</link>
+	  <author>devalias</author>
+	  <pubDate>2013-06-17T09:26:00+10:00</pubDate>
+	  <guid>/devalias/2013/06/17/markdown-on-tumblr/</guid>
+	  <description><![CDATA[
+	     <p>Just discovered that I can switch the rich text editor to markdown! w00t!</p>
+
+<p>You can tell I don&#39;t look at this blog enough eh..?</p>
+
+	  ]]></description>
+	</item>
+
+
+</channel>
+</rss>

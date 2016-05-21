@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+   
+      <title>devalias.net</title>
+   
+   <link>http://devalias.net</link>
+   <description>My intention is for this to be a place where I post anything that interests my geeky mind. I may not update it often, and you may not find it that interesting.. You've been forewarned.
+</description>
+   <language>en-uk</language>
+   <managingEditor> </managingEditor>
+   <atom:link href="rss" rel="self" type="application/rss+xml" />
+   
+	<item>
+	  <title>vFeed - Wrapper/Helper Scripts For Speed and Efficiency</title>
+	  <link>/devalias/2013/11/21/vfeed-wrapper-helper-scripts-for-speed-and-efficiency/</link>
+	  <author>devalias</author>
+	  <pubDate>2013-11-21T09:00:54+11:00</pubDate>
+	  <guid>/devalias/2013/11/21/vfeed-wrapper-helper-scripts-for-speed-and-efficiency/</guid>
+	  <description><![CDATA[
+	     <p>Just wanted to share some quick little bash scripts I threw together to make vFeed a little quicker/more efficient for my use.</p>
+
+<p>If you don&#39;t know it already, <a href="https://github.com/toolswatch/vfeed">vFeed</a> is an Open Source Cross Linked and Aggregated Local Vulnerability Database put together by the fine folks over at <a href="http://www.toolswatch.org/vfeed/">ToolsWatch</a>. You can query it for a whole bunch of information and details that may aid you in your pentests, all from the convenience of a local database.</p>
+
+<p>To make life easier, I throw these scripts in my vFeed directory and symlink them from bin.</p>
+<div class="highlight"><pre><code class="language-" data-lang="">cd /path/to/bin
+ln -s /path/to/vFeed/bin/vfeed.sh vfeed
+ln -s /path/to/vFeed/bin/vfeedcli.sh vfeedcli
+ln -s /path/to/vFeed/bin/vfeed_update.sh vfeed_update
+</code></pre></div>
+<p>Enjoy!</p>
+
+<script src="https://gist.github.com/alias1/7554985.js"> </script>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>nmap.sh - Saving Precious Seconds</title>
+	  <link>/devalias/2013/07/13/nmap-sh-saving-precious-seconds/</link>
+	  <author>devalias</author>
+	  <pubDate>2013-07-13T08:00:00+10:00</pubDate>
+	  <guid>/devalias/2013/07/13/nmap-sh-saving-precious-seconds/</guid>
+	  <description><![CDATA[
+	     <p>In the course of my work I end up issuing the same simple commands again and again, and while they are pretty easy to remember, they still take more time than they really need to.</p>
+
+<p>With that in mind, here&#39;s a little bash script I threw together today to reduce the time it takes to kick off a standard (in my day to day usage) nmap scan. Hopefully you can get some use out of it.</p>
+
+<script src="https://gist.github.com/alias1/5963377.js"> </script>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>Plesk - Adding programs to a chrooted SSH</title>
+	  <link>/devalias/2012/01/10/plesk-adding-programs-to-a-chrooted-ssh/</link>
+	  <author>devalias</author>
+	  <pubDate>2012-01-10T05:29:00+11:00</pubDate>
+	  <guid>/devalias/2012/01/10/plesk-adding-programs-to-a-chrooted-ssh/</guid>
+	  <description><![CDATA[
+	     <p>Just a few notes today about making programs (in this case git) available to a chrooted SSH account in Plesk. I&#39;m assuming the account is already setup for ssh, etc so I will just be covering where to copy the files to.</p>
+
+<p><strong>Note:</strong> If you are here about getting an <code>execv(&quot;/bin/bash&quot;)</code> failed error, check Appendix B</p>
+
+<h2>Location</h2>
+
+<ul>
+<li><code>/usr/local/bin</code> - The git bin files we will be copying.</li>
+<li><code>/usr/local/share/git-core</code> - The shared git-core files.</li>
+<li><code>/var/www/vhosts/chroot</code> - The base directory for chroot accessible programs.</li>
+</ul>
+
+<h2>Copying Git</h2>
+
+<p>Firstly you will want to locate the git files. The easiest way to do this is by typing:</p>
+<div class="highlight"><pre><code class="language-" data-lang="">which git
+</code></pre></div>
+<p>This should tell you the path to git (in my case /usr/local/bin) Next we want to copy the files over to the equivalent path in the chroot directory (/path/to/chroot/usr/local/bin)</p>
+<div class="highlight"><pre><code class="language-" data-lang="">cp -R /usr/local/bin/git* /var/www/vhosts/chroot/usr/local/bin
+</code></pre></div>
+<p>In the case of git, we also want to copy over some other files</p>
+<div class="highlight"><pre><code class="language-" data-lang="">cp -R /usr/local/share/git-core /var/www/vhosts/chroot/usr/local/share/git-core
+cp -R /usr/local/libexec /var/www/vhosts/chroot/usr/local/libexec/git-core
+</code></pre></div>
+<p><strong>Note:</strong> The libexec files are quite large (100&#39;s of mb) so you may want to consider doing this in a better way.</p>
+
+<h2>Updating chroot&#39;d directories</h2>
+
+<p>The final (rather simple) step involves updating any chrooted directories that have already been created. This can be done by running the <code>recreate_chroot_env.sh</code> script (downloadable from <a href="http://kb.parallels.com/818">http://kb.parallels.com/818</a>)</p>
+
+<p>This can also be done without the script:</p>
+
+<p><code>
+/usr/local/psa/admin/sbin/chrootmng --remove --source=/var/www/vhosts/chroot --target=/var/www/vhosts/&lt;domain name&gt;
+/usr/local/psa/admin/sbin/chrootmng --create --source=/var/www/vhosts/chroot --target=/var/www/vhosts/&lt;domain name&gt;
+</code>`</p>
+
+<p><strong>Thats it!!</strong></p>
+
+<p>Now when you login to your chrooted account you should be able to use git. I might add the required files for some more programs as I find the need to add them.</p>
+
+<h2>Appendix A: Files required for ftp</h2>
+
+<ul>
+<li><code>/usr/bin/ftp</code> -&gt; <code>chroot/bin</code></li>
+<li><code>/usr/lib64/libreadline.so.5</code> -&gt; <code>chroot/lib/libreadline.so.5</code></li>
+<li><code>/usr/lib64/libncurses.so.5</code> -&gt; <code>chroot/lib/libncurses.so.5</code></li>
+<li><code>/etc/services</code> -&gt; <code>chroot/etc/services</code></li>
+</ul>
+
+<h2>Appendix B: execv(&quot;/bin/bash&quot;) failed</h2>
+
+<p>One cause of this occuring is due to the bin files for a chrooted directory not exisiting/being properly setup. This can be fixed by following the instructions in Updating chroot&#39;d directories above.. or if you&#39;re too lazy to scroll (like me)</p>
+<div class="highlight"><pre><code class="language-" data-lang="">/usr/local/psa/admin/sbin/chrootmng --remove --source=/var/www/vhosts/chroot --target=/var/www/vhosts/&lt;domain name&gt;
+/usr/local/psa/admin/sbin/chrootmng --create --source=/var/www/vhosts/chroot --target=/var/www/vhosts/&lt;domain name&gt;
+</code></pre></div>
+	  ]]></description>
+	</item>
+
+
+</channel>
+</rss>

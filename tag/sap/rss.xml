@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+   
+      <title>devalias.net</title>
+   
+   <link>http://devalias.net</link>
+   <description>My intention is for this to be a place where I post anything that interests my geeky mind. I may not update it often, and you may not find it that interesting.. You've been forewarned.
+</description>
+   <language>en-uk</language>
+   <managingEditor> </managingEditor>
+   <atom:link href="rss" rel="self" type="application/rss+xml" />
+   
+	<item>
+	  <title>ERPScan Automator - Because Manual is Meh</title>
+	  <link>/devalias/2013/08/10/erpscan-automator-because-manual-is-meh/</link>
+	  <author>devalias</author>
+	  <pubDate>2013-08-10T08:00:50+10:00</pubDate>
+	  <guid>/devalias/2013/08/10/erpscan-automator-because-manual-is-meh/</guid>
+	  <description><![CDATA[
+	     <p>Another quick little tool for you guys today that I hacked together to save myself some time. This one automates running through a number of tests using the <a href="https://erpscan.com/research/free-pentesting-tools-for-sap-and-oracle/">ERPScan SAP Pentesting Tool</a></p>
+
+<p>At time of writing, configuration is all done inside the script, with no support for command line parameters (might add them in the future)</p>
+
+<script src="https://gist.github.com/alias1/6118709.js"> </script>
+
+	  ]]></description>
+	</item>
+
+
+</channel>
+</rss>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+   
+      <title>devalias.net</title>
+   
+   <link>http://devalias.net</link>
+   <description>My intention is for this to be a place where I post anything that interests my geeky mind. I may not update it often, and you may not find it that interesting.. You've been forewarned.
+</description>
+   <language>en-uk</language>
+   <managingEditor> </managingEditor>
+   <atom:link href="rss" rel="self" type="application/rss+xml" />
+   
+	<item>
+	  <title>Ruby on Rails - Learned the hard way #1 - db:migrate</title>
+	  <link>/devalias/2013/08/03/rails-lessons-learned-the-hard-way-1-db-migrate/</link>
+	  <author>devalias</author>
+	  <pubDate>2013-08-03T08:00:38+10:00</pubDate>
+	  <guid>/devalias/2013/08/03/rails-lessons-learned-the-hard-way-1-db-migrate/</guid>
+	  <description><![CDATA[
+	     <p>Decided I will make this a regular little mini collection of things I learned the hard way with Ruby on Rails. So here it is, lesson #1!</p>
+
+<p>Generate your model first, make all manual edits, and then only AFTER you have made all your manual edits (and double checked them), run rake db:migrate. It will save you a fair few headaches.</p>
+
+<script src="https://gist.github.com/alias1/5790864.js"> </script>
+
+	  ]]></description>
+	</item>
+
+
+</channel>
+</rss>

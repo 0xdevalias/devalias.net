@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+   
+      <title>devalias.net</title>
+   
+   <link>http://devalias.net</link>
+   <description>My intention is for this to be a place where I post anything that interests my geeky mind. I may not update it often, and you may not find it that interesting.. You've been forewarned.
+</description>
+   <language>en-uk</language>
+   <managingEditor> </managingEditor>
+   <atom:link href="rss" rel="self" type="application/rss+xml" />
+   
+	<item>
+	  <title>Play! Framework - Seperated WS Library</title>
+	  <link>/devalias/2014/06/26/play-framework-seperated-ws-library/</link>
+	  <author>devalias</author>
+	  <pubDate>2014-06-26T03:48:00+10:00</pubDate>
+	  <guid>/devalias/2014/06/26/play-framework-seperated-ws-library/</guid>
+	  <description><![CDATA[
+	     <p>So as we all (should) know, <a href="https://www.playframework.com/">Play! Framework</a> has released <a href="https://www.typesafe.com/blog/announcing-play-230">v2.3.x</a></p>
+
+<p>With it comes a <a href="https://www.playframework.com/documentation/2.3.x/Highlights23">whole range</a> of new features, including one that caught my eye:</p>
+
+<blockquote>
+<p>Play WS</p>
+
+<p>Separate library</p>
+
+<p>The WS client library has been refactored into its own library which can be used outside of Play. You can now have multiple WSClient objects, rather than only using the WS singleton.</p>
+</blockquote>
+
+<p>This was particularly exciting for me, as I&#39;ve grown to know, understand and love the simple abstractions the Play WS library provides.</p>
+
+<p>Sweet! So how do I get it in my projects? Had a look over at <a href="https://github.com/playframework">playframework@Github</a> to no avail (was expecting a new repo)</p>
+
+<p>After a little more digging, I came across the <a href="https://www.playframework.com/documentation/2.3.x/Repositories">Play! Repositories</a> page, which lead me to finding what I wanted.</p>
+
+<p>A little xml magic later and we have the following for a maven project wanting to use the Java version of the WS library:</p>
+<div class="highlight"><pre><code class="language-" data-lang="">&lt;dependencies&gt;
+    &lt;groupId&gt;com.typesafe.play&lt;/groupId&gt;
+    &lt;artifactId&gt;play-java-ws_2.10&lt;/artifactId&gt;
+    &lt;version&gt;2.3.0&lt;/version&gt;
+&lt;/dependencies&gt;
+
+&lt;repositories&gt;
+    &lt;id&gt;Typesafe Releases&lt;/id&gt;
+    &lt;url&gt;http://repo.typesafe.com/typesafe/releases/&lt;/url&gt;
+&lt;/repositories&gt;
+</code></pre></div>
+<p>Hope this saves you guys some time, and as always, happy hacking!</p>
+
+<h2>&quot;There is no started application&quot;</h2>
+
+<p>If you end up getting a &quot;There is no started application&quot; message when you try to use WS, you will need to do something like the following:</p>
+<div class="highlight"><pre><code class="language-" data-lang="">AsyncHttpClientConfig.Builder builder = new com.ning.http.client.AsyncHttpClientConfig.Builder();
+NingWSClient wsClient = new play.libs.ws.ning.NingWSClient(builder.build());
+
+// Instead of this
+//WSRequestHolder ws = WS.url(url)
+
+// Use this
+WSRequestHolder ws = wsClient.url(url)
+</code></pre></div>
+<p>See the following for more details:</p>
+
+<ul>
+<li><a href="http://stackoverflow.com/questions/24881145/how-do-i-use-play-ws-library-in-normal-sbt-project-instead-of-play">http://stackoverflow.com/questions/24881145/how-do-i-use-play-ws-library-in-normal-sbt-project-instead-of-play</a>
+
+<ul>
+<li>Scala - Using WSClient: <a href="http://www.playframework.com/documentation/2.3.x/ScalaWS">http://www.playframework.com/documentation/2.3.x/ScalaWS</a></li>
+<li>Java - Using WSClient: <a href="http://www.playframework.com/documentation/2.3.x/JavaWS">http://www.playframework.com/documentation/2.3.x/JavaWS</a></li>
+</ul></li>
+</ul>
+
+<p>(Note: The tl;dr/raw/likely most up to date notes I made for this are <a href="https://gist.github.com/alias1/288dce6b353f2a72a7d4">available as a gist</a>)</p>
+
+	  ]]></description>
+	</item>
+
+
+</channel>
+</rss>

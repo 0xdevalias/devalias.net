@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+   
+      <title>devalias.net</title>
+   
+   <link>http://devalias.net</link>
+   <description>My intention is for this to be a place where I post anything that interests my geeky mind. I may not update it often, and you may not find it that interesting.. You've been forewarned.
+</description>
+   <language>en-uk</language>
+   <managingEditor> </managingEditor>
+   <atom:link href="rss" rel="self" type="application/rss+xml" />
+   
+	<item>
+	  <title>New Window With Tabs To Right - Chrome Extension</title>
+	  <link>/devalias/2013/08/08/new-window-with-tabs-to-right-chrome-extension/</link>
+	  <author>devalias</author>
+	  <pubDate>2013-08-08T08:00:50+10:00</pubDate>
+	  <guid>/devalias/2013/08/08/new-window-with-tabs-to-right-chrome-extension/</guid>
+	  <description><![CDATA[
+	     <p>(tl;dr I wrote a chrome extension, <a href="https://chrome.google.com/webstore/detail/new-window-with-tabs-to-r/ldahcfljppchbfgdokomobmfdfplaman">get it in the web store</a> or <a href="https://github.com/alias1/chrome-NewWindowWithTabsToRight">check it out on GitHub</a>)</p>
+
+<p>So I decided I would re-dip my feet into the wonderful world that is chrome extensions. I had a little look a while back, but never really got to making anything relevant.</p>
+
+<p>This time around I decided to start off simple, and something that I would find useful, so without further ado building up drumroll here is the copypasta of the description I wrote for the chrome web store (there are SO many extra little hoops you have to jump through to go from working code to published in the web store.. Maybe a potential future topic?):</p>
+
+<blockquote>
+<p>This is a simple little extension (my first proper one!) that I wanted to make my life a little easier.
+It lets you create a new window with the tabs to the right (optionally including the current tab)
+My main reason for wanting this was to more effectively make use of the &#39;Sesh&#39; extension by Yuji Kosugi when I forgot to open a new window before opening a ton of tabs.
+If you have any comments, criticisms, praise, hatred, marriage proposals, fluffy bunnies, or transdimensional gateway blueprints, feel free to send them through to me at <a href="mailto:feedback@devalias.net">feedback@devalias.net</a> (Make sure to mention the extension name in the subject so I know what you&#39;re talking about!)</p>
+</blockquote>
+
+<p>Since that&#39;s a blockquote and I can&#39;t link in it, here is a link to <a href="https://chrome.google.com/webstore/detail/sesh/emclpejnhkiogdlimfgipbdfpdcnhhoj">Sesh</a> by <a href="https://about.me/yujily">Yuji Kosugi</a> (highly recommended if you&#39;re a tab junkie like myself!)</p>
+
+<p>So yeah, that&#39;s it! Check it out in the <a href="https://chrome.google.com/webstore/detail/new-window-with-tabs-to-r/ldahcfljppchbfgdokomobmfdfplaman">Chrome Web Store</a> and let me know what you think!!</p>
+
+<p>Oh, by the way, since I love you guys and open source software, it&#39;s released under the MIT Licence and you can go and <a href="https://github.com/alias1/chrome-NewWindowWithTabsToRight">check it out over at GitHub</a>! &lt;3</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>nmap.sh - Saving Precious Seconds</title>
+	  <link>/devalias/2013/07/13/nmap-sh-saving-precious-seconds/</link>
+	  <author>devalias</author>
+	  <pubDate>2013-07-13T08:00:00+10:00</pubDate>
+	  <guid>/devalias/2013/07/13/nmap-sh-saving-precious-seconds/</guid>
+	  <description><![CDATA[
+	     <p>In the course of my work I end up issuing the same simple commands again and again, and while they are pretty easy to remember, they still take more time than they really need to.</p>
+
+<p>With that in mind, here&#39;s a little bash script I threw together today to reduce the time it takes to kick off a standard (in my day to day usage) nmap scan. Hopefully you can get some use out of it.</p>
+
+<script src="https://gist.github.com/alias1/5963377.js"> </script>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>Fixing Windows Productivity Issues OSX Style</title>
+	  <link>/devalias/2013/07/11/fixing-windows-productivity-issues-osx-style/</link>
+	  <author>devalias</author>
+	  <pubDate>2013-07-11T08:00:28+10:00</pubDate>
+	  <guid>/devalias/2013/07/11/fixing-windows-productivity-issues-osx-style/</guid>
+	  <description><![CDATA[
+	     <p>As much as past me would hate me for saying this, these days I am quite the fan of a number of Apple products. My MacBook Pro is a dream to use thanks to multitouch and some of the well thought out and designed features of OSX.</p>
+
+<p>Unfortunately, coming back to my desktop PC I very quickly realise just how much I have come to rely on a few simple features of OSX that are sorely lacking in Windows (don&#39;t worry Microsoft fans, there are a few features of Windows that OSX lacks that annoy the crap out of me too!)</p>
+
+<p>Among these there are 2 common ones (now provided by the same feature), and one less obvious thing, that together increase my productivity immensely:</p>
+
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Mission_Control_(OS_X)">Mission Control</a> 
+
+<ul>
+<li><a href="https://support.apple.com/kb/PH11158?locale=en_US">Spaces</a> (formerly) – Allows you to create and work within multiple desktops, switching between them.</li>
+<li><a href="https://support.apple.com/kb/VI22?locale=en_US">Exposé</a> (formerly) – Allows you to tile all open windows, hide application windows offscreen to show the desktop, etc</li>
+</ul></li>
+<li>The ability to scroll the window under the mouse cursor when it&#39;s not the currently focussed window</li>
+</ul>
+
+<h2>Mission Control/Spaces/Exposé (for Windows)</h2>
+
+<ul>
+<li><a href="http://www.betterdesktoptool.com/">Better Desktop Tool</a> (Vista SP2+, Win7 SP1+, Win8) – This is what I use on my main PC at home. It let&#39;s you do the tiling/hiding application windows features of exposé as well as the multiple desktops of spaces. To quote some Apple exec somewhere, it just works! Very much recommend this!</li>
+<li><a href="https://sites.google.com/site/emceesoftware1/">Emcee</a> (Win7, Win8) – I personally haven&#39;t tried this at all, but some sources on the net seem to think it&#39;s pretty cool, so.. might be worth checking out?</li>
+<li><a href="http://virtuawin.sourceforge.net/">VirtuaWin</a> (Win9x/ME/NT/Win2K/XP/Win2003/Vista/Win7) – Nowhere near as pretty or fancy looking as the other two, but if you&#39;re on an older OS then you may have to compromise. VirtuaWin has been around forever, and provides (as the name implies) virtual desktops (aka spaces) for WIndows. Supports plugins, but no decent exposé functionality to my knowledge.</li>
+</ul>
+
+<h2>Scrolling in unfocussed windows</h2>
+
+<ul>
+<li><a href="http://ehiti.de/katmouse/">KatMouse</a> – A simple tool with a single purpose, allowing you to scroll unfocussed windows. Thank F for that!</li>
+</ul>
+
+<h2>Anything Else?</h2>
+
+<p>Know of anything else that&#39;s cool/noteworthy/makes working in Windows less painful for OSX users? <a href="http://devalias.tumblr.com/ask">Let me know via ask!!!</a></p>
+
+	  ]]></description>
+	</item>
+
+
+</channel>
+</rss>

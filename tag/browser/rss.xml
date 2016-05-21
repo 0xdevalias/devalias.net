@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+   
+      <title>devalias.net</title>
+   
+   <link>http://devalias.net</link>
+   <description>My intention is for this to be a place where I post anything that interests my geeky mind. I may not update it often, and you may not find it that interesting.. You've been forewarned.
+</description>
+   <language>en-uk</language>
+   <managingEditor> </managingEditor>
+   <atom:link href="rss" rel="self" type="application/rss+xml" />
+   
+	<item>
+	  <title>RockMelt - Beta 2 Announced</title>
+	  <link>/devalias/2011/09/16/rockmelt-beta-2-announced/</link>
+	  <author>devalias</author>
+	  <pubDate>2011-09-16T13:53:00+10:00</pubDate>
+	  <guid>/devalias/2011/09/16/rockmelt-beta-2-announced/</guid>
+	  <description><![CDATA[
+	     <p>So in followup to my previous post on RockMelt, they have just put up news that beta 2 will be out soon with all sorts of sexy improvements! Chat had been redesigned to make chatting to multiple people easier, they have included a View Later app (think Instapaper or ReadItLater), a new Twitter app, and it now all runs on Chromium 10! I can&#39;t wait till it&#39;s available for download.</p>
+
+<p>rockmelt:</p>
+
+<blockquote>
+<p>We&#39;re excited to introduce RockMelt Beta 2! While we&#39;ve shipped 20 updates since November, RockMelt Beta 2 represents our most significant revision so far. One thing we&#39;re really proud of is how much people actually use RockMelt. People use RockMelt for more than 6 hours each day to share links...</p>
+</blockquote>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>RockMelt - Your Browser. Re-Imagined.</title>
+	  <link>/devalias/2011/09/16/rockmelt-your-browser-re-imagined/</link>
+	  <author>devalias</author>
+	  <pubDate>2011-09-16T12:59:00+10:00</pubDate>
+	  <guid>/devalias/2011/09/16/rockmelt-your-browser-re-imagined/</guid>
+	  <description><![CDATA[
+	     <p>So I have been using this browser for a few weeks now, and I must say, I am VERY impressed. I was looking for something to streamline my vast (and ever increasing) presence on the social web, something that would let me keep up to date with everything, without the need to constantly F5.</p>
+
+<p>Rockmelt is built off the Google Chromium browser. It integrates with Facebook, Twitter, Tumblr, RSS, etc via a number of features including it&#39;s &#39;Edges&#39; (side bars that contain apps/feeds).</p>
+
+<p>While Rockmelt is still in beta (and only a few days ago moved from closed to public beta) I find it a rather usable browser. With that being said there are still a few things that are needed to make it an even better experience. Namely</p>
+
+<ul>
+<li>More integration with other social sites (this feature is being worked on)</li>
+<li>The ability to scroll the &#39;edges&#39;, or to group RSS feeds/etc so as to be able to fit more things on each edge.</li>
+<li>Not a feature with the browser as such, but better transparency with what the Rockmelt team are working on. It would be nice to have a roadmap of planned features, and/or a changelog so that we can see what was modified in each update.</li>
+<li>While it still has a ways to go, I feel that RockMelt is well on it&#39;s way to making itself a #1 choice for socially integrating browser.</li>
+</ul>
+
+	  ]]></description>
+	</item>
+
+
+</channel>
+</rss>

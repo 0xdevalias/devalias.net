@@ -1,0 +1,487 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+   
+      <title>devalias.net</title>
+   
+   <link>http://devalias.net</link>
+   <description>My intention is for this to be a place where I post anything that interests my geeky mind. I may not update it often, and you may not find it that interesting.. You've been forewarned.
+</description>
+   <language>en-uk</language>
+   <managingEditor> devalias</managingEditor>
+   <atom:link href="rss" rel="self" type="application/rss+xml" />
+   
+	<item>
+	  <title>Dogedraw, now with more Nyaan!</title>
+	  <link>/devalias/2015/04/20/dogedraw-now-with-more-nyaan/</link>
+	  <author>devalias</author>
+	  <pubDate>2015-04-20T12:00:00+10:00</pubDate>
+	  <guid>/devalias/2015/04/20/dogedraw-now-with-more-nyaan/</guid>
+	  <description><![CDATA[
+	     <p>Over the last few days I&#39;ve been mentoring web dev at <a href="http://hact.io/">HS.HACT.IO</a>, inspiring a group of younger kids to get into tech as creators. One of the other mentors showed us a site he previously put together, <a href="http://dogedraw.com/">DogeDraw</a>. After playing around with it for a little, I decided it was a little too manual, so started hacking away in the JS console to make it more fun.</p>
+
+<p>A little while (and far too long typing out pixel art as code) later, and we have nyaan hacks! You can clear a section of the screen with a solid block of colour, or better yet, stamp out some pixel art nyaan cat across the page!</p>
+
+<script src="https://gist.github.com/alias1/e8bb28726a37854606ad.js"> </script>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>Kiwicon 8 (2014) - Some quick notes</title>
+	  <link>/devalias/2014/12/16/kiwicon-8-2014-some-quick-notes/</link>
+	  <author>devalias</author>
+	  <pubDate>2014-12-16T08:08:04+11:00</pubDate>
+	  <guid>/devalias/2014/12/16/kiwicon-8-2014-some-quick-notes/</guid>
+	  <description><![CDATA[
+	     <ul>
+<li><a href="https://kiwicon.org/">Kiwicon</a>
+
+<ul>
+<li><a href="http://2014.kiwicon.org/">2014</a></li>
+<li><a href="http://2014.kiwicon.org/the-con/schedule/">Schedule</a></li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/">Talks</a></li>
+</ul></li>
+</ul>
+
+<hr>
+
+<p>This was most definitely one of the most interesting, exciting, and downright awesome &#39;con experiences i&#39;ve ever had! In the past i&#39;ve pretty much kept to myself, watched the talks and headed home, but hung out/chatted/discussed with a lot of people over the course of the week, and it was epic! So so so definitely worthwhile!!</p>
+
+<p>Not sure of the best way to go about this, so will just list out the different presentations and anything of interest/note from them.</p>
+
+<p>I assume slides/etc should be up later on, so if something looks interesting, keep an eye out for that.</p>
+
+<h2><a href="http://2014.kiwicon.org/the-con/schedule/#Thursday11December">Thursday</a></h2>
+
+<ul>
+<li><a href="https://kiwicon.org/the-con/talks/#e146">Eve, Mallory, Ocean&#39;s 11, and Jack Bauer: Adversaries Real and Imagined</a>
+
+<ul>
+<li>Nice overview of the different kinds of attackers, what they tend to be after, etc</li>
+<li>Basically highlighted that you need to know what they are after and what it is worth, and balance security accordingly</li>
+</ul></li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e149">Breaking Bricks and Plumbing Pipes: Cisco ASA a Super Mario Adventure</a>
+
+<ul>
+<li>Interesting talk about a plethora of security flaws found in Cisco firewall to gain a pivot point into the network</li>
+</ul></li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e150">Asymmetric Defense, and your buyers guide to Threat Intelligence</a>
+
+<ul>
+<li>Essentially talked about how a lot of &#39;threat intelligence&#39; out there is crap, and treated as &#39;more is better&#39; rather than &#39;&#39;better is better&#39;</li>
+<li>Talked about how there needs to be standardises formats for digitally sharing/consuming threat intelligence</li>
+</ul></li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e151">Seeing Blu</a>
+
+<ul>
+<li>Step by step walkthrough and thought process of how he hacked his BluRay player to enable multi region support so he could watch his copy of Hackers.</li>
+</ul></li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e152">OneRNG - a verifiable and Open Hardware Random Number Generator from NZ</a>
+
+<ul>
+<li>Small open source/hardware device to generate truly random entropy, to be fed back into a random number generator</li>
+<li>Recently released on kickstarter: <a href="https://www.kickstarter.com/projects/moonbaseotago/onerng-an-open-source-entropy-generator">https://www.kickstarter.com/projects/moonbaseotago/onerng-an-open-source-entropy-generator</a></li>
+</ul></li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e147">Eradicating the Human Problem</a>
+
+<ul>
+<li>Really excellent talk by @lady_nerd talking about social engineering and humans as the weak point in security</li>
+<li>Talked about how we need a better way to assess and track the human element of security, rather than treating it as too hard/unobtainable</li>
+<li>Briefly discussed a tool in development designed to assist with mapping out the social interactions of a company in a way that allows assessing potential risk/etc, and determining the flow of an attack through the social elements of a company</li>
+<li>Slides: <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Want to see the trailer/slides for my <a href="https://twitter.com/hashtag/kiwicon?src=hash">#kiwicon</a> talk &#39;Eradicating the human problem&#39;. Here&#39;s a blog post with links <a href="http://t.co/I5bacKHRVb"><a href="http://t.co/I5bacKHRVb">http://t.co/I5bacKHRVb</a></a></p>&mdash; Laura Bell (@lady<em>nerd) &lt;a href=&quot;<a href="https://twitter.com/lady">https://twitter.com/lady</a></em>nerd/status/544230404170194945&quot;&gt;December 14, 2014</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></li>
+</ul></li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e142">Security the Etsy way: Effective security in a continuous deployment culture</a>
+
+<ul>
+<li>Excellent talk by @iodboi about mixing in security people with the general developers, not blocking progress/saying no while still maintaining security, making security liked/approachable, etc.</li>
+<li>So many awesome points and discussions, not to mention showing just how epic a place Etsy is to work.</li>
+<li>Caught up with him a decent bit after his talk and had some awesome chats, a really cool and down to earth guy</li>
+<li>Etsy are a great example of continuous deployment, with upwards of 50 pushes into production every day</li>
+<li>One of the big points: Don&#39;t hire assholes (they will ruin all of the work you put in to enhance security/etcs image and drag everyone down) <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Excellent security team management advice from <a href="https://twitter.com/iodboi">@iodboi</a> :) <a href="https://twitter.com/kiwicon">@kiwicon</a> <a href="http://t.co/8m5ZyjYFfV">pic.twitter.com/8m5ZyjYFfV</a></p>&mdash; Leigh Honeywell (@hypatiadotca) <a href="https://twitter.com/hypatiadotca/status/542870405514801152">December 11, 2014</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></li>
+</ul></li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e153">COMSEC - Beyond Encryption</a>
+
+<ul>
+<li>Discussion on maintaining communication security, tools that are good/bad, etc</li>
+<li>Almost surprisingly, Apple factime rates pretty highly on the list.</li>
+<li>Pond considered THE thing to use <a href="https://pond.imperialviolet.org/">https://pond.imperialviolet.org/</a></li>
+</ul></li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e154">MitMing GSM with criminal intent</a>
+
+<ul>
+<li>Discussed the analysis and thinking, and eventual pwning of a GSM enabled home detention ankle monitor</li>
+<li>Made front page of the newspaper for the talk: <a href="http://www.nzherald.co.nz/nz/news/article.cfm?c_id=1&amp;objectid=11373524">http://www.nzherald.co.nz/nz/news/article.cfm?c_id=1&amp;objectid=11373524</a></li>
+<li>Same guy who broke the NZ transport card system last year</li>
+</ul></li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e143">Building a hipster catapult, or how2own your skateboard</a>
+
+<ul>
+<li>Amusing talk about taking over control of a bluetooth controlled electric skateboard, including demonstration</li>
+</ul></li>
+</ul>
+
+<h2><a href="http://2014.kiwicon.org/the-con/schedule/#Friday12December">Friday</a></h2>
+
+<ul>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e167">R00t Causes: complex systems failures and security incident response</a>
+
+<ul>
+<li>Analysis of a bridge collapse and how similar events map into security</li>
+<li>Some key points: compartmentalise/isolate</li>
+</ul></li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e156">ThruGlassXfer: The TV people? Do you see them?</a>
+
+<ul>
+<li>Interesting proof of concept and discussion on using the pixels on a screen and a video camera, combined with a programmable keyboard to initiate an &#39;&#39;air gapped&#39; bidirectional communications channel.</li>
+<li>Proves that if you can see it on the screen, and type into it, then you can basically bypass any other security in your way</li>
+<li><a href="http://thruglassxfer.com">http://thruglassxfer.com</a></li>
+</ul></li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e144">Cyberwar before there was Cyber: Hacking WWII Electronic Bomb Fuses</a>
+
+<ul>
+<li>Research/analyse on various types of german bomb fuses, and the evolution of design/defuser used to outsmart each other</li>
+</ul></li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e157">BeEF for Vegetarians (Hooked Browser Meshed-Networks with WebRTC)</a>
+
+<ul>
+<li>Pretty cool talk by @xntrik (co-author of browser hackers handbook) about creating mesh networks from exploited browsers to minimize detection/etc from communication with the command server</li>
+<li>Useful for circumventing/stealthing internal lateral exploration through a network</li>
+</ul></li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e158">An Image is Worth 1000 Frauds – Detecting Fake Images and Videos</a>
+
+<ul>
+<li>Interesting high level runthrough of some methods you can use to detect manipulated images/video</li>
+<li>Linked to <a href="https://github.com/ebemunk/phoenix">https://github.com/ebemunk/phoenix</a> a lot</li>
+</ul></li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e159">Manipulating Human Minds: The Psychological Side of Social Engineering</a>
+
+<ul>
+<li>Interesting talk by @0xkitty that takes a high level look at some of things involved in social engineering and manipulating the human element of security</li>
+</ul></li>
+<li>Lightning talks (shorter)
+
+<ul>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e160">Recap of the aftermath of last year&#39;s bus hacking</a></li>
+<li>Decent recap of what happened/how the incident was handled (eg. poorly)</li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e161">The National Cyber Security Strategy and the Connect Smart Partnership</a></li>
+<li>Some goverment guy that wasn&#39;t very engaging</li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e162">I know what you did last Wednesday: exploitation of the humble apartment video intercom</a></li>
+<li>Hacked his embedded linux apartment intercomm system to find exploits that enabled stealth monitoring of EVERY apartment in his building (100&#39;s)</li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e163">Voltron: Defender of the Universe</a></li>
+<li>Terminal based &#39;GUI&#39; for GDB debugging</li>
+<li><a href="https://github.com/snare/voltron">https://github.com/snare/voltron</a></li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e145">Random() Adventures in Minecrosoftcraft</a></li>
+<li>A practical example of using analyses to defeat insecure &#39;random&#39; implementations in the context of minecraft</li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e164">Legal loopholes</a></li>
+<li>Some talk about grey areas of the law/etc</li>
+</ul></li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e165">Breaking AV software</a>
+
+<ul>
+<li>Really interesting talk about just how insecure/terrible antivirus/security products in general can be (hint: VERY)</li>
+<li>Showed how a large number of the top AV engines can actually end up making your system less secure due to the way they are implemented.</li>
+</ul></li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e166">Hackers and Hacks, or: How I Learned to Stop Worrying and Love the MSM</a>
+
+<ul>
+<li>An enlightening talk by the reporters who engaged with &#39;&#39;rawshark&#39; and the process/pitfalls they went through to in securely communicating to release the information.</li>
+<li>Made some good points about security being hard for the &#39;&#39;average&#39; person, and how so very major stories (eg. Snowden) were almost missed out on because reporters don&#39;t understand how to security well enough</li>
+</ul></li>
+</ul>
+
+<h2><a href="http://2014.kiwicon.org/the-con/schedule/#Saturday13December">Saturday</a></h2>
+
+<ul>
+<li><a href="http://2014.kiwicon.org/the-con/events/#e148">Kiwicon SPIT ROAST</a>
+
+<ul>
+<li>We ate lots of meat, in a fortress!!</li>
+</ul></li>
+</ul>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>MDwiki (and how to get started)</title>
+	  <link>/devalias/2014/07/24/mdwiki-and-how-to-get-started/</link>
+	  <author>devalias</author>
+	  <pubDate>2014-07-24T03:12:31+10:00</pubDate>
+	  <guid>/devalias/2014/07/24/mdwiki-and-how-to-get-started/</guid>
+	  <description><![CDATA[
+	     <p>(Note: Original gist can be found <a href="https://gist.github.com/alias1/a8c3c2fd7bf2f50ff666">here</a>)</p>
+
+<p>If you haven&#39;t already heard about it, <a href="https://dynalon.github.io/mdwiki/#!index.md">MDwiki</a> is a cool little CMS/Wiki that runs entirely clientside (HTML5/Javascript) and uses <a href="https://en.wikipedia.org/wiki/Markdown">Markdown</a></p>
+
+<p>Since it&#39;s all clientside, we can do really cool things like track our changes in git and then host it all on <a href="https://pages.github.com/">GitHub Pages</a>. That means super simple forking, contributing and sharing. Yay for open source!</p>
+
+<h2>Setting up MDwiki with GitHub</h2>
+
+<p>There is an <a href="https://dynalon.github.io/mdwiki/#!tutorials/github.md">official guide</a> available on the MDwiki site, but I kind of like to do things my own way, so below is how I go about setting up a new site. (I&#39;ll assume you&#39;re already setup on GitHub and know vaguely how to use it, if not, maybe checkout the guide above)</p>
+
+<ul>
+<li>On GitHub
+
+<ul>
+<li><a href="https://github.com/new">Create a new repository</a> and name it what you want (eg. <code>my-mdwiki</code>)</li>
+</ul></li>
+<li>Setup initial MDwiki bits
+
+<ul>
+<li><a href="https://github.com/Dynalon/mdwiki/releases">Download the latest MDwiki release</a></li>
+<li>Extract it to a folder (eg. <code>my-mdwiki</code>)</li>
+<li>Here you have a choice:</li>
+<li><code>mdwiki.html</code> will give you MDwiki and all of it&#39;s libraries packaged as a single file</li>
+<li><code>mdwiki-slim.html</code> (my preference) will give you MDwiki, but load it&#39;s libraries from a CDN (content delivery network)</li>
+<li>Choose the option you want to use and rename it to <code>index.html</code></li>
+<li>Next we&#39;ll need to create a <code>config.json</code> file. You can <a href="https://dynalon.github.io/mdwiki/#!customizing.md">read about how this works</a> or just use something similar to mine:</li>
+</ul></li>
+</ul>
+<div class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span><span class="w">
+</span><span class="nt">"lineBreaks"</span><span class="p">:</span><span class="w"> </span><span class="s2">"gfm"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"additionalFooterText"</span><span class="p">:</span><span class="w"> </span><span class="s2">"By &lt;a href='http://www.devalias.net/'&gt;Glenn '/dev/alias' Grant&lt;/a&gt;&lt;br /&gt;"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"anchorCharacter"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&amp;para;"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<ul>
+<li>Almost there, create a quick <code>navigation.md</code> (<a href="https://dynalon.github.io/mdwiki/#!quickstart.md">docs</a>) that looks something like</li>
+</ul>
+<div class="highlight"><pre><code class="language-" data-lang=""># Your wiki name
+
+[Home](index.md)
+[About](about.md)
+[Download](download.md)
+</code></pre></div>
+<p>And create your first page (i&#39;ll only show you one, but the process is the same). Create a file called <code>index.md</code> (as specified in your navigation)</p>
+<div class="highlight"><pre><code class="language-" data-lang=""># Hello World!
+
+This is my first page!
+</code></pre></div>
+<ul>
+<li>That&#39;s it for the basic site setup!</li>
+<li>As a little bonus, I like to add a script to run a <code>python SimpleHTTPServer</code> for local testing called <code>run-pyserver.sh</code> (and make sure to make it executable with <code>chmod +x run-pyserver.sh</code>)</li>
+</ul>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c">#!/bin/bash</span>
+
+open http://localhost:8000
+python -m SimpleHTTPServer 8000
+</code></pre></div>
+<ul>
+<li>Now we&#39;ll setup our git repo:
+
+<ul>
+<li>Open a terminal window, and navigate to the folder you just created (eg. <code>cd ~/my-mdwiki</code>)</li>
+<li>Initialise the git repo: <code>git init</code></li>
+<li>Here we use some <a href="http://www.retrologic.com/jargon/M/magic.html">magic</a> (from <a href="http://git.661346.n2.nabble.com/how-to-start-with-non-master-branch-tt3284326.html#a3284821">Sean Estabrooks</a>) to tell git to call the initial branch <code>gh-pages</code> instead of <code>master</code>: <code>git symbolic-ref HEAD refs/heads/gh-pages</code></li>
+<li>Add all the files we&#39;ve created so far: <code>git add .</code></li>
+<li>Commit them: <code>git commit -m &quot;Initial Commit&quot;</code></li>
+<li>Add your GitHub repo as a remote (making sure to replace <code>YOURUSERNAME</code> with your actual username, and <code>my-mdwiki</code> with the name of the repository you created earlier): <code>git remote add origin git@github.com:YOURUSERNAME/my-mdwiki.git</code></li>
+<li>Then push it to github: <code>git push -u origin gh-pages</code></li>
+</ul></li>
+<li>That&#39;s pretty much it! After a short delay, your site should be available at <a href="http://YOURUSERNAME.github.io/my-mdwiki">http://YOURUSERNAME.github.io/my-mdwiki</a></li>
+</ul>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>Play! Framework - Seperated WS Library</title>
+	  <link>/devalias/2014/06/26/play-framework-seperated-ws-library/</link>
+	  <author>devalias</author>
+	  <pubDate>2014-06-26T03:48:00+10:00</pubDate>
+	  <guid>/devalias/2014/06/26/play-framework-seperated-ws-library/</guid>
+	  <description><![CDATA[
+	     <p>So as we all (should) know, <a href="https://www.playframework.com/">Play! Framework</a> has released <a href="https://www.typesafe.com/blog/announcing-play-230">v2.3.x</a></p>
+
+<p>With it comes a <a href="https://www.playframework.com/documentation/2.3.x/Highlights23">whole range</a> of new features, including one that caught my eye:</p>
+
+<blockquote>
+<p>Play WS</p>
+
+<p>Separate library</p>
+
+<p>The WS client library has been refactored into its own library which can be used outside of Play. You can now have multiple WSClient objects, rather than only using the WS singleton.</p>
+</blockquote>
+
+<p>This was particularly exciting for me, as I&#39;ve grown to know, understand and love the simple abstractions the Play WS library provides.</p>
+
+<p>Sweet! So how do I get it in my projects? Had a look over at <a href="https://github.com/playframework">playframework@Github</a> to no avail (was expecting a new repo)</p>
+
+<p>After a little more digging, I came across the <a href="https://www.playframework.com/documentation/2.3.x/Repositories">Play! Repositories</a> page, which lead me to finding what I wanted.</p>
+
+<p>A little xml magic later and we have the following for a maven project wanting to use the Java version of the WS library:</p>
+<div class="highlight"><pre><code class="language-" data-lang="">&lt;dependencies&gt;
+    &lt;groupId&gt;com.typesafe.play&lt;/groupId&gt;
+    &lt;artifactId&gt;play-java-ws_2.10&lt;/artifactId&gt;
+    &lt;version&gt;2.3.0&lt;/version&gt;
+&lt;/dependencies&gt;
+
+&lt;repositories&gt;
+    &lt;id&gt;Typesafe Releases&lt;/id&gt;
+    &lt;url&gt;http://repo.typesafe.com/typesafe/releases/&lt;/url&gt;
+&lt;/repositories&gt;
+</code></pre></div>
+<p>Hope this saves you guys some time, and as always, happy hacking!</p>
+
+<h2>&quot;There is no started application&quot;</h2>
+
+<p>If you end up getting a &quot;There is no started application&quot; message when you try to use WS, you will need to do something like the following:</p>
+<div class="highlight"><pre><code class="language-" data-lang="">AsyncHttpClientConfig.Builder builder = new com.ning.http.client.AsyncHttpClientConfig.Builder();
+NingWSClient wsClient = new play.libs.ws.ning.NingWSClient(builder.build());
+
+// Instead of this
+//WSRequestHolder ws = WS.url(url)
+
+// Use this
+WSRequestHolder ws = wsClient.url(url)
+</code></pre></div>
+<p>See the following for more details:</p>
+
+<ul>
+<li><a href="http://stackoverflow.com/questions/24881145/how-do-i-use-play-ws-library-in-normal-sbt-project-instead-of-play">http://stackoverflow.com/questions/24881145/how-do-i-use-play-ws-library-in-normal-sbt-project-instead-of-play</a>
+
+<ul>
+<li>Scala - Using WSClient: <a href="http://www.playframework.com/documentation/2.3.x/ScalaWS">http://www.playframework.com/documentation/2.3.x/ScalaWS</a></li>
+<li>Java - Using WSClient: <a href="http://www.playframework.com/documentation/2.3.x/JavaWS">http://www.playframework.com/documentation/2.3.x/JavaWS</a></li>
+</ul></li>
+</ul>
+
+<p>(Note: The tl;dr/raw/likely most up to date notes I made for this are <a href="https://gist.github.com/alias1/288dce6b353f2a72a7d4">available as a gist</a>)</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>Musings on breaking down silos</title>
+	  <link>/devalias/2014/06/12/rather-than-trying-to-make-everybody-everywhere/</link>
+	  <author>devalias</author>
+	  <pubDate>2014-06-12T03:11:37+10:00</pubDate>
+	  <guid>/devalias/2014/06/12/rather-than-trying-to-make-everybody-everywhere/</guid>
+	  <description><![CDATA[
+	     <p>Rather than trying to make everybody everywhere adapt their systems to try and handle everything that could possibly ever exist (a monumental task), have a &#39;new&#39; thing that is flexible enough to be able to interface with everything else.</p>
+
+<p>Thinking about it now, it&#39;s the exact same way as I look at the transition from legacy silo&#39;s to &#39;the future&#39; of personal clouds/etc. Sure, the ideal is that everything is free and open and interacts perfectly, but the reality is that that&#39;s not where we are at today, and there is a very real need for these &#39;bridging technologies&#39; to ease that transition as we move forward, and give us the wins of the future technology, without having to wait for the lag of general industry to catch up.</p>
+
+<p>—Glenn &#39;devalias&#39; Grant</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>Java/Scala Future/Promise Map *headsplode*</title>
+	  <link>/devalias/2014/05/15/java-scala-future-promise-map-headsplode/</link>
+	  <author>devalias</author>
+	  <pubDate>2014-05-15T08:55:00+10:00</pubDate>
+	  <guid>/devalias/2014/05/15/java-scala-future-promise-map-headsplode/</guid>
+	  <description><![CDATA[
+	     <p>A side by side comparison (now that I finally got it figured out!) of <a href="https://www.playframework.com/">Play Framework</a> v2.2.x promise unwrapping in <a href="https://www.java.com/en/">Java</a> and <a href="http://www.scala-lang.org/">Scala</a>. Hopefully this will be able to save some of you a bunch of mind numbing ponderings and failures.</p>
+
+<p>&lt;3 /dev/alias</p>
+
+<script src="https://gist.github.com/alias1/1d3b44312d8a68ddbaa5.js"> </script>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>How to add a Flattr button to your Tumblr posts</title>
+	  <link>/devalias/2014/05/05/how-to-add-a-flattr-button-to-your-tumblr-posts/</link>
+	  <author>devalias</author>
+	  <pubDate>2014-05-05T11:22:00+10:00</pubDate>
+	  <guid>/devalias/2014/05/05/how-to-add-a-flattr-button-to-your-tumblr-posts/</guid>
+	  <description><![CDATA[
+	     <p>Just a quick post today. You may notice the Flattr buttons on posts now. To find out how to add them to your own Tumblr posts check out</p>
+
+<p><a href="http://manuelgrabowski.de/2012/01/03/add-an-individual-flattr-button-to-your-tumblr-posts/">http://manuelgrabowski.de/2012/01/03/add-an-individual-flattr-button-to-your-tumblr-posts/</a></p>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>Using Lombok with Play! Framework 2.2x</title>
+	  <link>/devalias/2014/04/17/using-lombok-with-play-framework-22x/</link>
+	  <author>devalias</author>
+	  <pubDate>2014-04-17T11:44:47+10:00</pubDate>
+	  <guid>/devalias/2014/04/17/using-lombok-with-play-framework-22x/</guid>
+	  <description><![CDATA[
+	     <p><a href="https://projectlombok.org/">Lombok</a> is a project that removes some of the tediousness of Java by letting you use annotations to replace the verbosity of Getters/Setters (and heaps of other cool things!)</p>
+
+<ul>
+<li>This is mostly a note for me to help save a TON of time screwing around again.</li>
+<li>Play 2.2.x works &#39;out of the box&#39; just by including lombok in your dependencies</li>
+</ul>
+<div class="highlight"><pre><code class="language-" data-lang="">libraryDependencies ++= Seq(
+  foo,
+  bar,
+  baz,
+  "org.projectlombok" % "lombok" % "1.12.6"
+)
+</code></pre></div>
+<ul>
+<li>Where you run into issues is that play eclipse won&#39;t add the correct stuff for lombok to work correctly.</li>
+<li>After a lot of messing around, I just went back to the method suggested on the site
+
+<ul>
+<li>Download from <a href="http://projectlombok.org/download.html">http://projectlombok.org/download.html</a></li>
+<li>Run the installer and let it configure Eclipse</li>
+<li>Done</li>
+</ul></li>
+</ul>
+
+<p>&lt;3</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>VLC 2.1.x AC3/5.1 Audio Issues (and how to fix them)</title>
+	  <link>/devalias/2014/04/10/vlc-2-1x-ac3-5-1-audio-issues-and-how-to-fix/</link>
+	  <author>devalias</author>
+	  <pubDate>2014-04-10T03:01:22+10:00</pubDate>
+	  <guid>/devalias/2014/04/10/vlc-2-1x-ac3-5-1-audio-issues-and-how-to-fix/</guid>
+	  <description><![CDATA[
+	     <p>So, just lost an hour or two debugging some audio issues that seemed to crop up in VLC. I have a 5.1 setup, which will disable the speakers when I plug in a 2-channel set of headphones (pretty straightforward). For some strange reason this stopped working sometime recently. I assumed maybe audio drivers (windows update) or something else weird like that, but turns out it was VLC (which I forgot I had upgraded)</p>
+
+<p>Old versions of VLC (pre 2.1.x) allowed you to &#39;force&#39; a downscale in situations like this through the <code>rAudio -&gt; Audio Device -&gt; Stereo</code> right click menu option. Turns out, this feature was removed (and the menu item repurposed) in VLC 2.1.x. According to  <a href="https://forum.videolan.org/viewtopic.php?f=2&amp;t=115203#p394432">Jean-Baptiste Kempf on the VLC forums</a> this feature won&#39;t be coming back anytime before 2.2.x</p>
+
+<p>So what do we do in the meantime? If you haven&#39;t upgraded to 2.1.x yet and need this feature then don&#39;t upgrade. If you already have, downgrade to 2.0.8 (Windows) or 2.0.9 (OSX/Linux)</p>
+
+<ul>
+<li><a href="http://download.videolan.org/pub/videolan/vlc/2.0.8/win32/">2.0.8 Win32</a> (<a href="http://download.videolan.org/pub/videolan/vlc/2.0.8/win32/vlc-2.0.8-win32.exe">EXE</a>, <a href="http://download.videolan.org/pub/videolan/vlc/2.0.8/win32/vlc-2.0.8-win32.zip">ZIP</a>)</li>
+<li><a href="http://download.videolan.org/pub/videolan/vlc/2.0.8/win64/">2.0.8 Win64</a> (<a href="http://download.videolan.org/pub/videolan/vlc/2.0.8/win64/vlc-2.0.8-win64.exe">EXE</a>, <a href="http://download.videolan.org/pub/videolan/vlc/2.0.8/win64/vlc-2.0.8-win64.zip">ZIP</a>)</li>
+<li><a href="http://download.videolan.org/pub/videolan/vlc/2.0.9/macosx/">2.0.9 OSX</a> (<a href="http://download.videolan.org/pub/videolan/vlc/2.0.9/macosx/vlc-2.0.9-intel64.dmg">DMG</a>)</li>
+<li><a href="http://download.videolan.org/pub/videolan/vlc/2.0.9/">2.0.9 Linux</a> (<a href="http://download.videolan.org/pub/videolan/vlc/2.0.9/vlc-2.0.9.tar.xz">XZ</a>)</li>
+</ul>
+
+<p>Hope this saves you guys some time and effort!!</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>Hacking Unicoins for Fun and Profit (Stackoverflow.com April Fools 2014)</title>
+	  <link>/devalias/2014/04/02/hacking-unicoins-for-fun-and-profit/</link>
+	  <author>devalias</author>
+	  <pubDate>2014-04-02T06:38:02+11:00</pubDate>
+	  <guid>/devalias/2014/04/02/hacking-unicoins-for-fun-and-profit/</guid>
+	  <description><![CDATA[
+	     <p><a href="https://stackoverflow.com/">Stackoverflow</a> introduced an amusing little April Fools feature called &#39;Unicoins&#39;. Essentially, this currency (that you can earn by mining rocks, since all of the (rather amusing) payment options are currently unavailable&#39;) allows you to by silly upgrades for the website. From &#39;Colorful comments&#39; and &#39;Guaranteed Answer&#39; through to &#39;Voting animations&#39; which gives you &#39;happy unicorn animations everytime you vote&#39;.</p>
+
+<p>Anyways, long story short, I saw a system and wondered how to beat it. Turns out each rock is simply an AJAX request to /unicoin/rock to get a rock ID, and when you sucessfully mine it, you POST back a static fkey (bound to each user I assume?) and the rockId to /unicoin/mine?rock=theRockId</p>
+
+<p>I&#39;ve put together a little automagical javascript to prevent you all getting RSI. It&#39;s for health reasons.. honestly.</p>
+
+<p>Enjoy your unicoins! &lt;3 /dev/alias</p>
+
+<script src="https://gist.github.com/alias1/9905949.js"> </script>
+
+	  ]]></description>
+	</item>
+
+
+</channel>
+</rss>

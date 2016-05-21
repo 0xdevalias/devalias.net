@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+   
+      <title>devalias.net</title>
+   
+   <link>http://devalias.net</link>
+   <description>My intention is for this to be a place where I post anything that interests my geeky mind. I may not update it often, and you may not find it that interesting.. You've been forewarned.
+</description>
+   <language>en-uk</language>
+   <managingEditor> </managingEditor>
+   <atom:link href="rss" rel="self" type="application/rss+xml" />
+   
+	<item>
+	  <title>Syncing Facebook Bdays/Events with Other Calendars</title>
+	  <link>/devalias/2011/10/17/syncing-facebook-bdaysevents-with-other-calendars/</link>
+	  <author>devalias</author>
+	  <pubDate>2011-10-17T07:39:00+11:00</pubDate>
+	  <guid>/devalias/2011/10/17/syncing-facebook-bdaysevents-with-other-calendars/</guid>
+	  <description><![CDATA[
+	     <p>I&#39;m sure i&#39;m not alone when I say that without Facebook events/bdays I would be so much more out of the loop. A while ago I realised that I could subscribe to events/bday feeds in my external calendars (in this case, my iPhone). Best; Day; Ever! Suddenly I don&#39;t need to be at my computer to know what&#39;s going on, which for me is great since I tend to have the &#39;out of sight out of mind&#39; mentality. Even if I looked at them this morning, ask me at midday and I won&#39;t remember a thing I have planned.</p>
+
+<p>In any case, this stopped working for a while, and I finally got around to reenabling it yesterday, so figured I would make a quick post about how to find it for anyone else interested.</p>
+
+<p>Hope you guys enjoy/find it useful! :)</p>
+
+<h2>Facebook Event Feed</h2>
+
+<ul>
+<li>Go to <a href="http://www.facebook.com/events/">http://www.facebook.com/events/</a></li>
+<li>Scroll to the bottom of the page</li>
+<li>Click on the export link</li>
+<li>Copy the webcal:// link</li>
+<li>Go to your favourite calendar application and use it&#39;s subscribe feature, pasting in the copied link (on an iPhone if you just click the link it will add it for you)</li>
+</ul>
+
+<h2>Facebook Birthday Feed</h2>
+
+<ul>
+<li>Go to <a href="http://www.facebook.com/events/birthdays/">http://www.facebook.com/events/birthdays/</a></li>
+<li>Scroll to the bottom of the page</li>
+<li>Click on the export birthdays link</li>
+<li>Copy the webcal:// link</li>
+<li>Go to your favourite calendar application and use it&#39;s subscribe feature, pasting in the copied link (on an iPhone if you just click the link it will add it for you)</li>
+</ul>
+
+	  ]]></description>
+	</item>
+
+
+</channel>
+</rss>

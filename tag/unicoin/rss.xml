@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+   
+      <title>devalias.net</title>
+   
+   <link>http://devalias.net</link>
+   <description>My intention is for this to be a place where I post anything that interests my geeky mind. I may not update it often, and you may not find it that interesting.. You've been forewarned.
+</description>
+   <language>en-uk</language>
+   <managingEditor> </managingEditor>
+   <atom:link href="rss" rel="self" type="application/rss+xml" />
+   
+	<item>
+	  <title>Hacking Unicoins for Fun and Profit (Stackoverflow.com April Fools 2014)</title>
+	  <link>/devalias/2014/04/02/hacking-unicoins-for-fun-and-profit/</link>
+	  <author>devalias</author>
+	  <pubDate>2014-04-02T06:38:02+11:00</pubDate>
+	  <guid>/devalias/2014/04/02/hacking-unicoins-for-fun-and-profit/</guid>
+	  <description><![CDATA[
+	     <p><a href="https://stackoverflow.com/">Stackoverflow</a> introduced an amusing little April Fools feature called &#39;Unicoins&#39;. Essentially, this currency (that you can earn by mining rocks, since all of the (rather amusing) payment options are currently unavailable&#39;) allows you to by silly upgrades for the website. From &#39;Colorful comments&#39; and &#39;Guaranteed Answer&#39; through to &#39;Voting animations&#39; which gives you &#39;happy unicorn animations everytime you vote&#39;.</p>
+
+<p>Anyways, long story short, I saw a system and wondered how to beat it. Turns out each rock is simply an AJAX request to /unicoin/rock to get a rock ID, and when you sucessfully mine it, you POST back a static fkey (bound to each user I assume?) and the rockId to /unicoin/mine?rock=theRockId</p>
+
+<p>I&#39;ve put together a little automagical javascript to prevent you all getting RSI. It&#39;s for health reasons.. honestly.</p>
+
+<p>Enjoy your unicoins! &lt;3 /dev/alias</p>
+
+<script src="https://gist.github.com/alias1/9905949.js"> </script>
+
+	  ]]></description>
+	</item>
+
+
+</channel>
+</rss>

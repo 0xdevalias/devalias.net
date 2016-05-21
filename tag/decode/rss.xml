@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+   
+      <title>devalias.net</title>
+   
+   <link>http://devalias.net</link>
+   <description>My intention is for this to be a place where I post anything that interests my geeky mind. I may not update it often, and you may not find it that interesting.. You've been forewarned.
+</description>
+   <language>en-uk</language>
+   <managingEditor> </managingEditor>
+   <atom:link href="rss" rel="self" type="application/rss+xml" />
+   
+	<item>
+	  <title>Reversing PowerShell 'SecureString' For Fun And Profit</title>
+	  <link>/devalias/2013/08/29/reversing-powershell-securestring-for-fun-and-profit/</link>
+	  <author>devalias</author>
+	  <pubDate>2013-08-29T08:00:52+10:00</pubDate>
+	  <guid>/devalias/2013/08/29/reversing-powershell-securestring-for-fun-and-profit/</guid>
+	  <description><![CDATA[
+	     <p>Something that I needed to do in an engagement recently and thought it might be useful to you guys. Here&#39;s a little function and demonstration to show just how insecure it is to store an encrypted <a href="https://en.wikipedia.org/wiki/Windows_PowerShell">PowerShell</a> <a href="http://social.technet.microsoft.com/wiki/contents/articles/4546.working-with-passwords-secure-strings-and-credentials-in-windows-powershell.aspx">&#39;SecureString&#39;</a> WITH the key to decrypt it in a script file (or anywhere for that matter)</p>
+
+<p>Just goes to show that no matter how secure a technology you create, in the end it all comes down to the underpaid, overworked IT staff that have to implement it, and the <em>managerial guidelines</em> that they need to work within.</p>
+
+<script src="https://gist.github.com/alias1/6101928.js"> </script>
+
+	  ]]></description>
+	</item>
+
+
+</channel>
+</rss>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+   
+      <title>devalias.net</title>
+   
+   <link>http://devalias.net</link>
+   <description>My intention is for this to be a place where I post anything that interests my geeky mind. I may not update it often, and you may not find it that interesting.. You've been forewarned.
+</description>
+   <language>en-uk</language>
+   <managingEditor> </managingEditor>
+   <atom:link href="rss" rel="self" type="application/rss+xml" />
+   
+	<item>
+	  <title>Rockmelt Blog: Rockmelt Browser Retirement - July 31, 2013</title>
+	  <link>/devalias/2013/08/16/rockmelt-blog-rockmelt-browser-retirement-july/</link>
+	  <author>devalias</author>
+	  <pubDate>2013-08-16T08:31:02+10:00</pubDate>
+	  <guid>/devalias/2013/08/16/rockmelt-blog-rockmelt-browser-retirement-july/</guid>
+	  <description><![CDATA[
+	     <p>Ref: <a href="http://blog.rockmelt.com/post/55124002701/rockmelt-browser-retirement-july-31-2013">Rockmelt Blog: Rockmelt Browser Retirement - July 31, 2013</a></p>
+
+<p>I suppose it was inevitable given the lack of support over the past months, but still, sad to see it go. There was so much potential win :( Ah well.</p>
+
+<p><a href="http://blog.rockmelt.com/post/55124002701/rockmelt-browser-retirement-july-31-2013">rockmelt</a>:</p>
+
+<blockquote>
+<p><img src="/devalias/2013/08/16/rockmelt-blog-rockmelt-browser-retirement-july/rockmelt-retiring.jpg" alt="Rockmelt Browser Retiring"></p>
+
+<p>We promised to notify you when we retire the Rockmelt Browser. The date has been set for July 31st at 10am PT. After that point in time, you will no longer be able to log into the Rockmelt Browser. Please take a moment to migrate your App Edge into the new Rockmelt experience by clicking <a href="http://rockmelt.com/?import=true">here</a></p>
+</blockquote>
+
+	  ]]></description>
+	</item>
+
+
+</channel>
+</rss>

@@ -73,7 +73,11 @@ gist:
 
 # https://github.com/vwochnik/jekyll-deploy
 deploy:
-- echo TODO
+- touch .nojekyll
+- git add -A
+- 'git commit -m "Update site: `date`"'
+- git push origin gh-pages
+#- git subtree push --prefix _site origin gh-pages
 
 # https://github.com/aarongustafson/jekyll-crosspost-to-medium
 jekyll-crosspost_to_medium:

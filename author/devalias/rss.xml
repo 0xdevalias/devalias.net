@@ -13,6 +13,24 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>v3.0 -  Now with more Hyde</title>
+	  <link>/devalias/2016/05/22/v3-now-with-more-hyde/</link>
+	  <author>devalias</author>
+	  <pubDate>2016-05-22T00:00:00+10:00</pubDate>
+	  <guid>/devalias/2016/05/22/v3-now-with-more-hyde/</guid>
+	  <description><![CDATA[
+	     <p>Time for another rebirth! As you may have noticed, I haven&#39;t really written much over the last year or two. While I&#39;ve been busy, distracted and occasionally just lazy, I&#39;ve mostly found that Tumblr&#39;s interface is just far too much effort to write in. And if something is needlessly too much effort, it&#39;s not going to get done.</p>
+
+<p>Enter <a href="https://jekyllrb.com/">Jekyll</a>, the static website builder. I&#39;ve been intending to put something together on this platform forever.. The first iteration started in <a href="http://octopress.org/">Octopress</a> a year or more back, but never really went anywhere since the default theme was kind of ugly. Decided to take another stab at things this year while I was between jobs (free time == productivity!), found a theme that I liked and started hacking away. With a few months of scattered hacking and procrastination, it&#39;s finally actually on the internet, yay!</p>
+
+<p>Being a static site, I&#39;m taking advantage of <a href="https://pages.github.com/">GitHub Pages</a>. While it gives me free hosting, it also means I&#39;m now living my <a href="/devalias/2012/01/04/resolutions-for-11111011100-2012/">previous mantra</a> of &#39;open source everything&#39;. You can access the <a href="https://github.com/alias1/devalias.net">files used to generate the site</a> and <a href="https://github.com/alias1/devalias.net/issues">create an issue</a>/pull request to fix up any typos/errors you might find along the way :)</p>
+
+<p>Given it&#39;s now only mildly more effort for me to write a post here as it is to save my notes in random text files on my computer, I&#39;ll hopefully put more online.. We shall see.</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>Dogedraw, now with more Nyaan!</title>
 	  <link>/devalias/2015/04/20/dogedraw-now-with-more-nyaan/</link>
 	  <author>devalias</author>
@@ -458,26 +476,6 @@ WSRequestHolder ws = wsClient.url(url)
 </ul>
 
 <p>Hope this saves you guys some time and effort!!</p>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>Hacking Unicoins for Fun and Profit (Stackoverflow.com April Fools 2014)</title>
-	  <link>/devalias/2014/04/02/hacking-unicoins-for-fun-and-profit/</link>
-	  <author>devalias</author>
-	  <pubDate>2014-04-02T06:38:02+11:00</pubDate>
-	  <guid>/devalias/2014/04/02/hacking-unicoins-for-fun-and-profit/</guid>
-	  <description><![CDATA[
-	     <p><a href="https://stackoverflow.com/">Stackoverflow</a> introduced an amusing little April Fools feature called &#39;Unicoins&#39;. Essentially, this currency (that you can earn by mining rocks, since all of the (rather amusing) payment options are currently unavailable&#39;) allows you to by silly upgrades for the website. From &#39;Colorful comments&#39; and &#39;Guaranteed Answer&#39; through to &#39;Voting animations&#39; which gives you &#39;happy unicorn animations everytime you vote&#39;.</p>
-
-<p>Anyways, long story short, I saw a system and wondered how to beat it. Turns out each rock is simply an AJAX request to /unicoin/rock to get a rock ID, and when you sucessfully mine it, you POST back a static fkey (bound to each user I assume?) and the rockId to /unicoin/mine?rock=theRockId</p>
-
-<p>I&#39;ve put together a little automagical javascript to prevent you all getting RSI. It&#39;s for health reasons.. honestly.</p>
-
-<p>Enjoy your unicoins! &lt;3 /dev/alias</p>
-
-<script src="https://gist.github.com/alias1/9905949.js"> </script>
 
 	  ]]></description>
 	</item>

@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
+<loc>http://devalias.net//devalias/2016/05/22/v3-now-with-more-hyde/</loc>
+<lastmod>2016-05-22T00:00:00+10:00</lastmod>
+</url>
+<url>
 <loc>http://devalias.net//devalias/2015/04/20/dogedraw-now-with-more-nyaan/</loc>
 <lastmod>2015-04-20T12:00:00+10:00</lastmod>
 </url>
@@ -247,6 +251,9 @@
 </url>
 <url>
 <loc>http://devalias.net//author/devalias/10/</loc>
+</url>
+<url>
+<loc>http://devalias.net//author/devalias/11/</loc>
 </url>
 <url>
 <loc>http://devalias.net//tag/init/</loc>
@@ -1123,5 +1130,14 @@
 </url>
 <url>
 <loc>http://devalias.net//tag/dogedraw.com/</loc>
+</url>
+<url>
+<loc>http://devalias.net//tag/v3.0/</loc>
+</url>
+<url>
+<loc>http://devalias.net//tag/jekyll/</loc>
+</url>
+<url>
+<loc>http://devalias.net//tag/octopress/</loc>
 </url>
 </urlset>

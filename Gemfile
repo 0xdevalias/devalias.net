@@ -7,6 +7,7 @@ gem 'classifier-reborn'
 gem 'rb-gsl'
 
 group :jekyll_plugins do
+  gem 'jekyll-compose'
   gem 'jekyll-paginate'
   gem 'jekyll-redirect-from'
   gem 'jekyll-sitemap'

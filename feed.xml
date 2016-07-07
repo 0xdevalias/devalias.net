@@ -1,5 +1,38 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="http://devalias.net//feed.xml" rel="self" type="application/atom+xml" /><link href="http://devalias.net//" rel="alternate" type="text/html" /><updated>2016-06-21T06:49:48+10:00</updated><id>http://devalias.net//</id><title>/dev/alias – Hack. Dev. Transcend.</title><subtitle>My intention is for this to be a place where I post anything that interests my geeky mind. I may not update it often, and you may not find it that interesting.. You&#39;ve been forewarned.
-</subtitle><entry><title>v3.0 -  Now with more Hyde</title><link href="http://devalias.net//devalias/2016/05/22/v3-now-with-more-hyde/" rel="alternate" type="text/html" title="v3.0 -  Now with more Hyde" /><published>2016-05-22T00:00:00+10:00</published><updated>2016-05-22T00:00:00+10:00</updated><id>http://devalias.net//devalias/2016/05/22/v3-now-with-more-hyde</id><content type="html" xml:base="http://devalias.net//devalias/2016/05/22/v3-now-with-more-hyde/">&lt;p&gt;Time for another rebirth! As you may have noticed, I haven&amp;#39;t really written much over the last year or two. While I&amp;#39;ve been busy, distracted and occasionally just lazy, I&amp;#39;ve mostly found that Tumblr&amp;#39;s interface is just far too much effort to write in. And if something is needlessly too much effort, it&amp;#39;s not going to get done.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="http://devalias.net//feed.xml" rel="self" type="application/atom+xml" /><link href="http://devalias.net//" rel="alternate" type="text/html" /><updated>2016-07-07T14:53:07+10:00</updated><id>http://devalias.net//</id><title>/dev/alias – Hack. Dev. Transcend.</title><subtitle>My intention is for this to be a place where I post anything that interests my geeky mind. I may not update it often, and you may not find it that interesting.. You&#39;ve been forewarned.
+</subtitle><entry><title>QuickNote: Access Files from other Time Machine backups</title><link href="http://devalias.net//devalias/2016/07/07/access-files-from-other-time-machine-backups/" rel="alternate" type="text/html" title="QuickNote: Access Files from other Time Machine backups" /><published>2016-07-07T00:00:00+10:00</published><updated>2016-07-07T00:00:00+10:00</updated><id>http://devalias.net//devalias/2016/07/07/access-files-from-other-time-machine-backups</id><content type="html" xml:base="http://devalias.net//devalias/2016/07/07/access-files-from-other-time-machine-backups/">&lt;p&gt;There are two main methods for accessing files from other Time Machine backups:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Using Time Machine&lt;/li&gt;
+&lt;li&gt;Accessing the backup file directly&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Before we get started, if you&amp;#39;re using Time Capsule or a network volume for backup, you first need to navigate to the backup location and double click to mount the &lt;code&gt;.sparsebundle&lt;/code&gt;. (it may ask you for a password if the backup is encrypted) Once that&amp;#39;s done, continue as normal below.&lt;/p&gt;
+
+&lt;h2&gt;Using Time Machine&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Hold alt/option&lt;/li&gt;
+&lt;li&gt;Click on the Time Maching (backup) icon in the menu bar&lt;/li&gt;
+&lt;li&gt;Select &amp;quot;Browse Other Backup Disks...&amp;quot;&lt;/li&gt;
+&lt;li&gt;Select the backup you want to browse.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;Accessing the backup file directly&lt;/h2&gt;
+
+&lt;p&gt;Unfortunately while trying to access my old machine&amp;#39;s backup file, the above method didn&amp;#39;t want to work for me. Luckily, we can get access to the files the good old fashioned manual way!&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Locate and mount the &lt;code&gt;.sparsebundle&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Navigate to the &lt;code&gt;Backups.backupdb/yourmachinename/Latest&lt;/code&gt; folder&lt;/li&gt;
+&lt;li&gt;Enjoy!&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;References&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.creativetechs.com/tipsblog/access-files-from-other-time-machine-backups/&quot;&gt;http://www.creativetechs.com/tipsblog/access-files-from-other-time-machine-backups/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://apple.stackexchange.com/questions/158645/recover-certain-files-from-time-machine-from-previous-mac&quot;&gt;https://apple.stackexchange.com/questions/158645/recover-certain-files-from-time-machine-from-previous-mac&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>devalias</name></author><category term="quicknote" /><category term="creativetechs.com" /><category term="apple.stackexchange.com" /><summary>There are two main methods for accessing files from other Time Machine backups:</summary></entry><entry><title>v3.0 -  Now with more Hyde</title><link href="http://devalias.net//devalias/2016/05/22/v3-now-with-more-hyde/" rel="alternate" type="text/html" title="v3.0 -  Now with more Hyde" /><published>2016-05-22T00:00:00+10:00</published><updated>2016-05-22T00:00:00+10:00</updated><id>http://devalias.net//devalias/2016/05/22/v3-now-with-more-hyde</id><content type="html" xml:base="http://devalias.net//devalias/2016/05/22/v3-now-with-more-hyde/">&lt;p&gt;Time for another rebirth! As you may have noticed, I haven&amp;#39;t really written much over the last year or two. While I&amp;#39;ve been busy, distracted and occasionally just lazy, I&amp;#39;ve mostly found that Tumblr&amp;#39;s interface is just far too much effort to write in. And if something is needlessly too much effort, it&amp;#39;s not going to get done.&lt;/p&gt;
 
 &lt;p&gt;Enter &lt;a href=&quot;https://jekyllrb.com/&quot;&gt;Jekyll&lt;/a&gt;, the static website builder. I&amp;#39;ve been intending to put something together on this platform forever.. The first iteration started in &lt;a href=&quot;http://octopress.org/&quot;&gt;Octopress&lt;/a&gt; a year or more back, but never really went anywhere since the default theme was kind of ugly. Decided to take another stab at things this year while I was between jobs (free time == productivity!), found a theme that I liked and started hacking away. With a few months of scattered hacking and procrastination, it&amp;#39;s finally actually on the internet, yay!&lt;/p&gt;
 
@@ -339,17 +372,4 @@ WSRequestHolder ws = wsClient.url(url)
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&amp;lt;3&lt;/p&gt;</content><author><name>devalias</name></author><category term="play" /><category term="play2" /><category term="play!" /><category term="play-framework" /><category term="lombok" /><category term="java" /><category term="2.2" /><summary>Lombok is a project that removes some of the tediousness of Java by letting you use annotations to replace the verbosity of Getters/Setters (and heaps of other cool things!)</summary></entry><entry><title>VLC 2.1.x AC3/5.1 Audio Issues (and how to fix them)</title><link href="http://devalias.net//devalias/2014/04/10/vlc-2-1x-ac3-5-1-audio-issues-and-how-to-fix/" rel="alternate" type="text/html" title="VLC 2.1.x AC3/5.1 Audio Issues (and how to fix them)" /><published>2014-04-10T03:01:22+10:00</published><updated>2014-04-10T03:01:22+10:00</updated><id>http://devalias.net//devalias/2014/04/10/vlc-2-1x-ac3-5-1-audio-issues-and-how-to-fix</id><content type="html" xml:base="http://devalias.net//devalias/2014/04/10/vlc-2-1x-ac3-5-1-audio-issues-and-how-to-fix/">&lt;p&gt;So, just lost an hour or two debugging some audio issues that seemed to crop up in VLC. I have a 5.1 setup, which will disable the speakers when I plug in a 2-channel set of headphones (pretty straightforward). For some strange reason this stopped working sometime recently. I assumed maybe audio drivers (windows update) or something else weird like that, but turns out it was VLC (which I forgot I had upgraded)&lt;/p&gt;
-
-&lt;p&gt;Old versions of VLC (pre 2.1.x) allowed you to &amp;#39;force&amp;#39; a downscale in situations like this through the &lt;code&gt;rAudio -&amp;gt; Audio Device -&amp;gt; Stereo&lt;/code&gt; right click menu option. Turns out, this feature was removed (and the menu item repurposed) in VLC 2.1.x. According to  &lt;a href=&quot;https://forum.videolan.org/viewtopic.php?f=2&amp;amp;t=115203#p394432&quot;&gt;Jean-Baptiste Kempf on the VLC forums&lt;/a&gt; this feature won&amp;#39;t be coming back anytime before 2.2.x&lt;/p&gt;
-
-&lt;p&gt;So what do we do in the meantime? If you haven&amp;#39;t upgraded to 2.1.x yet and need this feature then don&amp;#39;t upgrade. If you already have, downgrade to 2.0.8 (Windows) or 2.0.9 (OSX/Linux)&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://download.videolan.org/pub/videolan/vlc/2.0.8/win32/&quot;&gt;2.0.8 Win32&lt;/a&gt; (&lt;a href=&quot;http://download.videolan.org/pub/videolan/vlc/2.0.8/win32/vlc-2.0.8-win32.exe&quot;&gt;EXE&lt;/a&gt;, &lt;a href=&quot;http://download.videolan.org/pub/videolan/vlc/2.0.8/win32/vlc-2.0.8-win32.zip&quot;&gt;ZIP&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://download.videolan.org/pub/videolan/vlc/2.0.8/win64/&quot;&gt;2.0.8 Win64&lt;/a&gt; (&lt;a href=&quot;http://download.videolan.org/pub/videolan/vlc/2.0.8/win64/vlc-2.0.8-win64.exe&quot;&gt;EXE&lt;/a&gt;, &lt;a href=&quot;http://download.videolan.org/pub/videolan/vlc/2.0.8/win64/vlc-2.0.8-win64.zip&quot;&gt;ZIP&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://download.videolan.org/pub/videolan/vlc/2.0.9/macosx/&quot;&gt;2.0.9 OSX&lt;/a&gt; (&lt;a href=&quot;http://download.videolan.org/pub/videolan/vlc/2.0.9/macosx/vlc-2.0.9-intel64.dmg&quot;&gt;DMG&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://download.videolan.org/pub/videolan/vlc/2.0.9/&quot;&gt;2.0.9 Linux&lt;/a&gt; (&lt;a href=&quot;http://download.videolan.org/pub/videolan/vlc/2.0.9/vlc-2.0.9.tar.xz&quot;&gt;XZ&lt;/a&gt;)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Hope this saves you guys some time and effort!!&lt;/p&gt;</content><author><name>devalias</name></author><category term="vlc" /><category term="videolan" /><category term="audio issues" /><category term="5.1" /><category term="ac3" /><category term="problem" /><category term="error" /><category term="2.1.x" /><summary>So, just lost an hour or two debugging some audio issues that seemed to crop up in VLC. I have a 5.1 setup, which will disable the speakers when I plug in a 2-channel set of headphones (pretty straightforward). For some strange reason this stopped working sometime recently. I assumed maybe audio drivers (windows update) or something else weird like that, but turns out it was VLC (which I forgot I had upgraded)</summary></entry></feed>
+&lt;p&gt;&amp;lt;3&lt;/p&gt;</content><author><name>devalias</name></author><category term="play" /><category term="play2" /><category term="play!" /><category term="play-framework" /><category term="lombok" /><category term="java" /><category term="2.2" /><summary>Lombok is a project that removes some of the tediousness of Java by letting you use annotations to replace the verbosity of Getters/Setters (and heaps of other cool things!)</summary></entry></feed>

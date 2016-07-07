@@ -13,6 +13,51 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>QuickNote: Access Files from other Time Machine backups</title>
+	  <link>/devalias/2016/07/07/access-files-from-other-time-machine-backups/</link>
+	  <author>devalias</author>
+	  <pubDate>2016-07-07T00:00:00+10:00</pubDate>
+	  <guid>/devalias/2016/07/07/access-files-from-other-time-machine-backups/</guid>
+	  <description><![CDATA[
+	     <p>There are two main methods for accessing files from other Time Machine backups:</p>
+
+<ol>
+<li>Using Time Machine</li>
+<li>Accessing the backup file directly</li>
+</ol>
+
+<p>Before we get started, if you&#39;re using Time Capsule or a network volume for backup, you first need to navigate to the backup location and double click to mount the <code>.sparsebundle</code>. (it may ask you for a password if the backup is encrypted) Once that&#39;s done, continue as normal below.</p>
+
+<h2>Using Time Machine</h2>
+
+<ul>
+<li>Hold alt/option</li>
+<li>Click on the Time Maching (backup) icon in the menu bar</li>
+<li>Select &quot;Browse Other Backup Disks...&quot;</li>
+<li>Select the backup you want to browse.</li>
+</ul>
+
+<h2>Accessing the backup file directly</h2>
+
+<p>Unfortunately while trying to access my old machine&#39;s backup file, the above method didn&#39;t want to work for me. Luckily, we can get access to the files the good old fashioned manual way!</p>
+
+<ul>
+<li>Locate and mount the <code>.sparsebundle</code></li>
+<li>Navigate to the <code>Backups.backupdb/yourmachinename/Latest</code> folder</li>
+<li>Enjoy!</li>
+</ul>
+
+<h2>References</h2>
+
+<ul>
+<li><a href="http://www.creativetechs.com/tipsblog/access-files-from-other-time-machine-backups/">http://www.creativetechs.com/tipsblog/access-files-from-other-time-machine-backups/</a></li>
+<li><a href="https://apple.stackexchange.com/questions/158645/recover-certain-files-from-time-machine-from-previous-mac">https://apple.stackexchange.com/questions/158645/recover-certain-files-from-time-machine-from-previous-mac</a></li>
+</ul>
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>v3.0 -  Now with more Hyde</title>
 	  <link>/devalias/2016/05/22/v3-now-with-more-hyde/</link>
 	  <author>devalias</author>
@@ -451,31 +496,6 @@ WSRequestHolder ws = wsClient.url(url)
 </ul>
 
 <p>&lt;3</p>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>VLC 2.1.x AC3/5.1 Audio Issues (and how to fix them)</title>
-	  <link>/devalias/2014/04/10/vlc-2-1x-ac3-5-1-audio-issues-and-how-to-fix/</link>
-	  <author>devalias</author>
-	  <pubDate>2014-04-10T03:01:22+10:00</pubDate>
-	  <guid>/devalias/2014/04/10/vlc-2-1x-ac3-5-1-audio-issues-and-how-to-fix/</guid>
-	  <description><![CDATA[
-	     <p>So, just lost an hour or two debugging some audio issues that seemed to crop up in VLC. I have a 5.1 setup, which will disable the speakers when I plug in a 2-channel set of headphones (pretty straightforward). For some strange reason this stopped working sometime recently. I assumed maybe audio drivers (windows update) or something else weird like that, but turns out it was VLC (which I forgot I had upgraded)</p>
-
-<p>Old versions of VLC (pre 2.1.x) allowed you to &#39;force&#39; a downscale in situations like this through the <code>rAudio -&gt; Audio Device -&gt; Stereo</code> right click menu option. Turns out, this feature was removed (and the menu item repurposed) in VLC 2.1.x. According to  <a href="https://forum.videolan.org/viewtopic.php?f=2&amp;t=115203#p394432">Jean-Baptiste Kempf on the VLC forums</a> this feature won&#39;t be coming back anytime before 2.2.x</p>
-
-<p>So what do we do in the meantime? If you haven&#39;t upgraded to 2.1.x yet and need this feature then don&#39;t upgrade. If you already have, downgrade to 2.0.8 (Windows) or 2.0.9 (OSX/Linux)</p>
-
-<ul>
-<li><a href="http://download.videolan.org/pub/videolan/vlc/2.0.8/win32/">2.0.8 Win32</a> (<a href="http://download.videolan.org/pub/videolan/vlc/2.0.8/win32/vlc-2.0.8-win32.exe">EXE</a>, <a href="http://download.videolan.org/pub/videolan/vlc/2.0.8/win32/vlc-2.0.8-win32.zip">ZIP</a>)</li>
-<li><a href="http://download.videolan.org/pub/videolan/vlc/2.0.8/win64/">2.0.8 Win64</a> (<a href="http://download.videolan.org/pub/videolan/vlc/2.0.8/win64/vlc-2.0.8-win64.exe">EXE</a>, <a href="http://download.videolan.org/pub/videolan/vlc/2.0.8/win64/vlc-2.0.8-win64.zip">ZIP</a>)</li>
-<li><a href="http://download.videolan.org/pub/videolan/vlc/2.0.9/macosx/">2.0.9 OSX</a> (<a href="http://download.videolan.org/pub/videolan/vlc/2.0.9/macosx/vlc-2.0.9-intel64.dmg">DMG</a>)</li>
-<li><a href="http://download.videolan.org/pub/videolan/vlc/2.0.9/">2.0.9 Linux</a> (<a href="http://download.videolan.org/pub/videolan/vlc/2.0.9/vlc-2.0.9.tar.xz">XZ</a>)</li>
-</ul>
-
-<p>Hope this saves you guys some time and effort!!</p>
 
 	  ]]></description>
 	</item>

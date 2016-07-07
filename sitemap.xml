@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
+<loc>http://devalias.net//devalias/2016/07/07/access-files-from-other-time-machine-backups/</loc>
+<lastmod>2016-07-07T00:00:00+10:00</lastmod>
+</url>
+<url>
 <loc>http://devalias.net//devalias/2016/05/22/v3-now-with-more-hyde/</loc>
 <lastmod>2016-05-22T00:00:00+10:00</lastmod>
 </url>
@@ -1142,5 +1146,14 @@
 </url>
 <url>
 <loc>http://devalias.net//tag/octopress/</loc>
+</url>
+<url>
+<loc>http://devalias.net//tag/quicknote/</loc>
+</url>
+<url>
+<loc>http://devalias.net//tag/creativetechs.com/</loc>
+</url>
+<url>
+<loc>http://devalias.net//tag/apple.stackexchange.com/</loc>
 </url>
 </urlset>

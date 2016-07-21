@@ -12,4 +12,4 @@ When not hacking and coding, Glenn can be found snowboarding the peaks of Japan,
 
 ---
 
-I would say you probably came here looking for the [blog](/). Though, maybe you wanted to see my progress on [hackables](/hackables/), or my [chrome extensions](/chrome-extensions/)?
+I would say you probably came here looking for the [blog](/). Though, maybe you wanted to see my progress on [hackables](/sec/hackables/), or my [chrome extensions](/dev/chrome-extensions/)?

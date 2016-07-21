@@ -4,8 +4,8 @@ class: 'page-template'
 title: Security
 current: sec
 redirect_from:
-  - /security
-  - /pentest
+  - /security/
+  - /pentest/
 ---
 
 TODO: Security index page

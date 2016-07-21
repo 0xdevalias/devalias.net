@@ -3,7 +3,7 @@ layout: page
 class: 'page-template'
 title: Development
 current: dev
-redirect_from: /development
+redirect_from: /development/
 ---
 
 TODO: Development index page

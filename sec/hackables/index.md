@@ -3,7 +3,7 @@ layout: page
 class: 'page-template'
 title: Hackables
 current: hackables
-redirect_from: /hackables
+redirect_from: /hackables/
 ---
 
 TODO: General hackable/CTF/etc info here

@@ -3,7 +3,7 @@ layout: page
 class: 'page-template'
 title: Chrome Extensions
 current: chrome-extensions
-redirect_from: /chrome-extensions
+redirect_from: /chrome-extensions/
 ---
 
 Since I decided to have another crack at chrome extensions, I figured I really should have somewhere to link to them.. so.. here it is!

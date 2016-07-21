@@ -8,10 +8,10 @@ current: go-deeper
 
 I think about a lot of things, and I find it's far easier to dump them out into loosely categorised collections for future browsing/reference than to keep it all locked up in my head. Who knows, you might even find something useful among it all!
 
-## /dev/alias
+## Glenn 'devalias' Grant Notes
 
 * [Neural Mind](http://alias1.github.io/devalias-neuralmind) ([GitHub](https://github.com/alias1/devalias-neuralmind/)) - This site is a neural dumping ground, a collection of random information, thoughts, musings, links and any other related data that needs a structured home somewhere outside of my mind.
-* [Health Hacks](http://www.isitbulletproof.info/) ([GitHub](https://github.com/alias1/devalias-healthhacks/)) - A collection of random information, thoughts, musings, links and any other related data with regards to hacking and optimising health and performance.
+* [Health Hacks](http://alias1.github.io/devalias-healthhacks) ([GitHub](https://github.com/alias1/devalias-healthhacks/)) - A collection of random information, thoughts, musings, links and any other related data with regards to hacking and optimising health and performance.
 * [Biznotes](http://alias1.github.io/devalias-biznotes) ([GitHub](https://github.com/alias1/devalias-biznotes/)) - A simple place to keep track of business/contracting relevant notes, requirements, hacks, etc.
 * [Pentest](http://alias1.github.io/devalias-pentest) ([GitHub](https://github.com/alias1/devalias-pentest/)) - A simple place to keep track of Ethical Hacking and Penetration Testing relevant notes, requirements, hacks, etc.
 

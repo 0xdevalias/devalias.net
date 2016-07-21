@@ -3,7 +3,9 @@ layout: page
 class: 'page-template'
 title: Security
 current: sec
-redirect_from: /security
+redirect_from:
+  - /security
+  - /pentest
 ---
 
 TODO: Security index page

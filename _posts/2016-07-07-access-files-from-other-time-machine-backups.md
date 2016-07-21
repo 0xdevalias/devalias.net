@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "QuickNote: Access Files from other Time Machine backups"
+title: "Accessing Files from other Time Machine backups"
 tags:
 - time-machine
 - backup

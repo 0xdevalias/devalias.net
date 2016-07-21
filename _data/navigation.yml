@@ -16,9 +16,17 @@
   name: 'Security'
   path: '/sec'
 -
-  class: 'nav-author'
-  name: 'Posts by devalias'
-  path: '/author/devalias'
+  class: 'nav-personal'
+  name: 'Personal'
+  path: '/personal'
+-
+  class: 'nav-stuff-i-like'
+  name: 'Stuff I Like'
+  path: '/stuff-i-like'
+# -
+#   class: 'nav-author'
+#   name: 'Posts by devalias'
+#   path: '/author/devalias'
 -
   class: 'nav-go-deeper'
   name: 'Go Deeper...'

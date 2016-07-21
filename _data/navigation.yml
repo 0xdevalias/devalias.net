@@ -17,7 +17,7 @@
   path: '/sec'
 -
   class: 'nav-author'
-  name: 'Posts by /dev/alias'
+  name: 'Posts by devalias'
   path: '/author/devalias'
 -
   class: 'nav-go-deeper'

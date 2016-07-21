@@ -1,4 +1,5 @@
 <div class="author-social">
+    <a href="{{ site.baseurl | chomp_slash }}/author/{{ page.author }}/rss.xml" title="RSS Feed"><i class="fa fa-rss fa-{{include.size}}"></i></a>
     {% if site.data.authors[include.author].social.twitter %}
         <a href="https://twitter.com/{{ site.data.authors[include.author].social.twitter }}" title="Twitter" target="_blank"><i class="fa fa-twitter-square fa-{{include.size}}"></i></a>
     {% endif %}
@@ -29,7 +30,4 @@
     {% if site.data.authors[include.author].social.keybase %}
         <a href="https://keybase.io/{{ site.data.authors[include.author].social.keybase }}" title="Keybase" target="_blank"><i class="fa fa-key fa-{{include.size}}"></i></a>
     {% endif %}
-    <!-- <a href="{{ site.baseurl | chomp_slash }}/{{ page.author }}/rss.xml" title="RSS Feed">
-        <i class="fa fa-rss fa-{{include.size}}"></i>
-    </a> -->
 </div>

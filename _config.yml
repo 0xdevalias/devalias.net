@@ -24,6 +24,7 @@ exclude:
   - "README.md"
   - "TODO.txt"
   - "ojekyll.txt"
+  - "bin/"
 
 github_repo: 'alias1/devalias.net'
 github_branch: 'master'

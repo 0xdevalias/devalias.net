@@ -30,4 +30,4 @@
 -
   class: 'nav-go-deeper'
   name: 'Go Deeper...'
-  path: '/go-deeper/'
+  path: '/go-deeper'

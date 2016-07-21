@@ -2,10 +2,10 @@
 layout: post
 title: "Accessing Files from other Time Machine backups"
 tags:
+- quicknote
 - time-machine
 - backup
 - apple
-- quicknote
 - "creativetechs.com"
 - "apple.stackexchange.com"
 categories:

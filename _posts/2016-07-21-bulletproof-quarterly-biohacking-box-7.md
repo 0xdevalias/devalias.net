@@ -2,12 +2,12 @@
 layout: post
 title: "Bulletproof Quarterly Biohacking Box #7"
 tags:
+- quicknote
 - bulletproof
 - bulletproof-quarterly
 - dave-asprey
 - quarterly
 - biohacking
-- quicknote
 categories:
 - devalias
 disqus: true

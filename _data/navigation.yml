@@ -8,13 +8,13 @@
   name: 'about'
   path: '/about'
 -
-  class: 'nav-hackables'
-  name: 'Hackables'
-  path: '/hackables'
+  class: 'nav-dev'
+  name: 'Development'
+  path: '/dev'
 -
-  class: 'nav-chrome-extensions'
-  name: 'Chrome Extensions'
-  path: '/chrome-extensions'
+  class: 'nav-sec'
+  name: 'Security'
+  path: '/sec'
 -
   class: 'nav-author'
   name: 'Posts by /dev/alias'

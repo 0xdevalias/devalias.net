@@ -1,10 +1,14 @@
 ---
 layout: page
-title: Hackables
-permalink: /hackables/
 class: 'page-template'
+title: Hackables
 current: hackables
+redirect_from: /hackables
 ---
+
+TODO: General hackable/CTF/etc info here
+
+## My Profiles
 
 Some links to my profiles on various hackables around the web.
 

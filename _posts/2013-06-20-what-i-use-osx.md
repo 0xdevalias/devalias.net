@@ -5,7 +5,6 @@ date: '2013-06-20T10:00:00+10:00'
 tags:
 - what-i-use
 - osx
-- mac
 - coding
 - programming
 - tools

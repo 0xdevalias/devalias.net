@@ -5,7 +5,6 @@ date: '2013-06-17T09:26:00+10:00'
 tags:
 - markdown
 - tumblr
-- i need to blog more
 categories:
 - devalias
 tumblr_url: http://devalias.tumblr.com/post/53084857564/markdown-on-tumblr

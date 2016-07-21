@@ -3,13 +3,9 @@ layout: post
 title: Using Lombok with Play! Framework 2.2x
 date: '2014-04-17T11:44:47+10:00'
 tags:
-- play
-- play2
-- play!
 - play-framework
 - lombok
 - java
-- '2.2'
 categories:
 - devalias
 tumblr_url: http://devalias.tumblr.com/post/82877817438/using-lombok-with-play-framework-22x

@@ -17,6 +17,14 @@ paginate_path: "/:num/"
 language: 'en-uk'
 timezone: 'Australia/ACT'
 
+exclude:
+  - "Gemfile"
+  - "Gemfile.lock"
+  - "PUBLISHING.md"
+  - "README.md"
+  - "TODO.txt"
+  - "ojekyll.txt"
+
 github_repo: 'alias1/devalias.net'
 github_branch: 'master'
 

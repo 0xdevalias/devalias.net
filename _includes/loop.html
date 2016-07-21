@@ -23,7 +23,8 @@
             {{ post.excerpt | truncatewords: 26 }} <a class="read-more" href="{{ site.baseurl | chomp_slash }}{{ post.url }}">&raquo;</a></p>
         </section>
         <footer>
-            {% include post-meta.html author=post.author date=post.date tags=post.tags %}
+            {% capture reading_time %}{{ post.content | reading_time_as_i }}{% endcapture %}
+            {% include post-meta.html author=post.author date=post.date tags=post.tags reading_time=reading_time %}
         </footer>
     </article>
     {% endfor %}

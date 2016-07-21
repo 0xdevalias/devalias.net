@@ -69,6 +69,10 @@ redcarpet:
     - "fenced_code_blocks"
 lsi: false # Index for related posts
 
+# https://github.com/jekyll/jekyll-feed
+# feed:
+#   path: atom.xml
+
 # https://github.com/jekyll/jekyll-mentions
 jekyll-mentions:
   base_url: https://twitter.com

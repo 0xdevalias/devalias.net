@@ -17,6 +17,10 @@ paginate_path: "/:num/"
 language: 'en-uk'
 timezone: 'Australia/ACT'
 
+keep_files:
+  - .git/
+  - .nojekyll # To prevent GitHub re-processing
+
 exclude:
   - "Gemfile"
   - "Gemfile.lock"

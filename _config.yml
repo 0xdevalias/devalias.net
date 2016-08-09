@@ -18,7 +18,7 @@ language: 'en-uk'
 timezone: 'Australia/ACT'
 
 keep_files:
-  - .git/
+  - .git
   - .nojekyll # To prevent GitHub re-processing
 
 exclude:

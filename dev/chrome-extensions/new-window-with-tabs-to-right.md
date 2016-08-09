@@ -3,6 +3,7 @@ layout: page
 title: New Window With Tabs To Right
 class: 'page-template'
 current: new-windows-with-tabs-to-right
+redirect_from: /chrome-extensions/new-window-with-tabs-to-right/
 ---
 
 [[Home](/) > [Development](/dev/) > [Chrome Extensions](/dev/chrome-extensions/) > New Window With Tabs To Right]

@@ -71,7 +71,7 @@ redcarpet:
     - "space_after_headers"
     #- "with_toc_data"
     - "fenced_code_blocks"
-lsi: false # Index for related posts
+lsi: false # Index for related posts (enabled by command line)
 
 # https://github.com/jekyll/jekyll-feed
 # feed:

@@ -11,6 +11,7 @@ TODO: Personal index page
 
 * [Interests/Hobbies](interests/)
 * [Stuff I Like](stuff-i-like/)
+* [Events/Theatre/Etc](events/)
 
 ## Posts
 

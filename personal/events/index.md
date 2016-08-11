@@ -6,6 +6,8 @@ crossposted:
 - https://www.facebook.com/notes/glenn-%C3%A1lias-grant/my-ravesevents/10150184475990968
 ---
 
+[[Home](/) > [Personal](/personal/) > Events/Theatre/Etc]
+
 # 2016
 
 * ?TODO: defqon, dragon dreaming?

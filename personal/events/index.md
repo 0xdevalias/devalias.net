@@ -126,6 +126,10 @@ crossposted:
 * [28/10/2008] Dragonforce (Metro Theatre, Sydney) (Jean, Pookie, etc) ([FB](https://www.facebook.com/ensquared/posts/28375809158))
   * http://www.dragonforce.com/tour-2008/
 
+# ?2007?
+
+* MotherNature, Canberra. No idea what year, I was at uni though. Pete thinks 2007
+
 # ...
 
 * TODO: Surely things are missing from here..
@@ -165,8 +169,8 @@ crossposted:
 
 * ANU performance of Macbeth or similar (With Jean, Robbie M performed?)?
 * Some small production of a random show, small theatre in canberra
+* Antigone at Radford College when Sammy was playing (Jean)
 * ..
-* Mother Nature, Canberra. No idea what year, I was at uni though.
 * A canberra rave at ANU (Alba should know this one?)
 * A rave, sometime in 05 that Nicole drove me up for
 * No doubt other stuff fits here too..

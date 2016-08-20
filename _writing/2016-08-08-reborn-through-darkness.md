@@ -1,3 +1,4 @@
+---
 title: "Reborn Through Darkness"
 tags:
 - writing

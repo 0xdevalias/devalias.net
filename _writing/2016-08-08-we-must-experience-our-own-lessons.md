@@ -1,3 +1,4 @@
+---
 title: "We Must Experience Our Own Lessons"
 tags:
 - writing

@@ -1,3 +1,4 @@
+---
 title: "Musings on fear, pain, lessons and masks"
 tags:
 - writing

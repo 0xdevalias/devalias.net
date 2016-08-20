@@ -1,3 +1,4 @@
+---
 title: "Musings on following our own paths"
 tags:
 - writing

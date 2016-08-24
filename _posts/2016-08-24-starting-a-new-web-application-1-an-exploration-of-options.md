@@ -191,3 +191,5 @@ While a little different in purpose to the things mentioned above, getting every
 ## <a name="conclusions"></a>Conclusions
 
 Hopefully this has given you a decent starting point for figuring out what combination of technologies is going to work best for your next project. If you want to see the direction I've decided to go, make sure you read on in [Part 2](#TODO).
+
+Have I missed something important? Not given love to your favourite stack? Got a cool pointer? Or just want to say hi? Let me know in the comments!

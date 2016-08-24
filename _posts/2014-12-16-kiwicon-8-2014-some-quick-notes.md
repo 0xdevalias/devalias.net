@@ -13,6 +13,9 @@ categories:
 - devalias
 tumblr_url: http://devalias.tumblr.com/post/105233769467/kiwicon-8-2014-some-quick-notes
 redirect_from: /post/105233769467/kiwicon-8-2014-some-quick-notes
+disqus: true
+webmention: true
+crosspost_to_medium: false
 ---
 * [Kiwicon](https://kiwicon.org/)
   * [2014](http://2014.kiwicon.org/)

@@ -22,6 +22,9 @@ categories:
 - devalias
 tumblr_url: http://devalias.tumblr.com/post/61566531090/plesk-adding-wget-tar-gzip-chmod-php-curl-clear-to-a-chr
 redirect_from: /post/61566531090/plesk-adding-wget-tar-gzip-chmod-php-curl-clear-to-a-chr
+disqus: true
+webmention: true
+crosspost_to_medium: false
 ---
 (**tl;dr** How to setup wget, tar, gzip, chmod, php and curl in a chrooted environment for Plesk.)
 

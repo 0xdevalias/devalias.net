@@ -15,6 +15,9 @@ categories:
 - devalias
 tumblr_url: http://devalias.tumblr.com/post/81346968483/hacking-unicoins-for-fun-and-profit
 redirect_from: /post/81346968483/hacking-unicoins-for-fun-and-profit
+disqus: true
+webmention: true
+crosspost_to_medium: false
 ---
 [Stackoverflow](https://stackoverflow.com/) introduced an amusing little April Fools feature called 'Unicoins'. Essentially, this currency (that you can earn by mining rocks, since all of the (rather amusing) payment options are currently unavailable') allows you to by silly upgrades for the website. From 'Colorful comments' and 'Guaranteed Answer' through to 'Voting animations' which gives you 'happy unicorn animations everytime you vote'.
 

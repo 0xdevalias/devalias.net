@@ -10,6 +10,9 @@ categories:
 - devalias
 tumblr_url: http://devalias.tumblr.com/post/68253449830/thecus-nas-devalias-says-no
 redirect_from: /post/68253449830/thecus-nas-devalias-says-no
+disqus: true
+webmention: true
+crosspost_to_medium: false
 ---
 Spent the day today digging around in the deepest and darkest parts of my Thecus NAS, and I can now say absolutely and without a doubt not to waste your money on them.
 

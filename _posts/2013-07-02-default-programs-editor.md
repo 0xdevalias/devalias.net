@@ -13,6 +13,9 @@ categories:
 - devalias
 tumblr_url: http://devalias.tumblr.com/post/54304245573/software-default-programs-editor
 redirect_from: /post/54304245573/software-default-programs-editor
+disqus: true
+webmention: true
+crosspost_to_medium: false
 ---
 Due to some.. ahem interesting implementation choices at work, I found myself unable to make [Sublime Text 2](https://www.sublimetext.com/2) the default program used to handle .txt files.
 

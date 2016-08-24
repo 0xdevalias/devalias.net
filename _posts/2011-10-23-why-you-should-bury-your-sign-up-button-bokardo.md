@@ -8,6 +8,9 @@ categories:
 - devalias
 tumblr_url: http://devalias.tumblr.com/post/11764626225/why-you-should-bury-your-sign-up-button-bokardo
 redirect_from: /post/11764626225/why-you-should-bury-your-sign-up-button-bokardo
+disqus: true
+webmention: true
+crosspost_to_medium: false
 ---
 Ref: http://bokardo.com/archives/why-you-should-bury-your-sign-up-button/
 

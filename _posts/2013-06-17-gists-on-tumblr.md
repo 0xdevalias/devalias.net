@@ -10,6 +10,9 @@ categories:
 - devalias
 tumblr_url: http://devalias.tumblr.com/post/53068156751/gists-on-tumblr
 redirect_from: /post/53068156751/gists-on-tumblr
+disqus: true
+webmention: true
+crosspost_to_medium: false
 ---
 So I figured it might be useful to be able to post gists here. Turns out it's actually pretty easy thanks to soemarko
 

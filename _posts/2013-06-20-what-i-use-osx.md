@@ -13,6 +13,9 @@ categories:
 - devalias
 tumblr_url: http://devalias.tumblr.com/post/53343491197/what-i-use-osx
 redirect_from: /post/53343491197/what-i-use-osx
+disqus: true
+webmention: true
+crosspost_to_medium: false
 ---
 I've been meaning to write this post for a while now, but never quite got around to it. Oftentimes when a friend or colleague gets a new mac they ask me what programs I would recommend. I tend to stumble at being asked on the spot, and rattle off the couple that jump straight to mind.
 

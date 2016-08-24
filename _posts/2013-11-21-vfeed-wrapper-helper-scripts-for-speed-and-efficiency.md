@@ -17,6 +17,9 @@ categories:
 - devalias
 tumblr_url: http://devalias.tumblr.com/post/67532513020/vfeed-wrapper-helper-scripts-for-speed-and-efficiency
 redirect_from: /post/67532513020/vfeed-wrapper-helper-scripts-for-speed-and-efficiency
+disqus: true
+webmention: true
+crosspost_to_medium: false
 ---
 Just wanted to share some quick little bash scripts I threw together to make vFeed a little quicker/more efficient for my use.
 

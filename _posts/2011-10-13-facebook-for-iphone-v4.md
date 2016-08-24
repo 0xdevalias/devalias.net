@@ -11,6 +11,9 @@ categories:
 - devalias
 tumblr_url: http://devalias.tumblr.com/post/11328710876/facebook-for-iphone-v4
 redirect_from: /post/11328710876/facebook-for-iphone-v4
+disqus: true
+webmention: true
+crosspost_to_medium: false
 ---
 I must say, I am quite impressed with the latest iteration of the Facebook app for iPhone. For a long time now, the app has felt sluggish, bloated, and kind of hacked together. No offence to the devs, it would be no easy task to build and maintain it, but sometimes you need a good overhaul to clean everything up, and maybe a new UI to freshen things a little. It seems this is exactly what we get with v4.0.
 

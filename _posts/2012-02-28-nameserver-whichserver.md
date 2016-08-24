@@ -12,6 +12,9 @@ categories:
 - devalias
 tumblr_url: http://devalias.tumblr.com/post/18368234347/nameserver-whichserver
 redirect_from: /post/18368234347/nameserver-whichserver
+disqus: true
+webmention: true
+crosspost_to_medium: false
 ---
 **Note:** This had been sitting in my queue half written for a month or two now.. Woops. - alias
 

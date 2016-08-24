@@ -10,6 +10,9 @@ categories:
 - devalias
 tumblr_url: http://devalias.tumblr.com/post/84700442312/how-to-add-a-flattr-button-to-your-tumblr-posts
 redirect_from: /post/84700442312/how-to-add-a-flattr-button-to-your-tumblr-posts
+disqus: true
+webmention: true
+crosspost_to_medium: false
 ---
 Just a quick post today. You may notice the Flattr buttons on posts now. To find out how to add them to your own Tumblr posts check out
 

@@ -16,6 +16,9 @@ categories:
 - devalias
 tumblr_url: http://devalias.tumblr.com/post/89810672067/play-framework-seperated-ws-library
 redirect_from: /post/89810672067/play-framework-seperated-ws-library
+disqus: true
+webmention: true
+crosspost_to_medium: false
 ---
 So as we all (should) know, [Play! Framework](https://www.playframework.com/) has released [v2.3.x](https://www.typesafe.com/blog/announcing-play-230)
 

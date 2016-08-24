@@ -18,6 +18,9 @@ categories:
 - devalias
 tumblr_url: http://devalias.tumblr.com/post/15535429513/plesk-adding-programs-to-a-chrooted-ssh
 redirect_from: /post/15535429513/plesk-adding-programs-to-a-chrooted-ssh
+disqus: true
+webmention: true
+crosspost_to_medium: false
 ---
 Just a few notes today about making programs (in this case git) available to a chrooted SSH account in Plesk. I'm assuming the account is already setup for ssh, etc so I will just be covering where to copy the files to.
 

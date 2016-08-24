@@ -11,6 +11,9 @@ categories:
 - devalias
 tumblr_url: http://devalias.tumblr.com/post/10235607580/rockmelt-your-browser-re-imagined
 redirect_from: /post/10235607580/rockmelt-your-browser-re-imagined
+disqus: true
+webmention: true
+crosspost_to_medium: false
 ---
 So I have been using this browser for a few weeks now, and I must say, I am VERY impressed. I was looking for something to streamline my vast (and ever increasing) presence on the social web, something that would let me keep up to date with everything, without the need to constantly F5.
 

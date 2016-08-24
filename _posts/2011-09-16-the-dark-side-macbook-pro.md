@@ -11,6 +11,9 @@ categories:
 - devalias
 tumblr_url: http://devalias.tumblr.com/post/10235644334/the-dark-side-macbook-pro
 redirect_from: /post/10235644334/the-dark-side-macbook-pro
+disqus: true
+webmention: true
+crosspost_to_medium: false
 ---
 I am a firm believer in the 'build it yourself' aspect of computing, and with that comes an inherent dislike for the overpriced, simplistic, bright coloured devilspawn known as Apple. With that being said, there was a time that I walked among the darkness, though it was many many ages ago. Over recent years I have been drawing ever slowly back in that direction though, each shiny new device they release bringing me that much closer. It seems now that I have finally stepped over that threshold, into the darkness once more.
 

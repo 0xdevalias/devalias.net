@@ -12,6 +12,9 @@ categories:
 - devalias
 tumblr_url: http://devalias.tumblr.com/post/57131166149/rails-lessons-learned-the-hard-way-1-db-migrate
 redirect_from: /post/57131166149/rails-lessons-learned-the-hard-way-1-db-migrate
+disqus: true
+webmention: true
+crosspost_to_medium: false
 ---
 Decided I will make this a regular little mini collection of things I learned the hard way with Ruby on Rails. So here it is, lesson #1!
 

@@ -14,6 +14,9 @@ categories:
 - devalias
 tumblr_url: http://devalias.tumblr.com/post/57768165029/erpscan-automator-because-manual-is-meh
 redirect_from: /post/57768165029/erpscan-automator-because-manual-is-meh
+disqus: true
+webmention: true
+crosspost_to_medium: false
 ---
 Another quick little tool for you guys today that I hacked together to save myself some time. This one automates running through a number of tests using the [ERPScan SAP Pentesting Tool](https://erpscan.com/research/free-pentesting-tools-for-sap-and-oracle/)
 

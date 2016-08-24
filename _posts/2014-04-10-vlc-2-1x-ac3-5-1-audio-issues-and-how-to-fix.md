@@ -15,6 +15,9 @@ categories:
 - devalias
 tumblr_url: http://devalias.tumblr.com/post/82140747557/vlc-21x-ac351-audio-issues-and-how-to-fix
 redirect_from: /post/82140747557/vlc-21x-ac351-audio-issues-and-how-to-fix
+disqus: true
+webmention: true
+crosspost_to_medium: false
 ---
 So, just lost an hour or two debugging some audio issues that seemed to crop up in VLC. I have a 5.1 setup, which will disable the speakers when I plug in a 2-channel set of headphones (pretty straightforward). For some strange reason this stopped working sometime recently. I assumed maybe audio drivers (windows update) or something else weird like that, but turns out it was VLC (which I forgot I had upgraded)
 

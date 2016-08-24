@@ -12,6 +12,9 @@ categories:
 - devalias
 tumblr_url: http://devalias.tumblr.com/post/65497370109/wp-cli-like-drush-but-for-wordpress
 redirect_from: /post/65497370109/wp-cli-like-drush-but-for-wordpress
+disqus: true
+webmention: true
+crosspost_to_medium: false
 ---
 So there's this cool little tool I came across, similar in function to [Drush](http://www.drush.org/en/master/) (which is an awesome tool for [Drupal](https://www.drupal.org/) that you should totally use), but for [Wordpress](https://wordpress.org/). It's called [wp-cli](http://wp-cli.org/)
 

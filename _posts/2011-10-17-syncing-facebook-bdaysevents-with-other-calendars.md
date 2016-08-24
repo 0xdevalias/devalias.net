@@ -13,6 +13,9 @@ categories:
 - devalias
 tumblr_url: http://devalias.tumblr.com/post/11504211270/syncing-facebook-bdaysevents-with-other-calendars
 redirect_from: /post/11504211270/syncing-facebook-bdaysevents-with-other-calendars
+disqus: true
+webmention: true
+crosspost_to_medium: false
 ---
 I'm sure i'm not alone when I say that without Facebook events/bdays I would be so much more out of the loop. A while ago I realised that I could subscribe to events/bday feeds in my external calendars (in this case, my iPhone). Best; Day; Ever! Suddenly I don't need to be at my computer to know what's going on, which for me is great since I tend to have the 'out of sight out of mind' mentality. Even if I looked at them this morning, ask me at midday and I won't remember a thing I have planned.
 

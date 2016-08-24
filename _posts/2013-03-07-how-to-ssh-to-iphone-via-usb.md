@@ -19,6 +19,9 @@ categories:
 - devalias
 tumblr_url: http://devalias.tumblr.com/post/44676622353/how-to-ssh-to-iphoneipadidevice-via-usb
 redirect_from: /post/44676622353/how-to-ssh-to-iphoneipadidevice-via-usb
+disqus: true
+webmention: true
+crosspost_to_medium: false
 ---
 So in order to run the iPad through a debug proxy (Burp Suite), and still be able to forward on the traffic to the net, I needed to be able to talk to it over USB. (yay limited tech to work with!)
 

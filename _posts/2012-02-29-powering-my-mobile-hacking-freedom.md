@@ -13,6 +13,9 @@ categories:
 - devalias
 tumblr_url: http://devalias.tumblr.com/post/18399358561/powering-my-mobile-hacking-freedom
 redirect_from: /post/18399358561/powering-my-mobile-hacking-freedom
+disqus: true
+webmention: true
+crosspost_to_medium: false
 ---
 Over the past 6 months or so I have learnt just how productive I can be working outside of home. I don't know if it's the change of scene, having less distractions, or merely that a fresh cup of coffee is only a question away. Perhaps a topic for a future post? One thing is certain though, unless your local haunt has a ready supply of power points (and is happy to let you use them) you're hack sessions are going to be rather shortlived.
 

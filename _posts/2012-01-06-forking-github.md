@@ -11,6 +11,9 @@ categories:
 - devalias
 tumblr_url: http://devalias.tumblr.com/post/15337594635/forking-github-or-how-to-contribute-to-a
 redirect_from: /post/15337594635/forking-github-or-how-to-contribute-to-a
+disqus: true
+webmention: true
+crosspost_to_medium: false
 ---
 I've been following the GitHub craze for a little while now, and finally coming to a stage where I would like to start contributing to some of the projects I follow. Having looked closely at the examples for one in particular, I noticed something simple, but beneficial that I could add, so I set out to become an active member of the internet!
 

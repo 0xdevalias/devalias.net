@@ -16,6 +16,9 @@ categories:
 - devalias
 tumblr_url: http://devalias.tumblr.com/post/55677624147/8-reasons-why-better-nutrition-makes-you-a-better
 redirect_from: /post/55677624147/8-reasons-why-better-nutrition-makes-you-a-better
+disqus: true
+webmention: true
+crosspost_to_medium: false
 ---
 Ref: [8 Reasons Why Better Nutrition Makes You a Better Developer](https://thecodebarbarian.wordpress.com/2013/06/21/8-reasons-why-better-nutrition-makes-you-a-better-developer/)
 

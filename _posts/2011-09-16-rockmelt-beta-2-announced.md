@@ -10,6 +10,9 @@ categories:
 - devalias
 tumblr_url: http://devalias.tumblr.com/post/10235620180/rockmelt-beta-2-announced
 redirect_from: /post/10235620180/rockmelt-beta-2-announced
+disqus: true
+webmention: true
+crosspost_to_medium: false
 ---
 So in followup to my previous post on RockMelt, they have just put up news that beta 2 will be out soon with all sorts of sexy improvements! Chat had been redesigned to make chatting to multiple people easier, they have included a View Later app (think Instapaper or ReadItLater), a new Twitter app, and it now all runs on Chromium 10! I can't wait till it's available for download.
 

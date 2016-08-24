@@ -8,6 +8,9 @@ categories:
 - devalias
 tumblr_url: http://devalias.tumblr.com/post/10235539154/etcinitdblog-start
 redirect_from: /post/10235539154/etcinitdblog-start/
+disqus: true
+webmention: true
+crosspost_to_medium: false
 ---
 So I have tried to do this blogging thing a few times now, both of which were on Wordpress hosted on my own server. Both of which I found I kind of never updated and then promptly forgot about for months on end. So here is attempt #3. Kind of hoping this one will actually work out. So on to what this is...
 

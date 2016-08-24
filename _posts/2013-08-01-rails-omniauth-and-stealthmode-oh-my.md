@@ -22,6 +22,9 @@ categories:
 - devalias
 tumblr_url: http://devalias.tumblr.com/post/56944918201/rails-omniauth-and-stealthmode-oh-my
 redirect_from: /post/56944918201/rails-omniauth-and-stealthmode-oh-my
+disqus: true
+webmention: true
+crosspost_to_medium: false
 ---
 (**tl;dr**: [Rails](http://rubyonrails.org/) is awesome, [OmniAuth](https://github.com/intridea/omniauth) is super useful, check out my new website [currently in stealthmode])
 

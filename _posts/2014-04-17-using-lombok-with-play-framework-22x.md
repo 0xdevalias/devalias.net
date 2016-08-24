@@ -10,6 +10,9 @@ categories:
 - devalias
 tumblr_url: http://devalias.tumblr.com/post/82877817438/using-lombok-with-play-framework-22x
 redirect_from: /post/82877817438/using-lombok-with-play-framework-22x
+disqus: true
+webmention: true
+crosspost_to_medium: false
 ---
 [Lombok](https://projectlombok.org/) is a project that removes some of the tediousness of Java by letting you use annotations to replace the verbosity of Getters/Setters (and heaps of other cool things!)
 

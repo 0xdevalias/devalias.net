@@ -18,6 +18,9 @@ categories:
 - devalias
 tumblr_url: http://devalias.tumblr.com/post/55062785106/fixing-windows-productivity-issues-osx-style
 redirect_from: /post/55062785106/fixing-windows-productivity-issues-osx-style
+disqus: true
+webmention: true
+crosspost_to_medium: false
 ---
 As much as past me would hate me for saying this, these days I am quite the fan of a number of Apple products. My MacBook Pro is a dream to use thanks to multitouch and some of the well thought out and designed features of OSX.
 

@@ -14,6 +14,9 @@ categories:
 - devalias
 tumblr_url: http://devalias.tumblr.com/post/55235350835/nmap-sh-saving-precious-seconds
 redirect_from: /post/55235350835/nmap-sh-saving-precious-seconds
+disqus: true
+webmention: true
+crosspost_to_medium: false
 ---
 In the course of my work I end up issuing the same simple commands again and again, and while they are pretty easy to remember, they still take more time than they really need to.
 

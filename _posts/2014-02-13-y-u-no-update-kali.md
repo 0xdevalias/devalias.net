@@ -20,6 +20,9 @@ categories:
 - devalias
 tumblr_url: http://devalias.tumblr.com/post/76393663831/y-u-no-update-kali
 redirect_from: /post/76393663831/y-u-no-update-kali
+disqus: true
+webmention: true
+crosspost_to_medium: false
 ---
 ![Kali Linux Y U No Update]({% postfile yunoupdatekali.jpg %})
 

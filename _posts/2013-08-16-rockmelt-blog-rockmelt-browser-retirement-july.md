@@ -10,6 +10,9 @@ categories:
 - devalias
 tumblr_url: http://devalias.tumblr.com/post/58309530845/rockmelt-blog-rockmelt-browser-retirement-july
 redirect_from: /post/58309530845/rockmelt-blog-rockmelt-browser-retirement-july
+disqus: true
+webmention: true
+crosspost_to_medium: false
 ---
 Ref: [Rockmelt Blog: Rockmelt Browser Retirement - July 31, 2013](http://blog.rockmelt.com/post/55124002701/rockmelt-browser-retirement-july-31-2013)
 

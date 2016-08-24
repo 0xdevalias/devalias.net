@@ -19,6 +19,9 @@ categories:
 - devalias
 tumblr_url: http://devalias.tumblr.com/post/66844345127/sparty-sharepoint-frontpage-auditing-tool-now-with-more
 redirect_from: /post/66844345127/sparty-sharepoint-frontpage-auditing-tool-now-with-more
+disqus: true
+webmention: true
+crosspost_to_medium: false
 ---
 I've been doing a little bit of poking around Sharepoint security lately, doing some research and playing with some assessment/pentest tools. One such tool (released this year at [Black Hat USA](https://www.blackhat.com/us-13/)) is called [Sparty](http://sparty.secniche.org/). Written by [0kn0ck](https://twitter.com/AdityaKSood) (aka Aditya K Sood) of [SecNiche Security Labs](http://secniche.org/), Sparty is a tool designed to assist in auditing sites built on Microsoft Sharepoint and/or Frontpage.
 

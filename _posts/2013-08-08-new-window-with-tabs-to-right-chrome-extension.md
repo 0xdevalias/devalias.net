@@ -21,6 +21,9 @@ categories:
 - devalias
 tumblr_url: http://devalias.tumblr.com/post/57586770334/new-window-with-tabs-to-right-chrome-extension
 redirect_from: /post/57586770334/new-window-with-tabs-to-right-chrome-extension
+disqus: true
+webmention: true
+crosspost_to_medium: false
 ---
 (tl;dr I wrote a chrome extension, [get it in the web store](https://chrome.google.com/webstore/detail/new-window-with-tabs-to-r/ldahcfljppchbfgdokomobmfdfplaman) or [check it out on GitHub](https://github.com/alias1/chrome-NewWindowWithTabsToRight))
 

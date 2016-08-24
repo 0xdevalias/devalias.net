@@ -13,6 +13,9 @@ categories:
 - devalias
 tumblr_url: http://devalias.tumblr.com/post/20028664762/yummy-turtles-breaking-plesk
 redirect_from: /post/20028664762/yummy-turtles-breaking-plesk
+disqus: true
+webmention: true
+crosspost_to_medium: false
 ---
 After some recent downtime due to an overzealous upgrade cycle (aka "Oh I won't need to backup first..") I feel it warranted to put a quick post about how I went about fixing things.
 

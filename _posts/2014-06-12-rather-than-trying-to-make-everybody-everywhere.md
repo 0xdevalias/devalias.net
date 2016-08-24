@@ -14,6 +14,9 @@ categories:
 - devalias
 tumblr_url: http://devalias.tumblr.com/post/88422732687/rather-than-trying-to-make-everybody-everywhere
 redirect_from: /post/88422732687/rather-than-trying-to-make-everybody-everywhere
+disqus: true
+webmention: true
+crosspost_to_medium: false
 ---
 Rather than trying to make everybody everywhere adapt their systems to try and handle everything that could possibly ever exist (a monumental task), have a 'new' thing that is flexible enough to be able to interface with everything else.
 

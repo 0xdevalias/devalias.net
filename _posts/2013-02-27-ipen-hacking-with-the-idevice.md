@@ -21,6 +21,9 @@ categories:
 - devalias
 tumblr_url: http://devalias.tumblr.com/post/44051421215/ipen-hacking-with-the-idevice
 redirect_from: /post/44051421215/ipen-hacking-with-the-idevice
+disqus: true
+webmention: true
+crosspost_to_medium: false
 ---
 Today I finally got around to the task i've been looking forward to for the last week or so. We got an iPad to play around with at work, mostly so we can try and break the mobile apps before they go public. Not a huge amount you can do on it in it's default state, so I got to jailbreak it!
 

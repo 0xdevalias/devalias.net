@@ -9,5 +9,8 @@ categories:
 - devalias
 tumblr_url: http://devalias.tumblr.com/post/68148117127/find-your-voice-and-disqus
 redirect_from: /post/68148117127/find-your-voice-and-disqus
+disqus: true
+webmention: true
+crosspost_to_medium: false
 ---
 Just a little note to say that i've now enabled the Disqus commenting (wasn't aware that it wasn't working before), so you now have a voice to interact back with me through the site!

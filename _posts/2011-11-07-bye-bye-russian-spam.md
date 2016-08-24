@@ -10,6 +10,9 @@ categories:
 - devalias
 tumblr_url: http://devalias.tumblr.com/post/12414238522/bye-bye-russian-spam
 redirect_from: /post/12414238522/bye-bye-russian-spam
+disqus: true
+webmention: true
+crosspost_to_medium: false
 ---
 I've been getting hit pretty heavily lately with a pile of Russian spam, so I decided to look into adding language based spam filtering to my mailserver. This post serves as a reminder of what I did, and hopefully also helps some others in a similar situation.
 

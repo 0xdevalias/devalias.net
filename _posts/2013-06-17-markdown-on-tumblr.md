@@ -9,6 +9,9 @@ categories:
 - devalias
 tumblr_url: http://devalias.tumblr.com/post/53084857564/markdown-on-tumblr
 redirect_from: /post/53084857564/markdown-on-tumblr
+disqus: true
+webmention: true
+crosspost_to_medium: false
 ---
 Just discovered that I can switch the rich text editor to markdown! w00t!
 

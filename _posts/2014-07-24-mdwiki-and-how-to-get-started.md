@@ -14,6 +14,9 @@ categories:
 - devalias
 tumblr_url: http://devalias.tumblr.com/post/92579952637/mdwiki-and-how-to-get-started
 redirect_from: /post/92579952637/mdwiki-and-how-to-get-started
+disqus: true
+webmention: true
+crosspost_to_medium: false
 ---
 (Note: Original gist can be found [here](https://gist.github.com/alias1/a8c3c2fd7bf2f50ff666))
 

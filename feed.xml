@@ -1,5 +1,242 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="http://devalias.net//feed.xml" rel="self" type="application/atom+xml" /><link href="http://devalias.net//" rel="alternate" type="text/html" /><updated>2016-08-20T16:40:47+10:00</updated><id>http://devalias.net//</id><title>/dev/alias – Hack. Dev. Transcend.</title><subtitle>Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.
-</subtitle><entry><title>Bulletproof Quarterly Biohacking Box #7</title><link href="http://devalias.net//devalias/2016/07/21/bulletproof-quarterly-biohacking-box-7/" rel="alternate" type="text/html" title="Bulletproof Quarterly Biohacking Box #7" /><published>2016-07-21T00:00:00+10:00</published><updated>2016-07-21T00:00:00+10:00</updated><id>http://devalias.net//devalias/2016/07/21/bulletproof-quarterly-biohacking-box-7</id><content type="html" xml:base="http://devalias.net//devalias/2016/07/21/bulletproof-quarterly-biohacking-box-7/">&lt;p&gt;A bit of a change from the tech content today. I&amp;#39;ve been thinking about it for a while, and have decided to start consolidating all of my interests/thoughts/posts onto this site. The blog will still mostly be tech leaning, but some posts will start branching out toward my other interests such as biohacking, human performance, efficiency, etc.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="http://devalias.net//feed.xml" rel="self" type="application/atom+xml" /><link href="http://devalias.net//" rel="alternate" type="text/html" /><updated>2016-08-24T14:11:11+10:00</updated><id>http://devalias.net//</id><title>/dev/alias – Hack. Dev. Transcend.</title><subtitle>Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.
+</subtitle><entry><title>Starting a New Web Application (Part 1): An Exploration of Options</title><link href="http://devalias.net//devalias/2016/08/24/starting-a-new-web-application-1-an-exploration-of-options/" rel="alternate" type="text/html" title="Starting a New Web Application (Part 1): An Exploration of Options" /><published>2016-08-24T00:00:00+10:00</published><updated>2016-08-24T00:00:00+10:00</updated><id>http://devalias.net//devalias/2016/08/24/starting-a-new-web-application-1-an-exploration-of-options</id><content type="html" xml:base="http://devalias.net//devalias/2016/08/24/starting-a-new-web-application-1-an-exploration-of-options/">&lt;p&gt;Finding myself with some free time (and looking into starting a new project), I thought I might catch myself up on the state of web technologies, and what might be a good stack to work with.&lt;/p&gt;
+
+&lt;p&gt;The details collected here are most certainly not a complete layout of the entire landscape, and there will no doubt be leanings toward my personal tastes (&lt;a href=&quot;http://www.reactivemanifesto.org/&quot;&gt;reactive&lt;/a&gt;, api-driven, etc). You should use this more as a starter into your own deeper research than as a source of ultimate truth. With that out of the way, let&amp;#39;s get into it!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Quicklinks&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#frontend&quot;&gt;Frontend&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#frontend-frameworks&quot;&gt;Frameworks&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#frontend-ui&quot;&gt;UI&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#frontend-scripting&quot;&gt;Scripting&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#backend&quot;&gt;Backend&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#tooling&quot;&gt;Tooling&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#conclusions&quot;&gt;Conclusions&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;&lt;a name=&quot;frontend&quot;&gt;&lt;/a&gt;Frontend&lt;/h2&gt;
+
+&lt;p&gt;The frontend is the pretty, interactive, main part that people will be seeing. You can have the most amazingly streamlined and perfect backend code, but noone&amp;#39;s going to notice and love it without a strong frontend to back it up.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a name=&quot;frontend-frameworks&quot;&gt;&lt;/a&gt;Frameworks&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;The days of raw JavaScript and jQuery selectors is long gone. We&amp;#39;re looking for a nice, modern framework to help put together our frontend. Here&amp;#39;s a little selection of some of our options:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://facebook.github.io/react/&quot;&gt;React&lt;/a&gt; (&lt;a href=&quot;https://github.com/reactjs&quot;&gt;GitHub&lt;/a&gt;) (most likely with a flavour of &lt;a href=&quot;https://facebook.github.io/flux/&quot;&gt;Flux&lt;/a&gt; (&lt;a href=&quot;https://github.com/facebook/flux&quot;&gt;GitHub&lt;/a&gt;))
+
+&lt;ul&gt;
+&lt;li&gt;A frontend framework from Facebook that is taking the web by storm. Probably my personal favourite from what I&amp;#39;ve seen so far.&lt;/li&gt;
+&lt;li&gt;It even let&amp;#39;s you &lt;a href=&quot;https://facebook.github.io/react-native/&quot;&gt;build for native devices&lt;/a&gt;!&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://angular.io/&quot;&gt;Angular (v2)&lt;/a&gt; (or if you like outdated for some reason &lt;a href=&quot;https://angularjs.org/&quot;&gt;AngularJS (v1)&lt;/a&gt;)
+
+&lt;ul&gt;
+&lt;li&gt;Also &lt;a href=&quot;https://mobile.angular.io/&quot;&gt;available for native devices&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;I was a big fan of AngularJS (v1), and I want to like v2, but I don&amp;#39;t think it will be my main choice.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;There are a TON of other frontend frameworks, of varying popularity and support. I won&amp;#39;t delve into them much, but there&amp;#39;s heaps of info out there
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://emberjs.com/&quot;&gt;Ember&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://vuejs.org/&quot;&gt;Vue.js&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;From reading around the web, there&amp;#39;s a decent amount of good stuff talking about Vue. In the end I decided against it since it&amp;#39;s not supported by a big backer, and the skills aren&amp;#39;t as useful on a resume. That said, for a personal project it could be a great fit!&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://vuejs.org/guide/comparison.html&quot;&gt;https://vuejs.org/guide/comparison.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://blog.evanyou.me/2015/10/25/vuejs-re-introduction/&quot;&gt;http://blog.evanyou.me/2015/10/25/vuejs-re-introduction/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://vuejs.org/2016/04/27/announcing-2.0/&quot;&gt;http://vuejs.org/2016/04/27/announcing-2.0/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/vuejs/vue&quot;&gt;vue&lt;/a&gt;, &lt;a href=&quot;https://github.com/vuejs/vue-rx&quot;&gt;vue-rx&lt;/a&gt;, &lt;a href=&quot;https://github.com/vuejs/vue-resource&quot;&gt;vue-resource&lt;/a&gt;, &lt;a href=&quot;https://github.com/vuejs/vue-router&quot;&gt;vue-router&lt;/a&gt;, &lt;a href=&quot;https://github.com/vuejs/vuex&quot;&gt;vuex&lt;/a&gt;, &lt;a href=&quot;https://github.com/revue/revue&quot;&gt;revuew&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://aurelia.io/&quot;&gt;Aurelia&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://riotjs.com/&quot;&gt;Riot&lt;/a&gt; (&lt;a href=&quot;https://muut.com/blog/technology/riot-2.0/&quot;&gt;v2&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;As with most things, every man and his dog has their own opinion, so here are a few comparisons I found useful:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.ociweb.com/resources/publications/sett/comparison-of-angular-2-and-react/&quot;&gt;&amp;quot;Comparison of Angular 2 and React&amp;quot; by Mark Volkmann and Lance Finney&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://blog.backand.com/angular-2-vs-react/&quot;&gt;&amp;quot;Angular 2 vs. React&amp;quot; by Itay Herskovits&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://medium.freecodecamp.com/angular-2-versus-react-there-will-be-blood-66595faafd51&quot;&gt;&amp;quot;Angular 2 versus React: There Will Be Blood&amp;quot; by Cory House&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://rlafranchi.github.io/2016/05/03/vue-vs-react/&quot;&gt;&amp;quot;Vue.js vs React.js&amp;quot; by Richard LaFranchi&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://forums.meteor.com/t/why-doesnt-mdg-just-adopt-vue-js-and-forget-about-react-vs-blaze/13926/6&quot;&gt;&amp;quot;Why doesn’t MDG just adopt Vue.js and forget about React vs Blaze?&amp;quot;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a name=&quot;frontend-ui&quot;&gt;&lt;/a&gt;UI&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Even if you like to go oldschool and code your site by hand in notepad/vi, you can&amp;#39;t deny the ease/benefits of using a frontend UI framework.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://getbootstrap.com/&quot;&gt;Bootstrap&lt;/a&gt; (&lt;a href=&quot;https://blog.getbootstrap.com/2015/08/19/bootstrap-4-alpha/&quot;&gt;v4&lt;/a&gt;)
+
+&lt;ul&gt;
+&lt;li&gt;Released by Twitter, and arguably one of the most used frontend UI frameworks out there.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://react-bootstrap.github.io/&quot;&gt;React-Bootstrap&lt;/a&gt; (&lt;a href=&quot;https://github.com/react-bootstrap/react-bootstrap&quot;&gt;GitHub&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://ng-bootstrap.github.io/#/home&quot;&gt;ng-bootstrap&lt;/a&gt; by the angular-ui team (&lt;a href=&quot;https://github.com/ng-bootstrap/ng-bootstrap&quot;&gt;GitHub&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://valor-software.com/ng2-bootstrap/&quot;&gt;ng2-bootstrap&lt;/a&gt; by valor-software (&lt;a href=&quot;https://github.com/valor-software/ng2-bootstrap&quot;&gt;GitHub&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://foundation.zurb.com/&quot;&gt;Foundation&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;While not as well known as the other two mentioned here, those that make use of foundation swear by it.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://react.foundation/&quot;&gt;React-Foundation&lt;/a&gt; (&lt;a href=&quot;https://github.com/nordsoftware/react-foundation&quot;&gt;GitHub&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://aruberto.github.io/react-foundation-components/&quot;&gt;React-Foundation-Components&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://material.google.com/&quot;&gt;Material Design&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Following a set of design principals from Google, this lays out a slick, consistent look and feel.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://getmdl.io/&quot;&gt;Material Design Lite&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.material-ui.com/&quot;&gt;For React&lt;/a&gt; (&lt;a href=&quot;https://github.com/callemall/material-ui&quot;&gt;GitHub&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://material.angular.io/&quot;&gt;For Angular (v2)&lt;/a&gt; (&lt;a href=&quot;https://github.com/angular/material2&quot;&gt;GitHub&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://material.angularjs.io/&quot;&gt;For AngularJS (v1)&lt;/a&gt; (&lt;a href=&quot;https://github.com/angular/material&quot;&gt;GitHub&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Can&amp;#39;t decide? Try some comparisons:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://blog.teamtreehouse.com/the-rundown-bootstrap-vs-google-mdl-vs-foundation&quot;&gt;&amp;quot;The Rundown: Bootstrap vs. Google MDL vs. Foundation&amp;quot; by treehouse&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://dannyherran.com/2016/03/state-of-affairs-bootstrap-4-vs-foundation-6/&quot;&gt;&amp;quot;State of affairs: Bootstrap 4 vs Foundation 6.2&amp;quot; by Danny Herran&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a name=&quot;frontend-scripting&quot;&gt;&lt;/a&gt;Scripting&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Modern web apps live by the functionality they enable in the browser, and to do this, we need a JS-esque language. Your chosen frontend framework may sway your choice (eg. Angular (v2) has a strong preference for TypeScript), but ultimately, it&amp;#39;s up to what you/your team feel comfortable with. With &lt;a href=&quot;https://github.com/jashkenas/coffeescript/wiki/list-of-languages-that-compile-to-js&quot;&gt;so many options&lt;/a&gt; out there, it&amp;#39;s hard to pick.. And of course, you could always stick to plain JavaScript.. and with the new features coming in &lt;a href=&quot;http://es6-features.org/&quot;&gt;ES6&lt;/a&gt; (eg. &lt;a href=&quot;http://www.html5rocks.com/en/tutorials/es6/promises/&quot;&gt;promises&lt;/a&gt;) and beyond, it might be a good choice.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://babeljs.io/&quot;&gt;Babel&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;A transpiler that lets you play with all the fun features of JavaScript ES6 and beyond, while maintaining compatibility with all of the older browsers.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.typescriptlang.org/&quot;&gt;TypeScript&lt;/a&gt; (&lt;a href=&quot;https://github.com/Microsoft/TypeScript&quot;&gt;GitHub&lt;/a&gt;)
+
+&lt;ul&gt;
+&lt;li&gt;&amp;quot;TypeScript is a typed superset of JavaScript that compiles to plain JavaScript&amp;quot;&lt;/li&gt;
+&lt;li&gt;If you&amp;#39;re using Angular (v2) and like sticking to convention, this is the one for you.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://coffeescript.org/&quot;&gt;CoffeeScript&lt;/a&gt; (or maybe &lt;a href=&quot;https://github.com/michaelficarra/CoffeeScriptRedux&quot;&gt;v2&lt;/a&gt;)
+
+&lt;ul&gt;
+&lt;li&gt;This used to be my choice, but looking at the other options available now, I think i&amp;#39;ll be moving on.&lt;/li&gt;
+&lt;li&gt;As always, there are a bunch of arguments for and against..
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://robots.thoughtbot.com/replace-coffeescript-with-es6&quot;&gt;&amp;quot;Replace CoffeeScript with ES6&amp;quot; by Blake Williams&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://tech.noredink.com/post/111583727108/dont-replace-coffeescript-with-es6-transpilers&quot;&gt;&amp;quot;Don’t Replace CoffeeScript with ES6 Transpilers&amp;quot; by Richard Feldman&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;etc&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;If you&amp;#39;re looking for a way out, why not &lt;a href=&quot;https://github.com/decaffeinate/decaffeinate&quot;&gt;decaffeinate&lt;/a&gt;?&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://flowtype.org/&quot;&gt;Flow&lt;/a&gt; (&lt;a href=&quot;https://github.com/facebook/flow&quot;&gt;GitHub&lt;/a&gt;)
+
+&lt;ul&gt;
+&lt;li&gt;While it&amp;#39;s not a language unto itself, it does allow you the benefits of typed JavaScript without having to dive into something like TypeScript.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.scala-js.org/&quot;&gt;Scala.js&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;A little left field, this transpiles Scala code into JavaScript. While I probably wouldn&amp;#39;t see myself using this as a main choice, it could make for some interesting reusability between front and backend.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;&lt;a name=&quot;backend&quot;&gt;&lt;/a&gt;Backend&lt;/h2&gt;
+
+&lt;p&gt;My preferences for backend tech stacks lean heavily towards &lt;a href=&quot;http://www.scala-lang.org/&quot;&gt;Scala&lt;/a&gt; and the &lt;a href=&quot;https://www.lightbend.com/platform&quot;&gt;Lightbend Reactive Platform&lt;/a&gt; these days, but I will make quick mention of some of the other options available.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://doc.akka.io/docs/akka/2.4/scala/http/&quot;&gt;Akka-HTTP&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Taking the power of asynchronous, message based actors, and applying them to HTTP. Definite win.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://softwaremill.github.io/bootzooka/&quot;&gt;Bootzooka&lt;/a&gt; (&lt;a href=&quot;https://github.com/softwaremill/bootzooka&quot;&gt;GitHub&lt;/a&gt;)
+
+&lt;ul&gt;
+&lt;li&gt;&amp;quot;Bootzooka is a simple application scaffolding project to allow quick start of development for modern, web based applications.&amp;quot;&lt;/li&gt;
+&lt;li&gt;While not perfect, it&amp;#39;s a decent implementation of a starter app, tying together some useful technologies.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.playframework.com/&quot;&gt;Play Framework&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&amp;quot;Play is a high-productivity Java and Scala web application framework that integrates the components and APIs you need for modern web application development.&amp;quot;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/airbnb/hypernova&quot;&gt;Hypernova&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&amp;quot;A service for server-side rendering your JavaScript views&amp;quot;&lt;/li&gt;
+&lt;li&gt;While not a choice unto itself, this should help speed things up and keep your site nice and search engine friendly.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;You also have all of your other typical options
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.ruby-lang.org/en/&quot;&gt;Ruby&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://rubyonrails.org/&quot;&gt;Ruby on Rails&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.sinatrarb.com/&quot;&gt;Sinatra&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://nodejs.org/en/&quot;&gt;Node&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://expressjs.com/&quot;&gt;Express&lt;/a&gt;: &amp;quot;Fast, unopinionated, minimalist web framework for Node.js&amp;quot;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.meteor.com/&quot;&gt;Meteor&lt;/a&gt;: &amp;quot;Meteor is an open source platform for web,&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://noeticforce.com/best-nodejs-frameworks-for-web-and-app-development&quot;&gt;&amp;quot;Node.js Frameworks: The 10 Best for Web and Apps Development&amp;quot; by noeticsunil&lt;/a&gt;
+mobile, and desktop.&amp;quot;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.python.org/&quot;&gt;Python&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.djangoproject.com/&quot;&gt;Django&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://wiki.python.org/moin/WebFrameworks&quot;&gt;Web Frameworks for Python&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://secure.php.net/&quot;&gt;PHP&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://octobercms.com/&quot;&gt;October&lt;/a&gt;: &amp;quot;October is a free, open-source, self-hosted CMS platform based on the Laravel PHP Framework. A simple and modular CMS that grows with you, with a precise and beautiful interface that comes as second nature.&amp;quot;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://laravel.com/&quot;&gt;Laravel&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;etc&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;&lt;a name=&quot;tooling&quot;&gt;&lt;/a&gt;Tooling&lt;/h2&gt;
+
+&lt;p&gt;With the crazy mix of technologies and steps involved in modern web app development, it makes a ton of sense to tie it all together with some automation.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://webpack.github.io/&quot;&gt;Webpack&lt;/a&gt; (&lt;a href=&quot;https://github.com/webpack/webpack&quot;&gt;GitHub&lt;/a&gt;)
+
+&lt;ul&gt;
+&lt;li&gt;&amp;quot;Webpack is a bundler for modules. The main purpose is to bundle JavaScript files for usage in a browser, yet it is also capable of transforming, bundling, or packaging just about any resource or asset.&amp;quot;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://blog.andrewray.me/webpack-when-to-use-and-why/&quot;&gt;&amp;quot;Webpack: When To Use And Why&amp;quot; by Andrew Ray&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/webpack/less-loader&quot;&gt;https://github.com/webpack/less-loader&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/shakacode/bootstrap-loader&quot;&gt;https://github.com/shakacode/bootstrap-loader&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://gulpjs.com/&quot;&gt;Gulp&lt;/a&gt; (&lt;a href=&quot;https://github.com/gulpjs/gulp&quot;&gt;GitHub&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Gulp is a streaming javascript task runner that lets you automate tasks.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://gruntjs.com/&quot;&gt;Grunt&lt;/a&gt; (&lt;a href=&quot;https://github.com/gruntjs/&quot;&gt;GitHub&lt;/a&gt;)
+
+&lt;ul&gt;
+&lt;li&gt;Grunt is basically the older, less streaming, less awesome version of Gulp.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;While a little different in purpose to the things mentioned above, getting everything nicely tested and deployed is always good:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://bitbucket.org/product/features/pipelines&quot;&gt;Bitbucket Pipelines&lt;/a&gt;: &amp;quot;Build, test and deploy from Bitbucket&amp;quot;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;&lt;a name=&quot;conclusions&quot;&gt;&lt;/a&gt;Conclusions&lt;/h2&gt;
+
+&lt;p&gt;Hopefully this has given you a decent starting point for figuring out what combination of technologies is going to work best for your next project. If you want to see the direction I&amp;#39;ve decided to go, make sure you read on in &lt;a href=&quot;#TODO&quot;&gt;Part 2&lt;/a&gt;.&lt;/p&gt;</content><author><name>devalias</name></author><category term="dev" /><category term="web" /><category term="tech-stack" /><category term="overview" /><category term="frontend" /><category term="backend" /><category term="react" /><category term="angular" /><category term="ember" /><category term="vue" /><category term="aurelia" /><category term="riot" /><category term="bootstrap" /><category term="foundation" /><category term="material-design" /><category term="javascript" /><category term="babel" /><category term="typescript" /><category term="coffeescript" /><category term="flow" /><category term="scala-js" /><category term="akka-http" /><category term="bootzooka" /><category term="play-framework" /><category term="hypernova" /><category term="ruby" /><category term="ruby-on-rails" /><category term="node" /><category term="express" /><category term="meteor" /><category term="python" /><category term="django" /><category term="php" /><category term="october-cms" /><category term="laravel" /><category term="webpack" /><category term="gulp" /><category term="grunt" /><summary>Finding myself with some free time (and looking into starting a new project), I thought I might catch myself up on the state of web technologies, and what might be a good stack to work with.</summary></entry><entry><title>Bulletproof Quarterly Biohacking Box #7</title><link href="http://devalias.net//devalias/2016/07/21/bulletproof-quarterly-biohacking-box-7/" rel="alternate" type="text/html" title="Bulletproof Quarterly Biohacking Box #7" /><published>2016-07-21T00:00:00+10:00</published><updated>2016-07-21T00:00:00+10:00</updated><id>http://devalias.net//devalias/2016/07/21/bulletproof-quarterly-biohacking-box-7</id><content type="html" xml:base="http://devalias.net//devalias/2016/07/21/bulletproof-quarterly-biohacking-box-7/">&lt;p&gt;A bit of a change from the tech content today. I&amp;#39;ve been thinking about it for a while, and have decided to start consolidating all of my interests/thoughts/posts onto this site. The blog will still mostly be tech leaning, but some posts will start branching out toward my other interests such as biohacking, human performance, efficiency, etc.&lt;/p&gt;
 
 &lt;p&gt;With that out of the way, this is just a quick post to show off what came in the latest &lt;a href=&quot;https://quarterly.co/products/daveasprey&quot;&gt;Bulletproof Quarterly Biohacking Box&lt;/a&gt; from Dave Asprey aka The Bulletproof Exec.&lt;/p&gt;
 
@@ -431,6 +668,4 @@ WSRequestHolder ws = wsClient.url(url)
 
 &lt;p&gt;&amp;lt;3 /dev/alias&lt;/p&gt;
 
-&lt;script src=&quot;https://gist.github.com/alias1/1d3b44312d8a68ddbaa5.js&quot;&gt; &lt;/script&gt;</content><author><name>devalias</name></author><category term="scala" /><category term="java" /><category term="play-framework" /><category term="map" /><category term="future" /><category term="promise" /><category term="async" /><category term="gist" /><summary>A side by side comparison (now that I finally got it figured out!) of Play Framework v2.2.x promise unwrapping in Java and Scala. Hopefully this will be able to save some of you a bunch of mind numbing ponderings and failures.</summary></entry><entry><title>How to add a Flattr button to your Tumblr posts</title><link href="http://devalias.net//devalias/2014/05/05/how-to-add-a-flattr-button-to-your-tumblr-posts/" rel="alternate" type="text/html" title="How to add a Flattr button to your Tumblr posts" /><published>2014-05-05T11:22:00+10:00</published><updated>2014-05-05T11:22:00+10:00</updated><id>http://devalias.net//devalias/2014/05/05/how-to-add-a-flattr-button-to-your-tumblr-posts</id><content type="html" xml:base="http://devalias.net//devalias/2014/05/05/how-to-add-a-flattr-button-to-your-tumblr-posts/">&lt;p&gt;Just a quick post today. You may notice the Flattr buttons on posts now. To find out how to add them to your own Tumblr posts check out&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://manuelgrabowski.de/2012/01/03/add-an-individual-flattr-button-to-your-tumblr-posts/&quot;&gt;http://manuelgrabowski.de/2012/01/03/add-an-individual-flattr-button-to-your-tumblr-posts/&lt;/a&gt;&lt;/p&gt;</content><author><name>devalias</name></author><category term="manuelgrabowski.de" /><category term="flattr" /><category term="micropayments" /><summary>Just a quick post today. You may notice the Flattr buttons on posts now. To find out how to add them to your own Tumblr posts check out</summary></entry></feed>
+&lt;script src=&quot;https://gist.github.com/alias1/1d3b44312d8a68ddbaa5.js&quot;&gt; &lt;/script&gt;</content><author><name>devalias</name></author><category term="scala" /><category term="java" /><category term="play-framework" /><category term="map" /><category term="future" /><category term="promise" /><category term="async" /><category term="gist" /><summary>A side by side comparison (now that I finally got it figured out!) of Play Framework v2.2.x promise unwrapping in Java and Scala. Hopefully this will be able to save some of you a bunch of mind numbing ponderings and failures.</summary></entry></feed>

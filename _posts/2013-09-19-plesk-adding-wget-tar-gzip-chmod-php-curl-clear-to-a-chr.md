@@ -185,7 +185,7 @@ cp -R /etc/php.d chroot/etc
 cp /etc/localtime chroot/etc/
 cp -R /usr/share/zoneinfo chroot/usr/share/
 ./chroot_update.sh --apply all
-``
+```
 
 Your mileage my vary depending on what modules you have installed, but the method is the same as above for other files. You may need to play around with some php.ini type settings to get things working, but it should be relatively straightforward.
 

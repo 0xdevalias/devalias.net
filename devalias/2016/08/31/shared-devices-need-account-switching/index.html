@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <!-- [[! Page Meta ]] -->
-    <title>/dev/alias – Hack. Dev. Transcend.</title>
+    <title>Shared Devices Need Account Switching</title>
     <meta name="description" content="/dev/alias – Hack. Dev. Transcend. - Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.
 ">
 
@@ -18,7 +18,7 @@
     <link rel="webmention" href="https://webmention.io/devalias.net/webmention">
 <link rel="pingback" href="https://webmention.io/devalias.net/xmlrpc">
 
-    <meta property="webmention:redirected_from" content="">
+    <meta property="webmention:redirected_from" content=",">
 
     <link rel="shortcut icon" href="/assets/images/authors/devalias.png">
 
@@ -69,7 +69,7 @@
 
 
 </head>
-<body class="tag-template nav-closed">
+<body class="post-template nav-closed">
 
     <div class="nav">
     <h3 class="nav-title">Menu</h3>
@@ -113,14 +113,7 @@
 
     <div class="site-wrapper">
         <!-- [[! Everything else gets inserted here ]] -->
-        
-
-
-
-
-
-
-
+        <!-- Layout: Post -->
 <!-- Template: header -->
 
 
@@ -144,10 +137,8 @@
             <div class="vertical">
                 <div class="main-header-content inner">
                     
-                        <h1 class="page-title">Ios</h1>
+                        <h1 class="page-title">Shared Devices Need Account Switching</h1>
                     
-                    
-                        <h2 class="page-description">A 5-post collection</h2>
                     
                 </div>
             </div>
@@ -160,31 +151,9 @@
 
 
 <main id="content" class="content" role="main">
-        <!-- Previous/next page links - only displayed on page 2+ -->
-    <div class="extra-pagination inner">
-        
-            <nav class="pagination" role="pagination">
-    
-    <span class="page-number">
-      Page 1 of 1
-      <a href="/tag/iOS/rss.xml" title="RSS Feed"><i class="fa fa-rss fa-"></i></a>
-    </span>
-     
-</nav>
-        
-    </div>
-
-    <!-- This is the post loop - each post will be output using this markup -->
-    
-    <article class="post">
+    <article class="post ">
         <header class="post-header">
-            <h2 class="post-title"><a href="/devalias/2016/08/31/shared-devices-need-account-switching/">Shared Devices Need Account Switching</a></h2>
-        </header>
-        <section class="post-excerpt">
-            <p>Living in share houses and using tech like the Apple TV has highlighted an annoying situation: so many apps these days want you to sign in... <a class="read-more" href="/devalias/2016/08/31/shared-devices-need-account-switching/">»</a></p>
-        </section>
-        <footer>
-            
+            <!-- <h1 class="post-title">Shared Devices Need Account Switching</h1> -->
             <section class="post-meta">
     
         <img class="author-thumb" src="/assets/images/authors/devalias.png" alt="Author image" nopin="nopin">
@@ -193,7 +162,7 @@
         <a href="/author/devalias">Glenn 'devalias' Grant</a>
     
     |
-    <time class="post-date" datetime="">31 Aug 2016</time>
+    <time class="post-date" datetime="2016-08-31">31 Aug 2016</time>
     |
     
         2 minutes
@@ -230,223 +199,175 @@
     
     
 </section>
-        </footer>
-    </article>
-    
-    <article class="post">
-        <header class="post-header">
-            <h2 class="post-title"><a href="/devalias/2013/03/07/how-to-ssh-to-iphone-via-usb/">How to SSH to iPhone/iPad/iDevice via USB</a></h2>
         </header>
-        <section class="post-excerpt">
-            <p>So in order to run the iPad through a debug proxy (Burp Suite), and still be able to forward on the traffic to the net, I... <a class="read-more" href="/devalias/2013/03/07/how-to-ssh-to-iphone-via-usb/">»</a></p>
+
+        <section class="post-content">
+            <p>Living in share houses and using tech like the Apple TV has highlighted an annoying situation: so many apps these days want you to sign in to enable access, personalised features, etc; but most offer no good solution for when you share the device with other people.</p>
+
+<p>There are some apps out there that handle this pretty well:</p>
+
+<ul>
+<li>
+<a href="https://www.plex.tv/">Plex</a> allows you to switch between different users in your 'home', each of which can either be a fully independent account, or a 'managed user' that exists under the main account.</li>
+<li>
+<a href="https://www.netflix.com/au/">Netflix</a> allows switching between different users under the one subscription. While this is ok.. it doesn't work so well for a share house. What if we each have our own Netflix subscriptions, but want to share the device without having to log out and back in to our own accounts?</li>
+</ul>
+
+<p>And then there are so many apps that don't even seem to give the option, two of which immediately jump to mind for me:</p>
+
+<ul>
+<li>
+<a href="https://www.youtube.com/">YouTube</a> let's you sign in to a single account, but no switching features save for logging out.</li>
+<li>
+<a href="https://www.ted.com/">TED</a>'s app suffers from the same issue.</li>
+</ul>
+
+<p>This could be fixed at the individual app level. It would be REALLY nice to see support for multiple account switching added to any app made for a device that could potentially be shared (Apple TV/etc, far less likely to be useful on an iPhone.. but it might be for some users) But this requires extra effort from every app developer out there. Perhaps a common framework could be developed to help support this.. but then making it generic enough to fit into everyone's different architectures would be a challenge.</p>
+
+<p>An even better solution could be baked into the OS itself by Apple.. I boot up my Apple TV and am presented with an account chooser asking which particular registered user I am. If I haven't already logged in, there's the option for signing in to my Apple account to add myself as a new user. Once logged in, I'm presented with my own homescreen of apps, laid out to my own preferences, logged in to my own accounts, and saving my own personal data.</p>
+
+<p>This poses some issues about duplication of apps between users, space requirements, etc. So a mid-ground could be allowing the owner/'master' user to control app installation, but then for each other user to be able to maintain their own stored data/signin status/etc.</p>
+
+<p>What do you think? Is this a feature you'd use, or does it just seem like over-engineered bloat? Let me know your thoughts in the comments!</p>
+
         </section>
-        <footer>
+
+        <footer class="post-footer">
+
+            <!-- #author-->
+
             
-            <section class="post-meta">
+	<figure class="author-image">
+	    <a class="img" href="/author/devalias" style="background-image: url(/assets/images/authors/devalias.png)"><span class="hidden">devalias's Picture</span></a>
+	</figure>
+
+
+            <section class="author">
+                <h4>
+                    
+                        <a href="/author/devalias">Glenn 'devalias' Grant</a>
+                    
+                </h4>
+                
+                
+                    <p> Glenn is a full-stack, polyglot developer with an acute interest in the offensive side of security; as well as technology, efficiency, biohacking, health, personal growth and a whole lot more.
+</p>
+                
+                <div class="author-meta">
     
-        <img class="author-thumb" src="/assets/images/authors/devalias.png" alt="Author image" nopin="nopin">
-    
-    
-        <a href="/author/devalias">Glenn 'devalias' Grant</a>
-    
-    |
-    <time class="post-date" datetime="">07 Mar 2013</time>
-    |
-    
-        Less than 1 minute
-    
-    to read
-    <!-- [[tags prefix=" on "]] -->
-    
-        |
-        
-            <a href="/tag/iOS">#iOS</a>,
-        
-            <a href="/tag/iPhone">#iPhone</a>,
-        
-            <a href="/tag/iPad">#iPad</a>,
-        
-            <a href="/tag/iDevice">#iDevice</a>,
-        
-            <a href="/tag/ssh">#ssh</a>,
-        
-            <a href="/tag/usb">#usb</a>,
-        
-            <a href="/tag/libmuxd">#libmuxd</a>,
-        
-            <a href="/tag/iproxy">#iproxy</a>,
-        
-            <a href="/tag/burp-suite">#burp-suite</a>,
-        
-            <a href="/tag/debug">#debug</a>,
-        
-            <a href="/tag/hack">#hack</a>,
-        
-            <a href="/tag/pentest">#pentest</a>
-        
+        <span class="author-location">
+            <i class="fa fa-location-arrow"></i>
+            Australia
+        </span>
     
     
-</section>
-        </footer>
-    </article>
+        <span class="author-link">
+            <a href="http://www.devalias.net/">
+                <i class="fa fa-link"></i>
+                devalias.net
+            </a>
+        </span>
     
-    <article class="post">
-        <header class="post-header">
-            <h2 class="post-title"><a href="/devalias/2013/02/27/ipen-hacking-with-the-idevice/">iPen: Hacking with the iDevice (Setting up your iPhone as a Penetration Tester)</a></h2>
-        </header>
-        <section class="post-excerpt">
-            <p>Today I finally got around to the task i've been looking forward to for the last week or so. We got an iPad to play around... <a class="read-more" href="/devalias/2013/02/27/ipen-hacking-with-the-idevice/">»</a></p>
-        </section>
-        <footer>
+    
+</div>
+                <div class="author-social">
+    <a href="/author/devalias/rss.xml" title="RSS Feed"><i class="fa fa-rss fa-1x"></i></a>
+    
+        <a href="https://twitter.com/_devalias" title="Twitter" target="_blank"><i class="fa fa-twitter-square fa-1x"></i></a>
+    
+    
+        <a href="https://www.linkedin.com/in/glenndevaliasgrant" title="LinkedIn" target="_blank"><i class="fa fa-linkedin-square fa-1x"></i></a>
+    
+    
+    
+    
+        <a href="https://github.com/alias1" title="Github" target="_blank"><i class="fa fa-github-square fa-1x"></i></a>
+    
+    
+        <a href="https://www.reddit.com/user/_devalias" title="Reddit" target="_blank"><i class="fa fa-reddit-square fa-1x"></i></a>
+    
+    
+        <a href="https://news.ycombinator.com/user?id=alias1" title="Hacker News" target="_blank"><i class="fa fa-hacker-news fa-1x"></i></a>
+    
+    
+        <a href="https://stackoverflow.com/users/1137085/devalias" title="StackOverflow" target="_blank"><i class="fa fa-stack-overflow fa-1x"></i></a>
+    
+    
+        <a href="https://stackexchange.com/users/1156663/devalias" title="StackExchange" target="_blank"><i class="fa fa-stack-exchange fa-1x"></i></a>
+    
+    
+        <a href="https://keybase.io/devalias" title="Keybase" target="_blank"><i class="fa fa-key fa-1x"></i></a>
+    
+</div>
+
+            </section>
+
+            <!-- /author  -->
+
             
-            <section class="post-meta">
-    
-        <img class="author-thumb" src="/assets/images/authors/devalias.png" alt="Author image" nopin="nopin">
-    
-    
-        <a href="/author/devalias">Glenn 'devalias' Grant</a>
-    
-    |
-    <time class="post-date" datetime="">27 Feb 2013</time>
-    |
-    
-        11 minutes
-    
-    to read
-    <!-- [[tags prefix=" on "]] -->
-    
-        |
-        
-            <a href="/tag/blog.nickmpetty.com">#blog.nickmpetty.com</a>,
-        
-            <a href="/tag/@nickmpetty">#@nickmpetty</a>,
-        
-            <a href="/tag/nicholas-petty">#nicholas-petty</a>,
-        
-            <a href="/tag/iOS">#iOS</a>,
-        
-            <a href="/tag/iPhone">#iPhone</a>,
-        
-            <a href="/tag/jailbreak">#jailbreak</a>,
-        
-            <a href="/tag/pentest">#pentest</a>,
-        
-            <a href="/tag/hack">#hack</a>,
-        
-            <a href="/tag/metasploit">#metasploit</a>,
-        
-            <a href="/tag/nikto2">#nikto2</a>,
-        
-            <a href="/tag/nmap">#nmap</a>,
-        
-            <a href="/tag/social-engineering-toolkit">#social-engineering-toolkit</a>,
-        
-            <a href="/tag/ettercap">#ettercap</a>,
-        
-            <a href="/tag/aircrack">#aircrack</a>
-        
-    
-    
+
+<section class="share">
+    <h4>Share this post</h4>
+    <a href="http://twitter.com/share?text=Shared%20Devices%20Need%20Account%20Switching&amp;url=http://devalias.net/devalias/2016/08/31/shared-devices-need-account-switching/" title="Share on Twitter" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"><i class="fa fa-twitter-square fa-2x"></i></a>
+    <a href="https://www.facebook.com/sharer/sharer.php?u=http://devalias.net/devalias/2016/08/31/shared-devices-need-account-switching/" title="Share on Facebook" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;"><i class="fa fa-facebook-square fa-2x"></i></a>
+    <a href="https://plus.google.com/share?url=http://devalias.net/devalias/2016/08/31/shared-devices-need-account-switching/" title="Share on Google+" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;"><i class="fa fa-google-plus-square fa-2x"></i></a>
 </section>
-        </footer>
-    </article>
-    
-    <article class="post">
-        <header class="post-header">
-            <h2 class="post-title"><a href="/devalias/2011/10/13/facebook-for-iphone-v4/">Facebook for iPhone v4.0</a></h2>
-        </header>
-        <section class="post-excerpt">
-            <p>I must say, I am quite impressed with the latest iteration of the Facebook app for iPhone. For a long time now, the app has felt... <a class="read-more" href="/devalias/2011/10/13/facebook-for-iphone-v4/">»</a></p>
-        </section>
-        <footer>
             
-            <section class="post-meta">
-    
-        <img class="author-thumb" src="/assets/images/authors/devalias.png" alt="Author image" nopin="nopin">
-    
-    
-        <a href="/author/devalias">Glenn 'devalias' Grant</a>
-    
-    |
-    <time class="post-date" datetime="">13 Oct 2011</time>
-    |
-    
-        1 minute
-    
-    to read
-    <!-- [[tags prefix=" on "]] -->
-    
-        |
-        
-            <a href="/tag/facebook">#facebook</a>,
-        
-            <a href="/tag/iPhone">#iPhone</a>,
-        
-            <a href="/tag/v4.0">#v4.0</a>,
-        
-            <a href="/tag/iOS">#iOS</a>
-        
-    
-    
-</section>
-        </footer>
-    </article>
-    
-    <article class="post">
-        <header class="post-header">
-            <h2 class="post-title"><a href="/devalias/2011/09/16/the-dark-side-macbook-pro/">The Dark Side - Macbook Pro</a></h2>
-        </header>
-        <section class="post-excerpt">
-            <p>I am a firm believer in the 'build it yourself' aspect of computing, and with that comes an inherent dislike for the overpriced, simplistic, bright coloured... <a class="read-more" href="/devalias/2011/09/16/the-dark-side-macbook-pro/">»</a></p>
-        </section>
-        <footer>
             
-            <section class="post-meta">
-    
-        <img class="author-thumb" src="/assets/images/authors/devalias.png" alt="Author image" nopin="nopin">
-    
-    
-        <a href="/author/devalias">Glenn 'devalias' Grant</a>
-    
-    |
-    <time class="post-date" datetime="">16 Sep 2011</time>
-    |
-    
-        1 minute
-    
-    to read
-    <!-- [[tags prefix=" on "]] -->
-    
-        |
+                <!-- Add Disqus Comments -->
+                <div id="disqus_thread"></div>
+<script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'devalias'; // required: replace example with your forum shortname
+        var disqus_identifier = '/devalias/2016/08/31/shared-devices-need-account-switching/';
+        var disqus_url = 'http://devalias.net/devalias/2016/08/31/shared-devices-need-account-switching/';
+ 
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
+        <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+    </footer></article></main>
+</div>
+
+            
+
+            
+                
+
+
+            
+            
         
-            <a href="/tag/apple">#apple</a>,
-        
-            <a href="/tag/macbook-pro">#macbook-pro</a>,
-        
-            <a href="/tag/iOS">#iOS</a>,
-        
-            <a href="/tag/what-i-use">#what-i-use</a>
-        
-    
-    
-</section>
-        </footer>
-    </article>
+
     
 
-    <!-- Previous/next page links - displayed on every page -->
-    
-        <nav class="pagination" role="pagination">
-    
-    <span class="page-number">
-      Page 1 of 1
-      <a href="/tag/iOS/rss.xml" title="RSS Feed"><i class="fa fa-rss fa-"></i></a>
-    </span>
-     
-</nav>
-    
 
-</main>
+
+<aside class="read-next">
+
+    <!-- [[! next_post ]] -->
+    
+    <!-- [[! /next_post ]] -->
+    <!-- [[! prev_post ]] -->
+    
+        <a class="read-next-story prev no-cover" href="/devalias/2016/08/24/starting-a-new-web-application-1-an-exploration-of-options/">
+            <section class="post">
+                <h2>Starting a New Web Application (Part 1): An Exploration of Options</h2>
+                <p>Finding myself with some free time (and looking into starting a new project), I thought I might catch myself up on the state of web...</p>
+            </section>
+        </a>
+    
+    <!-- [[! /prev_post ]] -->
+</aside>
+
+<!-- /Layout: Post -->
+
 
         <footer class="site-footer clearfix">
             <section class="copyright">
@@ -455,7 +376,7 @@
             <section class="poweredby">
                 <div>
                     <strong>Build:</strong> 5b90d59
-                    <a href="https://github.com/alias1/devalias.net/tree/master/tag/iOS/index.html" target="_blank">
+                    <a href="https://github.com/alias1/devalias.net/tree/master/_posts/2016-08-31-shared-devices-need-account-switching.md" target="_blank">
                         <i class="fa fa-edit"></i>
                         Edit on GitHub
                     </a>
@@ -468,7 +389,7 @@
                 <a href="https://github.com/" target="_blank">GitHub</a>
             </section>
         </footer>
-    </div>
+    
     <!-- [[! Ghost outputs important scripts and data with this tag ]] -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
     <!-- [[! The main JavaScript file for Casper ]] -->

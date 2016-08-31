@@ -317,19 +317,15 @@ cp -R /etc/php.d chroot/etc
 cp /etc/localtime chroot/etc/
 cp -R /usr/share/zoneinfo chroot/usr/share/
 ./chroot_update.sh --apply all
-``
-
-Your mileage my vary depending on what modules you have installed, but the method is the same as above for other files. You may need to play around with some php.ini type settings to get things working, but it should be relatively straightforward.
-
-## Curl
-
-Sticking to the `chroot_update.sh` method, installing curl is really simple
-
 </code></pre></div>
-<p>./chroot<em>update.sh --add <code>which curl</code>
-./chroot</em>update.sh --apply all
-```</p>
+<p>Your mileage my vary depending on what modules you have installed, but the method is the same as above for other files. You may need to play around with some php.ini type settings to get things working, but it should be relatively straightforward.</p>
 
+<h2>Curl</h2>
+
+<p>Sticking to the <code>chroot_update.sh</code> method, installing curl is really simple</p>
+<div class="highlight"><pre><code class="language-" data-lang="">./chroot_update.sh --add `which curl`
+./chroot_update.sh --apply all
+</code></pre></div>
 <h2>Clear</h2>
 
 <p>Sticking to the <code>chroot_update.sh</code> method, installing clear is really simple</p>
@@ -488,7 +484,7 @@ Sticking to the `chroot_update.sh` method, installing curl is really simple
             </section>
             <section class="poweredby">
                 <div>
-                    <strong>Build:</strong> 5b90d59
+                    <strong>Build:</strong> 4c48d5d
                     <a href="https://github.com/alias1/devalias.net/tree/master/_posts/2013-09-19-plesk-adding-wget-tar-gzip-chmod-php-curl-clear-to-a-chr.md" target="_blank">
                         <i class="fa fa-edit"></i>
                         Edit on GitHub

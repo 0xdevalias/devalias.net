@@ -1,7 +1,7 @@
 ---
 layout: page
 class: 'page-template'
-title: Archery | Interests
+title: Archery
 permalink: /personal/interests/archery/
 ---
 

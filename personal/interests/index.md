@@ -7,22 +7,18 @@ title: Interests
 [[Home](/) > [Personal](/personal/) > Interests]
 
 * TODO: Interests/Hobbies/Etc
+  * Scuba Diving
+  * Skydiving
+  * Snowboarding
+  * Parkour
+  * Poledancing
+  * Hoop/Staff/Poi/Flow Toys
+  * Circus/Acrobatics type stuff
 * See Also: [Devalias - Neuralmind - Hobbies/Interests](https://alias1.github.io/devalias-neuralmind/#!hobbies-interests/hobbies-interests.md)
 
 ## Active/Outdoors
 
-### Archery
-
-#### Canberra, ACT, Australia
-
-* [Archery ACT](http://home.archeryact.asn.au/)
-  * [Canberra Archery (Lyneham, North)](http://www.canberraarchery.com.au/) ([FB](https://www.facebook.com/))CanberraArcheryClub)
-  * [Weston Valley Archery Club (Weston)](http://www.wvac.asn.au/)
-  * [Tuggeranong Archery (Tuggeranong, South)](http://home.tuggeranongarchery.com/)
-
-#### Sydney, NSW, Australia
-
-* [Sydney Olympic Park Archery Centre](http://www.archerycentre.com.au/)
+* [Archery](archery/)
 
 ### Trampolining
 

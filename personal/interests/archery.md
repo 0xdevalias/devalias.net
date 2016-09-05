@@ -18,7 +18,7 @@ permalink: /personal/interests/archery/
 ### Canberra, ACT, Australia
 
 * [Archery ACT](http://home.archeryact.asn.au/)
-  * [Canberra Archery (Lyneham, North)](http://www.canberraarchery.com.au/) ([FB](https://www.facebook.com/))CanberraArcheryClub)
+  * [Canberra Archery (Lyneham, North)](http://www.canberraarchery.com.au/) ([FB](https://www.facebook.com/CanberraArcheryClub))
   * [Weston Valley Archery Club (Weston)](http://www.wvac.asn.au/)
   * [Tuggeranong Archery (Tuggeranong, South)](http://home.tuggeranongarchery.com/)
 

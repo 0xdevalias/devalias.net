@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- [[! Document Settings ]] -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- [[! Page Meta ]] -->
+    <title>GraphQL: Why You Should Care</title>
+    <meta name="description" content="/dev/alias – Hack. Dev. Transcend. - Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.
+">
+
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Webmention -->
+    <link rel="webmention" href="https://webmention.io/devalias.net/webmention">
+<link rel="pingback" href="https://webmention.io/devalias.net/xmlrpc">
+
+    <meta property="webmention:redirected_from" content=",">
+
+    <link rel="shortcut icon" href="/assets/images/authors/devalias.png">
+
+    <!-- [[! Styles'n'Scripts ]] -->
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic%7COpen+Sans:700,400">
+          
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/syntax.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" type="text/css" href="/assets/css/custom.css">
+    
+    <!-- [[! Ghost outputs important style and meta data with this tag ]] -->
+      <link rel="canonical" href="/">
+  <meta name="referrer" content="origin">
+  <!-- <link rel="next" href="/page2/" /> -->
+
+  <meta property="og:site_name" content="">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="">
+  <meta property="og:description" content="Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.
+">
+  <meta property="og:url" content="/">
+  <meta property="og:image" content="/assets/images/cover4.jpg">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="/dev/alias – Hack. Dev. Transcend.">
+  <meta name="twitter:description" content="Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.
+">
+  <meta name="twitter:url" content="/">
+  <meta name="twitter:image:src" content="/assets/images/cover4.jpg">
+
+  <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Website",
+    "publisher": "devalias.net}",
+    "url": "/",
+    "image": "/assets/images/cover4.jpg",
+    "description": "Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.
+"
+}
+  </script>
+
+  <meta name="generator" content="Jekyll 3.x">
+  <link rel="home" type="application/rss+xml" title="/dev/alias – Hack. Dev. Transcend." href="/feed.xml">
+
+
+</head>
+<body class="post-template nav-closed">
+
+    <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+        
+            <li class="nav-home " role="presentation">
+                <a href="/">Home</a>
+            </li>
+        
+            <li class="nav-about " role="presentation">
+                <a href="/about">About</a>
+            </li>
+        
+            <li class="nav-dev " role="presentation">
+                <a href="/dev">Development</a>
+            </li>
+        
+            <li class="nav-sec " role="presentation">
+                <a href="/sec">Security</a>
+            </li>
+        
+            <li class="nav-personal " role="presentation">
+                <a href="/personal">Personal</a>
+            </li>
+        
+            <li class="nav-stuff-i-like " role="presentation">
+                <a href="/stuff-i-like">Stuff I Like</a>
+            </li>
+        
+            <li class="nav-go-deeper " role="presentation">
+                <a href="/go-deeper">Go Deeper...</a>
+            </li>
+        
+    </ul>
+    <a class="subscribe-button" href="/feed.xml"><i class="fa fa-rss"></i> Subscribe</a>
+</div>
+<span class="nav-cover"></span>
+
+    <div class="site-wrapper">
+        <!-- [[! Everything else gets inserted here ]] -->
+        <!-- Layout: Post -->
+<!-- Template: header -->
+
+
+
+
+<header class="main-header
+               
+                    " style="background-image: url(/assets/images/cover4.jpg)
+                ">
+    <nav class="main-nav overlay clearfix">
+        
+          <a class="blog-logo" href="/"><img src="/assets/images/devalias-prompt.png" alt="Blog Logo"></a>
+        
+        
+            <a class="menu-button" href="#"><i class="fa fa-bars"></i> <span class="word">Menu</span></a>
+        
+    </nav>
+
+    
+        
+            <div class="vertical">
+                <div class="main-header-content inner">
+                    
+                        <h1 class="page-title">GraphQL: Why You Should Care</h1>
+                    
+                    
+                </div>
+            </div>
+        
+    
+
+    
+</header>
+<!-- /Template: header -->
+
+
+<main id="content" class="content" role="main">
+    <article class="post ">
+        <header class="post-header">
+            <!-- <h1 class="post-title">GraphQL: Why You Should Care</h1> -->
+            <section class="post-meta">
+    
+        <img class="author-thumb" src="/assets/images/authors/devalias.png" alt="Author image" nopin="nopin">
+    
+    
+        <a href="/author/devalias">Glenn 'devalias' Grant</a>
+    
+    |
+    <time class="post-date" datetime="2016-09-07">07 Sep 2016</time>
+    |
+    
+        5 minutes
+    
+    to read
+    <!-- [[tags prefix=" on "]] -->
+    
+        |
+        
+            <a href="/tag/dev">#dev</a>,
+        
+            <a href="/tag/web">#web</a>,
+        
+            <a href="/tag/tech-stack">#tech-stack</a>,
+        
+            <a href="/tag/graphql">#graphql</a>,
+        
+            <a href="/tag/relay">#relay</a>,
+        
+            <a href="/tag/redux">#redux</a>,
+        
+            <a href="/tag/cashay">#cashay</a>,
+        
+            <a href="/tag/adrenaline">#adrenaline</a>,
+        
+            <a href="/tag/sangria">#sangria</a>,
+        
+            <a href="/tag/scala">#scala</a>,
+        
+            <a href="/tag/akka">#akka</a>,
+        
+            <a href="/tag/akka-http">#akka-http</a>,
+        
+            <a href="/tag/apollo-stack">#apollo-stack</a>,
+        
+            <a href="/tag/falcor">#falcor</a>,
+        
+            <a href="/tag/rest">#rest</a>,
+        
+            <a href="/tag/hateos">#hateos</a>,
+        
+            <a href="/tag/facebook">#facebook</a>,
+        
+            <a href="/tag/netflix">#netflix</a>
+        
+    
+    
+</section>
+        </header>
+
+        <section class="post-content">
+            <p>If you haven't yet come across <a href="http://graphql.org/">GraphQL</a>, it's kind of exciting stuff. It's a query language developed by <a href="https://code.facebook.com/posts/">Facebook</a>, that basically lets you request exactly the data you need for the given task; no more, no less. Sounds good right?</p>
+
+<h2>Tell me more..</h2>
+
+<p>If you like to get into the nitty gritty of tech specs, you can head over to the <a href="https://facebook.github.io/graphql/">GraphQL Working Draft</a> (<a href="https://github.com/facebook/graphql">GitHub</a>) to have a deeper read, then play around with the <a href="https://github.com/graphql/graphql-js">reference implementation</a> in JavaScript.</p>
+
+<p>Though if specs aren't really your style, check out '<a href="https://learngraphql.com/">Learn GraphQL</a>' and give their free short course a run through. Should get you up to speed!</p>
+
+<h2>Ok. I'm in!</h2>
+
+<p>Excited? Want to dive into it? Need libraries for your particular tech stack? Head on over to the <a href="https://github.com/chentsulin/awesome-graphql">Awesome GraphQL</a> list. You're bound to find what you need!</p>
+
+<p>For my particular tech palette I was after something <a href="http://scala-lang.org/">Scala'esque</a>, maybe some <a href="http://doc.akka.io/docs/akka/2.4/scala/http/">Akka-HTTP</a> to go with it. Seems I wasn't the only one! <a href="http://sangria-graphql.org/">Sangria</a> (<a href="https://github.com/sangria-graphql/sangria">GitHub</a>) is a Scala GraphQL implementation. They even have <a href="https://github.com/sangria-graphql/sangria-akka-http-example">an Akka-HTTP based example</a>. Perfect! Throw in a little <a href="https://github.com/sangria-graphql/sangria-relay">Relay support</a> and this package is pretty much complete.</p>
+
+<p>If you're looking for an all-in-one stack heading forward, I keep seeing a lot of good things posted by the team at <a href="http://www.apollostack.com/">Apollo Stack</a> (by the <a href="https://www.meteor.com/">Meteor</a> team), so would most definitely recommend keeping an eye on them. They also post a lot of really good articles <a href="https://medium.com/apollo-stack">on their blog</a> too.</p>
+
+<p>For some further reading, make sure to check out:</p>
+
+<ul>
+<li><a href="https://medium.com/apollo-stack/tutorial-building-a-graphql-server-cddaa023c035">"Tutorial: How to build a GraphQL server" by Jonas Helfer</a></li>
+</ul>
+
+<h2>GraphQL and Relay.. What about Redux?</h2>
+
+<p>A lot of things you'll read about GraphQL on the net will talk about it quite closely with <a href="https://facebook.github.io/relay/">Relay</a>, and given they were both released by Facebook, and sort of designed to work together, it makes a lot of sense. That said, you most definitely don't need to use Relay to take advantage of the awesomeness GraphQL provides!</p>
+
+<p>KADIRA states it pretty well in <a href="https://kadira.io/blog/graphql/graphql-vs-relay">GraphQL vs Relay</a>:</p>
+
+<blockquote>
+<p>GraphQL provides a way to model and expose data in your app. You can use it on top of any kind of data source and use it with any kind of transport layer.</p>
+
+<p>Relay is an efficient client-side data-fetching technology built for React. It talks to a GraphQL Schema to get data. Relay also has a server-side part that adds some features on top of GraphQL.</p>
+</blockquote>
+
+<p>There is a bunch of talk about how Relay is currently a pain to use, but Facebook seems to be <a href="https://facebook.github.io/react/blog/2016/08/05/relay-state-of-the-state.html">well aware of this issue</a> and has future plans to make it much nicer to work with.</p>
+
+<p>I think it's definitely worth keeping an eye on Relay in the future, but if you're not quite ready to jump in, you can always take advantage of the benefits of GraphQL while sticking to something like <a href="http://redux.js.org/">Redux</a> (<a href="https://github.com/reactjs/redux">GitHub</a>). For further reading:</p>
+
+<ul>
+<li><a href="https://www.reindex.io/blog/redux-and-relay/">"Comparing Redux and Relay" by Mikhail Novikov</a></li>
+<li><a href="https://medium.com/@matt.krick/replacing-relay-with-redux-2990c81aa807">"Replacing Relay with Redux" by Matt Krick</a></li>
+<li><a href="https://medium.com/@thisbejim/getting-started-with-redux-and-graphql-8384b3b25c56">"Getting started with Redux and GraphQL" by James Childs-Maidment</a></li>
+<li><a href="http://www.apollostack.com/">Apollo Stack</a></li>
+<li>
+<a href="https://github.com/mattkrick/cashay">Cashay</a>: "Relay for the rest of us"</li>
+<li>
+<a href="https://github.com/gyzerok/adrenaline">Adrenaline</a>: "Simple Relay alternative"</li>
+</ul>
+
+<h2>GraphQL vs Falcor</h2>
+
+<p>So by now we should have a fairly good idea about what <a href="http://graphql.org/">GraphQL</a> is. So what's <a href="http://netflix.github.io/falcor/">Falcor</a>? This one comes from our friends over at <a href="http://techblog.netflix.com/">Netflix</a>. In essence, it turns all of your data sources into one giant JSON graph. Regardless of whether you're loading data remotely, have it cached locally, etc; you'll access it in the same way.</p>
+
+<p>If you want to read deeper, I found these to be quite useful:</p>
+
+<ul>
+<li><a href="https://stackoverflow.com/questions/32057785/what-is-the-difference-between-falcor-and-graphql">"What is the difference between Falcor and GraphQL?" on StackOverflow</a></li>
+<li><a href="https://medium.com/apollo-stack/graphql-vs-falcor-4f1e9cbf7504">"GraphQL vs. Falcor" by Jonas Helfer</a></li>
+<li><a href="http://react-etc.net/entry/beyond-rest-graphql-vs-falcor">"Beyond REST: GraphQL vs. Falcor" by React-Etc</a></li>
+</ul>
+
+<p>The consensus that I came to is that it seems to be on par with GraphQL in a number of ways, but is probably a bit easier to implement and a bit less powerful overall. Apparently you could even go so far as to <a href="http://hueypetersen.com/posts/2015/10/26/querying-graphql-with-falcor/">query GraphQL with Falcor</a>, but not the other way. For my purposes, I think I'll be sticking with GraphQL.</p>
+
+<p>It's also worth noting that Facebook has been using various flavours of GraphQL for a few years now, whereas Netflix is yet to (or has only recently) started using Falcor in production.</p>
+
+<h2>API's: REST, HATEOS, Observables.. GraphQL!</h2>
+
+<p>I have read SO many articles over the years about the 'proper' way to design API's, and why styleX is so much better than styleY. With so much info out there, and so much conflicting advice (even within each supposed style), it's really easy to get stuck in analysis paralysis.</p>
+
+<p>Greg Ziegan put together a <a href="https://medium.com/@gregoryziegan/how-graphql-taught-me-to-code-client-apps-1c631a9953bd">nice little article</a> talking about his progression along this path: from REST, through <a href="http://timelessrepo.com/haters-gonna-hateoas">HATEOS</a>, observables, etc; and how he ended up at GraphQL. Following on from this, Sashko Stubailo makes a pretty good argument about why GraphQL is <a href="https://medium.com/apollo-stack/graphql-the-next-generation-of-api-design-f24b1689756a">"the next generation of API design"</a>.</p>
+
+<p>While the benefits of a GraphQL-based API seem pretty obvious to me, it's not always feasible to jump straight into shiny new tech. Maybe you need to support legacy services, interact with 3rd-party API's, or allow other developers to consume your API without them having to learn the ins and outs of GraphQL. But thankfully, we don't need to pick one over the other!</p>
+
+<p>The GraphQL team have a pretty good article on their blog about <a href="http://graphql.org/blog/rest-api-graphql-wrapper/">wrapping REST API's in GraphQL</a>, starting purely with the client-side, and later moving it to the backend. This idea plays in SO well with some little side-projects I've been thinking about over the years, and how it could be used to help decompose and combine existing API's.</p>
+
+<h2>Conclusion</h2>
+
+<p>This is a scattering of the articles and things I have read through while learning more about GraphQL, and why it is so awesome. I definitely know it's a technology that I am super excited to start utilising in my future projects.</p>
+
+<p>Have you come across any other awesome articles/tools related to GraphQL or similar? I'd love to hear about them! Let me know in the comments below.</p>
+
+        </section>
+
+        <footer class="post-footer">
+
+            <!-- #author-->
+
+            
+	<figure class="author-image">
+	    <a class="img" href="/author/devalias" style="background-image: url(/assets/images/authors/devalias.png)"><span class="hidden">devalias's Picture</span></a>
+	</figure>
+
+
+            <section class="author">
+                <h4>
+                    
+                        <a href="/author/devalias">Glenn 'devalias' Grant</a>
+                    
+                </h4>
+                
+                
+                    <p> Glenn is a full-stack, polyglot developer with an acute interest in the offensive side of security; as well as technology, efficiency, biohacking, health, personal growth and a whole lot more.
+</p>
+                
+                <div class="author-meta">
+    
+        <span class="author-location">
+            <i class="fa fa-location-arrow"></i>
+            Australia
+        </span>
+    
+    
+        <span class="author-link">
+            <a href="http://www.devalias.net/">
+                <i class="fa fa-link"></i>
+                devalias.net
+            </a>
+        </span>
+    
+    
+</div>
+                <div class="author-social">
+    <a href="/author/devalias/rss.xml" title="RSS Feed"><i class="fa fa-rss fa-1x"></i></a>
+    
+        <a href="https://twitter.com/_devalias" title="Twitter" target="_blank"><i class="fa fa-twitter-square fa-1x"></i></a>
+    
+    
+        <a href="https://www.linkedin.com/in/glenndevaliasgrant" title="LinkedIn" target="_blank"><i class="fa fa-linkedin-square fa-1x"></i></a>
+    
+    
+    
+    
+        <a href="https://github.com/alias1" title="Github" target="_blank"><i class="fa fa-github-square fa-1x"></i></a>
+    
+    
+        <a href="https://www.reddit.com/user/_devalias" title="Reddit" target="_blank"><i class="fa fa-reddit-square fa-1x"></i></a>
+    
+    
+        <a href="https://news.ycombinator.com/user?id=alias1" title="Hacker News" target="_blank"><i class="fa fa-hacker-news fa-1x"></i></a>
+    
+    
+        <a href="https://stackoverflow.com/users/1137085/devalias" title="StackOverflow" target="_blank"><i class="fa fa-stack-overflow fa-1x"></i></a>
+    
+    
+        <a href="https://stackexchange.com/users/1156663/devalias" title="StackExchange" target="_blank"><i class="fa fa-stack-exchange fa-1x"></i></a>
+    
+    
+        <a href="https://keybase.io/devalias" title="Keybase" target="_blank"><i class="fa fa-key fa-1x"></i></a>
+    
+</div>
+
+            </section>
+
+            <!-- /author  -->
+
+            
+
+<section class="share">
+    <h4>Share this post</h4>
+    <a href="http://twitter.com/share?text=GraphQL:%20Why%20You%20Should%20Care&amp;url=http://devalias.net/devalias/2016/09/07/graphql-why-you-should-care/" title="Share on Twitter" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"><i class="fa fa-twitter-square fa-2x"></i></a>
+    <a href="https://www.facebook.com/sharer/sharer.php?u=http://devalias.net/devalias/2016/09/07/graphql-why-you-should-care/" title="Share on Facebook" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;"><i class="fa fa-facebook-square fa-2x"></i></a>
+    <a href="https://plus.google.com/share?url=http://devalias.net/devalias/2016/09/07/graphql-why-you-should-care/" title="Share on Google+" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;"><i class="fa fa-google-plus-square fa-2x"></i></a>
+</section>
+            
+            
+                <!-- Add Disqus Comments -->
+                <div id="disqus_thread"></div>
+<script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'devalias'; // required: replace example with your forum shortname
+        var disqus_identifier = '/devalias/2016/09/07/graphql-why-you-should-care/';
+        var disqus_url = 'http://devalias.net/devalias/2016/09/07/graphql-why-you-should-care/';
+ 
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
+        <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+    </footer></article></main>
+</div>
+
+            
+
+            
+                
+
+
+            
+            
+        
+
+    
+
+
+
+<aside class="read-next">
+
+    <!-- [[! next_post ]] -->
+    
+    <!-- [[! /next_post ]] -->
+    <!-- [[! prev_post ]] -->
+    
+        <a class="read-next-story prev no-cover" href="/devalias/2016/08/31/shared-devices-need-account-switching/">
+            <section class="post">
+                <h2>Shared Devices Need Account Switching</h2>
+                <p>Living in share houses and using tech like the Apple TV has highlighted an annoying situation: so many apps these days want you to sign...</p>
+            </section>
+        </a>
+    
+    <!-- [[! /prev_post ]] -->
+</aside>
+
+<!-- /Layout: Post -->
+
+
+        <footer class="site-footer clearfix">
+            <section class="copyright">
+                <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"></a><br><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">devalias.net</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://www.devalias.net/" property="cc:attributionName" rel="cc:attributionURL">Glenn 'devalias' Grant</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+            </section>
+            <section class="poweredby">
+                <div>
+                    <strong>Build:</strong> a6e567d
+                    <a href="https://github.com/alias1/devalias.net/tree/master/_posts/2016-09-07-graphql-why-you-should-care.md" target="_blank">
+                        <i class="fa fa-edit"></i>
+                        Edit on GitHub
+                    </a>
+                </div>
+                Proudly published with
+                <a href="https://jekyllrb.com/" target="_blank">Jekyll</a>
+                using
+                <a href="https://github.com/biomadeira/jasper" target="_blank">Jasper</a>
+                to
+                <a href="https://github.com/" target="_blank">GitHub</a>
+            </section>
+        </footer>
+    
+    <!-- [[! Ghost outputs important scripts and data with this tag ]] -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <!-- [[! The main JavaScript file for Casper ]] -->
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="/assets/js/index.js"></script>
+    <script type="text/javascript" src="/assets/js/webmention_io.js"></script>
+
+    <!-- Add Google Analytics  -->
+        <!-- Google Analytics Tracking code -->
+     <script>
+	    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	    ga('create', 'UA-27970144-1', 'auto');
+	    ga('send', 'pageview');
+     </script>   
+</body>
+</html>

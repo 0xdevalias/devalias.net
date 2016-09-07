@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+   
+      <title>devalias.net</title>
+   
+   <link>http://devalias.net</link>
+   <description>Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.
+</description>
+   <language>en-uk</language>
+   <managingEditor> </managingEditor>
+   <atom:link href="rss" rel="self" type="application/rss+xml" />
+   
+	<item>
+	  <title>GraphQL: Why You Should Care</title>
+	  <link>/devalias/2016/09/07/graphql-why-you-should-care/</link>
+	  <author>devalias</author>
+	  <pubDate>2016-09-07T00:00:00+10:00</pubDate>
+	  <guid>/devalias/2016/09/07/graphql-why-you-should-care/</guid>
+	  <description><![CDATA[
+	     <p>If you haven&#39;t yet come across <a href="http://graphql.org/">GraphQL</a>, it&#39;s kind of exciting stuff. It&#39;s a query language developed by <a href="https://code.facebook.com/posts/">Facebook</a>, that basically lets you request exactly the data you need for the given task; no more, no less. Sounds good right?</p>
+
+<h2>Tell me more..</h2>
+
+<p>If you like to get into the nitty gritty of tech specs, you can head over to the <a href="https://facebook.github.io/graphql/">GraphQL Working Draft</a> (<a href="https://github.com/facebook/graphql">GitHub</a>) to have a deeper read, then play around with the <a href="https://github.com/graphql/graphql-js">reference implementation</a> in JavaScript.</p>
+
+<p>Though if specs aren&#39;t really your style, check out &#39;<a href="https://learngraphql.com/">Learn GraphQL</a>&#39; and give their free short course a run through. Should get you up to speed!</p>
+
+<h2>Ok. I&#39;m in!</h2>
+
+<p>Excited? Want to dive into it? Need libraries for your particular tech stack? Head on over to the <a href="https://github.com/chentsulin/awesome-graphql">Awesome GraphQL</a> list. You&#39;re bound to find what you need!</p>
+
+<p>For my particular tech palette I was after something <a href="http://scala-lang.org/">Scala&#39;esque</a>, maybe some <a href="http://doc.akka.io/docs/akka/2.4/scala/http/">Akka-HTTP</a> to go with it. Seems I wasn&#39;t the only one! <a href="http://sangria-graphql.org/">Sangria</a> (<a href="https://github.com/sangria-graphql/sangria">GitHub</a>) is a Scala GraphQL implementation. They even have <a href="https://github.com/sangria-graphql/sangria-akka-http-example">an Akka-HTTP based example</a>. Perfect! Throw in a little <a href="https://github.com/sangria-graphql/sangria-relay">Relay support</a> and this package is pretty much complete.</p>
+
+<p>If you&#39;re looking for an all-in-one stack heading forward, I keep seeing a lot of good things posted by the team at <a href="http://www.apollostack.com/">Apollo Stack</a> (by the <a href="https://www.meteor.com/">Meteor</a> team), so would most definitely recommend keeping an eye on them. They also post a lot of really good articles <a href="https://medium.com/apollo-stack">on their blog</a> too.</p>
+
+<p>For some further reading, make sure to check out:</p>
+
+<ul>
+<li><a href="https://medium.com/apollo-stack/tutorial-building-a-graphql-server-cddaa023c035">&quot;Tutorial: How to build a GraphQL server&quot; by Jonas Helfer</a></li>
+</ul>
+
+<h2>GraphQL and Relay.. What about Redux?</h2>
+
+<p>A lot of things you&#39;ll read about GraphQL on the net will talk about it quite closely with <a href="https://facebook.github.io/relay/">Relay</a>, and given they were both released by Facebook, and sort of designed to work together, it makes a lot of sense. That said, you most definitely don&#39;t need to use Relay to take advantage of the awesomeness GraphQL provides!</p>
+
+<p>KADIRA states it pretty well in <a href="https://kadira.io/blog/graphql/graphql-vs-relay">GraphQL vs Relay</a>:</p>
+
+<blockquote>
+<p>GraphQL provides a way to model and expose data in your app. You can use it on top of any kind of data source and use it with any kind of transport layer.</p>
+
+<p>Relay is an efficient client-side data-fetching technology built for React. It talks to a GraphQL Schema to get data. Relay also has a server-side part that adds some features on top of GraphQL.</p>
+</blockquote>
+
+<p>There is a bunch of talk about how Relay is currently a pain to use, but Facebook seems to be <a href="https://facebook.github.io/react/blog/2016/08/05/relay-state-of-the-state.html">well aware of this issue</a> and has future plans to make it much nicer to work with.</p>
+
+<p>I think it&#39;s definitely worth keeping an eye on Relay in the future, but if you&#39;re not quite ready to jump in, you can always take advantage of the benefits of GraphQL while sticking to something like <a href="http://redux.js.org/">Redux</a> (<a href="https://github.com/reactjs/redux">GitHub</a>). For further reading:</p>
+
+<ul>
+<li><a href="https://www.reindex.io/blog/redux-and-relay/">&quot;Comparing Redux and Relay&quot; by Mikhail Novikov</a></li>
+<li><a href="https://medium.com/@matt.krick/replacing-relay-with-redux-2990c81aa807">&quot;Replacing Relay with Redux&quot; by Matt Krick</a></li>
+<li><a href="https://medium.com/@thisbejim/getting-started-with-redux-and-graphql-8384b3b25c56">&quot;Getting started with Redux and GraphQL&quot; by James Childs-Maidment</a></li>
+<li><a href="http://www.apollostack.com/">Apollo Stack</a></li>
+<li><a href="https://github.com/mattkrick/cashay">Cashay</a>: &quot;Relay for the rest of us&quot;</li>
+<li><a href="https://github.com/gyzerok/adrenaline">Adrenaline</a>: &quot;Simple Relay alternative&quot;</li>
+</ul>
+
+<h2>GraphQL vs Falcor</h2>
+
+<p>So by now we should have a fairly good idea about what <a href="http://graphql.org/">GraphQL</a> is. So what&#39;s <a href="http://netflix.github.io/falcor/">Falcor</a>? This one comes from our friends over at <a href="http://techblog.netflix.com/">Netflix</a>. In essence, it turns all of your data sources into one giant JSON graph. Regardless of whether you&#39;re loading data remotely, have it cached locally, etc; you&#39;ll access it in the same way.</p>
+
+<p>If you want to read deeper, I found these to be quite useful:</p>
+
+<ul>
+<li><a href="https://stackoverflow.com/questions/32057785/what-is-the-difference-between-falcor-and-graphql">&quot;What is the difference between Falcor and GraphQL?&quot; on StackOverflow</a></li>
+<li><a href="https://medium.com/apollo-stack/graphql-vs-falcor-4f1e9cbf7504">&quot;GraphQL vs. Falcor&quot; by Jonas Helfer</a></li>
+<li><a href="http://react-etc.net/entry/beyond-rest-graphql-vs-falcor">&quot;Beyond REST: GraphQL vs. Falcor&quot; by React-Etc</a></li>
+</ul>
+
+<p>The consensus that I came to is that it seems to be on par with GraphQL in a number of ways, but is probably a bit easier to implement and a bit less powerful overall. Apparently you could even go so far as to <a href="http://hueypetersen.com/posts/2015/10/26/querying-graphql-with-falcor/">query GraphQL with Falcor</a>, but not the other way. For my purposes, I think I&#39;ll be sticking with GraphQL.</p>
+
+<p>It&#39;s also worth noting that Facebook has been using various flavours of GraphQL for a few years now, whereas Netflix is yet to (or has only recently) started using Falcor in production.</p>
+
+<h2>API&#39;s: REST, HATEOS, Observables.. GraphQL!</h2>
+
+<p>I have read SO many articles over the years about the &#39;proper&#39; way to design API&#39;s, and why styleX is so much better than styleY. With so much info out there, and so much conflicting advice (even within each supposed style), it&#39;s really easy to get stuck in analysis paralysis.</p>
+
+<p>Greg Ziegan put together a <a href="https://medium.com/@gregoryziegan/how-graphql-taught-me-to-code-client-apps-1c631a9953bd">nice little article</a> talking about his progression along this path: from REST, through <a href="http://timelessrepo.com/haters-gonna-hateoas">HATEOS</a>, observables, etc; and how he ended up at GraphQL. Following on from this, Sashko Stubailo makes a pretty good argument about why GraphQL is <a href="https://medium.com/apollo-stack/graphql-the-next-generation-of-api-design-f24b1689756a">&quot;the next generation of API design&quot;</a>.</p>
+
+<p>While the benefits of a GraphQL-based API seem pretty obvious to me, it&#39;s not always feasible to jump straight into shiny new tech. Maybe you need to support legacy services, interact with 3rd-party API&#39;s, or allow other developers to consume your API without them having to learn the ins and outs of GraphQL. But thankfully, we don&#39;t need to pick one over the other!</p>
+
+<p>The GraphQL team have a pretty good article on their blog about <a href="http://graphql.org/blog/rest-api-graphql-wrapper/">wrapping REST API&#39;s in GraphQL</a>, starting purely with the client-side, and later moving it to the backend. This idea plays in SO well with some little side-projects I&#39;ve been thinking about over the years, and how it could be used to help decompose and combine existing API&#39;s.</p>
+
+<h2>Conclusion</h2>
+
+<p>This is a scattering of the articles and things I have read through while learning more about GraphQL, and why it is so awesome. I definitely know it&#39;s a technology that I am super excited to start utilising in my future projects.</p>
+
+<p>Have you come across any other awesome articles/tools related to GraphQL or similar? I&#39;d love to hear about them! Let me know in the comments below.</p>
+
+	  ]]></description>
+	</item>
+
+
+</channel>
+</rss>

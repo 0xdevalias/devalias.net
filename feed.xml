@@ -1,5 +1,82 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="http://devalias.net//feed.xml" rel="self" type="application/atom+xml" /><link href="http://devalias.net//" rel="alternate" type="text/html" /><updated>2016-09-05T12:49:53+10:00</updated><id>http://devalias.net//</id><title>/dev/alias – Hack. Dev. Transcend.</title><subtitle>Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.
-</subtitle><entry><title>Shared Devices Need Account Switching</title><link href="http://devalias.net//devalias/2016/08/31/shared-devices-need-account-switching/" rel="alternate" type="text/html" title="Shared Devices Need Account Switching" /><published>2016-08-31T00:00:00+10:00</published><updated>2016-08-31T00:00:00+10:00</updated><id>http://devalias.net//devalias/2016/08/31/shared-devices-need-account-switching</id><content type="html" xml:base="http://devalias.net//devalias/2016/08/31/shared-devices-need-account-switching/">&lt;p&gt;Living in share houses and using tech like the Apple TV has highlighted an annoying situation: so many apps these days want you to sign in to enable access, personalised features, etc; but most offer no good solution for when you share the device with other people.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="http://devalias.net//feed.xml" rel="self" type="application/atom+xml" /><link href="http://devalias.net//" rel="alternate" type="text/html" /><updated>2016-09-07T12:41:54+10:00</updated><id>http://devalias.net//</id><title>/dev/alias – Hack. Dev. Transcend.</title><subtitle>Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.
+</subtitle><entry><title>GraphQL: Why You Should Care</title><link href="http://devalias.net//devalias/2016/09/07/graphql-why-you-should-care/" rel="alternate" type="text/html" title="GraphQL: Why You Should Care" /><published>2016-09-07T00:00:00+10:00</published><updated>2016-09-07T00:00:00+10:00</updated><id>http://devalias.net//devalias/2016/09/07/graphql-why-you-should-care</id><content type="html" xml:base="http://devalias.net//devalias/2016/09/07/graphql-why-you-should-care/">&lt;p&gt;If you haven&amp;#39;t yet come across &lt;a href=&quot;http://graphql.org/&quot;&gt;GraphQL&lt;/a&gt;, it&amp;#39;s kind of exciting stuff. It&amp;#39;s a query language developed by &lt;a href=&quot;https://code.facebook.com/posts/&quot;&gt;Facebook&lt;/a&gt;, that basically lets you request exactly the data you need for the given task; no more, no less. Sounds good right?&lt;/p&gt;
+
+&lt;h2&gt;Tell me more..&lt;/h2&gt;
+
+&lt;p&gt;If you like to get into the nitty gritty of tech specs, you can head over to the &lt;a href=&quot;https://facebook.github.io/graphql/&quot;&gt;GraphQL Working Draft&lt;/a&gt; (&lt;a href=&quot;https://github.com/facebook/graphql&quot;&gt;GitHub&lt;/a&gt;) to have a deeper read, then play around with the &lt;a href=&quot;https://github.com/graphql/graphql-js&quot;&gt;reference implementation&lt;/a&gt; in JavaScript.&lt;/p&gt;
+
+&lt;p&gt;Though if specs aren&amp;#39;t really your style, check out &amp;#39;&lt;a href=&quot;https://learngraphql.com/&quot;&gt;Learn GraphQL&lt;/a&gt;&amp;#39; and give their free short course a run through. Should get you up to speed!&lt;/p&gt;
+
+&lt;h2&gt;Ok. I&amp;#39;m in!&lt;/h2&gt;
+
+&lt;p&gt;Excited? Want to dive into it? Need libraries for your particular tech stack? Head on over to the &lt;a href=&quot;https://github.com/chentsulin/awesome-graphql&quot;&gt;Awesome GraphQL&lt;/a&gt; list. You&amp;#39;re bound to find what you need!&lt;/p&gt;
+
+&lt;p&gt;For my particular tech palette I was after something &lt;a href=&quot;http://scala-lang.org/&quot;&gt;Scala&amp;#39;esque&lt;/a&gt;, maybe some &lt;a href=&quot;http://doc.akka.io/docs/akka/2.4/scala/http/&quot;&gt;Akka-HTTP&lt;/a&gt; to go with it. Seems I wasn&amp;#39;t the only one! &lt;a href=&quot;http://sangria-graphql.org/&quot;&gt;Sangria&lt;/a&gt; (&lt;a href=&quot;https://github.com/sangria-graphql/sangria&quot;&gt;GitHub&lt;/a&gt;) is a Scala GraphQL implementation. They even have &lt;a href=&quot;https://github.com/sangria-graphql/sangria-akka-http-example&quot;&gt;an Akka-HTTP based example&lt;/a&gt;. Perfect! Throw in a little &lt;a href=&quot;https://github.com/sangria-graphql/sangria-relay&quot;&gt;Relay support&lt;/a&gt; and this package is pretty much complete.&lt;/p&gt;
+
+&lt;p&gt;If you&amp;#39;re looking for an all-in-one stack heading forward, I keep seeing a lot of good things posted by the team at &lt;a href=&quot;http://www.apollostack.com/&quot;&gt;Apollo Stack&lt;/a&gt; (by the &lt;a href=&quot;https://www.meteor.com/&quot;&gt;Meteor&lt;/a&gt; team), so would most definitely recommend keeping an eye on them. They also post a lot of really good articles &lt;a href=&quot;https://medium.com/apollo-stack&quot;&gt;on their blog&lt;/a&gt; too.&lt;/p&gt;
+
+&lt;p&gt;For some further reading, make sure to check out:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://medium.com/apollo-stack/tutorial-building-a-graphql-server-cddaa023c035&quot;&gt;&amp;quot;Tutorial: How to build a GraphQL server&amp;quot; by Jonas Helfer&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;GraphQL and Relay.. What about Redux?&lt;/h2&gt;
+
+&lt;p&gt;A lot of things you&amp;#39;ll read about GraphQL on the net will talk about it quite closely with &lt;a href=&quot;https://facebook.github.io/relay/&quot;&gt;Relay&lt;/a&gt;, and given they were both released by Facebook, and sort of designed to work together, it makes a lot of sense. That said, you most definitely don&amp;#39;t need to use Relay to take advantage of the awesomeness GraphQL provides!&lt;/p&gt;
+
+&lt;p&gt;KADIRA states it pretty well in &lt;a href=&quot;https://kadira.io/blog/graphql/graphql-vs-relay&quot;&gt;GraphQL vs Relay&lt;/a&gt;:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;GraphQL provides a way to model and expose data in your app. You can use it on top of any kind of data source and use it with any kind of transport layer.&lt;/p&gt;
+
+&lt;p&gt;Relay is an efficient client-side data-fetching technology built for React. It talks to a GraphQL Schema to get data. Relay also has a server-side part that adds some features on top of GraphQL.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;There is a bunch of talk about how Relay is currently a pain to use, but Facebook seems to be &lt;a href=&quot;https://facebook.github.io/react/blog/2016/08/05/relay-state-of-the-state.html&quot;&gt;well aware of this issue&lt;/a&gt; and has future plans to make it much nicer to work with.&lt;/p&gt;
+
+&lt;p&gt;I think it&amp;#39;s definitely worth keeping an eye on Relay in the future, but if you&amp;#39;re not quite ready to jump in, you can always take advantage of the benefits of GraphQL while sticking to something like &lt;a href=&quot;http://redux.js.org/&quot;&gt;Redux&lt;/a&gt; (&lt;a href=&quot;https://github.com/reactjs/redux&quot;&gt;GitHub&lt;/a&gt;). For further reading:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.reindex.io/blog/redux-and-relay/&quot;&gt;&amp;quot;Comparing Redux and Relay&amp;quot; by Mikhail Novikov&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://medium.com/@matt.krick/replacing-relay-with-redux-2990c81aa807&quot;&gt;&amp;quot;Replacing Relay with Redux&amp;quot; by Matt Krick&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://medium.com/@thisbejim/getting-started-with-redux-and-graphql-8384b3b25c56&quot;&gt;&amp;quot;Getting started with Redux and GraphQL&amp;quot; by James Childs-Maidment&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.apollostack.com/&quot;&gt;Apollo Stack&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/mattkrick/cashay&quot;&gt;Cashay&lt;/a&gt;: &amp;quot;Relay for the rest of us&amp;quot;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/gyzerok/adrenaline&quot;&gt;Adrenaline&lt;/a&gt;: &amp;quot;Simple Relay alternative&amp;quot;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;GraphQL vs Falcor&lt;/h2&gt;
+
+&lt;p&gt;So by now we should have a fairly good idea about what &lt;a href=&quot;http://graphql.org/&quot;&gt;GraphQL&lt;/a&gt; is. So what&amp;#39;s &lt;a href=&quot;http://netflix.github.io/falcor/&quot;&gt;Falcor&lt;/a&gt;? This one comes from our friends over at &lt;a href=&quot;http://techblog.netflix.com/&quot;&gt;Netflix&lt;/a&gt;. In essence, it turns all of your data sources into one giant JSON graph. Regardless of whether you&amp;#39;re loading data remotely, have it cached locally, etc; you&amp;#39;ll access it in the same way.&lt;/p&gt;
+
+&lt;p&gt;If you want to read deeper, I found these to be quite useful:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/32057785/what-is-the-difference-between-falcor-and-graphql&quot;&gt;&amp;quot;What is the difference between Falcor and GraphQL?&amp;quot; on StackOverflow&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://medium.com/apollo-stack/graphql-vs-falcor-4f1e9cbf7504&quot;&gt;&amp;quot;GraphQL vs. Falcor&amp;quot; by Jonas Helfer&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://react-etc.net/entry/beyond-rest-graphql-vs-falcor&quot;&gt;&amp;quot;Beyond REST: GraphQL vs. Falcor&amp;quot; by React-Etc&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The consensus that I came to is that it seems to be on par with GraphQL in a number of ways, but is probably a bit easier to implement and a bit less powerful overall. Apparently you could even go so far as to &lt;a href=&quot;http://hueypetersen.com/posts/2015/10/26/querying-graphql-with-falcor/&quot;&gt;query GraphQL with Falcor&lt;/a&gt;, but not the other way. For my purposes, I think I&amp;#39;ll be sticking with GraphQL.&lt;/p&gt;
+
+&lt;p&gt;It&amp;#39;s also worth noting that Facebook has been using various flavours of GraphQL for a few years now, whereas Netflix is yet to (or has only recently) started using Falcor in production.&lt;/p&gt;
+
+&lt;h2&gt;API&amp;#39;s: REST, HATEOS, Observables.. GraphQL!&lt;/h2&gt;
+
+&lt;p&gt;I have read SO many articles over the years about the &amp;#39;proper&amp;#39; way to design API&amp;#39;s, and why styleX is so much better than styleY. With so much info out there, and so much conflicting advice (even within each supposed style), it&amp;#39;s really easy to get stuck in analysis paralysis.&lt;/p&gt;
+
+&lt;p&gt;Greg Ziegan put together a &lt;a href=&quot;https://medium.com/@gregoryziegan/how-graphql-taught-me-to-code-client-apps-1c631a9953bd&quot;&gt;nice little article&lt;/a&gt; talking about his progression along this path: from REST, through &lt;a href=&quot;http://timelessrepo.com/haters-gonna-hateoas&quot;&gt;HATEOS&lt;/a&gt;, observables, etc; and how he ended up at GraphQL. Following on from this, Sashko Stubailo makes a pretty good argument about why GraphQL is &lt;a href=&quot;https://medium.com/apollo-stack/graphql-the-next-generation-of-api-design-f24b1689756a&quot;&gt;&amp;quot;the next generation of API design&amp;quot;&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;While the benefits of a GraphQL-based API seem pretty obvious to me, it&amp;#39;s not always feasible to jump straight into shiny new tech. Maybe you need to support legacy services, interact with 3rd-party API&amp;#39;s, or allow other developers to consume your API without them having to learn the ins and outs of GraphQL. But thankfully, we don&amp;#39;t need to pick one over the other!&lt;/p&gt;
+
+&lt;p&gt;The GraphQL team have a pretty good article on their blog about &lt;a href=&quot;http://graphql.org/blog/rest-api-graphql-wrapper/&quot;&gt;wrapping REST API&amp;#39;s in GraphQL&lt;/a&gt;, starting purely with the client-side, and later moving it to the backend. This idea plays in SO well with some little side-projects I&amp;#39;ve been thinking about over the years, and how it could be used to help decompose and combine existing API&amp;#39;s.&lt;/p&gt;
+
+&lt;h2&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;This is a scattering of the articles and things I have read through while learning more about GraphQL, and why it is so awesome. I definitely know it&amp;#39;s a technology that I am super excited to start utilising in my future projects.&lt;/p&gt;
+
+&lt;p&gt;Have you come across any other awesome articles/tools related to GraphQL or similar? I&amp;#39;d love to hear about them! Let me know in the comments below.&lt;/p&gt;</content><author><name>devalias</name></author><category term="dev" /><category term="web" /><category term="tech-stack" /><category term="graphql" /><category term="relay" /><category term="redux" /><category term="cashay" /><category term="adrenaline" /><category term="sangria" /><category term="scala" /><category term="akka" /><category term="akka-http" /><category term="apollo-stack" /><category term="falcor" /><category term="rest" /><category term="hateos" /><category term="facebook" /><category term="netflix" /><summary>If you haven&amp;#39;t yet come across GraphQL, it&amp;#39;s kind of exciting stuff. It&amp;#39;s a query language developed by Facebook, that basically lets you request exactly the data you need for the given task; no more, no less. Sounds good right?</summary></entry><entry><title>Shared Devices Need Account Switching</title><link href="http://devalias.net//devalias/2016/08/31/shared-devices-need-account-switching/" rel="alternate" type="text/html" title="Shared Devices Need Account Switching" /><published>2016-08-31T00:00:00+10:00</published><updated>2016-08-31T00:00:00+10:00</updated><id>http://devalias.net//devalias/2016/08/31/shared-devices-need-account-switching</id><content type="html" xml:base="http://devalias.net//devalias/2016/08/31/shared-devices-need-account-switching/">&lt;p&gt;Living in share houses and using tech like the Apple TV has highlighted an annoying situation: so many apps these days want you to sign in to enable access, personalised features, etc; but most offer no good solution for when you share the device with other people.&lt;/p&gt;
 
 &lt;p&gt;There are some apps out there that handle this pretty well:&lt;/p&gt;
 
@@ -684,8 +761,4 @@ WSRequestHolder ws = wsClient.url(url)
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;(Note: The tl;dr/raw/likely most up to date notes I made for this are &lt;a href=&quot;https://gist.github.com/alias1/288dce6b353f2a72a7d4&quot;&gt;available as a gist&lt;/a&gt;)&lt;/p&gt;</content><author><name>devalias</name></author><category term="play-framework" /><category term="2.3.x" /><category term="ws" /><category term="play-ws" /><category term="library" /><category term="maven" /><category term="typesafe" /><category term="playframework.com" /><category term="typesafe.com" /><summary>So as we all (should) know, Play! Framework has released v2.3.x</summary></entry><entry><title>Musings on breaking down silos</title><link href="http://devalias.net//devalias/2014/06/12/rather-than-trying-to-make-everybody-everywhere/" rel="alternate" type="text/html" title="Musings on breaking down silos" /><published>2014-06-12T03:11:37+10:00</published><updated>2014-06-12T03:11:37+10:00</updated><id>http://devalias.net//devalias/2014/06/12/rather-than-trying-to-make-everybody-everywhere</id><content type="html" xml:base="http://devalias.net//devalias/2014/06/12/rather-than-trying-to-make-everybody-everywhere/">&lt;p&gt;Rather than trying to make everybody everywhere adapt their systems to try and handle everything that could possibly ever exist (a monumental task), have a &amp;#39;new&amp;#39; thing that is flexible enough to be able to interface with everything else.&lt;/p&gt;
-
-&lt;p&gt;Thinking about it now, it&amp;#39;s the exact same way as I look at the transition from legacy silo&amp;#39;s to &amp;#39;the future&amp;#39; of personal clouds/etc. Sure, the ideal is that everything is free and open and interacts perfectly, but the reality is that that&amp;#39;s not where we are at today, and there is a very real need for these &amp;#39;bridging technologies&amp;#39; to ease that transition as we move forward, and give us the wins of the future technology, without having to wait for the lag of general industry to catch up.&lt;/p&gt;
-
-&lt;p&gt;—Glenn &amp;#39;devalias&amp;#39; Grant&lt;/p&gt;</content><author><name>devalias</name></author><category term="future" /><category term="musing" /><category term="personal-cloud" /><category term="silo" /><category term="data" /><category term="legacy" /><category term="transition" /><summary>Rather than trying to make everybody everywhere adapt their systems to try and handle everything that could possibly ever exist (a monumental task), have a &amp;#39;new&amp;#39; thing that is flexible enough to be able to interface with everything else.</summary></entry></feed>
+&lt;p&gt;(Note: The tl;dr/raw/likely most up to date notes I made for this are &lt;a href=&quot;https://gist.github.com/alias1/288dce6b353f2a72a7d4&quot;&gt;available as a gist&lt;/a&gt;)&lt;/p&gt;</content><author><name>devalias</name></author><category term="play-framework" /><category term="2.3.x" /><category term="ws" /><category term="play-ws" /><category term="library" /><category term="maven" /><category term="typesafe" /><category term="playframework.com" /><category term="typesafe.com" /><summary>So as we all (should) know, Play! Framework has released v2.3.x</summary></entry></feed>

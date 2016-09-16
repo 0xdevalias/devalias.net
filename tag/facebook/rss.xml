@@ -41,7 +41,7 @@
 <li><a href="https://medium.com/apollo-stack/tutorial-building-a-graphql-server-cddaa023c035">&quot;Tutorial: How to build a GraphQL server&quot; by Jonas Helfer</a></li>
 </ul>
 
-<h2>GraphQL and Relay.. What about Redux?</h2>
+<h2><a name="graphql-relay-redux"></a>GraphQL and Relay.. What about Redux?</h2>
 
 <p>A lot of things you&#39;ll read about GraphQL on the net will talk about it quite closely with <a href="https://facebook.github.io/relay/">Relay</a>, and given they were both released by Facebook, and sort of designed to work together, it makes a lot of sense. That said, you most definitely don&#39;t need to use Relay to take advantage of the awesomeness GraphQL provides!</p>
 
@@ -64,6 +64,7 @@
 <li><a href="http://www.apollostack.com/">Apollo Stack</a></li>
 <li><a href="https://github.com/mattkrick/cashay">Cashay</a>: &quot;Relay for the rest of us&quot;</li>
 <li><a href="https://github.com/gyzerok/adrenaline">Adrenaline</a>: &quot;Simple Relay alternative&quot;</li>
+<li><a href="https://github.com/kennetpostigo/react-reach">React-Reach</a>: &quot;A small library for React to communicate with GraphQL&quot;</li>
 </ul>
 
 <h2>GraphQL vs Falcor</h2>

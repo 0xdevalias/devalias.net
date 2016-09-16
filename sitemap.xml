@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
+<loc>http://devalias.net//devalias/2016/09/16/ctf-snippets-xss-gif/</loc>
+<lastmod>2016-09-16T00:00:00+10:00</lastmod>
+</url>
+<url>
 <loc>http://devalias.net//devalias/2016/09/07/graphql-why-you-should-care/</loc>
 <lastmod>2016-09-07T00:00:00+10:00</lastmod>
 </url>
@@ -1351,5 +1355,29 @@
 </url>
 <url>
 <loc>http://devalias.net//tag/hateos/</loc>
+</url>
+<url>
+<loc>http://devalias.net//tag/ctf/</loc>
+</url>
+<url>
+<loc>http://devalias.net//tag/sectalks/</loc>
+</url>
+<url>
+<loc>http://devalias.net//tag/csrf/</loc>
+</url>
+<url>
+<loc>http://devalias.net//tag/file-upload/</loc>
+</url>
+<url>
+<loc>http://devalias.net//tag/image/</loc>
+</url>
+<url>
+<loc>http://devalias.net//tag/gif/</loc>
+</url>
+<url>
+<loc>http://devalias.net//tag/csp/</loc>
+</url>
+<url>
+<loc>http://devalias.net//tag/safari/</loc>
 </url>
 </urlset>

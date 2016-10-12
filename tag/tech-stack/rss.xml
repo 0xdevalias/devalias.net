@@ -13,6 +13,366 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>Starting a New Web Application (Part 2): A Time to React</title>
+	  <link>/devalias/2016/10/13/starting-a-new-web-application-2-a-time-to-react/</link>
+	  <author>devalias</author>
+	  <pubDate>2016-10-13T10:39:15+11:00</pubDate>
+	  <guid>/devalias/2016/10/13/starting-a-new-web-application-2-a-time-to-react/</guid>
+	  <description><![CDATA[
+	     <p>In <a href="TODO">part 1</a> we started looking into the current web application landscape, and what technologies are out there. From what I learned through my research there, I have decided to delve further into <a href="https://facebook.github.io/react/">React</a>; partly because it&#39;s one of the current hot topics and seems really interesting, partly because I think Facebook are pretty cool and make some awesome things, and partly because it&#39;ll be a good skill to flesh out for my resume/future endeavours.</p>
+
+<h2>ToC</h2>
+
+<ul>
+<li><a href="#introductory-reading">Introductory Reading</a></li>
+<li><a href="#desired-features">Desired Features</a></li>
+<li><a href="#react">React</a></li>
+<li><a href="#flux">Flux</a></li>
+<li><a href="#libraries-features">Libraries and Features</a>
+
+<ul>
+<li>Routing</li>
+<li>API&#39;s (REST, etc)</li>
+<li>Authentication</li>
+<li>Isomorphic</li>
+<li>DevTools</li>
+</ul></li>
+<li><a href="#boilerplate-starters-examples">Boilerplate, Starter Kits and Examples</a></li>
+<li><a href="#stack-tools">Choosing my Stack and Tools</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ul>
+
+<h2><a name="introductory-reading"></a>Introductory Reading</h2>
+
+<p>To save myself rewriting what&#39;s already been explained, here are some quick intro articles on React, Flux and JSX that helped my to understand it all a bit better. If you need a quick refresher, I&#39;ll see you in a minute:</p>
+
+<ul>
+<li><a href="http://blog.andrewray.me/reactjs-for-stupid-people/">&quot;ReactJS For Stupid People&quot; by Andrew Ray</a></li>
+<li><a href="http://blog.andrewray.me/flux-for-stupid-people/">&quot;Flux For Stupid People&quot; by Andrew Ray</a></li>
+<li><a href="http://blog.andrewray.me/youre-missing-the-point-of-jsx/">&quot;You&#39;re Missing The Point Of JSX&quot; by Andrew Ray</a></li>
+<li><a href="https://facebook.github.io/react/docs/getting-started.html">React: Getting Started</a></li>
+<li><a href="https://facebook.github.io/react/docs/tutorial.html">React: Tutorial</a></li>
+<li><a href="https://www.toptal.com/react/navigating-the-react-ecosystem">&quot;Navigating the React Ecosystem&quot; by Tomas Holas</a></li>
+</ul>
+
+<h2><a name="desired-features"></a>Desired Features</h2>
+
+<p>To help narrow down which libraries/solutions I might go with, it helped to have a bit of an idea of what sort of features/ideas I wanted to incorporate into my stack. In no particular order:</p>
+
+<ul>
+<li>Single page application</li>
+<li>Driven by a first-class API</li>
+<li>Microservices</li>
+<li>Token-based Authentication</li>
+<li><a href="https://medium.com/front-end-hacking/the-secret-to-organization-in-functional-programming-913484e85fc9">&#39;Feature First&#39; Organization</a></li>
+<li><a href="http://www.reactivemanifesto.org/">Reactive</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Don%27t_repeat_yourself">&#39;DRY&#39;</a></li>
+<li><a href="http://nerds.airbnb.com/isomorphic-javascript-future-web-apps/">Isomorphic</a>?</li>
+</ul>
+
+<h2><a name="react"></a>React</h2>
+
+<p>This one is nice and simple. <a href="https://facebook.github.io/react/">React</a> is React. We don&#39;t have a crazy environment of different options, flavours and alternatives we need to weigh up and choose between here.</p>
+
+<blockquote>
+<p>React is a JavaScript library for creating user interfaces by Facebook and Instagram. Many people choose to think of React as the V in MVC. - <a href="https://facebook.github.io/react/docs/why-react.html">Why React?</a></p>
+</blockquote>
+
+<p>If you need to know more about it, make sure to go back and brush up on the <a href="#introductory-reading">introductory reading</a>.</p>
+
+<h2><a name="flux"></a>Flux</h2>
+
+<p><a href="https://facebook.github.io/flux/">Flux</a> (<a href="https://github.com/facebook/flux">GitHub</a>) is a concept <a href="https://facebook.github.io/react/blog/2014/05/06/flux.html">announced back in 2014</a> by Facebook. Since it isn&#39;t a library like React, there are SO many flavours, choices and differing implementations. You could be stuck here in analysis paralysis forever.</p>
+
+<blockquote>
+<p>Flux is the application architecture that Facebook uses for building client-side web applications. It complements React&#39;s composable view components by utilizing a unidirectional data flow. It&#39;s more of a pattern rather than a formal framework, and you can start using Flux immediately without a lot of new code. - <a href="https://facebook.github.io/flux/docs/overview.html">Flux Overview</a></p>
+</blockquote>
+
+<p>Thankfully a whole pile of different people have already put together some comparisons of different implementations, and why you might want to pick one over another:</p>
+
+<ul>
+<li><a href="https://github.com/kriasoft/react-starter-kit/issues/22">&quot;Which Flux implementation should I use?&quot; on react-starter-kit</a></li>
+<li><a href="http://pixelhunter.me/post/110248593059/flux-solutions-compared-by-example">&quot;Flux solutions compared by example&quot; by pixelhunter</a> (<a href="https://github.com/voronianski/flux-comparison">GitHub</a>)</li>
+</ul>
+
+<p>There are <a href="https://github.com/justinwoo/react-rxjs-flow">even</a> <a href="http://qiita.com/kimagure/items/22cf4bb2a967fcba376e">some</a> <a href="https://github.com/AlexMost/RxReact">people</a> playing with the idea of skipping Flux entirely and using <a href="https://github.com/Reactive-Extensions/RxJS">RxJS</a>.</p>
+
+<p>Reading through the various options out there, I pretty much came to the conclusion that I probably want to be looking at <a href="https://facebook.github.io/relay/">Relay</a> by Facebook (<a href="https://github.com/facebook/relay">GitHub</a>, <a href="https://github.com/relayjs/relay-starter-kit">Starter Kit</a>) and <a href="http://redux.js.org/">Redux</a> (<a href="https://github.com/reactjs/redux">GitHub</a>). I&#39;ve briefly spoken about these two before in <a href="/devalias/2016/09/07/graphql-why-you-should-care/#graphql-relay-redux">&quot;GraphQL: Why You Should Care&quot;</a>. But for the sake of completeness, here are the relevant articles again:
+* <a href="https://www.reindex.io/blog/redux-and-relay/">&quot;Comparing Redux and Relay&quot; by Mikhail Novikov</a>
+* <a href="https://medium.com/@matt.krick/replacing-relay-with-redux-2990c81aa807">&quot;Replacing Relay with Redux&quot; by Matt Krick</a>
+* <a href="https://medium.com/@thisbejim/getting-started-with-redux-and-graphql-8384b3b25c56">&quot;Getting started with Redux and GraphQL&quot; by James Childs-Maidment</a></p>
+
+<p>While I think Relay is pretty cool, and seems like it will <a href="https://facebook.github.io/react/blog/2016/08/05/relay-state-of-the-state.html">only keep getting better</a>, I think sticking to a Redux based stack for the time being will suit my needs better. Though don&#39;t think that leaves you missing out. There are a number of projects that combine the best aspects of both worlds:</p>
+
+<ul>
+<li><a href="http://www.apollostack.com/">Apollo Stack</a></li>
+<li><a href="https://github.com/mattkrick/cashay">Cashay</a>: &quot;Relay for the rest of us&quot;</li>
+<li><a href="https://github.com/gyzerok/adrenaline">Adrenaline</a>: &quot;Simple Relay alternative&quot;</li>
+<li><a href="https://github.com/kennetpostigo/react-reach">React-Reach</a>: &quot;A small library for React to communicate with GraphQL&quot;</li>
+</ul>
+
+<p>There also seems to be some pretty lively discussions worth watching as well:</p>
+
+<ul>
+<li><a href="https://github.com/reactjs/redux/issues/464">Redux #464: &quot;Relay and Redux&quot;</a></li>
+<li><a href="https://github.com/reactjs/redux/issues/775">Redux #775: &quot;Has Redux&#39;s Time Come and Gone&quot; </a></li>
+</ul>
+
+<p>A nice feature of Redux is that it <a href="http://redux.js.org/docs/basics/UsageWithReact.html">isn&#39;t just tied to React</a>; so you can write Redux apps with <a href="https://github.com/reactjs/react-redux">React</a>, <a href="https://github.com/angular-redux">Angular</a>, <a href="http://www.ember-redux.com/">Ember</a>, jQuery, or even vanilla JavaScript.</p>
+
+<p>The best way to learn about Redux, how it works, and why you should care, is through the official (free) course: <a href="https://egghead.io/courses/getting-started-with-redux">&quot;Getting Started with Redux&quot;</a> (<a href="https://github.com/tayiorbeii/egghead.io_redux_course_notes">Notes</a>)</p>
+
+<p>Finally, while it might be a little early to throw this into the mix, for the sake of completeness in &#39;interesting things I read on this topic&#39;:</p>
+
+<ul>
+<li><a href="http://jamesknelson.com/join-the-dark-side-of-the-flux-responding-to-actions-with-actors/">&quot;Join The Dark Side Of The Flux: Responding to Actions with Actors&quot; by James K Nelson</a></li>
+</ul>
+
+<h2><a name="libraries-features"></a>Libraries and Features</h2>
+
+<p>Following the DRY principles, there are bound to be tons of pre-existing libraries to help implement all sorts of features you may want/need. While it&#39;s always hard to truly know what you want till you get started, you could start by looking through some <a href="https://github.com/enaqx/awesome-react">awesome react</a>/<a href="https://github.com/jondot/awesome-react-native">react native</a> lists; or read on below.</p>
+
+<p><strong>Routing</strong></p>
+
+<ul>
+<li><a href="https://github.com/reactjs/react-router">React-Router</a>: This seems to be the de-facto standard.
+
+<ul>
+<li><a href="https://github.com/react-bootstrap/react-router-bootstrap">React-Router-Bootstrap</a></li>
+</ul></li>
+<li><a href="https://github.com/kriasoft/universal-router">Universal Router</a>: &quot;A simple middleware-style router for isomorphic JavaScript web apps&quot;</li>
+</ul>
+
+<p><strong>API&#39;s (REST, etc)</strong></p>
+
+<ul>
+<li><p><a href="https://stackoverflow.com/questions/33821053/is-there-any-good-http-library-for-react-flux-architecture">&quot;Is there any good Http library for React flux architecture&quot; on StackOverflow</a></p>
+
+<ul>
+<li><a href="https://github.github.io/fetch/">Fetch</a> (<a href="https://github.com/github/fetch">GitHub</a>): &quot;A window.fetch JavaScript polyfill&quot;</li>
+<li><a href="https://github.com/matthew-andrews/isomorphic-fetch">Isomorphic-Fetch</a>: &quot;Isomorphic WHATWG Fetch API, for Node &amp; Browserify&quot;</li>
+<li><a href="https://github.com/visionmedia/superagent">Superagent</a>: &quot;Ajax with less suck&quot;</li>
+<li><a href="https://github.com/mbasso/react-http-request">React-Http-Request</a>: Uses superagent</li>
+<li><a href="https://github.com/mzabriskie/axios">Axios</a>: &quot;Promise based HTTP client for the browser and node.js&quot;</li>
+</ul></li>
+<li><p><a href="https://github.com/marmelab/restful.js">Restful.js</a>: &quot;A pure JS client for interacting with server-side RESTful resources. Think Restangular without Angular.&quot;</p></li>
+</ul>
+
+<p><strong>Authentication</strong></p>
+
+<ul>
+<li><a href="https://github.com/lynndylanhurley/redux-auth">Redux-Auth</a>: &quot;Complete token authentication system for react + redux&quot;</li>
+<li><a href="https://github.com/mjrussell/redux-auth-wrapper">Redux-Auth-Wrapper</a>: &quot;A React Higher Order Component (HOC) for handling Authentication and Authorization with Redux and React-Router&quot;</li>
+<li><a href="https://github.com/joshgeller/react-redux-jwt-auth-example">React-Redux-JWT-Auth-Example</a>: &quot;Sample project showing possible authentication flow using React, Redux, React-Router, and JWT&quot;</li>
+</ul>
+
+<p>For some further reading on this topic:
+* <a href="https://scotch.io/tutorials/build-a-react-flux-app-with-user-authentication">&quot;Build a React + Flux App with User Authentication&quot; by Ryan Chenkie</a>
+* <a href="https://auth0.com/blog/adding-authentication-to-your-react-flux-app/">&quot;Adding authentication to your React Flux app&quot; by Martin Gontovnikas</a> (<a href="https://github.com/auth0-blog/react-flux-jwt-authentication-sample">GitHub</a>)
+* <a href="https://medium.com/@rajaraodv/securing-react-redux-apps-with-jwt-tokens-fcfe81356ea0">&quot;Securing React Redux Apps With JWT Tokens&quot; by rajaraodv</a></p>
+
+<p><strong>Isomorphic</strong></p>
+
+<ul>
+<li><a href="http://airbnb.io/projects/hypernova/">Hypernova</a> (<a href="https://github.com/airbnb/hypernova">GitHub</a>): &quot;A service for server-side rendering your JavaScript views&quot;</li>
+</ul>
+
+<p><strong>DevTools</strong></p>
+
+<ul>
+<li><a href="https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi">React Developer Tools</a></li>
+<li><a href="https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd">Redux DevTools</a></li>
+</ul>
+
+<h2><a name="boilerplate-starters-examples"></a>Boilerplate, Starter Kits and Examples</h2>
+
+<p>You might be noticing a bit of a trend: each step you take forward, there seem to be a million different options and considerations to make; and this is no different.</p>
+
+<p>To try and avoid this decision fatigue and help new dev&#39;s dive head first into the React world, Facebook has released their very own starter tool: <a href="https://github.com/facebookincubator/create-react-app">Create-React-App</a>. It&#39;s early days still, but this is definitely something to keep an eye on going forward.</p>
+
+<p>Looking through <a href="http://habd.as/awesome-react-boilerplates/">&quot;Awesome React Boilerplates&quot;</a> and some of the other starter kit/generators out there, we have a lot to pick from. With so many options, a <a href="http://andrewhfarmer.com/starter-project/">tool to help narrow it down</a> is pretty useful, but here are some others just in case:</p>
+
+<ul>
+<li><a href="https://github.com/kriasoft/react-starter-kit">React-Starter-Kit | Kriasoft</a> (10403): React, modular Flux (with Redux feature), Universal-Router, Babel, Webpack, GraphQL,</li>
+<li><a href="https://github.com/mxstbr/react-boilerplate">React-Boilerplate | mxstbr</a> (9052): React, Redux, React-Router, Babel, Webpack, CSS Modules</li>
+<li><a href="https://github.com/coryhouse/react-slingshot">React-Slingshot | Cory House</a> (4445): React, Redux, React-Router, Babel, Webpack, etc</li>
+<li><a href="https://github.com/jaredpalmer/react-production-starter">React-Production-Starter | Jarad Palmer</a> (834): React, Redux, React-Router, Immutable, Babel, Webpack, etc</li>
+<li><a href="http://unicornstandard.com/packages/boilerplate.html">Unicorn-Standard Starter-Kit</a> (403)</li>
+</ul>
+
+<p>Or take a look at some examples:</p>
+
+<ul>
+<li><a href="https://github.com/arturopala/traffic-lights-control">Example: Traffic-Lights-Control</a>
+React, Redux, Akka, Akka-HTTP, WebSockets</li>
+<li><a href="https://github.com/tomaash/react-example-filmdb">React-Example-FilmDB</a>: &quot;Isomorphic React + Flux film database example&quot;</li>
+</ul>
+
+<h2><a name="stack-tools"></a>Choosing my Stack and Tools</h2>
+
+<ul>
+<li>TODO: Should this be in a new post?</li>
+</ul>
+
+<p>SASS</p>
+
+<p>Foundation or Bootstrap or Material?</p>
+
+<p><a href="https://nuclide.io/">https://nuclide.io/</a> (IDE)
+  <a href="https://github.com/facebook/nuclide">https://github.com/facebook/nuclide</a></p>
+
+<p><a href="https://flowtype.org/">https://flowtype.org/</a> (Typed JS)
+  <a href="https://github.com/facebook/flow">https://github.com/facebook/flow</a></p>
+
+<p>With babel?</p>
+
+<p><a href="https://facebook.github.io/immutable-js/">https://facebook.github.io/immutable-js/</a>
+  <a href="https://github.com/facebook/immutable-js/">https://github.com/facebook/immutable-js/</a></p>
+
+<p>Markdown
+  <a href="https://github.com/jonschlinkert/remarkable">https://github.com/jonschlinkert/remarkable</a></p>
+
+<h2><a name="conclusion"></a>Conclusion</h2>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>TODO: Microservices and Orchestration</title>
+	  <link>/devalias/2016/10/13/todo-microservices-and-orchestration/</link>
+	  <author>devalias</author>
+	  <pubDate>2016-10-13T10:39:15+11:00</pubDate>
+	  <guid>/devalias/2016/10/13/todo-microservices-and-orchestration/</guid>
+	  <description><![CDATA[
+	     <ul>
+<li><p>TODO: docker, swarm, kubernetes, lagom, akka, etc</p></li>
+<li><p><a href="https://opensource.com/resources/what-are-microservices">https://opensource.com/resources/what-are-microservices</a></p></li>
+<li><p><a href="https://www.nginx.com/blog/introduction-to-microservices/">https://www.nginx.com/blog/introduction-to-microservices/</a></p></li>
+<li><p><a href="http://microservices.io/">http://microservices.io/</a></p>
+
+<ul>
+<li><a href="http://microservices.io/patterns/microservices.html">http://microservices.io/patterns/microservices.html</a></li>
+</ul></li>
+<li><p><a href="http://martinfowler.com/microservices/">http://martinfowler.com/microservices/</a></p></li>
+<li><p><a href="https://auth0.com/blog/an-introduction-to-microservices-part-1/">https://auth0.com/blog/an-introduction-to-microservices-part-1/</a></p></li>
+<li><p><a href="https://www.lightbend.com/blog/a-new-trilogy-the-enterprise-architects-intro-to-microservices">https://www.lightbend.com/blog/a-new-trilogy-the-enterprise-architects-intro-to-microservices</a></p></li>
+</ul>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>TODO: Feature Flags, Etc</title>
+	  <link>/devalias/2016/10/13/todo-feature-flags-etc/</link>
+	  <author>devalias</author>
+	  <pubDate>2016-10-13T10:39:15+11:00</pubDate>
+	  <guid>/devalias/2016/10/13/todo-feature-flags-etc/</guid>
+	  <description><![CDATA[
+	     <ul>
+<li>TODO: Feature flags, how does that work with microservices, tying in with continuous deploymnet, etc</li>
+<li><a href="http://blog.launchdarkly.com/">http://blog.launchdarkly.com/</a></li>
+<li><a href="http://blog.launchdarkly.com/feature-flag-driven-development/">http://blog.launchdarkly.com/feature-flag-driven-development/</a></li>
+<li><a href="http://blog.launchdarkly.com/feature-flag-driven-releases/">http://blog.launchdarkly.com/feature-flag-driven-releases/</a></li>
+<li><p><a href="http://featureflags.io/resources/">http://featureflags.io/resources/</a></p>
+
+<ul>
+<li><a href="http://martinfowler.com/bliki/FeatureToggle.html">http://martinfowler.com/bliki/FeatureToggle.html</a></li>
+</ul></li>
+<li><p><a href="http://featureflags.io/">http://featureflags.io/</a></p></li>
+<li><p>Java</p>
+
+<ul>
+<li><a href="http://www.togglz.org/">http://www.togglz.org/</a></li>
+<li><a href="http://www.ff4j.org/">http://www.ff4j.org/</a></li>
+<li><a href="https://github.com/tacitknowledge/flip">https://github.com/tacitknowledge/flip</a></li>
+</ul></li>
+<li><p><a href="https://github.com/wix/petri">https://github.com/wix/petri</a></p></li>
+<li><p><a href="https://github.com/adobe-platform/feature-flipper">https://github.com/adobe-platform/feature-flipper</a></p></li>
+<li><p><a href="https://github.com/fetlife/rollout">https://github.com/fetlife/rollout</a></p></li>
+</ul>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>TODO: Tech Companies Open Source</title>
+	  <link>/devalias/2016/10/13/todo-tech-companies-open-source/</link>
+	  <author>devalias</author>
+	  <pubDate>2016-10-13T10:39:15+11:00</pubDate>
+	  <guid>/devalias/2016/10/13/todo-tech-companies-open-source/</guid>
+	  <description><![CDATA[
+	     <ul>
+<li>TODO: Main page and github for various tech companies</li>
+<li>Facebook
+
+<ul>
+<li><a href="https://code.facebook.com/posts/">https://code.facebook.com/posts/</a></li>
+<li><a href="https://code.facebook.com/projects/">https://code.facebook.com/projects/</a></li>
+</ul></li>
+<li>Netflix
+
+<ul>
+<li><a href="http://techblog.netflix.com/">http://techblog.netflix.com/</a></li>
+<li><a href="http://netflix.github.io/falcor/">http://netflix.github.io/falcor/</a></li>
+</ul></li>
+<li>Twitter
+
+<ul>
+<li><a href="https://engineering.twitter.com/">https://engineering.twitter.com/</a></li>
+<li><a href="https://engineering.twitter.com/opensource">https://engineering.twitter.com/opensource</a></li>
+</ul></li>
+<li>AirBnB
+
+<ul>
+<li><a href="http://airbnb.io/">http://airbnb.io/</a></li>
+<li><a href="http://airbnb.io/projects/">http://airbnb.io/projects/</a></li>
+<li><a href="http://nerds.airbnb.com/">http://nerds.airbnb.com/</a></li>
+</ul></li>
+<li>GitHub
+
+<ul>
+<li><a href="http://githubengineering.com/">http://githubengineering.com/</a></li>
+<li><a href="https://github.com/blog/category/engineering">https://github.com/blog/category/engineering</a></li>
+</ul></li>
+<li>Etsy
+
+<ul>
+<li><a href="https://codeascraft.com/">https://codeascraft.com/</a></li>
+<li><a href="https://etsy.github.io/">https://etsy.github.io/</a></li>
+</ul></li>
+<li>etc</li>
+</ul>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>Creating Chrome Extensions</title>
+	  <link>/devalias/2016/10/13/creating-chrome-extensions/</link>
+	  <author>devalias</author>
+	  <pubDate>2016-10-13T10:39:15+11:00</pubDate>
+	  <guid>/devalias/2016/10/13/creating-chrome-extensions/</guid>
+	  <description><![CDATA[
+	     <ul>
+<li><p><a href="http://yeoman.io/">http://yeoman.io/</a></p>
+
+<ul>
+<li><a href="https://github.com/yeoman/generator-chrome-extension">https://github.com/yeoman/generator-chrome-extension</a></li>
+<li><a href="https://github.com/ironSource/node-generator-chrome-ninja">https://github.com/ironSource/node-generator-chrome-ninja</a></li>
+<li><a href="https://github.com/handtrix/generator-chrome-extension-kickstart">https://github.com/handtrix/generator-chrome-extension-kickstart</a></li>
+<li><a href="https://github.com/nibblesnbits/generator-chrome-extension-simple">https://github.com/nibblesnbits/generator-chrome-extension-simple</a></li>
+</ul></li>
+<li><p><a href="http://extensionizr.com/">http://extensionizr.com/</a></p>
+
+<ul>
+<li><a href="https://github.com/altryne/extensionizr">https://github.com/altryne/extensionizr</a></li>
+</ul></li>
+</ul>
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>GraphQL: Why You Should Care</title>
 	  <link>/devalias/2016/09/07/graphql-why-you-should-care/</link>
 	  <author>devalias</author>

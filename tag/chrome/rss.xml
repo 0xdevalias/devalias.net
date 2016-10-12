@@ -13,6 +13,32 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>Creating Chrome Extensions</title>
+	  <link>/devalias/2016/10/13/creating-chrome-extensions/</link>
+	  <author>devalias</author>
+	  <pubDate>2016-10-13T10:39:15+11:00</pubDate>
+	  <guid>/devalias/2016/10/13/creating-chrome-extensions/</guid>
+	  <description><![CDATA[
+	     <ul>
+<li><p><a href="http://yeoman.io/">http://yeoman.io/</a></p>
+
+<ul>
+<li><a href="https://github.com/yeoman/generator-chrome-extension">https://github.com/yeoman/generator-chrome-extension</a></li>
+<li><a href="https://github.com/ironSource/node-generator-chrome-ninja">https://github.com/ironSource/node-generator-chrome-ninja</a></li>
+<li><a href="https://github.com/handtrix/generator-chrome-extension-kickstart">https://github.com/handtrix/generator-chrome-extension-kickstart</a></li>
+<li><a href="https://github.com/nibblesnbits/generator-chrome-extension-simple">https://github.com/nibblesnbits/generator-chrome-extension-simple</a></li>
+</ul></li>
+<li><p><a href="http://extensionizr.com/">http://extensionizr.com/</a></p>
+
+<ul>
+<li><a href="https://github.com/altryne/extensionizr">https://github.com/altryne/extensionizr</a></li>
+</ul></li>
+</ul>
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>CTF Snippets: XSS.gif</title>
 	  <link>/devalias/2016/09/16/ctf-snippets-xss-gif/</link>
 	  <author>devalias</author>

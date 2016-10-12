@@ -1,6 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
+<loc>http://devalias.net//devalias/2016/10/13/todo-tech-companies-open-source/</loc>
+<lastmod>2016-10-13T10:39:37+11:00</lastmod>
+</url>
+<url>
+<loc>http://devalias.net//devalias/2016/10/13/todo-microservices-and-orchestration/</loc>
+<lastmod>2016-10-13T10:39:37+11:00</lastmod>
+</url>
+<url>
+<loc>http://devalias.net//devalias/2016/10/13/todo-feature-flags-etc/</loc>
+<lastmod>2016-10-13T10:39:37+11:00</lastmod>
+</url>
+<url>
+<loc>http://devalias.net//devalias/2016/10/13/starting-a-new-web-application-2-a-time-to-react/</loc>
+<lastmod>2016-10-13T10:39:37+11:00</lastmod>
+</url>
+<url>
+<loc>http://devalias.net//devalias/2016/10/13/creating-chrome-extensions/</loc>
+<lastmod>2016-10-13T10:39:37+11:00</lastmod>
+</url>
+<url>
+<loc>http://devalias.net//devalias/2016/10/13/bulletproof-biohacking-box-8/</loc>
+<lastmod>2016-10-13T10:39:37+11:00</lastmod>
+</url>
+<url>
 <loc>http://devalias.net//devalias/2016/09/16/ctf-snippets-xss-gif/</loc>
 <lastmod>2016-09-16T00:00:00+10:00</lastmod>
 </url>
@@ -319,6 +343,9 @@
 <loc>http://devalias.net//author/devalias/12/</loc>
 </url>
 <url>
+<loc>http://devalias.net//author/devalias/13/</loc>
+</url>
+<url>
 <loc>http://devalias.net//tag/init/</loc>
 </url>
 <url>
@@ -413,6 +440,9 @@
 </url>
 <url>
 <loc>http://devalias.net//tag/dev/</loc>
+</url>
+<url>
+<loc>http://devalias.net//tag/dev/2/</loc>
 </url>
 <url>
 <loc>http://devalias.net//tag/webdev/</loc>
@@ -1165,6 +1195,9 @@
 <loc>http://devalias.net//tag/web/</loc>
 </url>
 <url>
+<loc>http://devalias.net//tag/web/2/</loc>
+</url>
+<url>
 <loc>http://devalias.net//tag/pixel-art/</loc>
 </url>
 <url>
@@ -1208,6 +1241,9 @@
 </url>
 <url>
 <loc>http://devalias.net//tag/tech-stack/</loc>
+</url>
+<url>
+<loc>http://devalias.net//tag/tech-stack/2/</loc>
 </url>
 <url>
 <loc>http://devalias.net//tag/overview/</loc>
@@ -1379,5 +1415,11 @@
 </url>
 <url>
 <loc>http://devalias.net//tag/safari/</loc>
+</url>
+<url>
+<loc>http://devalias.net//tag/flux/</loc>
+</url>
+<url>
+<loc>http://devalias.net//tag/microservices/</loc>
 </url>
 </urlset>

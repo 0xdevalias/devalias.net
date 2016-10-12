@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- [[! Document Settings ]] -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- [[! Page Meta ]] -->
+    <title>Starting a New Web Application (Part 2): A Time to React</title>
+    <meta name="description" content="/dev/alias – Hack. Dev. Transcend. - Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.
+">
+
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Webmention -->
+    <link rel="webmention" href="https://webmention.io/devalias.net/webmention">
+<link rel="pingback" href="https://webmention.io/devalias.net/xmlrpc">
+
+    <meta property="webmention:redirected_from" content=",">
+
+    <link rel="shortcut icon" href="/assets/images/authors/devalias.png">
+
+    <!-- [[! Styles'n'Scripts ]] -->
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic%7COpen+Sans:700,400">
+          
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/syntax.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" type="text/css" href="/assets/css/custom.css">
+    
+    <!-- [[! Ghost outputs important style and meta data with this tag ]] -->
+      <link rel="canonical" href="/">
+  <meta name="referrer" content="origin">
+  <!-- <link rel="next" href="/page2/" /> -->
+
+  <meta property="og:site_name" content="">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="">
+  <meta property="og:description" content="Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.
+">
+  <meta property="og:url" content="/">
+  <meta property="og:image" content="/assets/images/cover4.jpg">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="/dev/alias – Hack. Dev. Transcend.">
+  <meta name="twitter:description" content="Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.
+">
+  <meta name="twitter:url" content="/">
+  <meta name="twitter:image:src" content="/assets/images/cover4.jpg">
+
+  <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Website",
+    "publisher": "devalias.net}",
+    "url": "/",
+    "image": "/assets/images/cover4.jpg",
+    "description": "Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.
+"
+}
+  </script>
+
+  <meta name="generator" content="Jekyll 3.x">
+  <link rel="home" type="application/rss+xml" title="/dev/alias – Hack. Dev. Transcend." href="/feed.xml">
+
+
+</head>
+<body class="post-template nav-closed">
+
+    <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+        
+            <li class="nav-home " role="presentation">
+                <a href="/">Home</a>
+            </li>
+        
+            <li class="nav-about " role="presentation">
+                <a href="/about">About</a>
+            </li>
+        
+            <li class="nav-dev " role="presentation">
+                <a href="/dev">Development</a>
+            </li>
+        
+            <li class="nav-sec " role="presentation">
+                <a href="/sec">Security</a>
+            </li>
+        
+            <li class="nav-personal " role="presentation">
+                <a href="/personal">Personal</a>
+            </li>
+        
+            <li class="nav-stuff-i-like " role="presentation">
+                <a href="/stuff-i-like">Stuff I Like</a>
+            </li>
+        
+            <li class="nav-go-deeper " role="presentation">
+                <a href="/go-deeper">Go Deeper...</a>
+            </li>
+        
+    </ul>
+    <a class="subscribe-button" href="/feed.xml"><i class="fa fa-rss"></i> Subscribe</a>
+</div>
+<span class="nav-cover"></span>
+
+    <div class="site-wrapper">
+        <!-- [[! Everything else gets inserted here ]] -->
+        <!-- Layout: Post -->
+<!-- Template: header -->
+
+
+
+
+<header class="main-header
+               
+                    " style="background-image: url(/assets/images/cover4.jpg)
+                ">
+    <nav class="main-nav overlay clearfix">
+        
+          <a class="blog-logo" href="/"><img src="/assets/images/devalias-prompt.png" alt="Blog Logo"></a>
+        
+        
+            <a class="menu-button" href="#"><i class="fa fa-bars"></i> <span class="word">Menu</span></a>
+        
+    </nav>
+
+    
+        
+            <div class="vertical">
+                <div class="main-header-content inner">
+                    
+                        <h1 class="page-title">Starting a New Web Application (Part 2): A Time to React</h1>
+                    
+                    
+                </div>
+            </div>
+        
+    
+
+    
+</header>
+<!-- /Template: header -->
+
+
+<main id="content" class="content" role="main">
+    <article class="post ">
+        <header class="post-header">
+            <!-- <h1 class="post-title">Starting a New Web Application (Part 2): A Time to React</h1> -->
+            <section class="post-meta">
+    
+        <img class="author-thumb" src="/assets/images/authors/devalias.png" alt="Author image" nopin="nopin">
+    
+    
+        <a href="/author/devalias">Glenn 'devalias' Grant</a>
+    
+    |
+    <time class="post-date" datetime="2016-10-13">13 Oct 2016</time>
+    |
+    
+        7 minutes
+    
+    to read
+    <!-- [[tags prefix=" on "]] -->
+    
+        |
+        
+            <a href="/tag/dev">#dev</a>,
+        
+            <a href="/tag/web">#web</a>,
+        
+            <a href="/tag/tech-stack">#tech-stack</a>,
+        
+            <a href="/tag/react">#react</a>,
+        
+            <a href="/tag/flux">#flux</a>,
+        
+            <a href="/tag/facebook">#facebook</a>
+        
+    
+    
+</section>
+        </header>
+
+        <section class="post-content">
+            <p>In <a href="TODO">part 1</a> we started looking into the current web application landscape, and what technologies are out there. From what I learned through my research there, I have decided to delve further into <a href="https://facebook.github.io/react/">React</a>; partly because it's one of the current hot topics and seems really interesting, partly because I think Facebook are pretty cool and make some awesome things, and partly because it'll be a good skill to flesh out for my resume/future endeavours.</p>
+
+<h2>ToC</h2>
+
+<ul>
+<li><a href="#introductory-reading">Introductory Reading</a></li>
+<li><a href="#desired-features">Desired Features</a></li>
+<li><a href="#react">React</a></li>
+<li><a href="#flux">Flux</a></li>
+<li>
+<a href="#libraries-features">Libraries and Features</a>
+
+<ul>
+<li>Routing</li>
+<li>API's (REST, etc)</li>
+<li>Authentication</li>
+<li>Isomorphic</li>
+<li>DevTools</li>
+</ul>
+</li>
+<li><a href="#boilerplate-starters-examples">Boilerplate, Starter Kits and Examples</a></li>
+<li><a href="#stack-tools">Choosing my Stack and Tools</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ul>
+
+<h2>
+<a name="introductory-reading"></a>Introductory Reading</h2>
+
+<p>To save myself rewriting what's already been explained, here are some quick intro articles on React, Flux and JSX that helped my to understand it all a bit better. If you need a quick refresher, I'll see you in a minute:</p>
+
+<ul>
+<li><a href="http://blog.andrewray.me/reactjs-for-stupid-people/">"ReactJS For Stupid People" by Andrew Ray</a></li>
+<li><a href="http://blog.andrewray.me/flux-for-stupid-people/">"Flux For Stupid People" by Andrew Ray</a></li>
+<li><a href="http://blog.andrewray.me/youre-missing-the-point-of-jsx/">"You're Missing The Point Of JSX" by Andrew Ray</a></li>
+<li><a href="https://facebook.github.io/react/docs/getting-started.html">React: Getting Started</a></li>
+<li><a href="https://facebook.github.io/react/docs/tutorial.html">React: Tutorial</a></li>
+<li><a href="https://www.toptal.com/react/navigating-the-react-ecosystem">"Navigating the React Ecosystem" by Tomas Holas</a></li>
+</ul>
+
+<h2>
+<a name="desired-features"></a>Desired Features</h2>
+
+<p>To help narrow down which libraries/solutions I might go with, it helped to have a bit of an idea of what sort of features/ideas I wanted to incorporate into my stack. In no particular order:</p>
+
+<ul>
+<li>Single page application</li>
+<li>Driven by a first-class API</li>
+<li>Microservices</li>
+<li>Token-based Authentication</li>
+<li><a href="https://medium.com/front-end-hacking/the-secret-to-organization-in-functional-programming-913484e85fc9">'Feature First' Organization</a></li>
+<li><a href="http://www.reactivemanifesto.org/">Reactive</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Don%27t_repeat_yourself">'DRY'</a></li>
+<li>
+<a href="http://nerds.airbnb.com/isomorphic-javascript-future-web-apps/">Isomorphic</a>?</li>
+</ul>
+
+<h2>
+<a name="react"></a>React</h2>
+
+<p>This one is nice and simple. <a href="https://facebook.github.io/react/">React</a> is React. We don't have a crazy environment of different options, flavours and alternatives we need to weigh up and choose between here.</p>
+
+<blockquote>
+<p>React is a JavaScript library for creating user interfaces by Facebook and Instagram. Many people choose to think of React as the V in MVC. - <a href="https://facebook.github.io/react/docs/why-react.html">Why React?</a></p>
+</blockquote>
+
+<p>If you need to know more about it, make sure to go back and brush up on the <a href="#introductory-reading">introductory reading</a>.</p>
+
+<h2>
+<a name="flux"></a>Flux</h2>
+
+<p><a href="https://facebook.github.io/flux/">Flux</a> (<a href="https://github.com/facebook/flux">GitHub</a>) is a concept <a href="https://facebook.github.io/react/blog/2014/05/06/flux.html">announced back in 2014</a> by Facebook. Since it isn't a library like React, there are SO many flavours, choices and differing implementations. You could be stuck here in analysis paralysis forever.</p>
+
+<blockquote>
+<p>Flux is the application architecture that Facebook uses for building client-side web applications. It complements React's composable view components by utilizing a unidirectional data flow. It's more of a pattern rather than a formal framework, and you can start using Flux immediately without a lot of new code. - <a href="https://facebook.github.io/flux/docs/overview.html">Flux Overview</a></p>
+</blockquote>
+
+<p>Thankfully a whole pile of different people have already put together some comparisons of different implementations, and why you might want to pick one over another:</p>
+
+<ul>
+<li><a href="https://github.com/kriasoft/react-starter-kit/issues/22">"Which Flux implementation should I use?" on react-starter-kit</a></li>
+<li>
+<a href="http://pixelhunter.me/post/110248593059/flux-solutions-compared-by-example">"Flux solutions compared by example" by pixelhunter</a> (<a href="https://github.com/voronianski/flux-comparison">GitHub</a>)</li>
+</ul>
+
+<p>There are <a href="https://github.com/justinwoo/react-rxjs-flow">even</a> <a href="http://qiita.com/kimagure/items/22cf4bb2a967fcba376e">some</a> <a href="https://github.com/AlexMost/RxReact">people</a> playing with the idea of skipping Flux entirely and using <a href="https://github.com/Reactive-Extensions/RxJS">RxJS</a>.</p>
+
+<p>Reading through the various options out there, I pretty much came to the conclusion that I probably want to be looking at <a href="https://facebook.github.io/relay/">Relay</a> by Facebook (<a href="https://github.com/facebook/relay">GitHub</a>, <a href="https://github.com/relayjs/relay-starter-kit">Starter Kit</a>) and <a href="http://redux.js.org/">Redux</a> (<a href="https://github.com/reactjs/redux">GitHub</a>). I've briefly spoken about these two before in <a href="/devalias/2016/09/07/graphql-why-you-should-care/#graphql-relay-redux">"GraphQL: Why You Should Care"</a>. But for the sake of completeness, here are the relevant articles again:
+* <a href="https://www.reindex.io/blog/redux-and-relay/">"Comparing Redux and Relay" by Mikhail Novikov</a>
+* <a href="https://medium.com/@matt.krick/replacing-relay-with-redux-2990c81aa807">"Replacing Relay with Redux" by Matt Krick</a>
+* <a href="https://medium.com/@thisbejim/getting-started-with-redux-and-graphql-8384b3b25c56">"Getting started with Redux and GraphQL" by James Childs-Maidment</a></p>
+
+<p>While I think Relay is pretty cool, and seems like it will <a href="https://facebook.github.io/react/blog/2016/08/05/relay-state-of-the-state.html">only keep getting better</a>, I think sticking to a Redux based stack for the time being will suit my needs better. Though don't think that leaves you missing out. There are a number of projects that combine the best aspects of both worlds:</p>
+
+<ul>
+<li><a href="http://www.apollostack.com/">Apollo Stack</a></li>
+<li>
+<a href="https://github.com/mattkrick/cashay">Cashay</a>: "Relay for the rest of us"</li>
+<li>
+<a href="https://github.com/gyzerok/adrenaline">Adrenaline</a>: "Simple Relay alternative"</li>
+<li>
+<a href="https://github.com/kennetpostigo/react-reach">React-Reach</a>: "A small library for React to communicate with GraphQL"</li>
+</ul>
+
+<p>There also seems to be some pretty lively discussions worth watching as well:</p>
+
+<ul>
+<li><a href="https://github.com/reactjs/redux/issues/464">Redux #464: "Relay and Redux"</a></li>
+<li><a href="https://github.com/reactjs/redux/issues/775">Redux #775: "Has Redux's Time Come and Gone" </a></li>
+</ul>
+
+<p>A nice feature of Redux is that it <a href="http://redux.js.org/docs/basics/UsageWithReact.html">isn't just tied to React</a>; so you can write Redux apps with <a href="https://github.com/reactjs/react-redux">React</a>, <a href="https://github.com/angular-redux">Angular</a>, <a href="http://www.ember-redux.com/">Ember</a>, jQuery, or even vanilla JavaScript.</p>
+
+<p>The best way to learn about Redux, how it works, and why you should care, is through the official (free) course: <a href="https://egghead.io/courses/getting-started-with-redux">"Getting Started with Redux"</a> (<a href="https://github.com/tayiorbeii/egghead.io_redux_course_notes">Notes</a>)</p>
+
+<p>Finally, while it might be a little early to throw this into the mix, for the sake of completeness in 'interesting things I read on this topic':</p>
+
+<ul>
+<li><a href="http://jamesknelson.com/join-the-dark-side-of-the-flux-responding-to-actions-with-actors/">"Join The Dark Side Of The Flux: Responding to Actions with Actors" by James K Nelson</a></li>
+</ul>
+
+<h2>
+<a name="libraries-features"></a>Libraries and Features</h2>
+
+<p>Following the DRY principles, there are bound to be tons of pre-existing libraries to help implement all sorts of features you may want/need. While it's always hard to truly know what you want till you get started, you could start by looking through some <a href="https://github.com/enaqx/awesome-react">awesome react</a>/<a href="https://github.com/jondot/awesome-react-native">react native</a> lists; or read on below.</p>
+
+<p><strong>Routing</strong></p>
+
+<ul>
+<li>
+<a href="https://github.com/reactjs/react-router">React-Router</a>: This seems to be the de-facto standard.
+
+<ul>
+<li><a href="https://github.com/react-bootstrap/react-router-bootstrap">React-Router-Bootstrap</a></li>
+</ul>
+</li>
+<li>
+<a href="https://github.com/kriasoft/universal-router">Universal Router</a>: "A simple middleware-style router for isomorphic JavaScript web apps"</li>
+</ul>
+
+<p><strong>API's (REST, etc)</strong></p>
+
+<ul>
+<li>
+<p><a href="https://stackoverflow.com/questions/33821053/is-there-any-good-http-library-for-react-flux-architecture">"Is there any good Http library for React flux architecture" on StackOverflow</a></p>
+
+<ul>
+<li>
+<a href="https://github.github.io/fetch/">Fetch</a> (<a href="https://github.com/github/fetch">GitHub</a>): "A window.fetch JavaScript polyfill"</li>
+<li>
+<a href="https://github.com/matthew-andrews/isomorphic-fetch">Isomorphic-Fetch</a>: "Isomorphic WHATWG Fetch API, for Node &amp; Browserify"</li>
+<li>
+<a href="https://github.com/visionmedia/superagent">Superagent</a>: "Ajax with less suck"</li>
+<li>
+<a href="https://github.com/mbasso/react-http-request">React-Http-Request</a>: Uses superagent</li>
+<li>
+<a href="https://github.com/mzabriskie/axios">Axios</a>: "Promise based HTTP client for the browser and node.js"</li>
+</ul>
+</li>
+<li><p><a href="https://github.com/marmelab/restful.js">Restful.js</a>: "A pure JS client for interacting with server-side RESTful resources. Think Restangular without Angular."</p></li>
+</ul>
+
+<p><strong>Authentication</strong></p>
+
+<ul>
+<li>
+<a href="https://github.com/lynndylanhurley/redux-auth">Redux-Auth</a>: "Complete token authentication system for react + redux"</li>
+<li>
+<a href="https://github.com/mjrussell/redux-auth-wrapper">Redux-Auth-Wrapper</a>: "A React Higher Order Component (HOC) for handling Authentication and Authorization with Redux and React-Router"</li>
+<li>
+<a href="https://github.com/joshgeller/react-redux-jwt-auth-example">React-Redux-JWT-Auth-Example</a>: "Sample project showing possible authentication flow using React, Redux, React-Router, and JWT"</li>
+</ul>
+
+<p>For some further reading on this topic:
+* <a href="https://scotch.io/tutorials/build-a-react-flux-app-with-user-authentication">"Build a React + Flux App with User Authentication" by Ryan Chenkie</a>
+* <a href="https://auth0.com/blog/adding-authentication-to-your-react-flux-app/">"Adding authentication to your React Flux app" by Martin Gontovnikas</a> (<a href="https://github.com/auth0-blog/react-flux-jwt-authentication-sample">GitHub</a>)
+* <a href="https://medium.com/@rajaraodv/securing-react-redux-apps-with-jwt-tokens-fcfe81356ea0">"Securing React Redux Apps With JWT Tokens" by rajaraodv</a></p>
+
+<p><strong>Isomorphic</strong></p>
+
+<ul>
+<li>
+<a href="http://airbnb.io/projects/hypernova/">Hypernova</a> (<a href="https://github.com/airbnb/hypernova">GitHub</a>): "A service for server-side rendering your JavaScript views"</li>
+</ul>
+
+<p><strong>DevTools</strong></p>
+
+<ul>
+<li><a href="https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi">React Developer Tools</a></li>
+<li><a href="https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd">Redux DevTools</a></li>
+</ul>
+
+<h2>
+<a name="boilerplate-starters-examples"></a>Boilerplate, Starter Kits and Examples</h2>
+
+<p>You might be noticing a bit of a trend: each step you take forward, there seem to be a million different options and considerations to make; and this is no different.</p>
+
+<p>To try and avoid this decision fatigue and help new dev's dive head first into the React world, Facebook has released their very own starter tool: <a href="https://github.com/facebookincubator/create-react-app">Create-React-App</a>. It's early days still, but this is definitely something to keep an eye on going forward.</p>
+
+<p>Looking through <a href="http://habd.as/awesome-react-boilerplates/">"Awesome React Boilerplates"</a> and some of the other starter kit/generators out there, we have a lot to pick from. With so many options, a <a href="http://andrewhfarmer.com/starter-project/">tool to help narrow it down</a> is pretty useful, but here are some others just in case:</p>
+
+<ul>
+<li>
+<a href="https://github.com/kriasoft/react-starter-kit">React-Starter-Kit | Kriasoft</a> (10403): React, modular Flux (with Redux feature), Universal-Router, Babel, Webpack, GraphQL,</li>
+<li>
+<a href="https://github.com/mxstbr/react-boilerplate">React-Boilerplate | mxstbr</a> (9052): React, Redux, React-Router, Babel, Webpack, CSS Modules</li>
+<li>
+<a href="https://github.com/coryhouse/react-slingshot">React-Slingshot | Cory House</a> (4445): React, Redux, React-Router, Babel, Webpack, etc</li>
+<li>
+<a href="https://github.com/jaredpalmer/react-production-starter">React-Production-Starter | Jarad Palmer</a> (834): React, Redux, React-Router, Immutable, Babel, Webpack, etc</li>
+<li>
+<a href="http://unicornstandard.com/packages/boilerplate.html">Unicorn-Standard Starter-Kit</a> (403)</li>
+</ul>
+
+<p>Or take a look at some examples:</p>
+
+<ul>
+<li>
+<a href="https://github.com/arturopala/traffic-lights-control">Example: Traffic-Lights-Control</a>
+React, Redux, Akka, Akka-HTTP, WebSockets</li>
+<li>
+<a href="https://github.com/tomaash/react-example-filmdb">React-Example-FilmDB</a>: "Isomorphic React + Flux film database example"</li>
+</ul>
+
+<h2>
+<a name="stack-tools"></a>Choosing my Stack and Tools</h2>
+
+<ul>
+<li>TODO: Should this be in a new post?</li>
+</ul>
+
+<p>SASS</p>
+
+<p>Foundation or Bootstrap or Material?</p>
+
+<p><a href="https://nuclide.io/">https://nuclide.io/</a> (IDE)
+  <a href="https://github.com/facebook/nuclide">https://github.com/facebook/nuclide</a></p>
+
+<p><a href="https://flowtype.org/">https://flowtype.org/</a> (Typed JS)
+  <a href="https://github.com/facebook/flow">https://github.com/facebook/flow</a></p>
+
+<p>With babel?</p>
+
+<p><a href="https://facebook.github.io/immutable-js/">https://facebook.github.io/immutable-js/</a>
+  <a href="https://github.com/facebook/immutable-js/">https://github.com/facebook/immutable-js/</a></p>
+
+<p>Markdown
+  <a href="https://github.com/jonschlinkert/remarkable">https://github.com/jonschlinkert/remarkable</a></p>
+
+<h2>
+<a name="conclusion"></a>Conclusion</h2>
+
+        </section>
+
+        <footer class="post-footer">
+
+            <!-- #author-->
+
+            
+	<figure class="author-image">
+	    <a class="img" href="/author/devalias" style="background-image: url(/assets/images/authors/devalias.png)"><span class="hidden">devalias's Picture</span></a>
+	</figure>
+
+
+            <section class="author">
+                <h4>
+                    
+                        <a href="/author/devalias">Glenn 'devalias' Grant</a>
+                    
+                </h4>
+                
+                
+                    <p> Glenn is a full-stack, polyglot developer with an acute interest in the offensive side of security; as well as technology, efficiency, biohacking, health, personal growth and a whole lot more.
+</p>
+                
+                <div class="author-meta">
+    
+        <span class="author-location">
+            <i class="fa fa-location-arrow"></i>
+            Australia
+        </span>
+    
+    
+        <span class="author-link">
+            <a href="http://www.devalias.net/">
+                <i class="fa fa-link"></i>
+                devalias.net
+            </a>
+        </span>
+    
+    
+</div>
+                <div class="author-social">
+    <a href="/author/devalias/rss.xml" title="RSS Feed"><i class="fa fa-rss fa-1x"></i></a>
+    
+        <a href="https://twitter.com/_devalias" title="Twitter" target="_blank"><i class="fa fa-twitter-square fa-1x"></i></a>
+    
+    
+        <a href="https://www.linkedin.com/in/glenndevaliasgrant" title="LinkedIn" target="_blank"><i class="fa fa-linkedin-square fa-1x"></i></a>
+    
+    
+    
+    
+        <a href="https://github.com/alias1" title="Github" target="_blank"><i class="fa fa-github-square fa-1x"></i></a>
+    
+    
+        <a href="https://www.reddit.com/user/_devalias" title="Reddit" target="_blank"><i class="fa fa-reddit-square fa-1x"></i></a>
+    
+    
+        <a href="https://news.ycombinator.com/user?id=alias1" title="Hacker News" target="_blank"><i class="fa fa-hacker-news fa-1x"></i></a>
+    
+    
+        <a href="https://stackoverflow.com/users/1137085/devalias" title="StackOverflow" target="_blank"><i class="fa fa-stack-overflow fa-1x"></i></a>
+    
+    
+        <a href="https://stackexchange.com/users/1156663/devalias" title="StackExchange" target="_blank"><i class="fa fa-stack-exchange fa-1x"></i></a>
+    
+    
+        <a href="https://keybase.io/devalias" title="Keybase" target="_blank"><i class="fa fa-key fa-1x"></i></a>
+    
+</div>
+
+            </section>
+
+            <!-- /author  -->
+
+            
+
+<section class="share">
+    <h4>Share this post</h4>
+    <a href="http://twitter.com/share?text=Starting%20a%20New%20Web%20Application%20(Part%202):%20A%20Time%20to%20React&amp;url=http://devalias.net/devalias/2016/10/13/starting-a-new-web-application-2-a-time-to-react/" title="Share on Twitter" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"><i class="fa fa-twitter-square fa-2x"></i></a>
+    <a href="https://www.facebook.com/sharer/sharer.php?u=http://devalias.net/devalias/2016/10/13/starting-a-new-web-application-2-a-time-to-react/" title="Share on Facebook" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;"><i class="fa fa-facebook-square fa-2x"></i></a>
+    <a href="https://plus.google.com/share?url=http://devalias.net/devalias/2016/10/13/starting-a-new-web-application-2-a-time-to-react/" title="Share on Google+" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;"><i class="fa fa-google-plus-square fa-2x"></i></a>
+</section>
+            
+            
+                <!-- Add Disqus Comments -->
+                <div id="disqus_thread"></div>
+<script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'devalias'; // required: replace example with your forum shortname
+        var disqus_identifier = '/devalias/2016/10/13/starting-a-new-web-application-2-a-time-to-react/';
+        var disqus_url = 'http://devalias.net/devalias/2016/10/13/starting-a-new-web-application-2-a-time-to-react/';
+ 
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
+        <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+    </footer></article></main>
+</div>
+
+            
+
+            
+                
+
+
+            
+            
+        
+
+    
+
+
+
+<aside class="read-next">
+
+    <!-- [[! next_post ]] -->
+    
+        <a class="read-next-story no-cover" href="/devalias/2016/10/13/todo-feature-flags-etc/">
+            <section class="post">
+                <h2>TODO: Feature Flags, Etc</h2>
+                <p>* TODO: Feature flags, how does that work with microservices, tying in with continuous deploymnet, etc * http://blog.launchdarkly.com/ * http://blog.launchdarkly.com/feature-flag-driven-development/ * http://blog.launchdarkly.com/feature-flag-driven-releases/ * http://featureflags.io/resources/ *...</p>
+            </section>
+        </a>
+    
+    <!-- [[! /next_post ]] -->
+    <!-- [[! prev_post ]] -->
+    
+        <a class="read-next-story prev no-cover" href="/devalias/2016/10/13/creating-chrome-extensions/">
+            <section class="post">
+                <h2>Creating Chrome Extensions</h2>
+                <p>
+http://yeoman.io/
+
+
+https://github.com/yeoman/generator-chrome-extension
+https://github.com/ironSource/node-generator-chrome-ninja
+https://github.com/handtrix/generator-chrome-extension-kickstart
+https://github.com/nibblesnbits/generator-chrome-extension-simple
+
+
+</p>
+            </section>
+        </a>
+    
+    <!-- [[! /prev_post ]] -->
+</aside>
+
+<!-- /Layout: Post -->
+
+
+        <footer class="site-footer clearfix">
+            <section class="copyright">
+                <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"></a><br><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">devalias.net</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://www.devalias.net/" property="cc:attributionName" rel="cc:attributionURL">Glenn 'devalias' Grant</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+            </section>
+            <section class="poweredby">
+                <div>
+                    <strong>Build:</strong> 64b1c6a
+                    <a href="https://github.com/alias1/devalias.net/tree/master/_drafts/starting-a-new-web-application-2-a-time-to-react.md" target="_blank">
+                        <i class="fa fa-edit"></i>
+                        Edit on GitHub
+                    </a>
+                </div>
+                Proudly published with
+                <a href="https://jekyllrb.com/" target="_blank">Jekyll</a>
+                using
+                <a href="https://github.com/biomadeira/jasper" target="_blank">Jasper</a>
+                to
+                <a href="https://github.com/" target="_blank">GitHub</a>
+            </section>
+        </footer>
+    
+    <!-- [[! Ghost outputs important scripts and data with this tag ]] -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <!-- [[! The main JavaScript file for Casper ]] -->
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="/assets/js/index.js"></script>
+    <script type="text/javascript" src="/assets/js/webmention_io.js"></script>
+
+    <!-- Add Google Analytics  -->
+        <!-- Google Analytics Tracking code -->
+     <script>
+	    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	    ga('create', 'UA-27970144-1', 'auto');
+	    ga('send', 'pageview');
+     </script>   
+</body>
+</html>

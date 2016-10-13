@@ -15,9 +15,11 @@ crossposted:
   * Anwyn
   * [Soundtrack](https://open.spotify.com/album/46VuziW5kL9Hrt5NlJtLjY)
 * [03/09/2016] Kooza - Cirque De Soilel (The Showring, Sydney)
+  * Anwyn
 * [02/09/2016] Sugoi as F#=k - The Pyjama Party (Hermann's Bar, Sydney)
 * [25-29/08/2016] Psyfari Festival 2016
 * [16/08/2016] Ghost Stories (Canberra Theatre, Canberra)
+  * Heather B
 * [11/08/2016] Sweeney Todd (ANU Arts Centre, Canberra)
   * Alice K
   * [Soundtrack](https://open.spotify.com/album/2q6InM859RCsSQOjHWNHk2)

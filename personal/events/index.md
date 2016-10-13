@@ -11,6 +11,9 @@ crossposted:
 # 2016
 
 * ?TODO: defqon, dragon dreaming?
+* [13/10/2016] Wicked (Canberra Theatre, Canberra)
+  * Anwyn
+  * [Soundtrack](https://open.spotify.com/album/46VuziW5kL9Hrt5NlJtLjY)
 * [03/09/2016] Kooza - Cirque De Soilel (The Showring, Sydney)
 * [02/09/2016] Sugoi as F#=k - The Pyjama Party (Hermann's Bar, Sydney)
 * [25-29/08/2016] Psyfari Festival 2016

@@ -4,6 +4,7 @@ class: 'page-template'
 title: Neurofeedback / Neuroptimal
 permalink: /personal/interests/neurofeedback/
 ---
+[[Home](/) > [Personal](/personal/) > [Interests](/personal/interests/) > Neurofeedback]
 
 * [Neuroptimal | Zengar](https://www.zengar.com/)
 * [Neurotribe](http://www.neurotribe.com)

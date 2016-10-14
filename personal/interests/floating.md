@@ -4,6 +4,8 @@ class: 'page-template'
 title: Float Tank / Floating
 permalink: /personal/interests/floating/
 ---
+[[Home](/) > [Personal](/personal/) > [Interests](/personal/interests/) > Floating]
+
 * http://floatationlocations.com/category/australia/
 
 ## Canberra, ACT, Australia

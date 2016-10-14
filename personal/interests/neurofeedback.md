@@ -5,6 +5,9 @@ title: Neurofeedback / Neuroptimal
 permalink: /personal/interests/neurofeedback/
 ---
 
+* [Neuroptimal | Zengar](https://www.zengar.com/)
+* [Neurotribe](http://www.neurotribe.com)
+
 ## NSW, Australia
 
 * [Dr Linda Mackay](http://www.neurotribe.com/neurotribe-trainers/dr-linda-mackay) (Sydney)

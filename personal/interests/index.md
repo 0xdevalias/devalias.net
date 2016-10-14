@@ -34,6 +34,10 @@ title: Interests
 
 * http://floatationlocations.com/category/australia/
 
+#### Canberra, ACT, Australia
+
+* [Astral Float Studio](http://astralfloatstudio.com.au/) ($80/60min)
+
 #### Sydney, NSW, Australia
 
 * [Forever Floating](http://www.foreverfloating.com/) ($49/75min)

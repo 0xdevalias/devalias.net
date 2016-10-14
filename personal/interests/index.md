@@ -47,6 +47,22 @@ title: Interests
 * [Saltuary](http://saltuary.com.au/our-therapies/float-therapy/) ($70/60min)
 * [Sydney Float Centre](http://www.sydneyfloatcentre.com.au/) ($79/60min)
 
+### Neurofeedback / Neuroptimal
+
+### NSW, Australia
+
+* [Dr Linda Mackay](http://www.neurotribe.com/neurotribe-trainers/dr-linda-mackay) (Sydney)
+  * [The Family Systems Institute](http://www.thefsi.com.au/clinical-practice/neurofeedback/)
+* [William Vorobioff](http://www.neurotribe.com/neurotribe-trainers/william-vorobioff)
+  * Newcastle Neurofeedback
+
+### Victoria, Australia
+
+* [Steve & Melissa Phillis](http://www.neurotribe.com/neurotribe-trainers/steve-phillis) (Bendigo)
+  * [NeuroWise](http://www.neurowise.com.au)
+* [Dean Smith](http://www.neurotribe.com/neurotribe-trainers/dean-smith)
+  * [Transform YOUR Brain](http://www.transformyourbrain.com.au/)
+
 ## Home/Etc
 
 ### Bed/Mattress

@@ -190,4 +190,4 @@ Has this helped you learn something new? Got a better way to approach it? I'd lo
   * [List of File Signatures | Wikipedia](https://en.wikipedia.org/wiki/List_of_file_signatures)
   * ["Exploiting PHP-GD imagecreatefromgif() function" by d0lph1n98 ](https://github.com/d0lph1n98/Defeating-PHP-GD-imagecreatefromgif)
 * Capturing Requests
-  * [Request Bin](TODO)
+  * [Request Bin](https://requestb.in/)

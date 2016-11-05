@@ -5,7 +5,7 @@ Tagged: apache, httpd, hardening, secure, config, configuration, http, headers, 
 
 **tl;dr** Apache config */etc/httpd/httpd.conf*, LoadModule headers_module modules/mod_headers.so, ServerSignature Off, ServerTokens Prod, ProxyVia block, Header unset X-FooHeader, Header set X-BarHeader
 
-Originally this information was going to be included in my earlier post [*What vulnerabilities are your HTTP headers announcing to the world?*](http://devalias.net/TODOCHANGEME), but since it got so long I decided to split it into it's own post. This will show you how to remove/obfuscate Apache HTTP response headers, as well as providing a few Apache configuration security hardening tips.
+Originally this information was going to be included in my earlier post [*What vulnerabilities are your HTTP headers announcing to the world?*](http://devalias.net/#TODOCHANGEME), but since it got so long I decided to split it into it's own post. This will show you how to remove/obfuscate Apache HTTP response headers, as well as providing a few Apache configuration security hardening tips.
 
 ### Apache
 

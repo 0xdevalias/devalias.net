@@ -8,7 +8,7 @@ redirect_from: /hackables/
 
 [[Home](/) > [Security](/sec/) > Hackables]
 
-TODO: General hackable/CTF/etc info here
+TODO: General hackable/CTF/boot2root/etc info here
 
 * http://netsec.ws/?p=468
 * https://xss-game.appspot.com/

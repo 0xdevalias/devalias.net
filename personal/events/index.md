@@ -8,13 +8,31 @@ crossposted:
 
 [[Home](/) > [Personal](/personal/) > Events/Theatre/Etc]
 
+# 2017
+
+* TODO
+* [03/10/2017] Dragon Dreaming Festival
+* ?[13/05/2017] Midnight Mafia 2017 (Sydney Showground, Sydney)?
+* [17/04/2017] BSides Canberra
+* ?[4-27/04/2017] Les Miserables (The Q, Queanbeyan)?
+* [04/03/2017] Supremacy (Sydney Showground, Sydney)
+* [20/01/2017] Regrowth
+
 # 2016
 
-* ?TODO?
+* ?TODO: other Canberra shows with Anwyn, doofs, rocket science, 170, etc?
+* [04/12/2016] Circus 1903 (Canberra Theatre, Canbera)
+  * Anwyn
+* [27/11/2016] Aladdin (Capitol Theatre, Sydney)
+  * Erica
+* [17-18/11/2016] Kiwicon X (Michael Fowler Centre, Wellington, NZ)
+  * With workmates from TSS/etc
 * [21-24/10/2016] Dragon Dreaming Festival
 * [13/10/2016] Wicked (Canberra Theatre, Canberra)
   * Anwyn
   * [Soundtrack](https://open.spotify.com/album/46VuziW5kL9Hrt5NlJtLjY)
+* [23-25/09/2016] Bulletproof Biohacking Conference
+  * Also coach training with ALL the people!
 * [03/09/2016] Kooza - Cirque De Soilel (The Showring, Sydney)
   * Anwyn
 * [02/09/2016] Sugoi as F#=k - The Pyjama Party (Hermann's Bar, Sydney)
@@ -37,16 +55,23 @@ crossposted:
   * [Soundtrack](https://open.spotify.com/album/2ybaBYsNh9ksMTXSwVK81o)
   * FB: [1](https://www.facebook.com/photo.php?fbid=10156906778690414&set=a.10150358486160414.598498.840540413&type=3&permPage=1) [2](https://www.facebook.com/photo.php?fbid=10156906943665414&set=a.10150358486160414.598498.840540413&type=3&permPage=1) [3](https://www.facebook.com/sianbrigid1/posts/1271389836222247)
 * [20/05/2016] CounterMove, Sydney Dance Company (Canberra Theatre Centre) (Sian)
-* [12/05/2016] Grease (ANU Arts Centre, Canberra) (Sian, Uther)
-* [23/04/2016] Midnight Mafia (Sydney Showground, Sydney) (Sian)
-* [26/03/2016] Lucy's Underground Laboratory (Sian)
-* [12/03/2016] Sugoi as F#=k (Sian)
-* [04/03/2016] Neko Nation (Sian?)
+* [12/05/2016] Grease (ANU Arts Centre, Canberra)
+  * Sian, Uther
+* [23/04/2016] Midnight Mafia (Sydney Showground, Sydney)
+  * Sian
+* [26/03/2016] Lucy's Underground Laboratory
+  * Sian
+* [12/03/2016] Sugoi as F#=k
+  * Sian
+* [04/03/2016] Neko Nation
+  * Sian?
 
 # 2015
 
 * ?TODO: ??
-* [23-26/10/2015] Dragon Dreaming Festival (Sian)
+* [10/12/2015] Kiwicon 9 (Wellington, NZ)
+* [23-26/10/2015] Dragon Dreaming Festival
+  * Sian
 * [22/10/2015] Pirates of Penance (Erindale Theatre, Canberra)
   * Sian, Alice K, Wes, etc
   * [Soundtrack](https://open.spotify.com/album/2wBupBHNNsGvLD9Hjxfp89)
@@ -56,7 +81,8 @@ crossposted:
 * [08/05/2015] Les Miserables (Capitol Theatre, Sydney)
   * Alice K
   * [Soundtrack](https://open.spotify.com/album/20exLke5P8o4D1Bj4iRcPf)
-* [03/04/2015] Lucid Labyrinth (Sian)
+* [03/04/2015] Lucid Labyrinth
+  * Sian
 * [27/02/2015] Regrowth Festival 2015
 * [21/02/2015] Lindsey Stirling (Enmore Theatre, Sydney) (VIP, Met Lindsey)
 
@@ -64,7 +90,9 @@ crossposted:
 
 * ?TODO: Neko Nation?
 * [31/12/2014] New Psycle NYE 2014/15
-* [22/11/2014] Bass Control (UNSW Roundhouse, Sydney) ([FB](https://www.facebook.com/events/780033638687755/))
+* [10/12/2014] Kiwicon 8 (Wellington, NZ)
+* [22/11/2014] Bass Control (UNSW Roundhouse, Sydney)
+  * [FB](https://www.facebook.com/events/780033638687755/)
 * [01/11/2014] AQUA (Enmore Theatre, Sydney)
 * [24/10/2014] Dragon Dreaming Festival
 * [21/09/2014] Andrea Bocelli (Rod Laver Arena, Melbourne) (KitKat)
@@ -137,6 +165,13 @@ crossposted:
 * MotherNature, Canberra. No idea what year, I was at uni though. Pete thinks 2007
 
 # ...
+
+# 2006
+
+* TODO: Other Powerhouse events/etc?
+* [02/12/2006] Godspeed Whitenight (Acer Arena, Sydney)
+  * Not 100% if I was at this.. but it sounds familiar..
+  * https://www.youtube.com/watch?v=0auaQvbwKZg (Hannah made this..)
 
 * TODO: Surely things are missing from here..
 

@@ -64,8 +64,8 @@ If you want to follow along with the official unboxing video, head on over and [
     * 80% dark ecuadorian chocolate
     * Formulated by one of the [40 Years of Zen](https://40yearsofzen.com/) neuroscientists
 * 17:00 Bulletproof Collagen Protein Bites (~$30/box)
-    * [Chocolate](http://www.anrdoezrs.net/links/8173002/type/dlg/sid/devalias.net/http://www.bulletproof.com/fudge-brownie-collagen-bite-15-pack)
-    * [Vanilla](http://www.anrdoezrs.net/links/8173002/type/dlg/http://www.bulletproof.com/vanilla-shortbread-collagen-bite-15-pack)
+    * [Chocolate](http://www.dpbolvw.net/click-8173002-12819854?sid=devalias.net)
+    * [Vanilla](http://www.kqzyfj.com/click-8173002-12819855?sid=devalias.net)
 * 18:30 Golden Ticket: [Stand Desk](https://www.standdesk.co/)
     * 3 golden ticket prizes
     * 15% off: [BIOBOX20](https://www.standdesk.co/BioHack)
@@ -80,7 +80,7 @@ If you want to follow along with the official unboxing video, head on over and [
     * 5 days of intensive neurofeedback
     * Custom made hardware/software
     * Includes a year of membership to an exclusive group, telecalls, etc
-    * Access to a small meeting around the next [Bulletproof conference](http://www.anrdoezrs.net/links/8173002/type/dlg/sid/devalias.net/http://www.bulletproof.com/2016-bp-conference-videos)
+    * Access to a small meeting around the next [Bulletproof conference](http://www.bulletproof.com/2016-bp-conference-videos)
 * 25:18 Tell a friend
 * 26:00 Share a picture
 * 26:09 Cancel [your old quarterly box](https://quarterly.co/products/biohack)

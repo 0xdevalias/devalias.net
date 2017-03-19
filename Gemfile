@@ -19,5 +19,6 @@ group :jekyll_plugins do
   gem 'jekyll-deploy'
   gem 'jekyll-crosspost-to-medium'
   gem 'jekyll-time-to-read'
+  gem 'jekyll-twitter-plugin'
   gem 'jekyll-webmention-io', :path => "/Users/devalias/dev/jekyll-webmention-io"
 end

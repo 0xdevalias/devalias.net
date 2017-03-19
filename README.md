@@ -12,3 +12,5 @@ Feel free to create an issue/pull request for any typo's/bugs you might find :) 
     * `[other post]({% post_url 2017-01-01-other-post %})`
 * Embed a gist with [jekyll-gist](https://github.com/jekyll/jekyll-gist)
     * `{% gist foo/12345678901234567890 %} `
+* Embed a tweet with [jekyll-twitter-plugin](https://github.com/rob-murray/jekyll-twitter-plugin)
+	# `{% twitter https://twitter.com/rubygems/status/518821243320287232 %}`

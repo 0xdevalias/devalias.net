@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
+<loc>http://devalias.net//devalias/2017/03/18/iterm-tmux-love/</loc>
+<lastmod>2017-03-18T00:00:00+11:00</lastmod>
+</url>
+<url>
 <loc>http://devalias.net//devalias/2016/12/20/biohacked-box-1-bulletproof-biohacking-box-9/</loc>
 <lastmod>2016-12-20T00:00:00+11:00</lastmod>
 </url>
@@ -753,7 +757,7 @@
 <loc>http://devalias.net//tag/mit-Licence/</loc>
 </url>
 <url>
-<loc>http://devalias.net//tag/%253C3/</loc>
+<loc>http://devalias.net//tag/%3C3/</loc>
 </url>
 <url>
 <loc>http://devalias.net//tag/sesh/</loc>
@@ -1044,7 +1048,7 @@
 <loc>http://devalias.net//tag/videolan/</loc>
 </url>
 <url>
-<loc>http://devalias.net//tag/audio%2520issues/</loc>
+<loc>http://devalias.net//tag/audio%20issues/</loc>
 </url>
 <url>
 <loc>http://devalias.net//tag/5.1/</loc>
@@ -1435,5 +1439,27 @@
 </url>
 <url>
 <loc>http://devalias.net//tag/discount/</loc>
+</url>
+<url>
+<loc>http://devalias.net//tag/iterm2/</loc>
+</url>
+<url>
+<loc>http://devalias.net//tag/tmux/</loc>
+</url>
+<url>
+<loc>http://devalias.net//tag/screen/</loc>
+</url>
+<url>
+<loc>http://devalias.net//tag/terminal/</loc>
+</url>
+<url>
+<loc>http://devalias.net//tag/macos/</loc>
+</url>
+<url>
+<loc>http://devalias.net//tag/starkandwayne.com/</loc>
+</url>
+<url>
+<loc>http://devalias.net//personal/events/files/LakeG-Little_Shop_of_Horrors_Program.pdf</loc>
+<lastmod>2016-08-11T13:03:01+10:00</lastmod>
 </url>
 </urlset>

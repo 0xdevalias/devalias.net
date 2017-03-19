@@ -21,7 +21,7 @@
 	  <description><![CDATA[
 	     <p>So, just lost an hour or two debugging some audio issues that seemed to crop up in VLC. I have a 5.1 setup, which will disable the speakers when I plug in a 2-channel set of headphones (pretty straightforward). For some strange reason this stopped working sometime recently. I assumed maybe audio drivers (windows update) or something else weird like that, but turns out it was VLC (which I forgot I had upgraded)</p>
 
-<p>Old versions of VLC (pre 2.1.x) allowed you to &#39;force&#39; a downscale in situations like this through the <code>rAudio -&gt; Audio Device -&gt; Stereo</code> right click menu option. Turns out, this feature was removed (and the menu item repurposed) in VLC 2.1.x. According to  <a href="https://forum.videolan.org/viewtopic.php?f=2&amp;t=115203#p394432">Jean-Baptiste Kempf on the VLC forums</a> this feature won&#39;t be coming back anytime before 2.2.x</p>
+<p>Old versions of VLC (pre 2.1.x) allowed you to &#39;force&#39; a downscale in situations like this through the <code>rAudio -&gt; Audio Device -&gt; Stereo</code> right click menu option. Turns out, this feature was removed (and the menu item repurposed) in VLC 2.1.x. According to  <a href="https://forum.videolan.org/viewtopic.php?f=2&t=115203#p394432">Jean-Baptiste Kempf on the VLC forums</a> this feature won&#39;t be coming back anytime before 2.2.x</p>
 
 <p>So what do we do in the meantime? If you haven&#39;t upgraded to 2.1.x yet and need this feature then don&#39;t upgrade. If you already have, downgrade to 2.0.8 (Windows) or 2.0.9 (OSX/Linux)</p>
 

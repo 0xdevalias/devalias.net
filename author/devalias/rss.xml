@@ -13,6 +13,41 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>iTerm2 + tmux = <3</title>
+	  <link>/devalias/2017/03/18/iterm-tmux-love/</link>
+	  <author>devalias</author>
+	  <pubDate>2017-03-18T00:00:00+11:00</pubDate>
+	  <guid>/devalias/2017/03/18/iterm-tmux-love/</guid>
+	  <description><![CDATA[
+	     <p>Just a quick note today, highlighting a super simple but amazingly useful combination I&#39;ve only recently become aware of: <a href="https://www.iterm2.com/">iTerm2</a> + <a href="https://tmux.github.io/">tmux</a>.</p>
+
+<p>If you don&#39;t know what these are:</p>
+
+<ul>
+<li>iTerm2 is a terminal emulator for macOS</li>
+<li>tmux is terminal multiplexer, allowing you to run multiple programs in the same terminal session</li>
+</ul>
+
+<p>If you use SSH a lot, you know the benefits of using something like tmux (or <a href="https://www.gnu.org/software/screen/manual/screen.html">screen</a> for you older folks..) to run multiple programs at once, or keep them running when you disconnect.</p>
+
+<p>While this is definitely a nice feature, I&#39;ve always found the command syntax and interface to be just a little too confusing (growing up in a GUI world..), and so I tend to end up resorting to opening multiple SSH connections or similar hacks. That way I can use the multiple tabs/windows I get from iTerm2 instead.</p>
+
+<p>Hacks no more! Thanks to the little known <a href="https://gitlab.com/gnachman/iterm2/wikis/TmuxIntegration">iTerm2 tmux integration</a>, we can get the benefits of tmux, and the ease of iTerm&#39;s tabs and windows. It works seamlessly. When using iTerm2:</p>
+
+<p>You can create a new tmux session with:</p>
+<div class="highlight"><pre><code class="language-" data-lang="">tmux -CC
+</code></pre></div>
+<p>Or reattach to a previous session with:</p>
+<div class="highlight"><pre><code class="language-" data-lang="">tmux -CC attach
+</code></pre></div>
+<p>This will open a new window running the tmux session. From there, we can open new tabs (<code>command-t</code>), or split the tab vertically (<code>command-shift-d</code>) or horizontally (<code>command-d</code>)</p>
+
+<p>For a more information, you could checkout <a href="http://www.starkandwayne.com/blog/iterm-and-tmux-sitting-in-a-tree/">iTerm and Tmux, sitting in a tree</a> by Jamie van Dyke.</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>Biohacked Box #1 (aka Bulletproof Biohacking Box #9)</title>
 	  <link>/devalias/2016/12/20/biohacked-box-1-bulletproof-biohacking-box-9/</link>
 	  <author>devalias</author>
@@ -888,22 +923,6 @@ mobile, and desktop.&quot;</li>
 <p>Being a static site, I&#39;m taking advantage of <a href="https://pages.github.com/">GitHub Pages</a>. While it gives me free hosting, it also means I&#39;m now living my <a href="/devalias/2012/01/04/resolutions-for-11111011100-2012/">previous mantra</a> of &#39;open source everything&#39;. You can access the <a href="https://github.com/alias1/devalias.net">files used to generate the site</a> and <a href="https://github.com/alias1/devalias.net/issues">create an issue</a>/pull request to fix up any typos/errors you might find along the way :)</p>
 
 <p>Given it&#39;s now only mildly more effort for me to write a post here as it is to save my notes in random text files on my computer, I&#39;ll hopefully put more online.. We shall see.</p>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>Dogedraw, now with more Nyaan!</title>
-	  <link>/devalias/2015/04/20/dogedraw-now-with-more-nyaan/</link>
-	  <author>devalias</author>
-	  <pubDate>2015-04-20T12:00:00+10:00</pubDate>
-	  <guid>/devalias/2015/04/20/dogedraw-now-with-more-nyaan/</guid>
-	  <description><![CDATA[
-	     <p>Over the last few days I&#39;ve been mentoring web dev at <a href="http://hact.io/">HS.HACT.IO</a>, inspiring a group of younger kids to get into tech as creators. One of the other mentors showed us a site he previously put together, <a href="http://dogedraw.com/">DogeDraw</a>. After playing around with it for a little, I decided it was a little too manual, so started hacking away in the JS console to make it more fun.</p>
-
-<p>A little while (and far too long typing out pixel art as code) later, and we have nyaan hacks! You can clear a section of the screen with a solid block of colour, or better yet, stamp out some pixel art nyaan cat across the page!</p>
-
-<script src="https://gist.github.com/alias1/e8bb28726a37854606ad.js"> </script>
 
 	  ]]></description>
 	</item>

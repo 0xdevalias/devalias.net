@@ -209,4 +209,4 @@ Have I missed something important? Not given love to your favourite stack? Got a
 
 ## <a name="updates"></a>Updates
 
-* 20170411 Added some more backend web frameworks, updated akka-http link, fixed some formatting
+* 2017-04-11 Added some more backend web frameworks, updated akka-http link, fixed some formatting

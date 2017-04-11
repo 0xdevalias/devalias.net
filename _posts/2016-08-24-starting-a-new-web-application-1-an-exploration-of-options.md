@@ -59,6 +59,7 @@ The details collected here are most certainly not a complete layout of the entir
 * [Backend](#backend)
 * [Tooling](#tooling)
 * [Conclusions](#conclusions)
+* [Updates](#updates)
 
 ## <a name="frontend"></a>Frontend
 
@@ -143,23 +144,34 @@ Modern web apps live by the functionality they enable in the browser, and to do 
 
 My preferences for backend tech stacks lean heavily towards [Scala](http://www.scala-lang.org/) and the [Lightbend Reactive Platform](https://www.lightbend.com/platform) these days, but I will make quick mention of some of the other options available.
 
-* [Akka-HTTP](http://doc.akka.io/docs/akka/2.4/scala/http/)
+* [Akka-HTTP](http://doc.akka.io/docs/akka-http/current/scala.html)
     * Taking the power of asynchronous, message based actors, and applying them to HTTP. Definite win.
     * [Bootzooka](https://softwaremill.github.io/bootzooka/) ([GitHub](https://github.com/softwaremill/bootzooka))
         * "Bootzooka is a simple application scaffolding project to allow quick start of development for modern, web based applications."
         * While not perfect, it's a decent implementation of a starter app, tying together some useful technologies.
 * [Play Framework](https://www.playframework.com/)
     * "Play is a high-productivity Java and Scala web application framework that integrates the components and APIs you need for modern web application development."
+* [Scalatra](http://scalatra.org/)
+    * "Scalatra is a simple, accessible and free web micro-framework. It combines the power of the JVM with the beauty and brevity of Scala, helping you quickly build high-performance web sites and APIs."
+* [Lift](https://liftweb.net/) ([GitHub](https://github.com/lift/framework))
+    * "Lift is the most powerful, most secure web framework available today. There are Seven Things that distinguish Lift from other web frameworks."
+* [http4s](http://http4s.org/) ([GitHub](https://github.com/http4s/http4s))
+    * "A typeful, purely functional, streaming library for HTTP clients and servers in Scala."
+* [Finatra](https://twitter.github.io/finatra/)
+    * "Fast, testable, Scala services built on TwitterServer and Finagle."
 * [Hypernova](https://github.com/airbnb/hypernova)
     * "A service for server-side rendering your JavaScript views"
     * While not a choice unto itself, this should help speed things up and keep your site nice and search engine friendly.
+* There will be a number of opinions spread throughout the net, including:
+    * https://www.reddit.com/r/scala/comments/3kaael/which_framework_to_use_for_development_of_a_rest/
+    * https://www.quora.com/Is-Play-the-best-web-framework-written-in-Scala
 * You also have all of your other typical options
     * [Ruby](https://www.ruby-lang.org/en/)
         * [Ruby on Rails](http://rubyonrails.org/)
         * [Sinatra](http://www.sinatrarb.com/)
-        * [Node](https://nodejs.org/en/)
+    * [Node](https://nodejs.org/en/)
         * [Express](http://expressjs.com/): "Fast, unopinionated, minimalist web framework for Node.js"
-        * [Meteor](https://www.meteor.com/): "Meteor is an open source platform for web,
+        * [Meteor](https://www.meteor.com/): "Meteor is an open source platform for web, mobile, and desktop."
         * ["Node.js Frameworks: The 10 Best for Web and Apps Development" by noeticsunil](http://noeticforce.com/best-nodejs-frameworks-for-web-and-app-development)
 mobile, and desktop."
     * [Python](https://www.python.org/)
@@ -193,3 +205,7 @@ While a little different in purpose to the things mentioned above, getting every
 Hopefully this has given you a decent starting point for figuring out what combination of technologies is going to work best for your next project. If you want to see the direction I've decided to go, make sure you read on in [Part 2](#TODO).
 
 Have I missed something important? Not given love to your favourite stack? Got a cool pointer? Or just want to say hi? Let me know in the comments!
+
+## <a name="updates"></a>Updates
+
+* 20170411 Added some more backend web frameworks, updated akka-http link, fixed some formatting

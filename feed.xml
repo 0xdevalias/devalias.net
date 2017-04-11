@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="http://devalias.net//feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="http://devalias.net//feed.xml" rel="self" type="application/atom+xml" /><link href="http://devalias.net//" rel="alternate" type="text/html" /><updated>2017-03-19T17:26:45+11:00</updated><id>http://devalias.net//</id><title type="html">/dev/alias – Hack. Dev. Transcend.</title><subtitle>Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="http://devalias.net//feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="http://devalias.net//feed.xml" rel="self" type="application/atom+xml" /><link href="http://devalias.net//" rel="alternate" type="text/html" /><updated>2017-04-12T09:30:37+10:00</updated><id>http://devalias.net//</id><title type="html">/dev/alias – Hack. Dev. Transcend.</title><subtitle>Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.
 </subtitle><entry><title type="html">iTerm2 + tmux = &amp;lt;3</title><link href="http://devalias.net//devalias/2017/03/18/iterm-tmux-love/" rel="alternate" type="text/html" title="iTerm2 + tmux = &lt;3" /><published>2017-03-18T00:00:00+11:00</published><updated>2017-03-18T00:00:00+11:00</updated><id>http://devalias.net//devalias/2017/03/18/iterm-tmux-love</id><content type="html" xml:base="http://devalias.net//devalias/2017/03/18/iterm-tmux-love/">&lt;p&gt;Just a quick note today, highlighting a super simple but amazingly useful combination I&amp;#39;ve only recently become aware of: &lt;a href=&quot;https://www.iterm2.com/&quot;&gt;iTerm2&lt;/a&gt; + &lt;a href=&quot;https://tmux.github.io/&quot;&gt;tmux&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;If you don&amp;#39;t know what these are:&lt;/p&gt;
@@ -448,6 +448,7 @@
 &lt;li&gt;&lt;a href=&quot;#backend&quot;&gt;Backend&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;#tooling&quot;&gt;Tooling&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;#conclusions&quot;&gt;Conclusions&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#updates&quot;&gt;Updates&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2&gt;&lt;a name=&quot;frontend&quot;&gt;&lt;/a&gt;Frontend&lt;/h2&gt;
@@ -583,7 +584,7 @@
 &lt;p&gt;My preferences for backend tech stacks lean heavily towards &lt;a href=&quot;http://www.scala-lang.org/&quot;&gt;Scala&lt;/a&gt; and the &lt;a href=&quot;https://www.lightbend.com/platform&quot;&gt;Lightbend Reactive Platform&lt;/a&gt; these days, but I will make quick mention of some of the other options available.&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://doc.akka.io/docs/akka/2.4/scala/http/&quot;&gt;Akka-HTTP&lt;/a&gt;
+&lt;li&gt;&lt;a href=&quot;http://doc.akka.io/docs/akka-http/current/scala.html&quot;&gt;Akka-HTTP&lt;/a&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Taking the power of asynchronous, message based actors, and applying them to HTTP. Definite win.&lt;/li&gt;
@@ -599,11 +600,38 @@
 &lt;ul&gt;
 &lt;li&gt;&amp;quot;Play is a high-productivity Java and Scala web application framework that integrates the components and APIs you need for modern web application development.&amp;quot;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://scalatra.org/&quot;&gt;Scalatra&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&amp;quot;Scalatra is a simple, accessible and free web micro-framework. It combines the power of the JVM with the beauty and brevity of Scala, helping you quickly build high-performance web sites and APIs.&amp;quot;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://liftweb.net/&quot;&gt;Lift&lt;/a&gt; (&lt;a href=&quot;https://github.com/lift/framework&quot;&gt;GitHub&lt;/a&gt;)
+
+&lt;ul&gt;
+&lt;li&gt;&amp;quot;Lift is the most powerful, most secure web framework available today. There are Seven Things that distinguish Lift from other web frameworks.&amp;quot;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://http4s.org/&quot;&gt;http4s&lt;/a&gt; (&lt;a href=&quot;https://github.com/http4s/http4s&quot;&gt;GitHub&lt;/a&gt;)
+
+&lt;ul&gt;
+&lt;li&gt;&amp;quot;A typeful, purely functional, streaming library for HTTP clients and servers in Scala.&amp;quot;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://twitter.github.io/finatra/&quot;&gt;Finatra&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&amp;quot;Fast, testable, Scala services built on TwitterServer and Finagle.&amp;quot;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://github.com/airbnb/hypernova&quot;&gt;Hypernova&lt;/a&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&amp;quot;A service for server-side rendering your JavaScript views&amp;quot;&lt;/li&gt;
 &lt;li&gt;While not a choice unto itself, this should help speed things up and keep your site nice and search engine friendly.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;There will be a number of opinions spread throughout the net, including:
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://scala.libhunt.com/categories/585-web-frameworks&quot;&gt;https://scala.libhunt.com/categories/585-web-frameworks&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.reddit.com/r/scala/comments/3kaael/which_framework_to_use_for_development_of_a_rest/&quot;&gt;https://www.reddit.com/r/scala/comments/3kaael/which_framework_to_use_for_development_of_a_rest/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.quora.com/Is-Play-the-best-web-framework-written-in-Scala&quot;&gt;https://www.quora.com/Is-Play-the-best-web-framework-written-in-Scala&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;li&gt;You also have all of your other typical options
 
@@ -613,9 +641,12 @@
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;http://rubyonrails.org/&quot;&gt;Ruby on Rails&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;http://www.sinatrarb.com/&quot;&gt;Sinatra&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://nodejs.org/en/&quot;&gt;Node&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://nodejs.org/en/&quot;&gt;Node&lt;/a&gt;
+
+&lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;http://expressjs.com/&quot;&gt;Express&lt;/a&gt;: &amp;quot;Fast, unopinionated, minimalist web framework for Node.js&amp;quot;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://www.meteor.com/&quot;&gt;Meteor&lt;/a&gt;: &amp;quot;Meteor is an open source platform for web,&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.meteor.com/&quot;&gt;Meteor&lt;/a&gt;: &amp;quot;Meteor is an open source platform for web, mobile, and desktop.&amp;quot;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;http://noeticforce.com/best-nodejs-frameworks-for-web-and-app-development&quot;&gt;&amp;quot;Node.js Frameworks: The 10 Best for Web and Apps Development&amp;quot; by noeticsunil&lt;/a&gt;
 mobile, and desktop.&amp;quot;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
@@ -670,7 +701,13 @@ mobile, and desktop.&amp;quot;&lt;/li&gt;
 
 &lt;p&gt;Hopefully this has given you a decent starting point for figuring out what combination of technologies is going to work best for your next project. If you want to see the direction I&amp;#39;ve decided to go, make sure you read on in &lt;a href=&quot;#TODO&quot;&gt;Part 2&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;Have I missed something important? Not given love to your favourite stack? Got a cool pointer? Or just want to say hi? Let me know in the comments!&lt;/p&gt;</content><author><name>Glenn &#39;devalias&#39; Grant</name></author><category term="dev" /><category term="web" /><category term="tech-stack" /><category term="overview" /><category term="frontend" /><category term="backend" /><category term="react" /><category term="angular" /><category term="ember" /><category term="vue" /><category term="aurelia" /><category term="riot" /><category term="bootstrap" /><category term="foundation" /><category term="material-design" /><category term="javascript" /><category term="babel" /><category term="typescript" /><category term="coffeescript" /><category term="flow" /><category term="scala-js" /><category term="akka-http" /><category term="bootzooka" /><category term="play-framework" /><category term="hypernova" /><category term="ruby" /><category term="ruby-on-rails" /><category term="node" /><category term="express" /><category term="meteor" /><category term="python" /><category term="django" /><category term="php" /><category term="october-cms" /><category term="laravel" /><category term="webpack" /><category term="gulp" /><category term="grunt" /><summary type="html">Finding myself with some free time (and looking into starting a new project), I thought I might catch myself up on the state of web technologies, and what might be a good stack to work with.</summary></entry><entry><title type="html">Bulletproof Quarterly Biohacking Box #7</title><link href="http://devalias.net//devalias/2016/07/21/bulletproof-quarterly-biohacking-box-7/" rel="alternate" type="text/html" title="Bulletproof Quarterly Biohacking Box #7" /><published>2016-07-21T00:00:00+10:00</published><updated>2016-07-21T00:00:00+10:00</updated><id>http://devalias.net//devalias/2016/07/21/bulletproof-quarterly-biohacking-box-7</id><content type="html" xml:base="http://devalias.net//devalias/2016/07/21/bulletproof-quarterly-biohacking-box-7/">&lt;p&gt;A bit of a change from the tech content today. I&amp;#39;ve been thinking about it for a while, and have decided to start consolidating all of my interests/thoughts/posts onto this site. The blog will still mostly be tech leaning, but some posts will start branching out toward my other interests such as biohacking, human performance, efficiency, etc.&lt;/p&gt;
+&lt;p&gt;Have I missed something important? Not given love to your favourite stack? Got a cool pointer? Or just want to say hi? Let me know in the comments!&lt;/p&gt;
+
+&lt;h2&gt;&lt;a name=&quot;updates&quot;&gt;&lt;/a&gt;Updates&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;20170411 Added some more backend web frameworks, updated akka-http link, fixed some formatting&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Glenn &#39;devalias&#39; Grant</name></author><category term="dev" /><category term="web" /><category term="tech-stack" /><category term="overview" /><category term="frontend" /><category term="backend" /><category term="react" /><category term="angular" /><category term="ember" /><category term="vue" /><category term="aurelia" /><category term="riot" /><category term="bootstrap" /><category term="foundation" /><category term="material-design" /><category term="javascript" /><category term="babel" /><category term="typescript" /><category term="coffeescript" /><category term="flow" /><category term="scala-js" /><category term="akka-http" /><category term="bootzooka" /><category term="play-framework" /><category term="hypernova" /><category term="ruby" /><category term="ruby-on-rails" /><category term="node" /><category term="express" /><category term="meteor" /><category term="python" /><category term="django" /><category term="php" /><category term="october-cms" /><category term="laravel" /><category term="webpack" /><category term="gulp" /><category term="grunt" /><summary type="html">Finding myself with some free time (and looking into starting a new project), I thought I might catch myself up on the state of web technologies, and what might be a good stack to work with.</summary></entry><entry><title type="html">Bulletproof Quarterly Biohacking Box #7</title><link href="http://devalias.net//devalias/2016/07/21/bulletproof-quarterly-biohacking-box-7/" rel="alternate" type="text/html" title="Bulletproof Quarterly Biohacking Box #7" /><published>2016-07-21T00:00:00+10:00</published><updated>2016-07-21T00:00:00+10:00</updated><id>http://devalias.net//devalias/2016/07/21/bulletproof-quarterly-biohacking-box-7</id><content type="html" xml:base="http://devalias.net//devalias/2016/07/21/bulletproof-quarterly-biohacking-box-7/">&lt;p&gt;A bit of a change from the tech content today. I&amp;#39;ve been thinking about it for a while, and have decided to start consolidating all of my interests/thoughts/posts onto this site. The blog will still mostly be tech leaning, but some posts will start branching out toward my other interests such as biohacking, human performance, efficiency, etc.&lt;/p&gt;
 
 &lt;p&gt;With that out of the way, this is just a quick post to show off what came in the latest &lt;a href=&quot;https://quarterly.co/products/daveasprey&quot;&gt;Bulletproof Quarterly Biohacking Box&lt;/a&gt; from Dave Asprey aka The Bulletproof Exec.&lt;/p&gt;
 

@@ -163,6 +163,7 @@ My preferences for backend tech stacks lean heavily towards [Scala](http://www.s
     * "A service for server-side rendering your JavaScript views"
     * While not a choice unto itself, this should help speed things up and keep your site nice and search engine friendly.
 * There will be a number of opinions spread throughout the net, including:
+    * https://scala.libhunt.com/categories/585-web-frameworks
     * https://www.reddit.com/r/scala/comments/3kaael/which_framework_to_use_for_development_of_a_rest/
     * https://www.quora.com/Is-Play-the-best-web-framework-written-in-Scala
 * You also have all of your other typical options

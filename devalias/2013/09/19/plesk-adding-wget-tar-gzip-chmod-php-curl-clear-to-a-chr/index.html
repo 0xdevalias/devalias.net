@@ -1,74 +1,66 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <!-- [[! Document Settings ]] -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- [[! Page Meta ]] -->
-    <title>Plesk - Adding wget/tar/gzip/chmod/php/curl/clear to a chrooted SSH</title>
-    <meta name="description" content="/dev/alias – Hack. Dev. Transcend. - Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.
-">
+  <link rel="shortcut icon" href="/pages/alias1/devalias.net/assets/images/authors/devalias.png" >
 
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="origin" />
+  <meta name="generator" content="Jekyll 3.x" />
 
-    <!-- Webmention -->
-    <link rel="webmention" href="https://webmention.io/devalias.net/webmention">
-<link rel="pingback" href="https://webmention.io/devalias.net/xmlrpc">
+  <link type="application/atom+xml" rel="alternate" href="http://devalias.net/pages/alias1/devalias.net/feed.xml" title="/dev/alias – Hack. Dev. Transcend." />
 
-    <meta property="webmention:redirected_from" content="http://devalias.tumblr.com/post/61566531090/plesk-adding-wget-tar-gzip-chmod-php-curl-clear-to-a-chr,/post/61566531090/plesk-adding-wget-tar-gzip-chmod-php-curl-clear-to-a-chr">
-
-    <link rel="shortcut icon" href="/assets/images/authors/devalias.png">
-
-    <!-- [[! Styles'n'Scripts ]] -->
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic%7COpen+Sans:700,400">
-          
-    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css">
-    <link rel="stylesheet" type="text/css" href="/assets/css/syntax.css">
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-
-    <link rel="stylesheet" type="text/css" href="/assets/css/custom.css">
-    
-    <!-- [[! Ghost outputs important style and meta data with this tag ]] -->
-      <link rel="canonical" href="/">
-  <meta name="referrer" content="origin">
-  <!-- <link rel="next" href="/page2/" /> -->
-
-  <meta property="og:site_name" content="">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="">
-  <meta property="og:description" content="Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.
-">
-  <meta property="og:url" content="/">
-  <meta property="og:image" content="/assets/images/cover4.jpg">
-
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="/dev/alias – Hack. Dev. Transcend.">
-  <meta name="twitter:description" content="Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.
-">
-  <meta name="twitter:url" content="/">
-  <meta name="twitter:image:src" content="/assets/images/cover4.jpg">
-
-  <script type="application/ld+json">
-{
-    "@context": "http://schema.org",
-    "@type": "Website",
-    "publisher": "devalias.net}",
-    "url": "/",
-    "image": "/assets/images/cover4.jpg",
-    "description": "Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.
-"
-}
-  </script>
-
-  <meta name="generator" content="Jekyll 3.x">
-  <link rel="home" type="application/rss+xml" title="/dev/alias – Hack. Dev. Transcend." href="/feed.xml">
+  <!-- Begin Jekyll SEO tag v2.2.1 -->
+<title>Plesk - Adding wget/tar/gzip/chmod/php/curl/clear to a chrooted SSH | /dev/alias – Hack. Dev. Transcend.</title>
+<meta property="og:title" content="Plesk - Adding wget/tar/gzip/chmod/php/curl/clear to a chrooted SSH" />
+<meta name="author" content="Glenn 'devalias' Grant" />
+<meta property="og:locale" content="en_GB" />
+<meta name="description" content="(tl;dr How to setup wget, tar, gzip, chmod, php and curl in a chrooted environment for Plesk.)" />
+<meta property="og:description" content="(tl;dr How to setup wget, tar, gzip, chmod, php and curl in a chrooted environment for Plesk.)" />
+<link rel="canonical" href="http://devalias.net/pages/alias1/devalias.net/devalias/2013/09/19/plesk-adding-wget-tar-gzip-chmod-php-curl-clear-to-a-chr/" />
+<meta property="og:url" content="http://devalias.net/pages/alias1/devalias.net/devalias/2013/09/19/plesk-adding-wget-tar-gzip-chmod-php-curl-clear-to-a-chr/" />
+<meta property="og:site_name" content="/dev/alias – Hack. Dev. Transcend." />
+<meta property="og:image" content="http://devalias.net/pages/alias1/devalias.net/assets/images/cover4.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2013-09-19T08:00:00+10:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@_devalias" />
+<meta name="twitter:creator" content="@_devalias" />
+<script type="application/ld+json">
+{"@context":"http://schema.org","@type":"BlogPosting","headline":"Plesk - Adding wget/tar/gzip/chmod/php/curl/clear to a chrooted SSH","author":{"@type":"Person","name":"Glenn 'devalias' Grant"},"image":"http://devalias.net/pages/alias1/devalias.net/assets/images/cover4.jpg","datePublished":"2013-09-19T08:00:00+10:00","dateModified":"2013-09-19T08:00:00+10:00","description":"(tl;dr How to setup wget, tar, gzip, chmod, php and curl in a chrooted environment for Plesk.)","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://devalias.net/pages/alias1/devalias.net/assets/images/cover4.jpg"},"name":"Glenn 'devalias' Grant"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://devalias.net/pages/alias1/devalias.net/devalias/2013/09/19/plesk-adding-wget-tar-gzip-chmod-php-curl-clear-to-a-chr/"},"url":"http://devalias.net/pages/alias1/devalias.net/devalias/2013/09/19/plesk-adding-wget-tar-gzip-chmod-php-curl-clear-to-a-chr/"}</script>
+<!-- End Jekyll SEO tag -->
 
 
+  <!-- old tags, still needed? -->
+  <meta name="twitter:title" content="/dev/alias – Hack. Dev. Transcend." />
+  <meta name="twitter:description" content="Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more." />
+  <!-- <meta name="twitter:image" content="/pages/alias1/devalias.net/assets/images/cover4.jpg" /> -->
+  <!-- /end tags -->
+
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
+        
+  <link rel="stylesheet" type="text/css" href="/pages/alias1/devalias.net/assets/css/screen.css" />
+  <link rel="stylesheet" type="text/css" href="/pages/alias1/devalias.net/assets/css/syntax.css" />
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+  <link rel="stylesheet" type="text/css" href="/pages/alias1/devalias.net/assets/css/custom.css" />
+
+  <!-- Webmention -->
+  <link rel="webmention" href="https://webmention.io/devalias.net/webmention" />
+<link rel="pingback" href="https://webmention.io/devalias.net/xmlrpc" />
+
+  <meta property="webmention:redirected_from" content="http://devalias.tumblr.com/post/61566531090/plesk-adding-wget-tar-gzip-chmod-php-curl-clear-to-a-chr,/post/61566531090/plesk-adding-wget-tar-gzip-chmod-php-curl-clear-to-a-chr">
+
+  <!-- https://indieauth.com/ -->
+<link href="https://twitter.com/_devalias" rel="me">
+<link href="https://github.com/alias1" rel="me">
 </head>
+
 <body class="post-template nav-closed">
 
     <div class="nav">
@@ -79,35 +71,35 @@
     <ul>
         
             <li class="nav-home " role="presentation">
-                <a href="/">Home</a>
+                <a href="/pages/alias1/devalias.net/">Home</a>
             </li>
         
             <li class="nav-about " role="presentation">
-                <a href="/about">About</a>
+                <a href="/pages/alias1/devalias.net/about">About</a>
             </li>
         
             <li class="nav-dev " role="presentation">
-                <a href="/dev">Development</a>
+                <a href="/pages/alias1/devalias.net/dev">Development</a>
             </li>
         
             <li class="nav-sec " role="presentation">
-                <a href="/sec">Security</a>
+                <a href="/pages/alias1/devalias.net/sec">Security</a>
             </li>
         
             <li class="nav-personal " role="presentation">
-                <a href="/personal">Personal</a>
+                <a href="/pages/alias1/devalias.net/personal">Personal</a>
             </li>
         
             <li class="nav-stuff-i-like " role="presentation">
-                <a href="/stuff-i-like">Stuff I Like</a>
+                <a href="/pages/alias1/devalias.net/stuff-i-like">Stuff I Like</a>
             </li>
         
             <li class="nav-go-deeper " role="presentation">
-                <a href="/go-deeper">Go Deeper...</a>
+                <a href="/pages/alias1/devalias.net/go-deeper">Go Deeper...</a>
             </li>
         
     </ul>
-    <a class="subscribe-button" href="/feed.xml"><i class="fa fa-rss"></i> Subscribe</a>
+    <a class="subscribe-button" href="/pages/alias1/devalias.net/feed.xml"><i class="fa fa-rss"></i> Subscribe</a>
 </div>
 <span class="nav-cover"></span>
 
@@ -121,11 +113,11 @@
 
 <header class="main-header
                
-                    " style="background-image: url(/assets/images/cover4.jpg)
+                    " style="background-image: url(/pages/alias1/devalias.net/assets/images/cover4.jpg)
                 ">
     <nav class="main-nav overlay clearfix">
         
-          <a class="blog-logo" href="/"><img src="/assets/images/devalias-prompt.png" alt="Blog Logo"></a>
+          <a class="blog-logo" href="/pages/alias1/devalias.net/"><img src="/pages/alias1/devalias.net/assets/images/devalias-prompt.png" alt="Blog Logo" /></a>
         
         
             <a class="menu-button" href="#"><i class="fa fa-bars"></i> <span class="word">Menu</span></a>
@@ -156,10 +148,10 @@
             <!-- <h1 class="post-title">Plesk - Adding wget/tar/gzip/chmod/php/curl/clear to a chrooted SSH</h1> -->
             <section class="post-meta">
     
-        <img class="author-thumb" src="/assets/images/authors/devalias.png" alt="Author image" nopin="nopin">
+        <img class="author-thumb" src="/pages/alias1/devalias.net/assets/images/authors/devalias.png" alt="Author image" nopin="nopin" />
     
     
-        <a href="/author/devalias">Glenn 'devalias' Grant</a>
+        <a href='/pages/alias1/devalias.net/author/devalias'>Glenn 'devalias' Grant</a>
     
     |
     <time class="post-date" datetime="2013-09-19">19 Sep 2013</time>
@@ -172,35 +164,35 @@
     
         |
         
-            <a href="/tag/plesk">#plesk</a>,
+            <a href='/pages/alias1/devalias.net/tag/plesk'>#plesk</a>,
         
-            <a href="/tag/chroot">#chroot</a>,
+            <a href='/pages/alias1/devalias.net/tag/chroot'>#chroot</a>,
         
-            <a href="/tag/ssh">#ssh</a>,
+            <a href='/pages/alias1/devalias.net/tag/ssh'>#ssh</a>,
         
-            <a href="/tag/wget">#wget</a>,
+            <a href='/pages/alias1/devalias.net/tag/wget'>#wget</a>,
         
-            <a href="/tag/tar">#tar</a>,
+            <a href='/pages/alias1/devalias.net/tag/tar'>#tar</a>,
         
-            <a href="/tag/gzip">#gzip</a>,
+            <a href='/pages/alias1/devalias.net/tag/gzip'>#gzip</a>,
         
-            <a href="/tag/chmod">#chmod</a>,
+            <a href='/pages/alias1/devalias.net/tag/chmod'>#chmod</a>,
         
-            <a href="/tag/libssl.so.6">#libssl.so.6</a>,
+            <a href='/pages/alias1/devalias.net/tag/libssl.so.6'>#libssl.so.6</a>,
         
-            <a href="/tag/chrootmng">#chrootmng</a>,
+            <a href='/pages/alias1/devalias.net/tag/chrootmng'>#chrootmng</a>,
         
-            <a href="/tag/ldd">#ldd</a>,
+            <a href='/pages/alias1/devalias.net/tag/ldd'>#ldd</a>,
         
-            <a href="/tag/chroot_update.sh">#chroot_update.sh</a>,
+            <a href='/pages/alias1/devalias.net/tag/chroot_update.sh'>#chroot_update.sh</a>,
         
-            <a href="/tag/php">#php</a>,
+            <a href='/pages/alias1/devalias.net/tag/php'>#php</a>,
         
-            <a href="/tag/curl">#curl</a>,
+            <a href='/pages/alias1/devalias.net/tag/curl'>#curl</a>,
         
-            <a href="/tag/clear">#clear</a>,
+            <a href='/pages/alias1/devalias.net/tag/clear'>#clear</a>,
         
-            <a href="/tag/tldr">#tldr</a>
+            <a href='/pages/alias1/devalias.net/tag/tldr'>#tldr</a>
         
     
     
@@ -215,7 +207,7 @@
 
 <p>So those of you that have been around for a while (or read back through the archive) will know that a while ago I posted <a href="/post/15535429513/plesk-adding-programs-to-a-chrooted-ssh">Plesk - Adding programs to a chrooted SSH</a>, giving a few hints and tips about configuring a chrooted environment in Plesk.</p>
 
-<p>Today I bring you a few more little tidbits to help you out with adding <em>wget, tar, gzip and chmod</em> to your Plesk chroot'd environment. I followed these steps recently in helping a client get their new site up and running.</p>
+<p>Today I bring you a few more little tidbits to help you out with adding <em>wget, tar, gzip and chmod</em> to your Plesk chroot&#39;d environment. I followed these steps recently in helping a client get their new site up and running.</p>
 
 <p><strong>Edit:</strong> So it turns out Parallels has an <a href="http://kb.odin.com/en/115842">updated script called chroot_update.sh</a> which makes this even easier again (yay for easy!) So I will show you how do use that for PHP and curl (at the bottom).</p>
 
@@ -226,7 +218,7 @@
 <p>To setup/update the initial chroot environment</p>
 <div class="highlight"><pre><code class="language-" data-lang="">./chroot_update.sh --update
 </code></pre></div>
-<p>To add a new program (and it's dependent shared libraries)</p>
+<p>To add a new program (and it&#39;s dependent shared libraries)</p>
 <div class="highlight"><pre><code class="language-" data-lang="">./chroot_update.sh --add /path/to/programname
 </code></pre></div>
 <p>or</p>
@@ -254,11 +246,11 @@ cp /path/to/missingobject chroot/path/to/missingobject
 <div class="highlight"><pre><code class="language-" data-lang="">cp `which wget` /var/www/vhosts/chroot/bin
 cp /lib64/libssl.so.6 /var/www/vhosts/chroot/lib64
 </code></pre></div>
-<p>And it's done! To update any sites already generated, checkout the <a href="/post/15535429513/plesk-adding-programs-to-a-chrooted-ssh">original article</a></p>
+<p>And it&#39;s done! To update any sites already generated, checkout the <a href="/post/15535429513/plesk-adding-programs-to-a-chrooted-ssh">original article</a></p>
 
 <h2>Tar</h2>
 
-<p><a href="https://www.gnu.org/software/tar/">Tar</a> is the defacto standard for archiving/unarchiving files on *nix, so.. it's pretty useful.</p>
+<p><a href="https://www.gnu.org/software/tar/">Tar</a> is the defacto standard for archiving/unarchiving files on *nix, so.. it&#39;s pretty useful.</p>
 
 <p>To find out where the tar executable is</p>
 <div class="highlight"><pre><code class="language-" data-lang="">which tar
@@ -266,14 +258,14 @@ cp /lib64/libssl.so.6 /var/www/vhosts/chroot/lib64
 <p>To check if it has any dependancies</p>
 <div class="highlight"><pre><code class="language-" data-lang="">ldd `which tar`
 </code></pre></div>
-<p>In my case, nothing needed here, so let's just copy the executable</p>
+<p>In my case, nothing needed here, so let&#39;s just copy the executable</p>
 <div class="highlight"><pre><code class="language-" data-lang="">cp `which tar` /var/www/vhosts/chroot/bin
 </code></pre></div>
 <p>Done! Same as before, to update any sites already generated, checkout the <a href="/post/15535429513/plesk-adding-programs-to-a-chrooted-ssh">original article</a></p>
 
 <h2>Gzip</h2>
 
-<p><a href="http://www.gzip.org/">Gzip</a> let's you open gzip compressed files (funnily enough) It's also what <code>tar</code> calls when you tell it to extract a <code>.tar.gz</code> file.</p>
+<p><a href="http://www.gzip.org/">Gzip</a> let&#39;s you open gzip compressed files (funnily enough) It&#39;s also what <code>tar</code> calls when you tell it to extract a <code>.tar.gz</code> file.</p>
 
 <p>To find out where the gzip executable is</p>
 <div class="highlight"><pre><code class="language-" data-lang="">which gzip
@@ -281,14 +273,14 @@ cp /lib64/libssl.so.6 /var/www/vhosts/chroot/lib64
 <p>To check if it has any dependancies</p>
 <div class="highlight"><pre><code class="language-" data-lang="">ldd `which gzip`
 </code></pre></div>
-<p>In my case, nothing needed here, so let's just copy the executable</p>
+<p>In my case, nothing needed here, so let&#39;s just copy the executable</p>
 <div class="highlight"><pre><code class="language-" data-lang="">cp `which gzip` /var/www/vhosts/chroot/bin
 </code></pre></div>
 <p>Done! Same as before, to update any sites already generated, checkout the <a href="/post/15535429513/plesk-adding-programs-to-a-chrooted-ssh">original article</a></p>
 
 <h2>Chmod</h2>
 
-<p><a href="https://en.wikipedia.org/wiki/Chmod">Chmod</a> let's you change permissions on files, kinda useful to be able to do.</p>
+<p><a href="https://en.wikipedia.org/wiki/Chmod">Chmod</a> let&#39;s you change permissions on files, kinda useful to be able to do.</p>
 
 <p>To find out where the chmod executable is</p>
 <div class="highlight"><pre><code class="language-" data-lang="">which chmod
@@ -296,7 +288,7 @@ cp /lib64/libssl.so.6 /var/www/vhosts/chroot/lib64
 <p>To check if it has any dependancies</p>
 <div class="highlight"><pre><code class="language-" data-lang="">ldd `which chmod`
 </code></pre></div>
-<p>In my case, nothing needed here, so let's just copy the executable</p>
+<p>In my case, nothing needed here, so let&#39;s just copy the executable</p>
 <div class="highlight"><pre><code class="language-" data-lang="">cp `which chmod` /var/www/vhosts/chroot/bin
 </code></pre></div>
 <p>Done! Same as before, to update any sites already generated, checkout the <a href="/post/15535429513/plesk-adding-programs-to-a-chrooted-ssh">original article</a></p>
@@ -340,20 +332,19 @@ cp -R /usr/share/zoneinfo chroot/usr/share/
 
             
 	<figure class="author-image">
-	    <a class="img" href="/author/devalias" style="background-image: url(/assets/images/authors/devalias.png)"><span class="hidden">devalias's Picture</span></a>
+	    <a class="img" href="/pages/alias1/devalias.net/author/devalias" style="background-image: url(/pages/alias1/devalias.net/assets/images/authors/devalias.png)"><span class="hidden">devalias's Picture</span></a>
 	</figure>
 
 
             <section class="author">
                 <h4>
                     
-                        <a href="/author/devalias">Glenn 'devalias' Grant</a>
+                        <a href="/pages/alias1/devalias.net/author/devalias">Glenn 'devalias' Grant</a>
                     
                 </h4>
                 
                 
-                    <p> Glenn is a full-stack, polyglot developer with an acute interest in the offensive side of security; as well as technology, efficiency, biohacking, health, personal growth and a whole lot more.
-</p>
+                    <p> Glenn is a full-stack, polyglot developer with an acute interest in the offensive side of security; as well as technology, efficiency, biohacking, health, personal growth and a whole lot more.</p>
                 
                 <div class="author-meta">
     
@@ -373,7 +364,7 @@ cp -R /usr/share/zoneinfo chroot/usr/share/
     
 </div>
                 <div class="author-social">
-    <a href="/author/devalias/rss.xml" title="RSS Feed"><i class="fa fa-rss fa-1x"></i></a>
+    <a href="/pages/alias1/devalias.net/author/devalias/rss.xml" title="RSS Feed"><i class="fa fa-rss fa-1x"></i></a>
     
         <a href="https://twitter.com/_devalias" title="Twitter" target="_blank"><i class="fa fa-twitter-square fa-1x"></i></a>
     
@@ -410,9 +401,9 @@ cp -R /usr/share/zoneinfo chroot/usr/share/
 
 <section class="share">
     <h4>Share this post</h4>
-    <a href="http://twitter.com/share?text=Plesk%20-%20Adding%20wget/tar/gzip/chmod/php/curl/clear%20to%20a%20chrooted%20SSH&amp;url=http://devalias.net/devalias/2013/09/19/plesk-adding-wget-tar-gzip-chmod-php-curl-clear-to-a-chr/" title="Share on Twitter" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"><i class="fa fa-twitter-square fa-2x"></i></a>
+    <a href="http://twitter.com/share?text=Plesk - Adding wget/tar/gzip/chmod/php/curl/clear to a chrooted SSH&amp;url=http://devalias.net/devalias/2013/09/19/plesk-adding-wget-tar-gzip-chmod-php-curl-clear-to-a-chr/" title="Share on Twitter" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"><i class="fa fa-twitter-square fa-2x"></i></a>
     <a href="https://www.facebook.com/sharer/sharer.php?u=http://devalias.net/devalias/2013/09/19/plesk-adding-wget-tar-gzip-chmod-php-curl-clear-to-a-chr/" title="Share on Facebook" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;"><i class="fa fa-facebook-square fa-2x"></i></a>
-    <a href="https://plus.google.com/share?url=http://devalias.net/devalias/2013/09/19/plesk-adding-wget-tar-gzip-chmod-php-curl-clear-to-a-chr/" title="Share on Google+" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;"><i class="fa fa-google-plus-square fa-2x"></i></a>
+    <a href="https://plus.google.com/share?url=http://devalias.net/devalias/2013/09/19/plesk-adding-wget-tar-gzip-chmod-php-curl-clear-to-a-chr/"  title="Share on Google+" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;"><i class="fa fa-google-plus-square fa-2x"></i></a>
 </section>
             
             
@@ -431,11 +422,9 @@ cp -R /usr/share/zoneinfo chroot/usr/share/
                 (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
             })();
         </script>
-        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-</noscript>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
         <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
-    </footer></article></main>
-</div>
+    </div>
 
             
 
@@ -445,17 +434,17 @@ cp -R /usr/share/zoneinfo chroot/usr/share/
 
             
             
-        
+        </footer>
 
-    
+    </article>
 
-
+</main>
 
 <aside class="read-next">
 
     <!-- [[! next_post ]] -->
     
-        <a class="read-next-story no-cover" href="/devalias/2013/10/24/loki-python-based-infrastructure-pentesting-tool-arp-hsr/">
+        <a class="read-next-story no-cover" href="/pages/alias1/devalias.net/devalias/2013/10/24/loki-python-based-infrastructure-pentesting-tool-arp-hsr/">
             <section class="post">
                 <h2>Loki - Python Based Infrastructure Pentesting Tool (ARP, HSRP, OSPF, etc)</h2>
                 <p>Loki is a python based infrastructure pentesting tool focussing on layer 3 protocols, dealing with protocols such as: * ARP * HSRP * RIP *...</p>
@@ -465,10 +454,10 @@ cp -R /usr/share/zoneinfo chroot/usr/share/
     <!-- [[! /next_post ]] -->
     <!-- [[! prev_post ]] -->
     
-        <a class="read-next-story prev no-cover" href="/devalias/2013/08/29/reversing-powershell-securestring-for-fun-and-profit/">
+        <a class="read-next-story prev no-cover" href="/pages/alias1/devalias.net/devalias/2013/08/29/reversing-powershell-securestring-for-fun-and-profit/">
             <section class="post">
                 <h2>Reversing PowerShell 'SecureString' For Fun And Profit</h2>
-                <p>Something that I needed to do in an engagement recently and thought it might be useful to you guys. Here's a little function and demonstration...</p>
+                <p>Something that I needed to do in an engagement recently and thought it might be useful to you guys. Here&#39;s a little function and demonstration...</p>
             </section>
         </a>
     
@@ -480,11 +469,11 @@ cp -R /usr/share/zoneinfo chroot/usr/share/
 
         <footer class="site-footer clearfix">
             <section class="copyright">
-                <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"></a><br><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">devalias.net</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://www.devalias.net/" property="cc:attributionName" rel="cc:attributionURL">Glenn 'devalias' Grant</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+                <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">devalias.net</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://www.devalias.net/" property="cc:attributionName" rel="cc:attributionURL">Glenn 'devalias' Grant</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
             </section>
             <section class="poweredby">
                 <div>
-                    <strong>Build:</strong> 4eaafd8c
+                    <strong>Build:</strong> ade5bea2
                     <a href="https://github.com/alias1/devalias.net/tree/master/_posts/2013-09-19-plesk-adding-wget-tar-gzip-chmod-php-curl-clear-to-a-chr.md" target="_blank">
                         <i class="fa fa-edit"></i>
                         Edit on GitHub
@@ -498,12 +487,12 @@ cp -R /usr/share/zoneinfo chroot/usr/share/
                 <a href="https://github.com/" target="_blank">GitHub</a>
             </section>
         </footer>
-    
+    </div>
     <!-- [[! Ghost outputs important scripts and data with this tag ]] -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
     <!-- [[! The main JavaScript file for Casper ]] -->
-    <script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
-    <script type="text/javascript" src="/assets/js/index.js"></script>
+    <script type="text/javascript" src="/pages/alias1/devalias.net/assets/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="/pages/alias1/devalias.net/assets/js/index.js"></script>
     <script type="text/javascript" src="/assets/js/webmention_io.js"></script>
 
         <!-- Google Analytics Tracking code -->

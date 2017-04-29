@@ -6,18 +6,17 @@
       <title>devalias.net</title>
    
    <link>http://devalias.net</link>
-   <description>Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.
-</description>
-   <language>en-uk</language>
+   <description>Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.</description>
+   <language>en_GB</language>
    <managingEditor> </managingEditor>
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
 	  <title>Hacking Unicoins for Fun and Profit (Stackoverflow.com April Fools 2014)</title>
-	  <link>/devalias/2014/04/02/hacking-unicoins-for-fun-and-profit/</link>
+	  <link>/pages/alias1/devalias.net/devalias/2014/04/02/hacking-unicoins-for-fun-and-profit/</link>
 	  <author>devalias</author>
 	  <pubDate>2014-04-02T06:38:02+11:00</pubDate>
-	  <guid>/devalias/2014/04/02/hacking-unicoins-for-fun-and-profit/</guid>
+	  <guid>/pages/alias1/devalias.net/devalias/2014/04/02/hacking-unicoins-for-fun-and-profit/</guid>
 	  <description><![CDATA[
 	     <p><a href="https://stackoverflow.com/">Stackoverflow</a> introduced an amusing little April Fools feature called &#39;Unicoins&#39;. Essentially, this currency (that you can earn by mining rocks, since all of the (rather amusing) payment options are currently unavailable&#39;) allows you to by silly upgrades for the website. From &#39;Colorful comments&#39; and &#39;Guaranteed Answer&#39; through to &#39;Voting animations&#39; which gives you &#39;happy unicorn animations everytime you vote&#39;.</p>
 
@@ -27,7 +26,35 @@
 
 <p>Enjoy your unicoins! &lt;3 /dev/alias</p>
 
-<script src="https://gist.github.com/alias1/9905949.js"> </script>
+<p><noscript><pre>First, go to stackoverflow.com then define this in your Javascript console:
+<code>
+var hackMeSomeUnicoins = function(myFkey) {
+  console.log(&amp;quot;Ok, let&amp;#39;s hack you some shiny unicoins! &amp;lt;3 /dev/alias (www.devalias.net)&amp;quot;)
+  console.log(&amp;quot;The powers that be say you can only mine a rock every 10sec, so we do it every 11sec to be sure.&amp;quot;)
+  window.setInterval(function(){
+    $.get( &amp;quot;http://stackoverflow.com/unicoin/rock&amp;quot;, function( data ) {
+      var rockId = data.rock;
+      $.post( &amp;quot;http://stackoverflow.com/unicoin/mine?rock=&amp;quot; + rockId, { fkey: myFkey })
+      .done(function( data ) {
+        console.log(data);
+      });
+    });
+  }, 11000);
+};
+</code></p>
+
+<p>Once you have done that, just call this from the console:
+<code>
+hackMeSomeUnicoins(StackExchange.options.user.fkey);
+</code>
+(Thanks to @ouranos for the fkey options string)</p>
+
+<p><del>You can get your fkey by inspecting the POST made when you successfully (manually) mine a rock. (It&#39;s also stored in a data-fkey type value somewhere, but haven&#39;t been bothered to find it and automagically pull it out (feel free to contribute some JS to do it)</del></p>
+
+<p>Pimping this:
+* <a href="http://blog.devalias.net/post/81346968483/hacking-unicoins-for-fun-and-profit-stackoverflow-com">http://blog.devalias.net/post/81346968483/hacking-unicoins-for-fun-and-profit-stackoverflow-com</a>
+  * <blockquote class="twitter-tweet"><p lang="en" dir="ltr">&quot;Hacking Unicoins for Fun and Profit (<a href="http://t.co/NKYZO56kyz"><a href="http://t.co/NKYZO56kyz">http://t.co/NKYZO56kyz</a></a> April Fools 2014)&quot; <a href="https://twitter.com/hashtag/stackoverflow?src=hash">#stackoverflow</a> <a href="https://twitter.com/hashtag/aprilfools?src=hash">#aprilfools</a> <a href="https://twitter.com/hashtag/devalias?src=hash">#devalias</a> <a href="http://t.co/xZwyRyEqPl"><a href="http://t.co/xZwyRyEqPl">http://t.co/xZwyRyEqPl</a></a></p>&mdash; Glenn / devalias (@<em>devalias) &lt;a href=&quot;<a href="https://twitter.com/">https://twitter.com/</a></em>devalias/status/450809279784955904&quot;&gt;April 1, 2014</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></pre></noscript><script src="https://gist.github.com/alias1/9905949.js"> </script></p>
 
 	  ]]></description>
 	</item>

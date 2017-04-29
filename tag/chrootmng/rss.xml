@@ -6,18 +6,17 @@
       <title>devalias.net</title>
    
    <link>http://devalias.net</link>
-   <description>Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.
-</description>
-   <language>en-uk</language>
+   <description>Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.</description>
+   <language>en_GB</language>
    <managingEditor> </managingEditor>
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
 	  <title>Plesk - Adding wget/tar/gzip/chmod/php/curl/clear to a chrooted SSH</title>
-	  <link>/devalias/2013/09/19/plesk-adding-wget-tar-gzip-chmod-php-curl-clear-to-a-chr/</link>
+	  <link>/pages/alias1/devalias.net/devalias/2013/09/19/plesk-adding-wget-tar-gzip-chmod-php-curl-clear-to-a-chr/</link>
 	  <author>devalias</author>
 	  <pubDate>2013-09-19T08:00:00+10:00</pubDate>
-	  <guid>/devalias/2013/09/19/plesk-adding-wget-tar-gzip-chmod-php-curl-clear-to-a-chr/</guid>
+	  <guid>/pages/alias1/devalias.net/devalias/2013/09/19/plesk-adding-wget-tar-gzip-chmod-php-curl-clear-to-a-chr/</guid>
 	  <description><![CDATA[
 	     <p>(<strong>tl;dr</strong> How to setup wget, tar, gzip, chmod, php and curl in a chrooted environment for Plesk.)</p>
 
@@ -145,10 +144,10 @@ cp -R /usr/share/zoneinfo chroot/usr/share/
 
 	<item>
 	  <title>Plesk - Adding programs to a chrooted SSH</title>
-	  <link>/devalias/2012/01/10/plesk-adding-programs-to-a-chrooted-ssh/</link>
+	  <link>/pages/alias1/devalias.net/devalias/2012/01/10/plesk-adding-programs-to-a-chrooted-ssh/</link>
 	  <author>devalias</author>
 	  <pubDate>2012-01-10T05:29:00+11:00</pubDate>
-	  <guid>/devalias/2012/01/10/plesk-adding-programs-to-a-chrooted-ssh/</guid>
+	  <guid>/pages/alias1/devalias.net/devalias/2012/01/10/plesk-adding-programs-to-a-chrooted-ssh/</guid>
 	  <description><![CDATA[
 	     <p>Just a few notes today about making programs (in this case git) available to a chrooted SSH account in Plesk. I&#39;m assuming the account is already setup for ssh, etc so I will just be covering where to copy the files to.</p>
 

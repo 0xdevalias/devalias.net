@@ -6,32 +6,39 @@
       <title>devalias.net</title>
    
    <link>http://devalias.net</link>
-   <description>Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.
-</description>
-   <language>en-uk</language>
+   <description>Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.</description>
+   <language>en_GB</language>
    <managingEditor> </managingEditor>
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
 	  <title>Gists</title>
-	  <link>/devalias/2013/06/17/gists-on-tumblr/</link>
+	  <link>/pages/alias1/devalias.net/devalias/2013/06/17/gists-on-tumblr/</link>
 	  <author>devalias</author>
 	  <pubDate>2013-06-17T05:00:00+10:00</pubDate>
-	  <guid>/devalias/2013/06/17/gists-on-tumblr/</guid>
+	  <guid>/pages/alias1/devalias.net/devalias/2013/06/17/gists-on-tumblr/</guid>
 	  <description><![CDATA[
 	     <p>So I figured it might be useful to be able to post gists here. Turns out it&#39;s actually pretty easy thanks to soemarko</p>
 
-<script src="https://gist.github.com/soemarko/1395926.js"> </script>
+<p><noscript><pre>&lt;!-- Add the following lines to theme&#39;s html code right before &lt;/head&gt; --&gt;
+&lt;script src=&quot;<a href="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js&quot;&gt;&lt;/script">http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js&amp;quot;&amp;gt;&amp;lt;/script</a>&gt;
+&lt;script src=&quot;<a href="http://static.tumblr.com/fpifyru/VCxlv9xwi/writecapture.js&quot;&gt;&lt;/script">http://static.tumblr.com/fpifyru/VCxlv9xwi/writecapture.js&amp;quot;&amp;gt;&amp;lt;/script</a>&gt;
+&lt;script src=&quot;<a href="http://static.tumblr.com/fpifyru/AKFlv9zdu/embedgist.js&quot;&gt;&lt;/script">http://static.tumblr.com/fpifyru/AKFlv9zdu/embedgist.js&amp;quot;&amp;gt;&amp;lt;/script</a>&gt;</p>
+
+<p>&lt;!--
+  Usage: just add &lt;div class=&quot;gist&quot;&gt;[gist URL]&lt;/div&gt;
+  Example: &lt;div class=&quot;gist&quot;&gt;<a href="https://gist.github.com/1395926&lt;/div">https://gist.github.com/1395926&amp;lt;/div</a>&gt;
+--&gt;</pre></noscript><script src="https://gist.github.com/soemarko/1395926.js"> </script></p>
 
 	  ]]></description>
 	</item>
 
 	<item>
 	  <title>Plesk - Adding programs to a chrooted SSH</title>
-	  <link>/devalias/2012/01/10/plesk-adding-programs-to-a-chrooted-ssh/</link>
+	  <link>/pages/alias1/devalias.net/devalias/2012/01/10/plesk-adding-programs-to-a-chrooted-ssh/</link>
 	  <author>devalias</author>
 	  <pubDate>2012-01-10T05:29:00+11:00</pubDate>
-	  <guid>/devalias/2012/01/10/plesk-adding-programs-to-a-chrooted-ssh/</guid>
+	  <guid>/pages/alias1/devalias.net/devalias/2012/01/10/plesk-adding-programs-to-a-chrooted-ssh/</guid>
 	  <description><![CDATA[
 	     <p>Just a few notes today about making programs (in this case git) available to a chrooted SSH account in Plesk. I&#39;m assuming the account is already setup for ssh, etc so I will just be covering where to copy the files to.</p>
 
@@ -94,10 +101,10 @@ cp -R /usr/local/libexec /var/www/vhosts/chroot/usr/local/libexec/git-core
 
 	<item>
 	  <title>Forking Github!! (or how to contribute to a project)</title>
-	  <link>/devalias/2012/01/06/forking-github/</link>
+	  <link>/pages/alias1/devalias.net/devalias/2012/01/06/forking-github/</link>
 	  <author>devalias</author>
 	  <pubDate>2012-01-06T13:36:18+11:00</pubDate>
-	  <guid>/devalias/2012/01/06/forking-github/</guid>
+	  <guid>/pages/alias1/devalias.net/devalias/2012/01/06/forking-github/</guid>
 	  <description><![CDATA[
 	     <p>I&#39;ve been following the GitHub craze for a little while now, and finally coming to a stage where I would like to start contributing to some of the projects I follow. Having looked closely at the examples for one in particular, I noticed something simple, but beneficial that I could add, so I set out to become an active member of the internet!</p>
 

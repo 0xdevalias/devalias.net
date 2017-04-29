@@ -6,18 +6,17 @@
       <title>devalias.net</title>
    
    <link>http://devalias.net</link>
-   <description>Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.
-</description>
-   <language>en-uk</language>
+   <description>Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.</description>
+   <language>en_GB</language>
    <managingEditor> </managingEditor>
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
 	  <title>v3.0 -  Now with more Hyde</title>
-	  <link>/devalias/2016/05/22/v3-now-with-more-hyde/</link>
+	  <link>/pages/alias1/devalias.net/devalias/2016/05/22/v3-now-with-more-hyde/</link>
 	  <author>devalias</author>
 	  <pubDate>2016-05-22T00:00:00+10:00</pubDate>
-	  <guid>/devalias/2016/05/22/v3-now-with-more-hyde/</guid>
+	  <guid>/pages/alias1/devalias.net/devalias/2016/05/22/v3-now-with-more-hyde/</guid>
 	  <description><![CDATA[
 	     <p>Time for another rebirth! As you may have noticed, I haven&#39;t really written much over the last year or two. While I&#39;ve been busy, distracted and occasionally just lazy, I&#39;ve mostly found that Tumblr&#39;s interface is just far too much effort to write in. And if something is needlessly too much effort, it&#39;s not going to get done.</p>
 
@@ -32,10 +31,10 @@
 
 	<item>
 	  <title>MDwiki (and how to get started)</title>
-	  <link>/devalias/2014/07/24/mdwiki-and-how-to-get-started/</link>
+	  <link>/pages/alias1/devalias.net/devalias/2014/07/24/mdwiki-and-how-to-get-started/</link>
 	  <author>devalias</author>
 	  <pubDate>2014-07-24T03:12:31+10:00</pubDate>
-	  <guid>/devalias/2014/07/24/mdwiki-and-how-to-get-started/</guid>
+	  <guid>/pages/alias1/devalias.net/devalias/2014/07/24/mdwiki-and-how-to-get-started/</guid>
 	  <description><![CDATA[
 	     <p>(Note: Original gist can be found <a href="https://gist.github.com/alias1/a8c3c2fd7bf2f50ff666">here</a>)</p>
 
@@ -114,10 +113,10 @@ python -m SimpleHTTPServer 8000
 
 	<item>
 	  <title>New Window With Tabs To Right - Chrome Extension</title>
-	  <link>/devalias/2013/08/08/new-window-with-tabs-to-right-chrome-extension/</link>
+	  <link>/pages/alias1/devalias.net/devalias/2013/08/08/new-window-with-tabs-to-right-chrome-extension/</link>
 	  <author>devalias</author>
 	  <pubDate>2013-08-08T08:00:50+10:00</pubDate>
-	  <guid>/devalias/2013/08/08/new-window-with-tabs-to-right-chrome-extension/</guid>
+	  <guid>/pages/alias1/devalias.net/devalias/2013/08/08/new-window-with-tabs-to-right-chrome-extension/</guid>
 	  <description><![CDATA[
 	     <p>(tl;dr I wrote a chrome extension, <a href="https://chrome.google.com/webstore/detail/new-window-with-tabs-to-r/ldahcfljppchbfgdokomobmfdfplaman">get it in the web store</a> or <a href="https://github.com/alias1/chrome-NewWindowWithTabsToRight">check it out on GitHub</a>)</p>
 
@@ -143,24 +142,32 @@ If you have any comments, criticisms, praise, hatred, marriage proposals, fluffy
 
 	<item>
 	  <title>Gists</title>
-	  <link>/devalias/2013/06/17/gists-on-tumblr/</link>
+	  <link>/pages/alias1/devalias.net/devalias/2013/06/17/gists-on-tumblr/</link>
 	  <author>devalias</author>
 	  <pubDate>2013-06-17T05:00:00+10:00</pubDate>
-	  <guid>/devalias/2013/06/17/gists-on-tumblr/</guid>
+	  <guid>/pages/alias1/devalias.net/devalias/2013/06/17/gists-on-tumblr/</guid>
 	  <description><![CDATA[
 	     <p>So I figured it might be useful to be able to post gists here. Turns out it&#39;s actually pretty easy thanks to soemarko</p>
 
-<script src="https://gist.github.com/soemarko/1395926.js"> </script>
+<p><noscript><pre>&lt;!-- Add the following lines to theme&#39;s html code right before &lt;/head&gt; --&gt;
+&lt;script src=&quot;<a href="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js&quot;&gt;&lt;/script">http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js&amp;quot;&amp;gt;&amp;lt;/script</a>&gt;
+&lt;script src=&quot;<a href="http://static.tumblr.com/fpifyru/VCxlv9xwi/writecapture.js&quot;&gt;&lt;/script">http://static.tumblr.com/fpifyru/VCxlv9xwi/writecapture.js&amp;quot;&amp;gt;&amp;lt;/script</a>&gt;
+&lt;script src=&quot;<a href="http://static.tumblr.com/fpifyru/AKFlv9zdu/embedgist.js&quot;&gt;&lt;/script">http://static.tumblr.com/fpifyru/AKFlv9zdu/embedgist.js&amp;quot;&amp;gt;&amp;lt;/script</a>&gt;</p>
+
+<p>&lt;!--
+  Usage: just add &lt;div class=&quot;gist&quot;&gt;[gist URL]&lt;/div&gt;
+  Example: &lt;div class=&quot;gist&quot;&gt;<a href="https://gist.github.com/1395926&lt;/div">https://gist.github.com/1395926&amp;lt;/div</a>&gt;
+--&gt;</pre></noscript><script src="https://gist.github.com/soemarko/1395926.js"> </script></p>
 
 	  ]]></description>
 	</item>
 
 	<item>
 	  <title>Forking Github!! (or how to contribute to a project)</title>
-	  <link>/devalias/2012/01/06/forking-github/</link>
+	  <link>/pages/alias1/devalias.net/devalias/2012/01/06/forking-github/</link>
 	  <author>devalias</author>
 	  <pubDate>2012-01-06T13:36:18+11:00</pubDate>
-	  <guid>/devalias/2012/01/06/forking-github/</guid>
+	  <guid>/pages/alias1/devalias.net/devalias/2012/01/06/forking-github/</guid>
 	  <description><![CDATA[
 	     <p>I&#39;ve been following the GitHub craze for a little while now, and finally coming to a stage where I would like to start contributing to some of the projects I follow. Having looked closely at the examples for one in particular, I noticed something simple, but beneficial that I could add, so I set out to become an active member of the internet!</p>
 

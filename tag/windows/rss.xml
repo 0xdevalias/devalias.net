@@ -6,18 +6,17 @@
       <title>devalias.net</title>
    
    <link>http://devalias.net</link>
-   <description>Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.
-</description>
-   <language>en-uk</language>
+   <description>Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.</description>
+   <language>en_GB</language>
    <managingEditor> </managingEditor>
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
 	  <title>Loki - Python Based Infrastructure Pentesting Tool (ARP, HSRP, OSPF, etc)</title>
-	  <link>/devalias/2013/10/24/loki-python-based-infrastructure-pentesting-tool-arp-hsr/</link>
+	  <link>/pages/alias1/devalias.net/devalias/2013/10/24/loki-python-based-infrastructure-pentesting-tool-arp-hsr/</link>
 	  <author>devalias</author>
 	  <pubDate>2013-10-24T09:00:00+11:00</pubDate>
-	  <guid>/devalias/2013/10/24/loki-python-based-infrastructure-pentesting-tool-arp-hsr/</guid>
+	  <guid>/pages/alias1/devalias.net/devalias/2013/10/24/loki-python-based-infrastructure-pentesting-tool-arp-hsr/</guid>
 	  <description><![CDATA[
 	     <p>Loki is a python based infrastructure pentesting tool focussing on layer 3 protocols, dealing with protocols such as:</p>
 
@@ -112,26 +111,50 @@ apt-get install -f
 
 	<item>
 	  <title>Reversing PowerShell 'SecureString' For Fun And Profit</title>
-	  <link>/devalias/2013/08/29/reversing-powershell-securestring-for-fun-and-profit/</link>
+	  <link>/pages/alias1/devalias.net/devalias/2013/08/29/reversing-powershell-securestring-for-fun-and-profit/</link>
 	  <author>devalias</author>
 	  <pubDate>2013-08-29T08:00:52+10:00</pubDate>
-	  <guid>/devalias/2013/08/29/reversing-powershell-securestring-for-fun-and-profit/</guid>
+	  <guid>/pages/alias1/devalias.net/devalias/2013/08/29/reversing-powershell-securestring-for-fun-and-profit/</guid>
 	  <description><![CDATA[
 	     <p>Something that I needed to do in an engagement recently and thought it might be useful to you guys. Here&#39;s a little function and demonstration to show just how insecure it is to store an encrypted <a href="https://en.wikipedia.org/wiki/Windows_PowerShell">PowerShell</a> <a href="http://social.technet.microsoft.com/wiki/contents/articles/4546.working-with-passwords-secure-strings-and-credentials-in-windows-powershell.aspx">&#39;SecureString&#39;</a> WITH the key to decrypt it in a script file (or anywhere for that matter)</p>
 
 <p>Just goes to show that no matter how secure a technology you create, in the end it all comes down to the underpaid, overworked IT staff that have to implement it, and the <em>managerial guidelines</em> that they need to work within.</p>
 
-<script src="https://gist.github.com/alias1/6101928.js"> </script>
+<p><noscript><pre># Reverse-SecureString</p>
+
+<h1>Version: 1.0 (20130729)</h1>
+
+<h1>Created By: Glenn &#39;devalias&#39; Grant (<a href="http://devalias.net">http://devalias.net</a>)</h1>
+
+<h1>License: The MIT License (MIT) - Copyright (c) 2013 Glenn &#39;devalias&#39; Grant (see <a href="http://choosealicense.com/licenses/mit/">http://choosealicense.com/licenses/mit/</a> for full license text)</h1>
+
+<p>function Reverse-SecureString([string]$secureString,[string]$key)
+{
+  $objSecString=ConvertTo-SecureString -String $secureString -Key ([Byte[]]$key.Split(&quot; &quot;))
+  $secString=[System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($objSecString)
+  $plaintext=[System.Runtime.InteropServices.Marshal]::PtrToStringAuto($secString)
+  return $plaintext
+}</p>
+
+<h1>Example SecureString decryption</h1>
+
+<p>$password = &quot;76492d1116743f0423413b16050a5345MgB8AFAAVwBiAGkAegBjAEcANQA5AEMAOABVAFoAUQBoADMAZAA1AEUAcgBGAHcAPQA9AHwAYgAxAGUAYwA0AGQA
+YwBkADUANQAwAGUAYQBmADYAMwA5AGEANwAyADAAMwBmADAANwA3AGUANgA3ADYAYgA0AGIANgA4ADYAZAA3ADkAZgBkAGYAMgAzADcAMQA2ADkAYgA3AGMA
+YwA0AGUAZQA1AGIANAA5ADEAZABjADQAZQA5ADgANQAxADUAYwBmADgAZQBjADMAMgBmADgANgBhADAANQBlADAANgBkAGIAZABlAGMAZAA2ADcAMwBmAGYA
+YwA5ADMAZQAwADYAZAA5AGMAMwAyAGUANgAyAGUAMAA3ADcAYgBkADIAYQAzAGIAOAA3ADQAMwA2ADIAMAA2AA==&quot;
+$key = &quot;114 138 230 113 215 43 58 173 155 129 196 29 105 162 10 25 187 79 18 221 142 29 155 43 28 20 19 40 103 83 110 240&quot;
+$passPlaintext = Reverse-SecureString &quot;$password&quot; &quot;$key&quot;
+Write-Host $passPlaintext # This should output: TotallySecurePasswordLol!</pre></noscript><script src="https://gist.github.com/alias1/6101928.js"> </script></p>
 
 	  ]]></description>
 	</item>
 
 	<item>
 	  <title>Fixing Windows Productivity Issues OSX Style</title>
-	  <link>/devalias/2013/07/11/fixing-windows-productivity-issues-osx-style/</link>
+	  <link>/pages/alias1/devalias.net/devalias/2013/07/11/fixing-windows-productivity-issues-osx-style/</link>
 	  <author>devalias</author>
 	  <pubDate>2013-07-11T08:00:28+10:00</pubDate>
-	  <guid>/devalias/2013/07/11/fixing-windows-productivity-issues-osx-style/</guid>
+	  <guid>/pages/alias1/devalias.net/devalias/2013/07/11/fixing-windows-productivity-issues-osx-style/</guid>
 	  <description><![CDATA[
 	     <p>As much as past me would hate me for saying this, these days I am quite the fan of a number of Apple products. My MacBook Pro is a dream to use thanks to multitouch and some of the well thought out and designed features of OSX.</p>
 
@@ -172,10 +195,10 @@ apt-get install -f
 
 	<item>
 	  <title>Default Programs Editor</title>
-	  <link>/devalias/2013/07/02/default-programs-editor/</link>
+	  <link>/pages/alias1/devalias.net/devalias/2013/07/02/default-programs-editor/</link>
 	  <author>devalias</author>
 	  <pubDate>2013-07-02T04:27:00+10:00</pubDate>
-	  <guid>/devalias/2013/07/02/default-programs-editor/</guid>
+	  <guid>/pages/alias1/devalias.net/devalias/2013/07/02/default-programs-editor/</guid>
 	  <description><![CDATA[
 	     <p>Due to some.. ahem interesting implementation choices at work, I found myself unable to make <a href="https://www.sublimetext.com/2">Sublime Text 2</a> the default program used to handle .txt files.</p>
 

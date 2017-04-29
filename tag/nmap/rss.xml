@@ -6,34 +6,53 @@
       <title>devalias.net</title>
    
    <link>http://devalias.net</link>
-   <description>Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.
-</description>
-   <language>en-uk</language>
+   <description>Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.</description>
+   <language>en_GB</language>
    <managingEditor> </managingEditor>
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
 	  <title>nmap.sh - Saving Precious Seconds</title>
-	  <link>/devalias/2013/07/13/nmap-sh-saving-precious-seconds/</link>
+	  <link>/pages/alias1/devalias.net/devalias/2013/07/13/nmap-sh-saving-precious-seconds/</link>
 	  <author>devalias</author>
 	  <pubDate>2013-07-13T08:00:00+10:00</pubDate>
-	  <guid>/devalias/2013/07/13/nmap-sh-saving-precious-seconds/</guid>
+	  <guid>/pages/alias1/devalias.net/devalias/2013/07/13/nmap-sh-saving-precious-seconds/</guid>
 	  <description><![CDATA[
 	     <p>In the course of my work I end up issuing the same simple commands again and again, and while they are pretty easy to remember, they still take more time than they really need to.</p>
 
 <p>With that in mind, here&#39;s a little bash script I threw together today to reduce the time it takes to kick off a standard (in my day to day usage) nmap scan. Hopefully you can get some use out of it.</p>
 
-<script src="https://gist.github.com/alias1/5963377.js"> </script>
+<p><noscript><pre>#!/bin/bash
+echo &quot;-----------------------------------------------&quot;
+echo &quot;A very simple script to make nmap scanning a little quicker to kick off&quot;
+echo &quot;By Glenn &#39;/dev/alias&#39; Grant (devalias.net)&quot;
+echo &quot;v0.3&quot;
+echo &quot;-----------------------------------------------&quot;
+<em>iphost=$1
+_now=$(date +&quot;%Y%m%d-%H%M&quot;)
+_nmapopts=&quot;-A -vvv ${@:2}&quot;
+_nmapoptshidden=&quot;--webxml&quot;
+_nmapoptsfilename=$(echo $</em>nmapopts | tr -d &#39; &#39;) 
+<em>file=&quot;nmap-$</em>now-$<em>iphost$</em>nmapoptsfilename&quot;</p>
+
+<p>if [ -z &quot;$1&quot; ]; then
+  echo &quot;Usage: nmap.sh ipOrHostnameToScan [any other arguments here]&quot;
+  echo &quot;Default Options: $<em>nmapoptshidden $</em>nmapopts&quot;
+  exit
+fi</p>
+
+<p>nmap -oA $<em>file $</em>nmapoptshidden $<em>nmapopts $</em>iphost
+</pre></noscript><script src="https://gist.github.com/alias1/5963377.js"> </script></p>
 
 	  ]]></description>
 	</item>
 
 	<item>
 	  <title>iPen: Hacking with the iDevice (Setting up your iPhone as a Penetration Tester)</title>
-	  <link>/devalias/2013/02/27/ipen-hacking-with-the-idevice/</link>
+	  <link>/pages/alias1/devalias.net/devalias/2013/02/27/ipen-hacking-with-the-idevice/</link>
 	  <author>devalias</author>
 	  <pubDate>2013-02-27T13:45:00+11:00</pubDate>
-	  <guid>/devalias/2013/02/27/ipen-hacking-with-the-idevice/</guid>
+	  <guid>/pages/alias1/devalias.net/devalias/2013/02/27/ipen-hacking-with-the-idevice/</guid>
 	  <description><![CDATA[
 	     <p>Today I finally got around to the task i&#39;ve been looking forward to for the last week or so. We got an iPad to play around with at work, mostly so we can try and break the mobile apps before they go public. Not a huge amount you can do on it in it&#39;s default state, so I got to jailbreak it!</p>
 

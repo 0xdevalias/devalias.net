@@ -6,18 +6,17 @@
       <title>devalias.net</title>
    
    <link>http://devalias.net</link>
-   <description>Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.
-</description>
-   <language>en-uk</language>
+   <description>Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.</description>
+   <language>en_GB</language>
    <managingEditor> </managingEditor>
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
 	  <title>iTerm2 + tmux = <3</title>
-	  <link>/devalias/2017/03/18/iterm-tmux-love/</link>
+	  <link>/pages/alias1/devalias.net/devalias/2017/03/18/iterm-tmux-love/</link>
 	  <author>devalias</author>
 	  <pubDate>2017-03-18T00:00:00+11:00</pubDate>
-	  <guid>/devalias/2017/03/18/iterm-tmux-love/</guid>
+	  <guid>/pages/alias1/devalias.net/devalias/2017/03/18/iterm-tmux-love/</guid>
 	  <description><![CDATA[
 	     <p>Just a quick note today, highlighting a super simple but amazingly useful combination I&#39;ve only recently become aware of: <a href="https://www.iterm2.com/">iTerm2</a> + <a href="https://tmux.github.io/">tmux</a>.</p>
 

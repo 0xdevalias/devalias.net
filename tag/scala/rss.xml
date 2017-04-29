@@ -6,18 +6,17 @@
       <title>devalias.net</title>
    
    <link>http://devalias.net</link>
-   <description>Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.
-</description>
-   <language>en-uk</language>
+   <description>Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.</description>
+   <language>en_GB</language>
    <managingEditor> </managingEditor>
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
 	  <title>GraphQL: Why You Should Care</title>
-	  <link>/devalias/2016/09/07/graphql-why-you-should-care/</link>
+	  <link>/pages/alias1/devalias.net/devalias/2016/09/07/graphql-why-you-should-care/</link>
 	  <author>devalias</author>
 	  <pubDate>2016-09-07T00:00:00+10:00</pubDate>
-	  <guid>/devalias/2016/09/07/graphql-why-you-should-care/</guid>
+	  <guid>/pages/alias1/devalias.net/devalias/2016/09/07/graphql-why-you-should-care/</guid>
 	  <description><![CDATA[
 	     <p>If you haven&#39;t yet come across <a href="http://graphql.org/">GraphQL</a>, it&#39;s kind of exciting stuff. It&#39;s a query language developed by <a href="https://code.facebook.com/posts/">Facebook</a>, that basically lets you request exactly the data you need for the given task; no more, no less. Sounds good right?</p>
 
@@ -104,16 +103,80 @@
 
 	<item>
 	  <title>Java/Scala Future/Promise Map *headsplode*</title>
-	  <link>/devalias/2014/05/15/java-scala-future-promise-map-headsplode/</link>
+	  <link>/pages/alias1/devalias.net/devalias/2014/05/15/java-scala-future-promise-map-headsplode/</link>
 	  <author>devalias</author>
 	  <pubDate>2014-05-15T08:55:00+10:00</pubDate>
-	  <guid>/devalias/2014/05/15/java-scala-future-promise-map-headsplode/</guid>
+	  <guid>/pages/alias1/devalias.net/devalias/2014/05/15/java-scala-future-promise-map-headsplode/</guid>
 	  <description><![CDATA[
 	     <p>A side by side comparison (now that I finally got it figured out!) of <a href="https://www.playframework.com/">Play Framework</a> v2.2.x promise unwrapping in <a href="https://www.java.com/en/">Java</a> and <a href="http://www.scala-lang.org/">Scala</a>. Hopefully this will be able to save some of you a bunch of mind numbing ponderings and failures.</p>
 
 <p>&lt;3 /dev/alias</p>
 
-<script src="https://gist.github.com/alias1/1d3b44312d8a68ddbaa5.js"> </script>
+<p><noscript><pre># Java/Scala Future/Promise Map</p>
+
+<p>A side by side comparison (now that I finally got it figured out!) of Play Framework v2.2.x promise unwrapping in Java and Scala.</p>
+
+<h2>Java</h2>
+<div class="highlight"><pre><code class="language-java" data-lang="java">  <span class="kd">public</span> <span class="n">Promise</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">ObjectNode</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span> <span class="n">getEmployees</span><span class="o">(</span><span class="kd">final</span> <span class="n">Optional</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">String</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span> <span class="n">filterEmail</span><span class="o">)</span>
+    <span class="o">{</span>
+        <span class="c1">// Call the webservice</span>
+        <span class="n">Promise</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">Response</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span> <span class="n">promiseOfEmployees</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">xero</span><span class="o">.</span><span class="na">getEmployees</span><span class="o">(</span><span class="n">filterEmail</span><span class="o">);</span>
+
+        <span class="c1">// Map into an ObjectNode</span>
+        <span class="n">Promise</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">ObjectNode</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span> <span class="n">promiseJson</span> <span class="o">=</span> <span class="n">promiseOfEmployees</span><span class="o">.</span><span class="na">map</span><span class="o">(</span><span class="k">new</span> <span class="n">F</span><span class="o">.</span><span class="na">Function</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">WS</span><span class="o">.</span><span class="na">Response</span><span class="o">,</span> <span class="n">ObjectNode</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;()</span>
+        <span class="o">{</span>
+            <span class="nd">@Override</span>
+            <span class="kd">public</span> <span class="n">ObjectNode</span> <span class="nf">apply</span><span class="o">(</span><span class="kd">final</span> <span class="n">Response</span> <span class="n">response</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Throwable</span>
+            <span class="o">{</span>
+                <span class="n">JsonNode</span> <span class="n">responseJson</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="na">asJson</span><span class="o">();</span>
+
+                <span class="n">ObjectNode</span> <span class="n">json</span> <span class="o">=</span> <span class="n">Json</span><span class="o">.</span><span class="na">newObject</span><span class="o">();</span>
+
+                <span class="n">json</span><span class="o">.</span><span class="na">put</span><span class="o">(&amp;</span><span class="n">quot</span><span class="o">;</span><span class="n">foo</span><span class="o">&amp;</span><span class="n">quot</span><span class="o">;,</span> <span class="o">&amp;</span><span class="n">quot</span><span class="o">;</span><span class="n">bar</span><span class="o">&amp;</span><span class="n">quot</span><span class="o">;);</span>
+
+                <span class="k">return</span> <span class="n">json</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">});</span>
+
+        <span class="c1">// Return</span>
+        <span class="k">return</span> <span class="n">promiseJson</span><span class="o">;</span>
+    <span class="o">}</span>
+</code></pre></div>
+<h2>Scala</h2>
+<div class="highlight"><pre><code class="language-scala" data-lang="scala"><span class="k">def</span> <span class="n">getEmployees</span><span class="o">(</span><span class="n">filterEmail</span><span class="k">:</span> <span class="kt">Optional</span><span class="o">[</span><span class="kt">String</span><span class="o">])</span><span class="k">:</span> <span class="kt">Promise</span><span class="o">[</span><span class="kt">ObjectNode</span><span class="o">]</span> <span class="k">=</span> <span class="o">{</span>
+    <span class="c1">// Call the webservice
+</span>    <span class="k">val</span> <span class="n">promiseOfEmployees</span><span class="k">:</span> <span class="kt">Promise</span><span class="o">[</span><span class="kt">Response</span><span class="o">]</span> <span class="k">=</span> <span class="k">this</span><span class="o">.</span><span class="n">xero</span><span class="o">.</span><span class="n">getEmployees</span><span class="o">(</span><span class="n">filterEmail</span><span class="o">)</span>
+
+    <span class="c1">// Map into an ObjectNode
+</span>    <span class="k">val</span> <span class="n">promiseJson</span><span class="k">:</span> <span class="kt">Future</span><span class="o">[</span><span class="kt">ObjectNode</span><span class="o">]</span> <span class="k">=</span> <span class="n">promiseOfEmployees</span><span class="o">.</span><span class="n">wrapped</span><span class="o">().</span><span class="n">map</span> <span class="o">{</span> <span class="n">response</span> <span class="o">=&amp;</span><span class="n">gt</span><span class="o">;</span>
+      <span class="k">val</span> <span class="n">jsonResponse</span><span class="k">:</span> <span class="kt">JsonNode</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">asJson</span><span class="o">();</span>
+      <span class="k">val</span> <span class="n">json</span><span class="k">:</span> <span class="kt">ObjectNode</span> <span class="o">=</span> <span class="nc">Json</span><span class="o">.</span><span class="n">newObject</span><span class="o">()</span>
+      <span class="n">json</span><span class="o">.</span><span class="n">put</span><span class="o">(&amp;</span><span class="n">quot</span><span class="o">;</span><span class="n">foo</span><span class="o">&amp;</span><span class="n">quot</span><span class="o">;,</span> <span class="o">&amp;</span><span class="n">quot</span><span class="o">;</span><span class="n">bar</span><span class="o">&amp;</span><span class="n">quot</span><span class="o">;);</span>
+      <span class="n">json</span> <span class="c1">// Return
+</span>    <span class="o">}</span>
+
+    <span class="c1">// Return
+</span>    <span class="k">return</span> <span class="nc">Promise</span><span class="o">.</span><span class="n">wrap</span><span class="o">(</span><span class="n">promiseJson</span><span class="o">)</span>
+  <span class="o">}</span>
+</code></pre></div>
+<h2>Scala (Implicit)</h2>
+<div class="highlight"><pre><code class="language-scala" data-lang="scala">  <span class="k">def</span> <span class="n">getEmployees</span><span class="o">(</span><span class="n">filterEmail</span><span class="k">:</span> <span class="kt">Optional</span><span class="o">[</span><span class="kt">String</span><span class="o">])</span><span class="k">:</span> <span class="kt">Promise</span><span class="o">[</span><span class="kt">ObjectNode</span><span class="o">]</span> <span class="k">=</span> <span class="o">{</span>
+    <span class="c1">// Call the webservice
+</span>    <span class="k">val</span> <span class="n">promiseOfEmployees</span> <span class="k">=</span> <span class="k">this</span><span class="o">.</span><span class="n">xero</span><span class="o">.</span><span class="n">getEmployees</span><span class="o">(</span><span class="n">filterEmail</span><span class="o">)</span>
+
+    <span class="c1">// Map into an ObjectNode
+</span>    <span class="k">val</span> <span class="n">promiseJson</span> <span class="k">=</span> <span class="n">promiseOfEmployees</span><span class="o">.</span><span class="n">wrapped</span><span class="o">().</span><span class="n">map</span> <span class="o">{</span> <span class="n">response</span> <span class="o">=&amp;</span><span class="n">gt</span><span class="o">;</span>
+      <span class="k">val</span> <span class="n">jsonResponse</span> <span class="k">=</span> <span class="n">response</span><span class="o">.</span><span class="n">asJson</span><span class="o">();</span>
+      <span class="k">val</span> <span class="n">json</span> <span class="k">=</span> <span class="nc">Json</span><span class="o">.</span><span class="n">newObject</span><span class="o">()</span>
+      <span class="n">json</span><span class="o">.</span><span class="n">put</span><span class="o">(&amp;</span><span class="n">quot</span><span class="o">;</span><span class="n">foo</span><span class="o">&amp;</span><span class="n">quot</span><span class="o">;,</span> <span class="o">&amp;</span><span class="n">quot</span><span class="o">;</span><span class="n">bar</span><span class="o">&amp;</span><span class="n">quot</span><span class="o">;);</span>
+      <span class="n">json</span> <span class="c1">// Return
+</span>    <span class="o">}</span>
+
+    <span class="c1">// Return
+</span>    <span class="k">return</span> <span class="nc">Promise</span><span class="o">.</span><span class="n">wrap</span><span class="o">(</span><span class="n">promiseJson</span><span class="o">)</span>
+  <span class="o">}</span>
+</code></pre></div>
+<p>&lt;3 Glenn / devalias</pre></noscript><script src="https://gist.github.com/alias1/1d3b44312d8a68ddbaa5.js"> </script></p>
 
 	  ]]></description>
 	</item>

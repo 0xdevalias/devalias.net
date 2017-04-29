@@ -1,74 +1,66 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <!-- [[! Document Settings ]] -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- [[! Page Meta ]] -->
-    <title>nmap.sh - Saving Precious Seconds</title>
-    <meta name="description" content="/dev/alias – Hack. Dev. Transcend. - Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.
-">
+  <link rel="shortcut icon" href="/pages/alias1/devalias.net/assets/images/authors/devalias.png" >
 
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="origin" />
+  <meta name="generator" content="Jekyll 3.x" />
 
-    <!-- Webmention -->
-    <link rel="webmention" href="https://webmention.io/devalias.net/webmention">
-<link rel="pingback" href="https://webmention.io/devalias.net/xmlrpc">
+  <link type="application/atom+xml" rel="alternate" href="http://devalias.net/pages/alias1/devalias.net/feed.xml" title="/dev/alias – Hack. Dev. Transcend." />
 
-    <meta property="webmention:redirected_from" content="http://devalias.tumblr.com/post/55235350835/nmap-sh-saving-precious-seconds,/post/55235350835/nmap-sh-saving-precious-seconds">
-
-    <link rel="shortcut icon" href="/assets/images/authors/devalias.png">
-
-    <!-- [[! Styles'n'Scripts ]] -->
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic%7COpen+Sans:700,400">
-          
-    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css">
-    <link rel="stylesheet" type="text/css" href="/assets/css/syntax.css">
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-
-    <link rel="stylesheet" type="text/css" href="/assets/css/custom.css">
-    
-    <!-- [[! Ghost outputs important style and meta data with this tag ]] -->
-      <link rel="canonical" href="/">
-  <meta name="referrer" content="origin">
-  <!-- <link rel="next" href="/page2/" /> -->
-
-  <meta property="og:site_name" content="">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="">
-  <meta property="og:description" content="Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.
-">
-  <meta property="og:url" content="/">
-  <meta property="og:image" content="/assets/images/cover4.jpg">
-
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="/dev/alias – Hack. Dev. Transcend.">
-  <meta name="twitter:description" content="Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.
-">
-  <meta name="twitter:url" content="/">
-  <meta name="twitter:image:src" content="/assets/images/cover4.jpg">
-
-  <script type="application/ld+json">
-{
-    "@context": "http://schema.org",
-    "@type": "Website",
-    "publisher": "devalias.net}",
-    "url": "/",
-    "image": "/assets/images/cover4.jpg",
-    "description": "Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.
-"
-}
-  </script>
-
-  <meta name="generator" content="Jekyll 3.x">
-  <link rel="home" type="application/rss+xml" title="/dev/alias – Hack. Dev. Transcend." href="/feed.xml">
+  <!-- Begin Jekyll SEO tag v2.2.1 -->
+<title>nmap.sh - Saving Precious Seconds | /dev/alias – Hack. Dev. Transcend.</title>
+<meta property="og:title" content="nmap.sh - Saving Precious Seconds" />
+<meta name="author" content="Glenn 'devalias' Grant" />
+<meta property="og:locale" content="en_GB" />
+<meta name="description" content="In the course of my work I end up issuing the same simple commands again and again, and while they are pretty easy to remember, they still take more time than they really need to." />
+<meta property="og:description" content="In the course of my work I end up issuing the same simple commands again and again, and while they are pretty easy to remember, they still take more time than they really need to." />
+<link rel="canonical" href="http://devalias.net/pages/alias1/devalias.net/devalias/2013/07/13/nmap-sh-saving-precious-seconds/" />
+<meta property="og:url" content="http://devalias.net/pages/alias1/devalias.net/devalias/2013/07/13/nmap-sh-saving-precious-seconds/" />
+<meta property="og:site_name" content="/dev/alias – Hack. Dev. Transcend." />
+<meta property="og:image" content="http://devalias.net/pages/alias1/devalias.net/assets/images/cover4.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2013-07-13T08:00:00+10:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@_devalias" />
+<meta name="twitter:creator" content="@_devalias" />
+<script type="application/ld+json">
+{"@context":"http://schema.org","@type":"BlogPosting","headline":"nmap.sh - Saving Precious Seconds","author":{"@type":"Person","name":"Glenn 'devalias' Grant"},"image":"http://devalias.net/pages/alias1/devalias.net/assets/images/cover4.jpg","datePublished":"2013-07-13T08:00:00+10:00","dateModified":"2013-07-13T08:00:00+10:00","description":"In the course of my work I end up issuing the same simple commands again and again, and while they are pretty easy to remember, they still take more time than they really need to.","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://devalias.net/pages/alias1/devalias.net/assets/images/cover4.jpg"},"name":"Glenn 'devalias' Grant"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://devalias.net/pages/alias1/devalias.net/devalias/2013/07/13/nmap-sh-saving-precious-seconds/"},"url":"http://devalias.net/pages/alias1/devalias.net/devalias/2013/07/13/nmap-sh-saving-precious-seconds/"}</script>
+<!-- End Jekyll SEO tag -->
 
 
+  <!-- old tags, still needed? -->
+  <meta name="twitter:title" content="/dev/alias – Hack. Dev. Transcend." />
+  <meta name="twitter:description" content="Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more." />
+  <!-- <meta name="twitter:image" content="/pages/alias1/devalias.net/assets/images/cover4.jpg" /> -->
+  <!-- /end tags -->
+
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
+        
+  <link rel="stylesheet" type="text/css" href="/pages/alias1/devalias.net/assets/css/screen.css" />
+  <link rel="stylesheet" type="text/css" href="/pages/alias1/devalias.net/assets/css/syntax.css" />
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+  <link rel="stylesheet" type="text/css" href="/pages/alias1/devalias.net/assets/css/custom.css" />
+
+  <!-- Webmention -->
+  <link rel="webmention" href="https://webmention.io/devalias.net/webmention" />
+<link rel="pingback" href="https://webmention.io/devalias.net/xmlrpc" />
+
+  <meta property="webmention:redirected_from" content="http://devalias.tumblr.com/post/55235350835/nmap-sh-saving-precious-seconds,/post/55235350835/nmap-sh-saving-precious-seconds">
+
+  <!-- https://indieauth.com/ -->
+<link href="https://twitter.com/_devalias" rel="me">
+<link href="https://github.com/alias1" rel="me">
 </head>
+
 <body class="post-template nav-closed">
 
     <div class="nav">
@@ -79,35 +71,35 @@
     <ul>
         
             <li class="nav-home " role="presentation">
-                <a href="/">Home</a>
+                <a href="/pages/alias1/devalias.net/">Home</a>
             </li>
         
             <li class="nav-about " role="presentation">
-                <a href="/about">About</a>
+                <a href="/pages/alias1/devalias.net/about">About</a>
             </li>
         
             <li class="nav-dev " role="presentation">
-                <a href="/dev">Development</a>
+                <a href="/pages/alias1/devalias.net/dev">Development</a>
             </li>
         
             <li class="nav-sec " role="presentation">
-                <a href="/sec">Security</a>
+                <a href="/pages/alias1/devalias.net/sec">Security</a>
             </li>
         
             <li class="nav-personal " role="presentation">
-                <a href="/personal">Personal</a>
+                <a href="/pages/alias1/devalias.net/personal">Personal</a>
             </li>
         
             <li class="nav-stuff-i-like " role="presentation">
-                <a href="/stuff-i-like">Stuff I Like</a>
+                <a href="/pages/alias1/devalias.net/stuff-i-like">Stuff I Like</a>
             </li>
         
             <li class="nav-go-deeper " role="presentation">
-                <a href="/go-deeper">Go Deeper...</a>
+                <a href="/pages/alias1/devalias.net/go-deeper">Go Deeper...</a>
             </li>
         
     </ul>
-    <a class="subscribe-button" href="/feed.xml"><i class="fa fa-rss"></i> Subscribe</a>
+    <a class="subscribe-button" href="/pages/alias1/devalias.net/feed.xml"><i class="fa fa-rss"></i> Subscribe</a>
 </div>
 <span class="nav-cover"></span>
 
@@ -121,11 +113,11 @@
 
 <header class="main-header
                
-                    " style="background-image: url(/assets/images/cover4.jpg)
+                    " style="background-image: url(/pages/alias1/devalias.net/assets/images/cover4.jpg)
                 ">
     <nav class="main-nav overlay clearfix">
         
-          <a class="blog-logo" href="/"><img src="/assets/images/devalias-prompt.png" alt="Blog Logo"></a>
+          <a class="blog-logo" href="/pages/alias1/devalias.net/"><img src="/pages/alias1/devalias.net/assets/images/devalias-prompt.png" alt="Blog Logo" /></a>
         
         
             <a class="menu-button" href="#"><i class="fa fa-bars"></i> <span class="word">Menu</span></a>
@@ -156,10 +148,10 @@
             <!-- <h1 class="post-title">nmap.sh - Saving Precious Seconds</h1> -->
             <section class="post-meta">
     
-        <img class="author-thumb" src="/assets/images/authors/devalias.png" alt="Author image" nopin="nopin">
+        <img class="author-thumb" src="/pages/alias1/devalias.net/assets/images/authors/devalias.png" alt="Author image" nopin="nopin" />
     
     
-        <a href="/author/devalias">Glenn 'devalias' Grant</a>
+        <a href='/pages/alias1/devalias.net/author/devalias'>Glenn 'devalias' Grant</a>
     
     |
     <time class="post-date" datetime="2013-07-13">13 Jul 2013</time>
@@ -172,19 +164,19 @@
     
         |
         
-            <a href="/tag/bash">#bash</a>,
+            <a href='/pages/alias1/devalias.net/tag/bash'>#bash</a>,
         
-            <a href="/tag/nmap">#nmap</a>,
+            <a href='/pages/alias1/devalias.net/tag/nmap'>#nmap</a>,
         
-            <a href="/tag/productivity">#productivity</a>,
+            <a href='/pages/alias1/devalias.net/tag/productivity'>#productivity</a>,
         
-            <a href="/tag/nmap.sh">#nmap.sh</a>,
+            <a href='/pages/alias1/devalias.net/tag/nmap.sh'>#nmap.sh</a>,
         
-            <a href="/tag/hack">#hack</a>,
+            <a href='/pages/alias1/devalias.net/tag/hack'>#hack</a>,
         
-            <a href="/tag/pentest">#pentest</a>,
+            <a href='/pages/alias1/devalias.net/tag/pentest'>#pentest</a>,
         
-            <a href="/tag/gist">#gist</a>
+            <a href='/pages/alias1/devalias.net/tag/gist'>#gist</a>
         
     
     
@@ -197,9 +189,29 @@
         <section class="post-content">
             <p>In the course of my work I end up issuing the same simple commands again and again, and while they are pretty easy to remember, they still take more time than they really need to.</p>
 
-<p>With that in mind, here's a little bash script I threw together today to reduce the time it takes to kick off a standard (in my day to day usage) nmap scan. Hopefully you can get some use out of it.</p>
+<p>With that in mind, here&#39;s a little bash script I threw together today to reduce the time it takes to kick off a standard (in my day to day usage) nmap scan. Hopefully you can get some use out of it.</p>
 
-<script src="https://gist.github.com/alias1/5963377.js"> </script>
+<p><noscript><pre>#!/bin/bash
+echo &quot;-----------------------------------------------&quot;
+echo &quot;A very simple script to make nmap scanning a little quicker to kick off&quot;
+echo &quot;By Glenn &#39;/dev/alias&#39; Grant (devalias.net)&quot;
+echo &quot;v0.3&quot;
+echo &quot;-----------------------------------------------&quot;
+<em>iphost=$1
+_now=$(date +&quot;%Y%m%d-%H%M&quot;)
+_nmapopts=&quot;-A -vvv ${@:2}&quot;
+_nmapoptshidden=&quot;--webxml&quot;
+_nmapoptsfilename=$(echo $</em>nmapopts | tr -d &#39; &#39;) 
+<em>file=&quot;nmap-$</em>now-$<em>iphost$</em>nmapoptsfilename&quot;</p>
+
+<p>if [ -z &quot;$1&quot; ]; then
+  echo &quot;Usage: nmap.sh ipOrHostnameToScan [any other arguments here]&quot;
+  echo &quot;Default Options: $<em>nmapoptshidden $</em>nmapopts&quot;
+  exit
+fi</p>
+
+<p>nmap -oA $<em>file $</em>nmapoptshidden $<em>nmapopts $</em>iphost
+</pre></noscript><script src="https://gist.github.com/alias1/5963377.js"> </script></p>
 
         </section>
 
@@ -209,20 +221,19 @@
 
             
 	<figure class="author-image">
-	    <a class="img" href="/author/devalias" style="background-image: url(/assets/images/authors/devalias.png)"><span class="hidden">devalias's Picture</span></a>
+	    <a class="img" href="/pages/alias1/devalias.net/author/devalias" style="background-image: url(/pages/alias1/devalias.net/assets/images/authors/devalias.png)"><span class="hidden">devalias's Picture</span></a>
 	</figure>
 
 
             <section class="author">
                 <h4>
                     
-                        <a href="/author/devalias">Glenn 'devalias' Grant</a>
+                        <a href="/pages/alias1/devalias.net/author/devalias">Glenn 'devalias' Grant</a>
                     
                 </h4>
                 
                 
-                    <p> Glenn is a full-stack, polyglot developer with an acute interest in the offensive side of security; as well as technology, efficiency, biohacking, health, personal growth and a whole lot more.
-</p>
+                    <p> Glenn is a full-stack, polyglot developer with an acute interest in the offensive side of security; as well as technology, efficiency, biohacking, health, personal growth and a whole lot more.</p>
                 
                 <div class="author-meta">
     
@@ -242,7 +253,7 @@
     
 </div>
                 <div class="author-social">
-    <a href="/author/devalias/rss.xml" title="RSS Feed"><i class="fa fa-rss fa-1x"></i></a>
+    <a href="/pages/alias1/devalias.net/author/devalias/rss.xml" title="RSS Feed"><i class="fa fa-rss fa-1x"></i></a>
     
         <a href="https://twitter.com/_devalias" title="Twitter" target="_blank"><i class="fa fa-twitter-square fa-1x"></i></a>
     
@@ -279,9 +290,9 @@
 
 <section class="share">
     <h4>Share this post</h4>
-    <a href="http://twitter.com/share?text=nmap.sh%20-%20Saving%20Precious%20Seconds&amp;url=http://devalias.net/devalias/2013/07/13/nmap-sh-saving-precious-seconds/" title="Share on Twitter" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"><i class="fa fa-twitter-square fa-2x"></i></a>
+    <a href="http://twitter.com/share?text=nmap.sh - Saving Precious Seconds&amp;url=http://devalias.net/devalias/2013/07/13/nmap-sh-saving-precious-seconds/" title="Share on Twitter" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"><i class="fa fa-twitter-square fa-2x"></i></a>
     <a href="https://www.facebook.com/sharer/sharer.php?u=http://devalias.net/devalias/2013/07/13/nmap-sh-saving-precious-seconds/" title="Share on Facebook" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;"><i class="fa fa-facebook-square fa-2x"></i></a>
-    <a href="https://plus.google.com/share?url=http://devalias.net/devalias/2013/07/13/nmap-sh-saving-precious-seconds/" title="Share on Google+" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;"><i class="fa fa-google-plus-square fa-2x"></i></a>
+    <a href="https://plus.google.com/share?url=http://devalias.net/devalias/2013/07/13/nmap-sh-saving-precious-seconds/"  title="Share on Google+" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;"><i class="fa fa-google-plus-square fa-2x"></i></a>
 </section>
             
             
@@ -300,11 +311,9 @@
                 (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
             })();
         </script>
-        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-</noscript>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
         <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
-    </footer></article></main>
-</div>
+    </div>
 
             
 
@@ -314,17 +323,17 @@
 
             
             
-        
+        </footer>
 
-    
+    </article>
 
-
+</main>
 
 <aside class="read-next">
 
     <!-- [[! next_post ]] -->
     
-        <a class="read-next-story no-cover" href="/devalias/2013/07/18/8-reasons-why-better-nutrition-makes-you-a-better-developer/">
+        <a class="read-next-story no-cover" href="/pages/alias1/devalias.net/devalias/2013/07/18/8-reasons-why-better-nutrition-makes-you-a-better-developer/">
             <section class="post">
                 <h2>8 Reasons Why Better Nutrition Makes You a Better Developer</h2>
                 <p>Ref: [8 Reasons Why Better Nutrition Makes You a Better Developer](https://thecodebarbarian.wordpress.com/2013/06/21/8-reasons-why-better-nutrition-makes-you-a-better-developer/) So this one isn't from me, but I thought it was worth giving some...</p>
@@ -334,7 +343,7 @@
     <!-- [[! /next_post ]] -->
     <!-- [[! prev_post ]] -->
     
-        <a class="read-next-story prev no-cover" href="/devalias/2013/07/11/fixing-windows-productivity-issues-osx-style/">
+        <a class="read-next-story prev no-cover" href="/pages/alias1/devalias.net/devalias/2013/07/11/fixing-windows-productivity-issues-osx-style/">
             <section class="post">
                 <h2>Fixing Windows Productivity Issues OSX Style</h2>
                 <p>As much as past me would hate me for saying this, these days I am quite the fan of a number of Apple products. My...</p>
@@ -349,11 +358,11 @@
 
         <footer class="site-footer clearfix">
             <section class="copyright">
-                <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"></a><br><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">devalias.net</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://www.devalias.net/" property="cc:attributionName" rel="cc:attributionURL">Glenn 'devalias' Grant</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+                <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">devalias.net</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://www.devalias.net/" property="cc:attributionName" rel="cc:attributionURL">Glenn 'devalias' Grant</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
             </section>
             <section class="poweredby">
                 <div>
-                    <strong>Build:</strong> 4eaafd8c
+                    <strong>Build:</strong> ade5bea2
                     <a href="https://github.com/alias1/devalias.net/tree/master/_posts/2013-07-13-nmap-sh-saving-precious-seconds.md" target="_blank">
                         <i class="fa fa-edit"></i>
                         Edit on GitHub
@@ -367,12 +376,12 @@
                 <a href="https://github.com/" target="_blank">GitHub</a>
             </section>
         </footer>
-    
+    </div>
     <!-- [[! Ghost outputs important scripts and data with this tag ]] -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
     <!-- [[! The main JavaScript file for Casper ]] -->
-    <script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
-    <script type="text/javascript" src="/assets/js/index.js"></script>
+    <script type="text/javascript" src="/pages/alias1/devalias.net/assets/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="/pages/alias1/devalias.net/assets/js/index.js"></script>
     <script type="text/javascript" src="/assets/js/webmention_io.js"></script>
 
         <!-- Google Analytics Tracking code -->

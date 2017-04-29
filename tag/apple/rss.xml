@@ -6,18 +6,17 @@
       <title>devalias.net</title>
    
    <link>http://devalias.net</link>
-   <description>Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.
-</description>
-   <language>en-uk</language>
+   <description>Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.</description>
+   <language>en_GB</language>
    <managingEditor> </managingEditor>
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
 	  <title>Shared Devices Need Account Switching</title>
-	  <link>/devalias/2016/08/31/shared-devices-need-account-switching/</link>
+	  <link>/pages/alias1/devalias.net/devalias/2016/08/31/shared-devices-need-account-switching/</link>
 	  <author>devalias</author>
 	  <pubDate>2016-08-31T00:00:00+10:00</pubDate>
-	  <guid>/devalias/2016/08/31/shared-devices-need-account-switching/</guid>
+	  <guid>/pages/alias1/devalias.net/devalias/2016/08/31/shared-devices-need-account-switching/</guid>
 	  <description><![CDATA[
 	     <p>Living in share houses and using tech like the Apple TV has highlighted an annoying situation: so many apps these days want you to sign in to enable access, personalised features, etc; but most offer no good solution for when you share the device with other people.</p>
 
@@ -48,10 +47,10 @@
 
 	<item>
 	  <title>Accessing Files from other Time Machine backups</title>
-	  <link>/devalias/2016/07/07/access-files-from-other-time-machine-backups/</link>
+	  <link>/pages/alias1/devalias.net/devalias/2016/07/07/access-files-from-other-time-machine-backups/</link>
 	  <author>devalias</author>
 	  <pubDate>2016-07-07T00:00:00+10:00</pubDate>
-	  <guid>/devalias/2016/07/07/access-files-from-other-time-machine-backups/</guid>
+	  <guid>/pages/alias1/devalias.net/devalias/2016/07/07/access-files-from-other-time-machine-backups/</guid>
 	  <description><![CDATA[
 	     <p>There are two main methods for accessing files from other Time Machine backups:</p>
 
@@ -93,10 +92,10 @@
 
 	<item>
 	  <title>The Dark Side - Macbook Pro</title>
-	  <link>/devalias/2011/09/16/the-dark-side-macbook-pro/</link>
+	  <link>/pages/alias1/devalias.net/devalias/2011/09/16/the-dark-side-macbook-pro/</link>
 	  <author>devalias</author>
 	  <pubDate>2011-09-16T13:02:00+10:00</pubDate>
-	  <guid>/devalias/2011/09/16/the-dark-side-macbook-pro/</guid>
+	  <guid>/pages/alias1/devalias.net/devalias/2011/09/16/the-dark-side-macbook-pro/</guid>
 	  <description><![CDATA[
 	     <p>I am a firm believer in the &#39;build it yourself&#39; aspect of computing, and with that comes an inherent dislike for the overpriced, simplistic, bright coloured devilspawn known as Apple. With that being said, there was a time that I walked among the darkness, though it was many many ages ago. Over recent years I have been drawing ever slowly back in that direction though, each shiny new device they release bringing me that much closer. It seems now that I have finally stepped over that threshold, into the darkness once more.</p>
 

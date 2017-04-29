@@ -6,18 +6,17 @@
       <title>devalias.net</title>
    
    <link>http://devalias.net</link>
-   <description>Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.
-</description>
-   <language>en-uk</language>
+   <description>Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.</description>
+   <language>en_GB</language>
    <managingEditor> </managingEditor>
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
 	  <title>GraphQL: Why You Should Care</title>
-	  <link>/devalias/2016/09/07/graphql-why-you-should-care/</link>
+	  <link>/pages/alias1/devalias.net/devalias/2016/09/07/graphql-why-you-should-care/</link>
 	  <author>devalias</author>
 	  <pubDate>2016-09-07T00:00:00+10:00</pubDate>
-	  <guid>/devalias/2016/09/07/graphql-why-you-should-care/</guid>
+	  <guid>/pages/alias1/devalias.net/devalias/2016/09/07/graphql-why-you-should-care/</guid>
 	  <description><![CDATA[
 	     <p>If you haven&#39;t yet come across <a href="http://graphql.org/">GraphQL</a>, it&#39;s kind of exciting stuff. It&#39;s a query language developed by <a href="https://code.facebook.com/posts/">Facebook</a>, that basically lets you request exactly the data you need for the given task; no more, no less. Sounds good right?</p>
 
@@ -104,10 +103,10 @@
 
 	<item>
 	  <title>Syncing Facebook Bdays/Events with Other Calendars</title>
-	  <link>/devalias/2011/10/17/syncing-facebook-bdaysevents-with-other-calendars/</link>
+	  <link>/pages/alias1/devalias.net/devalias/2011/10/17/syncing-facebook-bdaysevents-with-other-calendars/</link>
 	  <author>devalias</author>
 	  <pubDate>2011-10-17T07:39:00+11:00</pubDate>
-	  <guid>/devalias/2011/10/17/syncing-facebook-bdaysevents-with-other-calendars/</guid>
+	  <guid>/pages/alias1/devalias.net/devalias/2011/10/17/syncing-facebook-bdaysevents-with-other-calendars/</guid>
 	  <description><![CDATA[
 	     <p>I&#39;m sure i&#39;m not alone when I say that without Facebook events/bdays I would be so much more out of the loop. A while ago I realised that I could subscribe to events/bday feeds in my external calendars (in this case, my iPhone). Best; Day; Ever! Suddenly I don&#39;t need to be at my computer to know what&#39;s going on, which for me is great since I tend to have the &#39;out of sight out of mind&#39; mentality. Even if I looked at them this morning, ask me at midday and I won&#39;t remember a thing I have planned.</p>
 
@@ -140,10 +139,10 @@
 
 	<item>
 	  <title>Facebook for iPhone v4.0</title>
-	  <link>/devalias/2011/10/13/facebook-for-iphone-v4/</link>
+	  <link>/pages/alias1/devalias.net/devalias/2011/10/13/facebook-for-iphone-v4/</link>
 	  <author>devalias</author>
 	  <pubDate>2011-10-13T09:10:00+11:00</pubDate>
-	  <guid>/devalias/2011/10/13/facebook-for-iphone-v4/</guid>
+	  <guid>/pages/alias1/devalias.net/devalias/2011/10/13/facebook-for-iphone-v4/</guid>
 	  <description><![CDATA[
 	     <p>I must say, I am quite impressed with the latest iteration of the Facebook app for iPhone. For a long time now, the app has felt sluggish, bloated, and kind of hacked together. No offence to the devs, it would be no easy task to build and maintain it, but sometimes you need a good overhaul to clean everything up, and maybe a new UI to freshen things a little. It seems this is exactly what we get with v4.0.</p>
 

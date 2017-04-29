@@ -6,18 +6,17 @@
       <title>devalias.net</title>
    
    <link>http://devalias.net</link>
-   <description>Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.
-</description>
-   <language>en-uk</language>
+   <description>Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.</description>
+   <language>en_GB</language>
    <managingEditor> </managingEditor>
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
 	  <title>Using Lombok with Play! Framework 2.2x</title>
-	  <link>/devalias/2014/04/17/using-lombok-with-play-framework-22x/</link>
+	  <link>/pages/alias1/devalias.net/devalias/2014/04/17/using-lombok-with-play-framework-22x/</link>
 	  <author>devalias</author>
 	  <pubDate>2014-04-17T11:44:47+10:00</pubDate>
-	  <guid>/devalias/2014/04/17/using-lombok-with-play-framework-22x/</guid>
+	  <guid>/pages/alias1/devalias.net/devalias/2014/04/17/using-lombok-with-play-framework-22x/</guid>
 	  <description><![CDATA[
 	     <p><a href="https://projectlombok.org/">Lombok</a> is a project that removes some of the tediousness of Java by letting you use annotations to replace the verbosity of Getters/Setters (and heaps of other cool things!)</p>
 

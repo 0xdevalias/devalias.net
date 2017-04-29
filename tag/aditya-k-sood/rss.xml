@@ -6,18 +6,17 @@
       <title>devalias.net</title>
    
    <link>http://devalias.net</link>
-   <description>Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.
-</description>
-   <language>en-uk</language>
+   <description>Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.</description>
+   <language>en_GB</language>
    <managingEditor> </managingEditor>
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
 	  <title>Sparty - Sharepoint and Frontpage Auditing Tool (Now With More NTLM Authentication!)</title>
-	  <link>/devalias/2013/11/14/sparty-sharepoint-frontpage-auditing-tool-now-with-more-ntlm/</link>
+	  <link>/pages/alias1/devalias.net/devalias/2013/11/14/sparty-sharepoint-frontpage-auditing-tool-now-with-more-ntlm/</link>
 	  <author>devalias</author>
 	  <pubDate>2013-11-14T09:00:52+11:00</pubDate>
-	  <guid>/devalias/2013/11/14/sparty-sharepoint-frontpage-auditing-tool-now-with-more-ntlm/</guid>
+	  <guid>/pages/alias1/devalias.net/devalias/2013/11/14/sparty-sharepoint-frontpage-auditing-tool-now-with-more-ntlm/</guid>
 	  <description><![CDATA[
 	     <p>I&#39;ve been doing a little bit of poking around Sharepoint security lately, doing some research and playing with some assessment/pentest tools. One such tool (released this year at <a href="https://www.blackhat.com/us-13/">Black Hat USA</a>) is called <a href="http://sparty.secniche.org/">Sparty</a>. Written by <a href="https://twitter.com/AdityaKSood">0kn0ck</a> (aka Aditya K Sood) of <a href="http://secniche.org/">SecNiche Security Labs</a>, Sparty is a tool designed to assist in auditing sites built on Microsoft Sharepoint and/or Frontpage.</p>
 

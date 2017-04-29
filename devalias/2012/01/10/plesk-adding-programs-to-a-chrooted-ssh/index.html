@@ -1,74 +1,66 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <!-- [[! Document Settings ]] -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- [[! Page Meta ]] -->
-    <title>Plesk - Adding programs to a chrooted SSH</title>
-    <meta name="description" content="/dev/alias – Hack. Dev. Transcend. - Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.
-">
+  <link rel="shortcut icon" href="/pages/alias1/devalias.net/assets/images/authors/devalias.png" >
 
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="origin" />
+  <meta name="generator" content="Jekyll 3.x" />
 
-    <!-- Webmention -->
-    <link rel="webmention" href="https://webmention.io/devalias.net/webmention">
-<link rel="pingback" href="https://webmention.io/devalias.net/xmlrpc">
+  <link type="application/atom+xml" rel="alternate" href="http://devalias.net/pages/alias1/devalias.net/feed.xml" title="/dev/alias – Hack. Dev. Transcend." />
 
-    <meta property="webmention:redirected_from" content="http://devalias.tumblr.com/post/15535429513/plesk-adding-programs-to-a-chrooted-ssh,/post/15535429513/plesk-adding-programs-to-a-chrooted-ssh">
-
-    <link rel="shortcut icon" href="/assets/images/authors/devalias.png">
-
-    <!-- [[! Styles'n'Scripts ]] -->
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic%7COpen+Sans:700,400">
-          
-    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css">
-    <link rel="stylesheet" type="text/css" href="/assets/css/syntax.css">
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-
-    <link rel="stylesheet" type="text/css" href="/assets/css/custom.css">
-    
-    <!-- [[! Ghost outputs important style and meta data with this tag ]] -->
-      <link rel="canonical" href="/">
-  <meta name="referrer" content="origin">
-  <!-- <link rel="next" href="/page2/" /> -->
-
-  <meta property="og:site_name" content="">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="">
-  <meta property="og:description" content="Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.
-">
-  <meta property="og:url" content="/">
-  <meta property="og:image" content="/assets/images/cover4.jpg">
-
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="/dev/alias – Hack. Dev. Transcend.">
-  <meta name="twitter:description" content="Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.
-">
-  <meta name="twitter:url" content="/">
-  <meta name="twitter:image:src" content="/assets/images/cover4.jpg">
-
-  <script type="application/ld+json">
-{
-    "@context": "http://schema.org",
-    "@type": "Website",
-    "publisher": "devalias.net}",
-    "url": "/",
-    "image": "/assets/images/cover4.jpg",
-    "description": "Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.
-"
-}
-  </script>
-
-  <meta name="generator" content="Jekyll 3.x">
-  <link rel="home" type="application/rss+xml" title="/dev/alias – Hack. Dev. Transcend." href="/feed.xml">
+  <!-- Begin Jekyll SEO tag v2.2.1 -->
+<title>Plesk - Adding programs to a chrooted SSH | /dev/alias – Hack. Dev. Transcend.</title>
+<meta property="og:title" content="Plesk - Adding programs to a chrooted SSH" />
+<meta name="author" content="Glenn 'devalias' Grant" />
+<meta property="og:locale" content="en_GB" />
+<meta name="description" content="Just a few notes today about making programs (in this case git) available to a chrooted SSH account in Plesk. I&#39;m assuming the account is already setup for ssh, etc so I will just be covering where to copy the files to." />
+<meta property="og:description" content="Just a few notes today about making programs (in this case git) available to a chrooted SSH account in Plesk. I&#39;m assuming the account is already setup for ssh, etc so I will just be covering where to copy the files to." />
+<link rel="canonical" href="http://devalias.net/pages/alias1/devalias.net/devalias/2012/01/10/plesk-adding-programs-to-a-chrooted-ssh/" />
+<meta property="og:url" content="http://devalias.net/pages/alias1/devalias.net/devalias/2012/01/10/plesk-adding-programs-to-a-chrooted-ssh/" />
+<meta property="og:site_name" content="/dev/alias – Hack. Dev. Transcend." />
+<meta property="og:image" content="http://devalias.net/pages/alias1/devalias.net/assets/images/cover4.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2012-01-10T05:29:00+11:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@_devalias" />
+<meta name="twitter:creator" content="@_devalias" />
+<script type="application/ld+json">
+{"@context":"http://schema.org","@type":"BlogPosting","headline":"Plesk - Adding programs to a chrooted SSH","author":{"@type":"Person","name":"Glenn 'devalias' Grant"},"image":"http://devalias.net/pages/alias1/devalias.net/assets/images/cover4.jpg","datePublished":"2012-01-10T05:29:00+11:00","dateModified":"2012-01-10T05:29:00+11:00","description":"Just a few notes today about making programs (in this case git) available to a chrooted SSH account in Plesk. I&#39;m assuming the account is already setup for ssh, etc so I will just be covering where to copy the files to.","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://devalias.net/pages/alias1/devalias.net/assets/images/cover4.jpg"},"name":"Glenn 'devalias' Grant"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://devalias.net/pages/alias1/devalias.net/devalias/2012/01/10/plesk-adding-programs-to-a-chrooted-ssh/"},"url":"http://devalias.net/pages/alias1/devalias.net/devalias/2012/01/10/plesk-adding-programs-to-a-chrooted-ssh/"}</script>
+<!-- End Jekyll SEO tag -->
 
 
+  <!-- old tags, still needed? -->
+  <meta name="twitter:title" content="/dev/alias – Hack. Dev. Transcend." />
+  <meta name="twitter:description" content="Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more." />
+  <!-- <meta name="twitter:image" content="/pages/alias1/devalias.net/assets/images/cover4.jpg" /> -->
+  <!-- /end tags -->
+
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
+        
+  <link rel="stylesheet" type="text/css" href="/pages/alias1/devalias.net/assets/css/screen.css" />
+  <link rel="stylesheet" type="text/css" href="/pages/alias1/devalias.net/assets/css/syntax.css" />
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+  <link rel="stylesheet" type="text/css" href="/pages/alias1/devalias.net/assets/css/custom.css" />
+
+  <!-- Webmention -->
+  <link rel="webmention" href="https://webmention.io/devalias.net/webmention" />
+<link rel="pingback" href="https://webmention.io/devalias.net/xmlrpc" />
+
+  <meta property="webmention:redirected_from" content="http://devalias.tumblr.com/post/15535429513/plesk-adding-programs-to-a-chrooted-ssh,/post/15535429513/plesk-adding-programs-to-a-chrooted-ssh">
+
+  <!-- https://indieauth.com/ -->
+<link href="https://twitter.com/_devalias" rel="me">
+<link href="https://github.com/alias1" rel="me">
 </head>
+
 <body class="post-template nav-closed">
 
     <div class="nav">
@@ -79,35 +71,35 @@
     <ul>
         
             <li class="nav-home " role="presentation">
-                <a href="/">Home</a>
+                <a href="/pages/alias1/devalias.net/">Home</a>
             </li>
         
             <li class="nav-about " role="presentation">
-                <a href="/about">About</a>
+                <a href="/pages/alias1/devalias.net/about">About</a>
             </li>
         
             <li class="nav-dev " role="presentation">
-                <a href="/dev">Development</a>
+                <a href="/pages/alias1/devalias.net/dev">Development</a>
             </li>
         
             <li class="nav-sec " role="presentation">
-                <a href="/sec">Security</a>
+                <a href="/pages/alias1/devalias.net/sec">Security</a>
             </li>
         
             <li class="nav-personal " role="presentation">
-                <a href="/personal">Personal</a>
+                <a href="/pages/alias1/devalias.net/personal">Personal</a>
             </li>
         
             <li class="nav-stuff-i-like " role="presentation">
-                <a href="/stuff-i-like">Stuff I Like</a>
+                <a href="/pages/alias1/devalias.net/stuff-i-like">Stuff I Like</a>
             </li>
         
             <li class="nav-go-deeper " role="presentation">
-                <a href="/go-deeper">Go Deeper...</a>
+                <a href="/pages/alias1/devalias.net/go-deeper">Go Deeper...</a>
             </li>
         
     </ul>
-    <a class="subscribe-button" href="/feed.xml"><i class="fa fa-rss"></i> Subscribe</a>
+    <a class="subscribe-button" href="/pages/alias1/devalias.net/feed.xml"><i class="fa fa-rss"></i> Subscribe</a>
 </div>
 <span class="nav-cover"></span>
 
@@ -121,11 +113,11 @@
 
 <header class="main-header
                
-                    " style="background-image: url(/assets/images/cover4.jpg)
+                    " style="background-image: url(/pages/alias1/devalias.net/assets/images/cover4.jpg)
                 ">
     <nav class="main-nav overlay clearfix">
         
-          <a class="blog-logo" href="/"><img src="/assets/images/devalias-prompt.png" alt="Blog Logo"></a>
+          <a class="blog-logo" href="/pages/alias1/devalias.net/"><img src="/pages/alias1/devalias.net/assets/images/devalias-prompt.png" alt="Blog Logo" /></a>
         
         
             <a class="menu-button" href="#"><i class="fa fa-bars"></i> <span class="word">Menu</span></a>
@@ -156,10 +148,10 @@
             <!-- <h1 class="post-title">Plesk - Adding programs to a chrooted SSH</h1> -->
             <section class="post-meta">
     
-        <img class="author-thumb" src="/assets/images/authors/devalias.png" alt="Author image" nopin="nopin">
+        <img class="author-thumb" src="/pages/alias1/devalias.net/assets/images/authors/devalias.png" alt="Author image" nopin="nopin" />
     
     
-        <a href="/author/devalias">Glenn 'devalias' Grant</a>
+        <a href='/pages/alias1/devalias.net/author/devalias'>Glenn 'devalias' Grant</a>
     
     |
     <time class="post-date" datetime="2012-01-10">10 Jan 2012</time>
@@ -172,27 +164,27 @@
     
         |
         
-            <a href="/tag/chroot">#chroot</a>,
+            <a href='/pages/alias1/devalias.net/tag/chroot'>#chroot</a>,
         
-            <a href="/tag/git">#git</a>,
+            <a href='/pages/alias1/devalias.net/tag/git'>#git</a>,
         
-            <a href="/tag/plesk">#plesk</a>,
+            <a href='/pages/alias1/devalias.net/tag/plesk'>#plesk</a>,
         
-            <a href="/tag/ssh">#ssh</a>,
+            <a href='/pages/alias1/devalias.net/tag/ssh'>#ssh</a>,
         
-            <a href="/tag/bin">#bin</a>,
+            <a href='/pages/alias1/devalias.net/tag/bin'>#bin</a>,
         
-            <a href="/tag/chrootmng">#chrootmng</a>,
+            <a href='/pages/alias1/devalias.net/tag/chrootmng'>#chrootmng</a>,
         
-            <a href="/tag/files">#files</a>,
+            <a href='/pages/alias1/devalias.net/tag/files'>#files</a>,
         
-            <a href="/tag/ftp">#ftp</a>,
+            <a href='/pages/alias1/devalias.net/tag/ftp'>#ftp</a>,
         
-            <a href="/tag/execv">#execv</a>,
+            <a href='/pages/alias1/devalias.net/tag/execv'>#execv</a>,
         
-            <a href="/tag/bash">#bash</a>,
+            <a href='/pages/alias1/devalias.net/tag/bash'>#bash</a>,
         
-            <a href="/tag/failed">#failed</a>
+            <a href='/pages/alias1/devalias.net/tag/failed'>#failed</a>
         
     
     
@@ -203,19 +195,16 @@
         </header>
 
         <section class="post-content">
-            <p>Just a few notes today about making programs (in this case git) available to a chrooted SSH account in Plesk. I'm assuming the account is already setup for ssh, etc so I will just be covering where to copy the files to.</p>
+            <p>Just a few notes today about making programs (in this case git) available to a chrooted SSH account in Plesk. I&#39;m assuming the account is already setup for ssh, etc so I will just be covering where to copy the files to.</p>
 
-<p><strong>Note:</strong> If you are here about getting an <code>execv("/bin/bash")</code> failed error, check Appendix B</p>
+<p><strong>Note:</strong> If you are here about getting an <code>execv(&quot;/bin/bash&quot;)</code> failed error, check Appendix B</p>
 
 <h2>Location</h2>
 
 <ul>
-<li>
-<code>/usr/local/bin</code> - The git bin files we will be copying.</li>
-<li>
-<code>/usr/local/share/git-core</code> - The shared git-core files.</li>
-<li>
-<code>/var/www/vhosts/chroot</code> - The base directory for chroot accessible programs.</li>
+<li><code>/usr/local/bin</code> - The git bin files we will be copying.</li>
+<li><code>/usr/local/share/git-core</code> - The shared git-core files.</li>
+<li><code>/var/www/vhosts/chroot</code> - The base directory for chroot accessible programs.</li>
 </ul>
 
 <h2>Copying Git</h2>
@@ -230,9 +219,9 @@
 <div class="highlight"><pre><code class="language-" data-lang="">cp -R /usr/local/share/git-core /var/www/vhosts/chroot/usr/local/share/git-core
 cp -R /usr/local/libexec /var/www/vhosts/chroot/usr/local/libexec/git-core
 </code></pre></div>
-<p><strong>Note:</strong> The libexec files are quite large (100's of mb) so you may want to consider doing this in a better way.</p>
+<p><strong>Note:</strong> The libexec files are quite large (100&#39;s of mb) so you may want to consider doing this in a better way.</p>
 
-<h2>Updating chroot'd directories</h2>
+<h2>Updating chroot&#39;d directories</h2>
 
 <p>The final (rather simple) step involves updating any chrooted directories that have already been created. This can be done by running the <code>recreate_chroot_env.sh</code> script (downloadable from <a href="http://kb.parallels.com/818">http://kb.parallels.com/818</a>)</p>
 
@@ -250,23 +239,15 @@ cp -R /usr/local/libexec /var/www/vhosts/chroot/usr/local/libexec/git-core
 <h2>Appendix A: Files required for ftp</h2>
 
 <ul>
-<li>
-<code>/usr/bin/ftp</code> -&gt; <code>chroot/bin</code>
-</li>
-<li>
-<code>/usr/lib64/libreadline.so.5</code> -&gt; <code>chroot/lib/libreadline.so.5</code>
-</li>
-<li>
-<code>/usr/lib64/libncurses.so.5</code> -&gt; <code>chroot/lib/libncurses.so.5</code>
-</li>
-<li>
-<code>/etc/services</code> -&gt; <code>chroot/etc/services</code>
-</li>
+<li><code>/usr/bin/ftp</code> -&gt; <code>chroot/bin</code></li>
+<li><code>/usr/lib64/libreadline.so.5</code> -&gt; <code>chroot/lib/libreadline.so.5</code></li>
+<li><code>/usr/lib64/libncurses.so.5</code> -&gt; <code>chroot/lib/libncurses.so.5</code></li>
+<li><code>/etc/services</code> -&gt; <code>chroot/etc/services</code></li>
 </ul>
 
-<h2>Appendix B: execv("/bin/bash") failed</h2>
+<h2>Appendix B: execv(&quot;/bin/bash&quot;) failed</h2>
 
-<p>One cause of this occuring is due to the bin files for a chrooted directory not exisiting/being properly setup. This can be fixed by following the instructions in Updating chroot'd directories above.. or if you're too lazy to scroll (like me)</p>
+<p>One cause of this occuring is due to the bin files for a chrooted directory not exisiting/being properly setup. This can be fixed by following the instructions in Updating chroot&#39;d directories above.. or if you&#39;re too lazy to scroll (like me)</p>
 <div class="highlight"><pre><code class="language-" data-lang="">/usr/local/psa/admin/sbin/chrootmng --remove --source=/var/www/vhosts/chroot --target=/var/www/vhosts/&lt;domain name&gt;
 /usr/local/psa/admin/sbin/chrootmng --create --source=/var/www/vhosts/chroot --target=/var/www/vhosts/&lt;domain name&gt;
 </code></pre></div>
@@ -278,20 +259,19 @@ cp -R /usr/local/libexec /var/www/vhosts/chroot/usr/local/libexec/git-core
 
             
 	<figure class="author-image">
-	    <a class="img" href="/author/devalias" style="background-image: url(/assets/images/authors/devalias.png)"><span class="hidden">devalias's Picture</span></a>
+	    <a class="img" href="/pages/alias1/devalias.net/author/devalias" style="background-image: url(/pages/alias1/devalias.net/assets/images/authors/devalias.png)"><span class="hidden">devalias's Picture</span></a>
 	</figure>
 
 
             <section class="author">
                 <h4>
                     
-                        <a href="/author/devalias">Glenn 'devalias' Grant</a>
+                        <a href="/pages/alias1/devalias.net/author/devalias">Glenn 'devalias' Grant</a>
                     
                 </h4>
                 
                 
-                    <p> Glenn is a full-stack, polyglot developer with an acute interest in the offensive side of security; as well as technology, efficiency, biohacking, health, personal growth and a whole lot more.
-</p>
+                    <p> Glenn is a full-stack, polyglot developer with an acute interest in the offensive side of security; as well as technology, efficiency, biohacking, health, personal growth and a whole lot more.</p>
                 
                 <div class="author-meta">
     
@@ -311,7 +291,7 @@ cp -R /usr/local/libexec /var/www/vhosts/chroot/usr/local/libexec/git-core
     
 </div>
                 <div class="author-social">
-    <a href="/author/devalias/rss.xml" title="RSS Feed"><i class="fa fa-rss fa-1x"></i></a>
+    <a href="/pages/alias1/devalias.net/author/devalias/rss.xml" title="RSS Feed"><i class="fa fa-rss fa-1x"></i></a>
     
         <a href="https://twitter.com/_devalias" title="Twitter" target="_blank"><i class="fa fa-twitter-square fa-1x"></i></a>
     
@@ -348,9 +328,9 @@ cp -R /usr/local/libexec /var/www/vhosts/chroot/usr/local/libexec/git-core
 
 <section class="share">
     <h4>Share this post</h4>
-    <a href="http://twitter.com/share?text=Plesk%20-%20Adding%20programs%20to%20a%20chrooted%20SSH&amp;url=http://devalias.net/devalias/2012/01/10/plesk-adding-programs-to-a-chrooted-ssh/" title="Share on Twitter" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"><i class="fa fa-twitter-square fa-2x"></i></a>
+    <a href="http://twitter.com/share?text=Plesk - Adding programs to a chrooted SSH&amp;url=http://devalias.net/devalias/2012/01/10/plesk-adding-programs-to-a-chrooted-ssh/" title="Share on Twitter" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"><i class="fa fa-twitter-square fa-2x"></i></a>
     <a href="https://www.facebook.com/sharer/sharer.php?u=http://devalias.net/devalias/2012/01/10/plesk-adding-programs-to-a-chrooted-ssh/" title="Share on Facebook" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;"><i class="fa fa-facebook-square fa-2x"></i></a>
-    <a href="https://plus.google.com/share?url=http://devalias.net/devalias/2012/01/10/plesk-adding-programs-to-a-chrooted-ssh/" title="Share on Google+" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;"><i class="fa fa-google-plus-square fa-2x"></i></a>
+    <a href="https://plus.google.com/share?url=http://devalias.net/devalias/2012/01/10/plesk-adding-programs-to-a-chrooted-ssh/"  title="Share on Google+" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;"><i class="fa fa-google-plus-square fa-2x"></i></a>
 </section>
             
             
@@ -369,11 +349,9 @@ cp -R /usr/local/libexec /var/www/vhosts/chroot/usr/local/libexec/git-core
                 (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
             })();
         </script>
-        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-</noscript>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
         <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
-    </footer></article></main>
-</div>
+    </div>
 
             
 
@@ -383,17 +361,17 @@ cp -R /usr/local/libexec /var/www/vhosts/chroot/usr/local/libexec/git-core
 
             
             
-        
+        </footer>
 
-    
+    </article>
 
-
+</main>
 
 <aside class="read-next">
 
     <!-- [[! next_post ]] -->
     
-        <a class="read-next-story no-cover" href="/devalias/2012/02/28/nameserver-whichserver/">
+        <a class="read-next-story no-cover" href="/pages/alias1/devalias.net/devalias/2012/02/28/nameserver-whichserver/">
             <section class="post">
                 <h2>Nameserver? Whichserver?</h2>
                 <p>**Note:** This had been sitting in my queue half written for a month or two now.. Woops. - alias I've been having some issues getting...</p>
@@ -403,10 +381,10 @@ cp -R /usr/local/libexec /var/www/vhosts/chroot/usr/local/libexec/git-core
     <!-- [[! /next_post ]] -->
     <!-- [[! prev_post ]] -->
     
-        <a class="read-next-story prev no-cover" href="/devalias/2012/01/06/forking-github/">
+        <a class="read-next-story prev no-cover" href="/pages/alias1/devalias.net/devalias/2012/01/06/forking-github/">
             <section class="post">
                 <h2>Forking Github!! (or how to contribute to a project)</h2>
-                <p>I've been following the GitHub craze for a little while now, and finally coming to a stage where I would like to start contributing to...</p>
+                <p>I&#39;ve been following the GitHub craze for a little while now, and finally coming to a stage where I would like to start contributing to...</p>
             </section>
         </a>
     
@@ -418,11 +396,11 @@ cp -R /usr/local/libexec /var/www/vhosts/chroot/usr/local/libexec/git-core
 
         <footer class="site-footer clearfix">
             <section class="copyright">
-                <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"></a><br><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">devalias.net</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://www.devalias.net/" property="cc:attributionName" rel="cc:attributionURL">Glenn 'devalias' Grant</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+                <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">devalias.net</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://www.devalias.net/" property="cc:attributionName" rel="cc:attributionURL">Glenn 'devalias' Grant</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
             </section>
             <section class="poweredby">
                 <div>
-                    <strong>Build:</strong> 4eaafd8c
+                    <strong>Build:</strong> ade5bea2
                     <a href="https://github.com/alias1/devalias.net/tree/master/_posts/2012-01-10-plesk-adding-programs-to-a-chrooted-ssh.md" target="_blank">
                         <i class="fa fa-edit"></i>
                         Edit on GitHub
@@ -436,12 +414,12 @@ cp -R /usr/local/libexec /var/www/vhosts/chroot/usr/local/libexec/git-core
                 <a href="https://github.com/" target="_blank">GitHub</a>
             </section>
         </footer>
-    
+    </div>
     <!-- [[! Ghost outputs important scripts and data with this tag ]] -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
     <!-- [[! The main JavaScript file for Casper ]] -->
-    <script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
-    <script type="text/javascript" src="/assets/js/index.js"></script>
+    <script type="text/javascript" src="/pages/alias1/devalias.net/assets/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="/pages/alias1/devalias.net/assets/js/index.js"></script>
     <script type="text/javascript" src="/assets/js/webmention_io.js"></script>
 
         <!-- Google Analytics Tracking code -->

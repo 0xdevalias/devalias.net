@@ -13,10 +13,10 @@
    
 	<item>
 	  <title>CTF Snippets: XSS.gif</title>
-	  <link>/devalias/2016/09/16/ctf-snippets-xss-gif/</link>
+	  <link>/pages/alias1/devalias.net/devalias/2016/09/16/ctf-snippets-xss-gif/</link>
 	  <author>devalias</author>
 	  <pubDate>2016-09-16T00:00:00+10:00</pubDate>
-	  <guid>/devalias/2016/09/16/ctf-snippets-xss-gif/</guid>
+	  <guid>/pages/alias1/devalias.net/devalias/2016/09/16/ctf-snippets-xss-gif/</guid>
 	  <description><![CDATA[
 	     <p>I was playing around with the top challenge on the CTF at <a href="http://www.sectalks.org/canberra/">SecTalks</a> the other night, and thought I&#39;d do a quick writeup of some of the techniques required; for future reference, and to help others to learn.</p>
 
@@ -189,10 +189,10 @@
 
 	<item>
 	  <title>[DAHAX-2013-001] Cloudflare XSS Vulnerability</title>
-	  <link>/devalias/2013/08/15/dahax-2013-001-cloudflare-xss-vulnerability/</link>
+	  <link>/pages/alias1/devalias.net/devalias/2013/08/15/dahax-2013-001-cloudflare-xss-vulnerability/</link>
 	  <author>devalias</author>
 	  <pubDate>2013-08-15T08:00:00+10:00</pubDate>
-	  <guid>/devalias/2013/08/15/dahax-2013-001-cloudflare-xss-vulnerability/</guid>
+	  <guid>/pages/alias1/devalias.net/devalias/2013/08/15/dahax-2013-001-cloudflare-xss-vulnerability/</guid>
 	  <description><![CDATA[
 	     <p><strong>Reference Number:</strong> DAHAX-2013-001 (/dev/alias/hacks 2013-001)</p>
 

@@ -13,10 +13,10 @@
    
 	<item>
 	  <title>ERPScan Automator - Because Manual is Meh</title>
-	  <link>/devalias/2013/08/10/erpscan-automator-because-manual-is-meh/</link>
+	  <link>/pages/alias1/devalias.net/devalias/2013/08/10/erpscan-automator-because-manual-is-meh/</link>
 	  <author>devalias</author>
 	  <pubDate>2013-08-10T08:00:50+10:00</pubDate>
-	  <guid>/devalias/2013/08/10/erpscan-automator-because-manual-is-meh/</guid>
+	  <guid>/pages/alias1/devalias.net/devalias/2013/08/10/erpscan-automator-because-manual-is-meh/</guid>
 	  <description><![CDATA[
 	     <p>Another quick little tool for you guys today that I hacked together to save myself some time. This one automates running through a number of tests using the <a href="https://erpscan.com/research/free-pentesting-tools-for-sap-and-oracle/">ERPScan SAP Pentesting Tool</a></p>
 

@@ -13,10 +13,10 @@
    
 	<item>
 	  <title>GraphQL: Why You Should Care</title>
-	  <link>/devalias/2016/09/07/graphql-why-you-should-care/</link>
+	  <link>/pages/alias1/devalias.net/devalias/2016/09/07/graphql-why-you-should-care/</link>
 	  <author>devalias</author>
 	  <pubDate>2016-09-07T00:00:00+10:00</pubDate>
-	  <guid>/devalias/2016/09/07/graphql-why-you-should-care/</guid>
+	  <guid>/pages/alias1/devalias.net/devalias/2016/09/07/graphql-why-you-should-care/</guid>
 	  <description><![CDATA[
 	     <p>If you haven&#39;t yet come across <a href="http://graphql.org/">GraphQL</a>, it&#39;s kind of exciting stuff. It&#39;s a query language developed by <a href="https://code.facebook.com/posts/">Facebook</a>, that basically lets you request exactly the data you need for the given task; no more, no less. Sounds good right?</p>
 
@@ -103,10 +103,10 @@
 
 	<item>
 	  <title>Starting a New Web Application (Part 1): An Exploration of Options</title>
-	  <link>/devalias/2016/08/24/starting-a-new-web-application-1-an-exploration-of-options/</link>
+	  <link>/pages/alias1/devalias.net/devalias/2016/08/24/starting-a-new-web-application-1-an-exploration-of-options/</link>
 	  <author>devalias</author>
 	  <pubDate>2016-08-24T00:00:00+10:00</pubDate>
-	  <guid>/devalias/2016/08/24/starting-a-new-web-application-1-an-exploration-of-options/</guid>
+	  <guid>/pages/alias1/devalias.net/devalias/2016/08/24/starting-a-new-web-application-1-an-exploration-of-options/</guid>
 	  <description><![CDATA[
 	     <p>Finding myself with some free time (and looking into starting a new project), I thought I might catch myself up on the state of web technologies, and what might be a good stack to work with.</p>
 
@@ -391,10 +391,10 @@ mobile, and desktop.&quot;</li>
 
 	<item>
 	  <title>Dogedraw, now with more Nyaan!</title>
-	  <link>/devalias/2015/04/20/dogedraw-now-with-more-nyaan/</link>
+	  <link>/pages/alias1/devalias.net/devalias/2015/04/20/dogedraw-now-with-more-nyaan/</link>
 	  <author>devalias</author>
 	  <pubDate>2015-04-20T12:00:00+10:00</pubDate>
-	  <guid>/devalias/2015/04/20/dogedraw-now-with-more-nyaan/</guid>
+	  <guid>/pages/alias1/devalias.net/devalias/2015/04/20/dogedraw-now-with-more-nyaan/</guid>
 	  <description><![CDATA[
 	     <p>Over the last few days I&#39;ve been mentoring web dev at <a href="http://hact.io/">HS.HACT.IO</a>, inspiring a group of younger kids to get into tech as creators. One of the other mentors showed us a site he previously put together, <a href="http://dogedraw.com/">DogeDraw</a>. After playing around with it for a little, I decided it was a little too manual, so started hacking away in the JS console to make it more fun.</p>
 

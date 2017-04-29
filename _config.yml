@@ -5,7 +5,7 @@ description: "Follow me into the rabbit hole that is my mind and learn about top
 
 url: "http://devalias.net" # the base hostname & protocol for your site
 short_url: "devalias.net"
-baseurl: "" # the subpath of your site, e.g. /blog
+baseurl: "/" # the subpath of your site, e.g. /blog
 
 permalink: pretty
 publisher: "devalias.net"

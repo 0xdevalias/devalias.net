@@ -13,10 +13,10 @@
    
 	<item>
 	  <title>Java/Scala Future/Promise Map *headsplode*</title>
-	  <link>/pages/alias1/devalias.net/devalias/2014/05/15/java-scala-future-promise-map-headsplode/</link>
+	  <link>/devalias/2014/05/15/java-scala-future-promise-map-headsplode/</link>
 	  <author>devalias</author>
 	  <pubDate>2014-05-15T08:55:00+10:00</pubDate>
-	  <guid>/pages/alias1/devalias.net/devalias/2014/05/15/java-scala-future-promise-map-headsplode/</guid>
+	  <guid>/devalias/2014/05/15/java-scala-future-promise-map-headsplode/</guid>
 	  <description><![CDATA[
 	     <p>A side by side comparison (now that I finally got it figured out!) of <a href="https://www.playframework.com/">Play Framework</a> v2.2.x promise unwrapping in <a href="https://www.java.com/en/">Java</a> and <a href="http://www.scala-lang.org/">Scala</a>. Hopefully this will be able to save some of you a bunch of mind numbing ponderings and failures.</p>
 

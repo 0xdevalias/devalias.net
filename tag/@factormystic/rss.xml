@@ -13,10 +13,10 @@
    
 	<item>
 	  <title>Default Programs Editor</title>
-	  <link>/pages/alias1/devalias.net/devalias/2013/07/02/default-programs-editor/</link>
+	  <link>/devalias/2013/07/02/default-programs-editor/</link>
 	  <author>devalias</author>
 	  <pubDate>2013-07-02T04:27:00+10:00</pubDate>
-	  <guid>/pages/alias1/devalias.net/devalias/2013/07/02/default-programs-editor/</guid>
+	  <guid>/devalias/2013/07/02/default-programs-editor/</guid>
 	  <description><![CDATA[
 	     <p>Due to some.. ahem interesting implementation choices at work, I found myself unable to make <a href="https://www.sublimetext.com/2">Sublime Text 2</a> the default program used to handle .txt files.</p>
 

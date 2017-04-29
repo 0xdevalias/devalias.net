@@ -13,10 +13,10 @@
    
 	<item>
 	  <title>Dogedraw, now with more Nyaan!</title>
-	  <link>/pages/alias1/devalias.net/devalias/2015/04/20/dogedraw-now-with-more-nyaan/</link>
+	  <link>/devalias/2015/04/20/dogedraw-now-with-more-nyaan/</link>
 	  <author>devalias</author>
 	  <pubDate>2015-04-20T12:00:00+10:00</pubDate>
-	  <guid>/pages/alias1/devalias.net/devalias/2015/04/20/dogedraw-now-with-more-nyaan/</guid>
+	  <guid>/devalias/2015/04/20/dogedraw-now-with-more-nyaan/</guid>
 	  <description><![CDATA[
 	     <p>Over the last few days I&#39;ve been mentoring web dev at <a href="http://hact.io/">HS.HACT.IO</a>, inspiring a group of younger kids to get into tech as creators. One of the other mentors showed us a site he previously put together, <a href="http://dogedraw.com/">DogeDraw</a>. After playing around with it for a little, I decided it was a little too manual, so started hacking away in the JS console to make it more fun.</p>
 
@@ -104,10 +104,10 @@ function nyaan(startX, startY) {
 
 	<item>
 	  <title>Java/Scala Future/Promise Map *headsplode*</title>
-	  <link>/pages/alias1/devalias.net/devalias/2014/05/15/java-scala-future-promise-map-headsplode/</link>
+	  <link>/devalias/2014/05/15/java-scala-future-promise-map-headsplode/</link>
 	  <author>devalias</author>
 	  <pubDate>2014-05-15T08:55:00+10:00</pubDate>
-	  <guid>/pages/alias1/devalias.net/devalias/2014/05/15/java-scala-future-promise-map-headsplode/</guid>
+	  <guid>/devalias/2014/05/15/java-scala-future-promise-map-headsplode/</guid>
 	  <description><![CDATA[
 	     <p>A side by side comparison (now that I finally got it figured out!) of <a href="https://www.playframework.com/">Play Framework</a> v2.2.x promise unwrapping in <a href="https://www.java.com/en/">Java</a> and <a href="http://www.scala-lang.org/">Scala</a>. Hopefully this will be able to save some of you a bunch of mind numbing ponderings and failures.</p>
 
@@ -184,10 +184,10 @@ function nyaan(startX, startY) {
 
 	<item>
 	  <title>Hacking Unicoins for Fun and Profit (Stackoverflow.com April Fools 2014)</title>
-	  <link>/pages/alias1/devalias.net/devalias/2014/04/02/hacking-unicoins-for-fun-and-profit/</link>
+	  <link>/devalias/2014/04/02/hacking-unicoins-for-fun-and-profit/</link>
 	  <author>devalias</author>
 	  <pubDate>2014-04-02T06:38:02+11:00</pubDate>
-	  <guid>/pages/alias1/devalias.net/devalias/2014/04/02/hacking-unicoins-for-fun-and-profit/</guid>
+	  <guid>/devalias/2014/04/02/hacking-unicoins-for-fun-and-profit/</guid>
 	  <description><![CDATA[
 	     <p><a href="https://stackoverflow.com/">Stackoverflow</a> introduced an amusing little April Fools feature called &#39;Unicoins&#39;. Essentially, this currency (that you can earn by mining rocks, since all of the (rather amusing) payment options are currently unavailable&#39;) allows you to by silly upgrades for the website. From &#39;Colorful comments&#39; and &#39;Guaranteed Answer&#39; through to &#39;Voting animations&#39; which gives you &#39;happy unicorn animations everytime you vote&#39;.</p>
 
@@ -232,10 +232,10 @@ hackMeSomeUnicoins(StackExchange.options.user.fkey);
 
 	<item>
 	  <title>vFeed - Wrapper/Helper Scripts For Speed and Efficiency</title>
-	  <link>/pages/alias1/devalias.net/devalias/2013/11/21/vfeed-wrapper-helper-scripts-for-speed-and-efficiency/</link>
+	  <link>/devalias/2013/11/21/vfeed-wrapper-helper-scripts-for-speed-and-efficiency/</link>
 	  <author>devalias</author>
 	  <pubDate>2013-11-21T09:00:54+11:00</pubDate>
-	  <guid>/pages/alias1/devalias.net/devalias/2013/11/21/vfeed-wrapper-helper-scripts-for-speed-and-efficiency/</guid>
+	  <guid>/devalias/2013/11/21/vfeed-wrapper-helper-scripts-for-speed-and-efficiency/</guid>
 	  <description><![CDATA[
 	     <p>Just wanted to share some quick little bash scripts I threw together to make vFeed a little quicker/more efficient for my use.</p>
 
@@ -280,10 +280,10 @@ ln -s /path/to/vFeed/bin/vfeed_update.sh vfeed_update
 
 	<item>
 	  <title>ERPScan Automator - Because Manual is Meh</title>
-	  <link>/pages/alias1/devalias.net/devalias/2013/08/10/erpscan-automator-because-manual-is-meh/</link>
+	  <link>/devalias/2013/08/10/erpscan-automator-because-manual-is-meh/</link>
 	  <author>devalias</author>
 	  <pubDate>2013-08-10T08:00:50+10:00</pubDate>
-	  <guid>/pages/alias1/devalias.net/devalias/2013/08/10/erpscan-automator-because-manual-is-meh/</guid>
+	  <guid>/devalias/2013/08/10/erpscan-automator-because-manual-is-meh/</guid>
 	  <description><![CDATA[
 	     <p>Another quick little tool for you guys today that I hacked together to save myself some time. This one automates running through a number of tests using the <a href="https://erpscan.com/research/free-pentesting-tools-for-sap-and-oracle/">ERPScan SAP Pentesting Tool</a></p>
 
@@ -384,10 +384,10 @@ echo Done</p>
 
 	<item>
 	  <title>Ruby on Rails - Learned the hard way #1 - db:migrate</title>
-	  <link>/pages/alias1/devalias.net/devalias/2013/08/03/rails-lessons-learned-the-hard-way-1-db-migrate/</link>
+	  <link>/devalias/2013/08/03/rails-lessons-learned-the-hard-way-1-db-migrate/</link>
 	  <author>devalias</author>
 	  <pubDate>2013-08-03T08:00:38+10:00</pubDate>
-	  <guid>/pages/alias1/devalias.net/devalias/2013/08/03/rails-lessons-learned-the-hard-way-1-db-migrate/</guid>
+	  <guid>/devalias/2013/08/03/rails-lessons-learned-the-hard-way-1-db-migrate/</guid>
 	  <description><![CDATA[
 	     <p>Decided I will make this a regular little mini collection of things I learned the hard way with Ruby on Rails. So here it is, lesson #1!</p>
 
@@ -400,10 +400,10 @@ echo Done</p>
 
 	<item>
 	  <title>nmap.sh - Saving Precious Seconds</title>
-	  <link>/pages/alias1/devalias.net/devalias/2013/07/13/nmap-sh-saving-precious-seconds/</link>
+	  <link>/devalias/2013/07/13/nmap-sh-saving-precious-seconds/</link>
 	  <author>devalias</author>
 	  <pubDate>2013-07-13T08:00:00+10:00</pubDate>
-	  <guid>/pages/alias1/devalias.net/devalias/2013/07/13/nmap-sh-saving-precious-seconds/</guid>
+	  <guid>/devalias/2013/07/13/nmap-sh-saving-precious-seconds/</guid>
 	  <description><![CDATA[
 	     <p>In the course of my work I end up issuing the same simple commands again and again, and while they are pretty easy to remember, they still take more time than they really need to.</p>
 
@@ -436,10 +436,10 @@ fi</p>
 
 	<item>
 	  <title>Gists</title>
-	  <link>/pages/alias1/devalias.net/devalias/2013/06/17/gists-on-tumblr/</link>
+	  <link>/devalias/2013/06/17/gists-on-tumblr/</link>
 	  <author>devalias</author>
 	  <pubDate>2013-06-17T05:00:00+10:00</pubDate>
-	  <guid>/pages/alias1/devalias.net/devalias/2013/06/17/gists-on-tumblr/</guid>
+	  <guid>/devalias/2013/06/17/gists-on-tumblr/</guid>
 	  <description><![CDATA[
 	     <p>So I figured it might be useful to be able to post gists here. Turns out it&#39;s actually pretty easy thanks to soemarko</p>
 

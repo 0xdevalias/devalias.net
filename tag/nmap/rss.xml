@@ -13,10 +13,10 @@
    
 	<item>
 	  <title>nmap.sh - Saving Precious Seconds</title>
-	  <link>/pages/alias1/devalias.net/devalias/2013/07/13/nmap-sh-saving-precious-seconds/</link>
+	  <link>/devalias/2013/07/13/nmap-sh-saving-precious-seconds/</link>
 	  <author>devalias</author>
 	  <pubDate>2013-07-13T08:00:00+10:00</pubDate>
-	  <guid>/pages/alias1/devalias.net/devalias/2013/07/13/nmap-sh-saving-precious-seconds/</guid>
+	  <guid>/devalias/2013/07/13/nmap-sh-saving-precious-seconds/</guid>
 	  <description><![CDATA[
 	     <p>In the course of my work I end up issuing the same simple commands again and again, and while they are pretty easy to remember, they still take more time than they really need to.</p>
 
@@ -49,10 +49,10 @@ fi</p>
 
 	<item>
 	  <title>iPen: Hacking with the iDevice (Setting up your iPhone as a Penetration Tester)</title>
-	  <link>/pages/alias1/devalias.net/devalias/2013/02/27/ipen-hacking-with-the-idevice/</link>
+	  <link>/devalias/2013/02/27/ipen-hacking-with-the-idevice/</link>
 	  <author>devalias</author>
 	  <pubDate>2013-02-27T13:45:00+11:00</pubDate>
-	  <guid>/pages/alias1/devalias.net/devalias/2013/02/27/ipen-hacking-with-the-idevice/</guid>
+	  <guid>/devalias/2013/02/27/ipen-hacking-with-the-idevice/</guid>
 	  <description><![CDATA[
 	     <p>Today I finally got around to the task i&#39;ve been looking forward to for the last week or so. We got an iPad to play around with at work, mostly so we can try and break the mobile apps before they go public. Not a huge amount you can do on it in it&#39;s default state, so I got to jailbreak it!</p>
 

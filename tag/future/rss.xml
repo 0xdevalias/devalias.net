@@ -13,10 +13,10 @@
    
 	<item>
 	  <title>Musings on breaking down silos</title>
-	  <link>/pages/alias1/devalias.net/devalias/2014/06/12/rather-than-trying-to-make-everybody-everywhere/</link>
+	  <link>/devalias/2014/06/12/rather-than-trying-to-make-everybody-everywhere/</link>
 	  <author>devalias</author>
 	  <pubDate>2014-06-12T03:11:37+10:00</pubDate>
-	  <guid>/pages/alias1/devalias.net/devalias/2014/06/12/rather-than-trying-to-make-everybody-everywhere/</guid>
+	  <guid>/devalias/2014/06/12/rather-than-trying-to-make-everybody-everywhere/</guid>
 	  <description><![CDATA[
 	     <p>Rather than trying to make everybody everywhere adapt their systems to try and handle everything that could possibly ever exist (a monumental task), have a &#39;new&#39; thing that is flexible enough to be able to interface with everything else.</p>
 
@@ -29,10 +29,10 @@
 
 	<item>
 	  <title>Java/Scala Future/Promise Map *headsplode*</title>
-	  <link>/pages/alias1/devalias.net/devalias/2014/05/15/java-scala-future-promise-map-headsplode/</link>
+	  <link>/devalias/2014/05/15/java-scala-future-promise-map-headsplode/</link>
 	  <author>devalias</author>
 	  <pubDate>2014-05-15T08:55:00+10:00</pubDate>
-	  <guid>/pages/alias1/devalias.net/devalias/2014/05/15/java-scala-future-promise-map-headsplode/</guid>
+	  <guid>/devalias/2014/05/15/java-scala-future-promise-map-headsplode/</guid>
 	  <description><![CDATA[
 	     <p>A side by side comparison (now that I finally got it figured out!) of <a href="https://www.playframework.com/">Play Framework</a> v2.2.x promise unwrapping in <a href="https://www.java.com/en/">Java</a> and <a href="http://www.scala-lang.org/">Scala</a>. Hopefully this will be able to save some of you a bunch of mind numbing ponderings and failures.</p>
 

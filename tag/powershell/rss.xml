@@ -13,10 +13,10 @@
    
 	<item>
 	  <title>Reversing PowerShell 'SecureString' For Fun And Profit</title>
-	  <link>/pages/alias1/devalias.net/devalias/2013/08/29/reversing-powershell-securestring-for-fun-and-profit/</link>
+	  <link>/devalias/2013/08/29/reversing-powershell-securestring-for-fun-and-profit/</link>
 	  <author>devalias</author>
 	  <pubDate>2013-08-29T08:00:52+10:00</pubDate>
-	  <guid>/pages/alias1/devalias.net/devalias/2013/08/29/reversing-powershell-securestring-for-fun-and-profit/</guid>
+	  <guid>/devalias/2013/08/29/reversing-powershell-securestring-for-fun-and-profit/</guid>
 	  <description><![CDATA[
 	     <p>Something that I needed to do in an engagement recently and thought it might be useful to you guys. Here&#39;s a little function and demonstration to show just how insecure it is to store an encrypted <a href="https://en.wikipedia.org/wiki/Windows_PowerShell">PowerShell</a> <a href="http://social.technet.microsoft.com/wiki/contents/articles/4546.working-with-passwords-secure-strings-and-credentials-in-windows-powershell.aspx">&#39;SecureString&#39;</a> WITH the key to decrypt it in a script file (or anywhere for that matter)</p>
 

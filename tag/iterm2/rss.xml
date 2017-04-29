@@ -13,10 +13,10 @@
    
 	<item>
 	  <title>iTerm2 + tmux = <3</title>
-	  <link>/pages/alias1/devalias.net/devalias/2017/03/18/iterm-tmux-love/</link>
+	  <link>/devalias/2017/03/18/iterm-tmux-love/</link>
 	  <author>devalias</author>
 	  <pubDate>2017-03-18T00:00:00+11:00</pubDate>
-	  <guid>/pages/alias1/devalias.net/devalias/2017/03/18/iterm-tmux-love/</guid>
+	  <guid>/devalias/2017/03/18/iterm-tmux-love/</guid>
 	  <description><![CDATA[
 	     <p>Just a quick note today, highlighting a super simple but amazingly useful combination I&#39;ve only recently become aware of: <a href="https://www.iterm2.com/">iTerm2</a> + <a href="https://tmux.github.io/">tmux</a>.</p>
 

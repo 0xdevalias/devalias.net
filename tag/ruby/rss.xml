@@ -13,10 +13,10 @@
    
 	<item>
 	  <title>Starting a New Web Application (Part 1): An Exploration of Options</title>
-	  <link>/pages/alias1/devalias.net/devalias/2016/08/24/starting-a-new-web-application-1-an-exploration-of-options/</link>
+	  <link>/devalias/2016/08/24/starting-a-new-web-application-1-an-exploration-of-options/</link>
 	  <author>devalias</author>
 	  <pubDate>2016-08-24T00:00:00+10:00</pubDate>
-	  <guid>/pages/alias1/devalias.net/devalias/2016/08/24/starting-a-new-web-application-1-an-exploration-of-options/</guid>
+	  <guid>/devalias/2016/08/24/starting-a-new-web-application-1-an-exploration-of-options/</guid>
 	  <description><![CDATA[
 	     <p>Finding myself with some free time (and looking into starting a new project), I thought I might catch myself up on the state of web technologies, and what might be a good stack to work with.</p>
 
@@ -301,10 +301,10 @@ mobile, and desktop.&quot;</li>
 
 	<item>
 	  <title>Rails, OmniAuth and [stealthmode].. Oh my!</title>
-	  <link>/pages/alias1/devalias.net/devalias/2013/08/01/rails-omniauth-and-stealthmode-oh-my/</link>
+	  <link>/devalias/2013/08/01/rails-omniauth-and-stealthmode-oh-my/</link>
 	  <author>devalias</author>
 	  <pubDate>2013-08-01T08:00:50+10:00</pubDate>
-	  <guid>/pages/alias1/devalias.net/devalias/2013/08/01/rails-omniauth-and-stealthmode-oh-my/</guid>
+	  <guid>/devalias/2013/08/01/rails-omniauth-and-stealthmode-oh-my/</guid>
 	  <description><![CDATA[
 	     <p>(<strong>tl;dr</strong>: <a href="http://rubyonrails.org/">Rails</a> is awesome, <a href="https://github.com/intridea/omniauth">OmniAuth</a> is super useful, check out my new website [currently in stealthmode])</p>
 

@@ -23,7 +23,7 @@
                 {% endif %}">
     <nav class="main-nav {% if coverImage %}overlay{% endif %} clearfix">
         {% if logoImage %}
-          <a class="blog-logo" href="{{ site.baseurl }}"><img src="{{ site.baseurl | chomp_slash }}{{ logoImage }}" alt="Blog Logo" /></a>
+          <a class="blog-logo" href="{{ site.baseurl | chomp_slash }}/"><img src="{{ site.baseurl | chomp_slash }}{{ logoImage }}" alt="Blog Logo" /></a>
         {% endif %}
         {% if page.navigation %}
             <a class="menu-button" href="#"><i class="fa fa-bars"></i> <span class="word">Menu</span></a>

@@ -1,0 +1,29 @@
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="shortcut icon" href="{{ site.baseurl | chomp_slash }}{{ site.favicon }}" >
+
+  <meta name="referrer" content="origin" />
+  <meta name="generator" content="Jekyll {{ site.jekyll_version }}" />
+
+  {% feed_meta %}
+
+  {% seo %}
+
+  <!-- old tags, still needed? -->
+  <meta name="twitter:title" content="{{ site.title }}" />
+  <meta name="twitter:description" content="{{ site.description }}" />
+  <!-- <meta name="twitter:image" content="{{ site.baseurl | chomp_slash }}{{ site.default_cover }}" /> -->
+  <!-- /end tags -->
+
+  {% include head/styles.html %}
+
+  <!-- Webmention -->
+  {% webmention_head_tags %}
+  {% webmention_redirected_from tumblr_url, redirect_from %}
+
+  {% include head/indie-auth.html %}
+</head>

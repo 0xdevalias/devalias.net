@@ -1,38 +1,8 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <!-- [[! Document Settings ]] -->
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    <!-- [[! Page Meta ]] -->
-    <title>{% if page.title %}{{ page.title }}{% elsif site.title %}{{ site.title }}{% endif %}</title>
-    <meta name="description" content="{{ site.title }} - {{ site.description }}" />
+{% include head/head.html %}
 
-    <meta name="HandheldFriendly" content="True" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <!-- Webmention -->
-    {% webmention_head_tags %}
-    {% webmention_redirected_from tumblr_url, redirect_from %}
-
-    <link rel="shortcut icon" href="{{ site.baseurl | chomp_slash }}{{ site.favicon }}" >
-
-    <!-- [[! Styles'n'Scripts ]] -->
-    <link rel="stylesheet" type="text/css"
-          href="https://fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
-          
-    <link rel="stylesheet" type="text/css" href="{{ site.baseurl | chomp_slash }}/assets/css/screen.css" />
-    <link rel="stylesheet" type="text/css" href="{{ site.baseurl | chomp_slash }}/assets/css/syntax.css" />
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-
-    <link rel="stylesheet" type="text/css" href="{{ site.baseurl | chomp_slash }}/assets/css/custom.css" />
-    
-    <!-- [[! Ghost outputs important style and meta data with this tag ]] -->
-    {% include head.html %}
-
-</head>
 <body class="{% if page.url contains 'page' %}paged archive-template{% elsif page.class %}{{ page.class }}{% else %}home-template{% endif %} nav-closed">
 
     {% include navigation.html %}

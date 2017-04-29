@@ -1,45 +1,60 @@
 # Site settings
 title: "/dev/alias – Hack. Dev. Transcend."
 email: glenn@devalias.net
-description: >
-  Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.
+description: "Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more."
 
 url: "http://devalias.net" # the base hostname & protocol for your site
-short_url: 'devalias.net'
-baseurl: "/" # the subpath of your site, e.g. /blog
+short_url: "devalias.net"
+baseurl: "" # the subpath of your site, e.g. /blog
 
 permalink: pretty
-publisher: 'devalias.net'
+publisher: "devalias.net"
 
 paginate: 5
 paginate_path: "/:num/"
 
-language: 'en-uk'
-timezone: 'Australia/ACT'
+lang: "en_GB"
+language: "en_GB"
+timezone: "Australia/ACT"
+#encoding: utf-8
 
-keep_files:
-  - .git
-  - .nojekyll # To prevent GitHub re-processing
-
-exclude:
-  - "Gemfile"
-  - "Gemfile.lock"
-  - "PUBLISHING.md"
-  - "README.md"
-  - "TODO.txt"
-  - "ojekyll.txt"
-  - "bin/"
-
-github_repo: 'alias1/devalias.net'
-github_branch: 'master'
-
-google_analytics: UA-27970144-1
-disqus_shortname: devalias
-
+logo: /assets/images/cover4.jpg
 default_cover: '/assets/images/cover4.jpg'
 default_logo: '/assets/images/devalias-prompt.png'
 favicon: '/assets/images/authors/devalias.png'
 jekyll_version: '3.x'
+
+# https://github.com/jekyll/jekyll-seo-tag
+twitter:
+  username: "_devalias"
+
+social:
+  name: "Glenn 'devalias' Grant"
+  links:
+    - https://twitter.com/_devalias
+    - https://www.linkedin.com/in/glenn-devalias-grant/
+    - https://github.com/alias1
+    - https://keybase.io/devalias
+
+github_repo: 'alias1/devalias.net'
+github_branch: 'master'
+
+# https://github.com/jekyll/jekyll-mentions
+# jekyll-mentions:
+#   base_url: https://twitter.com
+
+# https://github.com/jekyll/github-metadata
+repository: alias1/devalias.net
+
+#google_site_verification: ""
+# webmaster_verifications:
+#   google: 1234
+#   bing: 1234
+#   alexa: 1234
+#   yandex: 1234
+
+google_analytics: UA-27970144-1
+disqus_shortname: devalias
 
 # Front Matter defaults (http://jekyllrb.com/docs/configuration/#front-matter-defaults)
 defaults:
@@ -48,17 +63,16 @@ defaults:
       path: ""
       type: "pages"
     values:
-      description: ''
-      class: 'page-template'
+      class: "page-template"
       navigation: True
   -
     scope:
       path: ""
       type: "posts"
     values:
-      author: 'devalias'
-      description: ''
-      class: 'post-template'
+      author: "devalias"
+      image: /assets/images/cover4.jpg
+      class: "post-template"
       navigation: True
 
 # Conversion
@@ -73,20 +87,18 @@ redcarpet:
     - "fenced_code_blocks"
 lsi: false # Index for related posts (enabled by command line)
 
-# https://github.com/jekyll/jekyll-feed
-# feed:
-#   path: atom.xml
+keep_files:
+  - .git
+  - .nojekyll # To prevent GitHub re-processing
 
-# https://github.com/jekyll/jekyll-mentions
-jekyll-mentions:
-  base_url: https://twitter.com
-
-# https://github.com/jekyll/github-metadata
-repository: alias1/devalias.net
-
-# https://github.com/jekyll/jekyll-gist
-gist:
-  noscript: false
+exclude:
+  - "Gemfile"
+  - "Gemfile.lock"
+  - "PUBLISHING.md"
+  - "README.md"
+  - "TODO.txt"
+  - "ojekyll.txt"
+  - "bin/"
 
 # https://github.com/vwochnik/jekyll-deploy
 deploy:
@@ -113,7 +125,7 @@ jekyll-webmention-io:
 gems:
   - jekyll-redirect-from        # https://github.com/jekyll/jekyll-redirect-from
   - jekyll-paginate             # https://github.com/jekyll/jekyll-paginate
-  - jekyll-mentions             # https://github.com/jekyll/jekyll-mentions
+  # - jekyll-mentions             # https://github.com/jekyll/jekyll-mentions (conflicts with SEO)
   - jekyll-gist                 # https://github.com/jekyll/jekyll-gist
   - jekyll-github-metadata      # https://github.com/jekyll/github-metadata
   - jekyll-crosspost-to-medium  # https://github.com/aarongustafson/jekyll-crosspost-to-medium
@@ -122,3 +134,4 @@ gems:
   - jekyll-twitter-plugin       # https://github.com/rob-murray/jekyll-twitter-plugin
   - jekyll-feed                 # https://github.com/jekyll/jekyll-feed
   - jekyll-sitemap              # https://github.com/jekyll/jekyll-sitemap
+  - jekyll-seo-tag              # https://github.com/jekyll/jekyll-seo-tag

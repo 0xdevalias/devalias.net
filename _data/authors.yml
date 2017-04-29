@@ -1,12 +1,13 @@
 devalias:
   nickname: 'devalias'
   name: "Glenn 'devalias' Grant"
-  bio: >
-    Glenn is a full-stack, polyglot developer with an acute interest in the offensive side of security; as well as technology, efficiency, biohacking, health, personal growth and a whole lot more.
+  bio: "Glenn is a full-stack, polyglot developer with an acute interest in the offensive side of security; as well as technology, efficiency, biohacking, health, personal growth and a whole lot more."
   location: 'Australia'
+  picture: '/assets/images/authors/devalias.png' # For https://github.com/jekyll/jekyll-seo-tag
   image: '/assets/images/authors/devalias.png'
   url: 'http://www.devalias.net/'
   short_url: 'devalias.net'
+  twitter: '_devalias' # For https://github.com/jekyll/jekyll-seo-tag
   social:
     twitter: '_devalias'
     linkedin: 'glenndevaliasgrant'

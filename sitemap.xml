@@ -256,6 +256,9 @@
 <loc>http://devalias.net//</loc>
 </url>
 <url>
+<loc>http://devalias.net//personal/stuff-i-like/</loc>
+</url>
+<url>
 <loc>http://devalias.net//personal/</loc>
 </url>
 <url>
@@ -266,6 +269,9 @@
 </url>
 <url>
 <loc>http://devalias.net//sec/</loc>
+</url>
+<url>
+<loc>http://devalias.net//coaching/</loc>
 </url>
 <url>
 <loc>http://devalias.net//dev/chrome-extensions/</loc>
@@ -281,9 +287,6 @@
 </url>
 <url>
 <loc>http://devalias.net//personal/interests/</loc>
-</url>
-<url>
-<loc>http://devalias.net//personal/stuff-i-like/</loc>
 </url>
 <url>
 <loc>http://devalias.net//personal/interests/neurofeedback/</loc>

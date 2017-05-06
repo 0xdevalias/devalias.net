@@ -8,6 +8,10 @@
   name: 'about'
   path: '/about'
 -
+  class: 'nav-coaching'
+  name: 'Coaching'
+  path: '/coaching'
+-
   class: 'nav-dev'
   name: 'Development'
   path: '/dev'

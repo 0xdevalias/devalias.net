@@ -9,6 +9,7 @@ devalias:
   short_url: 'devalias.net'
   twitter: '_devalias' # For https://github.com/jekyll/jekyll-seo-tag
   social:
+    instagram: '_devalias'
     twitter: '_devalias'
     linkedin: 'glenndevaliasgrant'
     #facebook: '404'

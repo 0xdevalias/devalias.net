@@ -1,5 +1,8 @@
 <div class="author-social">
     <a href="{{ site.baseurl | chomp_slash }}/author/{{ page.author }}/rss.xml" title="RSS Feed"><i class="fa fa-rss fa-{{include.size}}"></i></a>
+    {% if site.data.authors[include.author].social.instagram %}
+        <a href="https://instagram.com/{{ site.data.authors[include.author].social.instagram }}" title="Instagram" target="_blank"><i class="fa fa-instagram fa-{{include.size}}"></i></a>
+    {% endif %}
     {% if site.data.authors[include.author].social.twitter %}
         <a href="https://twitter.com/{{ site.data.authors[include.author].social.twitter }}" title="Twitter" target="_blank"><i class="fa fa-twitter-square fa-{{include.size}}"></i></a>
     {% endif %}

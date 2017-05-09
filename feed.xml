@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en_GB"><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="http://devalias.net//feed.xml" rel="self" type="application/atom+xml" /><link href="http://devalias.net//" rel="alternate" type="text/html" hreflang="en_GB" /><updated>2017-05-08T07:13:52+10:00</updated><id>http://devalias.net//</id><title type="html">/dev/alias – Hack. Dev. Transcend.</title><subtitle>Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.</subtitle><entry><title type="html">iTerm2 + tmux = &amp;lt;3</title><link href="http://devalias.net//devalias/2017/03/18/iterm-tmux-love/" rel="alternate" type="text/html" title="iTerm2 + tmux = &lt;3" /><published>2017-03-18T00:00:00+11:00</published><updated>2017-03-18T00:00:00+11:00</updated><id>http://devalias.net//devalias/2017/03/18/iterm-tmux-love</id><content type="html" xml:base="http://devalias.net//devalias/2017/03/18/iterm-tmux-love/">&lt;p&gt;Just a quick note today, highlighting a super simple but amazingly useful combination I&amp;#39;ve only recently become aware of: &lt;a href=&quot;https://www.iterm2.com/&quot;&gt;iTerm2&lt;/a&gt; + &lt;a href=&quot;https://tmux.github.io/&quot;&gt;tmux&lt;/a&gt;.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en_GB"><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="http://devalias.net//feed.xml" rel="self" type="application/atom+xml" /><link href="http://devalias.net//" rel="alternate" type="text/html" hreflang="en_GB" /><updated>2017-05-10T08:44:26+10:00</updated><id>http://devalias.net//</id><title type="html">/dev/alias – Hack. Dev. Transcend.</title><subtitle>Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.</subtitle><entry><title type="html">iTerm2 + tmux = &amp;lt;3</title><link href="http://devalias.net//devalias/2017/03/18/iterm-tmux-love/" rel="alternate" type="text/html" title="iTerm2 + tmux = &lt;3" /><published>2017-03-18T00:00:00+11:00</published><updated>2017-03-18T00:00:00+11:00</updated><id>http://devalias.net//devalias/2017/03/18/iterm-tmux-love</id><content type="html" xml:base="http://devalias.net//devalias/2017/03/18/iterm-tmux-love/">&lt;p&gt;Just a quick note today, highlighting a super simple but amazingly useful combination I&amp;#39;ve only recently become aware of: &lt;a href=&quot;https://www.iterm2.com/&quot;&gt;iTerm2&lt;/a&gt; + &lt;a href=&quot;https://tmux.github.io/&quot;&gt;tmux&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;If you don&amp;#39;t know what these are:&lt;/p&gt;
 
@@ -21,7 +21,91 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;This will open a new window running the tmux session. From there, we can open new tabs (&lt;code&gt;command-t&lt;/code&gt;), or split the tab vertically (&lt;code&gt;command-shift-d&lt;/code&gt;) or horizontally (&lt;code&gt;command-d&lt;/code&gt;)&lt;/p&gt;
 
-&lt;p&gt;For a more information, you could checkout &lt;a href=&quot;http://www.starkandwayne.com/blog/iterm-and-tmux-sitting-in-a-tree/&quot;&gt;iTerm and Tmux, sitting in a tree&lt;/a&gt; by Jamie van Dyke.&lt;/p&gt;</content><author><name>Glenn 'devalias' Grant</name></author><category term="quicknote" /><category term="productivity" /><category term="iterm2" /><category term="tmux" /><category term="screen" /><category term="terminal" /><category term="ssh" /><category term="osx" /><category term="macos" /><category term="starkandwayne.com" /><summary type="html">Just a quick note today, highlighting a super simple but amazingly useful combination I&amp;#39;ve only recently become aware of: iTerm2 + tmux.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://devalias.net//assets/images/cover4.jpg" /></entry><entry><title type="html">Biohacked Box #1 (aka Bulletproof Biohacking Box #9)</title><link href="http://devalias.net//devalias/2016/12/20/biohacked-box-1-bulletproof-biohacking-box-9/" rel="alternate" type="text/html" title="Biohacked Box #1 (aka Bulletproof Biohacking Box #9)" /><published>2016-12-20T00:00:00+11:00</published><updated>2016-12-20T00:00:00+11:00</updated><id>http://devalias.net//devalias/2016/12/20/biohacked-box-1-bulletproof-biohacking-box-9</id><content type="html" xml:base="http://devalias.net//devalias/2016/12/20/biohacked-box-1-bulletproof-biohacking-box-9/">&lt;p&gt;Even though you pay for these boxes (US$99/quarter), it becomes another one of those background things you forget about, and then suddenly in the mail arrives this package of biohacking goodies! This one rocked up perfectly in time for actual christmas, so was a nice little addition to the festivities.&lt;/p&gt;
+&lt;p&gt;For a more information, you could checkout &lt;a href=&quot;http://www.starkandwayne.com/blog/iterm-and-tmux-sitting-in-a-tree/&quot;&gt;iTerm and Tmux, sitting in a tree&lt;/a&gt; by Jamie van Dyke.&lt;/p&gt;</content><author><name>Glenn 'devalias' Grant</name></author><category term="quicknote" /><category term="productivity" /><category term="iterm2" /><category term="tmux" /><category term="screen" /><category term="terminal" /><category term="ssh" /><category term="osx" /><category term="macos" /><category term="starkandwayne.com" /><summary type="html">Just a quick note today, highlighting a super simple but amazingly useful combination I&amp;#39;ve only recently become aware of: iTerm2 + tmux.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://devalias.net//assets/images/cover4.jpg" /></entry><entry><title type="html">Biohacked Box #2 (March 2017)</title><link href="http://devalias.net//devalias/2017/03/01/biohacked-box-2/" rel="alternate" type="text/html" title="Biohacked Box #2 (March 2017)" /><published>2017-03-01T00:00:00+11:00</published><updated>2017-03-01T00:00:00+11:00</updated><id>http://devalias.net//devalias/2017/03/01/biohacked-box-2</id><content type="html" xml:base="http://devalias.net//devalias/2017/03/01/biohacked-box-2/">&lt;p&gt;Time for another Bulletproof &lt;a href=&quot;http://biohacked.com/&quot;&gt;Biohacked.com&lt;/a&gt; quarterly box. My overall impression of this one was pretty low in comparison to the others. A bunch of things that I don&amp;#39;t really feel like I&amp;#39;d make much use of. But anyway, we&amp;#39;ll see how it goes!&lt;/p&gt;
+
+&lt;h2&gt;Contents&lt;/h2&gt;
+
+&lt;p&gt;If you want to follow along with the official unboxing video, head on over and &lt;a href=&quot;https://biohacked.com/BB17A/&quot;&gt;watch with me&lt;/a&gt;. (&lt;a href=&quot;http://biohacked.com/BBQ117/&quot;&gt;alt&lt;/a&gt;, &lt;a href=&quot;https://www.youtube.com/watch?v=Et5n4aHi2nk&quot;&gt;YouTube&lt;/a&gt;)&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;1:30 Biohacked Box Contents Brochure&lt;/li&gt;
+&lt;li&gt;1:50 &lt;a href=&quot;https://stellarcleenz.com/&quot;&gt;Stellarcleenz&lt;/a&gt; (US$29.50)
+
+&lt;ul&gt;
+&lt;li&gt;99.9% silver, antimicrobial cloth&lt;/li&gt;
+&lt;li&gt;30% off: BH30 (June 30th, 2017)&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;4:04 &lt;a href=&quot;https://experiencenervana.com/&quot;&gt;Nervana&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Synchronizes electric signal with music to stimulate vagus nerve&lt;/li&gt;
+&lt;li&gt;20% off: BIOHACKED20&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;5:02 &lt;a href=&quot;http://shop.morroccomethod.com/Trial-Travel-Set-5-Shampoos&quot;&gt;Morrocco Method&lt;/a&gt; (US$35)
+
+&lt;ul&gt;
+&lt;li&gt;Raw, paleo, wildcrafted&lt;/li&gt;
+&lt;li&gt;PH balanced, no bad things&lt;/li&gt;
+&lt;li&gt;Super concentrated, only need a few drops of each&lt;/li&gt;
+&lt;li&gt;5 x 2 ounce shampoo travel kit&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;7:09 &lt;a href=&quot;http://www.livinglibations.com/&quot;&gt;Living Libations&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.livinglibations.com/default/products/tooth-care/ozonated-healthy-gum-gel-10ml-1&quot;&gt;Ozonated Happy Gum Gel&lt;/a&gt; (US$40)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.livinglibations.com/default/best-skin-ever-rose-2&quot;&gt;Best Skin Ever - Rose&lt;/a&gt; (US$3)&lt;/li&gt;
+&lt;li&gt;10% off: BIOHACKEDBEAUTY&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;10:20 &lt;a href=&quot;https://www.lafontainecosmetics.com/collections/derma-rollers/products/dermadream-premium-540-0-5-mm-titanium-needles-derma-roller&quot;&gt;La Fontaine Cosmetics - Derma Dream&lt;/a&gt; (US$30)
+
+&lt;ul&gt;
+&lt;li&gt;Tiny needles puncture the surface of the skin, helps create collagen&lt;/li&gt;
+&lt;li&gt;Activates regenerative process&lt;/li&gt;
+&lt;li&gt;Collagen synthesis up to 500% higher&lt;/li&gt;
+&lt;li&gt;97% absorption of topical products instead of ~40%&lt;/li&gt;
+&lt;li&gt;20% off: HACKME (April 30th, 2017)&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;13:01 &lt;a href=&quot;http://www.readheadstrong.com/&quot;&gt;Head Strong Book&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Read the first chapter&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;13:56 &lt;a href=&quot;https://www.intelligentchange.com/products/the-five-minute-journal&quot;&gt;The Five Minute Journal&lt;/a&gt; (US$23)
+
+&lt;ul&gt;
+&lt;li&gt;Gratitude&lt;/li&gt;
+&lt;li&gt;15% off: biohacked&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.intelligentchange.com/pages/five-minute-journal-tips&quot;&gt;Five Minute Journal Tips&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://app.fiveminutejournal.com/&quot;&gt;iOS/Android app&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;15:50 &lt;a href=&quot;https://www.bulletproof.com/lemon-cookie-collagen-protein-bar-12-pack&quot;&gt;Lemon Cookie Collagen Protein Bar&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Not counted in the value of the box&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;16:08 &lt;a href=&quot;http://giveandgrow.com/biohack&quot;&gt;Give and Grow&lt;/a&gt; (US$20)
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://giveandgrow.com/free-code/&quot;&gt;Watch&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;People journey to india to discover their gift&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;16:53 Golden Ticket: 5x Nervana units (US$289)&lt;/li&gt;
+&lt;li&gt;17:29 Golden Ticker: 1x LED facemask and 1 year supply of derma rollers (US$1000)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;Previous Boxes&lt;/h2&gt;
+
+&lt;p&gt;Want to see what the previous boxes have been like? Check out my other posts:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;/devalias/2016/12/20/biohacked-box-1-bulletproof-biohacking-box-9/&quot;&gt;Biohacked Box #1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/devalias/2016/10/13/bulletproof-biohacking-box-8/&quot;&gt;Quarterly Biohacking Box #8&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/devalias/2016/07/21/bulletproof-quarterly-biohacking-box-7/&quot;&gt;Quarterly Biohacking Box #7&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;This has a quick summary of boxes 1-6 as well&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Glenn 'devalias' Grant</name></author><category term="quicknote" /><category term="bulletproof" /><category term="bulletproof-quarterly" /><category term="dave-asprey" /><category term="quarterly" /><category term="biohacking" /><category term="biohacked.com" /><category term="stellarcleenz" /><category term="nervana" /><category term="morroccomethod" /><category term="livinglibations" /><category term="ozone" /><category term="headstrong" /><category term="book" /><category term="fiveminutejournal" /><category term="gratitude" /><category term="collagen" /><summary type="html">Time for another Bulletproof Biohacked.com quarterly box. My overall impression of this one was pretty low in comparison to the others. A bunch of things that I don&amp;#39;t really feel like I&amp;#39;d make much use of. But anyway, we&amp;#39;ll see how it goes!</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://devalias.net//assets/images/cover4.jpg" /></entry><entry><title type="html">Biohacked Box #1 (aka Bulletproof Biohacking Box #9)</title><link href="http://devalias.net//devalias/2016/12/20/biohacked-box-1-bulletproof-biohacking-box-9/" rel="alternate" type="text/html" title="Biohacked Box #1 (aka Bulletproof Biohacking Box #9)" /><published>2016-12-20T00:00:00+11:00</published><updated>2016-12-20T00:00:00+11:00</updated><id>http://devalias.net//devalias/2016/12/20/biohacked-box-1-bulletproof-biohacking-box-9</id><content type="html" xml:base="http://devalias.net//devalias/2016/12/20/biohacked-box-1-bulletproof-biohacking-box-9/">&lt;p&gt;Even though you pay for these boxes (US$99/quarter), it becomes another one of those background things you forget about, and then suddenly in the mail arrives this package of biohacking goodies! This one rocked up perfectly in time for actual christmas, so was a nice little addition to the festivities.&lt;/p&gt;
 
 &lt;p&gt;While this is the 9th box overall, it&amp;#39;s the first shipped via the new service over at &lt;a href=&quot;http://biohacked.com/&quot;&gt;Biohacked.com&lt;/a&gt;. If you haven&amp;#39;t checked it out yet, I definitely recommend it.&lt;/p&gt;
 
@@ -824,10 +908,4 @@ mobile, and desktop.&amp;quot;&lt;/li&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;http://www.creativetechs.com/tipsblog/access-files-from-other-time-machine-backups/&quot;&gt;http://www.creativetechs.com/tipsblog/access-files-from-other-time-machine-backups/&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://apple.stackexchange.com/questions/158645/recover-certain-files-from-time-machine-from-previous-mac&quot;&gt;https://apple.stackexchange.com/questions/158645/recover-certain-files-from-time-machine-from-previous-mac&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Glenn 'devalias' Grant</name></author><category term="quicknote" /><category term="time-machine" /><category term="backup" /><category term="apple" /><category term="creativetechs.com" /><category term="apple.stackexchange.com" /><summary type="html">There are two main methods for accessing files from other Time Machine backups:</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://devalias.net//assets/images/cover4.jpg" /></entry><entry><title type="html">v3.0 - Now with more Hyde</title><link href="http://devalias.net//devalias/2016/05/22/v3-now-with-more-hyde/" rel="alternate" type="text/html" title="v3.0 -  Now with more Hyde" /><published>2016-05-22T00:00:00+10:00</published><updated>2016-05-22T00:00:00+10:00</updated><id>http://devalias.net//devalias/2016/05/22/v3-now-with-more-hyde</id><content type="html" xml:base="http://devalias.net//devalias/2016/05/22/v3-now-with-more-hyde/">&lt;p&gt;Time for another rebirth! As you may have noticed, I haven&amp;#39;t really written much over the last year or two. While I&amp;#39;ve been busy, distracted and occasionally just lazy, I&amp;#39;ve mostly found that Tumblr&amp;#39;s interface is just far too much effort to write in. And if something is needlessly too much effort, it&amp;#39;s not going to get done.&lt;/p&gt;
-
-&lt;p&gt;Enter &lt;a href=&quot;https://jekyllrb.com/&quot;&gt;Jekyll&lt;/a&gt;, the static website builder. I&amp;#39;ve been intending to put something together on this platform forever.. The first iteration started in &lt;a href=&quot;http://octopress.org/&quot;&gt;Octopress&lt;/a&gt; a year or more back, but never really went anywhere since the default theme was kind of ugly. Decided to take another stab at things this year while I was between jobs (free time == productivity!), found a theme that I liked and started hacking away. With a few months of scattered hacking and procrastination, it&amp;#39;s finally actually on the internet, yay!&lt;/p&gt;
-
-&lt;p&gt;Being a static site, I&amp;#39;m taking advantage of &lt;a href=&quot;https://pages.github.com/&quot;&gt;GitHub Pages&lt;/a&gt;. While it gives me free hosting, it also means I&amp;#39;m now living my &lt;a href=&quot;/devalias/2012/01/04/resolutions-for-11111011100-2012/&quot;&gt;previous mantra&lt;/a&gt; of &amp;#39;open source everything&amp;#39;. You can access the &lt;a href=&quot;https://github.com/alias1/devalias.net&quot;&gt;files used to generate the site&lt;/a&gt; and &lt;a href=&quot;https://github.com/alias1/devalias.net/issues&quot;&gt;create an issue&lt;/a&gt;/pull request to fix up any typos/errors you might find along the way :)&lt;/p&gt;
-
-&lt;p&gt;Given it&amp;#39;s now only mildly more effort for me to write a post here as it is to save my notes in random text files on my computer, I&amp;#39;ll hopefully put more online.. We shall see.&lt;/p&gt;</content><author><name>Glenn 'devalias' Grant</name></author><category term="v3.0" /><category term="tumblr" /><category term="jekyll" /><category term="octopress" /><category term="github" /><category term="open-source" /><summary type="html">Time for another rebirth! As you may have noticed, I haven&amp;#39;t really written much over the last year or two. While I&amp;#39;ve been busy, distracted and occasionally just lazy, I&amp;#39;ve mostly found that Tumblr&amp;#39;s interface is just far too much effort to write in. And if something is needlessly too much effort, it&amp;#39;s not going to get done.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://devalias.net//assets/images/cover4.jpg" /></entry></feed>
+&lt;/ul&gt;</content><author><name>Glenn 'devalias' Grant</name></author><category term="quicknote" /><category term="time-machine" /><category term="backup" /><category term="apple" /><category term="creativetechs.com" /><category term="apple.stackexchange.com" /><summary type="html">There are two main methods for accessing files from other Time Machine backups:</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://devalias.net//assets/images/cover4.jpg" /></entry></feed>

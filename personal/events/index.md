@@ -11,10 +11,21 @@ crossposted:
 # 2017
 
 * TODO
+    * Platypus con
 * [03/10/2017] Dragon Dreaming Festival
-* ?[13/05/2017] Midnight Mafia 2017 (Sydney Showground, Sydney)?
+* [29/07/2017] 1984 (Canberra Theatre, Canberra)
+* [08/07/2017] Kinky Boots (Capitol Theatre, Sydney)
+  * Jason, Migara
+  * [Soundtrack](https://open.spotify.com/album/0VfNZpKsykX5WPuyEdBilR)
+* [09/06/2017] Psyland
+* [07/06/2017] South Pacific (The Q, Queanbeyan)
+  * Whitney, Jason, Migara
+* [13/05/2017] Midnight Mafia 2017 (Sydney Showground, Sydney)
+* [29/04/2017] Dracula (The Playhouse, Canberra)
+  * Jason, Migara
 * [17/04/2017] BSides Canberra
-* ?[4-27/04/2017] Les Miserables (The Q, Queanbeyan)?
+* [7/04/2017] Les Miserables (The Q, Queanbeyan)
+  * Whitney, Jason, Migara
 * [04/03/2017] Supremacy (Sydney Showground, Sydney)
 * [20/01/2017] Regrowth
 
@@ -140,7 +151,7 @@ crossposted:
 * [05/11/2010] Pendulum (Hordern Pavillion, Sydney) ([FB](https://www.facebook.com/ensquared/posts/167626163267454))
 * [18/09/2010] Defqon.1 Australia (Regatta Centre, Sydney)
 * [14/08/2010] Utopia Homegrown 3 (Hordern Pavillion, Sydney) (Met all the raver kids)
-* [01/05/2010] King Leare (Canberra Playhouse Theatre, Canberra) (Jean?) ([FB](https://www.facebook.com/ensquared/posts/117249304964880))
+* [01/05/2010] King Leare (Playhouse Theatre, Canberra) (Jean?) ([FB](https://www.facebook.com/ensquared/posts/117249304964880))
 
 # 2009
 

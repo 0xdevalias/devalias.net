@@ -244,6 +244,7 @@ In a fast, simple, yet extensible way.
 
 ## GitHub
 
+* [`brew bundle check` should list whats missing · Issue #147 · Homebrew/homebrew-bundle](https://github.com/Homebrew/homebrew-bundle/issues/147): brew bundle check/dryrun
 * [Broken links in readme · Issue #123 · erocarrera/pefile](https://github.com/erocarrera/pefile/issues/123)
 * [Better modularisation · Issue #124 · erocarrera/pefile](https://github.com/erocarrera/pefile/issues/124)
 * [Flag to skip parsing on PE object instantiation · Issue #125 · erocarrera/pefile](https://github.com/erocarrera/pefile/issues/125)

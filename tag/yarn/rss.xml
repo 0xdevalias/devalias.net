@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+   
+      <title>devalias.net</title>
+   
+   <link>http://devalias.net</link>
+   <description>Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.</description>
+   <language>en_GB</language>
+   <managingEditor> </managingEditor>
+   <atom:link href="rss" rel="self" type="application/rss+xml" />
+   
+	<item>
+	  <title>Link Dump: Clearing Out My Todo List</title>
+	  <link>/devalias/2017/07/14/link-dump-clearing-out-my-todo-list/</link>
+	  <author>devalias</author>
+	  <pubDate>2017-07-14T00:00:00+10:00</pubDate>
+	  <guid>/devalias/2017/07/14/link-dump-clearing-out-my-todo-list/</guid>
+	  <description><![CDATA[
+	     <p>I tend to stumble across a lot of interesting things as I travel across the web, and one of my productivity methods is to save the things I don&#39;t have time to check out immediately to <a href="https://todoist.com/">Todoist</a>. Unfortunately, time can be short, and life busy, so those &#39;thats an interesting article&#39;, &#39;i could use that tech thing&#39; and &#39;that would be cool to blog about&#39; things tend to just build up, and clutter my todo lists in an ever less efficient manner. So today lets clear some of that out!</p>
+
+<p>This post will be a vaguely categorised link dump, and depending on if I remember why I saved it, maybe some notes too.</p>
+
+<p>Looking over everything, there seem to be trends around development, security, privacy, blog/website, docker, tech, automation, branding and general performance/efficiency. Not really surprising when I think about the things that tend to interest me :)</p>
+
+<p>Hope you find something interesting!</p>
+
+<h2>Development</h2>
+
+<ul>
+<li><a href="https://www.jetbrains.com/research/devecosystem-2017/">The State of Developer Ecosystem 2017 - Infographic | JetBrains</a></li>
+<li><a href="https://insights.stackoverflow.com/survey/2017">Developer Survey Results 2017 - Stackoverflow</a></li>
+<li><a href="https://medium.freecodecamp.com/a-roadmap-to-becoming-a-web-developer-in-2017-b6ac3dddd0cf">A roadmap to becoming a web developer in 2017 – freeCodeCamp</a></li>
+<li><a href="https://hackernoon.com/how-it-feels-to-learn-javascript-in-2016-d3a717dd577f">How it feels to learn JavaScript in 2016 – Hacker Noon</a></li>
+<li><a href="https://mightysignal.com/top-ios-sdks">Most Used SDKs in Top 200 Free iOS Apps | MightySignal - Mobile App &amp; SDK Intelligence for iOS / Android</a></li>
+<li>Frontend Package Managers
+
+<ul>
+<li><a href="https://yarnpkg.com/en/">Yarn</a>: Package Manager</li>
+<li><a href="https://code.facebook.com/posts/1840075619545360">Yarn: A new package manager for JavaScript</a></li>
+<li><a href="https://github.com/yarnpkg/yarn">yarnpkg/yarn</a>: Fast, reliable, and secure dependency management.</li>
+<li><a href="https://bower.io/blog/2016/using-bower-with-yarn/">Using Bower with Yarn</a>: bower support dropped for now</li>
+<li><a href="https://www.slant.co/versus/17851/5094/%7Eyarn_vs_bower">Yarn vs Bower detailed comparison as of 2017 - Slant</a></li>
+<li><a href="https://www.slant.co/topics/1488/%7Efront-end-package-managers">13 Best front-end package managers as of 2017 - Slant</a></li>
+</ul></li>
+<li>Frontend JS Languages 
+
+<ul>
+<li><a href="https://medium.com/front-end-hacking/es2015-vs-elm-vs-typescript-a88dbc5d14d9">ES2015 JavaScript vs. Elm vs. TypeScript – Frontend Weekly – Medium</a></li>
+<li><a href="http://mutanatum.com/posts/2017-01-12-Browser-FP-Head-to-Head.html">Selecting a platform - JavaScript vs Elm vs PureScript vs GHCjs vs Scalajs | MutanatuM</a></li>
+</ul></li>
+<li>Code Review
+
+<ul>
+<li><a href="https://codacy.com/">Automated code reviews &amp; code analytics | Codacy</a>: Check code style, security, duplication, complexity and coverage on every change while tracking code quality throughout your sprints.</li>
+<li><a href="https://codeclimate.com/">Code Climate</a>: Get automated code review for test coverage, complexity, duplication, security, style, and more, and merge with confidence.</li>
+</ul></li>
+<li><a href="http://www.foundweekends.org/conscript/">Conscript — Conscript</a>: Distribution mechanism for Scala apps using Github and Maven repositories as the infrastructure. You can use it to install and update apps similar to APT or Home Brew.</li>
+<li><a href="http://www.foundweekends.org/giter8/">Giter8 — Giter8</a>: Command line tool to generate files and directories from templates published on Github or any other git repository</li>
+<li><a href="https://github.com/lightbend/paradox">lightbend/paradox</a>: Paradox is a markdown documentation tool for software projects.</li>
+<li><a href="https://github.com/sirthias/pegdown/">sirthias/pegdown</a>: A pure-Java Markdown processor based on a parboiled PEG parser supporting a number of extensions</li>
+<li><a href="https://ace.c9.io/">Ace - The High Performance Code Editor for the Web</a>
+
+<ul>
+<li><a href="https://github.com/ajaxorg/ace">ajaxorg/ace</a>: Ace (Ajax.org Cloud9 Editor)</li>
+<li><a href="https://github.com/lyrasoft/ace-markdown-editor">lyrasoft/ace-markdown-editor</a>: A Markdown editor for Joomla CMS</li>
+<li><a href="https://ace.c9.io/kitchen-sink.html?doc=Markdown">Ace Kitchen Sink</a></li>
+</ul></li>
+</ul>
+
+<h2>Security</h2>
+
+<ul>
+<li>CTF
+
+<ul>
+<li><a href="http://www.learn2hack.com.au/">Experience IT - Cyber Security | learn2hack | TAFE</a>: Hands on training for high school students run by industry experts with pathways to tertiary qualifications. This course provides an introduction to defensive and offensive security strategies and tactics and is suitable for high school students aged 15-18.</li>
+<li><a href="https://ctf.0ops.net/">0CTF 2017</a></li>
+<li><a href="https://legitbs.net/">DEF CON CTF 2017</a></li>
+<li><a href="https://github.com/legitbs/quals-2017">legitbs/quals-2017</a></li>
+<li><a href="https://github.com/legitbs/quals-2016">legitbs/quals-2016</a>: 2016 DEF CON Qualifier Challenges</li>
+<li><a href="https://github.com/legitbs/quals-2015">legitbs/quals-2015</a></li>
+<li><a href="https://github.com/legitbs/finals-2014">legitbs/finals-2014</a></li>
+<li><a href="https://github.com/legitbs/quals-2014">legitbs/quals-2014</a></li>
+<li><a href="https://github.com/legitbs/finals-2013">legitbs/finals-2013</a>: Source for many challenges from DEF CON 21 CTF Finals</li>
+<li><a href="https://github.com/legitbs/quals-2013">legitbs/quals-2013</a>: Source for many challenges from DEF CON 21 CTF Qualifier</li>
+<li><a href="http://flaws.cloud/">flaws.cloud</a>: Through a series of levels you&#39;ll learn about common mistakes and gotchas when using Amazon Web Services (AWS).</li>
+<li><a href="https://dook.biz/2017/03/crikeyconctf-2017-koala-gallery-writeup/">CrikeyConCTF 2017 – Koala Gallery Writeup</a></li>
+</ul></li>
+<li>BSides 2017
+
+<ul>
+<li><a href="http://buffered.io/posts/bsidescbr-ctf-round-up/">BSidesCBR CTF Round Up | OJ</a></li>
+<li><a href="https://github.com/OJ/bsides-2017-ctf-docker">OJ/bsides-2017-ctf-docker</a>: BSidesCBR CTF docker compose files</li>
+<li><a href="https://www.rootusers.com/bsides-canberra-2017-ctf-rekt-exfil-write/">BSides Canberra 2017 CTF - Rekt Exfil Write-up - RootUsers</a></li>
+</ul></li>
+<li>Reverse Engineering, etc
+
+<ul>
+<li><a href="https://binary.ninja/">binary.ninja</a>: A reverse engineering platform</li>
+<li><a href="http://kaitai.io/">Kaitai Struct: declarative binary format parsing language</a> A new way to develop parsers for binary structures.</li>
+<li><a href="http://www.hopperapp.com/">Hopper</a>: The macOS and Linux Disassembler</li>
+<li><a href="http://cerbero.io/profiler/">Cerbero - Profiler</a>: Cerbero Profiler is a tool designed primarily for malware and forensic analysis.</li>
+</ul></li>
+<li>Recon, DNS, etc
+
+<ul>
+<li>find IP ranges, reverse IP lookups, etc</li>
+<li>seclists subdomain section</li>
+<li><a href="https://abhartiya.wordpress.com/2016/09/20/brutesubs-an-automation-framework-for-running-multiple-subdomain-bruteforcing-tools-in-parallel-via-docker/">Brutesubs – An automation framework for running multiple subdomain bruteforcing tools in parallel via Docker</a></li>
+<li><a href="https://github.com/anshumanbh/brutesubs">anshumanbh/brutesubs</a>: An automation framework for running multiple open sourced subdomain bruteforcing tools (in parallel) using your own wordlists via Docker Compose</li>
+<li><a href="https://github.com/TheRook/subbrute">TheRook/subbrute</a>: A DNS meta-query spider that enumerates DNS records, and subdomains.</li>
+<li><a href="https://github.com/infosec-au/altdns">infosec-au/altdns</a>: Generates permutations, alterations and mutations of subdomains and then resolves them</li>
+<li><a href="https://github.com/OJ/gobuster">OJ/gobuster</a>: Directory/file &amp; DNS busting tool written in Go</li>
+<li><a href="https://www.apnic.net/manage-ip/using-whois/bulk-access/">Bulk access to whois data – APNIC</a>: apnic offline database</li>
+<li><a href="https://github.com/Microsoft/WhoisParsers">Microsoft/WhoisParsers</a>: Download and parse Whois records from bulk whois database dumps of IANA organizations (ARIN, AFRINIC, APNIC, LACNIC, RIPE ). Crawl and parse RWhois records from RFC 2167 ARIN Referral Whois Servers</li>
+<li><a href="https://github.com/jhaddix/domain/blob/master/enumall.py">jhaddix/domain enumall</a>: enumall is a refactor of enumall.sh providing a script to identify subdomains using several techniques and tools.</li>
+<li><a href="https://bitbucket.org/LaNMaSteR53/recon-ng">LaNMaSteR53 / Recon-ng — Bitbucket</a>: Recon-ng is a full-featured Web Reconnaissance framework written in Python.</li>
+<li><a href="http://tools.kali.org/information-gathering/dnsenum">dnsenum | Penetration Testing Tools</a></li>
+<li><a href="https://github.com/ChrisTruncer/EyeWitness">ChrisTruncer/EyeWitness</a>: EyeWitness is designed to take screenshots of websites, provide some server header info, and identify default credentials if possible.</li>
+</ul></li>
+<li>Dockerised
+
+<ul>
+<li><a href="https://zeltser.com/metasploit-framework-docker-container/">Run Metasploit Framework as a Docker Container Without Installation Pains</a></li>
+<li><a href="https://hub.docker.com/r/k0st/alpine-nikto/">k0st/alpine-nikto | DockerHub</a>: Dockerized nikto</li>
+<li>docker run --rm -it activeshadow/nikto /bin/bash</li>
+<li><a href="https://github.com/kost/docker-webscan">kost/docker-webscan</a>: Dockerized versions of various web security scanning tools and utilities</li>
+</ul></li>
+<li>Frameworks, automation, etc
+
+<ul>
+<li><a href="https://github.com/trustedsec/ptf">trustedsec/ptf</a>: The Penetration Testers Framework (PTF) is a way for modular support for up-to-date tools.</li>
+<li><a href="http://www.golismero.com/">Golismero Project. The web knife.</a>
+
+<ul>
+<li>GoLismero is a free software framework for security testing. It&#39;s currently geared towards web security, but it can easily be expanded to other kinds of scans. It can run their own security tests and manage a lot of well known security tools (OpenVas, Wfuzz, SQLMap, DNS recon, robot analyzer...) take their results, feedback to the rest of tools and merge all of results. And all of this automatically.</li>
+<li><a href="https://github.com/golismero/golismero">golismero/golismero</a></li>
+</ul></li>
+<li><a href="http://www.spiderfoot.net/">SpiderFoot – Open Source Intelligence Automation</a>
+
+<ul>
+<li><a href="https://github.com/smicallef/spiderfoot">smicallef/spiderfoot</a>: SpiderFoot, the open source footprinting and intelligence-gathering tool. </li>
+</ul></li>
+</ul></li>
+<li><a href="https://bugcrowd.com/vulnerability-rating-taxonomy">Vulnerability Rating Taxonomy | Bugcrowd</a>
+
+<ul>
+<li>Bugcrowd’s VRT is a resource outlining Bugcrowd’s baseline priority rating, including certain edge cases, for vulnerabilities that we often see.</li>
+<li><a href="https://github.com/bugcrowd/vulnerability-rating-taxonomy">bugcrowd/vulnerability-rating-taxonomy</a></li>
+</ul></li>
+<li><a href="https://www.pastemonitor.com/">PasteMonitor</a>: PasteMonitor watches for keywords you&#39;re interested in on Pastebin.</li>
+<li><a href="https://requestb.in/">RequestBin — Collect, inspect and debug HTTP requests and webhooks</a></li>
+<li><a href="https://github.com/Runscope/requestbin">Runscope/requestbin</a>: Inspect HTTP requests. Debug webhooks.</li>
+<li><a href="https://github.com/maurosoria/dirsearch">maurosoria/dirsearch</a>: Web path scanner</li>
+<li><a href="https://github.com/ImageTragick/PoCs">ImageTragick/PoCs</a>: Proof of Concepts for CVE-2016–3714 <a href="https://imagetragick.com">https://imagetragick.com</a></li>
+<li><a href="https://github.com/malfunkt/hyperfox">malfunkt/hyperfox</a> (<a href="https://hyperfox.org/">web</a>): HTTP/HTTPs MITM proxy and traffic recorder with on-the-fly TLS cert generation</li>
+<li><a href="https://github.com/reverse-shell/routersploit">reverse-shell/routersploit</a>: The Router Exploitation Framework</li>
+<li><a href="https://breakdev.org/evilginx-advanced-phishing-with-two-factor-authentication-bypass/">Evilginx - Advanced Phishing with Two-factor Authentication Bypass</a></li>
+<li><a href="https://medium.com/on-docker/secrets-and-lie-abilities-the-state-of-modern-secret-management-2017-c82ec9136a3d">Secrets and LIE-abilities: The State of Modern Secret Management [2017]</a></li>
+<li><a href="https://www.cert.gov.au/vulnerability-disclosures">Vulnerability Disclosures | CERT Australia</a></li>
+<li>Where are BURP setttings saved?
+
+<ul>
+<li>On OSX it is stored in the com.apple.java.util.prefs.plist under ~/Library/Preferences.</li>
+<li>Also, you need to make sure you use the burp-&gt;exit to quit and not the Burp.StartBurp-&gt;Quit (Command-Q) to exit. Otherwise, it will not save the settings.</li>
+</ul></li>
+</ul>
+
+<h2>Privacy</h2>
+
+<ul>
+<li><a href="http://www.shellntel.com/blog/2016/3/30/vpn-over-dns-1">VPN over DNS</a></li>
+<li><a href="https://www.whonix.org/wiki/Main_Page">Whonix</a>: Whonix is a free desktop operating system (OS) that is specifically designed for advanced security and privacy. Based on Tor, Debian GNU/Linux and the principle of security by isolation, it realistically addresses common attack vectors while maintaining usability.</li>
+<li><a href="https://medium.com/@rdsubhas/docker-image-with-tor-privoxy-and-a-process-manager-under-15-mb-c9e344111b61#.csolccvds">Docker image with Tor, Privoxy and a process manager under 15 MB</a></li>
+<li><a href="https://blog.jessfraz.com/post/routing-traffic-through-tor-docker-container/">1: How to Route Traffic through a Tor Docker Container</a></li>
+<li><a href="https://blog.jessfraz.com/post/running-a-tor-relay-with-docker/">2: Running a Tor relay with Docker</a></li>
+<li><a href="https://blog.jessfraz.com/post/tor-socks-proxy-and-privoxy-containers/">3: Tor Socks Proxy and Privoxy Containers</a></li>
+<li>Advanced Privacy and Anonymity Using VMs, VPN’s, Tor
+
+<ul>
+<li><a href="https://www.ivpn.net/privacy-guides/advanced-privacy-and-anonymity-part-1">Part 1 - Introduction to Series</a></li>
+<li><a href="https://www.ivpn.net/privacy-guides/advanced-privacy-and-anonymity-part-2">Part 2 - Basic Setup Using VM&#39;s, VPNs and TOR</a></li>
+<li><a href="https://www.ivpn.net/privacy-guides/advanced-privacy-and-anonymity-part-3">Part 3 - Planning Advanced VM and VPN Setup</a></li>
+<li><a href="https://www.ivpn.net/privacy-guides/advanced-privacy-and-anonymity-part-4">Part 4 - Setting Up Secure Host Machines</a></li>
+<li><a href="https://www.ivpn.net/privacy-guides/advanced-privacy-and-anonymity-part-5">Part 5 - Installing VirtualBox and Creating Linux VMs</a></li>
+<li><a href="https://www.ivpn.net/privacy-guides/advanced-privacy-and-anonymity-part-6">Part 6 - Creating pfSense 2.2.6 VMs as VPN Clients</a></li>
+<li><a href="https://www.ivpn.net/privacy-guides/advanced-privacy-and-anonymity-part-7">Part 7 - Paying Anonymously with Cash and Bitcoins</a></li>
+<li><a href="https://www.ivpn.net/privacy-guides/advanced-privacy-and-anonymity-part-8">Part 8 - Creating Nested Chains of VPNs and Tor</a></li>
+</ul></li>
+</ul>
+
+<h2>Blog / Website / Social</h2>
+
+<ul>
+<li><a href="https://www.ohow.co/removing-google-analytics-spam/">Ultimate Guide to Blocking and Cleaning Google Analytics Spam and Other Junk Traffic</a></li>
+<li><a href="https://later.com/blog/ultimate-guide-to-using-instagram-hashtags/">The Ultimate Guide to Instagram Hashtags in 2017</a></li>
+<li><a href="https://staticman.net/docs/">Staticman</a>: I bring user-generated content to static sites</li>
+<li>Blog Inspiration
+
+<ul>
+<li><a href="http://rhiaro.co.uk/">Amy/Rhiaro | tampering with arrangements</a>: Lots of social web/lifelogging type stuff, seems cool</li>
+<li><a href="http://www.savespendsplurge.com/tag/what-i-bought/">What I bought | Save. Spend. Splurge.</a>: Lifelogging type stuff</li>
+<li><a href="https://github.com/aarongustafson/aarongustafson.github.io/tree/source">aarongustafson/aarongustafson.github.io</a> (<a href="https://www.aaron-gustafson.com/">web</a>): Web standards &amp; accessibility advocate at Microsoft</li>
+</ul></li>
+<li>Jekyll
+
+<ul>
+<li><a href="https://mademistakes.com/articles/using-jekyll-2016/">How I’m Using Jekyll in 2016</a></li>
+<li><a href="https://jekyllrb.com/docs/collections/">Jekyll Collections</a>: For writings/etc?</li>
+</ul></li>
+<li>Jekyll Plugins
+
+<ul>
+<li><a href="https://github.com/pattex/jekyll-tagging/issues/43#issuecomment-289595438">Generate a /tag/index.html · Issue #43 · pattex/jekyll-tagging</a>: TODO: Implement tag_cloud for my blog</li>
+<li><a href="https://github.com/jekyll/jekyll-archives">jekyll/jekyll-archives</a>: Archive pages for your Jekyll tags and categories</li>
+<li><a href="https://github.com/pattex/jekyll-tagging">pattex/jekyll-tagging</a>: Jekyll plugin to automatically generate a tag cloud and tag pages.</li>
+<li><a href="https://github.com/toshimaru/jekyll-tagging-related_posts">toshimaru/jekyll-tagging-related_posts</a>: Jekyll related_posts function based on tags (works on Jekyll3)</li>
+<li><a href="https://github.com/octopress/paginate/">octopress/paginate</a>: A simple paginator for Jekyll sites. </li>
+<li><a href="https://github.com/jekyll/jekyll-assets">jekyll/jekyll-assets</a>: Asset pipelines for Jekyll.</li>
+<li><a href="https://github.com/robwierzbowski/jekyll-picture-tag">robwierzbowski/jekyll-picture-tag</a>: Easy responsive images for Jekyll.</li>
+<li>Jekyll wiki plugin?</li>
+</ul></li>
+<li>GitHub Issues
+
+<ul>
+<li><a href="https://github.com/indirect/jekyll-postfiles/issues/6">Make this a ruby gem · Issue #6 · indirect/jekyll-postfiles</a></li>
+<li><a href="https://github.com/aarongustafson/jekyll-webmention_io/issues/11">Give rake task the ability to detect and notify pingback endpoints · Issue #11 · aarongustafson/jekyll-webmention_io</a></li>
+<li><a href="https://github.com/aarongustafson/jekyll-webmention_io/issues/12">Rake task will download entire file looking for webmention endpoint · Issue #12 · aarongustafson/jekyll-webmention_io</a></li>
+</ul></li>
+<li>Discoverability, etc
+
+<ul>
+<li><a href="http://oembed.com/">oEmbed</a>:oEmbed is a format for allowing an embedded representation of a URL on third party sites.</li>
+<li><a href="http://pingomatic.com/">Ping-o-Matic!</a>: Ping-O-Matic is a service to update different search engines that your blog has updated.</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/RSS/Getting_Started/Syndicating">Syndicating content with RSS</a></li>
+</ul></li>
+<li>Indieweb, etc
+
+<ul>
+<li><a href="http://indiewebify.me/">IndieWebify.Me - a guide to getting you on the IndieWeb</a>: We should all own the content we&#39;re creating, rather than just posting to third-party content silos.Publish on your own domain, and syndicate out to silos. This is the basis of the &quot;Indie Web&quot; movement.</li>
+<li><a href="http://activitystrea.ms">Activity Streams</a>: JSON Activity Streams Spec</li>
+<li><a href="http://indiewebcamp.com/backfeed">backfeed - IndieWeb</a>: Backfeed is the process of syndicating interactions on your POSSE copies back (AKA reverse syndicating) to your original posts.</li>
+<li><a href="http://indiewebcamp.com/Bridgy">Bridgy - IndieWeb</a>: Bridgy is an open source project and proxy that implements backfeed and POSSE as a service. Bridgy sends webmentions for comments, likes, etc. on Facebook, Twitter, Google+, Instagram, and Flickr.</li>
+<li><a href="https://github.com/snarfed/bridgy">snarfed/bridgy</a>: Bridgy pulls comments and likes from social networks back to your web site. You can also use it to publish your posts to those networks.</li>
+<li><a href="http://indiewebcamp.com/webmention#Services">Webmention - IndieWeb</a>: Services you can use with Webmention to send copies of your posts to social meda sites (silos), and receive silo-specific interactions as Webmentions on your site!</li>
+<li><a href="https://checkmention.appspot.com/">Checkmention</a>: This site lets you test your webmention implementation on your indieweb site, and whether it robustly detects certain types of XSS attacks.</li>
+<li><a href="https://github.com/indieweb/mention-client-ruby">indieweb/mention-client-ruby</a>: A Ruby gem for sending webmention (and pingback) notifications</li>
+<li><a href="https://www.w3.org/wiki/Socialwg">W3C social working group</a></li>
+</ul></li>
+</ul>
+
+<h2>Docker</h2>
+
+<ul>
+<li><a href="https://github.com/Perlence/docker-multi-build">Perlence/docker-multi-build</a>: Concurrent multi-stage Docker builds
+
+<ul>
+<li>This is outdated now, it exists in docker core</li>
+</ul></li>
+<li><a href="https://www.iron.io/how-to-cross-compile-go-programs-using-docker/">How to Cross Compile Go Programs using Docker | Iron.io</a></li>
+<li><a href="https://hub.docker.com/_/golang/">golang | DockerHub</a></li>
+</ul>
+
+<h2>Automation, Scraping, etc</h2>
+
+<ul>
+<li><a href="https://hackernoon.com/guide-to-web-automation-889557804453">Guide to Web Automation | Hackernoon</a>
+
+<ul>
+<li><a href="https://github.com/peterdemin/web-automation-2017">peterdemin/web-automation-2017</a>: An attempt to cover state of web automation in 2017
+
+<ul>
+<li>This GitHub should have a bunch of other projects detailed in some of the (probably closed) issues</li>
+</ul></li>
+</ul></li>
+<li><a href="https://scrapy.org/">Scrapy</a>: An open source and collaborative framework for extracting the data you need from websites.
+In a fast, simple, yet extensible way.</li>
+<li><a href="https://github.com/scrapinghub/portia/">scrapinghub/portia</a>: Visual scraping for Scrapy</li>
+<li><a href="https://github.com/Netflix/Scumblr">Netflix/Scumblr</a>: Web framework that allows performing periodic syncs of data sources and performing analysis on the identified results</li>
+<li><a href="https://home-assistant.io/">Home Assistant</a>: Home Assistant is an open-source home automation platform running on Python 3.</li>
+</ul>
+
+<h2>Tech</h2>
+
+<ul>
+<li>Tmux
+
+<ul>
+<li><a href="https://github.com/jimeh/tmuxifier">jimeh/tmuxifier</a>: Tmuxify your Tmux. Powerful session, window &amp; pane management for Tmux.</li>
+<li><a href="https://github.com/tmuxinator/tmuxinator">tmuxinator/tmuxinator</a>: Manage complex tmux sessions easily</li>
+</ul></li>
+<li><a href="https://github.com/dundalek/markmap">dundalek/markmap</a>: Visualize markdown documents as mindmaps
+
+<ul>
+<li>Can we use this to make nice markdown mindmap summaries?</li>
+</ul></li>
+<li><a href="https://github.com/donnemartin/haxor-news">donnemartin/haxor-news</a>: Browse Hacker News like a haxor: A Hacker News command line interface (CLI).</li>
+<li><a href="https://apple.stackexchange.com/questions/237136/where-does-launchpad-store-folder-information-database-etc">Where does launchpad store folder information? (database, etc?)</a></li>
+<li><a href="https://dcos.io/">The Definitive Platform for Modern Apps | DC/OS</a>: DC/OS (the datacenter operating system) is an open-source, distributed operating system based on the Apache Mesos distributed systems kernel.</li>
+<li><a href="https://snapcraft.io/">snapcraft - Snaps are universal Linux packages</a>: package linux apps for every linux/server/cloud/device</li>
+</ul>
+
+<h2>Branding</h2>
+
+<ul>
+<li><a href="https://library.gv.com/the-three-hour-brand-sprint-3ccabf4b768a#.h7s3gqfx8">The Three-Hour Brand Sprint – GV Library</a></li>
+<li><a href="https://blog.docker.com/2013/06/announcing-new-docker-style/">Announcing a New Logo and Style for Docker - Docker Blog</a></li>
+<li><a href="https://99designs.com.au/logo-design">Logo Design - Get A Custom Logo Design from Professional Logo Designers | 99designs</a></li>
+<li><a href="https://99designs.com.au/logo-design/contests/create-cool-open-source-project-logo-219415">Docker - Create cool open-source project logo. | Logo design contest</a></li>
+</ul>
+
+<h2>Alfred-esque</h2>
+
+<ul>
+<li><a href="http://www.packal.org/workflow/homebrew-and-cask-alfred">Homebrew and Cask for Alfred</a></li>
+<li><a href="https://github.com/danielbayerlein/alfred-workflows/tree/master/homebrew">Alfred Workflow for Homebrew (danielbayerlein/alfred-workflows)</a></li>
+<li><a href="https://github.com/idpaterson/alfred-wunderlist-workflow">idpaterson/alfred-wunderlist-workflow</a>: Unbelievably fast task entry in Wunderlist with due dates, reminders, and recurrence</li>
+<li><a href="https://www.lacona.io/">Lacona</a>: Blazingly fast, blissfully simple, incredibly powerful keyboard-driven commands for your Mac</li>
+<li><a href="https://github.com/laconalabs/lacona-cli">laconalabs/lacona-cli</a></li>
+<li>Automator services ~/Library/Services</li>
+</ul>
+
+<h2>Windows</h2>
+
+<ul>
+<li><a href="http://boxstarter.org/">Boxstarter</a>: Repeatable, reboot resilient windows environment installations made easy using Chocolatey packages</li>
+<li><a href="https://chocolatey.org/">Chocolatey - The package manager for Windows</a></li>
+<li><a href="https://www.nuget.org/">NuGet Gallery | Home</a></li>
+</ul>
+
+<h2>MacOS (OSX) on Windows</h2>
+
+<ul>
+<li><a href="http://www.apple.com/au/shop/product/MJ2R2ZA/A/magic-trackpad-2">Apple Magic Magic Trackpad 2</a></li>
+<li><a href="http://extramagic.forbootcamp.org/">ExtraMagic</a>: OSX-Trackpad Multitouch on Windows</li>
+<li><a href="https://sourceforge.net/projects/ccseer/">Seer</a>: OSX-like Spacebar Preview on Windows</li>
+</ul>
+
+<h2>GitHub</h2>
+
+<ul>
+<li><a href="https://github.com/erocarrera/pefile/issues/123">Broken links in readme · Issue #123 · erocarrera/pefile</a></li>
+<li><a href="https://github.com/erocarrera/pefile/issues/124">Better modularisation · Issue #124 · erocarrera/pefile</a></li>
+<li><a href="https://github.com/erocarrera/pefile/issues/125">Flag to skip parsing on PE object instantiation · Issue #125 · erocarrera/pefile</a></li>
+<li><a href="https://github.com/jgm/gitit/issues/580">Github Flavoured Markdown · Issue #580 · jgm/gitit</a></li>
+</ul>
+
+<h2>Quantified Self</h2>
+
+<ul>
+<li><a href="https://hello.is/">Sense</a>: Sleep tracker</li>
+</ul>
+
+<h2>Performance, nootropics, etc</h2>
+
+<ul>
+<li><a href="https://www.hongstarr.com/">Hong</a>: Bulletproof Coach in Melbourne, written up on Living Bulletproof, etc</li>
+<li><a href="https://www.gethapi.com.au/products/flow">Hapi | Flow</a></li>
+<li><a href="https://www.totalnootropics.com.au/collections/all-products">Total Nootropics</a></li>
+<li><a href="https://nootroplus.com/">Nootroplus - Premium Nootropics</a></li>
+</ul>
+
+<h2>Interests, activities, etc</h2>
+
+<ul>
+<li>Climbing
+
+<ul>
+<li><a href="http://climbingschool.com.au/courses/">Courses - Blue Mountains Climbing School</a></li>
+</ul></li>
+<li>Archery
+
+<ul>
+<li><a href="https://www.canberraarchery.club/come-and-try">Canberra Archery - Come and Try</a></li>
+<li><a href="http://home.tuggeranongarchery.com/index.php/activities/come-and-try">Tuggeranong Archery - Come and Try</a></li>
+<li><a href="http://www.wvac.asn.au/beginners.html">Weston Valley Archery Club - Come and Try</a></li>
+<li><a href="http://capitalfieldarchers.com.au/">Capital Field Archers</a></li>
+<li><a href="https://www.bowhunters.org.au/index.php/author-login/branch-f-southern-nsw-act">Branch F - Southern NSW &amp; ACT</a></li>
+<li><a href="https://www.bowhunters.org.au/">BowHunters</a></li>
+</ul></li>
+<li>Shooting
+
+<ul>
+<li><a href="http://ssaa.org.au/act/ssaa-act-inc.html">SSAA ACT Inc</a></li>
+<li><a href="http://actsmallborerifleclub.com/">ACT Smallbore Rifle Club Inc</a></li>
+<li><a href="http://www.canberrarifleclub.org.au/wordpress/?page_id=110">Canberra Rifle Club</a>: Preliminary Information for Interested Persons</li>
+</ul></li>
+<li>Medieval
+
+<ul>
+<li><a href="https://www.facebook.com/AncientArtsFellowship/">Ancient Arts Fellowship</a></li>
+<li><a href="http://www.aaf.org.au/fighting/">Ancient Arts Fellowship - Fighting</a></li>
+<li><a href="https://www.facebook.com/TheHundredSwords">The Hundred Swords</a></li>
+<li><a href="http://politarchopolis.lochac.sca.org/">The Barony of Politarchopolis</a></li>
+</ul></li>
+</ul>
+
+<h2>Gaming</h2>
+
+<ul>
+<li><a href="http://raptr.com/">Raptr</a>: Raptr makes PC gaming fast, beautiful, and hassle-free.</li>
+<li><a href="http://www.gameplay-time-tracker.info/en/download.aspx">Gameplay Time Tracker</a></li>
+</ul>
+
+<h2>Unsorted</h2>
+
+<ul>
+<li><a href="https://www.gitbook.com/">GitBook · Documentation made easy</a></li>
+<li><a href="https://www.blinkist.com/en/pricing.html">Blinkist: Serving curious minds</a></li>
+<li><a href="http://isite2020.com.au/">iSite 20/20 - Take control of your vision</a></li>
+</ul>
+
+	  ]]></description>
+	</item>
+
+
+</channel>
+</rss>

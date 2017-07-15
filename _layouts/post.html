@@ -51,9 +51,11 @@ class: 'post-template'
                 {% include post/disqus.html %}
             {% endif %}
 
-            {% if page.webmention %}
-                {% include post/webmentions.html %}
-            {% endif %}
+            {% unless site.webmentions.disabled %}
+                {% if page.webmention %}
+                    {% include post/webmentions.html %}
+                {% endif %}
+            {% endunless %}
             
         </footer>
 

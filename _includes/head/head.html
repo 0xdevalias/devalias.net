@@ -21,9 +21,9 @@
 
   {% include head/styles.html %}
 
-  <!-- Webmention -->
-  {% webmention_head_tags %}
-  {% webmention_redirected_from tumblr_url, redirect_from %}
+  {% unless site.webmentions.disabled %}
+    {% include head/webmention.html %}
+  {% endunless %}
 
   {% include head/indie-auth.html %}
 </head>

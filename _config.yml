@@ -117,10 +117,14 @@ jekyll-crosspost_to_medium:
   text: '<p><i>This post originally appeared <a href=\"#{url}\" rel=\"canonical\">on devalias.net</a>.</i></p>'
 
 # https://github.com/aarongustafson/jekyll-webmention_io
-jekyll-webmention-io:
-  domain: devalias.net
-  cache: .cache
-  js: /assets/js/
+webmentions:
+  username: devalias.net
+  # legacy_domains:
+  #  -
+  #cache_folder: .cache
+  #js: /assets/js/
+  #pause_lookups: true
+  disabled: true
 
 gems:
   - jekyll-redirect-from        # https://github.com/jekyll/jekyll-redirect-from
@@ -129,7 +133,7 @@ gems:
   - jekyll-gist                 # https://github.com/jekyll/jekyll-gist
   - jekyll-github-metadata      # https://github.com/jekyll/github-metadata
   - jekyll-crosspost-to-medium  # https://github.com/aarongustafson/jekyll-crosspost-to-medium
-  - jekyll-webmention-io        # https://github.com/aarongustafson/jekyll-webmention_io
+  #- jekyll-webmention_io        # https://github.com/aarongustafson/jekyll-webmention_io
   - jekyll-time-to-read         # https://github.com/gjtorikian/jekyll-time-to-read
   - jekyll-twitter-plugin       # https://github.com/rob-murray/jekyll-twitter-plugin
   - jekyll-feed                 # https://github.com/jekyll/jekyll-feed

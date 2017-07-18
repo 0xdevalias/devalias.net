@@ -63,6 +63,7 @@ Do you have any awesome resources, comments, or things to add? I'd love for you 
 
 * YouTube
     * [Bugcrowd](https://www.youtube.com/channel/UCo1NHk_bgbAbDBc4JinrXww)
+    * [Levelup 2017 - Full Playlist of all sessions](https://www.youtube.com/playlist?list=PLIK9nm3mu-S5InvR-myOS7hnae8w4EPFV)
     * [LevelUp 2017 - Stream 1 (raw)](https://www.youtube.com/watch?v=IiMDDaZPx7k)
 * Facebook
     * [LevelUp 2017 - Stream 2 (Part 1, raw)](https://www.facebook.com/Bugcrowd/videos/1515474031828959/)

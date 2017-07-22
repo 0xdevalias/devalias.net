@@ -13,10 +13,10 @@
    
 	<item>
 	  <title>CTF Snippets: XSS.gif</title>
-	  <link>/devalias/2016/09/16/ctf-snippets-xss-gif/</link>
+	  <link>/pages/alias1/devalias.net/devalias/2016/09/16/ctf-snippets-xss-gif/</link>
 	  <author>devalias</author>
 	  <pubDate>2016-09-16T00:00:00+10:00</pubDate>
-	  <guid>/devalias/2016/09/16/ctf-snippets-xss-gif/</guid>
+	  <guid>/pages/alias1/devalias.net/devalias/2016/09/16/ctf-snippets-xss-gif/</guid>
 	  <description><![CDATA[
 	     <p>I was playing around with the top challenge on the CTF at <a href="http://www.sectalks.org/canberra/">SecTalks</a> the other night, and thought I&#39;d do a quick writeup of some of the techniques required; for future reference, and to help others to learn.</p>
 
@@ -189,10 +189,10 @@
 
 	<item>
 	  <title>Hacking Unicoins for Fun and Profit (Stackoverflow.com April Fools 2014)</title>
-	  <link>/devalias/2014/04/02/hacking-unicoins-for-fun-and-profit/</link>
+	  <link>/pages/alias1/devalias.net/devalias/2014/04/02/hacking-unicoins-for-fun-and-profit/</link>
 	  <author>devalias</author>
 	  <pubDate>2014-04-02T06:38:02+11:00</pubDate>
-	  <guid>/devalias/2014/04/02/hacking-unicoins-for-fun-and-profit/</guid>
+	  <guid>/pages/alias1/devalias.net/devalias/2014/04/02/hacking-unicoins-for-fun-and-profit/</guid>
 	  <description><![CDATA[
 	     <p><a href="https://stackoverflow.com/">Stackoverflow</a> introduced an amusing little April Fools feature called &#39;Unicoins&#39;. Essentially, this currency (that you can earn by mining rocks, since all of the (rather amusing) payment options are currently unavailable&#39;) allows you to by silly upgrades for the website. From &#39;Colorful comments&#39; and &#39;Guaranteed Answer&#39; through to &#39;Voting animations&#39; which gives you &#39;happy unicorn animations everytime you vote&#39;.</p>
 
@@ -237,10 +237,10 @@ hackMeSomeUnicoins(StackExchange.options.user.fkey);
 
 	<item>
 	  <title>Y U NO Update Kali?</title>
-	  <link>/devalias/2014/02/13/y-u-no-update-kali/</link>
+	  <link>/pages/alias1/devalias.net/devalias/2014/02/13/y-u-no-update-kali/</link>
 	  <author>devalias</author>
 	  <pubDate>2014-02-13T09:00:41+11:00</pubDate>
-	  <guid>/devalias/2014/02/13/y-u-no-update-kali/</guid>
+	  <guid>/pages/alias1/devalias.net/devalias/2014/02/13/y-u-no-update-kali/</guid>
 	  <description><![CDATA[
 	     <p><img src="/devalias/2014/02/13/y-u-no-update-kali/yunoupdatekali.jpg" alt="Kali Linux Y U No Update"></p>
 
@@ -284,10 +284,10 @@ deb-src http://security.kali.org/kali-security kali/updates main contrib non-fre
 
 	<item>
 	  <title>Sparty - Sharepoint and Frontpage Auditing Tool (Now With More NTLM Authentication!)</title>
-	  <link>/devalias/2013/11/14/sparty-sharepoint-frontpage-auditing-tool-now-with-more-ntlm/</link>
+	  <link>/pages/alias1/devalias.net/devalias/2013/11/14/sparty-sharepoint-frontpage-auditing-tool-now-with-more-ntlm/</link>
 	  <author>devalias</author>
 	  <pubDate>2013-11-14T09:00:52+11:00</pubDate>
-	  <guid>/devalias/2013/11/14/sparty-sharepoint-frontpage-auditing-tool-now-with-more-ntlm/</guid>
+	  <guid>/pages/alias1/devalias.net/devalias/2013/11/14/sparty-sharepoint-frontpage-auditing-tool-now-with-more-ntlm/</guid>
 	  <description><![CDATA[
 	     <p>I&#39;ve been doing a little bit of poking around Sharepoint security lately, doing some research and playing with some assessment/pentest tools. One such tool (released this year at <a href="https://www.blackhat.com/us-13/">Black Hat USA</a>) is called <a href="http://sparty.secniche.org/">Sparty</a>. Written by <a href="https://twitter.com/AdityaKSood">0kn0ck</a> (aka Aditya K Sood) of <a href="http://secniche.org/">SecNiche Security Labs</a>, Sparty is a tool designed to assist in auditing sites built on Microsoft Sharepoint and/or Frontpage.</p>
 
@@ -320,10 +320,10 @@ deb-src http://security.kali.org/kali-security kali/updates main contrib non-fre
 
 	<item>
 	  <title>Loki - Python Based Infrastructure Pentesting Tool (ARP, HSRP, OSPF, etc)</title>
-	  <link>/devalias/2013/10/24/loki-python-based-infrastructure-pentesting-tool-arp-hsr/</link>
+	  <link>/pages/alias1/devalias.net/devalias/2013/10/24/loki-python-based-infrastructure-pentesting-tool-arp-hsr/</link>
 	  <author>devalias</author>
 	  <pubDate>2013-10-24T09:00:00+11:00</pubDate>
-	  <guid>/devalias/2013/10/24/loki-python-based-infrastructure-pentesting-tool-arp-hsr/</guid>
+	  <guid>/pages/alias1/devalias.net/devalias/2013/10/24/loki-python-based-infrastructure-pentesting-tool-arp-hsr/</guid>
 	  <description><![CDATA[
 	     <p>Loki is a python based infrastructure pentesting tool focussing on layer 3 protocols, dealing with protocols such as:</p>
 
@@ -418,10 +418,10 @@ apt-get install -f
 
 	<item>
 	  <title>Reversing PowerShell 'SecureString' For Fun And Profit</title>
-	  <link>/devalias/2013/08/29/reversing-powershell-securestring-for-fun-and-profit/</link>
+	  <link>/pages/alias1/devalias.net/devalias/2013/08/29/reversing-powershell-securestring-for-fun-and-profit/</link>
 	  <author>devalias</author>
 	  <pubDate>2013-08-29T08:00:52+10:00</pubDate>
-	  <guid>/devalias/2013/08/29/reversing-powershell-securestring-for-fun-and-profit/</guid>
+	  <guid>/pages/alias1/devalias.net/devalias/2013/08/29/reversing-powershell-securestring-for-fun-and-profit/</guid>
 	  <description><![CDATA[
 	     <p>Something that I needed to do in an engagement recently and thought it might be useful to you guys. Here&#39;s a little function and demonstration to show just how insecure it is to store an encrypted <a href="https://en.wikipedia.org/wiki/Windows_PowerShell">PowerShell</a> <a href="http://social.technet.microsoft.com/wiki/contents/articles/4546.working-with-passwords-secure-strings-and-credentials-in-windows-powershell.aspx">&#39;SecureString&#39;</a> WITH the key to decrypt it in a script file (or anywhere for that matter)</p>
 
@@ -458,10 +458,10 @@ Write-Host $passPlaintext # This should output: TotallySecurePasswordLol!</pre><
 
 	<item>
 	  <title>ERPScan Automator - Because Manual is Meh</title>
-	  <link>/devalias/2013/08/10/erpscan-automator-because-manual-is-meh/</link>
+	  <link>/pages/alias1/devalias.net/devalias/2013/08/10/erpscan-automator-because-manual-is-meh/</link>
 	  <author>devalias</author>
 	  <pubDate>2013-08-10T08:00:50+10:00</pubDate>
-	  <guid>/devalias/2013/08/10/erpscan-automator-because-manual-is-meh/</guid>
+	  <guid>/pages/alias1/devalias.net/devalias/2013/08/10/erpscan-automator-because-manual-is-meh/</guid>
 	  <description><![CDATA[
 	     <p>Another quick little tool for you guys today that I hacked together to save myself some time. This one automates running through a number of tests using the <a href="https://erpscan.com/research/free-pentesting-tools-for-sap-and-oracle/">ERPScan SAP Pentesting Tool</a></p>
 
@@ -562,10 +562,10 @@ echo Done</p>
 
 	<item>
 	  <title>nmap.sh - Saving Precious Seconds</title>
-	  <link>/devalias/2013/07/13/nmap-sh-saving-precious-seconds/</link>
+	  <link>/pages/alias1/devalias.net/devalias/2013/07/13/nmap-sh-saving-precious-seconds/</link>
 	  <author>devalias</author>
 	  <pubDate>2013-07-13T08:00:00+10:00</pubDate>
-	  <guid>/devalias/2013/07/13/nmap-sh-saving-precious-seconds/</guid>
+	  <guid>/pages/alias1/devalias.net/devalias/2013/07/13/nmap-sh-saving-precious-seconds/</guid>
 	  <description><![CDATA[
 	     <p>In the course of my work I end up issuing the same simple commands again and again, and while they are pretty easy to remember, they still take more time than they really need to.</p>
 
@@ -598,10 +598,10 @@ fi</p>
 
 	<item>
 	  <title>How to SSH to iPhone/iPad/iDevice via USB</title>
-	  <link>/devalias/2013/03/07/how-to-ssh-to-iphone-via-usb/</link>
+	  <link>/pages/alias1/devalias.net/devalias/2013/03/07/how-to-ssh-to-iphone-via-usb/</link>
 	  <author>devalias</author>
 	  <pubDate>2013-03-07T08:38:49+11:00</pubDate>
-	  <guid>/devalias/2013/03/07/how-to-ssh-to-iphone-via-usb/</guid>
+	  <guid>/pages/alias1/devalias.net/devalias/2013/03/07/how-to-ssh-to-iphone-via-usb/</guid>
 	  <description><![CDATA[
 	     <p>So in order to run the iPad through a debug proxy (Burp Suite), and still be able to forward on the traffic to the net, I needed to be able to talk to it over USB. (yay limited tech to work with!)</p>
 
@@ -625,10 +625,10 @@ SSH to localhost:LOCAL_PORT, making sure to specify the account you want to logo
 
 	<item>
 	  <title>iPen: Hacking with the iDevice (Setting up your iPhone as a Penetration Tester)</title>
-	  <link>/devalias/2013/02/27/ipen-hacking-with-the-idevice/</link>
+	  <link>/pages/alias1/devalias.net/devalias/2013/02/27/ipen-hacking-with-the-idevice/</link>
 	  <author>devalias</author>
 	  <pubDate>2013-02-27T13:45:00+11:00</pubDate>
-	  <guid>/devalias/2013/02/27/ipen-hacking-with-the-idevice/</guid>
+	  <guid>/pages/alias1/devalias.net/devalias/2013/02/27/ipen-hacking-with-the-idevice/</guid>
 	  <description><![CDATA[
 	     <p>Today I finally got around to the task i&#39;ve been looking forward to for the last week or so. We got an iPad to play around with at work, mostly so we can try and break the mobile apps before they go public. Not a huge amount you can do on it in it&#39;s default state, so I got to jailbreak it!</p>
 

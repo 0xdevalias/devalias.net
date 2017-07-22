@@ -13,10 +13,10 @@
    
 	<item>
 	  <title>Plesk - Adding programs to a chrooted SSH</title>
-	  <link>/devalias/2012/01/10/plesk-adding-programs-to-a-chrooted-ssh/</link>
+	  <link>/pages/alias1/devalias.net/devalias/2012/01/10/plesk-adding-programs-to-a-chrooted-ssh/</link>
 	  <author>devalias</author>
 	  <pubDate>2012-01-10T05:29:00+11:00</pubDate>
-	  <guid>/devalias/2012/01/10/plesk-adding-programs-to-a-chrooted-ssh/</guid>
+	  <guid>/pages/alias1/devalias.net/devalias/2012/01/10/plesk-adding-programs-to-a-chrooted-ssh/</guid>
 	  <description><![CDATA[
 	     <p>Just a few notes today about making programs (in this case git) available to a chrooted SSH account in Plesk. I&#39;m assuming the account is already setup for ssh, etc so I will just be covering where to copy the files to.</p>
 

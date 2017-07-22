@@ -13,10 +13,10 @@
    
 	<item>
 	  <title>Plesk - Adding wget/tar/gzip/chmod/php/curl/clear to a chrooted SSH</title>
-	  <link>/devalias/2013/09/19/plesk-adding-wget-tar-gzip-chmod-php-curl-clear-to-a-chr/</link>
+	  <link>/pages/alias1/devalias.net/devalias/2013/09/19/plesk-adding-wget-tar-gzip-chmod-php-curl-clear-to-a-chr/</link>
 	  <author>devalias</author>
 	  <pubDate>2013-09-19T08:00:00+10:00</pubDate>
-	  <guid>/devalias/2013/09/19/plesk-adding-wget-tar-gzip-chmod-php-curl-clear-to-a-chr/</guid>
+	  <guid>/pages/alias1/devalias.net/devalias/2013/09/19/plesk-adding-wget-tar-gzip-chmod-php-curl-clear-to-a-chr/</guid>
 	  <description><![CDATA[
 	     <p>(<strong>tl;dr</strong> How to setup wget, tar, gzip, chmod, php and curl in a chrooted environment for Plesk.)</p>
 
@@ -144,10 +144,10 @@ cp -R /usr/share/zoneinfo chroot/usr/share/
 
 	<item>
 	  <title>Yum'my turtles breaking Plesk</title>
-	  <link>/devalias/2012/03/29/yummy-turtles-breaking-plesk/</link>
+	  <link>/pages/alias1/devalias.net/devalias/2012/03/29/yummy-turtles-breaking-plesk/</link>
 	  <author>devalias</author>
 	  <pubDate>2012-03-29T04:30:00+11:00</pubDate>
-	  <guid>/devalias/2012/03/29/yummy-turtles-breaking-plesk/</guid>
+	  <guid>/pages/alias1/devalias.net/devalias/2012/03/29/yummy-turtles-breaking-plesk/</guid>
 	  <description><![CDATA[
 	     <p>After some recent downtime due to an overzealous upgrade cycle (aka &quot;Oh I won&#39;t need to backup first..&quot;) I feel it warranted to put a quick post about how I went about fixing things.</p>
 
@@ -269,10 +269,10 @@ install psa-atmail.noarch psa-proftpd.x86_64 spamassassin.x86_64 sqlite.i386 sql
 
 	<item>
 	  <title>Nameserver? Whichserver?</title>
-	  <link>/devalias/2012/02/28/nameserver-whichserver/</link>
+	  <link>/pages/alias1/devalias.net/devalias/2012/02/28/nameserver-whichserver/</link>
 	  <author>devalias</author>
 	  <pubDate>2012-02-28T23:46:00+11:00</pubDate>
-	  <guid>/devalias/2012/02/28/nameserver-whichserver/</guid>
+	  <guid>/pages/alias1/devalias.net/devalias/2012/02/28/nameserver-whichserver/</guid>
 	  <description><![CDATA[
 	     <p><strong>Note:</strong> This had been sitting in my queue half written for a month or two now.. Woops. - alias</p>
 
@@ -305,10 +305,10 @@ install psa-atmail.noarch psa-proftpd.x86_64 spamassassin.x86_64 sqlite.i386 sql
 
 	<item>
 	  <title>Plesk - Adding programs to a chrooted SSH</title>
-	  <link>/devalias/2012/01/10/plesk-adding-programs-to-a-chrooted-ssh/</link>
+	  <link>/pages/alias1/devalias.net/devalias/2012/01/10/plesk-adding-programs-to-a-chrooted-ssh/</link>
 	  <author>devalias</author>
 	  <pubDate>2012-01-10T05:29:00+11:00</pubDate>
-	  <guid>/devalias/2012/01/10/plesk-adding-programs-to-a-chrooted-ssh/</guid>
+	  <guid>/pages/alias1/devalias.net/devalias/2012/01/10/plesk-adding-programs-to-a-chrooted-ssh/</guid>
 	  <description><![CDATA[
 	     <p>Just a few notes today about making programs (in this case git) available to a chrooted SSH account in Plesk. I&#39;m assuming the account is already setup for ssh, etc so I will just be covering where to copy the files to.</p>
 

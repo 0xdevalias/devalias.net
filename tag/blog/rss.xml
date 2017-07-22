@@ -13,10 +13,10 @@
    
 	<item>
 	  <title>wp-cli - Like Drush but for Wordpress</title>
-	  <link>/devalias/2013/10/31/wp-cli-like-drush-but-for-wordpress/</link>
+	  <link>/pages/alias1/devalias.net/devalias/2013/10/31/wp-cli-like-drush-but-for-wordpress/</link>
 	  <author>devalias</author>
 	  <pubDate>2013-10-31T09:00:30+11:00</pubDate>
-	  <guid>/devalias/2013/10/31/wp-cli-like-drush-but-for-wordpress/</guid>
+	  <guid>/pages/alias1/devalias.net/devalias/2013/10/31/wp-cli-like-drush-but-for-wordpress/</guid>
 	  <description><![CDATA[
 	     <p>So there&#39;s this cool little tool I came across, similar in function to <a href="http://www.drush.org/en/master/">Drush</a> (which is an awesome tool for <a href="https://www.drupal.org/">Drupal</a> that you should totally use), but for <a href="https://wordpress.org/">Wordpress</a>. It&#39;s called <a href="http://wp-cli.org/">wp-cli</a></p>
 

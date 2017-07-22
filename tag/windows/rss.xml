@@ -13,10 +13,10 @@
    
 	<item>
 	  <title>Loki - Python Based Infrastructure Pentesting Tool (ARP, HSRP, OSPF, etc)</title>
-	  <link>/devalias/2013/10/24/loki-python-based-infrastructure-pentesting-tool-arp-hsr/</link>
+	  <link>/pages/alias1/devalias.net/devalias/2013/10/24/loki-python-based-infrastructure-pentesting-tool-arp-hsr/</link>
 	  <author>devalias</author>
 	  <pubDate>2013-10-24T09:00:00+11:00</pubDate>
-	  <guid>/devalias/2013/10/24/loki-python-based-infrastructure-pentesting-tool-arp-hsr/</guid>
+	  <guid>/pages/alias1/devalias.net/devalias/2013/10/24/loki-python-based-infrastructure-pentesting-tool-arp-hsr/</guid>
 	  <description><![CDATA[
 	     <p>Loki is a python based infrastructure pentesting tool focussing on layer 3 protocols, dealing with protocols such as:</p>
 
@@ -111,10 +111,10 @@ apt-get install -f
 
 	<item>
 	  <title>Reversing PowerShell 'SecureString' For Fun And Profit</title>
-	  <link>/devalias/2013/08/29/reversing-powershell-securestring-for-fun-and-profit/</link>
+	  <link>/pages/alias1/devalias.net/devalias/2013/08/29/reversing-powershell-securestring-for-fun-and-profit/</link>
 	  <author>devalias</author>
 	  <pubDate>2013-08-29T08:00:52+10:00</pubDate>
-	  <guid>/devalias/2013/08/29/reversing-powershell-securestring-for-fun-and-profit/</guid>
+	  <guid>/pages/alias1/devalias.net/devalias/2013/08/29/reversing-powershell-securestring-for-fun-and-profit/</guid>
 	  <description><![CDATA[
 	     <p>Something that I needed to do in an engagement recently and thought it might be useful to you guys. Here&#39;s a little function and demonstration to show just how insecure it is to store an encrypted <a href="https://en.wikipedia.org/wiki/Windows_PowerShell">PowerShell</a> <a href="http://social.technet.microsoft.com/wiki/contents/articles/4546.working-with-passwords-secure-strings-and-credentials-in-windows-powershell.aspx">&#39;SecureString&#39;</a> WITH the key to decrypt it in a script file (or anywhere for that matter)</p>
 
@@ -151,10 +151,10 @@ Write-Host $passPlaintext # This should output: TotallySecurePasswordLol!</pre><
 
 	<item>
 	  <title>Fixing Windows Productivity Issues OSX Style</title>
-	  <link>/devalias/2013/07/11/fixing-windows-productivity-issues-osx-style/</link>
+	  <link>/pages/alias1/devalias.net/devalias/2013/07/11/fixing-windows-productivity-issues-osx-style/</link>
 	  <author>devalias</author>
 	  <pubDate>2013-07-11T08:00:28+10:00</pubDate>
-	  <guid>/devalias/2013/07/11/fixing-windows-productivity-issues-osx-style/</guid>
+	  <guid>/pages/alias1/devalias.net/devalias/2013/07/11/fixing-windows-productivity-issues-osx-style/</guid>
 	  <description><![CDATA[
 	     <p>As much as past me would hate me for saying this, these days I am quite the fan of a number of Apple products. My MacBook Pro is a dream to use thanks to multitouch and some of the well thought out and designed features of OSX.</p>
 
@@ -195,10 +195,10 @@ Write-Host $passPlaintext # This should output: TotallySecurePasswordLol!</pre><
 
 	<item>
 	  <title>Default Programs Editor</title>
-	  <link>/devalias/2013/07/02/default-programs-editor/</link>
+	  <link>/pages/alias1/devalias.net/devalias/2013/07/02/default-programs-editor/</link>
 	  <author>devalias</author>
 	  <pubDate>2013-07-02T04:27:00+10:00</pubDate>
-	  <guid>/devalias/2013/07/02/default-programs-editor/</guid>
+	  <guid>/pages/alias1/devalias.net/devalias/2013/07/02/default-programs-editor/</guid>
 	  <description><![CDATA[
 	     <p>Due to some.. ahem interesting implementation choices at work, I found myself unable to make <a href="https://www.sublimetext.com/2">Sublime Text 2</a> the default program used to handle .txt files.</p>
 

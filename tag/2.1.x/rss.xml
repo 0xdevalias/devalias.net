@@ -13,10 +13,10 @@
    
 	<item>
 	  <title>VLC 2.1.x AC3/5.1 Audio Issues (and how to fix them)</title>
-	  <link>/devalias/2014/04/10/vlc-2-1x-ac3-5-1-audio-issues-and-how-to-fix/</link>
+	  <link>/pages/alias1/devalias.net/devalias/2014/04/10/vlc-2-1x-ac3-5-1-audio-issues-and-how-to-fix/</link>
 	  <author>devalias</author>
 	  <pubDate>2014-04-10T03:01:22+10:00</pubDate>
-	  <guid>/devalias/2014/04/10/vlc-2-1x-ac3-5-1-audio-issues-and-how-to-fix/</guid>
+	  <guid>/pages/alias1/devalias.net/devalias/2014/04/10/vlc-2-1x-ac3-5-1-audio-issues-and-how-to-fix/</guid>
 	  <description><![CDATA[
 	     <p>So, just lost an hour or two debugging some audio issues that seemed to crop up in VLC. I have a 5.1 setup, which will disable the speakers when I plug in a 2-channel set of headphones (pretty straightforward). For some strange reason this stopped working sometime recently. I assumed maybe audio drivers (windows update) or something else weird like that, but turns out it was VLC (which I forgot I had upgraded)</p>
 

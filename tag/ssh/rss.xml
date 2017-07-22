@@ -13,10 +13,10 @@
    
 	<item>
 	  <title>iTerm2 + tmux = <3</title>
-	  <link>/devalias/2017/03/18/iterm-tmux-love/</link>
+	  <link>/pages/alias1/devalias.net/devalias/2017/03/18/iterm-tmux-love/</link>
 	  <author>devalias</author>
 	  <pubDate>2017-03-18T00:00:00+11:00</pubDate>
-	  <guid>/devalias/2017/03/18/iterm-tmux-love/</guid>
+	  <guid>/pages/alias1/devalias.net/devalias/2017/03/18/iterm-tmux-love/</guid>
 	  <description><![CDATA[
 	     <p>Just a quick note today, highlighting a super simple but amazingly useful combination I&#39;ve only recently become aware of: <a href="https://www.iterm2.com/">iTerm2</a> + <a href="https://tmux.github.io/">tmux</a>.</p>
 
@@ -48,10 +48,10 @@
 
 	<item>
 	  <title>Plesk - Adding wget/tar/gzip/chmod/php/curl/clear to a chrooted SSH</title>
-	  <link>/devalias/2013/09/19/plesk-adding-wget-tar-gzip-chmod-php-curl-clear-to-a-chr/</link>
+	  <link>/pages/alias1/devalias.net/devalias/2013/09/19/plesk-adding-wget-tar-gzip-chmod-php-curl-clear-to-a-chr/</link>
 	  <author>devalias</author>
 	  <pubDate>2013-09-19T08:00:00+10:00</pubDate>
-	  <guid>/devalias/2013/09/19/plesk-adding-wget-tar-gzip-chmod-php-curl-clear-to-a-chr/</guid>
+	  <guid>/pages/alias1/devalias.net/devalias/2013/09/19/plesk-adding-wget-tar-gzip-chmod-php-curl-clear-to-a-chr/</guid>
 	  <description><![CDATA[
 	     <p>(<strong>tl;dr</strong> How to setup wget, tar, gzip, chmod, php and curl in a chrooted environment for Plesk.)</p>
 
@@ -179,10 +179,10 @@ cp -R /usr/share/zoneinfo chroot/usr/share/
 
 	<item>
 	  <title>How to SSH to iPhone/iPad/iDevice via USB</title>
-	  <link>/devalias/2013/03/07/how-to-ssh-to-iphone-via-usb/</link>
+	  <link>/pages/alias1/devalias.net/devalias/2013/03/07/how-to-ssh-to-iphone-via-usb/</link>
 	  <author>devalias</author>
 	  <pubDate>2013-03-07T08:38:49+11:00</pubDate>
-	  <guid>/devalias/2013/03/07/how-to-ssh-to-iphone-via-usb/</guid>
+	  <guid>/pages/alias1/devalias.net/devalias/2013/03/07/how-to-ssh-to-iphone-via-usb/</guid>
 	  <description><![CDATA[
 	     <p>So in order to run the iPad through a debug proxy (Burp Suite), and still be able to forward on the traffic to the net, I needed to be able to talk to it over USB. (yay limited tech to work with!)</p>
 
@@ -206,10 +206,10 @@ SSH to localhost:LOCAL_PORT, making sure to specify the account you want to logo
 
 	<item>
 	  <title>Plesk - Adding programs to a chrooted SSH</title>
-	  <link>/devalias/2012/01/10/plesk-adding-programs-to-a-chrooted-ssh/</link>
+	  <link>/pages/alias1/devalias.net/devalias/2012/01/10/plesk-adding-programs-to-a-chrooted-ssh/</link>
 	  <author>devalias</author>
 	  <pubDate>2012-01-10T05:29:00+11:00</pubDate>
-	  <guid>/devalias/2012/01/10/plesk-adding-programs-to-a-chrooted-ssh/</guid>
+	  <guid>/pages/alias1/devalias.net/devalias/2012/01/10/plesk-adding-programs-to-a-chrooted-ssh/</guid>
 	  <description><![CDATA[
 	     <p>Just a few notes today about making programs (in this case git) available to a chrooted SSH account in Plesk. I&#39;m assuming the account is already setup for ssh, etc so I will just be covering where to copy the files to.</p>
 

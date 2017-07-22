@@ -13,10 +13,10 @@
    
 	<item>
 	  <title>Plesk - Adding wget/tar/gzip/chmod/php/curl/clear to a chrooted SSH</title>
-	  <link>/devalias/2013/09/19/plesk-adding-wget-tar-gzip-chmod-php-curl-clear-to-a-chr/</link>
+	  <link>/pages/alias1/devalias.net/devalias/2013/09/19/plesk-adding-wget-tar-gzip-chmod-php-curl-clear-to-a-chr/</link>
 	  <author>devalias</author>
 	  <pubDate>2013-09-19T08:00:00+10:00</pubDate>
-	  <guid>/devalias/2013/09/19/plesk-adding-wget-tar-gzip-chmod-php-curl-clear-to-a-chr/</guid>
+	  <guid>/pages/alias1/devalias.net/devalias/2013/09/19/plesk-adding-wget-tar-gzip-chmod-php-curl-clear-to-a-chr/</guid>
 	  <description><![CDATA[
 	     <p>(<strong>tl;dr</strong> How to setup wget, tar, gzip, chmod, php and curl in a chrooted environment for Plesk.)</p>
 

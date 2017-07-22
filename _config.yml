@@ -122,9 +122,11 @@ webmentions:
   # legacy_domains:
   #  -
   #cache_folder: .cache
-  #js: /assets/js/
   #pause_lookups: true
-  disabled: true
+  js:
+    source: false
+    destination: /assets/js/
+  disabled: false
 
 gems:
   - jekyll-redirect-from        # https://github.com/jekyll/jekyll-redirect-from

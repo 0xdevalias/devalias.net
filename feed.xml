@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en_GB"><generator uri="https://jekyllrb.com/" version="3.4.5">Jekyll</generator><link href="http://devalias.net/feed.xml" rel="self" type="application/atom+xml" /><link href="http://devalias.net/" rel="alternate" type="text/html" hreflang="en_GB" /><updated>2017-07-22T16:09:46+10:00</updated><id>http://devalias.net/</id><title type="html">/dev/alias – Hack. Dev. Transcend.</title><subtitle>Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.</subtitle><entry><title type="html">Bugcrowd LevelUp 2017</title><link href="http://devalias.net/devalias/2017/07/16/bugcrowd-levelup-2017/" rel="alternate" type="text/html" title="Bugcrowd LevelUp 2017" /><published>2017-07-16T00:00:00+10:00</published><updated>2017-07-16T00:00:00+10:00</updated><id>http://devalias.net/devalias/2017/07/16/bugcrowd-levelup-2017</id><content type="html" xml:base="http://devalias.net/devalias/2017/07/16/bugcrowd-levelup-2017/">&lt;p&gt;Today was &lt;a href=&quot;https://pages.bugcrowd.com/level-up-virtual-hacking-conference&quot;&gt;LevelUp, Bugcrowd&amp;#39;s first Virtual Hacking Conference&lt;/a&gt;. With 2 seperate streams over 8 hours, the &lt;a href=&quot;https://docs.google.com/spreadsheets/d/1nKnwk3qVtoQlHs32atwwTIWjOHZ9kjnbwpPTJVfvKeo/pubhtml?gid=0&amp;single=true&quot;&gt;schedule was jammed packed&lt;/a&gt; with interesting talks and knowledge drops across topics including web, mobile, IoT and even car hacking.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en_GB"><generator uri="https://jekyllrb.com/" version="3.4.5">Jekyll</generator><link href="http://devalias.net/feed.xml" rel="self" type="application/atom+xml" /><link href="http://devalias.net/" rel="alternate" type="text/html" hreflang="en_GB" /><updated>2017-07-22T17:15:25+10:00</updated><id>http://devalias.net/</id><title type="html">/dev/alias – Hack. Dev. Transcend.</title><subtitle>Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.</subtitle><entry><title type="html">Bugcrowd LevelUp 2017</title><link href="http://devalias.net/devalias/2017/07/16/bugcrowd-levelup-2017/" rel="alternate" type="text/html" title="Bugcrowd LevelUp 2017" /><published>2017-07-16T00:00:00+10:00</published><updated>2017-07-16T00:00:00+10:00</updated><id>http://devalias.net/devalias/2017/07/16/bugcrowd-levelup-2017</id><content type="html" xml:base="http://devalias.net/devalias/2017/07/16/bugcrowd-levelup-2017/">&lt;p&gt;Today was &lt;a href=&quot;https://pages.bugcrowd.com/level-up-virtual-hacking-conference&quot;&gt;LevelUp, Bugcrowd&amp;#39;s first Virtual Hacking Conference&lt;/a&gt;. With 2 seperate streams over 8 hours, the &lt;a href=&quot;https://docs.google.com/spreadsheets/d/1nKnwk3qVtoQlHs32atwwTIWjOHZ9kjnbwpPTJVfvKeo/pubhtml?gid=0&amp;single=true&quot;&gt;schedule was jammed packed&lt;/a&gt; with interesting talks and knowledge drops across topics including web, mobile, IoT and even car hacking.&lt;/p&gt;
 
 &lt;p&gt;Waking up at 1:30am (AEST) to get some Bulletproof coffee in before it started, I think I briefly moved once from the couch in the whole session. The rest was solid and intent focus on the topics, trying to keep up with all of the amazing content, while also taking notes (~1200 lines worth!), and &lt;a href=&quot;https://twitter.com/search?l=&amp;q=%23ItTakesACrowd%20from%3A_devalias&amp;src=typd&amp;lang=en&quot;&gt;dropping out tweets&lt;/a&gt; at the same time. I don&amp;#39;t think i&amp;#39;ve been as engaged or intently focussed on something for such a long period in a long time. Testament to the quality of the conference!&lt;/p&gt;
 
@@ -1744,7 +1744,84 @@ In a fast, simple, yet extensible way.&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://www.gitbook.com/&quot;&gt;GitBook · Documentation made easy&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://www.blinkist.com/en/pricing.html&quot;&gt;Blinkist: Serving curious minds&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;http://isite2020.com.au/&quot;&gt;iSite 20/20 - Take control of your vision&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Glenn 'devalias' Grant</name></author><category term="linkdump" /><category term="dev" /><category term="security" /><category term="privacy" /><category term="productivity" /><category term="tmux" /><category term="alfred" /><category term="yarn" /><category term="bower" /><category term="metasploit" /><category term="docker" /><category term="tor" /><category term="vpn" /><category term="socks" /><summary type="html">I tend to stumble across a lot of interesting things as I travel across the web, and one of my productivity methods is to save the things I don&amp;#39;t have time to check out immediately to Todoist. Unfortunately, time can be short, and life busy, so those &amp;#39;thats an interesting article&amp;#39;, &amp;#39;i could use that tech thing&amp;#39; and &amp;#39;that would be cool to blog about&amp;#39; things tend to just build up, and clutter my todo lists in an ever less efficient manner. So today lets clear some of that out!</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://devalias.net/assets/images/cover4.jpg" /></entry><entry><title type="html">iTerm2 + tmux = &amp;lt;3</title><link href="http://devalias.net/devalias/2017/03/18/iterm-tmux-love/" rel="alternate" type="text/html" title="iTerm2 + tmux = &lt;3" /><published>2017-03-18T00:00:00+11:00</published><updated>2017-03-18T00:00:00+11:00</updated><id>http://devalias.net/devalias/2017/03/18/iterm-tmux-love</id><content type="html" xml:base="http://devalias.net/devalias/2017/03/18/iterm-tmux-love/">&lt;p&gt;Just a quick note today, highlighting a super simple but amazingly useful combination I&amp;#39;ve only recently become aware of: &lt;a href=&quot;https://www.iterm2.com/&quot;&gt;iTerm2&lt;/a&gt; + &lt;a href=&quot;https://tmux.github.io/&quot;&gt;tmux&lt;/a&gt;.&lt;/p&gt;
+&lt;/ul&gt;</content><author><name>Glenn 'devalias' Grant</name></author><category term="linkdump" /><category term="dev" /><category term="security" /><category term="privacy" /><category term="productivity" /><category term="tmux" /><category term="alfred" /><category term="yarn" /><category term="bower" /><category term="metasploit" /><category term="docker" /><category term="tor" /><category term="vpn" /><category term="socks" /><summary type="html">I tend to stumble across a lot of interesting things as I travel across the web, and one of my productivity methods is to save the things I don&amp;#39;t have time to check out immediately to Todoist. Unfortunately, time can be short, and life busy, so those &amp;#39;thats an interesting article&amp;#39;, &amp;#39;i could use that tech thing&amp;#39; and &amp;#39;that would be cool to blog about&amp;#39; things tend to just build up, and clutter my todo lists in an ever less efficient manner. So today lets clear some of that out!</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://devalias.net/assets/images/cover4.jpg" /></entry><entry><title type="html">Biohacked Box #3 (June 2017)</title><link href="http://devalias.net/devalias/2017/06/04/biohacked-box-3/" rel="alternate" type="text/html" title="Biohacked Box #3 (June 2017)" /><published>2017-06-04T00:00:00+10:00</published><updated>2017-06-04T00:00:00+10:00</updated><id>http://devalias.net/devalias/2017/06/04/biohacked-box-3</id><content type="html" xml:base="http://devalias.net/devalias/2017/06/04/biohacked-box-3/">&lt;p&gt;Time for another Bulletproof &lt;a href=&quot;http://biohacked.com/&quot;&gt;Biohacked.com&lt;/a&gt; quarterly box. A few interesting sounding items this time around, not sure how useful they will be though.&lt;/p&gt;
+
+&lt;h2&gt;Contents&lt;/h2&gt;
+
+&lt;p&gt;If you want to follow along with the official unboxing video, head on over and &lt;a href=&quot;https://biohacked.com/BBQ217/&quot;&gt;watch with me&lt;/a&gt; (&lt;a href=&quot;https://www.youtube.com/watch?v=bx9AqTDZegM&quot;&gt;YouTube&lt;/a&gt;). It looks like they&amp;#39;ve started including some information and links about the items on their site now too, win!&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;0:00 Intro
+
+&lt;ul&gt;
+&lt;li&gt;~$225 of value, not quite a new record&lt;/li&gt;
+&lt;li&gt;Stuff discovered while writing headstrong&lt;/li&gt;
+&lt;li&gt;A lot of items not available to public yet&lt;/li&gt;
+&lt;li&gt;Help with resilience, balance in times of stress&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;1:38 Pocket knives are good&lt;/li&gt;
+&lt;li&gt;2:15 &lt;a href=&quot;http://www.pluggz.com/&quot;&gt;Pluggz Earthing Sandles&lt;/a&gt; (~US$49)
+
+&lt;ul&gt;
+&lt;li&gt;Custom carbon/rubber plug&lt;/li&gt;
+&lt;li&gt;Allows electrons to flow between you and the earth&lt;/li&gt;
+&lt;li&gt;35% off: BHVIP25 (till August 15)&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;4:18 &lt;a href=&quot;https://www.honeycolony.com/shop/molecular-hydrogen-hydra/&quot;&gt;HoneyColony Hydra Molecular Hydrogen&lt;/a&gt; (US$59.95)
+
+&lt;ul&gt;
+&lt;li&gt;Put in water, combats oxidative stress, destroys freeradicals, provides free electrons&lt;/li&gt;
+&lt;li&gt;Some freeradicals required for mitochondria&lt;/li&gt;
+&lt;li&gt;Hydrogen hits the bad freeradicals&lt;/li&gt;
+&lt;li&gt;20% off: ENERGY&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;6:20 &lt;a href=&quot;https://stellarcleenz.com/products/silver-spritz&quot;&gt;Stellarcleenz Silver Spritz&lt;/a&gt; (US$32)
+
+&lt;ul&gt;
+&lt;li&gt;Antibacterial/antifungal colloidal silver + essential oils&lt;/li&gt;
+&lt;li&gt;30% off: BH30&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;7:34 &lt;a href=&quot;https://biohacked.com/product/truedarkdots/&quot;&gt;TrueDark Dots&lt;/a&gt; (US$40)
+
+&lt;ul&gt;
+&lt;li&gt;Coloured dots for filtering/blocking LED&amp;#39;s/etc&lt;/li&gt;
+&lt;li&gt;Black, dark red, light red&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;10:21 &lt;a href=&quot;https://www.bulletproof.com/neuromaster-30ct&quot;&gt;Neuromaster&lt;/a&gt; (US$56)
+
+&lt;ul&gt;
+&lt;li&gt;Supports BDNF through polyphenols, helps brain be more neuroplastic&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;10:55 Golden Tickets
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.honeycolony.com/simply-transformative/silver-healer/&quot;&gt;HoneyColony Silver Healer&lt;/a&gt; (US$290)
+
+&lt;ul&gt;
+&lt;li&gt;Make your own colloidal silver at home&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.bulletprooftraininginstitute.com/be-unlimited/&quot;&gt;Bulletporof Training Institute - Be Unlimited Pass&lt;/a&gt; (US$800)
+
+&lt;ul&gt;
+&lt;li&gt;3.5-day personal development retreat&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;Previous Boxes&lt;/h2&gt;
+
+&lt;p&gt;Want to see what the previous boxes have been like? Check out my other posts:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;/devalias/2017/03/01/biohacked-box-2/&quot;&gt;Biohacked Box #2&lt;/a&gt; (March 2017)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/devalias/2016/12/20/biohacked-box-1-bulletproof-biohacking-box-9/&quot;&gt;Biohacked Box #1&lt;/a&gt; (December 2016)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/devalias/2016/10/13/bulletproof-biohacking-box-8/&quot;&gt;Quarterly Biohacking Box #8&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/devalias/2016/07/21/bulletproof-quarterly-biohacking-box-7/&quot;&gt;Quarterly Biohacking Box #7&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;This has a quick summary of boxes 1-6 as well&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Glenn 'devalias' Grant</name></author><category term="quicknote" /><category term="bulletproof" /><category term="bulletproof-quarterly" /><category term="dave-asprey" /><category term="quarterly" /><category term="biohacking" /><category term="biohacked.com" /><category term="pluggz" /><category term="honeycolony" /><category term="stellarcleenz" /><category term="truedark" /><category term="neuromaster" /><summary type="html">Time for another Bulletproof Biohacked.com quarterly box. A few interesting sounding items this time around, not sure how useful they will be though.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://devalias.net/assets/images/cover4.jpg" /></entry><entry><title type="html">iTerm2 + tmux = &amp;lt;3</title><link href="http://devalias.net/devalias/2017/03/18/iterm-tmux-love/" rel="alternate" type="text/html" title="iTerm2 + tmux = &lt;3" /><published>2017-03-18T00:00:00+11:00</published><updated>2017-03-18T00:00:00+11:00</updated><id>http://devalias.net/devalias/2017/03/18/iterm-tmux-love</id><content type="html" xml:base="http://devalias.net/devalias/2017/03/18/iterm-tmux-love/">&lt;p&gt;Just a quick note today, highlighting a super simple but amazingly useful combination I&amp;#39;ve only recently become aware of: &lt;a href=&quot;https://www.iterm2.com/&quot;&gt;iTerm2&lt;/a&gt; + &lt;a href=&quot;https://tmux.github.io/&quot;&gt;tmux&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;If you don&amp;#39;t know what these are:&lt;/p&gt;
 
@@ -1844,7 +1921,7 @@ In a fast, simple, yet extensible way.&lt;/li&gt;
 &lt;p&gt;Want to see what the previous boxes have been like? Check out my other posts:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;/devalias/2016/12/20/biohacked-box-1-bulletproof-biohacking-box-9/&quot;&gt;Biohacked Box #1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/devalias/2016/12/20/biohacked-box-1-bulletproof-biohacking-box-9/&quot;&gt;Biohacked Box #1&lt;/a&gt; (December 2016)&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;/devalias/2016/10/13/bulletproof-biohacking-box-8/&quot;&gt;Quarterly Biohacking Box #8&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;/devalias/2016/07/21/bulletproof-quarterly-biohacking-box-7/&quot;&gt;Quarterly Biohacking Box #7&lt;/a&gt;
 
@@ -1948,6 +2025,19 @@ In a fast, simple, yet extensible way.&lt;/li&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;https://biohacked.com/product/truedarktwilight/&quot;&gt;TrueDark&amp;trade; Twilight&lt;/a&gt; ($US79-99)&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://biohacked.com/product/truedarkdaywalker/&quot;&gt;TrueDark&amp;trade; Daywalker&lt;/a&gt; ($US79-99)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;Previous Boxes&lt;/h2&gt;
+
+&lt;p&gt;Want to see what the previous boxes have been like? Check out my other posts:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;/devalias/2016/10/13/bulletproof-biohacking-box-8/&quot;&gt;Quarterly Biohacking Box #8&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/devalias/2016/07/21/bulletproof-quarterly-biohacking-box-7/&quot;&gt;Quarterly Biohacking Box #7&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;This has a quick summary of boxes 1-6 as well&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;</content><author><name>Glenn 'devalias' Grant</name></author><category term="quicknote" /><category term="bulletproof" /><category term="bulletproof-quarterly" /><category term="dave-asprey" /><category term="quarterly" /><category term="biohacking" /><category term="biohacked.com" /><category term="squattypotty" /><category term="neurominer" /><category term="breakaway-matcha" /><category term="matcha" /><category term="green-tea" /><category term="chocolate" /><category term="collagen" /><category term="collagen-bites" /><category term="stand-desk" /><category term="40-years-of-zen" /><category term="bulletproof-conference" /><category term="truedark" /><category term="discount" /><summary type="html">Even though you pay for these boxes (US$99/quarter), it becomes another one of those background things you forget about, and then suddenly in the mail arrives this package of biohacking goodies! This one rocked up perfectly in time for actual christmas, so was a nice little addition to the festivities.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://devalias.net/assets/images/cover4.jpg" /></entry><entry><title type="html">Bulletproof Biohacking Box #8</title><link href="http://devalias.net/devalias/2016/10/13/bulletproof-biohacking-box-8/" rel="alternate" type="text/html" title="Bulletproof Biohacking Box #8" /><published>2016-10-13T00:00:00+11:00</published><updated>2016-10-13T00:00:00+11:00</updated><id>http://devalias.net/devalias/2016/10/13/bulletproof-biohacking-box-8</id><content type="html" xml:base="http://devalias.net/devalias/2016/10/13/bulletproof-biohacking-box-8/">&lt;p&gt;So it&amp;#39;s that time again where biohacking christmas comes early (4 times a year!) Before I get into the content from this box, it seems Dave and the team have decided to move on from &lt;a href=&quot;https://quarterly.co/&quot;&gt;Quarterly&lt;/a&gt; and give the biohacking box a new home on &lt;a href=&quot;http://biohacked.com/&quot;&gt;biohacked.com&lt;/a&gt;. So if you want to find it, make sure you head over there and sign up!&lt;/p&gt;
 
 &lt;p&gt;Without further ado, the contents!&lt;/p&gt;
@@ -2260,280 +2350,4 @@ In a fast, simple, yet extensible way.&lt;/li&gt;
 
 &lt;p&gt;This poses some issues about duplication of apps between users, space requirements, etc. So a mid-ground could be allowing the owner/&amp;#39;master&amp;#39; user to control app installation, but then for each other user to be able to maintain their own stored data/signin status/etc.&lt;/p&gt;
 
-&lt;p&gt;What do you think? Is this a feature you&amp;#39;d use, or does it just seem like over-engineered bloat? Let me know your thoughts in the comments!&lt;/p&gt;</content><author><name>Glenn 'devalias' Grant</name></author><category term="dev" /><category term="tech" /><category term="apple" /><category term="apple-tv" /><category term="tvOS" /><category term="iOS" /><category term="personalisation" /><category term="improvements" /><category term="plex" /><category term="netflix" /><category term="youtube" /><category term="ted" /><summary type="html">Living in share houses and using tech like the Apple TV has highlighted an annoying situation: so many apps these days want you to sign in to enable access, personalised features, etc; but most offer no good solution for when you share the device with other people.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://devalias.net/assets/images/cover4.jpg" /></entry><entry><title type="html">Starting a New Web Application (Part 1): An Exploration of Options</title><link href="http://devalias.net/devalias/2016/08/24/starting-a-new-web-application-1-an-exploration-of-options/" rel="alternate" type="text/html" title="Starting a New Web Application (Part 1): An Exploration of Options" /><published>2016-08-24T00:00:00+10:00</published><updated>2016-08-24T00:00:00+10:00</updated><id>http://devalias.net/devalias/2016/08/24/starting-a-new-web-application-1-an-exploration-of-options</id><content type="html" xml:base="http://devalias.net/devalias/2016/08/24/starting-a-new-web-application-1-an-exploration-of-options/">&lt;p&gt;Finding myself with some free time (and looking into starting a new project), I thought I might catch myself up on the state of web technologies, and what might be a good stack to work with.&lt;/p&gt;
-
-&lt;p&gt;The details collected here are most certainly not a complete layout of the entire landscape, and there will no doubt be leanings toward my personal tastes (&lt;a href=&quot;http://www.reactivemanifesto.org/&quot;&gt;reactive&lt;/a&gt;, api-driven, etc). You should use this more as a starter into your own deeper research than as a source of ultimate truth. With that out of the way, let&amp;#39;s get into it!&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Quicklinks&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#frontend&quot;&gt;Frontend&lt;/a&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#frontend-frameworks&quot;&gt;Frameworks&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#frontend-ui&quot;&gt;UI&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#frontend-scripting&quot;&gt;Scripting&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#backend&quot;&gt;Backend&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#tooling&quot;&gt;Tooling&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#conclusions&quot;&gt;Conclusions&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#updates&quot;&gt;Updates&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2&gt;&lt;a name=&quot;frontend&quot;&gt;&lt;/a&gt;Frontend&lt;/h2&gt;
-
-&lt;p&gt;The frontend is the pretty, interactive, main part that people will be seeing. You can have the most amazingly streamlined and perfect backend code, but noone&amp;#39;s going to notice and love it without a strong frontend to back it up.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;a name=&quot;frontend-frameworks&quot;&gt;&lt;/a&gt;Frameworks&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;The days of raw JavaScript and jQuery selectors is long gone. We&amp;#39;re looking for a nice, modern framework to help put together our frontend. Here&amp;#39;s a little selection of some of our options:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://facebook.github.io/react/&quot;&gt;React&lt;/a&gt; (&lt;a href=&quot;https://github.com/reactjs&quot;&gt;GitHub&lt;/a&gt;) (most likely with a flavour of &lt;a href=&quot;https://facebook.github.io/flux/&quot;&gt;Flux&lt;/a&gt; (&lt;a href=&quot;https://github.com/facebook/flux&quot;&gt;GitHub&lt;/a&gt;))
-
-&lt;ul&gt;
-&lt;li&gt;A frontend framework from Facebook that is taking the web by storm. Probably my personal favourite from what I&amp;#39;ve seen so far.&lt;/li&gt;
-&lt;li&gt;It even let&amp;#39;s you &lt;a href=&quot;https://facebook.github.io/react-native/&quot;&gt;build for native devices&lt;/a&gt;!&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://angular.io/&quot;&gt;Angular (v2)&lt;/a&gt; (or if you like outdated for some reason &lt;a href=&quot;https://angularjs.org/&quot;&gt;AngularJS (v1)&lt;/a&gt;)
-
-&lt;ul&gt;
-&lt;li&gt;Also &lt;a href=&quot;https://mobile.angular.io/&quot;&gt;available for native devices&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;I was a big fan of AngularJS (v1), and I want to like v2, but I don&amp;#39;t think it will be my main choice.&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;There are a TON of other frontend frameworks, of varying popularity and support. I won&amp;#39;t delve into them much, but there&amp;#39;s heaps of info out there
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://emberjs.com/&quot;&gt;Ember&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://vuejs.org/&quot;&gt;Vue.js&lt;/a&gt;
-
-&lt;ul&gt;
-&lt;li&gt;From reading around the web, there&amp;#39;s a decent amount of good stuff talking about Vue. In the end I decided against it since it&amp;#39;s not supported by a big backer, and the skills aren&amp;#39;t as useful on a resume. That said, for a personal project it could be a great fit!&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://vuejs.org/guide/comparison.html&quot;&gt;https://vuejs.org/guide/comparison.html&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://blog.evanyou.me/2015/10/25/vuejs-re-introduction/&quot;&gt;http://blog.evanyou.me/2015/10/25/vuejs-re-introduction/&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://vuejs.org/2016/04/27/announcing-2.0/&quot;&gt;http://vuejs.org/2016/04/27/announcing-2.0/&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/vuejs/vue&quot;&gt;vue&lt;/a&gt;, &lt;a href=&quot;https://github.com/vuejs/vue-rx&quot;&gt;vue-rx&lt;/a&gt;, &lt;a href=&quot;https://github.com/vuejs/vue-resource&quot;&gt;vue-resource&lt;/a&gt;, &lt;a href=&quot;https://github.com/vuejs/vue-router&quot;&gt;vue-router&lt;/a&gt;, &lt;a href=&quot;https://github.com/vuejs/vuex&quot;&gt;vuex&lt;/a&gt;, &lt;a href=&quot;https://github.com/revue/revue&quot;&gt;revuew&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://aurelia.io/&quot;&gt;Aurelia&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://riotjs.com/&quot;&gt;Riot&lt;/a&gt; (&lt;a href=&quot;https://muut.com/blog/technology/riot-2.0/&quot;&gt;v2&lt;/a&gt;)&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;As with most things, every man and his dog has their own opinion, so here are a few comparisons I found useful:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://www.ociweb.com/resources/publications/sett/comparison-of-angular-2-and-react/&quot;&gt;&amp;quot;Comparison of Angular 2 and React&amp;quot; by Mark Volkmann and Lance Finney&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://blog.backand.com/angular-2-vs-react/&quot;&gt;&amp;quot;Angular 2 vs. React&amp;quot; by Itay Herskovits&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://medium.freecodecamp.com/angular-2-versus-react-there-will-be-blood-66595faafd51&quot;&gt;&amp;quot;Angular 2 versus React: There Will Be Blood&amp;quot; by Cory House&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://rlafranchi.github.io/2016/05/03/vue-vs-react/&quot;&gt;&amp;quot;Vue.js vs React.js&amp;quot; by Richard LaFranchi&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://forums.meteor.com/t/why-doesnt-mdg-just-adopt-vue-js-and-forget-about-react-vs-blaze/13926/6&quot;&gt;&amp;quot;Why doesn’t MDG just adopt Vue.js and forget about React vs Blaze?&amp;quot;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;a name=&quot;frontend-ui&quot;&gt;&lt;/a&gt;UI&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Even if you like to go oldschool and code your site by hand in notepad/vi, you can&amp;#39;t deny the ease/benefits of using a frontend UI framework.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://getbootstrap.com/&quot;&gt;Bootstrap&lt;/a&gt; (&lt;a href=&quot;https://blog.getbootstrap.com/2015/08/19/bootstrap-4-alpha/&quot;&gt;v4&lt;/a&gt;)
-
-&lt;ul&gt;
-&lt;li&gt;Released by Twitter, and arguably one of the most used frontend UI frameworks out there.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://react-bootstrap.github.io/&quot;&gt;React-Bootstrap&lt;/a&gt; (&lt;a href=&quot;https://github.com/react-bootstrap/react-bootstrap&quot;&gt;GitHub&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://ng-bootstrap.github.io/#/home&quot;&gt;ng-bootstrap&lt;/a&gt; by the angular-ui team (&lt;a href=&quot;https://github.com/ng-bootstrap/ng-bootstrap&quot;&gt;GitHub&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://valor-software.com/ng2-bootstrap/&quot;&gt;ng2-bootstrap&lt;/a&gt; by valor-software (&lt;a href=&quot;https://github.com/valor-software/ng2-bootstrap&quot;&gt;GitHub&lt;/a&gt;)&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://foundation.zurb.com/&quot;&gt;Foundation&lt;/a&gt;
-
-&lt;ul&gt;
-&lt;li&gt;While not as well known as the other two mentioned here, those that make use of foundation swear by it.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://react.foundation/&quot;&gt;React-Foundation&lt;/a&gt; (&lt;a href=&quot;https://github.com/nordsoftware/react-foundation&quot;&gt;GitHub&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://aruberto.github.io/react-foundation-components/&quot;&gt;React-Foundation-Components&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://material.google.com/&quot;&gt;Material Design&lt;/a&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Following a set of design principals from Google, this lays out a slick, consistent look and feel.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://getmdl.io/&quot;&gt;Material Design Lite&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.material-ui.com/&quot;&gt;For React&lt;/a&gt; (&lt;a href=&quot;https://github.com/callemall/material-ui&quot;&gt;GitHub&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://material.angular.io/&quot;&gt;For Angular (v2)&lt;/a&gt; (&lt;a href=&quot;https://github.com/angular/material2&quot;&gt;GitHub&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://material.angularjs.io/&quot;&gt;For AngularJS (v1)&lt;/a&gt; (&lt;a href=&quot;https://github.com/angular/material&quot;&gt;GitHub&lt;/a&gt;)&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Can&amp;#39;t decide? Try some comparisons:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://blog.teamtreehouse.com/the-rundown-bootstrap-vs-google-mdl-vs-foundation&quot;&gt;&amp;quot;The Rundown: Bootstrap vs. Google MDL vs. Foundation&amp;quot; by treehouse&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://dannyherran.com/2016/03/state-of-affairs-bootstrap-4-vs-foundation-6/&quot;&gt;&amp;quot;State of affairs: Bootstrap 4 vs Foundation 6.2&amp;quot; by Danny Herran&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;a name=&quot;frontend-scripting&quot;&gt;&lt;/a&gt;Scripting&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Modern web apps live by the functionality they enable in the browser, and to do this, we need a JS-esque language. Your chosen frontend framework may sway your choice (eg. Angular (v2) has a strong preference for TypeScript), but ultimately, it&amp;#39;s up to what you/your team feel comfortable with. With &lt;a href=&quot;https://github.com/jashkenas/coffeescript/wiki/list-of-languages-that-compile-to-js&quot;&gt;so many options&lt;/a&gt; out there, it&amp;#39;s hard to pick.. And of course, you could always stick to plain JavaScript.. and with the new features coming in &lt;a href=&quot;http://es6-features.org/&quot;&gt;ES6&lt;/a&gt; (eg. &lt;a href=&quot;http://www.html5rocks.com/en/tutorials/es6/promises/&quot;&gt;promises&lt;/a&gt;) and beyond, it might be a good choice.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://babeljs.io/&quot;&gt;Babel&lt;/a&gt;
-
-&lt;ul&gt;
-&lt;li&gt;A transpiler that lets you play with all the fun features of JavaScript ES6 and beyond, while maintaining compatibility with all of the older browsers.&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://www.typescriptlang.org/&quot;&gt;TypeScript&lt;/a&gt; (&lt;a href=&quot;https://github.com/Microsoft/TypeScript&quot;&gt;GitHub&lt;/a&gt;)
-
-&lt;ul&gt;
-&lt;li&gt;&amp;quot;TypeScript is a typed superset of JavaScript that compiles to plain JavaScript&amp;quot;&lt;/li&gt;
-&lt;li&gt;If you&amp;#39;re using Angular (v2) and like sticking to convention, this is the one for you.&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://coffeescript.org/&quot;&gt;CoffeeScript&lt;/a&gt; (or maybe &lt;a href=&quot;https://github.com/michaelficarra/CoffeeScriptRedux&quot;&gt;v2&lt;/a&gt;)
-
-&lt;ul&gt;
-&lt;li&gt;This used to be my choice, but looking at the other options available now, I think i&amp;#39;ll be moving on.&lt;/li&gt;
-&lt;li&gt;As always, there are a bunch of arguments for and against..
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://robots.thoughtbot.com/replace-coffeescript-with-es6&quot;&gt;&amp;quot;Replace CoffeeScript with ES6&amp;quot; by Blake Williams&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://tech.noredink.com/post/111583727108/dont-replace-coffeescript-with-es6-transpilers&quot;&gt;&amp;quot;Don’t Replace CoffeeScript with ES6 Transpilers&amp;quot; by Richard Feldman&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;etc&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;If you&amp;#39;re looking for a way out, why not &lt;a href=&quot;https://github.com/decaffeinate/decaffeinate&quot;&gt;decaffeinate&lt;/a&gt;?&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://flowtype.org/&quot;&gt;Flow&lt;/a&gt; (&lt;a href=&quot;https://github.com/facebook/flow&quot;&gt;GitHub&lt;/a&gt;)
-
-&lt;ul&gt;
-&lt;li&gt;While it&amp;#39;s not a language unto itself, it does allow you the benefits of typed JavaScript without having to dive into something like TypeScript.&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://www.scala-js.org/&quot;&gt;Scala.js&lt;/a&gt;
-
-&lt;ul&gt;
-&lt;li&gt;A little left field, this transpiles Scala code into JavaScript. While I probably wouldn&amp;#39;t see myself using this as a main choice, it could make for some interesting reusability between front and backend.&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2&gt;&lt;a name=&quot;backend&quot;&gt;&lt;/a&gt;Backend&lt;/h2&gt;
-
-&lt;p&gt;My preferences for backend tech stacks lean heavily towards &lt;a href=&quot;http://www.scala-lang.org/&quot;&gt;Scala&lt;/a&gt; and the &lt;a href=&quot;https://www.lightbend.com/platform&quot;&gt;Lightbend Reactive Platform&lt;/a&gt; these days, but I will make quick mention of some of the other options available.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://doc.akka.io/docs/akka-http/current/scala.html&quot;&gt;Akka-HTTP&lt;/a&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Taking the power of asynchronous, message based actors, and applying them to HTTP. Definite win.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://softwaremill.github.io/bootzooka/&quot;&gt;Bootzooka&lt;/a&gt; (&lt;a href=&quot;https://github.com/softwaremill/bootzooka&quot;&gt;GitHub&lt;/a&gt;)
-
-&lt;ul&gt;
-&lt;li&gt;&amp;quot;Bootzooka is a simple application scaffolding project to allow quick start of development for modern, web based applications.&amp;quot;&lt;/li&gt;
-&lt;li&gt;While not perfect, it&amp;#39;s a decent implementation of a starter app, tying together some useful technologies.&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://www.playframework.com/&quot;&gt;Play Framework&lt;/a&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&amp;quot;Play is a high-productivity Java and Scala web application framework that integrates the components and APIs you need for modern web application development.&amp;quot;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://scalatra.org/&quot;&gt;Scalatra&lt;/a&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&amp;quot;Scalatra is a simple, accessible and free web micro-framework. It combines the power of the JVM with the beauty and brevity of Scala, helping you quickly build high-performance web sites and APIs.&amp;quot;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://liftweb.net/&quot;&gt;Lift&lt;/a&gt; (&lt;a href=&quot;https://github.com/lift/framework&quot;&gt;GitHub&lt;/a&gt;)
-
-&lt;ul&gt;
-&lt;li&gt;&amp;quot;Lift is the most powerful, most secure web framework available today. There are Seven Things that distinguish Lift from other web frameworks.&amp;quot;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://http4s.org/&quot;&gt;http4s&lt;/a&gt; (&lt;a href=&quot;https://github.com/http4s/http4s&quot;&gt;GitHub&lt;/a&gt;)
-
-&lt;ul&gt;
-&lt;li&gt;&amp;quot;A typeful, purely functional, streaming library for HTTP clients and servers in Scala.&amp;quot;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://twitter.github.io/finatra/&quot;&gt;Finatra&lt;/a&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&amp;quot;Fast, testable, Scala services built on TwitterServer and Finagle.&amp;quot;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/airbnb/hypernova&quot;&gt;Hypernova&lt;/a&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&amp;quot;A service for server-side rendering your JavaScript views&amp;quot;&lt;/li&gt;
-&lt;li&gt;While not a choice unto itself, this should help speed things up and keep your site nice and search engine friendly.&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;There will be a number of opinions spread throughout the net, including:
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://scala.libhunt.com/categories/585-web-frameworks&quot;&gt;https://scala.libhunt.com/categories/585-web-frameworks&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://www.reddit.com/r/scala/comments/3kaael/which_framework_to_use_for_development_of_a_rest/&quot;&gt;https://www.reddit.com/r/scala/comments/3kaael/which_framework_to_use_for_development_of_a_rest/&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://www.quora.com/Is-Play-the-best-web-framework-written-in-Scala&quot;&gt;https://www.quora.com/Is-Play-the-best-web-framework-written-in-Scala&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;You also have all of your other typical options
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://www.ruby-lang.org/en/&quot;&gt;Ruby&lt;/a&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://rubyonrails.org/&quot;&gt;Ruby on Rails&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.sinatrarb.com/&quot;&gt;Sinatra&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://nodejs.org/en/&quot;&gt;Node&lt;/a&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://expressjs.com/&quot;&gt;Express&lt;/a&gt;: &amp;quot;Fast, unopinionated, minimalist web framework for Node.js&amp;quot;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://www.meteor.com/&quot;&gt;Meteor&lt;/a&gt;: &amp;quot;Meteor is an open source platform for web, mobile, and desktop.&amp;quot;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://noeticforce.com/best-nodejs-frameworks-for-web-and-app-development&quot;&gt;&amp;quot;Node.js Frameworks: The 10 Best for Web and Apps Development&amp;quot; by noeticsunil&lt;/a&gt;
-mobile, and desktop.&amp;quot;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://www.python.org/&quot;&gt;Python&lt;/a&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://www.djangoproject.com/&quot;&gt;Django&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://wiki.python.org/moin/WebFrameworks&quot;&gt;Web Frameworks for Python&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://secure.php.net/&quot;&gt;PHP&lt;/a&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://octobercms.com/&quot;&gt;October&lt;/a&gt;: &amp;quot;October is a free, open-source, self-hosted CMS platform based on the Laravel PHP Framework. A simple and modular CMS that grows with you, with a precise and beautiful interface that comes as second nature.&amp;quot;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://laravel.com/&quot;&gt;Laravel&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;etc&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2&gt;&lt;a name=&quot;tooling&quot;&gt;&lt;/a&gt;Tooling&lt;/h2&gt;
-
-&lt;p&gt;With the crazy mix of technologies and steps involved in modern web app development, it makes a ton of sense to tie it all together with some automation.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://webpack.github.io/&quot;&gt;Webpack&lt;/a&gt; (&lt;a href=&quot;https://github.com/webpack/webpack&quot;&gt;GitHub&lt;/a&gt;)
-
-&lt;ul&gt;
-&lt;li&gt;&amp;quot;Webpack is a bundler for modules. The main purpose is to bundle JavaScript files for usage in a browser, yet it is also capable of transforming, bundling, or packaging just about any resource or asset.&amp;quot;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://blog.andrewray.me/webpack-when-to-use-and-why/&quot;&gt;&amp;quot;Webpack: When To Use And Why&amp;quot; by Andrew Ray&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/webpack/less-loader&quot;&gt;https://github.com/webpack/less-loader&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/shakacode/bootstrap-loader&quot;&gt;https://github.com/shakacode/bootstrap-loader&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://gulpjs.com/&quot;&gt;Gulp&lt;/a&gt; (&lt;a href=&quot;https://github.com/gulpjs/gulp&quot;&gt;GitHub&lt;/a&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Gulp is a streaming javascript task runner that lets you automate tasks.&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://gruntjs.com/&quot;&gt;Grunt&lt;/a&gt; (&lt;a href=&quot;https://github.com/gruntjs/&quot;&gt;GitHub&lt;/a&gt;)
-
-&lt;ul&gt;
-&lt;li&gt;Grunt is basically the older, less streaming, less awesome version of Gulp.&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;While a little different in purpose to the things mentioned above, getting everything nicely tested and deployed is always good:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://bitbucket.org/product/features/pipelines&quot;&gt;Bitbucket Pipelines&lt;/a&gt;: &amp;quot;Build, test and deploy from Bitbucket&amp;quot;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2&gt;&lt;a name=&quot;conclusions&quot;&gt;&lt;/a&gt;Conclusions&lt;/h2&gt;
-
-&lt;p&gt;Hopefully this has given you a decent starting point for figuring out what combination of technologies is going to work best for your next project. If you want to see the direction I&amp;#39;ve decided to go, make sure you read on in &lt;a href=&quot;#TODO&quot;&gt;Part 2&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Have I missed something important? Not given love to your favourite stack? Got a cool pointer? Or just want to say hi? Let me know in the comments!&lt;/p&gt;
-
-&lt;h2&gt;&lt;a name=&quot;updates&quot;&gt;&lt;/a&gt;Updates&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;2017-04-11 Added some more backend web frameworks, updated akka-http link, fixed some formatting&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Glenn 'devalias' Grant</name></author><category term="dev" /><category term="web" /><category term="tech-stack" /><category term="overview" /><category term="frontend" /><category term="backend" /><category term="react" /><category term="angular" /><category term="ember" /><category term="vue" /><category term="aurelia" /><category term="riot" /><category term="bootstrap" /><category term="foundation" /><category term="material-design" /><category term="javascript" /><category term="babel" /><category term="typescript" /><category term="coffeescript" /><category term="flow" /><category term="scala-js" /><category term="akka-http" /><category term="bootzooka" /><category term="play-framework" /><category term="hypernova" /><category term="ruby" /><category term="ruby-on-rails" /><category term="node" /><category term="express" /><category term="meteor" /><category term="python" /><category term="django" /><category term="php" /><category term="october-cms" /><category term="laravel" /><category term="webpack" /><category term="gulp" /><category term="grunt" /><summary type="html">Finding myself with some free time (and looking into starting a new project), I thought I might catch myself up on the state of web technologies, and what might be a good stack to work with.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://devalias.net/assets/images/cover4.jpg" /></entry></feed>
+&lt;p&gt;What do you think? Is this a feature you&amp;#39;d use, or does it just seem like over-engineered bloat? Let me know your thoughts in the comments!&lt;/p&gt;</content><author><name>Glenn 'devalias' Grant</name></author><category term="dev" /><category term="tech" /><category term="apple" /><category term="apple-tv" /><category term="tvOS" /><category term="iOS" /><category term="personalisation" /><category term="improvements" /><category term="plex" /><category term="netflix" /><category term="youtube" /><category term="ted" /><summary type="html">Living in share houses and using tech like the Apple TV has highlighted an annoying situation: so many apps these days want you to sign in to enable access, personalised features, etc; but most offer no good solution for when you share the device with other people.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://devalias.net/assets/images/cover4.jpg" /></entry></feed>

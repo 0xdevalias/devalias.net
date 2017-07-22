@@ -20,7 +20,7 @@ group :jekyll_plugins do
   gem 'jekyll_version_plugin'
   gem 'jekyll-deploy'
   gem 'jekyll-crosspost-to-medium'
-  #gem 'jekyll-webmention_io'
+  gem 'jekyll-webmention_io'
   gem 'jekyll-time-to-read'
   gem 'jekyll-twitter-plugin'
 end

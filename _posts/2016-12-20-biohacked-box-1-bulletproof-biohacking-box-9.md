@@ -92,3 +92,11 @@ Also, while I was on the [Biohacked](https://biohacked.com/) site, I saw a coupl
 
 * [TrueDark&trade; Twilight](https://biohacked.com/product/truedarktwilight/) ($US79-99)
 * [TrueDark&trade; Daywalker](https://biohacked.com/product/truedarkdaywalker/) ($US79-99)
+
+## Previous Boxes
+
+Want to see what the previous boxes have been like? Check out my other posts:
+
+* [Quarterly Biohacking Box #8]({% post_url 2016-10-13-bulletproof-biohacking-box-8 %})
+* [Quarterly Biohacking Box #7]({% post_url 2016-07-21-bulletproof-quarterly-biohacking-box-7 %})
+    * This has a quick summary of boxes 1-6 as well

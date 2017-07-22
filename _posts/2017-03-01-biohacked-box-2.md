@@ -72,7 +72,7 @@ If you want to follow along with the official unboxing video, head on over and [
 
 Want to see what the previous boxes have been like? Check out my other posts:
 
-* [Biohacked Box #1]({% post_url 2016-12-20-biohacked-box-1-bulletproof-biohacking-box-9 %})
+* [Biohacked Box #1]({% post_url 2016-12-20-biohacked-box-1-bulletproof-biohacking-box-9 %}) (December 2016)
 * [Quarterly Biohacking Box #8]({% post_url 2016-10-13-bulletproof-biohacking-box-8 %})
 * [Quarterly Biohacking Box #7]({% post_url 2016-07-21-bulletproof-quarterly-biohacking-box-7 %})
     * This has a quick summary of boxes 1-6 as well

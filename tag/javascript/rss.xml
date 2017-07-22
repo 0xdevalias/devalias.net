@@ -13,10 +13,10 @@
    
 	<item>
 	  <title>Starting a New Web Application (Part 1): An Exploration of Options</title>
-	  <link>/pages/alias1/devalias.net/devalias/2016/08/24/starting-a-new-web-application-1-an-exploration-of-options/</link>
+	  <link>/devalias/2016/08/24/starting-a-new-web-application-1-an-exploration-of-options/</link>
 	  <author>devalias</author>
 	  <pubDate>2016-08-24T00:00:00+10:00</pubDate>
-	  <guid>/pages/alias1/devalias.net/devalias/2016/08/24/starting-a-new-web-application-1-an-exploration-of-options/</guid>
+	  <guid>/devalias/2016/08/24/starting-a-new-web-application-1-an-exploration-of-options/</guid>
 	  <description><![CDATA[
 	     <p>Finding myself with some free time (and looking into starting a new project), I thought I might catch myself up on the state of web technologies, and what might be a good stack to work with.</p>
 
@@ -301,10 +301,10 @@ mobile, and desktop.&quot;</li>
 
 	<item>
 	  <title>Dogedraw, now with more Nyaan!</title>
-	  <link>/pages/alias1/devalias.net/devalias/2015/04/20/dogedraw-now-with-more-nyaan/</link>
+	  <link>/devalias/2015/04/20/dogedraw-now-with-more-nyaan/</link>
 	  <author>devalias</author>
 	  <pubDate>2015-04-20T12:00:00+10:00</pubDate>
-	  <guid>/pages/alias1/devalias.net/devalias/2015/04/20/dogedraw-now-with-more-nyaan/</guid>
+	  <guid>/devalias/2015/04/20/dogedraw-now-with-more-nyaan/</guid>
 	  <description><![CDATA[
 	     <p>Over the last few days I&#39;ve been mentoring web dev at <a href="http://hact.io/">HS.HACT.IO</a>, inspiring a group of younger kids to get into tech as creators. One of the other mentors showed us a site he previously put together, <a href="http://dogedraw.com/">DogeDraw</a>. After playing around with it for a little, I decided it was a little too manual, so started hacking away in the JS console to make it more fun.</p>
 

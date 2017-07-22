@@ -13,10 +13,10 @@
    
 	<item>
 	  <title>Bye Bye Russian Spam</title>
-	  <link>/pages/alias1/devalias.net/devalias/2011/11/07/bye-bye-russian-spam/</link>
+	  <link>/devalias/2011/11/07/bye-bye-russian-spam/</link>
 	  <author>devalias</author>
 	  <pubDate>2011-11-07T18:15:00+11:00</pubDate>
-	  <guid>/pages/alias1/devalias.net/devalias/2011/11/07/bye-bye-russian-spam/</guid>
+	  <guid>/devalias/2011/11/07/bye-bye-russian-spam/</guid>
 	  <description><![CDATA[
 	     <p>I&#39;ve been getting hit pretty heavily lately with a pile of Russian spam, so I decided to look into adding language based spam filtering to my mailserver. This post serves as a reminder of what I did, and hopefully also helps some others in a similar situation.</p>
 

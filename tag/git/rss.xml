@@ -13,10 +13,10 @@
    
 	<item>
 	  <title>Gists</title>
-	  <link>/pages/alias1/devalias.net/devalias/2013/06/17/gists-on-tumblr/</link>
+	  <link>/devalias/2013/06/17/gists-on-tumblr/</link>
 	  <author>devalias</author>
 	  <pubDate>2013-06-17T05:00:00+10:00</pubDate>
-	  <guid>/pages/alias1/devalias.net/devalias/2013/06/17/gists-on-tumblr/</guid>
+	  <guid>/devalias/2013/06/17/gists-on-tumblr/</guid>
 	  <description><![CDATA[
 	     <p>So I figured it might be useful to be able to post gists here. Turns out it&#39;s actually pretty easy thanks to soemarko</p>
 
@@ -35,10 +35,10 @@
 
 	<item>
 	  <title>Plesk - Adding programs to a chrooted SSH</title>
-	  <link>/pages/alias1/devalias.net/devalias/2012/01/10/plesk-adding-programs-to-a-chrooted-ssh/</link>
+	  <link>/devalias/2012/01/10/plesk-adding-programs-to-a-chrooted-ssh/</link>
 	  <author>devalias</author>
 	  <pubDate>2012-01-10T05:29:00+11:00</pubDate>
-	  <guid>/pages/alias1/devalias.net/devalias/2012/01/10/plesk-adding-programs-to-a-chrooted-ssh/</guid>
+	  <guid>/devalias/2012/01/10/plesk-adding-programs-to-a-chrooted-ssh/</guid>
 	  <description><![CDATA[
 	     <p>Just a few notes today about making programs (in this case git) available to a chrooted SSH account in Plesk. I&#39;m assuming the account is already setup for ssh, etc so I will just be covering where to copy the files to.</p>
 
@@ -101,10 +101,10 @@ cp -R /usr/local/libexec /var/www/vhosts/chroot/usr/local/libexec/git-core
 
 	<item>
 	  <title>Forking Github!! (or how to contribute to a project)</title>
-	  <link>/pages/alias1/devalias.net/devalias/2012/01/06/forking-github/</link>
+	  <link>/devalias/2012/01/06/forking-github/</link>
 	  <author>devalias</author>
 	  <pubDate>2012-01-06T13:36:18+11:00</pubDate>
-	  <guid>/pages/alias1/devalias.net/devalias/2012/01/06/forking-github/</guid>
+	  <guid>/devalias/2012/01/06/forking-github/</guid>
 	  <description><![CDATA[
 	     <p>I&#39;ve been following the GitHub craze for a little while now, and finally coming to a stage where I would like to start contributing to some of the projects I follow. Having looked closely at the examples for one in particular, I noticed something simple, but beneficial that I could add, so I set out to become an active member of the internet!</p>
 

@@ -13,10 +13,10 @@
    
 	<item>
 	  <title>vFeed - Wrapper/Helper Scripts For Speed and Efficiency</title>
-	  <link>/pages/alias1/devalias.net/devalias/2013/11/21/vfeed-wrapper-helper-scripts-for-speed-and-efficiency/</link>
+	  <link>/devalias/2013/11/21/vfeed-wrapper-helper-scripts-for-speed-and-efficiency/</link>
 	  <author>devalias</author>
 	  <pubDate>2013-11-21T09:00:54+11:00</pubDate>
-	  <guid>/pages/alias1/devalias.net/devalias/2013/11/21/vfeed-wrapper-helper-scripts-for-speed-and-efficiency/</guid>
+	  <guid>/devalias/2013/11/21/vfeed-wrapper-helper-scripts-for-speed-and-efficiency/</guid>
 	  <description><![CDATA[
 	     <p>Just wanted to share some quick little bash scripts I threw together to make vFeed a little quicker/more efficient for my use.</p>
 

@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+   
+      <title>devalias.net</title>
+   
+   <link>http://devalias.net</link>
+   <description>Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.</description>
+   <language>en_GB</language>
+   <managingEditor> </managingEditor>
+   <atom:link href="rss" rel="self" type="application/rss+xml" />
+   
+	<item>
+	  <title>An unexpected journey with webpack and RequireJS</title>
+	  <link>/devalias/2017/08/05/unexpected-journey-webpack-requirejs/</link>
+	  <author>devalias</author>
+	  <pubDate>2017-08-05T00:00:00+10:00</pubDate>
+	  <guid>/devalias/2017/08/05/unexpected-journey-webpack-requirejs/</guid>
+	  <description><![CDATA[
+	     <p>So the other day I <a href="https://github.com/blueclosure/BCDetect/issues/27">ran into what seemed like a bug</a> in some software I was using during a test. Narrowing things down in the codebase, it looked as though the error may have been related to a <a href="https://github.com/auth0/idtoken-verifier">library in use by the application</a> I was testing.</p>
+
+<p>I needed an easy way to isolate the code that seemed to be causing the error from the rest of the application, which took me down a rabbit hole to learn a little bit more about a few different technologies.</p>
+
+<h2>The Situation</h2>
+
+<p>So I had a <a href="https://github.com/auth0/idtoken-verifier">JavaScript project</a> that I wanted to build and include in a little test webpage. A few things in the repo stood out:</p>
+
+<ul>
+<li><a href="https://github.com/auth0/idtoken-verifier/blob/master/package.json">package.json</a> - So it&#39;s using <a href="https://nodejs.org/">node.js</a> in some measure.
+
+<ul>
+<li>This also had a number of entries under the <code>scripts</code> section, including some that made use of <code>gulp</code> (another build tool)</li>
+</ul></li>
+<li><a href="https://github.com/auth0/idtoken-verifier/blob/master/gulpfile.js">gulpfile.js</a> - Another strong indicator that <a href="https://gulpjs.com/">gulp</a> was in use. Didn&#39;t need to dig too deeply into this side of things, though it did indicate that <code>webpack</code> was in use.</li>
+<li><a href="https://github.com/auth0/idtoken-verifier/blob/master/webpack.config.js">webpack.config.js</a> / <a href="https://github.com/auth0/idtoken-verifier/blob/master/webpack.prod.config.js">webpack.prod.config.js</a> - The <a href="https://webpack.github.io/">webpack</a> configuration files.</li>
+</ul>
+
+<p>So now I had a fair idea of what we had to work with, time to try and build it.</p>
+
+<h2>Building with npm and gulp</h2>
+
+<p>This part was actually extremely straightforward, so I won&#39;t spend too long here. After cloning the repo, all I had to do was:</p>
+
+<ul>
+<li><code>npm install</code></li>
+<li><code>npm build</code> (which is just a <a href="https://github.com/auth0/idtoken-verifier/blob/master/package.json#L8">script</a> that runs <code>gulp build</code>)</li>
+</ul>
+
+<p>After a bunch of downloads and a few warnings, I had 3 new files sitting in my <code>./build</code> folder. So easy!</p>
+
+<ul>
+<li><code>idtoken-verifier.js</code></li>
+<li><code>idtoken-verifier.min.js</code></li>
+<li><code>idtoken-verifier.min.js.map</code></li>
+</ul>
+
+<p>For the purposes of my standalone test website, I should only need the main file.</p>
+
+<h2>So I built it, but how do I use it?</h2>
+
+<p>Now that I had the library built, I just had to include the script in a little test webpage, call the functionality I needed, and I&#39;d be done. But looking at the start of the built script.. it didn&#39;t look as straightforward as I expected.</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="p">(</span><span class="kd">function</span> <span class="nx">webpackUniversalModuleDefinition</span><span class="p">(</span><span class="nx">root</span><span class="p">,</span> <span class="nx">factory</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">exports</span> <span class="o">===</span> <span class="s1">'object'</span> <span class="o">&amp;&amp;</span> <span class="k">typeof</span> <span class="nx">module</span> <span class="o">===</span> <span class="s1">'object'</span><span class="p">)</span>
+        <span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nx">factory</span><span class="p">();</span>
+    <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">define</span> <span class="o">===</span> <span class="s1">'function'</span> <span class="o">&amp;&amp;</span> <span class="nx">define</span><span class="p">.</span><span class="nx">amd</span><span class="p">)</span>
+        <span class="nx">define</span><span class="p">(</span><span class="s2">"idtoken-verifier"</span><span class="p">,</span> <span class="p">[],</span> <span class="nx">factory</span><span class="p">);</span>
+    <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">exports</span> <span class="o">===</span> <span class="s1">'object'</span><span class="p">)</span>
+        <span class="nx">exports</span><span class="p">[</span><span class="s2">"idtoken-verifier"</span><span class="p">]</span> <span class="o">=</span> <span class="nx">factory</span><span class="p">();</span>
+    <span class="k">else</span>
+        <span class="nx">root</span><span class="p">[</span><span class="s2">"idtoken-verifier"</span><span class="p">]</span> <span class="o">=</span> <span class="nx">factory</span><span class="p">();</span>
+<span class="p">})(</span><span class="k">this</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</code></pre></div>
+<p>Looks like <code>webpack</code> plays a part here.. and something called a &#39;universal module definition&#39;.</p>
+
+<h2>Webpack</h2>
+
+<p>I started off by doing a little reading about webpack config, and in particular this <code>umd</code> thing:</p>
+
+<ul>
+<li><a href="https://webpack.github.io/docs/library-and-externals.html#configuration-options">https://webpack.github.io/docs/library-and-externals.html#configuration-options</a></li>
+<li><a href="https://webpack.github.io/docs/configuration.html#output-librarytarget">https://webpack.github.io/docs/configuration.html#output-librarytarget</a></li>
+</ul>
+
+<p>So it seems that <code>webpack</code> allows you to export &#39;wrapped&#39; modules in a number of formats, and <code>umd</code> is a combination of <code>amd</code>, <code>commonjs2</code> and/or a property in the root.</p>
+
+<p>Sure enough, looking at the <code>output</code> section of the <a href="https://github.com/auth0/idtoken-verifier/blob/master/webpack.prod.config.js#L15-L21">webpack config</a> I came across some references to <code>umd</code>:</p>
+<div class="highlight"><pre><code class="language-" data-lang="">output: {
+  path: path.join(__dirname, '../build'),
+  filename: '[name].min.js',
+  library: 'idtoken-verifier',
+  libraryTarget: 'umd',
+  umdNamedDefine: true
+},
+</code></pre></div>
+<p>At this point I decided to learn how to use an <code>amd</code> module, and after some quick googling I was lead to RequireJS.</p>
+
+<h2>RequireJS</h2>
+
+<p><a href="http://requirejs.org/">RequireJS</a> is a JavaScript module loader, and <a href="http://requirejs.org/docs/whyamd.html">supports AMD</a> (or &#39;Asynchronous Module Definition&#39;) modules. Since I just wanted to get this code working, I went back to Google to find a quick example of how to use RequireJS, finding myself on the following page:</p>
+
+<ul>
+<li><a href="https://coderwall.com/p/u8xgvq/requirejs-basic-introduction">https://coderwall.com/p/u8xgvq/requirejs-basic-introduction</a></li>
+</ul>
+
+<p>So it sounds like RequireJS handles a lot of the module injection/ordering that I would have otherwise had to think about myself. I decided to make life easy for myself and use <a href="https://cdnjs.com/libraries/require.js/">a CDN hosted version</a>, so all I had to do was stick the following code in the <code>head</code> section of my test page:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;script </span><span class="na">data-main=</span><span class="s">"main"</span> <span class="na">src=</span><span class="s">"https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+</code></pre></div>
+<p>This loaded RequireJS and told it to inject the <code>main.js</code> file, which looks like:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">require</span><span class="p">([</span><span class="s1">'idtoken-verifier'</span><span class="p">],</span> <span class="kd">function</span><span class="p">(</span><span class="nx">IdTokenVerifier</span><span class="p">){</span>
+    <span class="kd">var</span> <span class="nx">verifier</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">IdTokenVerifier</span><span class="p">({});</span>
+    <span class="c1">// Do interesting things here..</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>Sticking to the &#39;easy and obvious&#39; pattern that I&#39;d seen so far, this would inject the <code>idtoken-verifier.js</code> file, and then make the library accessible inside this <code>require</code> block. Nice!</p>
+
+<h2>Bringing it all together with Plunker</h2>
+
+<p>I wanted to keep all of the files together in an easily accessible format so others could test and play with it. After a little looking around I ended up using <a href="http://plnkr.co/">Plunker</a> since it let me have multiple files (unlike <a href="https://jsfiddle.net/">JSFiddle</a>):</p>
+
+<ul>
+<li><a href="http://plnkr.co/edit/4BMgtaSt03R9tMY5Hcki">http://plnkr.co/edit/4BMgtaSt03R9tMY5Hcki</a></li>
+</ul>
+
+<h2>Success?</h2>
+
+<p>I found that trying to test the Plunker hosted version complicated things a bit, so I ended up downloading the zipped files and hosting them locally with Python while I tested things:</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">python -m SimpleHTTPServer
+</code></pre></div>
+<p>Running it through the tool.. everything worked as expected, no bugs. <em>sadface</em> I could have spent more time digging into the specifics and trying to unearth what actually lead to the bug in the first place, but given I had other things I needed to test I decided to leave that as a possible future endeavour, if I run into it again.</p>
+
+<h2>Conclusion</h2>
+
+<p>So an unexpected rabbit hole lead me to understand a little more about Webpack, RequireJS and how to use packaged JavaScript applications. Not a bad little lesson :)</p>
+
+<p>Had a similar experience or got any interesting tips to share about any of these technologies? Would love to hear from you in the comments!</p>
+
+	  ]]></description>
+	</item>
+
+
+</channel>
+</rss>

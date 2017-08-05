@@ -1,4 +1,119 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en_GB"><generator uri="https://jekyllrb.com/" version="3.4.5">Jekyll</generator><link href="http://devalias.net/feed.xml" rel="self" type="application/atom+xml" /><link href="http://devalias.net/" rel="alternate" type="text/html" hreflang="en_GB" /><updated>2017-07-22T17:15:25+10:00</updated><id>http://devalias.net/</id><title type="html">/dev/alias – Hack. Dev. Transcend.</title><subtitle>Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.</subtitle><entry><title type="html">Bugcrowd LevelUp 2017</title><link href="http://devalias.net/devalias/2017/07/16/bugcrowd-levelup-2017/" rel="alternate" type="text/html" title="Bugcrowd LevelUp 2017" /><published>2017-07-16T00:00:00+10:00</published><updated>2017-07-16T00:00:00+10:00</updated><id>http://devalias.net/devalias/2017/07/16/bugcrowd-levelup-2017</id><content type="html" xml:base="http://devalias.net/devalias/2017/07/16/bugcrowd-levelup-2017/">&lt;p&gt;Today was &lt;a href=&quot;https://pages.bugcrowd.com/level-up-virtual-hacking-conference&quot;&gt;LevelUp, Bugcrowd&amp;#39;s first Virtual Hacking Conference&lt;/a&gt;. With 2 seperate streams over 8 hours, the &lt;a href=&quot;https://docs.google.com/spreadsheets/d/1nKnwk3qVtoQlHs32atwwTIWjOHZ9kjnbwpPTJVfvKeo/pubhtml?gid=0&amp;single=true&quot;&gt;schedule was jammed packed&lt;/a&gt; with interesting talks and knowledge drops across topics including web, mobile, IoT and even car hacking.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en_GB"><generator uri="https://jekyllrb.com/" version="3.4.5">Jekyll</generator><link href="http://devalias.net/feed.xml" rel="self" type="application/atom+xml" /><link href="http://devalias.net/" rel="alternate" type="text/html" hreflang="en_GB" /><updated>2017-08-05T15:00:14+10:00</updated><id>http://devalias.net/</id><title type="html">/dev/alias – Hack. Dev. Transcend.</title><subtitle>Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.</subtitle><entry><title type="html">An unexpected journey with webpack and RequireJS</title><link href="http://devalias.net/devalias/2017/08/05/unexpected-journey-webpack-requirejs/" rel="alternate" type="text/html" title="An unexpected journey with webpack and RequireJS" /><published>2017-08-05T00:00:00+10:00</published><updated>2017-08-05T00:00:00+10:00</updated><id>http://devalias.net/devalias/2017/08/05/unexpected-journey-webpack-requirejs</id><content type="html" xml:base="http://devalias.net/devalias/2017/08/05/unexpected-journey-webpack-requirejs/">&lt;p&gt;So the other day I &lt;a href=&quot;https://github.com/blueclosure/BCDetect/issues/27&quot;&gt;ran into what seemed like a bug&lt;/a&gt; in some software I was using during a test. Narrowing things down in the codebase, it looked as though the error may have been related to a &lt;a href=&quot;https://github.com/auth0/idtoken-verifier&quot;&gt;library in use by the application&lt;/a&gt; I was testing.&lt;/p&gt;
+
+&lt;p&gt;I needed an easy way to isolate the code that seemed to be causing the error from the rest of the application, which took me down a rabbit hole to learn a little bit more about a few different technologies.&lt;/p&gt;
+
+&lt;h2&gt;The Situation&lt;/h2&gt;
+
+&lt;p&gt;So I had a &lt;a href=&quot;https://github.com/auth0/idtoken-verifier&quot;&gt;JavaScript project&lt;/a&gt; that I wanted to build and include in a little test webpage. A few things in the repo stood out:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/auth0/idtoken-verifier/blob/master/package.json&quot;&gt;package.json&lt;/a&gt; - So it&amp;#39;s using &lt;a href=&quot;https://nodejs.org/&quot;&gt;node.js&lt;/a&gt; in some measure.
+
+&lt;ul&gt;
+&lt;li&gt;This also had a number of entries under the &lt;code&gt;scripts&lt;/code&gt; section, including some that made use of &lt;code&gt;gulp&lt;/code&gt; (another build tool)&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/auth0/idtoken-verifier/blob/master/gulpfile.js&quot;&gt;gulpfile.js&lt;/a&gt; - Another strong indicator that &lt;a href=&quot;https://gulpjs.com/&quot;&gt;gulp&lt;/a&gt; was in use. Didn&amp;#39;t need to dig too deeply into this side of things, though it did indicate that &lt;code&gt;webpack&lt;/code&gt; was in use.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/auth0/idtoken-verifier/blob/master/webpack.config.js&quot;&gt;webpack.config.js&lt;/a&gt; / &lt;a href=&quot;https://github.com/auth0/idtoken-verifier/blob/master/webpack.prod.config.js&quot;&gt;webpack.prod.config.js&lt;/a&gt; - The &lt;a href=&quot;https://webpack.github.io/&quot;&gt;webpack&lt;/a&gt; configuration files.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;So now I had a fair idea of what we had to work with, time to try and build it.&lt;/p&gt;
+
+&lt;h2&gt;Building with npm and gulp&lt;/h2&gt;
+
+&lt;p&gt;This part was actually extremely straightforward, so I won&amp;#39;t spend too long here. After cloning the repo, all I had to do was:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;npm install&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;npm build&lt;/code&gt; (which is just a &lt;a href=&quot;https://github.com/auth0/idtoken-verifier/blob/master/package.json#L8&quot;&gt;script&lt;/a&gt; that runs &lt;code&gt;gulp build&lt;/code&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;After a bunch of downloads and a few warnings, I had 3 new files sitting in my &lt;code&gt;./build&lt;/code&gt; folder. So easy!&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;idtoken-verifier.js&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;idtoken-verifier.min.js&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;idtoken-verifier.min.js.map&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;For the purposes of my standalone test website, I should only need the main file.&lt;/p&gt;
+
+&lt;h2&gt;So I built it, but how do I use it?&lt;/h2&gt;
+
+&lt;p&gt;Now that I had the library built, I just had to include the script in a little test webpage, call the functionality I needed, and I&amp;#39;d be done. But looking at the start of the built script.. it didn&amp;#39;t look as straightforward as I expected.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;webpackUniversalModuleDefinition&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;root&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;factory&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;exports&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'object'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;module&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'object'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;exports&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;factory&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;define&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'function'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;define&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;amd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;define&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;idtoken-verifier&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[],&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;factory&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;exports&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'object'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;exports&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;idtoken-verifier&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;factory&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;root&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;idtoken-verifier&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;factory&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;})(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Looks like &lt;code&gt;webpack&lt;/code&gt; plays a part here.. and something called a &amp;#39;universal module definition&amp;#39;.&lt;/p&gt;
+
+&lt;h2&gt;Webpack&lt;/h2&gt;
+
+&lt;p&gt;I started off by doing a little reading about webpack config, and in particular this &lt;code&gt;umd&lt;/code&gt; thing:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://webpack.github.io/docs/library-and-externals.html#configuration-options&quot;&gt;https://webpack.github.io/docs/library-and-externals.html#configuration-options&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://webpack.github.io/docs/configuration.html#output-librarytarget&quot;&gt;https://webpack.github.io/docs/configuration.html#output-librarytarget&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;So it seems that &lt;code&gt;webpack&lt;/code&gt; allows you to export &amp;#39;wrapped&amp;#39; modules in a number of formats, and &lt;code&gt;umd&lt;/code&gt; is a combination of &lt;code&gt;amd&lt;/code&gt;, &lt;code&gt;commonjs2&lt;/code&gt; and/or a property in the root.&lt;/p&gt;
+
+&lt;p&gt;Sure enough, looking at the &lt;code&gt;output&lt;/code&gt; section of the &lt;a href=&quot;https://github.com/auth0/idtoken-verifier/blob/master/webpack.prod.config.js#L15-L21&quot;&gt;webpack config&lt;/a&gt; I came across some references to &lt;code&gt;umd&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;output: {
+  path: path.join(__dirname, '../build'),
+  filename: '[name].min.js',
+  library: 'idtoken-verifier',
+  libraryTarget: 'umd',
+  umdNamedDefine: true
+},
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;At this point I decided to learn how to use an &lt;code&gt;amd&lt;/code&gt; module, and after some quick googling I was lead to RequireJS.&lt;/p&gt;
+
+&lt;h2&gt;RequireJS&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://requirejs.org/&quot;&gt;RequireJS&lt;/a&gt; is a JavaScript module loader, and &lt;a href=&quot;http://requirejs.org/docs/whyamd.html&quot;&gt;supports AMD&lt;/a&gt; (or &amp;#39;Asynchronous Module Definition&amp;#39;) modules. Since I just wanted to get this code working, I went back to Google to find a quick example of how to use RequireJS, finding myself on the following page:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://coderwall.com/p/u8xgvq/requirejs-basic-introduction&quot;&gt;https://coderwall.com/p/u8xgvq/requirejs-basic-introduction&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;So it sounds like RequireJS handles a lot of the module injection/ordering that I would have otherwise had to think about myself. I decided to make life easy for myself and use &lt;a href=&quot;https://cdnjs.com/libraries/require.js/&quot;&gt;a CDN hosted version&lt;/a&gt;, so all I had to do was stick the following code in the &lt;code&gt;head&lt;/code&gt; section of my test page:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;data-main=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;main&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.js&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This loaded RequireJS and told it to inject the &lt;code&gt;main.js&lt;/code&gt; file, which looks like:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'idtoken-verifier'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;IdTokenVerifier&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;verifier&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;IdTokenVerifier&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({});&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// Do interesting things here..&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Sticking to the &amp;#39;easy and obvious&amp;#39; pattern that I&amp;#39;d seen so far, this would inject the &lt;code&gt;idtoken-verifier.js&lt;/code&gt; file, and then make the library accessible inside this &lt;code&gt;require&lt;/code&gt; block. Nice!&lt;/p&gt;
+
+&lt;h2&gt;Bringing it all together with Plunker&lt;/h2&gt;
+
+&lt;p&gt;I wanted to keep all of the files together in an easily accessible format so others could test and play with it. After a little looking around I ended up using &lt;a href=&quot;http://plnkr.co/&quot;&gt;Plunker&lt;/a&gt; since it let me have multiple files (unlike &lt;a href=&quot;https://jsfiddle.net/&quot;&gt;JSFiddle&lt;/a&gt;):&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://plnkr.co/edit/4BMgtaSt03R9tMY5Hcki&quot;&gt;http://plnkr.co/edit/4BMgtaSt03R9tMY5Hcki&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;Success?&lt;/h2&gt;
+
+&lt;p&gt;I found that trying to test the Plunker hosted version complicated things a bit, so I ended up downloading the zipped files and hosting them locally with Python while I tested things:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;python -m SimpleHTTPServer
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Running it through the tool.. everything worked as expected, no bugs. &lt;em&gt;sadface&lt;/em&gt; I could have spent more time digging into the specifics and trying to unearth what actually lead to the bug in the first place, but given I had other things I needed to test I decided to leave that as a possible future endeavour, if I run into it again.&lt;/p&gt;
+
+&lt;h2&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;So an unexpected rabbit hole lead me to understand a little more about Webpack, RequireJS and how to use packaged JavaScript applications. Not a bad little lesson :)&lt;/p&gt;
+
+&lt;p&gt;Had a similar experience or got any interesting tips to share about any of these technologies? Would love to hear from you in the comments!&lt;/p&gt;</content><author><name>Glenn 'devalias' Grant</name></author><category term="security" /><category term="bcdetect" /><category term="auth0" /><category term="nodejs" /><category term="npm" /><category term="gulp" /><category term="webpack" /><category term="requirejs" /><category term="plunker" /><category term="python" /><summary type="html">So the other day I ran into what seemed like a bug in some software I was using during a test. Narrowing things down in the codebase, it looked as though the error may have been related to a library in use by the application I was testing.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://devalias.net/assets/images/cover4.jpg" /></entry><entry><title type="html">Bugcrowd LevelUp 2017</title><link href="http://devalias.net/devalias/2017/07/16/bugcrowd-levelup-2017/" rel="alternate" type="text/html" title="Bugcrowd LevelUp 2017" /><published>2017-07-16T00:00:00+10:00</published><updated>2017-07-16T00:00:00+10:00</updated><id>http://devalias.net/devalias/2017/07/16/bugcrowd-levelup-2017</id><content type="html" xml:base="http://devalias.net/devalias/2017/07/16/bugcrowd-levelup-2017/">&lt;p&gt;Today was &lt;a href=&quot;https://pages.bugcrowd.com/level-up-virtual-hacking-conference&quot;&gt;LevelUp, Bugcrowd&amp;#39;s first Virtual Hacking Conference&lt;/a&gt;. With 2 seperate streams over 8 hours, the &lt;a href=&quot;https://docs.google.com/spreadsheets/d/1nKnwk3qVtoQlHs32atwwTIWjOHZ9kjnbwpPTJVfvKeo/pubhtml?gid=0&amp;single=true&quot;&gt;schedule was jammed packed&lt;/a&gt; with interesting talks and knowledge drops across topics including web, mobile, IoT and even car hacking.&lt;/p&gt;
 
 &lt;p&gt;Waking up at 1:30am (AEST) to get some Bulletproof coffee in before it started, I think I briefly moved once from the couch in the whole session. The rest was solid and intent focus on the topics, trying to keep up with all of the amazing content, while also taking notes (~1200 lines worth!), and &lt;a href=&quot;https://twitter.com/search?l=&amp;q=%23ItTakesACrowd%20from%3A_devalias&amp;src=typd&amp;lang=en&quot;&gt;dropping out tweets&lt;/a&gt; at the same time. I don&amp;#39;t think i&amp;#39;ve been as engaged or intently focussed on something for such a long period in a long time. Testament to the quality of the conference!&lt;/p&gt;
 
@@ -2328,26 +2443,4 @@ In a fast, simple, yet extensible way.&lt;/li&gt;
 
 &lt;p&gt;This is a scattering of the articles and things I have read through while learning more about GraphQL, and why it is so awesome. I definitely know it&amp;#39;s a technology that I am super excited to start utilising in my future projects.&lt;/p&gt;
 
-&lt;p&gt;Have you come across any other awesome articles/tools related to GraphQL or similar? I&amp;#39;d love to hear about them! Let me know in the comments below.&lt;/p&gt;</content><author><name>Glenn 'devalias' Grant</name></author><category term="dev" /><category term="web" /><category term="tech-stack" /><category term="graphql" /><category term="relay" /><category term="redux" /><category term="cashay" /><category term="adrenaline" /><category term="sangria" /><category term="scala" /><category term="akka" /><category term="akka-http" /><category term="apollo-stack" /><category term="falcor" /><category term="rest" /><category term="hateos" /><category term="facebook" /><category term="netflix" /><summary type="html">If you haven&amp;#39;t yet come across GraphQL, it&amp;#39;s kind of exciting stuff. It&amp;#39;s a query language developed by Facebook, that basically lets you request exactly the data you need for the given task; no more, no less. Sounds good right?</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://devalias.net/assets/images/cover4.jpg" /></entry><entry><title type="html">Shared Devices Need Account Switching</title><link href="http://devalias.net/devalias/2016/08/31/shared-devices-need-account-switching/" rel="alternate" type="text/html" title="Shared Devices Need Account Switching" /><published>2016-08-31T00:00:00+10:00</published><updated>2016-08-31T00:00:00+10:00</updated><id>http://devalias.net/devalias/2016/08/31/shared-devices-need-account-switching</id><content type="html" xml:base="http://devalias.net/devalias/2016/08/31/shared-devices-need-account-switching/">&lt;p&gt;Living in share houses and using tech like the Apple TV has highlighted an annoying situation: so many apps these days want you to sign in to enable access, personalised features, etc; but most offer no good solution for when you share the device with other people.&lt;/p&gt;
-
-&lt;p&gt;There are some apps out there that handle this pretty well:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://www.plex.tv/&quot;&gt;Plex&lt;/a&gt; allows you to switch between different users in your &amp;#39;home&amp;#39;, each of which can either be a fully independent account, or a &amp;#39;managed user&amp;#39; that exists under the main account.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://www.netflix.com/au/&quot;&gt;Netflix&lt;/a&gt; allows switching between different users under the one subscription. While this is ok.. it doesn&amp;#39;t work so well for a share house. What if we each have our own Netflix subscriptions, but want to share the device without having to log out and back in to our own accounts?&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;And then there are so many apps that don&amp;#39;t even seem to give the option, two of which immediately jump to mind for me:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://www.youtube.com/&quot;&gt;YouTube&lt;/a&gt; let&amp;#39;s you sign in to a single account, but no switching features save for logging out.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://www.ted.com/&quot;&gt;TED&lt;/a&gt;&amp;#39;s app suffers from the same issue.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;This could be fixed at the individual app level. It would be REALLY nice to see support for multiple account switching added to any app made for a device that could potentially be shared (Apple TV/etc, far less likely to be useful on an iPhone.. but it might be for some users) But this requires extra effort from every app developer out there. Perhaps a common framework could be developed to help support this.. but then making it generic enough to fit into everyone&amp;#39;s different architectures would be a challenge.&lt;/p&gt;
-
-&lt;p&gt;An even better solution could be baked into the OS itself by Apple.. I boot up my Apple TV and am presented with an account chooser asking which particular registered user I am. If I haven&amp;#39;t already logged in, there&amp;#39;s the option for signing in to my Apple account to add myself as a new user. Once logged in, I&amp;#39;m presented with my own homescreen of apps, laid out to my own preferences, logged in to my own accounts, and saving my own personal data.&lt;/p&gt;
-
-&lt;p&gt;This poses some issues about duplication of apps between users, space requirements, etc. So a mid-ground could be allowing the owner/&amp;#39;master&amp;#39; user to control app installation, but then for each other user to be able to maintain their own stored data/signin status/etc.&lt;/p&gt;
-
-&lt;p&gt;What do you think? Is this a feature you&amp;#39;d use, or does it just seem like over-engineered bloat? Let me know your thoughts in the comments!&lt;/p&gt;</content><author><name>Glenn 'devalias' Grant</name></author><category term="dev" /><category term="tech" /><category term="apple" /><category term="apple-tv" /><category term="tvOS" /><category term="iOS" /><category term="personalisation" /><category term="improvements" /><category term="plex" /><category term="netflix" /><category term="youtube" /><category term="ted" /><summary type="html">Living in share houses and using tech like the Apple TV has highlighted an annoying situation: so many apps these days want you to sign in to enable access, personalised features, etc; but most offer no good solution for when you share the device with other people.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://devalias.net/assets/images/cover4.jpg" /></entry></feed>
+&lt;p&gt;Have you come across any other awesome articles/tools related to GraphQL or similar? I&amp;#39;d love to hear about them! Let me know in the comments below.&lt;/p&gt;</content><author><name>Glenn 'devalias' Grant</name></author><category term="dev" /><category term="web" /><category term="tech-stack" /><category term="graphql" /><category term="relay" /><category term="redux" /><category term="cashay" /><category term="adrenaline" /><category term="sangria" /><category term="scala" /><category term="akka" /><category term="akka-http" /><category term="apollo-stack" /><category term="falcor" /><category term="rest" /><category term="hateos" /><category term="facebook" /><category term="netflix" /><summary type="html">If you haven&amp;#39;t yet come across GraphQL, it&amp;#39;s kind of exciting stuff. It&amp;#39;s a query language developed by Facebook, that basically lets you request exactly the data you need for the given task; no more, no less. Sounds good right?</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://devalias.net/assets/images/cover4.jpg" /></entry></feed>

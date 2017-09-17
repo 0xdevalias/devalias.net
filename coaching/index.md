@@ -10,7 +10,7 @@ redirect_from:
 
 [[Home](/) > Coaching]
 
-[Glenn 'devalias' Grant](/author/devalias) is a Bulletproof Coach-in-Training, currently studying through the Bulletproof Training Institute, and set to graduate in 2017.
+[Glenn 'devalias' Grant](/author/devalias) is a certified Bulletproof Coach, who studied through the Bulletproof Training Institute, and graduated in 2017.
 
 I found Bulletproof after struggling with health and weight issues over the years. It was the catalyst I needed to start cleaning up my diet, learn to appreciate whole foods, and really discover the joy of being on a path of constantly improving myself, my health and my focus.
 

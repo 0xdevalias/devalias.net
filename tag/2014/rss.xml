@@ -67,40 +67,40 @@
 <li>Small open source/hardware device to generate truly random entropy, to be fed back into a random number generator</li>
 <li>Recently released on kickstarter: <a href="https://www.kickstarter.com/projects/moonbaseotago/onerng-an-open-source-entropy-generator">https://www.kickstarter.com/projects/moonbaseotago/onerng-an-open-source-entropy-generator</a></li>
 </ul></li>
-<li><a href="http://2014.kiwicon.org/the-con/talks/#e147">Eradicating the Human Problem</a>
+<li><p><a href="http://2014.kiwicon.org/the-con/talks/#e147">Eradicating the Human Problem</a></p>
 
 <ul>
 <li>Really excellent talk by @lady_nerd talking about social engineering and humans as the weak point in security</li>
 <li>Talked about how we need a better way to assess and track the human element of security, rather than treating it as too hard/unobtainable</li>
 <li>Briefly discussed a tool in development designed to assist with mapping out the social interactions of a company in a way that allows assessing potential risk/etc, and determining the flow of an attack through the social elements of a company</li>
-<li>Slides: <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Want to see the trailer/slides for my <a href="https://twitter.com/hashtag/kiwicon?src=hash">#kiwicon</a> talk &#39;Eradicating the human problem&#39;. Here&#39;s a blog post with links <a href="http://t.co/I5bacKHRVb"><a href="http://t.co/I5bacKHRVb">http://t.co/I5bacKHRVb</a></a></p>&mdash; Laura Bell (@lady<em>nerd) &lt;a href=&quot;<a href="https://twitter.com/lady">https://twitter.com/lady</a></em>nerd/status/544230404170194945&quot;&gt;December 14, 2014</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></li>
+<li>Slides: <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Want to see the trailer/slides for my <a href="https://twitter.com/hashtag/kiwicon?src=hash&amp;ref_src=twsrc%5Etfw">#kiwicon</a> talk &#39;Eradicating the human problem&#39;. Here&#39;s a blog post with links <a href="http://t.co/I5bacKHRVb"><a href="http://t.co/I5bacKHRVb">http://t.co/I5bacKHRVb</a></a></p>&mdash; Laura Bell (@lady<em>nerd) &lt;a href=&quot;<a href="https://twitter.com/lady">https://twitter.com/lady</a></em>nerd/status/544230404170194945?ref_src=twsrc%5Etfw&quot;&gt;December 14, 2014</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></li>
 </ul></li>
-<li><a href="http://2014.kiwicon.org/the-con/talks/#e142">Security the Etsy way: Effective security in a continuous deployment culture</a>
+<li><p><a href="http://2014.kiwicon.org/the-con/talks/#e142">Security the Etsy way: Effective security in a continuous deployment culture</a></p>
 
 <ul>
 <li>Excellent talk by @iodboi about mixing in security people with the general developers, not blocking progress/saying no while still maintaining security, making security liked/approachable, etc.</li>
 <li>So many awesome points and discussions, not to mention showing just how epic a place Etsy is to work.</li>
 <li>Caught up with him a decent bit after his talk and had some awesome chats, a really cool and down to earth guy</li>
 <li>Etsy are a great example of continuous deployment, with upwards of 50 pushes into production every day</li>
-<li>One of the big points: Don&#39;t hire assholes (they will ruin all of the work you put in to enhance security/etcs image and drag everyone down) <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Excellent security team management advice from <a href="https://twitter.com/iodboi">@iodboi</a> :) <a href="https://twitter.com/kiwicon">@kiwicon</a> <a href="http://t.co/8m5ZyjYFfV">pic.twitter.com/8m5ZyjYFfV</a></p>&mdash; Leigh Honeywell (@hypatiadotca) <a href="https://twitter.com/hypatiadotca/status/542870405514801152">December 11, 2014</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></li>
+<li>One of the big points: Don&#39;t hire assholes (they will ruin all of the work you put in to enhance security/etcs image and drag everyone down) <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Excellent security team management advice from <a href="https://twitter.com/iodboi?ref_src=twsrc%5Etfw">@iodboi</a> :) <a href="https://twitter.com/kiwicon?ref_src=twsrc%5Etfw">@kiwicon</a> <a href="http://t.co/8m5ZyjYFfV">pic.twitter.com/8m5ZyjYFfV</a></p>&mdash; Leigh Janet Mactavish Honeywell (@hypatiadotca) <a href="https://twitter.com/hypatiadotca/status/542870405514801152?ref_src=twsrc%5Etfw">December 11, 2014</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></li>
 </ul></li>
-<li><a href="http://2014.kiwicon.org/the-con/talks/#e153">COMSEC - Beyond Encryption</a>
+<li><p><a href="http://2014.kiwicon.org/the-con/talks/#e153">COMSEC - Beyond Encryption</a></p>
 
 <ul>
 <li>Discussion on maintaining communication security, tools that are good/bad, etc</li>
 <li>Almost surprisingly, Apple factime rates pretty highly on the list.</li>
 <li>Pond considered THE thing to use <a href="https://pond.imperialviolet.org/">https://pond.imperialviolet.org/</a></li>
 </ul></li>
-<li><a href="http://2014.kiwicon.org/the-con/talks/#e154">MitMing GSM with criminal intent</a>
+<li><p><a href="http://2014.kiwicon.org/the-con/talks/#e154">MitMing GSM with criminal intent</a></p>
 
 <ul>
 <li>Discussed the analysis and thinking, and eventual pwning of a GSM enabled home detention ankle monitor</li>
 <li>Made front page of the newspaper for the talk: <a href="http://www.nzherald.co.nz/nz/news/article.cfm?c_id=1&objectid=11373524">http://www.nzherald.co.nz/nz/news/article.cfm?c_id=1&amp;objectid=11373524</a></li>
 <li>Same guy who broke the NZ transport card system last year</li>
 </ul></li>
-<li><a href="http://2014.kiwicon.org/the-con/talks/#e143">Building a hipster catapult, or how2own your skateboard</a>
+<li><p><a href="http://2014.kiwicon.org/the-con/talks/#e143">Building a hipster catapult, or how2own your skateboard</a></p>
 
 <ul>
 <li>Amusing talk about taking over control of a bluetooth controlled electric skateboard, including demonstration</li>
@@ -204,35 +204,8 @@
 
 <p>Enjoy your unicoins! &lt;3 /dev/alias</p>
 
-<p><noscript><pre>First, go to stackoverflow.com then define this in your Javascript console:
-<code>
-var hackMeSomeUnicoins = function(myFkey) {
-  console.log(&amp;quot;Ok, let&amp;#39;s hack you some shiny unicoins! &amp;lt;3 /dev/alias (www.devalias.net)&amp;quot;)
-  console.log(&amp;quot;The powers that be say you can only mine a rock every 10sec, so we do it every 11sec to be sure.&amp;quot;)
-  window.setInterval(function(){
-    $.get( &amp;quot;http://stackoverflow.com/unicoin/rock&amp;quot;, function( data ) {
-      var rockId = data.rock;
-      $.post( &amp;quot;http://stackoverflow.com/unicoin/mine?rock=&amp;quot; + rockId, { fkey: myFkey })
-      .done(function( data ) {
-        console.log(data);
-      });
-    });
-  }, 11000);
-};
-</code></p>
-
-<p>Once you have done that, just call this from the console:
-<code>
-hackMeSomeUnicoins(StackExchange.options.user.fkey);
-</code>
-(Thanks to @ouranos for the fkey options string)</p>
-
-<p><del>You can get your fkey by inspecting the POST made when you successfully (manually) mine a rock. (It&#39;s also stored in a data-fkey type value somewhere, but haven&#39;t been bothered to find it and automagically pull it out (feel free to contribute some JS to do it)</del></p>
-
-<p>Pimping this:
-* <a href="http://blog.devalias.net/post/81346968483/hacking-unicoins-for-fun-and-profit-stackoverflow-com">http://blog.devalias.net/post/81346968483/hacking-unicoins-for-fun-and-profit-stackoverflow-com</a>
-  * <blockquote class="twitter-tweet"><p lang="en" dir="ltr">&quot;Hacking Unicoins for Fun and Profit (<a href="http://t.co/NKYZO56kyz"><a href="http://t.co/NKYZO56kyz">http://t.co/NKYZO56kyz</a></a> April Fools 2014)&quot; <a href="https://twitter.com/hashtag/stackoverflow?src=hash">#stackoverflow</a> <a href="https://twitter.com/hashtag/aprilfools?src=hash">#aprilfools</a> <a href="https://twitter.com/hashtag/devalias?src=hash">#devalias</a> <a href="http://t.co/xZwyRyEqPl"><a href="http://t.co/xZwyRyEqPl">http://t.co/xZwyRyEqPl</a></a></p>&mdash; Glenn / devalias (@<em>devalias) &lt;a href=&quot;<a href="https://twitter.com/">https://twitter.com/</a></em>devalias/status/450809279784955904&quot;&gt;April 1, 2014</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></pre></noscript><script src="https://gist.github.com/alias1/9905949.js"> </script></p>
+<p><noscript><pre>404: Not Found
+</pre></noscript><script src="https://gist.github.com/alias1/9905949.js"> </script></p>
 
 	  ]]></description>
 	</item>

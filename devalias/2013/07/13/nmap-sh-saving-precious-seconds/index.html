@@ -199,26 +199,7 @@
 
 <p>With that in mind, here&#39;s a little bash script I threw together today to reduce the time it takes to kick off a standard (in my day to day usage) nmap scan. Hopefully you can get some use out of it.</p>
 
-<p><noscript><pre>#!/bin/bash
-echo &quot;-----------------------------------------------&quot;
-echo &quot;A very simple script to make nmap scanning a little quicker to kick off&quot;
-echo &quot;By Glenn &#39;/dev/alias&#39; Grant (devalias.net)&quot;
-echo &quot;v0.3&quot;
-echo &quot;-----------------------------------------------&quot;
-<em>iphost=$1
-_now=$(date +&quot;%Y%m%d-%H%M&quot;)
-_nmapopts=&quot;-A -vvv ${@:2}&quot;
-_nmapoptshidden=&quot;--webxml&quot;
-_nmapoptsfilename=$(echo $</em>nmapopts | tr -d &#39; &#39;) 
-<em>file=&quot;nmap-$</em>now-$<em>iphost$</em>nmapoptsfilename&quot;</p>
-
-<p>if [ -z &quot;$1&quot; ]; then
-  echo &quot;Usage: nmap.sh ipOrHostnameToScan [any other arguments here]&quot;
-  echo &quot;Default Options: $<em>nmapoptshidden $</em>nmapopts&quot;
-  exit
-fi</p>
-
-<p>nmap -oA $<em>file $</em>nmapoptshidden $<em>nmapopts $</em>iphost
+<p><noscript><pre>404: Not Found
 </pre></noscript><script src="https://gist.github.com/alias1/5963377.js"> </script></p>
 
         </section>
@@ -379,7 +360,7 @@ fi</p>
             </section>
             <section class="poweredby">
                 <div>
-                    <strong>Build:</strong> 135cf0e9
+                    <strong>Build:</strong> 7610b353
                     <a href="https://github.com/alias1/devalias.net/tree/master/_posts/2013-07-13-nmap-sh-saving-precious-seconds.md" target="_blank">
                         <i class="fa fa-edit"></i>
                         Edit on GitHub

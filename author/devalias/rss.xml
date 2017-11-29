@@ -12,6 +12,56 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>Squiz Matrix: Multiple vulnerabilities</title>
+	  <link>/devalias/2017/09/07/squiz-matrix-multiple-vulnerabilities/</link>
+	  <author>devalias</author>
+	  <pubDate>2017-09-07T00:00:00+10:00</pubDate>
+	  <guid>/devalias/2017/09/07/squiz-matrix-multiple-vulnerabilities/</guid>
+	  <description><![CDATA[
+	     <p>Earlier this year I had an opportunity to spend some time looking at <a href="https://www.squiz.net/technology/cms">Squiz Matrix</a>, a Content Management System (CMS) used across a number of sectors including higher eduction, media and publishing, goverment, finance, health, and utilities. With a huge number of features, a massive PHP codebase, and a numbr of high profile sectors as clients, I set out to see if I could find any interesting little bugs hidden away.</p>
+
+<p>While I won&#39;t get into the nitty gritty of most of the assessment process, I did find some things, and 3 CVE&#39;s were assigned (detailed below). One was interesting enough that I will probably write up the process in more detail at some point.</p>
+
+<p>Given the rich functionality and plugins in the Matrix product, it could be interesting to dedicate more research time to explore the areas I didn&#39;t get to cover this time around. Who knows, perhaps Squiz would even be open to setting up a Bug Bounty program through someone like <a href="https://www.bugcrowd.com/">Bugcrowd</a> in the future too. That would be cool!</p>
+
+<p>If you want to try it out, or play around yourself, there is a <a href="https://matrix.squiz.net/releases/vm">downloadable demo VM</a> available on the Squiz website.</p>
+
+<h2>The CVE&#39;s</h2>
+
+<ul>
+<li><strong>CVE-2017-14196</strong>: An information disclosure caused by a Path Traversal issue in the &#39;File Bridge&#39; plugin allowed the existence of files outside of the bridged path to be confirmed.</li>
+<li><strong>CVE-2017-14197</strong>: Multiple reflected Cross-Site Scripting (XSS) issues in Matrix &#39;WYSIWYG&#39; plugins.</li>
+<li><strong>CVE-2017-14198</strong>: Authenticated users with permissions to edit design assets can cause Remote Code Execution (RCE) via a maliciously crafted <code>time_format</code> tag.</li>
+</ul>
+
+<h2>Remediation</h2>
+
+<p>TODO: Include details about vulnerable versions and when it was fixed here (should also be in the CVE details already)</p>
+
+<h2>CVE-2017-14198: A Walkthrough</h2>
+
+<p>TODO: Write up how this was identified, and the core issue that lead to it.</p>
+
+<h2>Acknowledgements</h2>
+
+<p>These issues were identified by <a href="http://devalias.net">myself</a> and the team at <a href="https://dtss.com.au">TSS</a>:</p>
+
+<ul>
+<li>Glenn &#39;devalias&#39; Grant (<a href="http://devalias.net">http://devalias.net</a>) of TSS (<a href="https://dtss.com.au">https://dtss.com.au</a>)</li>
+</ul>
+
+<p>Special thanks to Micky at Squiz for being an amazing resource throughout the disclosure process, and keeping us informed as patching and rollout progressed.</p>
+
+<h2>Conclusion</h2>
+
+<p>It seems the core issues here were a few bugs popping up in legacy code, and passing user-controlled values into sensitive areas without proper checks/sanitisation. Easy mistakes to make when managing such a large codebase that has evolved over the years.</p>
+
+<p>Have you had a similar experience? Manage a large codebase and legacy code? Got good tips for how best to identify and avoid these sorts of issues? Would love to hear your ideas in the comments!</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>An unexpected journey with webpack and RequireJS</title>
 	  <link>/devalias/2017/08/05/unexpected-journey-webpack-requirejs/</link>
 	  <author>devalias</author>
@@ -396,8 +446,9 @@ Port scanning
   massscan
     doesn't provide a default port list
     use nmaps (giant list of ports)
-      <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Default nmap port list into masscan. 11min for 65k hosts <a href="https://twitter.com/Jhaddix">@jhaddix</a> <a href="https://twitter.com/hashtag/ItTakesACrowd?src=hash">#ItTakesACrowd</a> <a href="https://t.co/OLq1qz2HI4">pic.twitter.com/OLq1qz2HI4</a></p>&mdash; Glenn / devalias (@_devalias) <a href="https://twitter.com/_devalias/status/886280729327312896">July 15, 2017</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+      <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Default nmap port list into masscan. 11min for 65k hosts <a href="https://twitter.com/Jhaddix?ref_src=twsrc%5Etfw">@jhaddix</a> <a href="https://twitter.com/hashtag/ItTakesACrowd?src=hash&amp;ref_src=twsrc%5Etfw">#ItTakesACrowd</a> <a href="https://t.co/OLq1qz2HI4">pic.twitter.com/OLq1qz2HI4</a></p>&mdash; Glenn / devalias (@_devalias) <a href="https://twitter.com/_devalias/status/886280729327312896?ref_src=twsrc%5Etfw">July 15, 2017</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 
 Visual identification
   https://github.com/ChrisTruncer/EyeWitness
@@ -641,8 +692,9 @@ Personal mobile recon setup
     next gen will be a webapp to help 
 
 Bug Bounty Resources
-  <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Bug Bounty Resources <a href="https://twitter.com/aphire">@aphire</a> <a href="https://twitter.com/hashtag/ItTakesACrowd?src=hash">#ItTakesACrowd</a> <a href="https://t.co/E0hvHqDAHl">pic.twitter.com/E0hvHqDAHl</a></p>&mdash; Glenn / devalias (@_devalias) <a href="https://twitter.com/_devalias/status/886295129807396865">July 15, 2017</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+  <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Bug Bounty Resources <a href="https://twitter.com/aphire?ref_src=twsrc%5Etfw">@aphire</a> <a href="https://twitter.com/hashtag/ItTakesACrowd?src=hash&amp;ref_src=twsrc%5Etfw">#ItTakesACrowd</a> <a href="https://t.co/E0hvHqDAHl">pic.twitter.com/E0hvHqDAHl</a></p>&mdash; Glenn / devalias (@_devalias) <a href="https://twitter.com/_devalias/status/886295129807396865?ref_src=twsrc%5Etfw">July 15, 2017</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 </pre>
 
 <h3>Giving Back to the Community (ZSeano)</h3>
@@ -1150,8 +1202,9 @@ POO is the new %00
 <pre>
 https://twitter.com/adi1391
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Dropping a guide on IoT testing soon <a href="https://twitter.com/adi1391">@adi1391</a> <a href="https://twitter.com/hashtag/ItTakesACrowd?src=hash">#ItTakesACrowd</a> <a href="https://twitter.com/Bugcrowd">@Bugcrowd</a> <a href="https://t.co/zO9NGS9K8n">pic.twitter.com/zO9NGS9K8n</a></p>&mdash; Glenn / devalias (@_devalias) <a href="https://twitter.com/_devalias/status/886339682958680064">July 15, 2017</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Dropping a guide on IoT testing soon <a href="https://twitter.com/adi1391?ref_src=twsrc%5Etfw">@adi1391</a> <a href="https://twitter.com/hashtag/ItTakesACrowd?src=hash&amp;ref_src=twsrc%5Etfw">#ItTakesACrowd</a> <a href="https://twitter.com/Bugcrowd?ref_src=twsrc%5Etfw">@Bugcrowd</a> <a href="https://t.co/zO9NGS9K8n">pic.twitter.com/zO9NGS9K8n</a></p>&mdash; Glenn / devalias (@_devalias) <a href="https://twitter.com/_devalias/status/886339682958680064?ref_src=twsrc%5Etfw">July 15, 2017</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
   Run attify, pentesting IoT devices
   Author: "Learning Pentesting for Andorid Devices"
   Book: IoT hackers handbook, this month
@@ -1204,8 +1257,9 @@ How
     hacking radio communications
 
   Attack Surface Mapping - Step 1
-    <blockquote class="twitter-tweet"><p lang="en" dir="ltr">IoT Attack Surface Mapping - Step 1 <a href="https://twitter.com/adi1391">@adi1391</a> <a href="https://twitter.com/hashtag/ItTakesACrowd?src=hash">#ItTakesACrowd</a> <a href="https://twitter.com/Bugcrowd">@Bugcrowd</a> <a href="https://t.co/wXzQf6erbc">pic.twitter.com/wXzQf6erbc</a></p>&mdash; Glenn / devalias (@_devalias) <a href="https://twitter.com/_devalias/status/886341534450307072">July 15, 2017</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <blockquote class="twitter-tweet"><p lang="en" dir="ltr">IoT Attack Surface Mapping - Step 1 <a href="https://twitter.com/adi1391?ref_src=twsrc%5Etfw">@adi1391</a> <a href="https://twitter.com/hashtag/ItTakesACrowd?src=hash&amp;ref_src=twsrc%5Etfw">#ItTakesACrowd</a> <a href="https://twitter.com/Bugcrowd?ref_src=twsrc%5Etfw">@Bugcrowd</a> <a href="https://t.co/wXzQf6erbc">pic.twitter.com/wXzQf6erbc</a></p>&mdash; Glenn / devalias (@_devalias) <a href="https://twitter.com/_devalias/status/886341534450307072?ref_src=twsrc%5Etfw">July 15, 2017</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
     Recon
       understanding device
       visible ports
@@ -1220,8 +1274,9 @@ How
       FCC ID
 
     Attack Surface Mapping - Step 2
-      <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Attack Surface Mapping - Step 2 <a href="https://twitter.com/adi1391">@adi1391</a> <a href="https://twitter.com/hashtag/ItTakesACrowd?src=hash">#ItTakesACrowd</a> <a href="https://twitter.com/Bugcrowd">@Bugcrowd</a> <a href="https://t.co/hpyIedVQIc">pic.twitter.com/hpyIedVQIc</a></p>&mdash; Glenn / devalias (@_devalias) <a href="https://twitter.com/_devalias/status/886341954404929536">July 15, 2017</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+      <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Attack Surface Mapping - Step 2 <a href="https://twitter.com/adi1391?ref_src=twsrc%5Etfw">@adi1391</a> <a href="https://twitter.com/hashtag/ItTakesACrowd?src=hash&amp;ref_src=twsrc%5Etfw">#ItTakesACrowd</a> <a href="https://twitter.com/Bugcrowd?ref_src=twsrc%5Etfw">@Bugcrowd</a> <a href="https://t.co/hpyIedVQIc">pic.twitter.com/hpyIedVQIc</a></p>&mdash; Glenn / devalias (@_devalias) <a href="https://twitter.com/_devalias/status/886341954404929536?ref_src=twsrc%5Etfw">July 15, 2017</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
       map attack surface (architecture diagram)
       entrypoints
       commuications
@@ -1273,8 +1328,9 @@ How
       can be scattered across board
       JTAGulator or arduino nano flashed with JTAGEnum
       easily identify pinouts for JTAG
-      <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Hacking Embedded Devices - Debug JTAG <a href="https://twitter.com/adi1391">@adi1391</a> <a href="https://twitter.com/hashtag/ItTakesACrowd?src=hash">#ItTakesACrowd</a> <a href="https://twitter.com/Bugcrowd">@Bugcrowd</a> <a href="https://t.co/0OPpTAWQjv">pic.twitter.com/0OPpTAWQjv</a></p>&mdash; Glenn / devalias (@_devalias) <a href="https://twitter.com/_devalias/status/886344370944786432">July 15, 2017</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+      <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Hacking Embedded Devices - Debug JTAG <a href="https://twitter.com/adi1391?ref_src=twsrc%5Etfw">@adi1391</a> <a href="https://twitter.com/hashtag/ItTakesACrowd?src=hash&amp;ref_src=twsrc%5Etfw">#ItTakesACrowd</a> <a href="https://twitter.com/Bugcrowd?ref_src=twsrc%5Etfw">@Bugcrowd</a> <a href="https://t.co/0OPpTAWQjv">pic.twitter.com/0OPpTAWQjv</a></p>&mdash; Glenn / devalias (@_devalias) <a href="https://twitter.com/_devalias/status/886344370944786432?ref_src=twsrc%5Etfw">July 15, 2017</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
         Hacking Embedded Devices - Debug JTAG
 
     Dump Flash
@@ -1360,14 +1416,17 @@ Pentest methodology
   follow the guide
 
 https://www.iotpentestingguide.com/
-  <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Short for now, but more coming in a few days! <a href="https://t.co/DwTNpx7BQZ">https://t.co/DwTNpx7BQZ</a> <a href="https://twitter.com/adi1391">@adi1391</a> <a href="https://twitter.com/hashtag/ItTakesACrowd?src=hash">#ItTakesACrowd</a> <a href="https://twitter.com/Bugcrowd">@Bugcrowd</a> <a href="https://t.co/3xXsS8ieN4">pic.twitter.com/3xXsS8ieN4</a></p>&mdash; Glenn / devalias (@_devalias) <a href="https://twitter.com/_devalias/status/886350210724646912">July 15, 2017</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+  <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Short for now, but more coming in a few days! <a href="https://t.co/DwTNpx7BQZ">https://t.co/DwTNpx7BQZ</a> <a href="https://twitter.com/adi1391?ref_src=twsrc%5Etfw">@adi1391</a> <a href="https://twitter.com/hashtag/ItTakesACrowd?src=hash&amp;ref_src=twsrc%5Etfw">#ItTakesACrowd</a> <a href="https://twitter.com/Bugcrowd?ref_src=twsrc%5Etfw">@Bugcrowd</a> <a href="https://t.co/3xXsS8ieN4">pic.twitter.com/3xXsS8ieN4</a></p>&mdash; Glenn / devalias (@_devalias) <a href="https://twitter.com/_devalias/status/886350210724646912?ref_src=twsrc%5Etfw">July 15, 2017</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">&quot;Let&#39;s hack IoT coz it won&#39;t be always like the 2017&#39;s...&quot; <a href="https://twitter.com/adi1391">@adi1391</a> <a href="https://twitter.com/hashtag/ItTakesACrowd?src=hash">#ItTakesACrowd</a> <a href="https://twitter.com/Bugcrowd">@Bugcrowd</a> <a href="https://t.co/RI6zXB9Tot">pic.twitter.com/RI6zXB9Tot</a></p>&mdash; Glenn / devalias (@_devalias) <a href="https://twitter.com/_devalias/status/886350674266537984">July 15, 2017</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Absolutely mind blown! Such a great talk!!! &quot;Hacking Internet of Things for Bug Bounties&quot; <a href="https://twitter.com/adi1391">@adi1391</a> <a href="https://twitter.com/hashtag/ItTakesACrowd?src=hash">#ItTakesACrowd</a> <a href="https://twitter.com/Bugcrowd">@Bugcrowd</a> <a href="https://t.co/Cfu2JF7SLJ">pic.twitter.com/Cfu2JF7SLJ</a></p>&mdash; Glenn / devalias (@_devalias) <a href="https://twitter.com/_devalias/status/886350817741094912">July 15, 2017</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">&quot;Let&#39;s hack IoT coz it won&#39;t be always like the 2017&#39;s...&quot; <a href="https://twitter.com/adi1391?ref_src=twsrc%5Etfw">@adi1391</a> <a href="https://twitter.com/hashtag/ItTakesACrowd?src=hash&amp;ref_src=twsrc%5Etfw">#ItTakesACrowd</a> <a href="https://twitter.com/Bugcrowd?ref_src=twsrc%5Etfw">@Bugcrowd</a> <a href="https://t.co/RI6zXB9Tot">pic.twitter.com/RI6zXB9Tot</a></p>&mdash; Glenn / devalias (@_devalias) <a href="https://twitter.com/_devalias/status/886350674266537984?ref_src=twsrc%5Etfw">July 15, 2017</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Absolutely mind blown! Such a great talk!!! &quot;Hacking Internet of Things for Bug Bounties&quot; <a href="https://twitter.com/adi1391?ref_src=twsrc%5Etfw">@adi1391</a> <a href="https://twitter.com/hashtag/ItTakesACrowd?src=hash&amp;ref_src=twsrc%5Etfw">#ItTakesACrowd</a> <a href="https://twitter.com/Bugcrowd?ref_src=twsrc%5Etfw">@Bugcrowd</a> <a href="https://t.co/Cfu2JF7SLJ">pic.twitter.com/Cfu2JF7SLJ</a></p>&mdash; Glenn / devalias (@_devalias) <a href="https://twitter.com/_devalias/status/886350817741094912?ref_src=twsrc%5Etfw">July 15, 2017</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 </pre>
 
 <h3>Intro to Car Hacking (Alan Mond)</h3>
@@ -1421,8 +1480,9 @@ What you'll need
 
 Most comprehensive list
   github.com/jaredthecoder/awesome-vehicle-security
-  <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Comprehensive list of car hacking places for questions <a href="https://twitter.com/mondalan">@mondalan</a> <a href="https://twitter.com/hashtag/ItTakesACrowd?src=hash">#ItTakesACrowd</a> <a href="https://twitter.com/Bugcrowd">@Bugcrowd</a> <a href="https://t.co/3492Z3VEar">pic.twitter.com/3492Z3VEar</a></p>&mdash; Glenn / devalias (@_devalias) <a href="https://twitter.com/_devalias/status/886354216968609792">July 15, 2017</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+  <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Comprehensive list of car hacking places for questions <a href="https://twitter.com/mondalan?ref_src=twsrc%5Etfw">@mondalan</a> <a href="https://twitter.com/hashtag/ItTakesACrowd?src=hash&amp;ref_src=twsrc%5Etfw">#ItTakesACrowd</a> <a href="https://twitter.com/Bugcrowd?ref_src=twsrc%5Etfw">@Bugcrowd</a> <a href="https://t.co/3492Z3VEar">pic.twitter.com/3492Z3VEar</a></p>&mdash; Glenn / devalias (@_devalias) <a href="https://twitter.com/_devalias/status/886354216968609792?ref_src=twsrc%5Etfw">July 15, 2017</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 
 Vehicle networking basics
   CAN bus
@@ -2482,96 +2542,6 @@ In a fast, simple, yet extensible way.</li>
 <li><a href="https://requestb.in/">Request Bin</a></li>
 </ul></li>
 </ul>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>GraphQL: Why You Should Care</title>
-	  <link>/devalias/2016/09/07/graphql-why-you-should-care/</link>
-	  <author>devalias</author>
-	  <pubDate>2016-09-07T00:00:00+10:00</pubDate>
-	  <guid>/devalias/2016/09/07/graphql-why-you-should-care/</guid>
-	  <description><![CDATA[
-	     <p>If you haven&#39;t yet come across <a href="http://graphql.org/">GraphQL</a>, it&#39;s kind of exciting stuff. It&#39;s a query language developed by <a href="https://code.facebook.com/posts/">Facebook</a>, that basically lets you request exactly the data you need for the given task; no more, no less. Sounds good right?</p>
-
-<h2>Tell me more..</h2>
-
-<p>If you like to get into the nitty gritty of tech specs, you can head over to the <a href="https://facebook.github.io/graphql/">GraphQL Working Draft</a> (<a href="https://github.com/facebook/graphql">GitHub</a>) to have a deeper read, then play around with the <a href="https://github.com/graphql/graphql-js">reference implementation</a> in JavaScript.</p>
-
-<p>Though if specs aren&#39;t really your style, check out &#39;<a href="https://learngraphql.com/">Learn GraphQL</a>&#39; and give their free short course a run through. Should get you up to speed!</p>
-
-<h2>Ok. I&#39;m in!</h2>
-
-<p>Excited? Want to dive into it? Need libraries for your particular tech stack? Head on over to the <a href="https://github.com/chentsulin/awesome-graphql">Awesome GraphQL</a> list. You&#39;re bound to find what you need!</p>
-
-<p>For my particular tech palette I was after something <a href="http://scala-lang.org/">Scala&#39;esque</a>, maybe some <a href="http://doc.akka.io/docs/akka/2.4/scala/http/">Akka-HTTP</a> to go with it. Seems I wasn&#39;t the only one! <a href="http://sangria-graphql.org/">Sangria</a> (<a href="https://github.com/sangria-graphql/sangria">GitHub</a>) is a Scala GraphQL implementation. They even have <a href="https://github.com/sangria-graphql/sangria-akka-http-example">an Akka-HTTP based example</a>. Perfect! Throw in a little <a href="https://github.com/sangria-graphql/sangria-relay">Relay support</a> and this package is pretty much complete.</p>
-
-<p>If you&#39;re looking for an all-in-one stack heading forward, I keep seeing a lot of good things posted by the team at <a href="http://www.apollostack.com/">Apollo Stack</a> (by the <a href="https://www.meteor.com/">Meteor</a> team), so would most definitely recommend keeping an eye on them. They also post a lot of really good articles <a href="https://medium.com/apollo-stack">on their blog</a> too.</p>
-
-<p>For some further reading, make sure to check out:</p>
-
-<ul>
-<li><a href="https://medium.com/apollo-stack/tutorial-building-a-graphql-server-cddaa023c035">&quot;Tutorial: How to build a GraphQL server&quot; by Jonas Helfer</a></li>
-</ul>
-
-<h2><a name="graphql-relay-redux"></a>GraphQL and Relay.. What about Redux?</h2>
-
-<p>A lot of things you&#39;ll read about GraphQL on the net will talk about it quite closely with <a href="https://facebook.github.io/relay/">Relay</a>, and given they were both released by Facebook, and sort of designed to work together, it makes a lot of sense. That said, you most definitely don&#39;t need to use Relay to take advantage of the awesomeness GraphQL provides!</p>
-
-<p>KADIRA states it pretty well in <a href="https://kadira.io/blog/graphql/graphql-vs-relay">GraphQL vs Relay</a>:</p>
-
-<blockquote>
-<p>GraphQL provides a way to model and expose data in your app. You can use it on top of any kind of data source and use it with any kind of transport layer.</p>
-
-<p>Relay is an efficient client-side data-fetching technology built for React. It talks to a GraphQL Schema to get data. Relay also has a server-side part that adds some features on top of GraphQL.</p>
-</blockquote>
-
-<p>There is a bunch of talk about how Relay is currently a pain to use, but Facebook seems to be <a href="https://facebook.github.io/react/blog/2016/08/05/relay-state-of-the-state.html">well aware of this issue</a> and has future plans to make it much nicer to work with.</p>
-
-<p>I think it&#39;s definitely worth keeping an eye on Relay in the future, but if you&#39;re not quite ready to jump in, you can always take advantage of the benefits of GraphQL while sticking to something like <a href="http://redux.js.org/">Redux</a> (<a href="https://github.com/reactjs/redux">GitHub</a>). For further reading:</p>
-
-<ul>
-<li><a href="https://www.reindex.io/blog/redux-and-relay/">&quot;Comparing Redux and Relay&quot; by Mikhail Novikov</a></li>
-<li><a href="https://medium.com/@matt.krick/replacing-relay-with-redux-2990c81aa807">&quot;Replacing Relay with Redux&quot; by Matt Krick</a></li>
-<li><a href="https://medium.com/@thisbejim/getting-started-with-redux-and-graphql-8384b3b25c56">&quot;Getting started with Redux and GraphQL&quot; by James Childs-Maidment</a></li>
-<li><a href="http://www.apollostack.com/">Apollo Stack</a></li>
-<li><a href="https://github.com/mattkrick/cashay">Cashay</a>: &quot;Relay for the rest of us&quot;</li>
-<li><a href="https://github.com/gyzerok/adrenaline">Adrenaline</a>: &quot;Simple Relay alternative&quot;</li>
-<li><a href="https://github.com/kennetpostigo/react-reach">React-Reach</a>: &quot;A small library for React to communicate with GraphQL&quot;</li>
-</ul>
-
-<h2>GraphQL vs Falcor</h2>
-
-<p>So by now we should have a fairly good idea about what <a href="http://graphql.org/">GraphQL</a> is. So what&#39;s <a href="http://netflix.github.io/falcor/">Falcor</a>? This one comes from our friends over at <a href="http://techblog.netflix.com/">Netflix</a>. In essence, it turns all of your data sources into one giant JSON graph. Regardless of whether you&#39;re loading data remotely, have it cached locally, etc; you&#39;ll access it in the same way.</p>
-
-<p>If you want to read deeper, I found these to be quite useful:</p>
-
-<ul>
-<li><a href="https://stackoverflow.com/questions/32057785/what-is-the-difference-between-falcor-and-graphql">&quot;What is the difference between Falcor and GraphQL?&quot; on StackOverflow</a></li>
-<li><a href="https://medium.com/apollo-stack/graphql-vs-falcor-4f1e9cbf7504">&quot;GraphQL vs. Falcor&quot; by Jonas Helfer</a></li>
-<li><a href="http://react-etc.net/entry/beyond-rest-graphql-vs-falcor">&quot;Beyond REST: GraphQL vs. Falcor&quot; by React-Etc</a></li>
-</ul>
-
-<p>The consensus that I came to is that it seems to be on par with GraphQL in a number of ways, but is probably a bit easier to implement and a bit less powerful overall. Apparently you could even go so far as to <a href="http://hueypetersen.com/posts/2015/10/26/querying-graphql-with-falcor/">query GraphQL with Falcor</a>, but not the other way. For my purposes, I think I&#39;ll be sticking with GraphQL.</p>
-
-<p>It&#39;s also worth noting that Facebook has been using various flavours of GraphQL for a few years now, whereas Netflix is yet to (or has only recently) started using Falcor in production.</p>
-
-<h2>API&#39;s: REST, HATEOS, Observables.. GraphQL!</h2>
-
-<p>I have read SO many articles over the years about the &#39;proper&#39; way to design API&#39;s, and why styleX is so much better than styleY. With so much info out there, and so much conflicting advice (even within each supposed style), it&#39;s really easy to get stuck in analysis paralysis.</p>
-
-<p>Greg Ziegan put together a <a href="https://medium.com/@gregoryziegan/how-graphql-taught-me-to-code-client-apps-1c631a9953bd">nice little article</a> talking about his progression along this path: from REST, through <a href="http://timelessrepo.com/haters-gonna-hateoas">HATEOS</a>, observables, etc; and how he ended up at GraphQL. Following on from this, Sashko Stubailo makes a pretty good argument about why GraphQL is <a href="https://medium.com/apollo-stack/graphql-the-next-generation-of-api-design-f24b1689756a">&quot;the next generation of API design&quot;</a>.</p>
-
-<p>While the benefits of a GraphQL-based API seem pretty obvious to me, it&#39;s not always feasible to jump straight into shiny new tech. Maybe you need to support legacy services, interact with 3rd-party API&#39;s, or allow other developers to consume your API without them having to learn the ins and outs of GraphQL. But thankfully, we don&#39;t need to pick one over the other!</p>
-
-<p>The GraphQL team have a pretty good article on their blog about <a href="http://graphql.org/blog/rest-api-graphql-wrapper/">wrapping REST API&#39;s in GraphQL</a>, starting purely with the client-side, and later moving it to the backend. This idea plays in SO well with some little side-projects I&#39;ve been thinking about over the years, and how it could be used to help decompose and combine existing API&#39;s.</p>
-
-<h2>Conclusion</h2>
-
-<p>This is a scattering of the articles and things I have read through while learning more about GraphQL, and why it is so awesome. I definitely know it&#39;s a technology that I am super excited to start utilising in my future projects.</p>
-
-<p>Have you come across any other awesome articles/tools related to GraphQL or similar? I&#39;d love to hear about them! Let me know in the comments below.</p>
 
 	  ]]></description>
 	</item>

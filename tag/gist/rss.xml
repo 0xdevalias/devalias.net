@@ -22,83 +22,9 @@
 
 <p>A little while (and far too long typing out pixel art as code) later, and we have nyaan hacks! You can clear a section of the screen with a solid block of colour, or better yet, stamp out some pixel art nyaan cat across the page!</p>
 
-<p><noscript><pre># Dogedraw, now with more Nyaan!</p>
+<p><noscript><pre>404: Not Found
+</pre></noscript><script src="https://gist.github.com/alias1/e8bb28726a37854606ad.js"> </script></p>
 
-<p>Paste these functions into the js console on <a href="https://dogedraw.firebaseapp.com">https://dogedraw.firebaseapp.com</a> and run them to nyaan nyaan nyaan..</p>
-
-<p>Developed at <a href="http://hs.hact.io">http://hs.hact.io</a> 2015!!</p>
-<div class="highlight"><pre><code class="language-" data-lang="">function clearScreen(w, h, color) {
-  var pixelDataRef = new Firebase(&amp;#39;https://dogedraw.firebaseio.com/pixels&amp;#39;);
-  for (var i = 0; i &amp;lt; h; i++) {
-    for (var j = 0; j &amp;lt; w; j++) {
-      pixelDataRef.child(j + &amp;quot;:&amp;quot; + i).set(color);
-    }
-  }
-}
-
-function nyaan(startX, startY) {
-  function rpt(value, times) {
-    var arr = [];
-    for (rpti = 0; rpti &amp;lt; times; rpti++) {
-      arr[rpti] = value;
-    }
-    return arr;
-  }
-
-  function cc(arr) {
-    var joined = [];
-    for (cci = 0; cci &amp;lt; arr.length; cci++) {
-      joined = joined.concat(arr[cci]);
-    }
-    return joined;
-  }
-
-  var nyaanHax = new Firebase(&amp;#39;https://dogedraw.firebaseio.com/pixels&amp;#39;);
-
-  var w = &amp;quot;fff&amp;quot; // white
-  var bl = &amp;quot;00f&amp;quot; // blue
-  var k = &amp;quot;000&amp;quot; // black
-  var r = &amp;quot;f00&amp;quot; // red
-  var gy = &amp;quot;333&amp;quot; // grey
-  var gr = &amp;quot;0f0&amp;quot; // green
-  var y1 = &amp;quot;FFFFE0&amp;quot; // pale yellow
-  var y2 = &amp;quot;FFFF00&amp;quot; // yellow
-  var o = &amp;quot;FF4500&amp;quot; // orange
-  var p1 = &amp;quot;FFC0CB&amp;quot; // pink
-  var p2 = &amp;quot;9370DB&amp;quot; //purple
-  var p3 = &amp;quot;800080&amp;quot; // dark purple
-
-  var nyaan = []
-  nyaan[0] = rpt(w, 38)
-  nyaan[1] = cc([rpt(w, 3), rpt(r, 6), rpt(w, 7), rpt(k, 14), rpt(w, 8)])
-  nyaan[2] = cc([[w], rpt(r, 14), [k], rpt(y1, 14), [k], rpt(w, 7)])
-  nyaan[3] = cc([[w], rpt(r, 3), rpt(o, 5), rpt(r, 5), [k, y1, y1], rpt(p1, 4), [p2, p1, p1, p2], rpt(p1, 3), rpt(y1, 3), [k], rpt(w, 6)])
-  nyaan[4] = cc([[w], rpt(o, 13), [k, y1], rpt(p1, 2), [p2], rpt(p1, 4), [k, k], rpt(p1, 5), [y1, k, w, k, k], rpt(w, 3)])
-  nyaan[5] = cc([[w], rpt(o, 3), rpt(y2, 4), rpt(k, 4), rpt(o, 2), [k, y1], rpt(p1, 6), [k, gy, gy, k], [p1, p1, p2, p1, y1, k, k, gy, gy, k], rpt(w, 2)])
-  nyaan[6] = cc([[w], rpt(y2, 6), [k, gy, gy, gy], rpt(k, 4), [y1], rpt(p1, 6), [k, gy, gy, gy, k], rpt(p1, 3), [y1, k, gy, gy, gy, k], rpt(w, 2)])
-  nyaan[7] = cc([[w], rpt(y2, 3), rpt(gr, 3), [k, k], rpt(gy, 5), [k, y1], rpt(p1, 3), [p2], rpt(p1, 2), [k], rpt(gy, 4), rpt(k, 4), rpt(gy, 4), [k], rpt(w, 2)])
-  nyaan[8] = cc([[w], rpt(gr, 8), rpt(k, 4), [gy, k, y1], rpt(p1, 6), [k], rpt(gy, 12), [k], rpt(w, 2)])
-  nyaan[9] = cc([[w], rpt(gr, 3), rpt(bl, 8), rpt(k, 3), [y1], rpt(p1, 4), [p2, k], rpt(gy, 3), [w, k], rpt(gy, 5), [w, k, gy, gy, k, w]])
-  nyaan[10] = cc([[w], rpt(bl, 13), [k, y1, p1, p2], rpt(p1, 3), [k], rpt(gy, 3), [k, k], rpt(gy, 3), [k, gy, k, k, gy, gy, k, w]])
-  nyaan[11] = cc([[w], rpt(bl, 3), rpt(p3, 5), rpt(bl, 5), [k, y1], rpt(p1, 3), [p2, p1, k, gy, p1 ,p1], rpt(gy, 9), [p1, p1, k, w]])
-  nyaan[12] = cc([[w], rpt(p3, 12), [k, k, y1, y1, p1, p2, p1, p1, k, gy, p1, p1, gy, k, gy, gy, k, gy, gy, k, gy, p1, p1, k, w]])
-  nyaan[13] = cc([[w], rpt(p3, 3), rpt(w, 5), rpt(p3, 2), rpt(k, 4), rpt(y1, 3), rpt(p1, 4), [k], rpt(gy, 3), rpt(k, 7), rpt(gy, 2), [k, w, w]])
-  nyaan[14] = cc([rpt(w, 10), [k, gy, gy, gy, k, k], rpt(y1, 7), [k], rpt(gy, 10), [k], rpt(w, 3)])
-  nyaan[15] = cc([rpt(w, 10), [k, gy, gy, k, w], rpt(k, 19), rpt(w, 4)])
-  nyaan[16] = cc([rpt(w, 10), rpt(k, 3), rpt(w, 3), [k, gy, gy, k, w, w, w, k, gy, gy, k, w, k, gy, gy, k], rpt(w, 6)])
-  nyaan[17] = cc([rpt(w, 17), rpt(k, 3), rpt(w, 4), rpt(k, 3), rpt(w, 2), rpt(k, 3), rpt(w, 6)])
-  nyaan[18] = rpt(w, 38)
-
-  for (var i = 0; i &amp;lt; nyaan.length; i++) {
-    for (var j = 0; j &amp;lt; nyaan[i].length; j++) {
-      nyaanHax.child(parseInt(startX+j) + &amp;quot;:&amp;quot; + parseInt(startY+i)).set(nyaan[i][j]);
-    }
-  }
-
-  return &amp;quot;I drew a cat!&amp;quot;
-}
-```&lt;/pre&gt;&lt;/noscript&gt;&lt;script src="https://gist.github.com/alias1/e8bb28726a37854606ad.js"&gt; &lt;/script&gt;
-</code></pre></div>
 	  ]]></description>
 	</item>
 
@@ -113,71 +39,8 @@ function nyaan(startX, startY) {
 
 <p>&lt;3 /dev/alias</p>
 
-<p><noscript><pre># Java/Scala Future/Promise Map</p>
-
-<p>A side by side comparison (now that I finally got it figured out!) of Play Framework v2.2.x promise unwrapping in Java and Scala.</p>
-
-<h2>Java</h2>
-<div class="highlight"><pre><code class="language-java" data-lang="java">  <span class="kd">public</span> <span class="n">Promise</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">ObjectNode</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span> <span class="n">getEmployees</span><span class="o">(</span><span class="kd">final</span> <span class="n">Optional</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">String</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span> <span class="n">filterEmail</span><span class="o">)</span>
-    <span class="o">{</span>
-        <span class="c1">// Call the webservice</span>
-        <span class="n">Promise</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">Response</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span> <span class="n">promiseOfEmployees</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">xero</span><span class="o">.</span><span class="na">getEmployees</span><span class="o">(</span><span class="n">filterEmail</span><span class="o">);</span>
-
-        <span class="c1">// Map into an ObjectNode</span>
-        <span class="n">Promise</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">ObjectNode</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span> <span class="n">promiseJson</span> <span class="o">=</span> <span class="n">promiseOfEmployees</span><span class="o">.</span><span class="na">map</span><span class="o">(</span><span class="k">new</span> <span class="n">F</span><span class="o">.</span><span class="na">Function</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">WS</span><span class="o">.</span><span class="na">Response</span><span class="o">,</span> <span class="n">ObjectNode</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;()</span>
-        <span class="o">{</span>
-            <span class="nd">@Override</span>
-            <span class="kd">public</span> <span class="n">ObjectNode</span> <span class="nf">apply</span><span class="o">(</span><span class="kd">final</span> <span class="n">Response</span> <span class="n">response</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Throwable</span>
-            <span class="o">{</span>
-                <span class="n">JsonNode</span> <span class="n">responseJson</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="na">asJson</span><span class="o">();</span>
-
-                <span class="n">ObjectNode</span> <span class="n">json</span> <span class="o">=</span> <span class="n">Json</span><span class="o">.</span><span class="na">newObject</span><span class="o">();</span>
-
-                <span class="n">json</span><span class="o">.</span><span class="na">put</span><span class="o">(&amp;</span><span class="n">quot</span><span class="o">;</span><span class="n">foo</span><span class="o">&amp;</span><span class="n">quot</span><span class="o">;,</span> <span class="o">&amp;</span><span class="n">quot</span><span class="o">;</span><span class="n">bar</span><span class="o">&amp;</span><span class="n">quot</span><span class="o">;);</span>
-
-                <span class="k">return</span> <span class="n">json</span><span class="o">;</span>
-            <span class="o">}</span>
-        <span class="o">});</span>
-
-        <span class="c1">// Return</span>
-        <span class="k">return</span> <span class="n">promiseJson</span><span class="o">;</span>
-    <span class="o">}</span>
-</code></pre></div>
-<h2>Scala</h2>
-<div class="highlight"><pre><code class="language-scala" data-lang="scala"><span class="k">def</span> <span class="n">getEmployees</span><span class="o">(</span><span class="n">filterEmail</span><span class="k">:</span> <span class="kt">Optional</span><span class="o">[</span><span class="kt">String</span><span class="o">])</span><span class="k">:</span> <span class="kt">Promise</span><span class="o">[</span><span class="kt">ObjectNode</span><span class="o">]</span> <span class="k">=</span> <span class="o">{</span>
-    <span class="c1">// Call the webservice
-</span>    <span class="k">val</span> <span class="n">promiseOfEmployees</span><span class="k">:</span> <span class="kt">Promise</span><span class="o">[</span><span class="kt">Response</span><span class="o">]</span> <span class="k">=</span> <span class="k">this</span><span class="o">.</span><span class="n">xero</span><span class="o">.</span><span class="n">getEmployees</span><span class="o">(</span><span class="n">filterEmail</span><span class="o">)</span>
-
-    <span class="c1">// Map into an ObjectNode
-</span>    <span class="k">val</span> <span class="n">promiseJson</span><span class="k">:</span> <span class="kt">Future</span><span class="o">[</span><span class="kt">ObjectNode</span><span class="o">]</span> <span class="k">=</span> <span class="n">promiseOfEmployees</span><span class="o">.</span><span class="n">wrapped</span><span class="o">().</span><span class="n">map</span> <span class="o">{</span> <span class="n">response</span> <span class="o">=&amp;</span><span class="n">gt</span><span class="o">;</span>
-      <span class="k">val</span> <span class="n">jsonResponse</span><span class="k">:</span> <span class="kt">JsonNode</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">asJson</span><span class="o">();</span>
-      <span class="k">val</span> <span class="n">json</span><span class="k">:</span> <span class="kt">ObjectNode</span> <span class="o">=</span> <span class="nc">Json</span><span class="o">.</span><span class="n">newObject</span><span class="o">()</span>
-      <span class="n">json</span><span class="o">.</span><span class="n">put</span><span class="o">(&amp;</span><span class="n">quot</span><span class="o">;</span><span class="n">foo</span><span class="o">&amp;</span><span class="n">quot</span><span class="o">;,</span> <span class="o">&amp;</span><span class="n">quot</span><span class="o">;</span><span class="n">bar</span><span class="o">&amp;</span><span class="n">quot</span><span class="o">;);</span>
-      <span class="n">json</span> <span class="c1">// Return
-</span>    <span class="o">}</span>
-
-    <span class="c1">// Return
-</span>    <span class="k">return</span> <span class="nc">Promise</span><span class="o">.</span><span class="n">wrap</span><span class="o">(</span><span class="n">promiseJson</span><span class="o">)</span>
-  <span class="o">}</span>
-</code></pre></div>
-<h2>Scala (Implicit)</h2>
-<div class="highlight"><pre><code class="language-scala" data-lang="scala">  <span class="k">def</span> <span class="n">getEmployees</span><span class="o">(</span><span class="n">filterEmail</span><span class="k">:</span> <span class="kt">Optional</span><span class="o">[</span><span class="kt">String</span><span class="o">])</span><span class="k">:</span> <span class="kt">Promise</span><span class="o">[</span><span class="kt">ObjectNode</span><span class="o">]</span> <span class="k">=</span> <span class="o">{</span>
-    <span class="c1">// Call the webservice
-</span>    <span class="k">val</span> <span class="n">promiseOfEmployees</span> <span class="k">=</span> <span class="k">this</span><span class="o">.</span><span class="n">xero</span><span class="o">.</span><span class="n">getEmployees</span><span class="o">(</span><span class="n">filterEmail</span><span class="o">)</span>
-
-    <span class="c1">// Map into an ObjectNode
-</span>    <span class="k">val</span> <span class="n">promiseJson</span> <span class="k">=</span> <span class="n">promiseOfEmployees</span><span class="o">.</span><span class="n">wrapped</span><span class="o">().</span><span class="n">map</span> <span class="o">{</span> <span class="n">response</span> <span class="o">=&amp;</span><span class="n">gt</span><span class="o">;</span>
-      <span class="k">val</span> <span class="n">jsonResponse</span> <span class="k">=</span> <span class="n">response</span><span class="o">.</span><span class="n">asJson</span><span class="o">();</span>
-      <span class="k">val</span> <span class="n">json</span> <span class="k">=</span> <span class="nc">Json</span><span class="o">.</span><span class="n">newObject</span><span class="o">()</span>
-      <span class="n">json</span><span class="o">.</span><span class="n">put</span><span class="o">(&amp;</span><span class="n">quot</span><span class="o">;</span><span class="n">foo</span><span class="o">&amp;</span><span class="n">quot</span><span class="o">;,</span> <span class="o">&amp;</span><span class="n">quot</span><span class="o">;</span><span class="n">bar</span><span class="o">&amp;</span><span class="n">quot</span><span class="o">;);</span>
-      <span class="n">json</span> <span class="c1">// Return
-</span>    <span class="o">}</span>
-
-    <span class="c1">// Return
-</span>    <span class="k">return</span> <span class="nc">Promise</span><span class="o">.</span><span class="n">wrap</span><span class="o">(</span><span class="n">promiseJson</span><span class="o">)</span>
-  <span class="o">}</span>
-</code></pre></div>
-<p>&lt;3 Glenn / devalias</pre></noscript><script src="https://gist.github.com/alias1/1d3b44312d8a68ddbaa5.js"> </script></p>
+<p><noscript><pre>404: Not Found
+</pre></noscript><script src="https://gist.github.com/alias1/1d3b44312d8a68ddbaa5.js"> </script></p>
 
 	  ]]></description>
 	</item>
@@ -197,35 +60,8 @@ function nyaan(startX, startY) {
 
 <p>Enjoy your unicoins! &lt;3 /dev/alias</p>
 
-<p><noscript><pre>First, go to stackoverflow.com then define this in your Javascript console:
-<code>
-var hackMeSomeUnicoins = function(myFkey) {
-  console.log(&amp;quot;Ok, let&amp;#39;s hack you some shiny unicoins! &amp;lt;3 /dev/alias (www.devalias.net)&amp;quot;)
-  console.log(&amp;quot;The powers that be say you can only mine a rock every 10sec, so we do it every 11sec to be sure.&amp;quot;)
-  window.setInterval(function(){
-    $.get( &amp;quot;http://stackoverflow.com/unicoin/rock&amp;quot;, function( data ) {
-      var rockId = data.rock;
-      $.post( &amp;quot;http://stackoverflow.com/unicoin/mine?rock=&amp;quot; + rockId, { fkey: myFkey })
-      .done(function( data ) {
-        console.log(data);
-      });
-    });
-  }, 11000);
-};
-</code></p>
-
-<p>Once you have done that, just call this from the console:
-<code>
-hackMeSomeUnicoins(StackExchange.options.user.fkey);
-</code>
-(Thanks to @ouranos for the fkey options string)</p>
-
-<p><del>You can get your fkey by inspecting the POST made when you successfully (manually) mine a rock. (It&#39;s also stored in a data-fkey type value somewhere, but haven&#39;t been bothered to find it and automagically pull it out (feel free to contribute some JS to do it)</del></p>
-
-<p>Pimping this:
-* <a href="http://blog.devalias.net/post/81346968483/hacking-unicoins-for-fun-and-profit-stackoverflow-com">http://blog.devalias.net/post/81346968483/hacking-unicoins-for-fun-and-profit-stackoverflow-com</a>
-  * <blockquote class="twitter-tweet"><p lang="en" dir="ltr">&quot;Hacking Unicoins for Fun and Profit (<a href="http://t.co/NKYZO56kyz"><a href="http://t.co/NKYZO56kyz">http://t.co/NKYZO56kyz</a></a> April Fools 2014)&quot; <a href="https://twitter.com/hashtag/stackoverflow?src=hash">#stackoverflow</a> <a href="https://twitter.com/hashtag/aprilfools?src=hash">#aprilfools</a> <a href="https://twitter.com/hashtag/devalias?src=hash">#devalias</a> <a href="http://t.co/xZwyRyEqPl"><a href="http://t.co/xZwyRyEqPl">http://t.co/xZwyRyEqPl</a></a></p>&mdash; Glenn / devalias (@<em>devalias) &lt;a href=&quot;<a href="https://twitter.com/">https://twitter.com/</a></em>devalias/status/450809279784955904&quot;&gt;April 1, 2014</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></pre></noscript><script src="https://gist.github.com/alias1/9905949.js"> </script></p>
+<p><noscript><pre>404: Not Found
+</pre></noscript><script src="https://gist.github.com/alias1/9905949.js"> </script></p>
 
 	  ]]></description>
 	</item>
@@ -249,31 +85,8 @@ ln -s /path/to/vFeed/bin/vfeed_update.sh vfeed_update
 </code></pre></div>
 <p>Enjoy!</p>
 
-<p><noscript><pre># vfeed.sh - README
-* Version: 0.2 (20131126)
-* Created By: Glenn &#39;devalias&#39; Grant (<a href="http://devalias.net">http://devalias.net</a>)
-* License: The MIT License (MIT) - Copyright (c) 2013 Glenn &#39;devalias&#39; Grant (see <a href="http://choosealicense.com/licenses/mit/">http://choosealicense.com/licenses/mit/</a> for full license text)
-* vFeed URL: <a href="https://github.com/toolswatch/vfeed">https://github.com/toolswatch/vfeed</a>
-* vFeed.sh announcement/info: <a href="http://blog.devalias.net/post/67532513020/vfeed-wrapper-helper-scripts-for-speed-and-efficiency">http://blog.devalias.net/post/67532513020/vfeed-wrapper-helper-scripts-for-speed-and-efficiency</a></p>
-
-<h2>Version 0.2 (20131126)</h2>
-
-<ul>
-<li>Updated to support vFeed Beta v0.4.6
-
-<ul>
-<li>Added Defense::get_suricata command support</li>
-<li>Added Patches::get_vmware command support</li>
-</ul></li>
-<li>Update vfeed_update.sh to pull the latest version from git</li>
-</ul>
-
-<h2>Version 0.1 (20131120)</h2>
-
-<ul>
-<li>Initial version. Supports vFeed Beta v0.4.5
-</pre></noscript><script src="https://gist.github.com/alias1/7554985.js"> </script></li>
-</ul>
+<p><noscript><pre>404: Not Found
+</pre></noscript><script src="https://gist.github.com/alias1/7554985.js"> </script></p>
 
 	  ]]></description>
 	</item>
@@ -289,94 +102,7 @@ ln -s /path/to/vFeed/bin/vfeed_update.sh vfeed_update
 
 <p>At time of writing, configuration is all done inside the script, with no support for command line parameters (might add them in the future)</p>
 
-<p><noscript><pre>@echo off
-@rem ----------------
-@rem Config - Banner
-@rem ----------------
-set BAT<em>VER=0.1 (20130703)
-set BANNER</em>DASH=--------------------------------
-set BANNER<em>NAMEVER=Erpscan Automator v%BAT</em>VER%
-set BANNER<em>BY=Created By: Glenn &#39;devalias&#39; Grant (<a href="http://devalias.net">http://devalias.net</a>)
-set BANNER</em>UPDATES=Updates at: <a href="https://gist.github.com/alias1/6118709">https://gist.github.com/alias1/6118709</a>
-set BANNER_LICENSE=License: The MIT License (MIT) - Copyright (c) 2013 Glenn &#39;devalias&#39; Grant (see <a href="http://choosealicense.com/licenses/mit/">http://choosealicense.com/licenses/mit/</a> for full license text)</p>
-
-<p>@rem ----------------
-@rem Parms
-@rem ----------------
-set OUT<em>NAME=CHANGEME</em>TO<em>YOUR</em>OUTFILE<em>NAME
-set SITE=<a href="http://example.com:1234/changeme/to/your/url">http://example.com:1234/changeme/to/your/url</a>
-set USER=CHANGEME</em>TOYOUR<em>TESTUSER
-set PASS=CHANGEME</em>TOYOUR_TESTPASS
-set MODULES=1 2 3 4 5 9 10 11 15 16 17 18 19</p>
-
-<p>@rem ----------------
-@rem Config
-@rem ----------------
-set ERPSCAN<em>PATH=&quot;X:\CHANGEME\H4x0rTools\Erpscan&quot;
-set ERPSCAN</em>FILENAME=black.pl
-set SITE<em>OPT=-s
-set USER</em>OPT=-u
-set PASS<em>OPT=-p
-set MODULE</em>OPT=-m
-set BAT<em>FILENAME=%~nx0
-set BAT</em>PATH=%~dp0
-set OUT<em>EXT=.txt
-set OUT</em>FILE=&quot;%BAT<em>PATH%/%OUT</em>NAME%%OUT_EXT%&quot;</p>
-
-<p>@rem ----------------
-@rem Main Program
-@rem ----------------
-title %BANNER_NAMEVER%</p>
-
-<p>echo %BANNER<em>DASH%
-echo %BANNER</em>NAMEVER%
-echo %BANNER<em>BY%
-echo %BANNER</em>UPDATES%
-echo %BANNER<em>LICENSE%
-echo %BANNER</em>DASH%</p>
-
-<p>echo %BANNER<em>DASH% &gt;&gt; %OUT</em>FILE%
-echo Generated with %BANNER<em>NAMEVER% &gt;&gt; %OUT</em>FILE%
-echo %BANNER<em>BY% &gt;&gt; %OUT</em>FILE
-%echo %BANNER<em>UPDATES% &gt;&gt; %OUT</em>FILE
-echo %BANNER<em>LICENSE% &gt;&gt; %OUT</em>FILE%
-echo %BANNER<em>DASH% &gt;&gt; %OUT</em>FILE%</p>
-
-<p>echo.
-echo Site:    %SITE%
-echo User:    %USER%
-echo Pass:    hidden
-echo Modules: %MODULES%</p>
-
-<p>echo. &gt;&gt; %OUT<em>FILE%
-echo Site:   %SITE% &gt;&gt; %OUT</em>FILE%
-echo User:   %USER% &gt;&gt; %OUT<em>FILE%
-echo Pass:   hidden &gt;&gt; %OUT</em>FILE%
-echo Modules: %MODULES% &gt;&gt; %OUT_FILE%</p>
-
-<p>cd /D %ERPSCAN_PATH%</p>
-
-<p>SETLOCAL ENABLEDELAYEDEXPANSION
-for %%x in (%MODULES%) do (
-  set MODULE=%%x</p>
-
-<p>echo.
-  echo --------------------------------
-  echo Running module !MODULE!..
-  echo --------------------------------</p>
-
-<p>echo. &gt;&gt; %OUT<em>FILE%
-  echo -------------------------------- &gt;&gt; %OUT</em>FILE%
-  echo Running module !MODULE!.. &gt;&gt; %OUT<em>FILE%
-  echo -------------------------------- &gt;&gt; %OUT</em>FILE%</p>
-
-<p>perl %ERPSCAN<em>FILENAME% %SITE</em>OPT% %SITE% %USER<em>OPT% %USER% %PASS</em>OPT% %PASS% %MODULE<em>OPT% !MODULE! &gt;&gt; %OUT</em>FILE%
-)</p>
-
-<p>echo.
-echo Done</p>
-
-<p>pause
+<p><noscript><pre>404: Not Found
 </pre></noscript><script src="https://gist.github.com/alias1/6118709.js"> </script></p>
 
 	  ]]></description>
@@ -393,7 +119,8 @@ echo Done</p>
 
 <p>Generate your model first, make all manual edits, and then only AFTER you have made all your manual edits (and double checked them), run rake db:migrate. It will save you a fair few headaches.</p>
 
-<p><noscript><pre>rails g model identity name:string email:string password_digest:string</pre></noscript><script src="https://gist.github.com/alias1/5790864.js"> </script></p>
+<p><noscript><pre>404: Not Found
+</pre></noscript><script src="https://gist.github.com/alias1/5790864.js"> </script></p>
 
 	  ]]></description>
 	</item>
@@ -409,26 +136,7 @@ echo Done</p>
 
 <p>With that in mind, here&#39;s a little bash script I threw together today to reduce the time it takes to kick off a standard (in my day to day usage) nmap scan. Hopefully you can get some use out of it.</p>
 
-<p><noscript><pre>#!/bin/bash
-echo &quot;-----------------------------------------------&quot;
-echo &quot;A very simple script to make nmap scanning a little quicker to kick off&quot;
-echo &quot;By Glenn &#39;/dev/alias&#39; Grant (devalias.net)&quot;
-echo &quot;v0.3&quot;
-echo &quot;-----------------------------------------------&quot;
-<em>iphost=$1
-_now=$(date +&quot;%Y%m%d-%H%M&quot;)
-_nmapopts=&quot;-A -vvv ${@:2}&quot;
-_nmapoptshidden=&quot;--webxml&quot;
-_nmapoptsfilename=$(echo $</em>nmapopts | tr -d &#39; &#39;) 
-<em>file=&quot;nmap-$</em>now-$<em>iphost$</em>nmapoptsfilename&quot;</p>
-
-<p>if [ -z &quot;$1&quot; ]; then
-  echo &quot;Usage: nmap.sh ipOrHostnameToScan [any other arguments here]&quot;
-  echo &quot;Default Options: $<em>nmapoptshidden $</em>nmapopts&quot;
-  exit
-fi</p>
-
-<p>nmap -oA $<em>file $</em>nmapoptshidden $<em>nmapopts $</em>iphost
+<p><noscript><pre>404: Not Found
 </pre></noscript><script src="https://gist.github.com/alias1/5963377.js"> </script></p>
 
 	  ]]></description>

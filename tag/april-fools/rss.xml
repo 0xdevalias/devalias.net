@@ -26,35 +26,8 @@
 
 <p>Enjoy your unicoins! &lt;3 /dev/alias</p>
 
-<p><noscript><pre>First, go to stackoverflow.com then define this in your Javascript console:
-<code>
-var hackMeSomeUnicoins = function(myFkey) {
-  console.log(&amp;quot;Ok, let&amp;#39;s hack you some shiny unicoins! &amp;lt;3 /dev/alias (www.devalias.net)&amp;quot;)
-  console.log(&amp;quot;The powers that be say you can only mine a rock every 10sec, so we do it every 11sec to be sure.&amp;quot;)
-  window.setInterval(function(){
-    $.get( &amp;quot;http://stackoverflow.com/unicoin/rock&amp;quot;, function( data ) {
-      var rockId = data.rock;
-      $.post( &amp;quot;http://stackoverflow.com/unicoin/mine?rock=&amp;quot; + rockId, { fkey: myFkey })
-      .done(function( data ) {
-        console.log(data);
-      });
-    });
-  }, 11000);
-};
-</code></p>
-
-<p>Once you have done that, just call this from the console:
-<code>
-hackMeSomeUnicoins(StackExchange.options.user.fkey);
-</code>
-(Thanks to @ouranos for the fkey options string)</p>
-
-<p><del>You can get your fkey by inspecting the POST made when you successfully (manually) mine a rock. (It&#39;s also stored in a data-fkey type value somewhere, but haven&#39;t been bothered to find it and automagically pull it out (feel free to contribute some JS to do it)</del></p>
-
-<p>Pimping this:
-* <a href="http://blog.devalias.net/post/81346968483/hacking-unicoins-for-fun-and-profit-stackoverflow-com">http://blog.devalias.net/post/81346968483/hacking-unicoins-for-fun-and-profit-stackoverflow-com</a>
-  * <blockquote class="twitter-tweet"><p lang="en" dir="ltr">&quot;Hacking Unicoins for Fun and Profit (<a href="http://t.co/NKYZO56kyz"><a href="http://t.co/NKYZO56kyz">http://t.co/NKYZO56kyz</a></a> April Fools 2014)&quot; <a href="https://twitter.com/hashtag/stackoverflow?src=hash">#stackoverflow</a> <a href="https://twitter.com/hashtag/aprilfools?src=hash">#aprilfools</a> <a href="https://twitter.com/hashtag/devalias?src=hash">#devalias</a> <a href="http://t.co/xZwyRyEqPl"><a href="http://t.co/xZwyRyEqPl">http://t.co/xZwyRyEqPl</a></a></p>&mdash; Glenn / devalias (@<em>devalias) &lt;a href=&quot;<a href="https://twitter.com/">https://twitter.com/</a></em>devalias/status/450809279784955904&quot;&gt;April 1, 2014</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></pre></noscript><script src="https://gist.github.com/alias1/9905949.js"> </script></p>
+<p><noscript><pre>404: Not Found
+</pre></noscript><script src="https://gist.github.com/alias1/9905949.js"> </script></p>
 
 	  ]]></description>
 	</item>

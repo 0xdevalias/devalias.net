@@ -22,7 +22,8 @@
 
 <p>Generate your model first, make all manual edits, and then only AFTER you have made all your manual edits (and double checked them), run rake db:migrate. It will save you a fair few headaches.</p>
 
-<p><noscript><pre>rails g model identity name:string email:string password_digest:string</pre></noscript><script src="https://gist.github.com/alias1/5790864.js"> </script></p>
+<p><noscript><pre>404: Not Found
+</pre></noscript><script src="https://gist.github.com/alias1/5790864.js"> </script></p>
 
 	  ]]></description>
 	</item>

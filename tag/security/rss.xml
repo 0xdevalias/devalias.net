@@ -12,6 +12,56 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>Squiz Matrix: Multiple vulnerabilities</title>
+	  <link>/devalias/2017/09/07/squiz-matrix-multiple-vulnerabilities/</link>
+	  <author>devalias</author>
+	  <pubDate>2017-09-07T00:00:00+10:00</pubDate>
+	  <guid>/devalias/2017/09/07/squiz-matrix-multiple-vulnerabilities/</guid>
+	  <description><![CDATA[
+	     <p>Earlier this year I had an opportunity to spend some time looking at <a href="https://www.squiz.net/technology/cms">Squiz Matrix</a>, a Content Management System (CMS) used across a number of sectors including higher eduction, media and publishing, goverment, finance, health, and utilities. With a huge number of features, a massive PHP codebase, and a numbr of high profile sectors as clients, I set out to see if I could find any interesting little bugs hidden away.</p>
+
+<p>While I won&#39;t get into the nitty gritty of most of the assessment process, I did find some things, and 3 CVE&#39;s were assigned (detailed below). One was interesting enough that I will probably write up the process in more detail at some point.</p>
+
+<p>Given the rich functionality and plugins in the Matrix product, it could be interesting to dedicate more research time to explore the areas I didn&#39;t get to cover this time around. Who knows, perhaps Squiz would even be open to setting up a Bug Bounty program through someone like <a href="https://www.bugcrowd.com/">Bugcrowd</a> in the future too. That would be cool!</p>
+
+<p>If you want to try it out, or play around yourself, there is a <a href="https://matrix.squiz.net/releases/vm">downloadable demo VM</a> available on the Squiz website.</p>
+
+<h2>The CVE&#39;s</h2>
+
+<ul>
+<li><strong>CVE-2017-14196</strong>: An information disclosure caused by a Path Traversal issue in the &#39;File Bridge&#39; plugin allowed the existence of files outside of the bridged path to be confirmed.</li>
+<li><strong>CVE-2017-14197</strong>: Multiple reflected Cross-Site Scripting (XSS) issues in Matrix &#39;WYSIWYG&#39; plugins.</li>
+<li><strong>CVE-2017-14198</strong>: Authenticated users with permissions to edit design assets can cause Remote Code Execution (RCE) via a maliciously crafted <code>time_format</code> tag.</li>
+</ul>
+
+<h2>Remediation</h2>
+
+<p>TODO: Include details about vulnerable versions and when it was fixed here (should also be in the CVE details already)</p>
+
+<h2>CVE-2017-14198: A Walkthrough</h2>
+
+<p>TODO: Write up how this was identified, and the core issue that lead to it.</p>
+
+<h2>Acknowledgements</h2>
+
+<p>These issues were identified by <a href="http://devalias.net">myself</a> and the team at <a href="https://dtss.com.au">TSS</a>:</p>
+
+<ul>
+<li>Glenn &#39;devalias&#39; Grant (<a href="http://devalias.net">http://devalias.net</a>) of TSS (<a href="https://dtss.com.au">https://dtss.com.au</a>)</li>
+</ul>
+
+<p>Special thanks to Micky at Squiz for being an amazing resource throughout the disclosure process, and keeping us informed as patching and rollout progressed.</p>
+
+<h2>Conclusion</h2>
+
+<p>It seems the core issues here were a few bugs popping up in legacy code, and passing user-controlled values into sensitive areas without proper checks/sanitisation. Easy mistakes to make when managing such a large codebase that has evolved over the years.</p>
+
+<p>Have you had a similar experience? Manage a large codebase and legacy code? Got good tips for how best to identify and avoid these sorts of issues? Would love to hear your ideas in the comments!</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>An unexpected journey with webpack and RequireJS</title>
 	  <link>/devalias/2017/08/05/unexpected-journey-webpack-requirejs/</link>
 	  <author>devalias</author>
@@ -396,8 +446,9 @@ Port scanning
   massscan
     doesn't provide a default port list
     use nmaps (giant list of ports)
-      <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Default nmap port list into masscan. 11min for 65k hosts <a href="https://twitter.com/Jhaddix">@jhaddix</a> <a href="https://twitter.com/hashtag/ItTakesACrowd?src=hash">#ItTakesACrowd</a> <a href="https://t.co/OLq1qz2HI4">pic.twitter.com/OLq1qz2HI4</a></p>&mdash; Glenn / devalias (@_devalias) <a href="https://twitter.com/_devalias/status/886280729327312896">July 15, 2017</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+      <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Default nmap port list into masscan. 11min for 65k hosts <a href="https://twitter.com/Jhaddix?ref_src=twsrc%5Etfw">@jhaddix</a> <a href="https://twitter.com/hashtag/ItTakesACrowd?src=hash&amp;ref_src=twsrc%5Etfw">#ItTakesACrowd</a> <a href="https://t.co/OLq1qz2HI4">pic.twitter.com/OLq1qz2HI4</a></p>&mdash; Glenn / devalias (@_devalias) <a href="https://twitter.com/_devalias/status/886280729327312896?ref_src=twsrc%5Etfw">July 15, 2017</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 
 Visual identification
   https://github.com/ChrisTruncer/EyeWitness
@@ -641,8 +692,9 @@ Personal mobile recon setup
     next gen will be a webapp to help 
 
 Bug Bounty Resources
-  <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Bug Bounty Resources <a href="https://twitter.com/aphire">@aphire</a> <a href="https://twitter.com/hashtag/ItTakesACrowd?src=hash">#ItTakesACrowd</a> <a href="https://t.co/E0hvHqDAHl">pic.twitter.com/E0hvHqDAHl</a></p>&mdash; Glenn / devalias (@_devalias) <a href="https://twitter.com/_devalias/status/886295129807396865">July 15, 2017</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+  <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Bug Bounty Resources <a href="https://twitter.com/aphire?ref_src=twsrc%5Etfw">@aphire</a> <a href="https://twitter.com/hashtag/ItTakesACrowd?src=hash&amp;ref_src=twsrc%5Etfw">#ItTakesACrowd</a> <a href="https://t.co/E0hvHqDAHl">pic.twitter.com/E0hvHqDAHl</a></p>&mdash; Glenn / devalias (@_devalias) <a href="https://twitter.com/_devalias/status/886295129807396865?ref_src=twsrc%5Etfw">July 15, 2017</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 </pre>
 
 <h3>Giving Back to the Community (ZSeano)</h3>
@@ -1150,8 +1202,9 @@ POO is the new %00
 <pre>
 https://twitter.com/adi1391
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Dropping a guide on IoT testing soon <a href="https://twitter.com/adi1391">@adi1391</a> <a href="https://twitter.com/hashtag/ItTakesACrowd?src=hash">#ItTakesACrowd</a> <a href="https://twitter.com/Bugcrowd">@Bugcrowd</a> <a href="https://t.co/zO9NGS9K8n">pic.twitter.com/zO9NGS9K8n</a></p>&mdash; Glenn / devalias (@_devalias) <a href="https://twitter.com/_devalias/status/886339682958680064">July 15, 2017</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Dropping a guide on IoT testing soon <a href="https://twitter.com/adi1391?ref_src=twsrc%5Etfw">@adi1391</a> <a href="https://twitter.com/hashtag/ItTakesACrowd?src=hash&amp;ref_src=twsrc%5Etfw">#ItTakesACrowd</a> <a href="https://twitter.com/Bugcrowd?ref_src=twsrc%5Etfw">@Bugcrowd</a> <a href="https://t.co/zO9NGS9K8n">pic.twitter.com/zO9NGS9K8n</a></p>&mdash; Glenn / devalias (@_devalias) <a href="https://twitter.com/_devalias/status/886339682958680064?ref_src=twsrc%5Etfw">July 15, 2017</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
   Run attify, pentesting IoT devices
   Author: "Learning Pentesting for Andorid Devices"
   Book: IoT hackers handbook, this month
@@ -1204,8 +1257,9 @@ How
     hacking radio communications
 
   Attack Surface Mapping - Step 1
-    <blockquote class="twitter-tweet"><p lang="en" dir="ltr">IoT Attack Surface Mapping - Step 1 <a href="https://twitter.com/adi1391">@adi1391</a> <a href="https://twitter.com/hashtag/ItTakesACrowd?src=hash">#ItTakesACrowd</a> <a href="https://twitter.com/Bugcrowd">@Bugcrowd</a> <a href="https://t.co/wXzQf6erbc">pic.twitter.com/wXzQf6erbc</a></p>&mdash; Glenn / devalias (@_devalias) <a href="https://twitter.com/_devalias/status/886341534450307072">July 15, 2017</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <blockquote class="twitter-tweet"><p lang="en" dir="ltr">IoT Attack Surface Mapping - Step 1 <a href="https://twitter.com/adi1391?ref_src=twsrc%5Etfw">@adi1391</a> <a href="https://twitter.com/hashtag/ItTakesACrowd?src=hash&amp;ref_src=twsrc%5Etfw">#ItTakesACrowd</a> <a href="https://twitter.com/Bugcrowd?ref_src=twsrc%5Etfw">@Bugcrowd</a> <a href="https://t.co/wXzQf6erbc">pic.twitter.com/wXzQf6erbc</a></p>&mdash; Glenn / devalias (@_devalias) <a href="https://twitter.com/_devalias/status/886341534450307072?ref_src=twsrc%5Etfw">July 15, 2017</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
     Recon
       understanding device
       visible ports
@@ -1220,8 +1274,9 @@ How
       FCC ID
 
     Attack Surface Mapping - Step 2
-      <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Attack Surface Mapping - Step 2 <a href="https://twitter.com/adi1391">@adi1391</a> <a href="https://twitter.com/hashtag/ItTakesACrowd?src=hash">#ItTakesACrowd</a> <a href="https://twitter.com/Bugcrowd">@Bugcrowd</a> <a href="https://t.co/hpyIedVQIc">pic.twitter.com/hpyIedVQIc</a></p>&mdash; Glenn / devalias (@_devalias) <a href="https://twitter.com/_devalias/status/886341954404929536">July 15, 2017</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+      <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Attack Surface Mapping - Step 2 <a href="https://twitter.com/adi1391?ref_src=twsrc%5Etfw">@adi1391</a> <a href="https://twitter.com/hashtag/ItTakesACrowd?src=hash&amp;ref_src=twsrc%5Etfw">#ItTakesACrowd</a> <a href="https://twitter.com/Bugcrowd?ref_src=twsrc%5Etfw">@Bugcrowd</a> <a href="https://t.co/hpyIedVQIc">pic.twitter.com/hpyIedVQIc</a></p>&mdash; Glenn / devalias (@_devalias) <a href="https://twitter.com/_devalias/status/886341954404929536?ref_src=twsrc%5Etfw">July 15, 2017</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
       map attack surface (architecture diagram)
       entrypoints
       commuications
@@ -1273,8 +1328,9 @@ How
       can be scattered across board
       JTAGulator or arduino nano flashed with JTAGEnum
       easily identify pinouts for JTAG
-      <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Hacking Embedded Devices - Debug JTAG <a href="https://twitter.com/adi1391">@adi1391</a> <a href="https://twitter.com/hashtag/ItTakesACrowd?src=hash">#ItTakesACrowd</a> <a href="https://twitter.com/Bugcrowd">@Bugcrowd</a> <a href="https://t.co/0OPpTAWQjv">pic.twitter.com/0OPpTAWQjv</a></p>&mdash; Glenn / devalias (@_devalias) <a href="https://twitter.com/_devalias/status/886344370944786432">July 15, 2017</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+      <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Hacking Embedded Devices - Debug JTAG <a href="https://twitter.com/adi1391?ref_src=twsrc%5Etfw">@adi1391</a> <a href="https://twitter.com/hashtag/ItTakesACrowd?src=hash&amp;ref_src=twsrc%5Etfw">#ItTakesACrowd</a> <a href="https://twitter.com/Bugcrowd?ref_src=twsrc%5Etfw">@Bugcrowd</a> <a href="https://t.co/0OPpTAWQjv">pic.twitter.com/0OPpTAWQjv</a></p>&mdash; Glenn / devalias (@_devalias) <a href="https://twitter.com/_devalias/status/886344370944786432?ref_src=twsrc%5Etfw">July 15, 2017</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
         Hacking Embedded Devices - Debug JTAG
 
     Dump Flash
@@ -1360,14 +1416,17 @@ Pentest methodology
   follow the guide
 
 https://www.iotpentestingguide.com/
-  <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Short for now, but more coming in a few days! <a href="https://t.co/DwTNpx7BQZ">https://t.co/DwTNpx7BQZ</a> <a href="https://twitter.com/adi1391">@adi1391</a> <a href="https://twitter.com/hashtag/ItTakesACrowd?src=hash">#ItTakesACrowd</a> <a href="https://twitter.com/Bugcrowd">@Bugcrowd</a> <a href="https://t.co/3xXsS8ieN4">pic.twitter.com/3xXsS8ieN4</a></p>&mdash; Glenn / devalias (@_devalias) <a href="https://twitter.com/_devalias/status/886350210724646912">July 15, 2017</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+  <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Short for now, but more coming in a few days! <a href="https://t.co/DwTNpx7BQZ">https://t.co/DwTNpx7BQZ</a> <a href="https://twitter.com/adi1391?ref_src=twsrc%5Etfw">@adi1391</a> <a href="https://twitter.com/hashtag/ItTakesACrowd?src=hash&amp;ref_src=twsrc%5Etfw">#ItTakesACrowd</a> <a href="https://twitter.com/Bugcrowd?ref_src=twsrc%5Etfw">@Bugcrowd</a> <a href="https://t.co/3xXsS8ieN4">pic.twitter.com/3xXsS8ieN4</a></p>&mdash; Glenn / devalias (@_devalias) <a href="https://twitter.com/_devalias/status/886350210724646912?ref_src=twsrc%5Etfw">July 15, 2017</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">&quot;Let&#39;s hack IoT coz it won&#39;t be always like the 2017&#39;s...&quot; <a href="https://twitter.com/adi1391">@adi1391</a> <a href="https://twitter.com/hashtag/ItTakesACrowd?src=hash">#ItTakesACrowd</a> <a href="https://twitter.com/Bugcrowd">@Bugcrowd</a> <a href="https://t.co/RI6zXB9Tot">pic.twitter.com/RI6zXB9Tot</a></p>&mdash; Glenn / devalias (@_devalias) <a href="https://twitter.com/_devalias/status/886350674266537984">July 15, 2017</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Absolutely mind blown! Such a great talk!!! &quot;Hacking Internet of Things for Bug Bounties&quot; <a href="https://twitter.com/adi1391">@adi1391</a> <a href="https://twitter.com/hashtag/ItTakesACrowd?src=hash">#ItTakesACrowd</a> <a href="https://twitter.com/Bugcrowd">@Bugcrowd</a> <a href="https://t.co/Cfu2JF7SLJ">pic.twitter.com/Cfu2JF7SLJ</a></p>&mdash; Glenn / devalias (@_devalias) <a href="https://twitter.com/_devalias/status/886350817741094912">July 15, 2017</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">&quot;Let&#39;s hack IoT coz it won&#39;t be always like the 2017&#39;s...&quot; <a href="https://twitter.com/adi1391?ref_src=twsrc%5Etfw">@adi1391</a> <a href="https://twitter.com/hashtag/ItTakesACrowd?src=hash&amp;ref_src=twsrc%5Etfw">#ItTakesACrowd</a> <a href="https://twitter.com/Bugcrowd?ref_src=twsrc%5Etfw">@Bugcrowd</a> <a href="https://t.co/RI6zXB9Tot">pic.twitter.com/RI6zXB9Tot</a></p>&mdash; Glenn / devalias (@_devalias) <a href="https://twitter.com/_devalias/status/886350674266537984?ref_src=twsrc%5Etfw">July 15, 2017</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Absolutely mind blown! Such a great talk!!! &quot;Hacking Internet of Things for Bug Bounties&quot; <a href="https://twitter.com/adi1391?ref_src=twsrc%5Etfw">@adi1391</a> <a href="https://twitter.com/hashtag/ItTakesACrowd?src=hash&amp;ref_src=twsrc%5Etfw">#ItTakesACrowd</a> <a href="https://twitter.com/Bugcrowd?ref_src=twsrc%5Etfw">@Bugcrowd</a> <a href="https://t.co/Cfu2JF7SLJ">pic.twitter.com/Cfu2JF7SLJ</a></p>&mdash; Glenn / devalias (@_devalias) <a href="https://twitter.com/_devalias/status/886350817741094912?ref_src=twsrc%5Etfw">July 15, 2017</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 </pre>
 
 <h3>Intro to Car Hacking (Alan Mond)</h3>
@@ -1421,8 +1480,9 @@ What you'll need
 
 Most comprehensive list
   github.com/jaredthecoder/awesome-vehicle-security
-  <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Comprehensive list of car hacking places for questions <a href="https://twitter.com/mondalan">@mondalan</a> <a href="https://twitter.com/hashtag/ItTakesACrowd?src=hash">#ItTakesACrowd</a> <a href="https://twitter.com/Bugcrowd">@Bugcrowd</a> <a href="https://t.co/3492Z3VEar">pic.twitter.com/3492Z3VEar</a></p>&mdash; Glenn / devalias (@_devalias) <a href="https://twitter.com/_devalias/status/886354216968609792">July 15, 2017</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+  <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Comprehensive list of car hacking places for questions <a href="https://twitter.com/mondalan?ref_src=twsrc%5Etfw">@mondalan</a> <a href="https://twitter.com/hashtag/ItTakesACrowd?src=hash&amp;ref_src=twsrc%5Etfw">#ItTakesACrowd</a> <a href="https://twitter.com/Bugcrowd?ref_src=twsrc%5Etfw">@Bugcrowd</a> <a href="https://t.co/3492Z3VEar">pic.twitter.com/3492Z3VEar</a></p>&mdash; Glenn / devalias (@_devalias) <a href="https://twitter.com/_devalias/status/886354216968609792?ref_src=twsrc%5Etfw">July 15, 2017</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 
 Vehicle networking basics
   CAN bus
@@ -1964,40 +2024,40 @@ In a fast, simple, yet extensible way.</li>
 <li>Small open source/hardware device to generate truly random entropy, to be fed back into a random number generator</li>
 <li>Recently released on kickstarter: <a href="https://www.kickstarter.com/projects/moonbaseotago/onerng-an-open-source-entropy-generator">https://www.kickstarter.com/projects/moonbaseotago/onerng-an-open-source-entropy-generator</a></li>
 </ul></li>
-<li><a href="http://2014.kiwicon.org/the-con/talks/#e147">Eradicating the Human Problem</a>
+<li><p><a href="http://2014.kiwicon.org/the-con/talks/#e147">Eradicating the Human Problem</a></p>
 
 <ul>
 <li>Really excellent talk by @lady_nerd talking about social engineering and humans as the weak point in security</li>
 <li>Talked about how we need a better way to assess and track the human element of security, rather than treating it as too hard/unobtainable</li>
 <li>Briefly discussed a tool in development designed to assist with mapping out the social interactions of a company in a way that allows assessing potential risk/etc, and determining the flow of an attack through the social elements of a company</li>
-<li>Slides: <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Want to see the trailer/slides for my <a href="https://twitter.com/hashtag/kiwicon?src=hash">#kiwicon</a> talk &#39;Eradicating the human problem&#39;. Here&#39;s a blog post with links <a href="http://t.co/I5bacKHRVb"><a href="http://t.co/I5bacKHRVb">http://t.co/I5bacKHRVb</a></a></p>&mdash; Laura Bell (@lady<em>nerd) &lt;a href=&quot;<a href="https://twitter.com/lady">https://twitter.com/lady</a></em>nerd/status/544230404170194945&quot;&gt;December 14, 2014</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></li>
+<li>Slides: <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Want to see the trailer/slides for my <a href="https://twitter.com/hashtag/kiwicon?src=hash&amp;ref_src=twsrc%5Etfw">#kiwicon</a> talk &#39;Eradicating the human problem&#39;. Here&#39;s a blog post with links <a href="http://t.co/I5bacKHRVb"><a href="http://t.co/I5bacKHRVb">http://t.co/I5bacKHRVb</a></a></p>&mdash; Laura Bell (@lady<em>nerd) &lt;a href=&quot;<a href="https://twitter.com/lady">https://twitter.com/lady</a></em>nerd/status/544230404170194945?ref_src=twsrc%5Etfw&quot;&gt;December 14, 2014</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></li>
 </ul></li>
-<li><a href="http://2014.kiwicon.org/the-con/talks/#e142">Security the Etsy way: Effective security in a continuous deployment culture</a>
+<li><p><a href="http://2014.kiwicon.org/the-con/talks/#e142">Security the Etsy way: Effective security in a continuous deployment culture</a></p>
 
 <ul>
 <li>Excellent talk by @iodboi about mixing in security people with the general developers, not blocking progress/saying no while still maintaining security, making security liked/approachable, etc.</li>
 <li>So many awesome points and discussions, not to mention showing just how epic a place Etsy is to work.</li>
 <li>Caught up with him a decent bit after his talk and had some awesome chats, a really cool and down to earth guy</li>
 <li>Etsy are a great example of continuous deployment, with upwards of 50 pushes into production every day</li>
-<li>One of the big points: Don&#39;t hire assholes (they will ruin all of the work you put in to enhance security/etcs image and drag everyone down) <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Excellent security team management advice from <a href="https://twitter.com/iodboi">@iodboi</a> :) <a href="https://twitter.com/kiwicon">@kiwicon</a> <a href="http://t.co/8m5ZyjYFfV">pic.twitter.com/8m5ZyjYFfV</a></p>&mdash; Leigh Honeywell (@hypatiadotca) <a href="https://twitter.com/hypatiadotca/status/542870405514801152">December 11, 2014</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></li>
+<li>One of the big points: Don&#39;t hire assholes (they will ruin all of the work you put in to enhance security/etcs image and drag everyone down) <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Excellent security team management advice from <a href="https://twitter.com/iodboi?ref_src=twsrc%5Etfw">@iodboi</a> :) <a href="https://twitter.com/kiwicon?ref_src=twsrc%5Etfw">@kiwicon</a> <a href="http://t.co/8m5ZyjYFfV">pic.twitter.com/8m5ZyjYFfV</a></p>&mdash; Leigh Janet Mactavish Honeywell (@hypatiadotca) <a href="https://twitter.com/hypatiadotca/status/542870405514801152?ref_src=twsrc%5Etfw">December 11, 2014</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></li>
 </ul></li>
-<li><a href="http://2014.kiwicon.org/the-con/talks/#e153">COMSEC - Beyond Encryption</a>
+<li><p><a href="http://2014.kiwicon.org/the-con/talks/#e153">COMSEC - Beyond Encryption</a></p>
 
 <ul>
 <li>Discussion on maintaining communication security, tools that are good/bad, etc</li>
 <li>Almost surprisingly, Apple factime rates pretty highly on the list.</li>
 <li>Pond considered THE thing to use <a href="https://pond.imperialviolet.org/">https://pond.imperialviolet.org/</a></li>
 </ul></li>
-<li><a href="http://2014.kiwicon.org/the-con/talks/#e154">MitMing GSM with criminal intent</a>
+<li><p><a href="http://2014.kiwicon.org/the-con/talks/#e154">MitMing GSM with criminal intent</a></p>
 
 <ul>
 <li>Discussed the analysis and thinking, and eventual pwning of a GSM enabled home detention ankle monitor</li>
 <li>Made front page of the newspaper for the talk: <a href="http://www.nzherald.co.nz/nz/news/article.cfm?c_id=1&objectid=11373524">http://www.nzherald.co.nz/nz/news/article.cfm?c_id=1&amp;objectid=11373524</a></li>
 <li>Same guy who broke the NZ transport card system last year</li>
 </ul></li>
-<li><a href="http://2014.kiwicon.org/the-con/talks/#e143">Building a hipster catapult, or how2own your skateboard</a>
+<li><p><a href="http://2014.kiwicon.org/the-con/talks/#e143">Building a hipster catapult, or how2own your skateboard</a></p>
 
 <ul>
 <li>Amusing talk about taking over control of a bluetooth controlled electric skateboard, including demonstration</li>

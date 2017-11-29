@@ -202,35 +202,8 @@
 
 <p>Enjoy your unicoins! &lt;3 /dev/alias</p>
 
-<p><noscript><pre>First, go to stackoverflow.com then define this in your Javascript console:
-<code>
-var hackMeSomeUnicoins = function(myFkey) {
-  console.log(&amp;quot;Ok, let&amp;#39;s hack you some shiny unicoins! &amp;lt;3 /dev/alias (www.devalias.net)&amp;quot;)
-  console.log(&amp;quot;The powers that be say you can only mine a rock every 10sec, so we do it every 11sec to be sure.&amp;quot;)
-  window.setInterval(function(){
-    $.get( &amp;quot;http://stackoverflow.com/unicoin/rock&amp;quot;, function( data ) {
-      var rockId = data.rock;
-      $.post( &amp;quot;http://stackoverflow.com/unicoin/mine?rock=&amp;quot; + rockId, { fkey: myFkey })
-      .done(function( data ) {
-        console.log(data);
-      });
-    });
-  }, 11000);
-};
-</code></p>
-
-<p>Once you have done that, just call this from the console:
-<code>
-hackMeSomeUnicoins(StackExchange.options.user.fkey);
-</code>
-(Thanks to @ouranos for the fkey options string)</p>
-
-<p><del>You can get your fkey by inspecting the POST made when you successfully (manually) mine a rock. (It&#39;s also stored in a data-fkey type value somewhere, but haven&#39;t been bothered to find it and automagically pull it out (feel free to contribute some JS to do it)</del></p>
-
-<p>Pimping this:
-* <a href="http://blog.devalias.net/post/81346968483/hacking-unicoins-for-fun-and-profit-stackoverflow-com">http://blog.devalias.net/post/81346968483/hacking-unicoins-for-fun-and-profit-stackoverflow-com</a>
-  * <blockquote class="twitter-tweet"><p lang="en" dir="ltr">&quot;Hacking Unicoins for Fun and Profit (<a href="http://t.co/NKYZO56kyz"><a href="http://t.co/NKYZO56kyz">http://t.co/NKYZO56kyz</a></a> April Fools 2014)&quot; <a href="https://twitter.com/hashtag/stackoverflow?src=hash">#stackoverflow</a> <a href="https://twitter.com/hashtag/aprilfools?src=hash">#aprilfools</a> <a href="https://twitter.com/hashtag/devalias?src=hash">#devalias</a> <a href="http://t.co/xZwyRyEqPl"><a href="http://t.co/xZwyRyEqPl">http://t.co/xZwyRyEqPl</a></a></p>&mdash; Glenn / devalias (@<em>devalias) &lt;a href=&quot;<a href="https://twitter.com/">https://twitter.com/</a></em>devalias/status/450809279784955904&quot;&gt;April 1, 2014</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></pre></noscript><script src="https://gist.github.com/alias1/9905949.js"> </script></p>
+<p><noscript><pre>404: Not Found
+</pre></noscript><script src="https://gist.github.com/alias1/9905949.js"> </script></p>
 
 	  ]]></description>
 	</item>
@@ -427,31 +400,8 @@ apt-get install -f
 
 <p>Just goes to show that no matter how secure a technology you create, in the end it all comes down to the underpaid, overworked IT staff that have to implement it, and the <em>managerial guidelines</em> that they need to work within.</p>
 
-<p><noscript><pre># Reverse-SecureString</p>
-
-<h1>Version: 1.0 (20130729)</h1>
-
-<h1>Created By: Glenn &#39;devalias&#39; Grant (<a href="http://devalias.net">http://devalias.net</a>)</h1>
-
-<h1>License: The MIT License (MIT) - Copyright (c) 2013 Glenn &#39;devalias&#39; Grant (see <a href="http://choosealicense.com/licenses/mit/">http://choosealicense.com/licenses/mit/</a> for full license text)</h1>
-
-<p>function Reverse-SecureString([string]$secureString,[string]$key)
-{
-  $objSecString=ConvertTo-SecureString -String $secureString -Key ([Byte[]]$key.Split(&quot; &quot;))
-  $secString=[System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($objSecString)
-  $plaintext=[System.Runtime.InteropServices.Marshal]::PtrToStringAuto($secString)
-  return $plaintext
-}</p>
-
-<h1>Example SecureString decryption</h1>
-
-<p>$password = &quot;76492d1116743f0423413b16050a5345MgB8AFAAVwBiAGkAegBjAEcANQA5AEMAOABVAFoAUQBoADMAZAA1AEUAcgBGAHcAPQA9AHwAYgAxAGUAYwA0AGQA
-YwBkADUANQAwAGUAYQBmADYAMwA5AGEANwAyADAAMwBmADAANwA3AGUANgA3ADYAYgA0AGIANgA4ADYAZAA3ADkAZgBkAGYAMgAzADcAMQA2ADkAYgA3AGMA
-YwA0AGUAZQA1AGIANAA5ADEAZABjADQAZQA5ADgANQAxADUAYwBmADgAZQBjADMAMgBmADgANgBhADAANQBlADAANgBkAGIAZABlAGMAZAA2ADcAMwBmAGYA
-YwA5ADMAZQAwADYAZAA5AGMAMwAyAGUANgAyAGUAMAA3ADcAYgBkADIAYQAzAGIAOAA3ADQAMwA2ADIAMAA2AA==&quot;
-$key = &quot;114 138 230 113 215 43 58 173 155 129 196 29 105 162 10 25 187 79 18 221 142 29 155 43 28 20 19 40 103 83 110 240&quot;
-$passPlaintext = Reverse-SecureString &quot;$password&quot; &quot;$key&quot;
-Write-Host $passPlaintext # This should output: TotallySecurePasswordLol!</pre></noscript><script src="https://gist.github.com/alias1/6101928.js"> </script></p>
+<p><noscript><pre>404: Not Found
+</pre></noscript><script src="https://gist.github.com/alias1/6101928.js"> </script></p>
 
 	  ]]></description>
 	</item>
@@ -467,94 +417,7 @@ Write-Host $passPlaintext # This should output: TotallySecurePasswordLol!</pre><
 
 <p>At time of writing, configuration is all done inside the script, with no support for command line parameters (might add them in the future)</p>
 
-<p><noscript><pre>@echo off
-@rem ----------------
-@rem Config - Banner
-@rem ----------------
-set BAT<em>VER=0.1 (20130703)
-set BANNER</em>DASH=--------------------------------
-set BANNER<em>NAMEVER=Erpscan Automator v%BAT</em>VER%
-set BANNER<em>BY=Created By: Glenn &#39;devalias&#39; Grant (<a href="http://devalias.net">http://devalias.net</a>)
-set BANNER</em>UPDATES=Updates at: <a href="https://gist.github.com/alias1/6118709">https://gist.github.com/alias1/6118709</a>
-set BANNER_LICENSE=License: The MIT License (MIT) - Copyright (c) 2013 Glenn &#39;devalias&#39; Grant (see <a href="http://choosealicense.com/licenses/mit/">http://choosealicense.com/licenses/mit/</a> for full license text)</p>
-
-<p>@rem ----------------
-@rem Parms
-@rem ----------------
-set OUT<em>NAME=CHANGEME</em>TO<em>YOUR</em>OUTFILE<em>NAME
-set SITE=<a href="http://example.com:1234/changeme/to/your/url">http://example.com:1234/changeme/to/your/url</a>
-set USER=CHANGEME</em>TOYOUR<em>TESTUSER
-set PASS=CHANGEME</em>TOYOUR_TESTPASS
-set MODULES=1 2 3 4 5 9 10 11 15 16 17 18 19</p>
-
-<p>@rem ----------------
-@rem Config
-@rem ----------------
-set ERPSCAN<em>PATH=&quot;X:\CHANGEME\H4x0rTools\Erpscan&quot;
-set ERPSCAN</em>FILENAME=black.pl
-set SITE<em>OPT=-s
-set USER</em>OPT=-u
-set PASS<em>OPT=-p
-set MODULE</em>OPT=-m
-set BAT<em>FILENAME=%~nx0
-set BAT</em>PATH=%~dp0
-set OUT<em>EXT=.txt
-set OUT</em>FILE=&quot;%BAT<em>PATH%/%OUT</em>NAME%%OUT_EXT%&quot;</p>
-
-<p>@rem ----------------
-@rem Main Program
-@rem ----------------
-title %BANNER_NAMEVER%</p>
-
-<p>echo %BANNER<em>DASH%
-echo %BANNER</em>NAMEVER%
-echo %BANNER<em>BY%
-echo %BANNER</em>UPDATES%
-echo %BANNER<em>LICENSE%
-echo %BANNER</em>DASH%</p>
-
-<p>echo %BANNER<em>DASH% &gt;&gt; %OUT</em>FILE%
-echo Generated with %BANNER<em>NAMEVER% &gt;&gt; %OUT</em>FILE%
-echo %BANNER<em>BY% &gt;&gt; %OUT</em>FILE
-%echo %BANNER<em>UPDATES% &gt;&gt; %OUT</em>FILE
-echo %BANNER<em>LICENSE% &gt;&gt; %OUT</em>FILE%
-echo %BANNER<em>DASH% &gt;&gt; %OUT</em>FILE%</p>
-
-<p>echo.
-echo Site:    %SITE%
-echo User:    %USER%
-echo Pass:    hidden
-echo Modules: %MODULES%</p>
-
-<p>echo. &gt;&gt; %OUT<em>FILE%
-echo Site:   %SITE% &gt;&gt; %OUT</em>FILE%
-echo User:   %USER% &gt;&gt; %OUT<em>FILE%
-echo Pass:   hidden &gt;&gt; %OUT</em>FILE%
-echo Modules: %MODULES% &gt;&gt; %OUT_FILE%</p>
-
-<p>cd /D %ERPSCAN_PATH%</p>
-
-<p>SETLOCAL ENABLEDELAYEDEXPANSION
-for %%x in (%MODULES%) do (
-  set MODULE=%%x</p>
-
-<p>echo.
-  echo --------------------------------
-  echo Running module !MODULE!..
-  echo --------------------------------</p>
-
-<p>echo. &gt;&gt; %OUT<em>FILE%
-  echo -------------------------------- &gt;&gt; %OUT</em>FILE%
-  echo Running module !MODULE!.. &gt;&gt; %OUT<em>FILE%
-  echo -------------------------------- &gt;&gt; %OUT</em>FILE%</p>
-
-<p>perl %ERPSCAN<em>FILENAME% %SITE</em>OPT% %SITE% %USER<em>OPT% %USER% %PASS</em>OPT% %PASS% %MODULE<em>OPT% !MODULE! &gt;&gt; %OUT</em>FILE%
-)</p>
-
-<p>echo.
-echo Done</p>
-
-<p>pause
+<p><noscript><pre>404: Not Found
 </pre></noscript><script src="https://gist.github.com/alias1/6118709.js"> </script></p>
 
 	  ]]></description>
@@ -571,26 +434,7 @@ echo Done</p>
 
 <p>With that in mind, here&#39;s a little bash script I threw together today to reduce the time it takes to kick off a standard (in my day to day usage) nmap scan. Hopefully you can get some use out of it.</p>
 
-<p><noscript><pre>#!/bin/bash
-echo &quot;-----------------------------------------------&quot;
-echo &quot;A very simple script to make nmap scanning a little quicker to kick off&quot;
-echo &quot;By Glenn &#39;/dev/alias&#39; Grant (devalias.net)&quot;
-echo &quot;v0.3&quot;
-echo &quot;-----------------------------------------------&quot;
-<em>iphost=$1
-_now=$(date +&quot;%Y%m%d-%H%M&quot;)
-_nmapopts=&quot;-A -vvv ${@:2}&quot;
-_nmapoptshidden=&quot;--webxml&quot;
-_nmapoptsfilename=$(echo $</em>nmapopts | tr -d &#39; &#39;) 
-<em>file=&quot;nmap-$</em>now-$<em>iphost$</em>nmapoptsfilename&quot;</p>
-
-<p>if [ -z &quot;$1&quot; ]; then
-  echo &quot;Usage: nmap.sh ipOrHostnameToScan [any other arguments here]&quot;
-  echo &quot;Default Options: $<em>nmapoptshidden $</em>nmapopts&quot;
-  exit
-fi</p>
-
-<p>nmap -oA $<em>file $</em>nmapoptshidden $<em>nmapopts $</em>iphost
+<p><noscript><pre>404: Not Found
 </pre></noscript><script src="https://gist.github.com/alias1/5963377.js"> </script></p>
 
 	  ]]></description>

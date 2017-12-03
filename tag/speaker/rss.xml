@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+   
+      <title>devalias.net</title>
+   
+   <link>http://devalias.net</link>
+   <description>Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.</description>
+   <language>en_GB</language>
+   <managingEditor> </managingEditor>
+   <atom:link href="rss" rel="self" type="application/rss+xml" />
+   
+	<item>
+	  <title>Presenting all the things! (BSides Wellington, CSides Canberra, SecTalks Canberra)</title>
+	  <link>/devalias/2017/11/19/presenting-all-the-things-bsides-wellington-csides-sectalks/</link>
+	  <author>devalias</author>
+	  <pubDate>2017-11-19T00:00:00+11:00</pubDate>
+	  <guid>/devalias/2017/11/19/presenting-all-the-things-bsides-wellington-csides-sectalks/</guid>
+	  <description><![CDATA[
+	     <p>Recently I had the opportunity to present at a few local security meetups, and one international security conference.</p>
+
+<p>At the start of 2017, I set a loose goal in the back of my mind that I would like to &quot;get out there more&quot; and &quot;speak about the things I do&quot;. Little did I know at the time that this would actually eventuate; leading to me having a pile of great experiences, and meeting some really cool and talented people!</p>
+
+<h2>TL;DR</h2>
+
+<ul>
+<li><a href="http://www.sectalks.org/canberra/">SecTalks Canberra</a> (<a href="https://www.meetup.com/SecTalks-Canberra/events/241579721/">November 14th, 2017; Canberra, Australia</a>)
+
+<ul>
+<li>&quot;Hack FaaSter: Leveraging Docker and OpenFaaS for fun and offensive (security) profit.&quot;</li>
+<li>Slides, workshop, etc: <a href="https://github.com/0xdevalias/hack-FaaSter">GitHub</a> <a href="https://github.com/0xdevalias/hack-FaaSter/blob/master/20171114%20-%20Hack%20FaaSter%20-%20SecTalks%20Canberra.pdf">PDF</a>, <a href="https://speakerdeck.com/0xdevalias/hack-faaster-leveraging-docker-and-openfaas-for-fun-and-offensive-security-profit">SpeakerDeck</a>, <a href="https://www.slideshare.net/GlenndevaliasGrant/hack-faaster-sectalks-canberra-20171114">SlideShare</a></li>
+</ul></li>
+<li><a href="http://www.bsidesau.com.au/csides.html">CSides Canberra</a> (November 17th, 2017; Canberra, Australia)
+
+<ul>
+<li>&quot;Gophers, whales and.. clouds? Oh my!&quot; <code>v0.2-prewlg-alpha</code></li>
+</ul></li>
+<li><a href="https://www.bsides.nz/">BSides Wellington 2017</a> (November 23-24th, 2017; Wellington, New Zealand)
+
+<ul>
+<li><a href="https://bsideswellington2017.sched.com/speaker/glenndevaliasgrant">Speaker: Glenn &#39;devalias&#39; Grant</a></li>
+<li><a href="https://bsideswellington2017.sched.com/event/CTpF/gophers-whales-and-clouds-oh-my">&quot;Gophers, whales and.. clouds? Oh my!&quot;</a></li>
+<li>Slides, etc: <a href="https://github.com/0xdevalias/gopherblazer">GitHub</a>, <a href="https://github.com/0xdevalias/gopherblazer/blob/master/slides/20171123-Gopherblazer-BSidesWellington.pdf">PDF</a>, <a href="https://speakerdeck.com/0xdevalias/gophers-whales-and-dot-clouds-oh-my">SpeakerDeck</a>, <a href="https://www.slideshare.net/GlenndevaliasGrant/gophers-whales-and-clouds-oh-my">SlideShare</a></li>
+</ul></li>
+</ul>
+
+<h2>SecTalks Canberra</h2>
+
+<p><a href="http://www.sectalks.org/canberra/">SecTalks Canberra</a> is a monthly security meetup with more of a focus on participation and learning from others, rather than the traditional &#39;super awesome technical talk but how do I do it&#39; style of things.</p>
+
+<p>I had the opportunity to run a little workshop on how to use <a href="https://www.docker.com/">Docker</a> and <a href="https://www.openfaas.com/">OpenFaaS</a> to improve offensive capabilities.</p>
+
+<blockquote>
+<p>Hack FaaSter: Leveraging Docker and OpenFaaS for fun and offensive (security) profit.</p>
+</blockquote>
+
+<p>Slides, workshop files and more details are available from the &#39;TL;DR&#39; section above.</p>
+
+<p>Description:</p>
+
+<blockquote>
+<p>Join us this month for Hack FaaSter - leveraging <a href="https://www.docker.com/">Docker</a> and <a href="https://www.openfaas.com/">OpenFaaS</a> to improve offensive tooling, with the glorious <a href="https://twitter.com/_devalias">@_devalias</a> (<a href="https://github.com/0xdevalias">Github</a> // <a href="https://www.linkedin.com/in/glenn-devalias-grant/">LinkedIn</a>)</p>
+</blockquote>
+
+<h2>CSides Canberra</h2>
+
+<p><a href="http://www.bsidesau.com.au/csides.html">CSides Canberra</a> is a monthly security meetup run by the organisers of <a href="http://www.bsidesau.com.au/">BSides Canberra</a>.</p>
+
+<p>I had the opportunity to present a <code>v0.2-prewlg-alpha</code> version of my BSides Wellington talk, and get some practice and feedback in before the big thing.</p>
+
+<blockquote>
+<p>Gophers, whales and.. clouds? Oh my! (v0.2-prewlg-alpha)</p>
+</blockquote>
+
+<p>Slides and more details are available from the &#39;TL;DR&#39; section above, as well as the BSides Wellington section below.</p>
+
+<h2>BSides Wellington</h2>
+
+<p><a href="https://www.bsides.nz/">BSides Wellington</a> (<a href="https://twitter.com/bsideswlg">Twitter</a>) is an annual security conference (based in Wellington, New Zealand) that ran it&#39;s first event in 2017. Popping up to fill the void left by <a href="https://www.kiwicon.org/">Kiwicon</a> (<a href="https://twitter.com/kiwicon">Twitter</a>), they had a strong first event, and hopefully will continue that trend into the future!</p>
+
+<p>I had the opportunity to present my talk on leveraging DevOps trends and tools (<a href="https://www.docker.com/">Docker</a>, <a href="https://en.wikipedia.org/wiki/Serverless_computing">Serverless</a>, <a href="https://en.wikipedia.org/wiki/Function_as_a_service">FaaS</a>, <a href="https://golang.org/">Golang</a>, etc), to increase my efficiency and effectiveness on the offensive side.</p>
+
+<blockquote>
+<p>Gophers, whales and.. clouds? Oh my!</p>
+</blockquote>
+
+<p>Slides and more details are available from the &#39;TL;DR&#39; section above.</p>
+
+<p>You can read the <a href="https://bsideswellington2017.sched.com/event/CTpF/gophers-whales-and-clouds-oh-my">official brief of my talk</a>:</p>
+
+<blockquote>
+<p>Go, Docker and Microservices; some great technologies and buzzwords that we hear so much about on the development side of the fence, but how can we leverage these technologies to improve our offensive capacity? Armed with a passion for new tech, a vague theory, and an ‘nsa-o-matic’ approved project name; gopherblazer was born.</p>
+
+<p>Whether through dockerising and improving existing tooling, leveraging Function-as-a-Service (FaaS) offerings, or just distributing offensive capabilities; I’ll share what I learned on my journey into improving my offensive capacity and productivity (while having an excuse to play with shiny technologies along the way!).</p>
+</blockquote>
+
+<p>And I can even now say that I have a <a href="https://bsideswellington2017.sched.com/speaker/glenndevaliasgrant">professional speaker bio</a>:</p>
+
+<blockquote>
+<p>Glenn ‘devalias’ Grant is a full-stack, polyglot developer with an acute interest in the offensive side of security. Whether building something new or finding the cracks to break in, there is always a solution to be found; even if it requires learning something entirely new. If you can improve/automate something, do it, and if you’ve put the effort in to do so, open-source it and share it with everyone else.</p>
+
+<p>When not hacking and coding, Glenn can be found snowboarding the peaks of Japan, falling out of the sky, floating around underwater, or just finding the most efficient path between A and B (even if that’s over walls). Life is short. Do the things you love, embrace the unknown, live your dreams, and share your passion.</p>
+</blockquote>
+
+<p>Overall, the conference was amazing. As expected, there were a number of deeply interesting technical talks, but as a bit of a twist from traditional security conferences, there were quite a few talks that focussed on mental health, impostor syndrome, and other &#39;culture based&#39; topics that so often go unmentioned in the infosec industry. Very much appreciated and would love to see this sort of thing happen at more conferences in future.</p>
+
+<p>If you missed the talks, or want to go back and re-watch them, videos should be posted online at some point (once the organisers recover from running the conference). A lot of the presenters also seem to be pushing their slides/content out online. Here&#39;s a selection of the few I&#39;ve stumbled across so far (in no particular order):</p>
+
+<ul>
+<li><a href="https://github.com/0xdevalias/gopherblazer#talks">Glenn &#39;devalias&#39; Grant, &quot;Gophers, whales and.. clouds? Oh my!&quot;</a> (<a href="blockquote%20class=%22twitter-tweet%22%3E%3Cp%20lang=%22en%22%20dir=%22ltr%22%3ESlides%20from%20my%20%3Ca%20href=%22https://twitter.com/hashtag/bsideswlg?src=hash&amp;ref_src=twsrc%5Etfw%22%3E#bsideswlg%3C/a%3E%20talk%20are%20now%20pushed%20to%20%3Ca%20href=%22https://twitter.com/speakerdeck?ref_src=twsrc%5Etfw%22%3E@speakerdeck%3C/a%3E%20and%20%3Ca%20href=%22https://twitter.com/SlideShare?ref_src=twsrc%5Etfw%22%3E@SlideShare%3C/a%3E%20for%20your%20viewing%20pleasure.%20See%20links%20at%20%3Ca%20href=%22https://t.co/Iu1UBGhGSa%22%3Ehttps://t.co/Iu1UBGhGSa%3C/a%3E%3C/p%3E&mdash;%20Glenn%20/%20devalias%20(@_devalias)%20%3Ca%20href=%22https://twitter.com/_devalias/status/937104594974289920?ref_src=twsrc%5Etfw%22%3EDecember%202,%202017%3C/a%3E%3C/blockquote%3E%0A%3Cscript%20async%20src=%22https://platform.twitter.com/widgets.js%22%20charset=%22utf-8%22%3E%3C/script">Twitter</a>)</li>
+<li><a href="https://speakerdeck.com/barnbarn/layer-2-person-spoofing-and-impostor-syndrome">Ben Hughes, &quot;Layer 2 person spoofing and impostor syndrome&quot;</a> (<a href="blockquote%20class=%22twitter-tweet%22%3E%3Cp%20lang=%22en%22%20dir=%22ltr%22%3EMy%20slides%20for%20&quot;Layer%202%20person%20spoofing%20and%20impostor%20syndrome&quot;%20for%20%3Ca%20href=%22https://twitter.com/hashtag/bsideswlg?src=hash&amp;ref_src=twsrc%5Etfw%22%3E#bsideswlg%3C/a%3E%20are%20up%20at%20%3Ca%20href=%22https://t.co/hAbzSMsLmt%22%3Ehttps://t.co/hAbzSMsLmt%3C/a%3E%20thanks%20everyone%20who%20came%20along.%3C/p%3E&mdash;%20Ben%20Hughes%20(@benjammingh)%20%3Ca%20href=%22https://twitter.com/benjammingh/status/933484211977166848?ref_src=twsrc%5Etfw%22%3ENovember%2022,%202017%3C/a%3E%3C/blockquote%3E%0A%3Cscript%20async%20src=%22https://platform.twitter.com/widgets.js%22%20charset=%22utf-8%22%3E%3C/script">Twitter</a>)</li>
+<li><a href="https://speakerdeck.com/heisenburger/design-for-security-bsides-wellington-2017">Serena Chen, &quot;Design for Security — BSides Wellington 2017&quot;</a> (<a href="blockquote%20class=%22twitter-tweet%22%3E%3Cp%20lang=%22en%22%20dir=%22ltr%22%3E%F0%9F%90%9D%F0%9F%90%9D%F0%9F%90%9D%20hey%20%3Ca%20href=%22https://twitter.com/hashtag/bsideswlg?src=hash&amp;ref_src=twsrc%5Etfw%22%3E#bsideswlg%3C/a%3E%20fam,%20I%20finally%20uploaded%20my%20slides%20from%20my%20design%20for%20security%20talk:%20%3Ca%20href=%22https://t.co/K4wWWeciJM%22%3Ehttps://t.co/K4wWWeciJM%3C/a%3E%20Thanks%20so%20much%20for%20coming%20along!%20%F0%9F%98%8A%3C/p%3E&mdash;%20%F0%9F%8C%99%20serena%20chen%20%F0%9F%92%AB%20(@Sereeena)%20%3Ca%20href=%22https://twitter.com/Sereeena/status/935208350207356930?ref_src=twsrc%5Etfw%22%3ENovember%2027,%202017%3C/a%3E%3C/blockquote%3E%0A%3Cscript%20async%20src=%22https://platform.twitter.com/widgets.js%22%20charset=%22utf-8%22%3E%3C/script">Twitter</a>)</li>
+<li><a href="https://mango.pdf.zone/operation-luigi-how-i-hacked-my-friend-without-her-noticing">&quot;Alex&quot;, &quot;Operation Luigi: How I hacked my friend without her noticing&quot;</a> (<a href="blockquote%20class=%22twitter-tweet%22%3E%3Cp%20lang=%22en%22%20dir=%22ltr%22%3EHey%20everybody%20welcome%20to%20Operation%20Luigi,%20where%20my%20friend%20gave%20me%20permission%20to%20try%20to%20hack%20all%20her%20stuff.%20This%20is%20what%20I%20did,%20how%20I%20did%20it,%20and%20how%20to%20prevent%20it%20from%20working%20on%20you.%20Also%20at%20the%20end%20Mario&#39;s%20good%20green%20brother%20is%20there%3Ca%20href=%22https://t.co/d7CZv9LGm5%22%3Ehttps://t.co/d7CZv9LGm5%3C/a%3E%3C/p%3E&mdash;%20%E2%80%9CAlex%E2%80%9D%20(@mangopdf)%20%3Ca%20href=%22https://twitter.com/mangopdf/status/934897549554491394?ref_src=twsrc%5Etfw%22%3ENovember%2026,%202017%3C/a%3E%3C/blockquote%3E%0A%3Cscript%20async%20src=%22https://platform.twitter.com/widgets.js%22%20charset=%22utf-8%22%3E%3C/script">Twitter</a>)</li>
+<li><a href="https://github.com/jenofdoom/give-your-users-better-feedback-about-rubbish-passwords">@jenofdoom, &quot;Give your users better feedback about rubbish passwords with zxcvbn&quot;</a></li>
+<li><a href="https://zxsecurity.co.nz/presentations/201711_BSidesWLG-ZXSecurity_MeatPuppets.pdf">Simon &#39;bogan&#39; Howard, &quot;Influencing Meat
+Puppets Through
+Memes&quot;</a> (<a href="blockquote%20class=%22twitter-tweet%22%3E%3Cp%20lang=%22en%22%20dir=%22ltr%22%3EThe%20slides%20from%20my%20%3Ca%20href=%22https://twitter.com/bsideswlg?ref_src=twsrc%5Etfw%22%3E@bsideswlg%3C/a%3E%20presentation%20on%20&quot;Influencing%20Meat%20Puppets%20with%20Memes&quot;%20are%20available%20here:%20%3Ca%20href=%22https://t.co/IRWsEmjseE%22%3Ehttps://t.co/IRWsEmjseE%3C/a%3E%3C/p%3E&mdash;%20bogan%20(@bogan)%20%3Ca%20href=%22https://twitter.com/bogan/status/934896629135556608?ref_src=twsrc%5Etfw%22%3ENovember%2026,%202017%3C/a%3E%3C/blockquote%3E%0A%3Cscript%20async%20src=%22https://platform.twitter.com/widgets.js%22%20charset=%22utf-8%22%3E%3C/script">Twitter</a>)</li>
+</ul>
+
+<p>It looks like there are also some good summaries, notes and writeups of the conference popping up around the net. Some places to start looking:</p>
+
+<ul>
+<li><a href="https://rodger.donaldson.gen.nz/archives/2017/11/b-sides-wellington-day-1/">B-Sides Wellington - Day 1 (Notes)</a> (<a href="blockquote%20class=%22twitter-tweet%22%3E%3Cp%20lang=%22en%22%20dir=%22ltr%22%3EMy%20notes%20on%20day%20one%20of%20the%20fabulous%20%3Ca%20href=%22https://twitter.com/hashtag/bsideswlg?src=hash&amp;ref_src=twsrc%5Etfw%22%3E#bsideswlg%3C/a%3E%20%3Ca%20href=%22https://t.co/5IABHBjr8G%22%3Ehttps://t.co/5IABHBjr8G%3C/a%3E%3C/p%3E&mdash;%20Nazi%20Tweeps%20Fuck%20Off%20(@hroethgar)%20%3Ca%20href=%22https://twitter.com/hroethgar/status/933620066129625090?ref_src=twsrc%5Etfw%22%3ENovember%2023,%202017%3C/a%3E%3C/blockquote%3E%0A%3Cscript%20async%20src=%22https://platform.twitter.com/widgets.js%22%20charset=%22utf-8%22%3E%3C/script">Twitter</a>)
+
+<ul>
+<li>My Talk: <a href="https://rodger.donaldson.gen.nz/archives/2017/11/b-sides-wellington-day-1/#gophers-whales-and-clouds-oh-my">Gophers, whales, and clouds? Oh my.</a></li>
+</ul></li>
+<li><a href="https://rodger.donaldson.gen.nz/archives/2017/11/b-sides-wellington-day-2/">B-Sides Wellington - Day 2 (Notes)</a></li>
+<li><a href="https://www.asinine.nz/2017-11-25/bsides-badge-part1/">BSides Wellington Badge Challenge</a> (<a href="blockquote%20class=%22twitter-tweet%22%3E%3Cp%20lang=%22en%22%20dir=%22ltr%22%3EA%20write%20up%20of%20the%20%3Ca%20href=%22https://twitter.com/hashtag/bsidesWLG?src=hash&amp;ref_src=twsrc%5Etfw%22%3E#bsidesWLG%3C/a%3E%20badge%20challenge.%20%3Ca%20href=%22https://twitter.com/bsideswlg?ref_src=twsrc%5Etfw%22%3E@bsideswlg%3C/a%3E%20%3Ca%20href=%22https://t.co/XC8tqAuOor%22%3Ehttps://t.co/XC8tqAuOor%3C/a%3E%3C/p%3E&mdash;%20Derek%20Robson%20(@asinine_net_nz)%20%3Ca%20href=%22https://twitter.com/asinine_net_nz/status/934592555253039104?ref_src=twsrc%5Etfw%22%3ENovember%2026,%202017%3C/a%3E%3C/blockquote%3E%0A%3Cscript%20async%20src=%22https://platform.twitter.com/widgets.js%22%20charset=%22utf-8%22%3E%3C/script">Twitter</a>)</li>
+</ul>
+
+<p>And of course, Twitter is always full of content when it comes to the security industry, with 3 hashtags mainly being used throughout the conference:</p>
+
+<ul>
+<li><a href="https://twitter.com/search?q=%23bsideswlg&src=typd">#bsideswlg</a></li>
+<li><a href="https://twitter.com/search?q=%23bsideswlg2017&src=typd">#bsideswlg2017</a></li>
+<li><a href="https://twitter.com/search?q=%23bsidesnz&src=typd">#bsidesnz</a></li>
+</ul>
+
+<h2>Conclusion</h2>
+
+<p>While at times I was definitely feeling the stress and pressure of having a few looming deadlines, and at times possibly not allocating enough time/energy/focus to working on them as I would have liked, it has been a great experience, and left a smouldering flame of passion to speak at more events in the future.</p>
+
+<p>Know of any other writeups, slides or tools; or got a cool story to share from BSides Wellington? Would love to hear from you in the comments!</p>
+
+	  ]]></description>
+	</item>
+
+
+</channel>
+</rss>

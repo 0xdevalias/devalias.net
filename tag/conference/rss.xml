@@ -269,9 +269,7 @@ Port scanning
   massscan
     doesn't provide a default port list
     use nmaps (giant list of ports)
-      <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Default nmap port list into masscan. 11min for 65k hosts <a href="https://twitter.com/Jhaddix?ref_src=twsrc%5Etfw">@jhaddix</a> <a href="https://twitter.com/hashtag/ItTakesACrowd?src=hash&amp;ref_src=twsrc%5Etfw">#ItTakesACrowd</a> <a href="https://t.co/OLq1qz2HI4">pic.twitter.com/OLq1qz2HI4</a></p>&mdash; Glenn / devalias (@_devalias) <a href="https://twitter.com/_devalias/status/886280729327312896?ref_src=twsrc%5Etfw">July 15, 2017</a></blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
+      https://twitter.com/_devalias/status/886280729327312896
 
 Visual identification
   https://github.com/ChrisTruncer/EyeWitness
@@ -515,9 +513,7 @@ Personal mobile recon setup
     next gen will be a webapp to help 
 
 Bug Bounty Resources
-  <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Bug Bounty Resources <a href="https://twitter.com/aphire?ref_src=twsrc%5Etfw">@aphire</a> <a href="https://twitter.com/hashtag/ItTakesACrowd?src=hash&amp;ref_src=twsrc%5Etfw">#ItTakesACrowd</a> <a href="https://t.co/E0hvHqDAHl">pic.twitter.com/E0hvHqDAHl</a></p>&mdash; Glenn / devalias (@_devalias) <a href="https://twitter.com/_devalias/status/886295129807396865?ref_src=twsrc%5Etfw">July 15, 2017</a></blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
+  https://twitter.com/_devalias/status/886295129807396865
 </pre>
 
 <h3>Giving Back to the Community (ZSeano)</h3>
@@ -1027,7 +1023,6 @@ https://twitter.com/adi1391
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Dropping a guide on IoT testing soon <a href="https://twitter.com/adi1391?ref_src=twsrc%5Etfw">@adi1391</a> <a href="https://twitter.com/hashtag/ItTakesACrowd?src=hash&amp;ref_src=twsrc%5Etfw">#ItTakesACrowd</a> <a href="https://twitter.com/Bugcrowd?ref_src=twsrc%5Etfw">@Bugcrowd</a> <a href="https://t.co/zO9NGS9K8n">pic.twitter.com/zO9NGS9K8n</a></p>&mdash; Glenn / devalias (@_devalias) <a href="https://twitter.com/_devalias/status/886339682958680064?ref_src=twsrc%5Etfw">July 15, 2017</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
   Run attify, pentesting IoT devices
   Author: "Learning Pentesting for Andorid Devices"
   Book: IoT hackers handbook, this month
@@ -1080,9 +1075,7 @@ How
     hacking radio communications
 
   Attack Surface Mapping - Step 1
-    <blockquote class="twitter-tweet"><p lang="en" dir="ltr">IoT Attack Surface Mapping - Step 1 <a href="https://twitter.com/adi1391?ref_src=twsrc%5Etfw">@adi1391</a> <a href="https://twitter.com/hashtag/ItTakesACrowd?src=hash&amp;ref_src=twsrc%5Etfw">#ItTakesACrowd</a> <a href="https://twitter.com/Bugcrowd?ref_src=twsrc%5Etfw">@Bugcrowd</a> <a href="https://t.co/wXzQf6erbc">pic.twitter.com/wXzQf6erbc</a></p>&mdash; Glenn / devalias (@_devalias) <a href="https://twitter.com/_devalias/status/886341534450307072?ref_src=twsrc%5Etfw">July 15, 2017</a></blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
+    https://twitter.com/_devalias/status/886341534450307072
     Recon
       understanding device
       visible ports
@@ -1097,9 +1090,7 @@ How
       FCC ID
 
     Attack Surface Mapping - Step 2
-      <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Attack Surface Mapping - Step 2 <a href="https://twitter.com/adi1391?ref_src=twsrc%5Etfw">@adi1391</a> <a href="https://twitter.com/hashtag/ItTakesACrowd?src=hash&amp;ref_src=twsrc%5Etfw">#ItTakesACrowd</a> <a href="https://twitter.com/Bugcrowd?ref_src=twsrc%5Etfw">@Bugcrowd</a> <a href="https://t.co/hpyIedVQIc">pic.twitter.com/hpyIedVQIc</a></p>&mdash; Glenn / devalias (@_devalias) <a href="https://twitter.com/_devalias/status/886341954404929536?ref_src=twsrc%5Etfw">July 15, 2017</a></blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
+      https://twitter.com/_devalias/status/886341954404929536
       map attack surface (architecture diagram)
       entrypoints
       commuications
@@ -1151,9 +1142,7 @@ How
       can be scattered across board
       JTAGulator or arduino nano flashed with JTAGEnum
       easily identify pinouts for JTAG
-      <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Hacking Embedded Devices - Debug JTAG <a href="https://twitter.com/adi1391?ref_src=twsrc%5Etfw">@adi1391</a> <a href="https://twitter.com/hashtag/ItTakesACrowd?src=hash&amp;ref_src=twsrc%5Etfw">#ItTakesACrowd</a> <a href="https://twitter.com/Bugcrowd?ref_src=twsrc%5Etfw">@Bugcrowd</a> <a href="https://t.co/0OPpTAWQjv">pic.twitter.com/0OPpTAWQjv</a></p>&mdash; Glenn / devalias (@_devalias) <a href="https://twitter.com/_devalias/status/886344370944786432?ref_src=twsrc%5Etfw">July 15, 2017</a></blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
+      https://twitter.com/_devalias/status/886344370944786432
         Hacking Embedded Devices - Debug JTAG
 
     Dump Flash
@@ -1239,17 +1228,13 @@ Pentest methodology
   follow the guide
 
 https://www.iotpentestingguide.com/
-  <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Short for now, but more coming in a few days! <a href="https://t.co/DwTNpx7BQZ">https://t.co/DwTNpx7BQZ</a> <a href="https://twitter.com/adi1391?ref_src=twsrc%5Etfw">@adi1391</a> <a href="https://twitter.com/hashtag/ItTakesACrowd?src=hash&amp;ref_src=twsrc%5Etfw">#ItTakesACrowd</a> <a href="https://twitter.com/Bugcrowd?ref_src=twsrc%5Etfw">@Bugcrowd</a> <a href="https://t.co/3xXsS8ieN4">pic.twitter.com/3xXsS8ieN4</a></p>&mdash; Glenn / devalias (@_devalias) <a href="https://twitter.com/_devalias/status/886350210724646912?ref_src=twsrc%5Etfw">July 15, 2017</a></blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
+  https://twitter.com/_devalias/status/886350210724646912
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">&quot;Let&#39;s hack IoT coz it won&#39;t be always like the 2017&#39;s...&quot; <a href="https://twitter.com/adi1391?ref_src=twsrc%5Etfw">@adi1391</a> <a href="https://twitter.com/hashtag/ItTakesACrowd?src=hash&amp;ref_src=twsrc%5Etfw">#ItTakesACrowd</a> <a href="https://twitter.com/Bugcrowd?ref_src=twsrc%5Etfw">@Bugcrowd</a> <a href="https://t.co/RI6zXB9Tot">pic.twitter.com/RI6zXB9Tot</a></p>&mdash; Glenn / devalias (@_devalias) <a href="https://twitter.com/_devalias/status/886350674266537984?ref_src=twsrc%5Etfw">July 15, 2017</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Absolutely mind blown! Such a great talk!!! &quot;Hacking Internet of Things for Bug Bounties&quot; <a href="https://twitter.com/adi1391?ref_src=twsrc%5Etfw">@adi1391</a> <a href="https://twitter.com/hashtag/ItTakesACrowd?src=hash&amp;ref_src=twsrc%5Etfw">#ItTakesACrowd</a> <a href="https://twitter.com/Bugcrowd?ref_src=twsrc%5Etfw">@Bugcrowd</a> <a href="https://t.co/Cfu2JF7SLJ">pic.twitter.com/Cfu2JF7SLJ</a></p>&mdash; Glenn / devalias (@_devalias) <a href="https://twitter.com/_devalias/status/886350817741094912?ref_src=twsrc%5Etfw">July 15, 2017</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
 </pre>
 
 <h3>Intro to Car Hacking (Alan Mond)</h3>
@@ -1303,9 +1288,7 @@ What you'll need
 
 Most comprehensive list
   github.com/jaredthecoder/awesome-vehicle-security
-  <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Comprehensive list of car hacking places for questions <a href="https://twitter.com/mondalan?ref_src=twsrc%5Etfw">@mondalan</a> <a href="https://twitter.com/hashtag/ItTakesACrowd?src=hash&amp;ref_src=twsrc%5Etfw">#ItTakesACrowd</a> <a href="https://twitter.com/Bugcrowd?ref_src=twsrc%5Etfw">@Bugcrowd</a> <a href="https://t.co/3492Z3VEar">pic.twitter.com/3492Z3VEar</a></p>&mdash; Glenn / devalias (@_devalias) <a href="https://twitter.com/_devalias/status/886354216968609792?ref_src=twsrc%5Etfw">July 15, 2017</a></blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
+  https://twitter.com/_devalias/status/886354216968609792
 
 Vehicle networking basics
   CAN bus
@@ -1442,40 +1425,38 @@ https://store.carloop.io/
 <li>Small open source/hardware device to generate truly random entropy, to be fed back into a random number generator</li>
 <li>Recently released on kickstarter: <a href="https://www.kickstarter.com/projects/moonbaseotago/onerng-an-open-source-entropy-generator">https://www.kickstarter.com/projects/moonbaseotago/onerng-an-open-source-entropy-generator</a></li>
 </ul></li>
-<li><p><a href="http://2014.kiwicon.org/the-con/talks/#e147">Eradicating the Human Problem</a></p>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e147">Eradicating the Human Problem</a>
 
 <ul>
 <li>Really excellent talk by @lady_nerd talking about social engineering and humans as the weak point in security</li>
 <li>Talked about how we need a better way to assess and track the human element of security, rather than treating it as too hard/unobtainable</li>
 <li>Briefly discussed a tool in development designed to assist with mapping out the social interactions of a company in a way that allows assessing potential risk/etc, and determining the flow of an attack through the social elements of a company</li>
-<li>Slides: <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Want to see the trailer/slides for my <a href="https://twitter.com/hashtag/kiwicon?src=hash&amp;ref_src=twsrc%5Etfw">#kiwicon</a> talk &#39;Eradicating the human problem&#39;. Here&#39;s a blog post with links <a href="http://t.co/I5bacKHRVb"><a href="http://t.co/I5bacKHRVb">http://t.co/I5bacKHRVb</a></a></p>&mdash; Laura Bell (@lady<em>nerd) &lt;a href=&quot;<a href="https://twitter.com/lady">https://twitter.com/lady</a></em>nerd/status/544230404170194945?ref_src=twsrc%5Etfw&quot;&gt;December 14, 2014</a></blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></li>
+<li>Slides: <a href="https://twitter.com/lady_nerd/status/544230404170194945">https://twitter.com/lady_nerd/status/544230404170194945</a></li>
 </ul></li>
-<li><p><a href="http://2014.kiwicon.org/the-con/talks/#e142">Security the Etsy way: Effective security in a continuous deployment culture</a></p>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e142">Security the Etsy way: Effective security in a continuous deployment culture</a>
 
 <ul>
 <li>Excellent talk by @iodboi about mixing in security people with the general developers, not blocking progress/saying no while still maintaining security, making security liked/approachable, etc.</li>
 <li>So many awesome points and discussions, not to mention showing just how epic a place Etsy is to work.</li>
 <li>Caught up with him a decent bit after his talk and had some awesome chats, a really cool and down to earth guy</li>
 <li>Etsy are a great example of continuous deployment, with upwards of 50 pushes into production every day</li>
-<li>One of the big points: Don&#39;t hire assholes (they will ruin all of the work you put in to enhance security/etcs image and drag everyone down) <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Excellent security team management advice from <a href="https://twitter.com/iodboi?ref_src=twsrc%5Etfw">@iodboi</a> :) <a href="https://twitter.com/kiwicon?ref_src=twsrc%5Etfw">@kiwicon</a> <a href="http://t.co/8m5ZyjYFfV">pic.twitter.com/8m5ZyjYFfV</a></p>&mdash; Leigh Janet Mactavish Honeywell (@hypatiadotca) <a href="https://twitter.com/hypatiadotca/status/542870405514801152?ref_src=twsrc%5Etfw">December 11, 2014</a></blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></li>
+<li>One of the big points: Don&#39;t hire assholes (they will ruin all of the work you put in to enhance security/etcs image and drag everyone down) <a href="https://twitter.com/hypatiadotca/status/542870405514801152">https://twitter.com/hypatiadotca/status/542870405514801152</a></li>
 </ul></li>
-<li><p><a href="http://2014.kiwicon.org/the-con/talks/#e153">COMSEC - Beyond Encryption</a></p>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e153">COMSEC - Beyond Encryption</a>
 
 <ul>
 <li>Discussion on maintaining communication security, tools that are good/bad, etc</li>
 <li>Almost surprisingly, Apple factime rates pretty highly on the list.</li>
 <li>Pond considered THE thing to use <a href="https://pond.imperialviolet.org/">https://pond.imperialviolet.org/</a></li>
 </ul></li>
-<li><p><a href="http://2014.kiwicon.org/the-con/talks/#e154">MitMing GSM with criminal intent</a></p>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e154">MitMing GSM with criminal intent</a>
 
 <ul>
 <li>Discussed the analysis and thinking, and eventual pwning of a GSM enabled home detention ankle monitor</li>
 <li>Made front page of the newspaper for the talk: <a href="http://www.nzherald.co.nz/nz/news/article.cfm?c_id=1&objectid=11373524">http://www.nzherald.co.nz/nz/news/article.cfm?c_id=1&amp;objectid=11373524</a></li>
 <li>Same guy who broke the NZ transport card system last year</li>
 </ul></li>
-<li><p><a href="http://2014.kiwicon.org/the-con/talks/#e143">Building a hipster catapult, or how2own your skateboard</a></p>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e143">Building a hipster catapult, or how2own your skateboard</a>
 
 <ul>
 <li>Amusing talk about taking over control of a bluetooth controlled electric skateboard, including demonstration</li>

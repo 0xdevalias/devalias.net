@@ -12,6 +12,58 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>Atlassian Confluence: Cross-Site Scripting (XSS) (CVE-2017-16856)</title>
+	  <link>/devalias/2017/12/05/atlassian-confluence-cross-site-scripting-xss/</link>
+	  <author>devalias</author>
+	  <pubDate>2017-12-05T00:00:00+11:00</pubDate>
+	  <guid>/devalias/2017/12/05/atlassian-confluence-cross-site-scripting-xss/</guid>
+	  <description><![CDATA[
+	     <p>Earlier this year I spent some time delving into <a href="https://www.atlassian.com/software/confluence">Atlassian Confluence</a> to see if I could dig up any bugs that had slipped through the cracks. I wasn&#39;t really expecting to turn up much, but I was super excited and surprised when I managed to find an issue within the RSS feed plugin leading to Cross-Site Scripting (XSS) (Twitter: <a href="https://twitter.com/_devalias/status/922234470274498560">1</a>, <a href="https://twitter.com/_devalias/status/938271825414455298">2</a>; LinkedIn: <a href="https://www.linkedin.com/feed/update/urn:li:activity:6328008786355331072/">1</a>, <a href="https://www.linkedin.com/feed/update/urn:li:activity:6344043067401732096">2</a>; BugCrowd: <a href="https://bugcrowd.com/devalias">1</a>, <a href="https://bugcrowd.com/atlassian/hall-of-fame">2</a>).</p>
+
+<p>Thanks to <a href="https://www.atlassian.com/trust/security">Atlassian</a> and <a href="https://www.bugcrowd.com/">BugCrowd</a> for running an awesome bug bounty program and giving researchers the opportunity to hack things, make the internet safer, AND get rewarded while doing so!</p>
+
+<h2>The CVE</h2>
+
+<ul>
+<li><strong><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-16856">CVE-2017-16856</a></strong>: The RSS Feed macro in Atlassian Confluence before version 6.5.2 allows remote attackers to inject arbitrary HTML or JavaScript via cross site scripting (XSS) vulnerabilities in various rss properties which were used as links without restriction on their scheme.
+
+<ul>
+<li><a href="https://jira.atlassian.com/browse/CONFSERVER-54395">Confluece Bug Report (CONFSERVER-54395)</a></li>
+<li><a href="https://confluence.atlassian.com/doc/issues-resolved-in-6-5-2-940701301.html">Confluence - Issues resolved in 6.5.2</a></li>
+<li><a href="http://www.securityfocus.com/bid/102094">SecurityFocus</a></li>
+</ul></li>
+</ul>
+
+<h2>Remediation</h2>
+
+<p>This issue was fixed in Confluence <code>6.5.2</code>. Update to this version or newer to be protected. See the CVE advisory details for more information.</p>
+
+<h2>Chaining bugs, social engineering and platform features</h2>
+
+<p>As part of my PoC, I put together some fun little phishing code using the Confluence web plugin API&#39;s. If there is interest (and I&#39;m allowed), I might share it (and some of the useful features/places to look to build similar) sometime.</p>
+
+<p>Once XSS is achieved, if the current user isn&#39;t already an &#39;elevated&#39; administrator, the code provides error messages using standard Confluence GUI elements to convince the user to elevate their privileges with &#39;websudo&#39;. Once they do that, you can basically abuse their full privileges to create new administrators, or (my favourite) install a small malicious plugin to provide Remote Code Execution (RCE) on the server.</p>
+
+<p>While these aren&#39;t security issues in themselves, it does show how you can leverage social engineering techniques and other platform features to chain smaller issues into something more powerful and damaging.</p>
+
+<h2>Acknowledgements</h2>
+
+<p>These issues were identified by <a href="http://devalias.net">myself</a> and the team at <a href="https://dtss.com.au">TSS</a>:</p>
+
+<ul>
+<li>Glenn &#39;devalias&#39; Grant (<a href="http://devalias.net">http://devalias.net</a>) of TSS (<a href="https://dtss.com.au">https://dtss.com.au</a>)</li>
+</ul>
+
+<h2>Conclusion</h2>
+
+<p>It pays to look in places less travelled. If there are older features in products, or things that may not be as popular/used as often, try looking in there. Who knows what may have been overlooked.</p>
+
+<p>Have you ever looked into some popular software and found issues you never expected to find? Got a cool story to share about it? Maybe you&#39;ve chained some bugs in an interesting way, or just want to hear more about my PoC? I&#39;d love to hear from you in the comments below!</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>Presenting all the things! (BSides Wellington, CSides Canberra, SecTalks Canberra)</title>
 	  <link>/devalias/2017/11/19/presenting-all-the-things-bsides-wellington-csides-sectalks/</link>
 	  <author>devalias</author>
@@ -108,26 +160,26 @@
 <p>If you missed the talks, or want to go back and re-watch them, videos should be posted online at some point (once the organisers recover from running the conference). A lot of the presenters also seem to be pushing their slides/content out online. Here&#39;s a selection of the few I&#39;ve stumbled across so far (in no particular order):</p>
 
 <ul>
-<li><a href="https://github.com/0xdevalias/gopherblazer#talks">Glenn &#39;devalias&#39; Grant, &quot;Gophers, whales and.. clouds? Oh my!&quot;</a> (<a href="blockquote%20class=%22twitter-tweet%22%3E%3Cp%20lang=%22en%22%20dir=%22ltr%22%3ESlides%20from%20my%20%3Ca%20href=%22https://twitter.com/hashtag/bsideswlg?src=hash&amp;ref_src=twsrc%5Etfw%22%3E#bsideswlg%3C/a%3E%20talk%20are%20now%20pushed%20to%20%3Ca%20href=%22https://twitter.com/speakerdeck?ref_src=twsrc%5Etfw%22%3E@speakerdeck%3C/a%3E%20and%20%3Ca%20href=%22https://twitter.com/SlideShare?ref_src=twsrc%5Etfw%22%3E@SlideShare%3C/a%3E%20for%20your%20viewing%20pleasure.%20See%20links%20at%20%3Ca%20href=%22https://t.co/Iu1UBGhGSa%22%3Ehttps://t.co/Iu1UBGhGSa%3C/a%3E%3C/p%3E&mdash;%20Glenn%20/%20devalias%20(@_devalias)%20%3Ca%20href=%22https://twitter.com/_devalias/status/937104594974289920?ref_src=twsrc%5Etfw%22%3EDecember%202,%202017%3C/a%3E%3C/blockquote%3E%0A%3Cscript%20async%20src=%22https://platform.twitter.com/widgets.js%22%20charset=%22utf-8%22%3E%3C/script">Twitter</a>)</li>
-<li><a href="https://speakerdeck.com/barnbarn/layer-2-person-spoofing-and-impostor-syndrome">Ben Hughes, &quot;Layer 2 person spoofing and impostor syndrome&quot;</a> (<a href="blockquote%20class=%22twitter-tweet%22%3E%3Cp%20lang=%22en%22%20dir=%22ltr%22%3EMy%20slides%20for%20&quot;Layer%202%20person%20spoofing%20and%20impostor%20syndrome&quot;%20for%20%3Ca%20href=%22https://twitter.com/hashtag/bsideswlg?src=hash&amp;ref_src=twsrc%5Etfw%22%3E#bsideswlg%3C/a%3E%20are%20up%20at%20%3Ca%20href=%22https://t.co/hAbzSMsLmt%22%3Ehttps://t.co/hAbzSMsLmt%3C/a%3E%20thanks%20everyone%20who%20came%20along.%3C/p%3E&mdash;%20Ben%20Hughes%20(@benjammingh)%20%3Ca%20href=%22https://twitter.com/benjammingh/status/933484211977166848?ref_src=twsrc%5Etfw%22%3ENovember%2022,%202017%3C/a%3E%3C/blockquote%3E%0A%3Cscript%20async%20src=%22https://platform.twitter.com/widgets.js%22%20charset=%22utf-8%22%3E%3C/script">Twitter</a>)</li>
-<li><a href="https://speakerdeck.com/heisenburger/design-for-security-bsides-wellington-2017">Serena Chen, &quot;Design for Security — BSides Wellington 2017&quot;</a> (<a href="blockquote%20class=%22twitter-tweet%22%3E%3Cp%20lang=%22en%22%20dir=%22ltr%22%3E%F0%9F%90%9D%F0%9F%90%9D%F0%9F%90%9D%20hey%20%3Ca%20href=%22https://twitter.com/hashtag/bsideswlg?src=hash&amp;ref_src=twsrc%5Etfw%22%3E#bsideswlg%3C/a%3E%20fam,%20I%20finally%20uploaded%20my%20slides%20from%20my%20design%20for%20security%20talk:%20%3Ca%20href=%22https://t.co/K4wWWeciJM%22%3Ehttps://t.co/K4wWWeciJM%3C/a%3E%20Thanks%20so%20much%20for%20coming%20along!%20%F0%9F%98%8A%3C/p%3E&mdash;%20%F0%9F%8C%99%20serena%20chen%20%F0%9F%92%AB%20(@Sereeena)%20%3Ca%20href=%22https://twitter.com/Sereeena/status/935208350207356930?ref_src=twsrc%5Etfw%22%3ENovember%2027,%202017%3C/a%3E%3C/blockquote%3E%0A%3Cscript%20async%20src=%22https://platform.twitter.com/widgets.js%22%20charset=%22utf-8%22%3E%3C/script">Twitter</a>)</li>
-<li><a href="https://mango.pdf.zone/operation-luigi-how-i-hacked-my-friend-without-her-noticing">&quot;Alex&quot;, &quot;Operation Luigi: How I hacked my friend without her noticing&quot;</a> (<a href="blockquote%20class=%22twitter-tweet%22%3E%3Cp%20lang=%22en%22%20dir=%22ltr%22%3EHey%20everybody%20welcome%20to%20Operation%20Luigi,%20where%20my%20friend%20gave%20me%20permission%20to%20try%20to%20hack%20all%20her%20stuff.%20This%20is%20what%20I%20did,%20how%20I%20did%20it,%20and%20how%20to%20prevent%20it%20from%20working%20on%20you.%20Also%20at%20the%20end%20Mario&#39;s%20good%20green%20brother%20is%20there%3Ca%20href=%22https://t.co/d7CZv9LGm5%22%3Ehttps://t.co/d7CZv9LGm5%3C/a%3E%3C/p%3E&mdash;%20%E2%80%9CAlex%E2%80%9D%20(@mangopdf)%20%3Ca%20href=%22https://twitter.com/mangopdf/status/934897549554491394?ref_src=twsrc%5Etfw%22%3ENovember%2026,%202017%3C/a%3E%3C/blockquote%3E%0A%3Cscript%20async%20src=%22https://platform.twitter.com/widgets.js%22%20charset=%22utf-8%22%3E%3C/script">Twitter</a>)</li>
+<li><a href="https://github.com/0xdevalias/gopherblazer#talks">Glenn &#39;devalias&#39; Grant, &quot;Gophers, whales and.. clouds? Oh my!&quot;</a> (<a href="https://twitter.com/_devalias/status/937104594974289920">Twitter</a>)</li>
+<li><a href="https://speakerdeck.com/barnbarn/layer-2-person-spoofing-and-impostor-syndrome">Ben Hughes, &quot;Layer 2 person spoofing and impostor syndrome&quot;</a> (<a href="https://twitter.com/benjammingh/status/933484211977166848">Twitter</a>)</li>
+<li><a href="https://speakerdeck.com/heisenburger/design-for-security-bsides-wellington-2017">Serena Chen, &quot;Design for Security — BSides Wellington 2017&quot;</a> (<a href="https://twitter.com/Sereeena/status/935208350207356930">Twitter</a>)</li>
+<li><a href="https://mango.pdf.zone/operation-luigi-how-i-hacked-my-friend-without-her-noticing">&quot;Alex&quot;, &quot;Operation Luigi: How I hacked my friend without her noticing&quot;</a> (<a href="https://twitter.com/mangopdf/status/934897549554491394">Twitter</a>)</li>
 <li><a href="https://github.com/jenofdoom/give-your-users-better-feedback-about-rubbish-passwords">@jenofdoom, &quot;Give your users better feedback about rubbish passwords with zxcvbn&quot;</a></li>
 <li><a href="https://zxsecurity.co.nz/presentations/201711_BSidesWLG-ZXSecurity_MeatPuppets.pdf">Simon &#39;bogan&#39; Howard, &quot;Influencing Meat
 Puppets Through
-Memes&quot;</a> (<a href="blockquote%20class=%22twitter-tweet%22%3E%3Cp%20lang=%22en%22%20dir=%22ltr%22%3EThe%20slides%20from%20my%20%3Ca%20href=%22https://twitter.com/bsideswlg?ref_src=twsrc%5Etfw%22%3E@bsideswlg%3C/a%3E%20presentation%20on%20&quot;Influencing%20Meat%20Puppets%20with%20Memes&quot;%20are%20available%20here:%20%3Ca%20href=%22https://t.co/IRWsEmjseE%22%3Ehttps://t.co/IRWsEmjseE%3C/a%3E%3C/p%3E&mdash;%20bogan%20(@bogan)%20%3Ca%20href=%22https://twitter.com/bogan/status/934896629135556608?ref_src=twsrc%5Etfw%22%3ENovember%2026,%202017%3C/a%3E%3C/blockquote%3E%0A%3Cscript%20async%20src=%22https://platform.twitter.com/widgets.js%22%20charset=%22utf-8%22%3E%3C/script">Twitter</a>)</li>
+Memes&quot;</a> (<a href="https://twitter.com/bogan/status/934896629135556608">Twitter</a>)</li>
 </ul>
 
 <p>It looks like there are also some good summaries, notes and writeups of the conference popping up around the net. Some places to start looking:</p>
 
 <ul>
-<li><a href="https://rodger.donaldson.gen.nz/archives/2017/11/b-sides-wellington-day-1/">B-Sides Wellington - Day 1 (Notes)</a> (<a href="blockquote%20class=%22twitter-tweet%22%3E%3Cp%20lang=%22en%22%20dir=%22ltr%22%3EMy%20notes%20on%20day%20one%20of%20the%20fabulous%20%3Ca%20href=%22https://twitter.com/hashtag/bsideswlg?src=hash&amp;ref_src=twsrc%5Etfw%22%3E#bsideswlg%3C/a%3E%20%3Ca%20href=%22https://t.co/5IABHBjr8G%22%3Ehttps://t.co/5IABHBjr8G%3C/a%3E%3C/p%3E&mdash;%20Nazi%20Tweeps%20Fuck%20Off%20(@hroethgar)%20%3Ca%20href=%22https://twitter.com/hroethgar/status/933620066129625090?ref_src=twsrc%5Etfw%22%3ENovember%2023,%202017%3C/a%3E%3C/blockquote%3E%0A%3Cscript%20async%20src=%22https://platform.twitter.com/widgets.js%22%20charset=%22utf-8%22%3E%3C/script">Twitter</a>)
+<li><a href="https://rodger.donaldson.gen.nz/archives/2017/11/b-sides-wellington-day-1/">B-Sides Wellington - Day 1 (Notes)</a> (<a href="https://twitter.com/hroethgar/status/933620066129625090">Twitter</a>)
 
 <ul>
 <li>My Talk: <a href="https://rodger.donaldson.gen.nz/archives/2017/11/b-sides-wellington-day-1/#gophers-whales-and-clouds-oh-my">Gophers, whales, and clouds? Oh my.</a></li>
 </ul></li>
 <li><a href="https://rodger.donaldson.gen.nz/archives/2017/11/b-sides-wellington-day-2/">B-Sides Wellington - Day 2 (Notes)</a></li>
-<li><a href="https://www.asinine.nz/2017-11-25/bsides-badge-part1/">BSides Wellington Badge Challenge</a> (<a href="blockquote%20class=%22twitter-tweet%22%3E%3Cp%20lang=%22en%22%20dir=%22ltr%22%3EA%20write%20up%20of%20the%20%3Ca%20href=%22https://twitter.com/hashtag/bsidesWLG?src=hash&amp;ref_src=twsrc%5Etfw%22%3E#bsidesWLG%3C/a%3E%20badge%20challenge.%20%3Ca%20href=%22https://twitter.com/bsideswlg?ref_src=twsrc%5Etfw%22%3E@bsideswlg%3C/a%3E%20%3Ca%20href=%22https://t.co/XC8tqAuOor%22%3Ehttps://t.co/XC8tqAuOor%3C/a%3E%3C/p%3E&mdash;%20Derek%20Robson%20(@asinine_net_nz)%20%3Ca%20href=%22https://twitter.com/asinine_net_nz/status/934592555253039104?ref_src=twsrc%5Etfw%22%3ENovember%2026,%202017%3C/a%3E%3C/blockquote%3E%0A%3Cscript%20async%20src=%22https://platform.twitter.com/widgets.js%22%20charset=%22utf-8%22%3E%3C/script">Twitter</a>)</li>
+<li><a href="https://www.asinine.nz/2017-11-25/bsides-badge-part1/">BSides Wellington Badge Challenge</a> (<a href="https://twitter.com/asinine_net_nz/status/934592555253039104">Twitter</a>)</li>
 </ul>
 
 <p>And of course, Twitter is always full of content when it comes to the security industry, with 3 hashtags mainly being used throughout the conference:</p>
@@ -582,9 +634,7 @@ Port scanning
   massscan
     doesn't provide a default port list
     use nmaps (giant list of ports)
-      <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Default nmap port list into masscan. 11min for 65k hosts <a href="https://twitter.com/Jhaddix?ref_src=twsrc%5Etfw">@jhaddix</a> <a href="https://twitter.com/hashtag/ItTakesACrowd?src=hash&amp;ref_src=twsrc%5Etfw">#ItTakesACrowd</a> <a href="https://t.co/OLq1qz2HI4">pic.twitter.com/OLq1qz2HI4</a></p>&mdash; Glenn / devalias (@_devalias) <a href="https://twitter.com/_devalias/status/886280729327312896?ref_src=twsrc%5Etfw">July 15, 2017</a></blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
+      https://twitter.com/_devalias/status/886280729327312896
 
 Visual identification
   https://github.com/ChrisTruncer/EyeWitness
@@ -828,9 +878,7 @@ Personal mobile recon setup
     next gen will be a webapp to help 
 
 Bug Bounty Resources
-  <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Bug Bounty Resources <a href="https://twitter.com/aphire?ref_src=twsrc%5Etfw">@aphire</a> <a href="https://twitter.com/hashtag/ItTakesACrowd?src=hash&amp;ref_src=twsrc%5Etfw">#ItTakesACrowd</a> <a href="https://t.co/E0hvHqDAHl">pic.twitter.com/E0hvHqDAHl</a></p>&mdash; Glenn / devalias (@_devalias) <a href="https://twitter.com/_devalias/status/886295129807396865?ref_src=twsrc%5Etfw">July 15, 2017</a></blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
+  https://twitter.com/_devalias/status/886295129807396865
 </pre>
 
 <h3>Giving Back to the Community (ZSeano)</h3>
@@ -1340,7 +1388,6 @@ https://twitter.com/adi1391
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Dropping a guide on IoT testing soon <a href="https://twitter.com/adi1391?ref_src=twsrc%5Etfw">@adi1391</a> <a href="https://twitter.com/hashtag/ItTakesACrowd?src=hash&amp;ref_src=twsrc%5Etfw">#ItTakesACrowd</a> <a href="https://twitter.com/Bugcrowd?ref_src=twsrc%5Etfw">@Bugcrowd</a> <a href="https://t.co/zO9NGS9K8n">pic.twitter.com/zO9NGS9K8n</a></p>&mdash; Glenn / devalias (@_devalias) <a href="https://twitter.com/_devalias/status/886339682958680064?ref_src=twsrc%5Etfw">July 15, 2017</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
   Run attify, pentesting IoT devices
   Author: "Learning Pentesting for Andorid Devices"
   Book: IoT hackers handbook, this month
@@ -1393,9 +1440,7 @@ How
     hacking radio communications
 
   Attack Surface Mapping - Step 1
-    <blockquote class="twitter-tweet"><p lang="en" dir="ltr">IoT Attack Surface Mapping - Step 1 <a href="https://twitter.com/adi1391?ref_src=twsrc%5Etfw">@adi1391</a> <a href="https://twitter.com/hashtag/ItTakesACrowd?src=hash&amp;ref_src=twsrc%5Etfw">#ItTakesACrowd</a> <a href="https://twitter.com/Bugcrowd?ref_src=twsrc%5Etfw">@Bugcrowd</a> <a href="https://t.co/wXzQf6erbc">pic.twitter.com/wXzQf6erbc</a></p>&mdash; Glenn / devalias (@_devalias) <a href="https://twitter.com/_devalias/status/886341534450307072?ref_src=twsrc%5Etfw">July 15, 2017</a></blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
+    https://twitter.com/_devalias/status/886341534450307072
     Recon
       understanding device
       visible ports
@@ -1410,9 +1455,7 @@ How
       FCC ID
 
     Attack Surface Mapping - Step 2
-      <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Attack Surface Mapping - Step 2 <a href="https://twitter.com/adi1391?ref_src=twsrc%5Etfw">@adi1391</a> <a href="https://twitter.com/hashtag/ItTakesACrowd?src=hash&amp;ref_src=twsrc%5Etfw">#ItTakesACrowd</a> <a href="https://twitter.com/Bugcrowd?ref_src=twsrc%5Etfw">@Bugcrowd</a> <a href="https://t.co/hpyIedVQIc">pic.twitter.com/hpyIedVQIc</a></p>&mdash; Glenn / devalias (@_devalias) <a href="https://twitter.com/_devalias/status/886341954404929536?ref_src=twsrc%5Etfw">July 15, 2017</a></blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
+      https://twitter.com/_devalias/status/886341954404929536
       map attack surface (architecture diagram)
       entrypoints
       commuications
@@ -1464,9 +1507,7 @@ How
       can be scattered across board
       JTAGulator or arduino nano flashed with JTAGEnum
       easily identify pinouts for JTAG
-      <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Hacking Embedded Devices - Debug JTAG <a href="https://twitter.com/adi1391?ref_src=twsrc%5Etfw">@adi1391</a> <a href="https://twitter.com/hashtag/ItTakesACrowd?src=hash&amp;ref_src=twsrc%5Etfw">#ItTakesACrowd</a> <a href="https://twitter.com/Bugcrowd?ref_src=twsrc%5Etfw">@Bugcrowd</a> <a href="https://t.co/0OPpTAWQjv">pic.twitter.com/0OPpTAWQjv</a></p>&mdash; Glenn / devalias (@_devalias) <a href="https://twitter.com/_devalias/status/886344370944786432?ref_src=twsrc%5Etfw">July 15, 2017</a></blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
+      https://twitter.com/_devalias/status/886344370944786432
         Hacking Embedded Devices - Debug JTAG
 
     Dump Flash
@@ -1552,17 +1593,13 @@ Pentest methodology
   follow the guide
 
 https://www.iotpentestingguide.com/
-  <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Short for now, but more coming in a few days! <a href="https://t.co/DwTNpx7BQZ">https://t.co/DwTNpx7BQZ</a> <a href="https://twitter.com/adi1391?ref_src=twsrc%5Etfw">@adi1391</a> <a href="https://twitter.com/hashtag/ItTakesACrowd?src=hash&amp;ref_src=twsrc%5Etfw">#ItTakesACrowd</a> <a href="https://twitter.com/Bugcrowd?ref_src=twsrc%5Etfw">@Bugcrowd</a> <a href="https://t.co/3xXsS8ieN4">pic.twitter.com/3xXsS8ieN4</a></p>&mdash; Glenn / devalias (@_devalias) <a href="https://twitter.com/_devalias/status/886350210724646912?ref_src=twsrc%5Etfw">July 15, 2017</a></blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
+  https://twitter.com/_devalias/status/886350210724646912
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">&quot;Let&#39;s hack IoT coz it won&#39;t be always like the 2017&#39;s...&quot; <a href="https://twitter.com/adi1391?ref_src=twsrc%5Etfw">@adi1391</a> <a href="https://twitter.com/hashtag/ItTakesACrowd?src=hash&amp;ref_src=twsrc%5Etfw">#ItTakesACrowd</a> <a href="https://twitter.com/Bugcrowd?ref_src=twsrc%5Etfw">@Bugcrowd</a> <a href="https://t.co/RI6zXB9Tot">pic.twitter.com/RI6zXB9Tot</a></p>&mdash; Glenn / devalias (@_devalias) <a href="https://twitter.com/_devalias/status/886350674266537984?ref_src=twsrc%5Etfw">July 15, 2017</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Absolutely mind blown! Such a great talk!!! &quot;Hacking Internet of Things for Bug Bounties&quot; <a href="https://twitter.com/adi1391?ref_src=twsrc%5Etfw">@adi1391</a> <a href="https://twitter.com/hashtag/ItTakesACrowd?src=hash&amp;ref_src=twsrc%5Etfw">#ItTakesACrowd</a> <a href="https://twitter.com/Bugcrowd?ref_src=twsrc%5Etfw">@Bugcrowd</a> <a href="https://t.co/Cfu2JF7SLJ">pic.twitter.com/Cfu2JF7SLJ</a></p>&mdash; Glenn / devalias (@_devalias) <a href="https://twitter.com/_devalias/status/886350817741094912?ref_src=twsrc%5Etfw">July 15, 2017</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
 </pre>
 
 <h3>Intro to Car Hacking (Alan Mond)</h3>
@@ -1616,9 +1653,7 @@ What you'll need
 
 Most comprehensive list
   github.com/jaredthecoder/awesome-vehicle-security
-  <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Comprehensive list of car hacking places for questions <a href="https://twitter.com/mondalan?ref_src=twsrc%5Etfw">@mondalan</a> <a href="https://twitter.com/hashtag/ItTakesACrowd?src=hash&amp;ref_src=twsrc%5Etfw">#ItTakesACrowd</a> <a href="https://twitter.com/Bugcrowd?ref_src=twsrc%5Etfw">@Bugcrowd</a> <a href="https://t.co/3492Z3VEar">pic.twitter.com/3492Z3VEar</a></p>&mdash; Glenn / devalias (@_devalias) <a href="https://twitter.com/_devalias/status/886354216968609792?ref_src=twsrc%5Etfw">July 15, 2017</a></blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
+  https://twitter.com/_devalias/status/886354216968609792
 
 Vehicle networking basics
   CAN bus
@@ -2440,66 +2475,6 @@ In a fast, simple, yet extensible way.</li>
 
 <ul>
 <li>This has a quick summary of boxes 1-6 as well</li>
-</ul></li>
-</ul>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>Bulletproof Biohacking Box #8</title>
-	  <link>/devalias/2016/10/13/bulletproof-biohacking-box-8/</link>
-	  <author>devalias</author>
-	  <pubDate>2016-10-13T00:00:00+11:00</pubDate>
-	  <guid>/devalias/2016/10/13/bulletproof-biohacking-box-8/</guid>
-	  <description><![CDATA[
-	     <p>So it&#39;s that time again where biohacking christmas comes early (4 times a year!) Before I get into the content from this box, it seems Dave and the team have decided to move on from <a href="https://quarterly.co/">Quarterly</a> and give the biohacking box a new home on <a href="http://biohacked.com/">biohacked.com</a>. So if you want to find it, make sure you head over there and sign up!</p>
-
-<p>Without further ado, the contents!</p>
-
-<h2>BIO08</h2>
-
-<ul>
-<li><a href="https://quarterly.co/BIO08">BIO08 Unboxing Video</a>
-
-<ul>
-<li>0:45 Total box value: ~US$287</li>
-<li>1:04 <a href="https://alituranaturals.com/product/alitura-night-cream/">Alitura Night Cream</a> (US$79)
-
-<ul>
-<li>20% discount code: BP20</li>
-<li>Jar should last about a month.</li>
-</ul></li>
-<li>5:01 <a href="http://www.swanwicksleep.com/products/swannies-blue-light-blocking-glasses">Swannies Blue Blocking Glasses</a> (~US$89-134)
-
-<ul>
-<li>40% discount code: BULLETPROOF</li>
-</ul></li>
-<li>8:52 <a href="http://bedtimebliss.org/products/btbt">Bedtime Bliss Organic Bamboo Sleep Mask</a> ($US17.50)
-
-<ul>
-<li>Contoured so it doesn&#39;t press on your eyes/eyelashes during REM sleep.</li>
-<li>Been using this for the past few nights and it&#39;s been awesome! I haven&#39;t managed to black out my room yet since moving recently. Using this has shown a dramatic increase in deeper sleep on my sleep tracking, and generally just feeling more rested with it.</li>
-</ul></li>
-<li>10:38 <a href="http://www.bluestarcoloring.com/our-books/">Blue Star &#39;Form&#39; Coloring Book</a> ($US18)
-
-<ul>
-<li>Increases HRV, drops you into a calmer alpha state.</li>
-<li>30% discount on their <a href="http://bluestarinspire.com/bulletproof">digital subscription service: Inspire</a></li>
-</ul></li>
-<li>14:15 Colored Pencils
-
-<ul>
-<li>With Bulletproof logo! :p</li>
-</ul></li>
-<li>15:06 <a href="https://fatwater.com/home">FATwater - a whole case</a></li>
-<li>16:57 Golden Ticket: <a href="http://www.thync.com/">Thync</a> (US$199)
-
-<ul>
-<li>Form of tDCS for energy/calm</li>
-<li>$20 off: SHFVIBE (till 24/11/16)</li>
-</ul></li>
-<li>21:00 Golden Ticket: <a href="http://bulletproofconference.com">2016 Bulletproof Conference Pass (incl +1)</a> (US$1500)</li>
 </ul></li>
 </ul>
 

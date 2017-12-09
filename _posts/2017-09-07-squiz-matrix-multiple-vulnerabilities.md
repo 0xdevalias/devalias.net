@@ -8,6 +8,8 @@ tags:
 - matrix
 - bug-bounty
 - bugcrowd
+- xss
+- rce
 categories:
 - devalias
 disqus: true

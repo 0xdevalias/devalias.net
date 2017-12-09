@@ -129,6 +129,10 @@
 <lastmod>2013-08-29T08:00:52+10:00</lastmod>
 </url>
 <url>
+<loc>http://devalias.net/devalias/2013/09/05/symantec-web-gateway-cross-site-scripting-xss/</loc>
+<lastmod>2013-09-05T00:00:00+10:00</lastmod>
+</url>
+<url>
 <loc>http://devalias.net/devalias/2013/09/19/plesk-adding-wget-tar-gzip-chmod-php-curl-clear-to-a-chr/</loc>
 <lastmod>2013-09-19T08:00:00+10:00</lastmod>
 </url>
@@ -886,6 +890,9 @@
 </url>
 <url>
 <loc>http://devalias.net/tag/password/</loc>
+</url>
+<url>
+<loc>http://devalias.net/tag/symantec/</loc>
 </url>
 <url>
 <loc>http://devalias.net/tag/wget/</loc>

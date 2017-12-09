@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+   
+      <title>devalias.net</title>
+   
+   <link>http://devalias.net</link>
+   <description>Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.</description>
+   <language>en_GB</language>
+   <managingEditor> </managingEditor>
+   <atom:link href="rss" rel="self" type="application/rss+xml" />
+   
+	<item>
+	  <title>Symantec Web Gateway: Cross-Site Scripting (XSS) (CVE-2013-4670)</title>
+	  <link>/devalias/2013/09/05/symantec-web-gateway-cross-site-scripting-xss/</link>
+	  <author>devalias</author>
+	  <pubDate>2013-09-05T00:00:00+10:00</pubDate>
+	  <guid>/devalias/2013/09/05/symantec-web-gateway-cross-site-scripting-xss/</guid>
+	  <description><![CDATA[
+	     <p>I found a Cross-Site Scripting (XSS) vulnerability within the Symantec Web Gateway.</p>
+
+<h2>The CVE</h2>
+
+<ul>
+<li><strong><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4670">CVE-2013-4670</a></strong>: Multiple cross-site scripting (XSS) vulnerabilities in the management console on the Symantec Web Gateway (SWG) appliance before 5.1.1 allow remote attackers to inject arbitrary web script or HTML via unspecified vectors.
+
+<ul>
+<li><a href="https://www.symantec.com/security_response/securityupdates/detail.jsp?fid=security_advisory&pvid=security_advisory&year=&suid=20130725_00">Security Advisories Relating to Symantec Products - Symantec Web Gateway Security Issues (SYM13-008)</a></li>
+</ul></li>
+</ul>
+
+<h2>Acknowledgements</h2>
+
+<p>This issue was identified by <a href="http://devalias.net">myself</a>, as well as independently by another security researcher:</p>
+
+<ul>
+<li>Glenn &#39;devalias&#39; Grant (<a href="http://devalias.net">http://devalias.net</a>)</li>
+</ul>
+
+<blockquote>
+<p>Symantec thanks Glenn &#39;devalias&#39; Grant, <a href="http://devalias.net">http://devalias.net</a>, for also reporting CVE-2013-4670 and working with us as we addressed them.</p>
+</blockquote>
+
+	  ]]></description>
+	</item>
+
+
+</channel>
+</rss>

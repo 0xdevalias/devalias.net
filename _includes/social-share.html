@@ -16,6 +16,9 @@
     {% comment %}Ref: https://dev.twitter.com/web/tweet-button/web-intent{% endcomment %}
     <a href="http://twitter.com/share?text={{ page.title | url_encode }}&amp;url={{ this_url | url_encode}}&amp;via={{ site.data.authors[page.author].social.twitter }}" title="Share on Twitter" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"><i class="fab fa-twitter-square fa-2x"></i></a>
 
+    {% comment %}Ref: https://developer.linkedin.com/docs/share-on-linkedin#{% endcomment %}
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url={{ this_url | url_encode}}&amp;title={{ page.title | url_encode }}&amp;&source={{ linkedin_source | url_encode }}" title="Share on LinkedIn" onclick="window.open(this.href, 'linkedin-share', 'width=520,height=570');return false;"><i class="fab fa-linkedin fa-2x"></i></a>
+
     <a href="https://www.facebook.com/sharer/sharer.php?u={{ this_url | url_encode}}" title="Share on Facebook" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;"><i class="fab fa-facebook-square fa-2x"></i></a>
 
     <a href="https://plus.google.com/share?url={{ this_url | url_encode}}"  title="Share on Google+" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;"><i class="fab fa-google-plus-square fa-2x"></i></a>

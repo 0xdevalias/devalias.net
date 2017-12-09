@@ -17,7 +17,7 @@ categories:
 - devalias
 disqus: true
 webmention: true
-crosspost_to_medium: false
+crosspost_to_medium: true
 ---
 I was playing around with the top challenge on the CTF at [SecTalks](http://www.sectalks.org/canberra/) the other night, and thought I'd do a quick writeup of some of the techniques required; for future reference, and to help others to learn.
 

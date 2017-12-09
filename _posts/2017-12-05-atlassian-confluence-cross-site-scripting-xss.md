@@ -13,7 +13,7 @@ categories:
 - devalias
 disqus: true
 webmention: true
-crosspost_to_medium: false
+crosspost_to_medium: true
 ---
 Earlier this year I spent some time delving into [Atlassian Confluence](https://www.atlassian.com/software/confluence) to see if I could dig up any bugs that had slipped through the cracks. I wasn't really expecting to turn up much, but I was super excited and surprised when I managed to find an issue within the RSS feed plugin leading to Cross-Site Scripting (XSS) (Twitter: [1](https://twitter.com/_devalias/status/922234470274498560), [2](https://twitter.com/_devalias/status/938271825414455298); LinkedIn: [1](https://www.linkedin.com/feed/update/urn:li:activity:6328008786355331072/), [2](https://www.linkedin.com/feed/update/urn:li:activity:6344043067401732096); BugCrowd: [1](https://bugcrowd.com/devalias), [2](https://bugcrowd.com/atlassian/hall-of-fame)).
 

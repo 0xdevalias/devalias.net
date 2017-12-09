@@ -13,7 +13,7 @@ categories:
 - devalias
 disqus: true
 webmention: true
-crosspost_to_medium: false
+crosspost_to_medium: true
 ---
 Recently I had the opportunity to present at a few local security meetups, and one international security conference.
 

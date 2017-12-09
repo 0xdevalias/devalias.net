@@ -4,9 +4,9 @@
     {% endif %}
     <span class="page-number">
       Page {{ paginator.page }} of {{ paginator.total_pages }}
-      <a href="{{ site.baseurl | chomp_slash }}/tag/{{ page.tag }}/rss.xml" title="RSS Feed"><i class="fa fa-rss fa-{{include.size}}"></i></a>
+      <a href="{{ site.baseurl | chomp_slash }}/tag/{{ page.tag }}/rss.xml" title="RSS Feed"><i class="fas fa-rss-square fa-{{include.size}}"></i></a>
     </span>
-    {% if paginator.next_page %} 
+    {% if paginator.next_page %}
         <a class="older-posts" href="{{ site.baseurl | chomp_slash }}/tag/{{ page.tag }}{{ paginator.next_page_path }}" title="Next Page">Older Posts &raquo;</a>
-    {% endif %} 
+    {% endif %}
 </nav>

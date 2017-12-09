@@ -19,7 +19,7 @@
                 <div>
                     <strong>Build:</strong> {% project_version %}
                     <a href="https://github.com/{{site.github_repo}}/tree/{{site.github_branch}}/{{page.path}}" target="_blank">
-                        <i class="fa fa-edit"></i>
+                        <i class="fas fa-edit"></i>
                         Edit on GitHub
                     </a>
                 </div>
@@ -37,7 +37,7 @@
     <!-- [[! The main JavaScript file for Casper ]] -->
     <script type="text/javascript" src="{{ site.baseurl | chomp_slash }}/assets/js/jquery.fitvids.js"></script>
     <script type="text/javascript" src="{{ site.baseurl | chomp_slash }}/assets/js/index.js"></script>
-    
+
     {% include scripts/analytics.html %}
     {% unless site.webmentions.disabled %}
         {% include scripts/webmention.html %}

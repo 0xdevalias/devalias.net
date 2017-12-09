@@ -1,28 +1,28 @@
 <div class="author-social">
-    <a href="{{ site.baseurl | chomp_slash }}/author/{{ page.author }}/rss.xml" title="RSS Feed"><i class="fa fa-rss fa-{{include.size}}"></i></a>
+    <a href="{{ site.baseurl | chomp_slash }}/author/{{ page.author }}/rss.xml" title="RSS Feed"><i class="fas fa-rss-square fa-{{include.size}}"></i></a>
     {% if site.data.authors[include.author].social.keybase %}
-        <a href="https://keybase.io/{{ site.data.authors[include.author].social.keybase }}" title="Keybase" target="_blank"><i class="fa fa-key fa-{{include.size}}"></i></a>
+        <a href="https://keybase.io/{{ site.data.authors[include.author].social.keybase }}" title="Keybase" target="_blank"><i class="fas fa-key fa-{{include.size}}"></i></a>
     {% endif %}
     {% if site.data.authors[include.author].social.linkedin %}
-        <a href="https://www.linkedin.com/in/{{ site.data.authors[include.author].social.linkedin }}" title="LinkedIn" target="_blank"><i class="fa fa-linkedin-square fa-{{include.size}}"></i></a>
+        <a href="https://www.linkedin.com/in/{{ site.data.authors[include.author].social.linkedin }}" title="LinkedIn" target="_blank"><i class="fab fa-linkedin fa-{{include.size}}"></i></a>
     {% endif %}
     {% if site.data.authors[include.author].social.twitter %}
-        <a href="https://twitter.com/{{ site.data.authors[include.author].social.twitter }}" title="Twitter" target="_blank"><i class="fa fa-twitter-square fa-{{include.size}}"></i></a>
+        <a href="https://twitter.com/{{ site.data.authors[include.author].social.twitter }}" title="Twitter" target="_blank"><i class="fab fa-twitter-square fa-{{include.size}}"></i></a>
     {% endif %}
     {% if site.data.authors[include.author].social.instagram %}
-        <a href="https://instagram.com/{{ site.data.authors[include.author].social.instagram }}" title="Instagram" target="_blank"><i class="fa fa-instagram fa-{{include.size}}"></i></a>
+        <a href="https://instagram.com/{{ site.data.authors[include.author].social.instagram }}" title="Instagram" target="_blank"><i class="fab fa-instagram fa-{{include.size}}"></i></a>
     {% endif %}
     {% if site.data.authors[include.author].social.medium %}
-        <a href="https://medium.com/@{{ site.data.authors[include.author].social.medium }}" title="Medium" target="_blank"><i class="fa fa-medium fa-{{include.size}}"></i></a>
+        <a href="https://medium.com/@{{ site.data.authors[include.author].social.medium }}" title="Medium" target="_blank"><i class="fab fa-medium fa-{{include.size}}"></i></a>
     {% endif %}
     {% if site.data.authors[include.author].social.github %}
-        <a href="https://github.com/{{ site.data.authors[include.author].social.github }}" title="Github" target="_blank"><i class="fa fa-github-square fa-{{include.size}}"></i></a>
+        <a href="https://github.com/{{ site.data.authors[include.author].social.github }}" title="Github" target="_blank"><i class="fab fa-github-square fa-{{include.size}}"></i></a>
     {% endif %}
     {% if site.data.authors[include.author].social.facebook %}
-        <a href="https://facebook.com/{{ site.data.authors[include.author].social.facebook }}" title="Facebook" target="_blank"><i class="fa fa-facebook-square fa-{{include.size}}"></i></a>
+        <a href="https://facebook.com/{{ site.data.authors[include.author].social.facebook }}" title="Facebook" target="_blank"><i class="fab fa-facebook-square fa-{{include.size}}"></i></a>
     {% endif %}
     {% if site.data.authors[include.author].social.googleplus %}
-        <a href="https://plus.google.com/{{ site.data.authors[include.author].social.googleplus }}" title="Google+" target="_blank"><i class="fa fa-google-plus-square fa-{{include.size}}"></i></a>
+        <a href="https://plus.google.com/{{ site.data.authors[include.author].social.googleplus }}" title="Google+" target="_blank"><i class="fab fa-google-plus-square fa-{{include.size}}"></i></a>
     {% endif %}
     {% if site.data.authors[include.author].social.speakerdeck %}
         <a href="https://speakerdeck.com/{{ site.data.authors[include.author].social.speakerdeck }}" title="SpeakerDeck" target="_blank">
@@ -46,18 +46,18 @@
         </a>
     {% endif %}
     {% if site.data.authors[include.author].social.slideshare %}
-        <a href="https://www.slideshare.net/{{ site.data.authors[include.author].social.slideshare }}" title="SlideShare" target="_blank"><i class="fa fa-slideshare fa-{{include.size}}"></i></a>
+        <a href="https://www.slideshare.net/{{ site.data.authors[include.author].social.slideshare }}" title="SlideShare" target="_blank"><i class="fab fa-slideshare fa-{{include.size}}"></i></a>
     {% endif %}
     {% if site.data.authors[include.author].social.reddit %}
-        <a href="https://www.reddit.com/user/{{ site.data.authors[include.author].social.reddit }}" title="Reddit" target="_blank"><i class="fa fa-reddit-square fa-{{include.size}}"></i></a>
+        <a href="https://www.reddit.com/user/{{ site.data.authors[include.author].social.reddit }}" title="Reddit" target="_blank"><i class="fab fa-reddit-square fa-{{include.size}}"></i></a>
     {% endif %}
     {% if site.data.authors[include.author].social.hackernews %}
-        <a href="https://news.ycombinator.com/user?id={{ site.data.authors[include.author].social.hackernews }}" title="Hacker News" target="_blank"><i class="fa fa-hacker-news fa-{{include.size}}"></i></a>
+        <a href="https://news.ycombinator.com/user?id={{ site.data.authors[include.author].social.hackernews }}" title="Hacker News" target="_blank"><i class="fab fa-hacker-news-square fa-{{include.size}}"></i></a>
     {% endif %}
     {% if site.data.authors[include.author].social.stackoverflow %}
-        <a href="https://stackoverflow.com/users/{{ site.data.authors[include.author].social.stackoverflow }}" title="StackOverflow" target="_blank"><i class="fa fa-stack-overflow fa-{{include.size}}"></i></a>
+        <a href="https://stackoverflow.com/users/{{ site.data.authors[include.author].social.stackoverflow }}" title="StackOverflow" target="_blank"><i class="fab fa-stack-overflow fa-{{include.size}}"></i></a>
     {% endif %}
     {% if site.data.authors[include.author].social.stackexchange %}
-        <a href="https://stackexchange.com/users/{{ site.data.authors[include.author].social.stackexchange }}" title="StackExchange" target="_blank"><i class="fa fa-stack-exchange fa-{{include.size}}"></i></a>
+        <a href="https://stackexchange.com/users/{{ site.data.authors[include.author].social.stackexchange }}" title="StackExchange" target="_blank"><i class="fab fa-stack-exchange fa-{{include.size}}"></i></a>
     {% endif %}
 </div>

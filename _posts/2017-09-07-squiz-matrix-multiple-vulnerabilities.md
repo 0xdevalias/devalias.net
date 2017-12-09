@@ -24,13 +24,13 @@ If you want to try it out, or play around yourself, there is a [downloadable dem
 
 ## The CVE's
 
-* **CVE-2017-14196**: An information disclosure caused by a Path Traversal issue in the 'File Bridge' plugin allowed the existence of files outside of the bridged path to be confirmed.
-* **CVE-2017-14197**: Multiple reflected Cross-Site Scripting (XSS) issues in Matrix 'WYSIWYG' plugins.
-* **CVE-2017-14198**: Authenticated users with permissions to edit design assets can cause Remote Code Execution (RCE) via a maliciously crafted `time_format` tag.
+* **[CVE-2017-14196](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-14196)**: An information disclosure caused by a Path Traversal issue in the 'File Bridge' plugin allowed the existence of files outside of the bridged path to be confirmed.
+* **[CVE-2017-14197](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-14197)**: Multiple reflected Cross-Site Scripting (XSS) issues in Matrix 'WYSIWYG' plugins.
+* **[CVE-2017-14198](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-14198)**: Authenticated users with permissions to edit design assets can cause Remote Code Execution (RCE) via a maliciously crafted `time_format` tag.
 
 ## Remediation
 
-TODO: Include details about vulnerable versions and when it was fixed here (should also be in the CVE details already)
+These issues were fixed in version `5.4.1.3`. Update to this version or newer to be protected. See the CVE advisory details for more information.
 
 ## CVE-2017-14198: A Walkthrough
 

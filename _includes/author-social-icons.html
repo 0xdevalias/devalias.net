@@ -1,13 +1,22 @@
 <div class="author-social">
     <a href="{{ site.baseurl | chomp_slash }}/author/{{ page.author }}/rss.xml" title="RSS Feed"><i class="fa fa-rss fa-{{include.size}}"></i></a>
-    {% if site.data.authors[include.author].social.instagram %}
-        <a href="https://instagram.com/{{ site.data.authors[include.author].social.instagram }}" title="Instagram" target="_blank"><i class="fa fa-instagram fa-{{include.size}}"></i></a>
+    {% if site.data.authors[include.author].social.keybase %}
+        <a href="https://keybase.io/{{ site.data.authors[include.author].social.keybase }}" title="Keybase" target="_blank"><i class="fa fa-key fa-{{include.size}}"></i></a>
+    {% endif %}
+    {% if site.data.authors[include.author].social.linkedin %}
+        <a href="https://www.linkedin.com/in/{{ site.data.authors[include.author].social.linkedin }}" title="LinkedIn" target="_blank"><i class="fa fa-linkedin-square fa-{{include.size}}"></i></a>
     {% endif %}
     {% if site.data.authors[include.author].social.twitter %}
         <a href="https://twitter.com/{{ site.data.authors[include.author].social.twitter }}" title="Twitter" target="_blank"><i class="fa fa-twitter-square fa-{{include.size}}"></i></a>
     {% endif %}
-    {% if site.data.authors[include.author].social.linkedin %}
-        <a href="https://www.linkedin.com/in/{{ site.data.authors[include.author].social.linkedin }}" title="LinkedIn" target="_blank"><i class="fa fa-linkedin-square fa-{{include.size}}"></i></a>
+    {% if site.data.authors[include.author].social.instagram %}
+        <a href="https://instagram.com/{{ site.data.authors[include.author].social.instagram }}" title="Instagram" target="_blank"><i class="fa fa-instagram fa-{{include.size}}"></i></a>
+    {% endif %}
+    {% if site.data.authors[include.author].social.medium %}
+        <a href="https://medium.com/@{{ site.data.authors[include.author].social.medium }}" title="Medium" target="_blank"><i class="fa fa-medium fa-{{include.size}}"></i></a>
+    {% endif %}
+    {% if site.data.authors[include.author].social.github %}
+        <a href="https://github.com/{{ site.data.authors[include.author].social.github }}" title="Github" target="_blank"><i class="fa fa-github-square fa-{{include.size}}"></i></a>
     {% endif %}
     {% if site.data.authors[include.author].social.facebook %}
         <a href="https://facebook.com/{{ site.data.authors[include.author].social.facebook }}" title="Facebook" target="_blank"><i class="fa fa-facebook-square fa-{{include.size}}"></i></a>
@@ -15,8 +24,29 @@
     {% if site.data.authors[include.author].social.googleplus %}
         <a href="https://plus.google.com/{{ site.data.authors[include.author].social.googleplus }}" title="Google+" target="_blank"><i class="fa fa-google-plus-square fa-{{include.size}}"></i></a>
     {% endif %}
-    {% if site.data.authors[include.author].social.github %}
-        <a href="https://github.com/{{ site.data.authors[include.author].social.github }}" title="Github" target="_blank"><i class="fa fa-github-square fa-{{include.size}}"></i></a>
+    {% if site.data.authors[include.author].social.speakerdeck %}
+        <a href="https://speakerdeck.com/{{ site.data.authors[include.author].social.speakerdeck }}" title="SpeakerDeck" target="_blank">
+            <!-- TODO: Correctly handle size differences -->
+            <!-- SVG Source: https://github.com/FortAwesome/Font-Awesome/issues/1688#issuecomment-266479369 -->
+            {% if include.size == "2x" %}
+                <!-- Includes hacky resizing to make it work for this size.. -->
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="35" height="46" viewBox="0 -10 30.375 36">
+                    <path d="M25.6 3.8c-1-1-2.199-1.5-3.6-1.5h-16.9c-1.4 0-2.6 0.5-3.6 1.5s-1.5 2.2-1.5 3.6v17.2c0 1.4 0.5 2.5 1.5 3.5s2.2 1.5 3.6 1.5h16.8c1.398 0 2.6-0.5 3.6-1.5s1.5-2.2 1.5-3.6v-17.1c0-1.4-0.4-2.6-1.4-3.6zM22.286 20.188c0 1.313-1.063 2.375-2.375 2.375h-12.437c-1.311 0-2.375-1.063-2.375-2.375v-8.375c0-1.312 1.063-2.375 2.375-2.375h12.437c1.311 0 2.375 1.063 2.375 2.375v8.375z"></path>
+                    <path d="M12.75 18.49v-4.977l-4.277 2.487z"></path>
+                    <path d="M14.684 18.516l4.228-2.516-4.228-2.514z"></path>
+                </svg>
+            {% else %}
+                <!-- Includes hacky resizing to make it work for this size.. -->
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="15" height="20" viewBox="5 -7 16.875 35">
+                    <path d="M25.6 3.8c-1-1-2.199-1.5-3.6-1.5h-16.9c-1.4 0-2.6 0.5-3.6 1.5s-1.5 2.2-1.5 3.6v17.2c0 1.4 0.5 2.5 1.5 3.5s2.2 1.5 3.6 1.5h16.8c1.398 0 2.6-0.5 3.6-1.5s1.5-2.2 1.5-3.6v-17.1c0-1.4-0.4-2.6-1.4-3.6zM22.286 20.188c0 1.313-1.063 2.375-2.375 2.375h-12.437c-1.311 0-2.375-1.063-2.375-2.375v-8.375c0-1.312 1.063-2.375 2.375-2.375h12.437c1.311 0 2.375 1.063 2.375 2.375v8.375z"></path>
+                    <path d="M12.75 18.49v-4.977l-4.277 2.487z"></path>
+                    <path d="M14.684 18.516l4.228-2.516-4.228-2.514z"></path>
+                </svg>
+            {% endif %}
+        </a>
+    {% endif %}
+    {% if site.data.authors[include.author].social.slideshare %}
+        <a href="https://www.slideshare.net/{{ site.data.authors[include.author].social.slideshare }}" title="SlideShare" target="_blank"><i class="fa fa-slideshare fa-{{include.size}}"></i></a>
     {% endif %}
     {% if site.data.authors[include.author].social.reddit %}
         <a href="https://www.reddit.com/user/{{ site.data.authors[include.author].social.reddit }}" title="Reddit" target="_blank"><i class="fa fa-reddit-square fa-{{include.size}}"></i></a>
@@ -29,8 +59,5 @@
     {% endif %}
     {% if site.data.authors[include.author].social.stackexchange %}
         <a href="https://stackexchange.com/users/{{ site.data.authors[include.author].social.stackexchange }}" title="StackExchange" target="_blank"><i class="fa fa-stack-exchange fa-{{include.size}}"></i></a>
-    {% endif %}
-    {% if site.data.authors[include.author].social.keybase %}
-        <a href="https://keybase.io/{{ site.data.authors[include.author].social.keybase }}" title="Keybase" target="_blank"><i class="fa fa-key fa-{{include.size}}"></i></a>
     {% endif %}
 </div>

@@ -1,4 +1,157 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en_GB"><generator uri="https://jekyllrb.com/" version="3.4.5">Jekyll</generator><link href="http://devalias.net/feed.xml" rel="self" type="application/atom+xml" /><link href="http://devalias.net/" rel="alternate" type="text/html" hreflang="en_GB" /><updated>2017-12-09T16:31:28+11:00</updated><id>http://devalias.net/</id><title type="html">/dev/alias – Hack. Dev. Transcend.</title><subtitle>Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.</subtitle><entry><title type="html">Atlassian Confluence: Cross-Site Scripting (XSS) (CVE-2017-16856)</title><link href="http://devalias.net/devalias/2017/12/05/atlassian-confluence-cross-site-scripting-xss/" rel="alternate" type="text/html" title="Atlassian Confluence: Cross-Site Scripting (XSS) (CVE-2017-16856)" /><published>2017-12-05T00:00:00+11:00</published><updated>2017-12-05T00:00:00+11:00</updated><id>http://devalias.net/devalias/2017/12/05/atlassian-confluence-cross-site-scripting-xss</id><content type="html" xml:base="http://devalias.net/devalias/2017/12/05/atlassian-confluence-cross-site-scripting-xss/">&lt;p&gt;Earlier this year I spent some time delving into &lt;a href=&quot;https://www.atlassian.com/software/confluence&quot;&gt;Atlassian Confluence&lt;/a&gt; to see if I could dig up any bugs that had slipped through the cracks. I wasn&amp;#39;t really expecting to turn up much, but I was super excited and surprised when I managed to find an issue within the RSS feed plugin leading to Cross-Site Scripting (XSS) (Twitter: &lt;a href=&quot;https://twitter.com/_devalias/status/922234470274498560&quot;&gt;1&lt;/a&gt;, &lt;a href=&quot;https://twitter.com/_devalias/status/938271825414455298&quot;&gt;2&lt;/a&gt;; LinkedIn: &lt;a href=&quot;https://www.linkedin.com/feed/update/urn:li:activity:6328008786355331072/&quot;&gt;1&lt;/a&gt;, &lt;a href=&quot;https://www.linkedin.com/feed/update/urn:li:activity:6344043067401732096&quot;&gt;2&lt;/a&gt;; BugCrowd: &lt;a href=&quot;https://bugcrowd.com/devalias&quot;&gt;1&lt;/a&gt;, &lt;a href=&quot;https://bugcrowd.com/atlassian/hall-of-fame&quot;&gt;2&lt;/a&gt;).&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en_GB"><generator uri="https://jekyllrb.com/" version="3.4.5">Jekyll</generator><link href="http://devalias.net/feed.xml" rel="self" type="application/atom+xml" /><link href="http://devalias.net/" rel="alternate" type="text/html" hreflang="en_GB" /><updated>2018-03-18T11:46:59+11:00</updated><id>http://devalias.net/</id><title type="html">/dev/alias – Hack. Dev. Transcend.</title><subtitle>Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.</subtitle><entry><title type="html">Biohacked Box #6 (Spring, March 2018)</title><link href="http://devalias.net/devalias/2018/03/05/biohacked-box-6-spring/" rel="alternate" type="text/html" title="Biohacked Box #6 (Spring, March 2018)" /><published>2018-03-05T00:00:00+11:00</published><updated>2018-03-05T00:00:00+11:00</updated><id>http://devalias.net/devalias/2018/03/05/biohacked-box-6-spring</id><content type="html" xml:base="http://devalias.net/devalias/2018/03/05/biohacked-box-6-spring/">&lt;p&gt;Time for another Bulletproof &lt;a href=&quot;http://biohacked.com/&quot;&gt;Biohacked.com&lt;/a&gt; quarterly box.&lt;/p&gt;
+
+&lt;h2&gt;Contents&lt;/h2&gt;
+
+&lt;p&gt;If you want to follow along with the official unboxing video, head on over and &lt;a href=&quot;https://biohacked.com/BBQ118/&quot;&gt;watch with me&lt;/a&gt; (&lt;a href=&quot;https://www.youtube.com/watch?v=T9i8h_Edh_4&quot;&gt;YouTube&lt;/a&gt;).&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;0:00 Intro
+
+&lt;ul&gt;
+&lt;li&gt;~US$174 value&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;1:15 Box overview booklet, discount codes, etc&lt;/li&gt;
+&lt;li&gt;1:34 &lt;a href=&quot;https://knockknockstuff.com/product/affirmators-50-affirmation-cards-help-help-without-self-helpy-ness/&quot;&gt;KnockKnock Affirmators Cards&lt;/a&gt; (~US$12)
+
+&lt;ul&gt;
+&lt;li&gt;20% off any purchase: BIOHACKING20 (till 01/06/2018)&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;3:43 &lt;a href=&quot;https://www.defendershield.com/headphones&quot;&gt;DefenderShield EMF Free Air Tube Headphones&lt;/a&gt; (~US$65)
+
+&lt;ul&gt;
+&lt;li&gt;Not noise cancelling&lt;/li&gt;
+&lt;li&gt;Block EMF from getting into ear canal, speaker positioned distance away from earbuds&lt;/li&gt;
+&lt;li&gt;EMF&amp;#39;s affect voltage gated calcium channels in mitochondria, cause inflammation over time&lt;/li&gt;
+&lt;li&gt;15% off: BIOHACK18 (till 30/09/2018)&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;5:40 &lt;a href=&quot;https://performancenutbutter.com/&quot;&gt;Performance Nut Butter Samples&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Macadamia, coconut, cashews, sea salt&lt;/li&gt;
+&lt;li&gt;20% off: BULLETPROOF&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;6:25 &lt;a href=&quot;https://branchbasics.com/shop/kit-travel/&quot;&gt;Branch Basics Travel Kit&lt;/a&gt; (~US$20)
+
+&lt;ul&gt;
+&lt;li&gt;Safe/clean household/etc cleansers, concentrated, travel kit&lt;/li&gt;
+&lt;li&gt;15% off: BIOHACKED&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;8:08 &lt;a href=&quot;https://thefidgetcube.co/&quot;&gt;Fidget Cube&lt;/a&gt; (~US$20)&lt;/li&gt;
+&lt;li&gt;9:22 &lt;a href=&quot;https://www.cosmeceuticalslab.com/sunshield&quot;&gt;Pure Mineral SunShield&lt;/a&gt; (~US$65)
+
+&lt;ul&gt;
+&lt;li&gt;SPF 50&lt;/li&gt;
+&lt;li&gt;Active ingredients: titanium dioxide (22%), zinc oxide (22%)&lt;/li&gt;
+&lt;li&gt;30% off: BHSS&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;11:53 Golden Ticket: &lt;a href=&quot;https://vitaclaychef.com/collections/slow-cooker/products/high-fired-vitaclay-smart-organic-multicooker&quot;&gt;VitaClay Slow Cooker&lt;/a&gt; (~US$120-140)
+
+&lt;ul&gt;
+&lt;li&gt;Zisha clay, traditionally used in china&lt;/li&gt;
+&lt;li&gt;Can go down to low temperatures (eg. yoghurt making)&lt;/li&gt;
+&lt;li&gt;$10 off: GIFT10&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;14:59 Wrap up&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;Previous Boxes&lt;/h2&gt;
+
+&lt;p&gt;Want to see what the previous boxes have been like? Check out my other posts:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;/devalias/2017/12/10/biohacked-box-5-winter/&quot;&gt;Biohacked Box #5&lt;/a&gt; (Winter, December 2017)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/devalias/2017/09/05/biohacked-box-4-autumn/&quot;&gt;Biohacked Box #4&lt;/a&gt; (Autumn, September 2017)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/devalias/2017/06/04/biohacked-box-3/&quot;&gt;Biohacked Box #3&lt;/a&gt; (June 2017)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/devalias/2017/03/01/biohacked-box-2/&quot;&gt;Biohacked Box #2&lt;/a&gt; (March 2017)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/devalias/2016/12/20/biohacked-box-1-bulletproof-biohacking-box-9/&quot;&gt;Biohacked Box #1&lt;/a&gt; (December 2016)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/devalias/2016/10/13/bulletproof-biohacking-box-8/&quot;&gt;Quarterly Biohacking Box #8&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/devalias/2016/07/21/bulletproof-quarterly-biohacking-box-7/&quot;&gt;Quarterly Biohacking Box #7&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;This has a quick summary of boxes 1-6 as well&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Glenn 'devalias' Grant</name></author><category term="quicknote" /><category term="bulletproof" /><category term="bulletproof-quarterly" /><category term="dave-asprey" /><category term="quarterly" /><category term="biohacking" /><category term="biohacked.com" /><category term="affirmators" /><category term="defendershield" /><category term="performance-nut-butter" /><category term="branch-basics" /><category term="fidget-cube" /><category term="sunshield" /><category term="vitaclay" /><summary type="html">Time for another Bulletproof Biohacked.com quarterly box.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://devalias.net/assets/images/cover4.jpg" /></entry><entry><title type="html">Biohacked Box #5 (Winter, December 2017)</title><link href="http://devalias.net/devalias/2017/12/10/biohacked-box-5-winter/" rel="alternate" type="text/html" title="Biohacked Box #5 (Winter, December 2017)" /><published>2017-12-10T00:00:00+11:00</published><updated>2017-12-10T00:00:00+11:00</updated><id>http://devalias.net/devalias/2017/12/10/biohacked-box-5-winter</id><content type="html" xml:base="http://devalias.net/devalias/2017/12/10/biohacked-box-5-winter/">&lt;p&gt;Time for another Bulletproof &lt;a href=&quot;http://biohacked.com/&quot;&gt;Biohacked.com&lt;/a&gt; quarterly box.&lt;/p&gt;
+
+&lt;h2&gt;Contents&lt;/h2&gt;
+
+&lt;p&gt;If you want to follow along with the official unboxing video, head on over and &lt;a href=&quot;https://biohacked.com/BBQ417/&quot;&gt;watch with me&lt;/a&gt; (&lt;a href=&quot;https://www.youtube.com/watch?v=DGgxn0rXnF0&quot;&gt;YouTube&lt;/a&gt;).&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;0:00 Intro&lt;/li&gt;
+&lt;li&gt;0:31 Box overview booklet, discount codes, etc&lt;/li&gt;
+&lt;li&gt;0:53 &lt;a href=&quot;https://markbellslingshot.com/products/hip-circle&quot;&gt;Mark Bell SlingShot Hip Circle&lt;/a&gt; (~US$25)
+
+&lt;ul&gt;
+&lt;li&gt;Activates hip/butt muscles, warm up for exercise&lt;/li&gt;
+&lt;li&gt;Fixes posture, offsets quad dominance, undoes sitting damage&lt;/li&gt;
+&lt;li&gt;10% off entire order: BIOHACKED&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;3:07 &lt;a href=&quot;http://www.yogabody.com/awesometoes-global/&quot;&gt;Yoga Body Awesome Toes&lt;/a&gt; (~US$25)
+
+&lt;ul&gt;
+&lt;li&gt;Silicone, spreads toes out&lt;/li&gt;
+&lt;li&gt;Reduces foot pain, realigning toe bones&lt;/li&gt;
+&lt;li&gt;Relieve stress/tension, can walk or sleep in them&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;5:15 &lt;a href=&quot;http://www.prohands.net/products/gripmaster.php&quot;&gt;Pro Hands GripMaster&lt;/a&gt; (~US$15)
+
+&lt;ul&gt;
+&lt;li&gt;Grip/hand/finger strengthening&lt;/li&gt;
+&lt;li&gt;20% off: BIOHACKED&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;7:05 &lt;a href=&quot;https://biohacked.com/product/biohacked-tens-unit/&quot;&gt;Biohacked TENS Unit&lt;/a&gt; (~US$85)
+
+&lt;ul&gt;
+&lt;li&gt;Runs small pulsed current across nerves&lt;/li&gt;
+&lt;li&gt;Reduces perception of pain, releases endorphins&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;9:20 &lt;a href=&quot;https://earthbasedbody.com/product/grounding-gellee/&quot;&gt;Earth Based Body Grounding Gelee&lt;/a&gt; (~US$49)
+
+&lt;ul&gt;
+&lt;li&gt;Puts layer of ionic silver on feet, increase conductivity with earth&lt;/li&gt;
+&lt;li&gt;25% off: BHGG25 (till 31/01/2018)&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;11:00 &lt;a href=&quot;https://manflowyoga.com/shop/guyoga/&quot;&gt;ManFlow Yoga - Guyoga&lt;/a&gt; (~US$35)
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://manflowyoga.com/biohacker&quot;&gt;Access&lt;/a&gt;, DaveSentMe&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;13:20 Golden Ticket: &lt;a href=&quot;http://hyperice.com/hypersphere&quot;&gt;Hyperice Sphere / Roller&lt;/a&gt; (~US$149)
+
+&lt;ul&gt;
+&lt;li&gt;Vibrates, rechargable&lt;/li&gt;
+&lt;li&gt;Releases trigger points/knots quickly&lt;/li&gt;
+&lt;li&gt;30% off any product: BULLETPROOF30&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;15:26 Golden Ticket: &lt;a href=&quot;https://joovv.com/products/joovv-light?variant=39356431502&quot;&gt;Joov Combo Mini&lt;/a&gt; (~$600)
+
+&lt;ul&gt;
+&lt;li&gt;Photobiomodulation, red light therapy&lt;/li&gt;
+&lt;li&gt;Red light contributes electrons to the electron transport chain&lt;/li&gt;
+&lt;li&gt;IR changes the structure of water in your body&lt;/li&gt;
+&lt;li&gt;660nm and 850nm, good for 50,000 hours of use&lt;/li&gt;
+&lt;li&gt;Can use on head for brain/hair loss&lt;/li&gt;
+&lt;li&gt;$25 off: BIOHACKED&lt;/li&gt;
+&lt;li&gt;(Sidenote: You could probably build your own equivalent to the mini for ~US$100 in parts from aliexpress, save yourself ~US$500)&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;Previous Boxes&lt;/h2&gt;
+
+&lt;p&gt;Want to see what the previous boxes have been like? Check out my other posts:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;/devalias/2017/09/05/biohacked-box-4-autumn/&quot;&gt;Biohacked Box #4&lt;/a&gt; (Autumn, September 2017)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/devalias/2017/06/04/biohacked-box-3/&quot;&gt;Biohacked Box #3&lt;/a&gt; (June 2017)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/devalias/2017/03/01/biohacked-box-2/&quot;&gt;Biohacked Box #2&lt;/a&gt; (March 2017)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/devalias/2016/12/20/biohacked-box-1-bulletproof-biohacking-box-9/&quot;&gt;Biohacked Box #1&lt;/a&gt; (December 2016)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/devalias/2016/10/13/bulletproof-biohacking-box-8/&quot;&gt;Quarterly Biohacking Box #8&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/devalias/2016/07/21/bulletproof-quarterly-biohacking-box-7/&quot;&gt;Quarterly Biohacking Box #7&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;This has a quick summary of boxes 1-6 as well&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Glenn 'devalias' Grant</name></author><category term="quicknote" /><category term="bulletproof" /><category term="bulletproof-quarterly" /><category term="dave-asprey" /><category term="quarterly" /><category term="biohacking" /><category term="biohacked.com" /><category term="slingshot" /><category term="mark-bell" /><category term="yogabody" /><category term="gripmaster" /><category term="tens" /><category term="grounding-gelee" /><category term="manflowyoga" /><category term="guyoga" /><category term="hyperice" /><category term="joov" /><category term="red-light" /><summary type="html">Time for another Bulletproof Biohacked.com quarterly box.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://devalias.net/assets/images/cover4.jpg" /></entry><entry><title type="html">Atlassian Confluence: Cross-Site Scripting (XSS) (CVE-2017-16856)</title><link href="http://devalias.net/devalias/2017/12/05/atlassian-confluence-cross-site-scripting-xss/" rel="alternate" type="text/html" title="Atlassian Confluence: Cross-Site Scripting (XSS) (CVE-2017-16856)" /><published>2017-12-05T00:00:00+11:00</published><updated>2017-12-05T00:00:00+11:00</updated><id>http://devalias.net/devalias/2017/12/05/atlassian-confluence-cross-site-scripting-xss</id><content type="html" xml:base="http://devalias.net/devalias/2017/12/05/atlassian-confluence-cross-site-scripting-xss/">&lt;p&gt;Earlier this year I spent some time delving into &lt;a href=&quot;https://www.atlassian.com/software/confluence&quot;&gt;Atlassian Confluence&lt;/a&gt; to see if I could dig up any bugs that had slipped through the cracks. I wasn&amp;#39;t really expecting to turn up much, but I was super excited and surprised when I managed to find an issue within the RSS feed plugin leading to Cross-Site Scripting (XSS) (Twitter: &lt;a href=&quot;https://twitter.com/_devalias/status/922234470274498560&quot;&gt;1&lt;/a&gt;, &lt;a href=&quot;https://twitter.com/_devalias/status/938271825414455298&quot;&gt;2&lt;/a&gt;; LinkedIn: &lt;a href=&quot;https://www.linkedin.com/feed/update/urn:li:activity:6328008786355331072/&quot;&gt;1&lt;/a&gt;, &lt;a href=&quot;https://www.linkedin.com/feed/update/urn:li:activity:6344043067401732096&quot;&gt;2&lt;/a&gt;; BugCrowd: &lt;a href=&quot;https://bugcrowd.com/devalias&quot;&gt;1&lt;/a&gt;, &lt;a href=&quot;https://bugcrowd.com/atlassian/hall-of-fame&quot;&gt;2&lt;/a&gt;).&lt;/p&gt;
 
 &lt;p&gt;Thanks to &lt;a href=&quot;https://www.atlassian.com/trust/security&quot;&gt;Atlassian&lt;/a&gt; and &lt;a href=&quot;https://www.bugcrowd.com/&quot;&gt;BugCrowd&lt;/a&gt; for running an awesome bug bounty program and giving researchers the opportunity to hack things, make the internet safer, AND get rewarded while doing so!&lt;/p&gt;
 
@@ -200,7 +353,96 @@ Memes&amp;quot;&lt;/a&gt; (&lt;a href=&quot;https://twitter.com/bogan/status/934
 
 &lt;p&gt;It seems the core issues here were a few bugs popping up in legacy code, and passing user-controlled values into sensitive areas without proper checks/sanitisation. Easy mistakes to make when managing such a large codebase that has evolved over the years.&lt;/p&gt;
 
-&lt;p&gt;Have you had a similar experience? Manage a large codebase and legacy code? Got good tips for how best to identify and avoid these sorts of issues? Would love to hear your ideas in the comments!&lt;/p&gt;</content><author><name>Glenn 'devalias' Grant</name></author><category term="security" /><category term="cve" /><category term="squiz" /><category term="matrix" /><category term="bug-bounty" /><category term="bugcrowd" /><category term="xss" /><category term="rce" /><summary type="html">Earlier this year I had an opportunity to spend some time looking at Squiz Matrix, a Content Management System (CMS) used across a number of sectors including higher eduction, media and publishing, goverment, finance, health, and utilities. With a huge number of features, a massive PHP codebase, and a numbr of high profile sectors as clients, I set out to see if I could find any interesting little bugs hidden away.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://devalias.net/assets/images/cover4.jpg" /></entry><entry><title type="html">An unexpected journey with webpack and RequireJS</title><link href="http://devalias.net/devalias/2017/08/05/unexpected-journey-webpack-requirejs/" rel="alternate" type="text/html" title="An unexpected journey with webpack and RequireJS" /><published>2017-08-05T00:00:00+10:00</published><updated>2017-08-05T00:00:00+10:00</updated><id>http://devalias.net/devalias/2017/08/05/unexpected-journey-webpack-requirejs</id><content type="html" xml:base="http://devalias.net/devalias/2017/08/05/unexpected-journey-webpack-requirejs/">&lt;p&gt;So the other day I &lt;a href=&quot;https://github.com/blueclosure/BCDetect/issues/27&quot;&gt;ran into what seemed like a bug&lt;/a&gt; in some software I was using during a test. Narrowing things down in the codebase, it looked as though the error may have been related to a &lt;a href=&quot;https://github.com/auth0/idtoken-verifier&quot;&gt;library in use by the application&lt;/a&gt; I was testing.&lt;/p&gt;
+&lt;p&gt;Have you had a similar experience? Manage a large codebase and legacy code? Got good tips for how best to identify and avoid these sorts of issues? Would love to hear your ideas in the comments!&lt;/p&gt;</content><author><name>Glenn 'devalias' Grant</name></author><category term="security" /><category term="cve" /><category term="squiz" /><category term="matrix" /><category term="bug-bounty" /><category term="bugcrowd" /><category term="xss" /><category term="rce" /><summary type="html">Earlier this year I had an opportunity to spend some time looking at Squiz Matrix, a Content Management System (CMS) used across a number of sectors including higher eduction, media and publishing, goverment, finance, health, and utilities. With a huge number of features, a massive PHP codebase, and a numbr of high profile sectors as clients, I set out to see if I could find any interesting little bugs hidden away.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://devalias.net/assets/images/cover4.jpg" /></entry><entry><title type="html">Biohacked Box #4 (Autumn, September 2017)</title><link href="http://devalias.net/devalias/2017/09/05/biohacked-box-4-autumn/" rel="alternate" type="text/html" title="Biohacked Box #4 (Autumn, September 2017)" /><published>2017-09-05T00:00:00+10:00</published><updated>2017-09-05T00:00:00+10:00</updated><id>http://devalias.net/devalias/2017/09/05/biohacked-box-4-autumn</id><content type="html" xml:base="http://devalias.net/devalias/2017/09/05/biohacked-box-4-autumn/">&lt;p&gt;Time for another Bulletproof &lt;a href=&quot;http://biohacked.com/&quot;&gt;Biohacked.com&lt;/a&gt; quarterly box.&lt;/p&gt;
+
+&lt;h2&gt;Contents&lt;/h2&gt;
+
+&lt;p&gt;If you want to follow along with the official unboxing video, head on over and &lt;a href=&quot;https://biohacked.com/BBQ317/&quot;&gt;watch with me&lt;/a&gt; (&lt;a href=&quot;https://www.youtube.com/watch?v=cbFMoXAszOY&quot;&gt;YouTube&lt;/a&gt;).&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;0:00 Intro
+
+&lt;ul&gt;
+&lt;li&gt;~US$220 of value&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;0:56 &lt;a href=&quot;https://www.samina.com/&quot;&gt;Samina Travel Cushion&lt;/a&gt; (~US$75)
+
+&lt;ul&gt;
+&lt;li&gt;No petrochemical/flame retardents.&lt;/li&gt;
+&lt;li&gt;Green company&lt;/li&gt;
+&lt;li&gt;Climate regulating, conforms to body, self cleaning&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.justhealthysleep.com/bulletproofbed&quot;&gt;Discount on sleep system&lt;/a&gt;: bulletproofbed (Expires 31/10/2017)&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;3:11 &lt;a href=&quot;https://www.siabotanics.com/product_p/enex.htm&quot;&gt;Siabotanics Energy Elixir&lt;/a&gt; (~US$59)
+
+&lt;ul&gt;
+&lt;li&gt;Essential oils&lt;/li&gt;
+&lt;li&gt;Topical, stimulate circulation/blood flow to brain&lt;/li&gt;
+&lt;li&gt;1 drop to each temple, 2 drops behind each ear, 900 drops in a bottle&lt;/li&gt;
+&lt;li&gt;35% off: ENEX35 (till 10/15/2017)&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;4:32 &lt;a href=&quot;https://biohacked.com/product/xpressgo-espresso-maker/&quot;&gt;XpressGo Portable Espresso Maker&lt;/a&gt; (~US$60)
+
+&lt;ul&gt;
+&lt;li&gt;Pump creates enough pressure to make real espresso&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;6:05 &lt;a href=&quot;https://www.bulletproof.com/fatwater-mango-12ct-case&quot;&gt;Bulletproof FATwater - Mango Flavor&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;6:43 &lt;a href=&quot;https://beekeepersnaturals.com/product/propolis-spray/&quot;&gt;BeeKeepers Naturals Propolis Spray&lt;/a&gt; (~US$14)
+
+&lt;ul&gt;
+&lt;li&gt;Bees make propolis to keep fungus/bacteria/etc from growing in the hive&lt;/li&gt;
+&lt;li&gt;Immune booster, antiinflammatory&lt;/li&gt;
+&lt;li&gt;Sustainable bee company&lt;/li&gt;
+&lt;li&gt;20% off: BIOHACKED ()&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;8:15 Golden Ticket: &lt;a href=&quot;https://nimasensor.com/&quot;&gt;Nima Sensor&lt;/a&gt; (~US$279)
+
+&lt;ul&gt;
+&lt;li&gt;Portable gluten sensor&lt;/li&gt;
+&lt;li&gt;Gluten == lectin&lt;/li&gt;
+&lt;li&gt;Nima app allows you to find truly gluten free restaurants&lt;/li&gt;
+&lt;li&gt;20% off starter kit: BIOHACKED (till 30/09/2017)&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;10:10 Golden Ticket: &lt;a href=&quot;https://www.teloyears.com/home/&quot;&gt;TeloYears&lt;/a&gt; (~US$89)
+
+&lt;ul&gt;
+&lt;li&gt;DNA health test, telomere length&lt;/li&gt;
+&lt;li&gt;Protective caps on the end of DNA, protect genetic information during cellular division&lt;/li&gt;
+&lt;li&gt;Telomere length reduces each time cell divides, when they&amp;#39;re gone, cell dies&lt;/li&gt;
+&lt;li&gt;Dave does this test every 6-12 months&lt;/li&gt;
+&lt;li&gt;$10 off: DAVE17&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;11:17 Random discount cards/etc
+
+&lt;ul&gt;
+&lt;li&gt;Nima Sensor&lt;/li&gt;
+&lt;li&gt;TeloYears&lt;/li&gt;
+&lt;li&gt;Box overview booklet&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;12:20 Bulletproof Eye Armor: $15 off subscription: VISIONHACK (till 29/12/2017)
+
+&lt;ul&gt;
+&lt;li&gt;Designed to help eyes deal with blue light&lt;/li&gt;
+&lt;li&gt;Dave takes 4/day&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;13:13 Wrap up&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;Previous Boxes&lt;/h2&gt;
+
+&lt;p&gt;Want to see what the previous boxes have been like? Check out my other posts:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;/devalias/2017/06/04/biohacked-box-3/&quot;&gt;Biohacked Box #3&lt;/a&gt; (June 2017)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/devalias/2017/03/01/biohacked-box-2/&quot;&gt;Biohacked Box #2&lt;/a&gt; (March 2017)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/devalias/2016/12/20/biohacked-box-1-bulletproof-biohacking-box-9/&quot;&gt;Biohacked Box #1&lt;/a&gt; (December 2016)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/devalias/2016/10/13/bulletproof-biohacking-box-8/&quot;&gt;Quarterly Biohacking Box #8&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/devalias/2016/07/21/bulletproof-quarterly-biohacking-box-7/&quot;&gt;Quarterly Biohacking Box #7&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;This has a quick summary of boxes 1-6 as well&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Glenn 'devalias' Grant</name></author><category term="quicknote" /><category term="bulletproof" /><category term="bulletproof-quarterly" /><category term="dave-asprey" /><category term="quarterly" /><category term="biohacking" /><category term="biohacked.com" /><category term="samina" /><category term="siabotanics" /><category term="xpressgo" /><category term="fatwater" /><category term="beekeepers-naturals" /><category term="nima" /><category term="teloyears" /><category term="eye-armor" /><summary type="html">Time for another Bulletproof Biohacked.com quarterly box.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://devalias.net/assets/images/cover4.jpg" /></entry><entry><title type="html">An unexpected journey with webpack and RequireJS</title><link href="http://devalias.net/devalias/2017/08/05/unexpected-journey-webpack-requirejs/" rel="alternate" type="text/html" title="An unexpected journey with webpack and RequireJS" /><published>2017-08-05T00:00:00+10:00</published><updated>2017-08-05T00:00:00+10:00</updated><id>http://devalias.net/devalias/2017/08/05/unexpected-journey-webpack-requirejs</id><content type="html" xml:base="http://devalias.net/devalias/2017/08/05/unexpected-journey-webpack-requirejs/">&lt;p&gt;So the other day I &lt;a href=&quot;https://github.com/blueclosure/BCDetect/issues/27&quot;&gt;ran into what seemed like a bug&lt;/a&gt; in some software I was using during a test. Narrowing things down in the codebase, it looked as though the error may have been related to a &lt;a href=&quot;https://github.com/auth0/idtoken-verifier&quot;&gt;library in use by the application&lt;/a&gt; I was testing.&lt;/p&gt;
 
 &lt;p&gt;I needed an easy way to isolate the code that seemed to be causing the error from the rest of the application, which took me down a rabbit hole to learn a little bit more about a few different technologies.&lt;/p&gt;
 
@@ -2131,221 +2373,4 @@ In a fast, simple, yet extensible way.&lt;/li&gt;
 &lt;ul&gt;
 &lt;li&gt;This has a quick summary of boxes 1-6 as well&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Glenn 'devalias' Grant</name></author><category term="quicknote" /><category term="bulletproof" /><category term="bulletproof-quarterly" /><category term="dave-asprey" /><category term="quarterly" /><category term="biohacking" /><category term="biohacked.com" /><category term="pluggz" /><category term="honeycolony" /><category term="stellarcleenz" /><category term="truedark" /><category term="neuromaster" /><summary type="html">Time for another Bulletproof Biohacked.com quarterly box. A few interesting sounding items this time around, not sure how useful they will be though.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://devalias.net/assets/images/cover4.jpg" /></entry><entry><title type="html">iTerm2 + tmux = &amp;lt;3</title><link href="http://devalias.net/devalias/2017/03/18/iterm-tmux-love/" rel="alternate" type="text/html" title="iTerm2 + tmux = &lt;3" /><published>2017-03-18T00:00:00+11:00</published><updated>2017-03-18T00:00:00+11:00</updated><id>http://devalias.net/devalias/2017/03/18/iterm-tmux-love</id><content type="html" xml:base="http://devalias.net/devalias/2017/03/18/iterm-tmux-love/">&lt;p&gt;Just a quick note today, highlighting a super simple but amazingly useful combination I&amp;#39;ve only recently become aware of: &lt;a href=&quot;https://www.iterm2.com/&quot;&gt;iTerm2&lt;/a&gt; + &lt;a href=&quot;https://tmux.github.io/&quot;&gt;tmux&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;If you don&amp;#39;t know what these are:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;iTerm2 is a terminal emulator for macOS&lt;/li&gt;
-&lt;li&gt;tmux is terminal multiplexer, allowing you to run multiple programs in the same terminal session&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;If you use SSH a lot, you know the benefits of using something like tmux (or &lt;a href=&quot;https://www.gnu.org/software/screen/manual/screen.html&quot;&gt;screen&lt;/a&gt; for you older folks..) to run multiple programs at once, or keep them running when you disconnect.&lt;/p&gt;
-
-&lt;p&gt;While this is definitely a nice feature, I&amp;#39;ve always found the command syntax and interface to be just a little too confusing (growing up in a GUI world..), and so I tend to end up resorting to opening multiple SSH connections or similar hacks. That way I can use the multiple tabs/windows I get from iTerm2 instead.&lt;/p&gt;
-
-&lt;p&gt;Hacks no more! Thanks to the little known &lt;a href=&quot;https://gitlab.com/gnachman/iterm2/wikis/TmuxIntegration&quot;&gt;iTerm2 tmux integration&lt;/a&gt;, we can get the benefits of tmux, and the ease of iTerm&amp;#39;s tabs and windows. It works seamlessly. When using iTerm2:&lt;/p&gt;
-
-&lt;p&gt;You can create a new tmux session with:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;tmux -CC
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Or reattach to a previous session with:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;tmux -CC attach
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;This will open a new window running the tmux session. From there, we can open new tabs (&lt;code&gt;command-t&lt;/code&gt;), or split the tab vertically (&lt;code&gt;command-shift-d&lt;/code&gt;) or horizontally (&lt;code&gt;command-d&lt;/code&gt;)&lt;/p&gt;
-
-&lt;p&gt;For a more information, you could checkout &lt;a href=&quot;http://www.starkandwayne.com/blog/iterm-and-tmux-sitting-in-a-tree/&quot;&gt;iTerm and Tmux, sitting in a tree&lt;/a&gt; by Jamie van Dyke.&lt;/p&gt;</content><author><name>Glenn 'devalias' Grant</name></author><category term="quicknote" /><category term="productivity" /><category term="iterm2" /><category term="tmux" /><category term="screen" /><category term="terminal" /><category term="ssh" /><category term="osx" /><category term="macos" /><category term="starkandwayne.com" /><summary type="html">Just a quick note today, highlighting a super simple but amazingly useful combination I&amp;#39;ve only recently become aware of: iTerm2 + tmux.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://devalias.net/assets/images/cover4.jpg" /></entry><entry><title type="html">Biohacked Box #2 (March 2017)</title><link href="http://devalias.net/devalias/2017/03/01/biohacked-box-2/" rel="alternate" type="text/html" title="Biohacked Box #2 (March 2017)" /><published>2017-03-01T00:00:00+11:00</published><updated>2017-03-01T00:00:00+11:00</updated><id>http://devalias.net/devalias/2017/03/01/biohacked-box-2</id><content type="html" xml:base="http://devalias.net/devalias/2017/03/01/biohacked-box-2/">&lt;p&gt;Time for another Bulletproof &lt;a href=&quot;http://biohacked.com/&quot;&gt;Biohacked.com&lt;/a&gt; quarterly box. My overall impression of this one was pretty low in comparison to the others. A bunch of things that I don&amp;#39;t really feel like I&amp;#39;d make much use of. But anyway, we&amp;#39;ll see how it goes!&lt;/p&gt;
-
-&lt;h2&gt;Contents&lt;/h2&gt;
-
-&lt;p&gt;If you want to follow along with the official unboxing video, head on over and &lt;a href=&quot;https://biohacked.com/BB17A/&quot;&gt;watch with me&lt;/a&gt;. (&lt;a href=&quot;http://biohacked.com/BBQ117/&quot;&gt;alt&lt;/a&gt;, &lt;a href=&quot;https://www.youtube.com/watch?v=Et5n4aHi2nk&quot;&gt;YouTube&lt;/a&gt;)&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;1:30 Biohacked Box Contents Brochure&lt;/li&gt;
-&lt;li&gt;1:50 &lt;a href=&quot;https://stellarcleenz.com/&quot;&gt;Stellarcleenz&lt;/a&gt; (US$29.50)
-
-&lt;ul&gt;
-&lt;li&gt;99.9% silver, antimicrobial cloth&lt;/li&gt;
-&lt;li&gt;30% off: BH30 (June 30th, 2017)&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;4:04 &lt;a href=&quot;https://experiencenervana.com/&quot;&gt;Nervana&lt;/a&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Synchronizes electric signal with music to stimulate vagus nerve&lt;/li&gt;
-&lt;li&gt;20% off: BIOHACKED20&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;5:02 &lt;a href=&quot;http://shop.morroccomethod.com/Trial-Travel-Set-5-Shampoos&quot;&gt;Morrocco Method&lt;/a&gt; (US$35)
-
-&lt;ul&gt;
-&lt;li&gt;Raw, paleo, wildcrafted&lt;/li&gt;
-&lt;li&gt;PH balanced, no bad things&lt;/li&gt;
-&lt;li&gt;Super concentrated, only need a few drops of each&lt;/li&gt;
-&lt;li&gt;5 x 2 ounce shampoo travel kit&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;7:09 &lt;a href=&quot;http://www.livinglibations.com/&quot;&gt;Living Libations&lt;/a&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.livinglibations.com/default/products/tooth-care/ozonated-healthy-gum-gel-10ml-1&quot;&gt;Ozonated Happy Gum Gel&lt;/a&gt; (US$40)&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.livinglibations.com/default/best-skin-ever-rose-2&quot;&gt;Best Skin Ever - Rose&lt;/a&gt; (US$3)&lt;/li&gt;
-&lt;li&gt;10% off: BIOHACKEDBEAUTY&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;10:20 &lt;a href=&quot;https://www.lafontainecosmetics.com/collections/derma-rollers/products/dermadream-premium-540-0-5-mm-titanium-needles-derma-roller&quot;&gt;La Fontaine Cosmetics - Derma Dream&lt;/a&gt; (US$30)
-
-&lt;ul&gt;
-&lt;li&gt;Tiny needles puncture the surface of the skin, helps create collagen&lt;/li&gt;
-&lt;li&gt;Activates regenerative process&lt;/li&gt;
-&lt;li&gt;Collagen synthesis up to 500% higher&lt;/li&gt;
-&lt;li&gt;97% absorption of topical products instead of ~40%&lt;/li&gt;
-&lt;li&gt;20% off: HACKME (April 30th, 2017)&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;13:01 &lt;a href=&quot;http://www.readheadstrong.com/&quot;&gt;Head Strong Book&lt;/a&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Read the first chapter&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;13:56 &lt;a href=&quot;https://www.intelligentchange.com/products/the-five-minute-journal&quot;&gt;The Five Minute Journal&lt;/a&gt; (US$23)
-
-&lt;ul&gt;
-&lt;li&gt;Gratitude&lt;/li&gt;
-&lt;li&gt;15% off: biohacked&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://www.intelligentchange.com/pages/five-minute-journal-tips&quot;&gt;Five Minute Journal Tips&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://app.fiveminutejournal.com/&quot;&gt;iOS/Android app&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;15:50 &lt;a href=&quot;https://www.bulletproof.com/lemon-cookie-collagen-protein-bar-12-pack&quot;&gt;Lemon Cookie Collagen Protein Bar&lt;/a&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Not counted in the value of the box&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;16:08 &lt;a href=&quot;http://giveandgrow.com/biohack&quot;&gt;Give and Grow&lt;/a&gt; (US$20)
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://giveandgrow.com/free-code/&quot;&gt;Watch&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;People journey to india to discover their gift&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;16:53 Golden Ticket: 5x Nervana units (US$289)&lt;/li&gt;
-&lt;li&gt;17:29 Golden Ticker: 1x LED facemask and 1 year supply of derma rollers (US$1000)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2&gt;Previous Boxes&lt;/h2&gt;
-
-&lt;p&gt;Want to see what the previous boxes have been like? Check out my other posts:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;/devalias/2016/12/20/biohacked-box-1-bulletproof-biohacking-box-9/&quot;&gt;Biohacked Box #1&lt;/a&gt; (December 2016)&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;/devalias/2016/10/13/bulletproof-biohacking-box-8/&quot;&gt;Quarterly Biohacking Box #8&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;/devalias/2016/07/21/bulletproof-quarterly-biohacking-box-7/&quot;&gt;Quarterly Biohacking Box #7&lt;/a&gt;
-
-&lt;ul&gt;
-&lt;li&gt;This has a quick summary of boxes 1-6 as well&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Glenn 'devalias' Grant</name></author><category term="quicknote" /><category term="bulletproof" /><category term="bulletproof-quarterly" /><category term="dave-asprey" /><category term="quarterly" /><category term="biohacking" /><category term="biohacked.com" /><category term="stellarcleenz" /><category term="nervana" /><category term="morroccomethod" /><category term="livinglibations" /><category term="ozone" /><category term="headstrong" /><category term="book" /><category term="fiveminutejournal" /><category term="gratitude" /><category term="collagen" /><summary type="html">Time for another Bulletproof Biohacked.com quarterly box. My overall impression of this one was pretty low in comparison to the others. A bunch of things that I don&amp;#39;t really feel like I&amp;#39;d make much use of. But anyway, we&amp;#39;ll see how it goes!</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://devalias.net/assets/images/cover4.jpg" /></entry><entry><title type="html">Biohacked Box #1 (aka Bulletproof Biohacking Box #9)</title><link href="http://devalias.net/devalias/2016/12/20/biohacked-box-1-bulletproof-biohacking-box-9/" rel="alternate" type="text/html" title="Biohacked Box #1 (aka Bulletproof Biohacking Box #9)" /><published>2016-12-20T00:00:00+11:00</published><updated>2016-12-20T00:00:00+11:00</updated><id>http://devalias.net/devalias/2016/12/20/biohacked-box-1-bulletproof-biohacking-box-9</id><content type="html" xml:base="http://devalias.net/devalias/2016/12/20/biohacked-box-1-bulletproof-biohacking-box-9/">&lt;p&gt;Even though you pay for these boxes (US$99/quarter), it becomes another one of those background things you forget about, and then suddenly in the mail arrives this package of biohacking goodies! This one rocked up perfectly in time for actual christmas, so was a nice little addition to the festivities.&lt;/p&gt;
-
-&lt;p&gt;While this is the 9th box overall, it&amp;#39;s the first shipped via the new service over at &lt;a href=&quot;http://biohacked.com/&quot;&gt;Biohacked.com&lt;/a&gt;. If you haven&amp;#39;t checked it out yet, I definitely recommend it.&lt;/p&gt;
-
-&lt;h2&gt;Contents&lt;/h2&gt;
-
-&lt;p&gt;If you want to follow along with the official unboxing video, head on over and &lt;a href=&quot;https://biohacked.com/BBQ16/&quot;&gt;watch with me&lt;/a&gt;. (&lt;a href=&quot;https://www.youtube.com/watch?v=TgjP010MXnM&quot;&gt;YouTube&lt;/a&gt;)&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;0:48 &lt;a href=&quot;https://www.squattypotty.com/&quot;&gt;SquattyPotty&lt;/a&gt; (&lt;a href=&quot;https://www.squattypottyaustralia.com/&quot;&gt;AU&lt;/a&gt;)
-
-&lt;ul&gt;
-&lt;li&gt;20% off: BIOHACKED20 (expires 15/2/17)&lt;/li&gt;
-&lt;li&gt;Changes the alignment of your bowels, better elimination, better endotoxin excretion.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://www.squattypotty.com/shop/product/porta-squatty-foldable/&quot;&gt;Porta-Squatty&lt;/a&gt; (~US$29)&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;4:35 &lt;a href=&quot;https://biohacked.com/product/neurominer/&quot;&gt;Neurominer&lt;/a&gt; (US$99/yr + $99 voucher)
-
-&lt;ul&gt;
-&lt;li&gt;Brain trainer&lt;/li&gt;
-&lt;li&gt;Default mode network: creativity, intuition, etc. When you&amp;#39;re not actively working on a problem&lt;/li&gt;
-&lt;li&gt;Like a dream, hard to remember things unless you write them down&lt;/li&gt;
-&lt;li&gt;Trains passive recall ability&lt;/li&gt;
-&lt;li&gt;Bill Harris, Centerpointe Research Institute&lt;/li&gt;
-&lt;li&gt;Combine holosync style sounds, with memory training&lt;/li&gt;
-&lt;li&gt;8:16 Free personal account while you remain subscribed to the biohacked box, and a gift card for a free year for a friend&lt;/li&gt;
-&lt;li&gt;Want 20-30min/day for a month to get the benefit, is a meditation&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;9:47 &lt;a href=&quot;http://www.breakawaymatcha.com/&quot;&gt;Breakaway Matcha&lt;/a&gt;
-
-&lt;ul&gt;
-&lt;li&gt;15% off: MATCHAHACK&lt;/li&gt;
-&lt;li&gt;&amp;#39;Hyperpremium matcha&amp;#39;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.breakawaymatcha.com/breakaway-coldbrew-matcha/&quot;&gt;Coldbrew Original&lt;/a&gt; (US$29/30g)&lt;/li&gt;
-&lt;li&gt;Comes in a glass jar that blocks all damaging lights, same as &lt;a href=&quot;https://alituranaturals.com/product/alitura-night-cream/&quot;&gt;Alitura Night Cream&lt;/a&gt; (from the &lt;a href=&quot;/devalias/2016/10/13/bulletproof-biohacking-box-8/&quot;&gt;last biohacked box&lt;/a&gt;) uses.&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;13:50 &lt;a href=&quot;http://zpcompression.us/&quot;&gt;ZeroPoint Compression Socks&lt;/a&gt; (~US$45)
-
-&lt;ul&gt;
-&lt;li&gt;30% off: BULLETPROOF30&lt;/li&gt;
-&lt;li&gt;Medical grade compression&lt;/li&gt;
-&lt;li&gt;Graduated compression (tighter at the bottom, rather than the top)&lt;/li&gt;
-&lt;li&gt;Size for me, M2&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;15:48 &lt;a href=&quot;http://www.chiocolate.com/&quot;&gt;Chi-ocolate&lt;/a&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Dark Chocolate infused with Chinese Herbal Formulas Anxiety, Stress, PMS, Workout Recovery.&lt;/li&gt;
-&lt;li&gt;80% dark ecuadorian chocolate&lt;/li&gt;
-&lt;li&gt;Formulated by one of the &lt;a href=&quot;https://40yearsofzen.com/&quot;&gt;40 Years of Zen&lt;/a&gt; neuroscientists&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;17:00 Bulletproof Collagen Protein Bites (~$30/box)
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.dpbolvw.net/click-8173002-12819854?sid=devalias.net&quot;&gt;Chocolate&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.kqzyfj.com/click-8173002-12819855?sid=devalias.net&quot;&gt;Vanilla&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;18:30 Golden Ticket: &lt;a href=&quot;https://www.standdesk.co/&quot;&gt;Stand Desk&lt;/a&gt;
-
-&lt;ul&gt;
-&lt;li&gt;3 golden ticket prizes&lt;/li&gt;
-&lt;li&gt;15% off: &lt;a href=&quot;https://www.standdesk.co/BioHack&quot;&gt;BIOBOX20&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;20:10 &lt;a href=&quot;http://www.giawellness.com.au/2/products/aqua-gia/i-h2o/&quot;&gt;iH2O&lt;/a&gt;
-
-&lt;ul&gt;
-&lt;li&gt;10 people get one for free&lt;/li&gt;
-&lt;li&gt;$100 off: BULLETPROOF (exp 28/2/17)&lt;/li&gt;
-&lt;li&gt;&amp;#39;Intelligently Designed Water&amp;#39;&lt;/li&gt;
-&lt;li&gt;4th state of water, exclusion zone, EZWater, structured water&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;22:20 Golden Ticket: &lt;a href=&quot;https://40yearsofzen.com/&quot;&gt;40 Years of Zen Mastermind Program&lt;/a&gt; ($US15,000)
-
-&lt;ul&gt;
-&lt;li&gt;Only a couple hundred can do it per year&lt;/li&gt;
-&lt;li&gt;Dedicated $2.5mil facility in Seattle&lt;/li&gt;
-&lt;li&gt;5 days of intensive neurofeedback&lt;/li&gt;
-&lt;li&gt;Custom made hardware/software&lt;/li&gt;
-&lt;li&gt;Includes a year of membership to an exclusive group, telecalls, etc&lt;/li&gt;
-&lt;li&gt;Access to a small meeting around the next &lt;a href=&quot;http://www.bulletproof.com/2016-bp-conference-videos&quot;&gt;Bulletproof conference&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;25:18 Tell a friend&lt;/li&gt;
-&lt;li&gt;26:00 Share a picture&lt;/li&gt;
-&lt;li&gt;26:09 Cancel &lt;a href=&quot;https://quarterly.co/products/biohack&quot;&gt;your old quarterly box&lt;/a&gt;
-
-&lt;ul&gt;
-&lt;li&gt;They transferred it to a generic box without asking permission first&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;So that&amp;#39;s it for this box, can&amp;#39;t wait to see what goodies we get next time!&lt;/p&gt;
-
-&lt;p&gt;Also, while I was on the &lt;a href=&quot;https://biohacked.com/&quot;&gt;Biohacked&lt;/a&gt; site, I saw a couple of upcoming products. They look to be some new blue light blockers, and the style seems to have a pretty awesome Vampyre-chic look to it. If you&amp;#39;re interested, head on over and take a look:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://biohacked.com/product/truedarktwilight/&quot;&gt;TrueDark&amp;trade; Twilight&lt;/a&gt; ($US79-99)&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://biohacked.com/product/truedarkdaywalker/&quot;&gt;TrueDark&amp;trade; Daywalker&lt;/a&gt; ($US79-99)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2&gt;Previous Boxes&lt;/h2&gt;
-
-&lt;p&gt;Want to see what the previous boxes have been like? Check out my other posts:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;/devalias/2016/10/13/bulletproof-biohacking-box-8/&quot;&gt;Quarterly Biohacking Box #8&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;/devalias/2016/07/21/bulletproof-quarterly-biohacking-box-7/&quot;&gt;Quarterly Biohacking Box #7&lt;/a&gt;
-
-&lt;ul&gt;
-&lt;li&gt;This has a quick summary of boxes 1-6 as well&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Glenn 'devalias' Grant</name></author><category term="quicknote" /><category term="bulletproof" /><category term="bulletproof-quarterly" /><category term="dave-asprey" /><category term="quarterly" /><category term="biohacking" /><category term="biohacked.com" /><category term="squattypotty" /><category term="neurominer" /><category term="breakaway-matcha" /><category term="matcha" /><category term="green-tea" /><category term="chocolate" /><category term="collagen" /><category term="collagen-bites" /><category term="stand-desk" /><category term="40-years-of-zen" /><category term="bulletproof-conference" /><category term="truedark" /><category term="discount" /><summary type="html">Even though you pay for these boxes (US$99/quarter), it becomes another one of those background things you forget about, and then suddenly in the mail arrives this package of biohacking goodies! This one rocked up perfectly in time for actual christmas, so was a nice little addition to the festivities.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://devalias.net/assets/images/cover4.jpg" /></entry></feed>
+&lt;/ul&gt;</content><author><name>Glenn 'devalias' Grant</name></author><category term="quicknote" /><category term="bulletproof" /><category term="bulletproof-quarterly" /><category term="dave-asprey" /><category term="quarterly" /><category term="biohacking" /><category term="biohacked.com" /><category term="pluggz" /><category term="honeycolony" /><category term="stellarcleenz" /><category term="truedark" /><category term="neuromaster" /><summary type="html">Time for another Bulletproof Biohacked.com quarterly box. A few interesting sounding items this time around, not sure how useful they will be though.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://devalias.net/assets/images/cover4.jpg" /></entry></feed>

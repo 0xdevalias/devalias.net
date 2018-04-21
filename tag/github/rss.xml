@@ -149,7 +149,15 @@ If you have any comments, criticisms, praise, hatred, marriage proposals, fluffy
 	  <description><![CDATA[
 	     <p>So I figured it might be useful to be able to post gists here. Turns out it&#39;s actually pretty easy thanks to soemarko</p>
 
-<p>true<script src="https://gist.github.com/soemarko/1395926.js"> </script></p>
+<p><noscript><pre>&lt;!-- Add the following lines to theme&#39;s html code right before &lt;/head&gt; --&gt;
+&lt;script src=&quot;<a href="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js&quot;&gt;&lt;/script">http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js&amp;quot;&amp;gt;&amp;lt;/script</a>&gt;
+&lt;script src=&quot;<a href="http://static.tumblr.com/fpifyru/VCxlv9xwi/writecapture.js&quot;&gt;&lt;/script">http://static.tumblr.com/fpifyru/VCxlv9xwi/writecapture.js&amp;quot;&amp;gt;&amp;lt;/script</a>&gt;
+&lt;script src=&quot;<a href="http://static.tumblr.com/fpifyru/AKFlv9zdu/embedgist.js&quot;&gt;&lt;/script">http://static.tumblr.com/fpifyru/AKFlv9zdu/embedgist.js&amp;quot;&amp;gt;&amp;lt;/script</a>&gt;</p>
+
+<p>&lt;!--
+  Usage: just add &lt;div class=&quot;gist&quot;&gt;[gist URL]&lt;/div&gt;
+  Example: &lt;div class=&quot;gist&quot;&gt;<a href="https://gist.github.com/1395926&lt;/div">https://gist.github.com/1395926&amp;lt;/div</a>&gt;
+--&gt;</pre></noscript><script src="https://gist.github.com/soemarko/1395926.js"> </script></p>
 
 	  ]]></description>
 	</item>

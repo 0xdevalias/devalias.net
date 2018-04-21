@@ -1,4 +1,201 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en_GB"><generator uri="https://jekyllrb.com/" version="3.4.5">Jekyll</generator><link href="http://devalias.net/feed.xml" rel="self" type="application/atom+xml" /><link href="http://devalias.net/" rel="alternate" type="text/html" hreflang="en_GB" /><updated>2018-03-18T11:46:59+11:00</updated><id>http://devalias.net/</id><title type="html">/dev/alias – Hack. Dev. Transcend.</title><subtitle>Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.</subtitle><entry><title type="html">Biohacked Box #6 (Spring, March 2018)</title><link href="http://devalias.net/devalias/2018/03/05/biohacked-box-6-spring/" rel="alternate" type="text/html" title="Biohacked Box #6 (Spring, March 2018)" /><published>2018-03-05T00:00:00+11:00</published><updated>2018-03-05T00:00:00+11:00</updated><id>http://devalias.net/devalias/2018/03/05/biohacked-box-6-spring</id><content type="html" xml:base="http://devalias.net/devalias/2018/03/05/biohacked-box-6-spring/">&lt;p&gt;Time for another Bulletproof &lt;a href=&quot;http://biohacked.com/&quot;&gt;Biohacked.com&lt;/a&gt; quarterly box.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en_GB"><generator uri="https://jekyllrb.com/" version="3.4.5">Jekyll</generator><link href="http://devalias.net/feed.xml" rel="self" type="application/atom+xml" /><link href="http://devalias.net/" rel="alternate" type="text/html" hreflang="en_GB" /><updated>2018-04-21T14:51:23+10:00</updated><id>http://devalias.net/</id><title type="html">/dev/alias – Hack. Dev. Transcend.</title><subtitle>Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.</subtitle><entry><title type="html">DIY Light Therapy (Red/Near Infrared, Cold/Low Level Laser, Blue/UV, etc)</title><link href="http://devalias.net/devalias/2018/04/07/diy-light-therapy-red-infrared-cold-laser-lllt-blue-uv/" rel="alternate" type="text/html" title="DIY Light Therapy (Red/Near Infrared, Cold/Low Level Laser, Blue/UV, etc)" /><published>2018-04-07T00:00:00+10:00</published><updated>2018-04-07T00:00:00+10:00</updated><id>http://devalias.net/devalias/2018/04/07/diy-light-therapy-red-infrared-cold-laser-lllt-blue-uv</id><content type="html" xml:base="http://devalias.net/devalias/2018/04/07/diy-light-therapy-red-infrared-cold-laser-lllt-blue-uv/">&lt;p&gt;I tend to dive down rabbit holes a lot, and given the cost of context switching and memory deteriorating over time, sometimes the state I build up in my mind gets lost between the chances I get to dive in. These &amp;#39;linkdump&amp;#39; posts are an attempt to collate at least some of that state in a way that I can hopefully restore to my brain at a later point.&lt;/p&gt;
+
+&lt;p&gt;This time around I was inspired to look into Red/Infrared light therapy, originally motivated by some Bulletproof blog posts/talk (&lt;a href=&quot;https://blog.bulletproof.com/health-benefits-red-light-therapy/&quot;&gt;1&lt;/a&gt;, &lt;a href=&quot;https://blog.bulletproof.com/light-hacking-for-better-energy-mood-and-performance/&quot;&gt;2&lt;/a&gt;, &lt;a href=&quot;https://blog.bulletproof.com/tag/light-hacking/&quot;&gt;etc&lt;/a&gt;), and the cost of the &lt;a href=&quot;https://joovv.com/products/joovv-light?variant=39356431502&quot;&gt;Joovv&lt;/a&gt; light panels. Let&amp;#39;s dig in!&lt;/p&gt;
+
+&lt;h2&gt;Joovv&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://joovv.com/&quot;&gt;Joovv&lt;/a&gt; is one of those hip health/wellness brands, making red/infrared light therapy devices. They tout all of the good buzzwords like low/free of EMF, etc, and they&amp;#39;re working in an emerging space (light therapy) that at least at a cursory level of skimming the research, sounds like it could have some really cool benefits. The downside? Popular brands and fancy marketing cost money, businesses need money to survive, and so for the &lt;a href=&quot;https://joovv.com/products/joovv-light?variant=39356431502&quot;&gt;Joovv Mini&lt;/a&gt; we&amp;#39;re looking at about ~US$600. Too expensive for my tastes, particularly for what appears to just be an array of LEDs.&lt;/p&gt;
+
+&lt;p&gt;Now, being a builder/breaker type, with a growing interest in the hardware maker side.. I decided to look into it a little and figure if I could build my own. For reasons, for science!&lt;/p&gt;
+
+&lt;p&gt;So looking at the &lt;a href=&quot;https://joovv.com/products/joovv-light?variant=39356431502&quot;&gt;Joovv Mini&lt;/a&gt;, we can infer the following:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;There are 2 grids of LEDs, each consisting of a 6x5 array of LEDs, for a total of 30 LEDs per grid, or 60 in the entire Joov Mini&lt;/li&gt;
+&lt;li&gt;If you get the mixed Red/Infra Red panels, you end up with: 14 red (660nm), 16 near infrared (850nm) per grid (28 red, 32 near infrared total)&lt;/li&gt;
+&lt;li&gt;Power consumption is 120w, so divided by the total LEDs (60), they seem to be 2w LEDs&lt;/li&gt;
+&lt;li&gt;There are 2 cooling fans, so that is probably 1 per grid&lt;/li&gt;
+&lt;li&gt;Total dimensions are: 15&amp;quot; x 8.25&amp;quot; x 3&amp;quot;&lt;/li&gt;
+&lt;li&gt;Irradiance/treatment area are listed as: &amp;gt;100+mw/cm^2, 25&amp;quot; x 18&amp;quot; (these will vary based on wavelength, distance used, etc)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The other models just appear to use different counts of the &amp;#39;LED grid&amp;#39;, and include:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://joovv.com/products/joovv-light?variant=39356431502&quot;&gt;Joovv Mini&lt;/a&gt;: 2 grids, 60 LEDs, 2 fans, 120w, ~US$595 (or ~US$9.91/LED)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://joovv.com/products/joovv-light?variant=39356431694&quot;&gt;Joovv Original&lt;/a&gt;: 5 grids, 150 LEDs, 5 fans, 300w, ~US$995 (or ~US$6.6/LED)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://joovv.com/products/joovv-light?variant=39356431886&quot;&gt;Joovv Max&lt;/a&gt;: 16 grids, 480 LEDs, 16 fans, 960w, ~US$2695 (or ~US$5.6/LED)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;So this gives us some pretty good starting parameters from a &amp;#39;best of breed&amp;#39; product, to use as a basis when we go digging around elsewhere. It also goes to show that there is probably a decent bit of margin between hardware costs and final product (as there always is), so DIY savings abound! We want:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;A bunch of 2w (or higher) red (660nm)/NIR (850nm) LEDs&lt;/li&gt;
+&lt;li&gt;Some fans&lt;/li&gt;
+&lt;li&gt;Power&lt;/li&gt;
+&lt;li&gt;Casing, etc&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;Other Commercial Products&lt;/h2&gt;
+
+&lt;p&gt;So there are a number of other products in this space too.. just a couple off the top of my head:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://catalyticcolor.com/redjuvenator-light-therapy/&quot;&gt;REDjuvenator&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;15 x 15 array of LEDs (225 total), 1 foot square panel&lt;/li&gt;
+&lt;li&gt;Formula #1: Looks like all red LEDs&lt;/li&gt;
+&lt;li&gt;Formula #2: Looks like red/near infrared&lt;/li&gt;
+&lt;li&gt;Formula #3: Claims the benefits of #1 + #2&lt;/li&gt;
+&lt;li&gt;Formula #4: &amp;#39;Bacteria buster&amp;#39;, looks like red + UV LEDs&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Bulletproof Labs &lt;a href=&quot;http://bulletprooflabs.com/body/&quot;&gt;REDcharger&lt;/a&gt; (which is a rebranding of another device.. but I forget the name at the moment..): 630nm/880nm. I think there were like 40,000 LEDs in this.. I feel like there was some small amount of blue/UV in there as well from memory..&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;Sourcing LEDs&lt;/h2&gt;
+
+&lt;p&gt;Now I haven&amp;#39;t done a whole lot in this hardware building space before.. but I do know that &lt;a href=&quot;https://www.aliexpress.com/&quot;&gt;AliExpress&lt;/a&gt; tends to have AllTheThings(tm).. I won&amp;#39;t directly link as you may find better deals, but a few searches included:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;660nm led&lt;/li&gt;
+&lt;li&gt;850nm led&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Now.. I could go for the 2w spec like Joovv uses.. but maybe there are more interesting/cheaper combinations. Looking through the search results the following seemed common: 1w, 3w, 5w. Maybe we could change up the parameters for our build? For example, &lt;a href=&quot;https://www.aliexpress.com/item/10pcs-1W-3W-High-Power-LED-Full-Spectrum-White-Warm-white-Green-Blue-Deep-Red-660nm/32859370682.html&quot;&gt;one supplier&lt;/a&gt; listed the following (may not be the best price, or the best supplier, just one example):&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;1w, deep red (660nm): ~US$3.10/10pc == US$0.31/ea&lt;/li&gt;
+&lt;li&gt;3w, deep red (660nm): ~US$3.50/10pc == US$0.35/ea&lt;/li&gt;
+&lt;li&gt;1w, infrared (850nm): ~US$6.90/10pc == US$0.69/ea&lt;/li&gt;
+&lt;li&gt;3w, infrared (850nm): ~US$7.90/10pc == US$0.79/ea&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;So from a completely naive back of napkin cost calculation using the 3w LEDs:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Mini: 28 red (~US$9.80), 32 NIR (~US$25.28), &lt;strong&gt;Total:&lt;/strong&gt; ~US$35.08&lt;/li&gt;
+&lt;li&gt;Original: 70 red (~US$24.50), 80 NIR (~US$63.20), &lt;strong&gt;Total:&lt;/strong&gt; ~US$87.70&lt;/li&gt;
+&lt;li&gt;Max: 224 red (~US$78.40), 256 NIR (~US$202.24), &lt;strong&gt;Total:&lt;/strong&gt; ~US$280.64&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Obviously there will be additional costs for the power supply, fans, casing, construction, etc.. but those costs seem far nicer to me.&lt;/p&gt;
+
+&lt;p&gt;There were also some &lt;a href=&quot;https://www.aliexpress.com/item/High-Power-LED-Chip-Deep-Red-LED-660nm-Plant-Grow-Light-1W-3W-5W-10W-20W/32633843531.html&quot;&gt;other providers&lt;/a&gt; that had some interesting looking LED arrays, with powers such as: 1w, 3w, 5w, 10w, 20w, 30w, 50w, 100w. So we could go super powerful if we wanted (though maybe wouldn&amp;#39;t get as good coverage..). Also.. is there a sweet spot for the power/brightness? Need to dig into the research more for that.. It sounds like there is.&lt;/p&gt;
+
+&lt;p&gt;In doing some reading, it seems that a lot of the &amp;#39;grow lights&amp;#39; actually operate in the same spectrums (good for plants, good for us!), so that may be another path worth looking into.&lt;/p&gt;
+
+&lt;h2&gt;But what about EMFs?&lt;/h2&gt;
+
+&lt;p&gt;So one of the claims among a number of these products is that they&amp;#39;re &amp;#39;low/free from EMFs&amp;#39;, and a cursory skim of some of the research sounds plausible that EMFs could be a thing worth caring about (search terms: EMF voltage regulated calcium channels, etc). Now this isn&amp;#39;t an area I&amp;#39;ve really looked much into, but if we assume they are bad.. what can we do about it? Off the top of my head, and completely unsubstantiated, I would imagine some form of &lt;a href=&quot;https://en.wikipedia.org/wiki/Faraday_cage&quot;&gt;faraday cage&lt;/a&gt; type device would do the trick, given it&amp;#39;s an &amp;quot;enclosure used to block electromagnetic fields&amp;quot;. So maybe that&amp;#39;s an area to read more into..&lt;/p&gt;
+
+&lt;h2&gt;But what about Blue light?&lt;/h2&gt;
+
+&lt;p&gt;So.. seems we can use blue/UV light for things too.. more related to inhibiting bad stuff it seems. Could definitely be an interesting rabbit hole to dive deeper down:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5626244/&quot;&gt;Blue light treatment of Pseudomonas aeruginosa: Strong bactericidal activity, synergism with antibiotics and inactivation of virulence factors&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;One of the more common infection types in Cystic Fibrosis.. interesting..&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;There also seems to be some stuff in the space of using blue (technically violet, 360-400nm) light for myopia/similar:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://blog.bulletproof.com/violet-light-eye-health/&quot;&gt;https://blog.bulletproof.com/violet-light-eye-health/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5233810/&quot;&gt;PubMed: Violet Light Exposure Can Be a Preventive Strategy Against Myopia Progression&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;Lasers!&lt;/h2&gt;
+
+&lt;p&gt;So, moving a bit away from the LED side of things.. a lot of the &amp;#39;Low Level Laser Therapy&amp;#39; or &amp;#39;Cold Laser&amp;#39; treatments out there are using laser diodes instead. They can penetrate deeper, tend to be higher power, more focussed, etc. I&amp;#39;ve heard about these sorts of things being used to aid in healing of injured joints and more, enough to catch my interest. But once again, these things are expensive (a treatment might cost you $50/session).. and hard to come buy for the biohacker type who isn&amp;#39;t a medical professional. For example:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.thorlaser.com/products/&quot;&gt;THOR Laser&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;~US$14,000-24,000&lt;/li&gt;
+&lt;li&gt;Various LED/laser probe options (810nm IR laser, 660nm laser, etc)&lt;/li&gt;
+&lt;li&gt;These ones sound quite low powered too: 30mW, 75mW, 200mW, etc&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://multiradiance.com.au/products/mr4-super-pulsed-laser&quot;&gt;MR4 Super Pulsed Laser&lt;/a&gt;:
+
+&lt;ul&gt;
+&lt;li&gt;~AU$10,000&lt;/li&gt;
+&lt;li&gt;Infrared (860-960nm)&lt;/li&gt;
+&lt;li&gt;Red (600-740nm)&lt;/li&gt;
+&lt;li&gt;Laser (25w, pulsed)&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;So looking deeper into the wavelengths, power levels, and options, we find:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.coldlasers.org/therapy/wavelength/&quot;&gt;https://www.coldlasers.org/therapy/wavelength/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Skimming through some of this stuff.. it sounds like we want to look into pulsed/super pulsed laser diodes.. but what are they?&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.pulselaserrelief.com.au/super-pulsed-low-level-laser-therapy&quot;&gt;https://www.pulselaserrelief.com.au/super-pulsed-low-level-laser-therapy&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;tl;dr:&lt;/strong&gt; high power, low heat, deeper penetration, 904-905nm Gallium Arsenide (GaAS) diode&lt;/p&gt;
+
+&lt;p&gt;And if we turn to our trusty component dealer &lt;a href=&quot;https://www.aliexpress.com/&quot;&gt;AliExpress&lt;/a&gt;, we turn up a few interesting search results:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;pulsed laser diode 25w&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Now remember.. lasers are dangerous, you can and will destroy your eyes if you do bad things with them. Always wear proper laser eye safety when doing anything like this. Also, if you&amp;#39;re in a country like Australia, they may just actually not let you import these full stop.. yay for draconian laws! There might be a way around it for &amp;#39;legit reasons&amp;#39; (rather than annoying cats with red dots), but it&amp;#39;s not an area I&amp;#39;ve deeply looked into yet.&lt;/p&gt;
+
+&lt;p&gt;Now that that&amp;#39;s out of the way.. maybe like ~US$25 for a laser diode.. and then need to power it, probably cool it, etc. Better than $25k!&lt;/p&gt;
+
+&lt;h2&gt;Link Dump&lt;/h2&gt;
+
+&lt;p&gt;Now that we&amp;#39;ve got all of that out of the way, how about that link dump:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.redlighttherapy.com.au/&quot;&gt;https://www.redlighttherapy.com.au/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://draxe.com/red-light-therapy/&quot;&gt;https://draxe.com/red-light-therapy/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://redlightman.com/blog/complete-guide-light-therapy-dosing/&quot;&gt;https://redlightman.com/blog/complete-guide-light-therapy-dosing/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3288797/&quot;&gt;PubMed: The Nuts and Bolts of Low-level Laser (Light) Therapy&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&amp;quot;The wavelengths of light used for LLLT fall into an “optical window” at red and NIR wavelengths (600–1070 nm) (Fig. 1d). Effective tissue penetration is maximized in this range, as the principal tissue chromophores (hemoglobin and melanin) have high absorption bands at wavelengths shorter than 600 nm. Wavelengths in the range 600–700 nm are used to treat superficial tissue, and longer wavelengths in the range 780–950 nm, which penetrate further, are used to treat deeper-seated tissues. Wavelengths in the range 700–770 nm have been found to have limited biochemical activity and are therefore not used.&amp;quot;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4126803/&quot;&gt;PubMed: Low-level laser (light) therapy (LLLT) in skin: stimulating, healing, restoring&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;And if we want to try sensing/reading different wavelengths (maybe for testing, or reverse engineering things, or just for fun!):&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://forum.arduino.cc/index.php?topic=17429.0&quot;&gt;Arduino Forum: Sensing wavelength of lights&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://hackaday.com/2014/07/31/diy-usb-spectrometer-actually-works/&quot;&gt;https://hackaday.com/2014/07/31/diy-usb-spectrometer-actually-works/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.photonicsonline.com/doc/wavelength-sensor-and-circuit-pss-ws-756-pcb-0001&quot;&gt;https://www.photonicsonline.com/doc/wavelength-sensor-and-circuit-pss-ws-756-pcb-0001&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.first-sensor.com/en/products/optical-sensors/detectors/wavelength-sensitive-diodes-ws/&quot;&gt;https://www.first-sensor.com/en/products/optical-sensors/detectors/wavelength-sensitive-diodes-ws/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Full spectrum bulbs:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.viva-lite.com.au/&quot;&gt;http://www.viva-lite.com.au/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Power supplies that are probably actually safe enough to plug into 240v:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.meanwell-led-drivers.com.au/&quot;&gt;https://www.meanwell-led-drivers.com.au/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;So now we have a wide variety of interesting starting points, and some key words/aspects to dig deeper into this area of research/DIY building. We learned that a lot of these products, while very cool and useful, also tend to be WAY overpriced. Maybe we can build our own, open source the designs/components/learnings from it, and move everyone forward together (rather than only those who have the big $$ to benefit).&lt;/p&gt;
+
+&lt;p&gt;Was this useful? Have you built your own DIY light hacking devices? Got a cool story to share? Some new research? I&amp;#39;d love to hear what you&amp;#39;re doing in this space in the comments below!&lt;/p&gt;</content><author><name>Glenn 'devalias' Grant</name></author><category term="linkdump" /><category term="biohacking" /><category term="wellness" /><category term="research" /><category term="diy" /><category term="light-hacking" /><category term="joovv" /><category term="redjuvenator" /><category term="redlight" /><category term="infrared" /><category term="nir" /><category term="laser" /><category term="lllt" /><category term="cystic-fibrosis" /><summary type="html">I tend to dive down rabbit holes a lot, and given the cost of context switching and memory deteriorating over time, sometimes the state I build up in my mind gets lost between the chances I get to dive in. These &amp;#39;linkdump&amp;#39; posts are an attempt to collate at least some of that state in a way that I can hopefully restore to my brain at a later point.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://devalias.net/assets/images/cover4.jpg" /></entry><entry><title type="html">Biohacked Box #6 (Spring, March 2018)</title><link href="http://devalias.net/devalias/2018/03/05/biohacked-box-6-spring/" rel="alternate" type="text/html" title="Biohacked Box #6 (Spring, March 2018)" /><published>2018-03-05T00:00:00+11:00</published><updated>2018-03-05T00:00:00+11:00</updated><id>http://devalias.net/devalias/2018/03/05/biohacked-box-6-spring</id><content type="html" xml:base="http://devalias.net/devalias/2018/03/05/biohacked-box-6-spring/">&lt;p&gt;Time for another Bulletproof &lt;a href=&quot;http://biohacked.com/&quot;&gt;Biohacked.com&lt;/a&gt; quarterly box.&lt;/p&gt;
 
 &lt;h2&gt;Contents&lt;/h2&gt;
 
@@ -2296,81 +2493,4 @@ In a fast, simple, yet extensible way.&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://www.gitbook.com/&quot;&gt;GitBook · Documentation made easy&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://www.blinkist.com/en/pricing.html&quot;&gt;Blinkist: Serving curious minds&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;http://isite2020.com.au/&quot;&gt;iSite 20/20 - Take control of your vision&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Glenn 'devalias' Grant</name></author><category term="linkdump" /><category term="dev" /><category term="security" /><category term="privacy" /><category term="productivity" /><category term="tmux" /><category term="alfred" /><category term="yarn" /><category term="bower" /><category term="metasploit" /><category term="docker" /><category term="tor" /><category term="vpn" /><category term="socks" /><summary type="html">I tend to stumble across a lot of interesting things as I travel across the web, and one of my productivity methods is to save the things I don&amp;#39;t have time to check out immediately to Todoist. Unfortunately, time can be short, and life busy, so those &amp;#39;thats an interesting article&amp;#39;, &amp;#39;i could use that tech thing&amp;#39; and &amp;#39;that would be cool to blog about&amp;#39; things tend to just build up, and clutter my todo lists in an ever less efficient manner. So today lets clear some of that out!</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://devalias.net/assets/images/cover4.jpg" /></entry><entry><title type="html">Biohacked Box #3 (June 2017)</title><link href="http://devalias.net/devalias/2017/06/04/biohacked-box-3/" rel="alternate" type="text/html" title="Biohacked Box #3 (June 2017)" /><published>2017-06-04T00:00:00+10:00</published><updated>2017-06-04T00:00:00+10:00</updated><id>http://devalias.net/devalias/2017/06/04/biohacked-box-3</id><content type="html" xml:base="http://devalias.net/devalias/2017/06/04/biohacked-box-3/">&lt;p&gt;Time for another Bulletproof &lt;a href=&quot;http://biohacked.com/&quot;&gt;Biohacked.com&lt;/a&gt; quarterly box. A few interesting sounding items this time around, not sure how useful they will be though.&lt;/p&gt;
-
-&lt;h2&gt;Contents&lt;/h2&gt;
-
-&lt;p&gt;If you want to follow along with the official unboxing video, head on over and &lt;a href=&quot;https://biohacked.com/BBQ217/&quot;&gt;watch with me&lt;/a&gt; (&lt;a href=&quot;https://www.youtube.com/watch?v=bx9AqTDZegM&quot;&gt;YouTube&lt;/a&gt;). It looks like they&amp;#39;ve started including some information and links about the items on their site now too, win!&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;0:00 Intro
-
-&lt;ul&gt;
-&lt;li&gt;~$225 of value, not quite a new record&lt;/li&gt;
-&lt;li&gt;Stuff discovered while writing headstrong&lt;/li&gt;
-&lt;li&gt;A lot of items not available to public yet&lt;/li&gt;
-&lt;li&gt;Help with resilience, balance in times of stress&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;1:38 Pocket knives are good&lt;/li&gt;
-&lt;li&gt;2:15 &lt;a href=&quot;http://www.pluggz.com/&quot;&gt;Pluggz Earthing Sandles&lt;/a&gt; (~US$49)
-
-&lt;ul&gt;
-&lt;li&gt;Custom carbon/rubber plug&lt;/li&gt;
-&lt;li&gt;Allows electrons to flow between you and the earth&lt;/li&gt;
-&lt;li&gt;35% off: BHVIP25 (till August 15)&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;4:18 &lt;a href=&quot;https://www.honeycolony.com/shop/molecular-hydrogen-hydra/&quot;&gt;HoneyColony Hydra Molecular Hydrogen&lt;/a&gt; (US$59.95)
-
-&lt;ul&gt;
-&lt;li&gt;Put in water, combats oxidative stress, destroys freeradicals, provides free electrons&lt;/li&gt;
-&lt;li&gt;Some freeradicals required for mitochondria&lt;/li&gt;
-&lt;li&gt;Hydrogen hits the bad freeradicals&lt;/li&gt;
-&lt;li&gt;20% off: ENERGY&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;6:20 &lt;a href=&quot;https://stellarcleenz.com/products/silver-spritz&quot;&gt;Stellarcleenz Silver Spritz&lt;/a&gt; (US$32)
-
-&lt;ul&gt;
-&lt;li&gt;Antibacterial/antifungal colloidal silver + essential oils&lt;/li&gt;
-&lt;li&gt;30% off: BH30&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;7:34 &lt;a href=&quot;https://biohacked.com/product/truedarkdots/&quot;&gt;TrueDark Dots&lt;/a&gt; (US$40)
-
-&lt;ul&gt;
-&lt;li&gt;Coloured dots for filtering/blocking LED&amp;#39;s/etc&lt;/li&gt;
-&lt;li&gt;Black, dark red, light red&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;10:21 &lt;a href=&quot;https://www.bulletproof.com/neuromaster-30ct&quot;&gt;Neuromaster&lt;/a&gt; (US$56)
-
-&lt;ul&gt;
-&lt;li&gt;Supports BDNF through polyphenols, helps brain be more neuroplastic&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;10:55 Golden Tickets
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://www.honeycolony.com/simply-transformative/silver-healer/&quot;&gt;HoneyColony Silver Healer&lt;/a&gt; (US$290)
-
-&lt;ul&gt;
-&lt;li&gt;Make your own colloidal silver at home&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.bulletprooftraininginstitute.com/be-unlimited/&quot;&gt;Bulletporof Training Institute - Be Unlimited Pass&lt;/a&gt; (US$800)
-
-&lt;ul&gt;
-&lt;li&gt;3.5-day personal development retreat&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2&gt;Previous Boxes&lt;/h2&gt;
-
-&lt;p&gt;Want to see what the previous boxes have been like? Check out my other posts:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;/devalias/2017/03/01/biohacked-box-2/&quot;&gt;Biohacked Box #2&lt;/a&gt; (March 2017)&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;/devalias/2016/12/20/biohacked-box-1-bulletproof-biohacking-box-9/&quot;&gt;Biohacked Box #1&lt;/a&gt; (December 2016)&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;/devalias/2016/10/13/bulletproof-biohacking-box-8/&quot;&gt;Quarterly Biohacking Box #8&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;/devalias/2016/07/21/bulletproof-quarterly-biohacking-box-7/&quot;&gt;Quarterly Biohacking Box #7&lt;/a&gt;
-
-&lt;ul&gt;
-&lt;li&gt;This has a quick summary of boxes 1-6 as well&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Glenn 'devalias' Grant</name></author><category term="quicknote" /><category term="bulletproof" /><category term="bulletproof-quarterly" /><category term="dave-asprey" /><category term="quarterly" /><category term="biohacking" /><category term="biohacked.com" /><category term="pluggz" /><category term="honeycolony" /><category term="stellarcleenz" /><category term="truedark" /><category term="neuromaster" /><summary type="html">Time for another Bulletproof Biohacked.com quarterly box. A few interesting sounding items this time around, not sure how useful they will be though.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://devalias.net/assets/images/cover4.jpg" /></entry></feed>
+&lt;/ul&gt;</content><author><name>Glenn 'devalias' Grant</name></author><category term="linkdump" /><category term="dev" /><category term="security" /><category term="privacy" /><category term="productivity" /><category term="tmux" /><category term="alfred" /><category term="yarn" /><category term="bower" /><category term="metasploit" /><category term="docker" /><category term="tor" /><category term="vpn" /><category term="socks" /><summary type="html">I tend to stumble across a lot of interesting things as I travel across the web, and one of my productivity methods is to save the things I don&amp;#39;t have time to check out immediately to Todoist. Unfortunately, time can be short, and life busy, so those &amp;#39;thats an interesting article&amp;#39;, &amp;#39;i could use that tech thing&amp;#39; and &amp;#39;that would be cool to blog about&amp;#39; things tend to just build up, and clutter my todo lists in an ever less efficient manner. So today lets clear some of that out!</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://devalias.net/assets/images/cover4.jpg" /></entry></feed>

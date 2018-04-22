@@ -65,9 +65,9 @@
 </ul></li>
 </ul>
 <div class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span><span class="w">
-</span><span class="nt">"lineBreaks"</span><span class="p">:</span><span class="w"> </span><span class="s2">"gfm"</span><span class="p">,</span><span class="w">
-</span><span class="nt">"additionalFooterText"</span><span class="p">:</span><span class="w"> </span><span class="s2">"By &lt;a href='http://www.devalias.net/'&gt;Glenn '/dev/alias' Grant&lt;/a&gt;&lt;br /&gt;"</span><span class="p">,</span><span class="w">
-</span><span class="nt">"anchorCharacter"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&amp;para;"</span><span class="w">
+</span><span class="s2">"lineBreaks"</span><span class="p">:</span><span class="w"> </span><span class="s2">"gfm"</span><span class="p">,</span><span class="w">
+</span><span class="s2">"additionalFooterText"</span><span class="p">:</span><span class="w"> </span><span class="s2">"By &lt;a href='http://www.devalias.net/'&gt;Glenn '/dev/alias' Grant&lt;/a&gt;&lt;br /&gt;"</span><span class="p">,</span><span class="w">
+</span><span class="s2">"anchorCharacter"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&amp;para;"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <ul>
@@ -91,7 +91,7 @@ This is my first page!
 <div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c">#!/bin/bash</span>
 
 open http://localhost:8000
-python -m SimpleHTTPServer 8000
+python <span class="nt">-m</span> SimpleHTTPServer 8000
 </code></pre></div>
 <ul>
 <li>Now we&#39;ll setup our git repo:

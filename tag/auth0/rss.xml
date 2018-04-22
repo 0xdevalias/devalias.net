@@ -125,7 +125,7 @@
 <h2>Success?</h2>
 
 <p>I found that trying to test the Plunker hosted version complicated things a bit, so I ended up downloading the zipped files and hosting them locally with Python while I tested things:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">python -m SimpleHTTPServer
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">python <span class="nt">-m</span> SimpleHTTPServer
 </code></pre></div>
 <p>Running it through the tool.. everything worked as expected, no bugs. <em>sadface</em> I could have spent more time digging into the specifics and trying to unearth what actually lead to the bug in the first place, but given I had other things I needed to test I decided to leave that as a possible future endeavour, if I run into it again.</p>
 

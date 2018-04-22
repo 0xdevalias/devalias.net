@@ -14,8 +14,9 @@
 
   <link type="application/atom+xml" rel="alternate" href="http://devalias.net/feed.xml" title="/dev/alias – Hack. Dev. Transcend." />
 
-  <!-- Begin Jekyll SEO tag v2.2.3 -->
+  <!-- Begin Jekyll SEO tag v2.4.0 -->
 <title>VLC 2.1.x AC3/5.1 Audio Issues (and how to fix them) | /dev/alias – Hack. Dev. Transcend.</title>
+<meta name="generator" content="Jekyll v3.8.0" />
 <meta property="og:title" content="VLC 2.1.x AC3/5.1 Audio Issues (and how to fix them)" />
 <meta name="author" content="Glenn 'devalias' Grant" />
 <meta property="og:locale" content="en_GB" />
@@ -31,7 +32,7 @@
 <meta name="twitter:site" content="@_devalias" />
 <meta name="twitter:creator" content="@_devalias" />
 <script type="application/ld+json">
-{"@context":"http://schema.org","@type":"BlogPosting","headline":"VLC 2.1.x AC3/5.1 Audio Issues (and how to fix them)","author":{"@type":"Person","name":"Glenn 'devalias' Grant"},"image":"http://devalias.net/assets/images/cover4.jpg","datePublished":"2014-04-10T03:01:22+10:00","dateModified":"2014-04-10T03:01:22+10:00","description":"So, just lost an hour or two debugging some audio issues that seemed to crop up in VLC. I have a 5.1 setup, which will disable the speakers when I plug in a 2-channel set of headphones (pretty straightforward). For some strange reason this stopped working sometime recently. I assumed maybe audio drivers (windows update) or something else weird like that, but turns out it was VLC (which I forgot I had upgraded)","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://devalias.net/assets/images/cover4.jpg"},"name":"Glenn 'devalias' Grant"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://devalias.net/devalias/2014/04/10/vlc-2-1x-ac3-5-1-audio-issues-and-how-to-fix/"},"url":"http://devalias.net/devalias/2014/04/10/vlc-2-1x-ac3-5-1-audio-issues-and-how-to-fix/"}</script>
+{"description":"So, just lost an hour or two debugging some audio issues that seemed to crop up in VLC. I have a 5.1 setup, which will disable the speakers when I plug in a 2-channel set of headphones (pretty straightforward). For some strange reason this stopped working sometime recently. I assumed maybe audio drivers (windows update) or something else weird like that, but turns out it was VLC (which I forgot I had upgraded)","author":{"@type":"Person","name":"Glenn 'devalias' Grant"},"@type":"BlogPosting","url":"http://devalias.net/devalias/2014/04/10/vlc-2-1x-ac3-5-1-audio-issues-and-how-to-fix/","image":"http://devalias.net/assets/images/cover4.jpg","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://devalias.net/assets/images/cover4.jpg"},"name":"Glenn 'devalias' Grant"},"headline":"VLC 2.1.x AC3/5.1 Audio Issues (and how to fix them)","dateModified":"2014-04-10T03:01:22+10:00","datePublished":"2014-04-10T03:01:22+10:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://devalias.net/devalias/2014/04/10/vlc-2-1x-ac3-5-1-audio-issues-and-how-to-fix/"},"@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -407,7 +408,7 @@
             </section>
             <section class="poweredby">
                 <div>
-                    <strong>Build:</strong> 0096badb4
+                    <strong>Build:</strong> f42db4894
                     <a href="https://github.com/alias1/devalias.net/tree/master/_posts/2014-04-10-vlc-2-1x-ac3-5-1-audio-issues-and-how-to-fix.md" target="_blank">
                         <i class="fas fa-edit"></i>
                         Edit on GitHub
@@ -440,7 +441,32 @@
      </script>
     
         <script src="//assets/js//JekyllWebmentionIO.js" async></script>
-<template style="display:none" id="webmention-likes"><div class="webmentions webmentions--likes">
+<template style="display:none" id="webmention-bookmarks"><div class="webmentions webmentions--bookmarks">
+  {% if webmentions.size > 0 %}
+    <ol class="webmentions__list">
+      {% for webmention in webmentions %}
+        <li id="webmention-{{ webmention.id }}" class="webmentions__item webmention webmention--{{ webmention.type }}">
+          <div class="webmention__content p-content">
+            {{ webmention.content }}
+          </div>
+          <div class="webmention__meta">
+            {% if webmention.author %}
+              <a class="webmention__author h-card u-url" href="{{ webmention.author.url }}">{{ webmention.author.name }}</a>
+            {% endif %}
+            {% if webmention.pubdate and webmention.url %}on{% endif %}
+            {% if webmention.pubdate %}
+              <a class="webmention__source u-url" href="{{ webmention.url }}">
+                <time class="webmention__pubdate dt-published" datetime="{{ webmention.pubdate | date: '%FT%T%:z' }}">{{ webmention.pubdate | date: '%d %B %Y' }}</time>
+              </a>
+            {% endif %}
+          </div>
+        </li>
+      {% endfor %}
+    </ol>
+  {% else %}
+    <p class="webmentions__not-found">No bookmarks were found.</p>
+  {% endif %}
+</div></template><template style="display:none" id="webmention-likes"><div class="webmentions webmentions--likes">
   {% if webmentions.size > 0 %}
     <ol class="webmentions__list">
       {% for webmention in webmentions %}
@@ -479,7 +505,7 @@
       {% endfor %}
     </ol>
   {% else %}
-    <p class="webmentions__not-found">No webmentions were found.</p>
+    <p class="webmentions__not-found">No links were found.</p>
   {% endif %}
 </div></template><template style="display:none" id="webmention-posts"><div class="webmentions webmentions--posts">
   {% if webmentions.size > 0 %}
@@ -496,7 +522,7 @@
       {% endfor %}
     </ol>
   {% else %}
-    <p class="webmentions__not-found">No webmentions were found.</p>
+    <p class="webmentions__not-found">No posts were found.</p>
   {% endif %}
 </div></template><template style="display:none" id="webmention-replies"><div class="webmentions webmentions--replies">
   {% if webmentions.size > 0 %}
@@ -526,7 +552,7 @@
       {% endfor %}
     </ol>
   {% else %}
-    <p class="webmentions__not-found">No webmentions were found.</p>
+    <p class="webmentions__not-found">No replies were found.</p>
   {% endif %}
 </div></template><template style="display:none" id="webmention-reposts"><div class="webmentions webmentions--reposts">
   {% if webmentions.size > 0 %}
@@ -543,6 +569,24 @@
     </ol>
   {% else %}
     <p class="webmentions__not-found">No reposts were found.</p>
+  {% endif %}
+</div></template><template style="display:none" id="webmention-rsvps"><div class="webmentions webmentions--rsvps">
+  {% if webmentions.size > 0 %}
+    <ol class="webmentions__list">
+      {% for webmention in webmentions %}
+        <li id="webmention-{{ webmention.id }}" class="webmentions__item webmention webmention--{{ webmention.type }}">
+          <div class="webmention__author p-author h-card">
+            <a class="u-url" href="{{ webmention.author.url }}">
+              <img class="webmention__author__photo u-photo" src="{{ webmention.author.photo }}" alt="Avatar for {{ webmention.author.name }}" title="{{ webmention.author.name }}">
+              <b class="p-name">{{ webmention.author.name }}</b>
+              {{ webmention.content }}
+            </a>
+          </div>
+        </li>
+      {% endfor %}
+    </ol>
+  {% else %}
+    <p class="webmentions__not-found">No RSVPs were found.</p>
   {% endif %}
 </div></template><template style="display:none" id="webmention-count">{% capture webmention_types %}{{ types | join: ',' }}{% endcapture %}
 <span class="webmention-count"{% unless webmention_types=="" %} data-webmention-types="{{ webmention_types }}"{% endunless %}>{{ count }}</span></template><template style="display:none" id="webmention-webmentions">{% capture webmention_types %}{{ types | join: ',' }}{% endcapture %}

@@ -14,8 +14,9 @@
 
   <link type="application/atom+xml" rel="alternate" href="http://devalias.net/feed.xml" title="/dev/alias – Hack. Dev. Transcend." />
 
-  <!-- Begin Jekyll SEO tag v2.2.3 -->
+  <!-- Begin Jekyll SEO tag v2.4.0 -->
 <title>RockMelt - Beta 2 Announced | /dev/alias – Hack. Dev. Transcend.</title>
+<meta name="generator" content="Jekyll v3.8.0" />
 <meta property="og:title" content="RockMelt - Beta 2 Announced" />
 <meta name="author" content="Glenn 'devalias' Grant" />
 <meta property="og:locale" content="en_GB" />
@@ -31,7 +32,7 @@
 <meta name="twitter:site" content="@_devalias" />
 <meta name="twitter:creator" content="@_devalias" />
 <script type="application/ld+json">
-{"@context":"http://schema.org","@type":"BlogPosting","headline":"RockMelt - Beta 2 Announced","author":{"@type":"Person","name":"Glenn 'devalias' Grant"},"image":"http://devalias.net/assets/images/cover4.jpg","datePublished":"2011-09-16T13:53:00+10:00","dateModified":"2011-09-16T13:53:00+10:00","description":"So in followup to my previous post on RockMelt, they have just put up news that beta 2 will be out soon with all sorts of sexy improvements! Chat had been redesigned to make chatting to multiple people easier, they have included a View Later app (think Instapaper or ReadItLater), a new Twitter app, and it now all runs on Chromium 10! I can&#39;t wait till it&#39;s available for download.","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://devalias.net/assets/images/cover4.jpg"},"name":"Glenn 'devalias' Grant"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://devalias.net/devalias/2011/09/16/rockmelt-beta-2-announced/"},"url":"http://devalias.net/devalias/2011/09/16/rockmelt-beta-2-announced/"}</script>
+{"description":"So in followup to my previous post on RockMelt, they have just put up news that beta 2 will be out soon with all sorts of sexy improvements! Chat had been redesigned to make chatting to multiple people easier, they have included a View Later app (think Instapaper or ReadItLater), a new Twitter app, and it now all runs on Chromium 10! I can&#39;t wait till it&#39;s available for download.","author":{"@type":"Person","name":"Glenn 'devalias' Grant"},"@type":"BlogPosting","url":"http://devalias.net/devalias/2011/09/16/rockmelt-beta-2-announced/","image":"http://devalias.net/assets/images/cover4.jpg","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://devalias.net/assets/images/cover4.jpg"},"name":"Glenn 'devalias' Grant"},"headline":"RockMelt - Beta 2 Announced","dateModified":"2011-09-16T13:53:00+10:00","datePublished":"2011-09-16T13:53:00+10:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://devalias.net/devalias/2011/09/16/rockmelt-beta-2-announced/"},"@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -390,7 +391,7 @@
             </section>
             <section class="poweredby">
                 <div>
-                    <strong>Build:</strong> 0096badb4
+                    <strong>Build:</strong> f42db4894
                     <a href="https://github.com/alias1/devalias.net/tree/master/_posts/2011-09-16-rockmelt-beta-2-announced.md" target="_blank">
                         <i class="fas fa-edit"></i>
                         Edit on GitHub
@@ -423,7 +424,32 @@
      </script>
     
         <script src="//assets/js//JekyllWebmentionIO.js" async></script>
-<template style="display:none" id="webmention-likes"><div class="webmentions webmentions--likes">
+<template style="display:none" id="webmention-bookmarks"><div class="webmentions webmentions--bookmarks">
+  {% if webmentions.size > 0 %}
+    <ol class="webmentions__list">
+      {% for webmention in webmentions %}
+        <li id="webmention-{{ webmention.id }}" class="webmentions__item webmention webmention--{{ webmention.type }}">
+          <div class="webmention__content p-content">
+            {{ webmention.content }}
+          </div>
+          <div class="webmention__meta">
+            {% if webmention.author %}
+              <a class="webmention__author h-card u-url" href="{{ webmention.author.url }}">{{ webmention.author.name }}</a>
+            {% endif %}
+            {% if webmention.pubdate and webmention.url %}on{% endif %}
+            {% if webmention.pubdate %}
+              <a class="webmention__source u-url" href="{{ webmention.url }}">
+                <time class="webmention__pubdate dt-published" datetime="{{ webmention.pubdate | date: '%FT%T%:z' }}">{{ webmention.pubdate | date: '%d %B %Y' }}</time>
+              </a>
+            {% endif %}
+          </div>
+        </li>
+      {% endfor %}
+    </ol>
+  {% else %}
+    <p class="webmentions__not-found">No bookmarks were found.</p>
+  {% endif %}
+</div></template><template style="display:none" id="webmention-likes"><div class="webmentions webmentions--likes">
   {% if webmentions.size > 0 %}
     <ol class="webmentions__list">
       {% for webmention in webmentions %}
@@ -462,7 +488,7 @@
       {% endfor %}
     </ol>
   {% else %}
-    <p class="webmentions__not-found">No webmentions were found.</p>
+    <p class="webmentions__not-found">No links were found.</p>
   {% endif %}
 </div></template><template style="display:none" id="webmention-posts"><div class="webmentions webmentions--posts">
   {% if webmentions.size > 0 %}
@@ -479,7 +505,7 @@
       {% endfor %}
     </ol>
   {% else %}
-    <p class="webmentions__not-found">No webmentions were found.</p>
+    <p class="webmentions__not-found">No posts were found.</p>
   {% endif %}
 </div></template><template style="display:none" id="webmention-replies"><div class="webmentions webmentions--replies">
   {% if webmentions.size > 0 %}
@@ -509,7 +535,7 @@
       {% endfor %}
     </ol>
   {% else %}
-    <p class="webmentions__not-found">No webmentions were found.</p>
+    <p class="webmentions__not-found">No replies were found.</p>
   {% endif %}
 </div></template><template style="display:none" id="webmention-reposts"><div class="webmentions webmentions--reposts">
   {% if webmentions.size > 0 %}
@@ -526,6 +552,24 @@
     </ol>
   {% else %}
     <p class="webmentions__not-found">No reposts were found.</p>
+  {% endif %}
+</div></template><template style="display:none" id="webmention-rsvps"><div class="webmentions webmentions--rsvps">
+  {% if webmentions.size > 0 %}
+    <ol class="webmentions__list">
+      {% for webmention in webmentions %}
+        <li id="webmention-{{ webmention.id }}" class="webmentions__item webmention webmention--{{ webmention.type }}">
+          <div class="webmention__author p-author h-card">
+            <a class="u-url" href="{{ webmention.author.url }}">
+              <img class="webmention__author__photo u-photo" src="{{ webmention.author.photo }}" alt="Avatar for {{ webmention.author.name }}" title="{{ webmention.author.name }}">
+              <b class="p-name">{{ webmention.author.name }}</b>
+              {{ webmention.content }}
+            </a>
+          </div>
+        </li>
+      {% endfor %}
+    </ol>
+  {% else %}
+    <p class="webmentions__not-found">No RSVPs were found.</p>
   {% endif %}
 </div></template><template style="display:none" id="webmention-count">{% capture webmention_types %}{{ types | join: ',' }}{% endcapture %}
 <span class="webmention-count"{% unless webmention_types=="" %} data-webmention-types="{{ webmention_types }}"{% endunless %}>{{ count }}</span></template><template style="display:none" id="webmention-webmentions">{% capture webmention_types %}{{ types | join: ',' }}{% endcapture %}

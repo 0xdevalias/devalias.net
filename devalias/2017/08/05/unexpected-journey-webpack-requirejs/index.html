@@ -14,8 +14,9 @@
 
   <link type="application/atom+xml" rel="alternate" href="http://devalias.net/feed.xml" title="/dev/alias – Hack. Dev. Transcend." />
 
-  <!-- Begin Jekyll SEO tag v2.2.3 -->
+  <!-- Begin Jekyll SEO tag v2.4.0 -->
 <title>An unexpected journey with webpack and RequireJS | /dev/alias – Hack. Dev. Transcend.</title>
+<meta name="generator" content="Jekyll v3.8.0" />
 <meta property="og:title" content="An unexpected journey with webpack and RequireJS" />
 <meta name="author" content="Glenn 'devalias' Grant" />
 <meta property="og:locale" content="en_GB" />
@@ -31,7 +32,7 @@
 <meta name="twitter:site" content="@_devalias" />
 <meta name="twitter:creator" content="@_devalias" />
 <script type="application/ld+json">
-{"@context":"http://schema.org","@type":"BlogPosting","headline":"An unexpected journey with webpack and RequireJS","author":{"@type":"Person","name":"Glenn 'devalias' Grant"},"image":"http://devalias.net/assets/images/cover4.jpg","datePublished":"2017-08-05T00:00:00+10:00","dateModified":"2017-08-05T00:00:00+10:00","description":"So the other day I ran into what seemed like a bug in some software I was using during a test. Narrowing things down in the codebase, it looked as though the error may have been related to a library in use by the application I was testing.","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://devalias.net/assets/images/cover4.jpg"},"name":"Glenn 'devalias' Grant"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://devalias.net/devalias/2017/08/05/unexpected-journey-webpack-requirejs/"},"url":"http://devalias.net/devalias/2017/08/05/unexpected-journey-webpack-requirejs/"}</script>
+{"description":"So the other day I ran into what seemed like a bug in some software I was using during a test. Narrowing things down in the codebase, it looked as though the error may have been related to a library in use by the application I was testing.","author":{"@type":"Person","name":"Glenn 'devalias' Grant"},"@type":"BlogPosting","url":"http://devalias.net/devalias/2017/08/05/unexpected-journey-webpack-requirejs/","image":"http://devalias.net/assets/images/cover4.jpg","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://devalias.net/assets/images/cover4.jpg"},"name":"Glenn 'devalias' Grant"},"headline":"An unexpected journey with webpack and RequireJS","dateModified":"2017-08-05T00:00:00+10:00","datePublished":"2017-08-05T00:00:00+10:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://devalias.net/devalias/2017/08/05/unexpected-journey-webpack-requirejs/"},"@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -309,7 +310,7 @@
 <h2>Success?</h2>
 
 <p>I found that trying to test the Plunker hosted version complicated things a bit, so I ended up downloading the zipped files and hosting them locally with Python while I tested things:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">python -m SimpleHTTPServer
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">python <span class="nt">-m</span> SimpleHTTPServer
 </code></pre></div>
 <p>Running it through the tool.. everything worked as expected, no bugs. <em>sadface</em> I could have spent more time digging into the specifics and trying to unearth what actually lead to the bug in the first place, but given I had other things I needed to test I decided to leave that as a possible future endeavour, if I run into it again.</p>
 
@@ -510,7 +511,7 @@
             </section>
             <section class="poweredby">
                 <div>
-                    <strong>Build:</strong> 0096badb4
+                    <strong>Build:</strong> f42db4894
                     <a href="https://github.com/alias1/devalias.net/tree/master/_posts/2017-08-05-unexpected-journey-webpack-requirejs.md" target="_blank">
                         <i class="fas fa-edit"></i>
                         Edit on GitHub
@@ -543,7 +544,32 @@
      </script>
     
         <script src="//assets/js//JekyllWebmentionIO.js" async></script>
-<template style="display:none" id="webmention-likes"><div class="webmentions webmentions--likes">
+<template style="display:none" id="webmention-bookmarks"><div class="webmentions webmentions--bookmarks">
+  {% if webmentions.size > 0 %}
+    <ol class="webmentions__list">
+      {% for webmention in webmentions %}
+        <li id="webmention-{{ webmention.id }}" class="webmentions__item webmention webmention--{{ webmention.type }}">
+          <div class="webmention__content p-content">
+            {{ webmention.content }}
+          </div>
+          <div class="webmention__meta">
+            {% if webmention.author %}
+              <a class="webmention__author h-card u-url" href="{{ webmention.author.url }}">{{ webmention.author.name }}</a>
+            {% endif %}
+            {% if webmention.pubdate and webmention.url %}on{% endif %}
+            {% if webmention.pubdate %}
+              <a class="webmention__source u-url" href="{{ webmention.url }}">
+                <time class="webmention__pubdate dt-published" datetime="{{ webmention.pubdate | date: '%FT%T%:z' }}">{{ webmention.pubdate | date: '%d %B %Y' }}</time>
+              </a>
+            {% endif %}
+          </div>
+        </li>
+      {% endfor %}
+    </ol>
+  {% else %}
+    <p class="webmentions__not-found">No bookmarks were found.</p>
+  {% endif %}
+</div></template><template style="display:none" id="webmention-likes"><div class="webmentions webmentions--likes">
   {% if webmentions.size > 0 %}
     <ol class="webmentions__list">
       {% for webmention in webmentions %}
@@ -582,7 +608,7 @@
       {% endfor %}
     </ol>
   {% else %}
-    <p class="webmentions__not-found">No webmentions were found.</p>
+    <p class="webmentions__not-found">No links were found.</p>
   {% endif %}
 </div></template><template style="display:none" id="webmention-posts"><div class="webmentions webmentions--posts">
   {% if webmentions.size > 0 %}
@@ -599,7 +625,7 @@
       {% endfor %}
     </ol>
   {% else %}
-    <p class="webmentions__not-found">No webmentions were found.</p>
+    <p class="webmentions__not-found">No posts were found.</p>
   {% endif %}
 </div></template><template style="display:none" id="webmention-replies"><div class="webmentions webmentions--replies">
   {% if webmentions.size > 0 %}
@@ -629,7 +655,7 @@
       {% endfor %}
     </ol>
   {% else %}
-    <p class="webmentions__not-found">No webmentions were found.</p>
+    <p class="webmentions__not-found">No replies were found.</p>
   {% endif %}
 </div></template><template style="display:none" id="webmention-reposts"><div class="webmentions webmentions--reposts">
   {% if webmentions.size > 0 %}
@@ -646,6 +672,24 @@
     </ol>
   {% else %}
     <p class="webmentions__not-found">No reposts were found.</p>
+  {% endif %}
+</div></template><template style="display:none" id="webmention-rsvps"><div class="webmentions webmentions--rsvps">
+  {% if webmentions.size > 0 %}
+    <ol class="webmentions__list">
+      {% for webmention in webmentions %}
+        <li id="webmention-{{ webmention.id }}" class="webmentions__item webmention webmention--{{ webmention.type }}">
+          <div class="webmention__author p-author h-card">
+            <a class="u-url" href="{{ webmention.author.url }}">
+              <img class="webmention__author__photo u-photo" src="{{ webmention.author.photo }}" alt="Avatar for {{ webmention.author.name }}" title="{{ webmention.author.name }}">
+              <b class="p-name">{{ webmention.author.name }}</b>
+              {{ webmention.content }}
+            </a>
+          </div>
+        </li>
+      {% endfor %}
+    </ol>
+  {% else %}
+    <p class="webmentions__not-found">No RSVPs were found.</p>
   {% endif %}
 </div></template><template style="display:none" id="webmention-count">{% capture webmention_types %}{{ types | join: ',' }}{% endcapture %}
 <span class="webmention-count"{% unless webmention_types=="" %} data-webmention-types="{{ webmention_types }}"{% endunless %}>{{ count }}</span></template><template style="display:none" id="webmention-webmentions">{% capture webmention_types %}{{ types | join: ',' }}{% endcapture %}

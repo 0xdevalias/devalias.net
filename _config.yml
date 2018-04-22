@@ -100,6 +100,11 @@ exclude:
   - "ojekyll.txt"
   - "bin/"
 
+# TODO: Enable these checks + fix any errors associated with them
+# liquid:
+#   strict_variables: true
+#   strict_filters: true
+
 # https://github.com/vwochnik/jekyll-deploy
 deploy:
 - touch .nojekyll
@@ -128,16 +133,17 @@ webmentions:
     destination: /assets/js/
   disabled: false
 
-gems:
+plugins:
   - jekyll-redirect-from        # https://github.com/jekyll/jekyll-redirect-from
   - jekyll-paginate             # https://github.com/jekyll/jekyll-paginate
   # - jekyll-mentions             # https://github.com/jekyll/jekyll-mentions (conflicts with SEO)
   - jekyll-gist                 # https://github.com/jekyll/jekyll-gist
   - jekyll-github-metadata      # https://github.com/jekyll/github-metadata
-  - jekyll-crosspost-to-medium  # https://github.com/aarongustafson/jekyll-crosspost-to-medium
-  #- jekyll-webmention_io        # https://github.com/aarongustafson/jekyll-webmention_io
+  # - jekyll-crosspost-to-medium  # https://github.com/aarongustafson/jekyll-crosspost-to-medium (broken with liquid4: https://github.com/aarongustafson/jekyll-crosspost-to-medium/issues/47)
+  # - jekyll-webmention_io        # https://github.com/aarongustafson/jekyll-webmention_io
   - jekyll-time-to-read         # https://github.com/gjtorikian/jekyll-time-to-read
   - jekyll-twitter-plugin       # https://github.com/rob-murray/jekyll-twitter-plugin
   - jekyll-feed                 # https://github.com/jekyll/jekyll-feed
   - jekyll-sitemap              # https://github.com/jekyll/jekyll-sitemap
   - jekyll-seo-tag              # https://github.com/jekyll/jekyll-seo-tag
+  # TODO: https://github.com/benbalter/jekyll-remote-theme

@@ -30,7 +30,7 @@ class: 'post-template'
                         {{ page.author }}
                     {% endif %}
                 </h4>
-                
+
                 {% if site.data.authors[page.author].bio %}
                     <p> {{ site.data.authors[page.author].bio }}</p>
                 {% elsif site.data.authors[page.author] %}
@@ -45,7 +45,7 @@ class: 'post-template'
             <!-- /author  -->
 
             {% include social-share.html %}
-            
+
             {% if page.disqus %}
                 <!-- Add Disqus Comments -->
                 {% include post/disqus.html %}
@@ -56,7 +56,7 @@ class: 'post-template'
                     {% include post/webmentions.html %}
                 {% endif %}
             {% endunless %}
-            
+
         </footer>
 
     </article>

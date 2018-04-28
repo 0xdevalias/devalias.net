@@ -99,6 +99,7 @@ exclude:
   - "TODO.txt"
   - "ojekyll.txt"
   - "bin/"
+  - ".jekyll-cache/"
 
 # TODO: Enable these checks + fix any errors associated with them
 # liquid:
@@ -124,10 +125,18 @@ jekyll-crosspost_to_medium:
 # https://github.com/aarongustafson/jekyll-webmention_io
 webmentions:
   username: devalias.net
-  # legacy_domains:
-  #  -
+  pages: true
+  throttle_lookups:
+    last_week: daily
+    last_month: weekly
+    last_year: every 2 weeks
+    older: monthly
+  pause_lookups: true
+  legacy_domains:
+    - http://devalias.tumblr.com
+    - http://blog.devalias.net
+    - http://www.devalias.net
   #cache_folder: .cache
-  #pause_lookups: true
   js:
     source: false
     destination: /assets/js/

@@ -4,6 +4,10 @@
   name: 'home'
   path: '/'
 -
+  class: 'nav-now'
+  name: 'now'
+  path: '/now'
+-
   class: 'nav-about'
   name: 'about'
   path: '/about'

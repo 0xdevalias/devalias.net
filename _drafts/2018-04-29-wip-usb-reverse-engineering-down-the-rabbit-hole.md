@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "WIP: Reverse Engineering USB"
+title: "WIP: USB Reverse Engineering: Down the rabbit hole"
 tags:
 - linkdump
 - research
@@ -28,7 +28,7 @@ USB (universal serial bus) is an industry standard covering cables, connectors a
 
 That said, it will be useful to understand some of the aspects of how USB devices and protocols are laid out, and some of the terminology used.
 
-A [USB system](https://en.wikipedia.org/wiki/USB#System_design) ([ref2](https://www.linuxvoice.com/drive-it-yourself-usb-car-6/)) has:
+A [USB system](https://en.wikipedia.org/wiki/USB#System_design) ([see also](https://www.linuxvoice.com/drive-it-yourself-usb-car-6/)) has:
 
 * A **host**, with one or more downstream ports, and multiple peripherals
 * **Hubs** may be included, allowing up to 5 tiers
@@ -62,6 +62,7 @@ There are different transport types that can be used:
 
 * http://www.beyondlogic.org/usbnutshell
 * https://www.linuxvoice.com/drive-it-yourself-usb-car-6/
+* [Jan Axelson's USB Complete books](http://janaxelson.com/)
 
 ## USB Reverse Engineering: An Introduction
 
@@ -84,14 +85,15 @@ used to collect traces of I/O on the USB bus
 
 ## USB Reverse Engineering: Further Reading
 
-TODO: full end2end walkthroughs/tutorials/etc (eg. hackaday, adafruit, etc)
+The following are some additional relatively short reads on how other have approached reverse engineering some devices, including tools they used, and basic methodologies.
 
-TODO: Order these by year, maybe separate our some standouts?
+I would definitely suggest checking this one out first:
 
-Another method of reverse engineering could be to reverse the device driver itself, and understand it's functionality/features from that.
+* https://learn.adafruit.com/hacking-the-kinect (2012, 2015?)
+
+By this stage you're probably not going to pack up masses of new information, but here are the rest for completeness, just in case:
 
 * https://github.com/openrazer/openrazer/wiki/Reverse-Engineering-USB-Protocol (2017)
-* https://learn.adafruit.com/hacking-the-kinect (2012, 2015?)
 * https://www.linuxvoice.com/drive-it-yourself-usb-car-6/ (2015)
 * https://www.mattcutts.com/blog/reverse-engineering-a-windows-usb-driver/ (2013)
 * https://hackaday.com/2009/08/20/reverse-engineering-usb-drivers/ (2009)
@@ -99,40 +101,95 @@ Another method of reverse engineering could be to reverse the device driver itse
   * http://devdriven.com/2008/12/luxeed-led-keyboard-driver-for-linux/
   * https://github.com/kstephens/luxeed
 
+Some common tools/methods used in the above articles include:
+
+* Explore / Capture
+  * `lsusb -vv` (*nix) ([ref](https://linux.die.net/man/8/lsusb)) / `system_profiler SPUSBDataType` (macOS) / [USBDeview](http://www.nirsoft.net/utils/usb_devices_view.html) (Windows)
+  * `usbmon` / USBsnoop / SnoopyPro
+  * [Beagle480 / Beagle Data Center Software](https://www.totalphase.com/products/beagle-usb480/)
+  * Virtualbox / KVM / QEMU
+  * Wireshark
+* Interact
+  * libusb / libusb-win32
+  * pyUSB
+
+The basic process seems to be:
+
+* Setup to capture the device
+* Identify the Vendor ID and Product ID
+* Determine the device descriptors / endpoints
+* Capture USB traffic / attempt to decode commands
+* Make a driver / program to interact
+* At this stage, you may fuzz for other commands as well (generally safer to do read only)
+
+Another method of reverse engineering could be to reverse the device driver itself, and understand the functionality/features from that. This takes a more 'traditional' software reverse engineering approach to solving the problem. If you want to be completely thorough, a hybrid approach may make the most sense (eg. analyse the traffic on from the device itself, then use the existing driver to help understand the data being sent back/forth and/or confirm you have captured all of the features)
+
 ## Software: Wireshark, usbmon, USBPcap, VirtualBox, etc
 
+So as we learned in the above articles, there are a number of 'software only' methods we can use to capture/inspect USB traffic, with the main modern methods being:
+
+* [WireShark](https://wiki.wireshark.org/CaptureSetup/USB)
+* [USBpcap](http://desowin.org/usbpcap/) ([GitHub](https://github.com/desowin/usbpcap)
+* [usbmon](https://www.kernel.org/doc/Documentation/usb/usbmon.txt)
+
+It is also possible to 'pass through' USB devices with your favourite virtual machine software (VMware, Parallels, Virtualbox, KVM, QEMU, etc) to assist in capturing data, though I will leave it as an exercise to the reader to look up the specifics (some references are in the above walkthroughs).
+
+There are also some older programs and methods that might still work, but probably aren't ideal anymore, including:
+
+* [USBREVue](https://github.com/wcooley/usbrevue): USBREVue is a suite of tools for reverse-engineering USB devices.
+* [Virtual USB Analyzer](https://github.com/scanlime/vusb-analyzer) ([old site](http://vusb-analyzer.sourceforge.net/))
+* [USB Snoopy](http://web.archive.org/web/20010429043148/http://www.jps.net/koma/)
+* usbsnoop ([1](http://benoit.papillault.free.fr/usbsnoop/doc.en.php), [2](https://linuxtv.org/wiki/index.php/Usbsnoop), [3](https://sourceforge.net/projects/usbsnoop/))
+* [usbreplay](https://linuxtv.org/wiki/index.php/Usbreplay)
+* [SniffUSB](https://web.archive.org/web/20151218000528/http://www.pcausa.com/Utilities/UsbSnoop/default.htm)
+* [USB Monitor](https://www.hhdsoftware.com/usb-monitor) (Windows)
+
+## Hardware: GoodFET
+
+## Hardware: GreatFET
+
+## Hardware: Facedancer
+
+## Hardware: Daisho
+
+## Hardware: OpenVizsla, Unsorted, etc
+
 TODO
 
-TODO: virtualbox/VM software for capture
+RaspDancer / BeagleDancer
 
-* Software Capture/Driver dev..
-  * https://wiki.wireshark.org/CaptureSetup/USB
-  * http://desowin.org/usbpcap/ ([GitHub](https://github.com/desowin/usbpcap))
-    * USB packet capture for Windows
+umap fuzzing?
 
-      * [Virtual USB Analyzer](https://github.com/scanlime/vusb-analyzer)
-    * http://vusb-analyzer.sourceforge.net/
-* https://github.com/wcooley/usbrevue : USBREVue is a suite of tools for reverse-engineering USB devices.
+* https://hackaday.com/2015/12/23/usb-proxy-rats-out-your-devices-secrets/
+  * https://github.com/matlo/serialusb : A cheap USB proxy for input devices
 
-http://benoit.papillault.free.fr/usbsnoop/doc.en.php
 
-http://www.linux-usb.org/USBMon/
-https://www.hhdsoftware.com/usb-monitor (win)
-
-TODO: ?Software: Older Methods?: usbsnoopy, etc? maybe just combine this with the above?
-
-* https://linuxtv.org/wiki/index.php/Usbsnoop
-* https://linuxtv.org/wiki/index.php/Usbreplay
-
-## Hardware: GoodFET, GreatFET, Facedancer, OpenVizsla, etc
-
-TODO
+https://greatscottgadgets.com/daisho/
+  https://github.com/mossmann/daisho
+  https://github.com/mossmann/daisho/wiki
+  https://github.com/enjoy-digital/daisho_usb3ipcore_test
+  http://ossmann.blogspot.com/2013/05/introducing-daisho.html
+  https://media.blackhat.com/us-13/US-13-Spill-Whats-on-the-Wire-WP.pdf
+  https://arstechnica.com/information-technology/2015/01/playing-nsa-hardware-hackers-build-usb-cable-that-can-attack/
 
 * http://greatscottgadgets.com/greatfet/
     * https://github.com/greatscottgadgets/greatfet : GreatFET firmware and host software
     * https://github.com/greatscottgadgets/greatfet-hardware : like GoodFET but greater
   * http://goodfet.sourceforge.net/
     * https://github.com/travisgoodspeed/goodfet
+
+
+Facedancer..
+https://twitter.com/WEareTROOPERS/status/940521645428629504
+  https://www.troopers.de/troopers18/trainings/jmpsxq/
+  https://hm-ts.de/pdf/TR18_HM_Hack_Facedancer.pdf
+
+  Facedancer 2:
+  ToorCon 19 - Spill & Temkin - Facedancer 2.0 Next Generation USB Hacking: https://www.youtube.com/watch?v=HV9WfDRjJCg
+  https://twitter.com/dominicgs/status/895341394730123265
+    http://dominicspill.com/presentations/2017/Temkin_Spill_FaceDancer2_slides.pdf
+    https://www.youtube.com/watch?v=L3Ug9591Vag&list=PLnOI9rJWBVjE_xz7uGH4QKLiU5X0A7fjv&index=143
+
   * https://github.com/ktemkin/facedancer : FaceDancer boards are simple hardware devices that act as "remote-controlled" USB controllers. With the proper software, you can use these boards to quickly and easily emulate USB devices-- and to fuzz USB host controllers!
     * http://travisgoodspeed.blogspot.com.au/2012/07/emulating-usb-devices-with-python.html
     * https://github.com/dominicgs/USBProxy : A proxy for USB devices, libUSB and gadgetFS
@@ -150,13 +207,18 @@ TODO
     * https://www.elinux.org/BeagleBoard/GSoC/2010_Projects/USBSniffer
       * https://beagleboard.org/p/drinkcat-myopenid-com/usb-sniffer-ba62d2
 
-* https://github.com/matlo/serialusb : A cheap USB proxy for input devices
-
 * http://openvizsla.org/ ([GitHub](https://github.com/openvizsla/ov_ftdi))
     * Open Hardware FPGA-based USB analyzer
     * https://www.kickstarter.com/projects/bushing/openvizsla-open-source-usb-protocol-analyzer
 
-## Commercial: TotalPhase BeagleUSB
+Further Reading?
+  https://shmoo.gitbooks.io/2015-shmoocon-proceedings/content/build/01_nsa_playset_usb_tools.html (2015)
+
+  https://www.blackhat.com/docs/webcast/04232014-tools-of-the-hardware-hacking-trade.pdf (2014?)
+
+  https://www.defcon.org/images/defcon-22/dc-22-presentations/Michael-Shkatov/DEFCON-22-Jesse-Michael-Mickey-Shkatov-USB-for-All!!-UPDATED.pdf (2014?)
+
+## Commercial Hardware: TotalPhase BeagleUSB
 
 TODO: Commercial device, various models from cheapish to super expensive, different capabilities based on USB speed, etc
 
@@ -192,7 +254,7 @@ TODO: ?Custom Drivers?, windows driver kit, rust drivers, etc.. maybe combine th
   * https://github.com/pravic/winapi-kmd-rs : Windows Kernel-Mode Drivers written in Rust
   * http://www.linuxvoice.com/be-a-kernel-hacker/
 
-## Device Emulation, USB over IP, etc
+## Where next? Device Emulation, USB over IP, etc
 
 Now that you've figured out all of the intricacies of the device, understand it's protocol and wrote some software (or even a driver) to interface with it.. what about the other side of things?
 

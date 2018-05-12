@@ -18,7 +18,9 @@ crosspost_to_medium: false
 ---
 I tend to dive down rabbit holes a lot, and given the cost of context switching and memory deteriorating over time, sometimes the state I build up in my mind gets lost between the chances I get to dive in. These 'linkdump' posts are an attempt to collate at least some of that state in a way that I can hopefully restore to my brain at a later point.
 
-This time around I was inspired to look into USB reverse engineering, protocol analyis, and what would be involved in implementing custom drivers for arbitrary hardware. Or put another way: how do I hack all of the USBs?!??
+This time around I was inspired to look into USB reverse engineering, protocol analyis, hardware hacking, and what would be involved in implementing custom drivers for arbitrary hardware. Or put another way: how do I hack all of the USBs?!??
+
+It seems the further I went, the more and more interesting I found the content I was finding. Hopefully it will help to shortcut your own journey down this path, and enlighten you to a whole area of new and interesting things to hack!
 
 ## Intro to USB
 
@@ -144,25 +146,195 @@ There are also some older programs and methods that might still work, but probab
 * [SniffUSB](https://web.archive.org/web/20151218000528/http://www.pcausa.com/Utilities/UsbSnoop/default.htm)
 * [USB Monitor](https://www.hhdsoftware.com/usb-monitor) (Windows)
 
-## Hardware: GoodFET
+## Hardware: tl;dr
 
-## Hardware: GreatFET
+Too many choices? Don't want to read through them all? A good bet is probably:
 
-## Hardware: Facedancer
+* **Right Now:** GreatFET, Facedancer 2.0
+* **Commercial:** BeagleUSB
+
+## Hardware: BeagleBoard-XM / USBSniffer (~2010-2013, ~$149+)
+
+Based on a [2010 GSoC BeagleBoard USB Sniffer](https://www.elinux.org/BeagleBoard/GSoC/2010_Projects/USBSniffer), this is an updated version of a [BeagleBoard-XM](http://beagleboard.org/beagleboard-xm) based USB sniffer. It acts as a man-in-the-middle hardware proxy allowing USB traffic to be captured, and later viewed in Wireshark or similar.
+
+* https://blog.gimx.fr/a-beagleboard-xm-based-usb-sniffer/
+* https://github.com/matlo/bb_usb_sniffer
+* https://www.elinux.org/BeagleBoard/GSoC/2010_Projects/USBSniffer
+* https://hackaday.com/2013/07/02/usb-sniffing-with-the-beagleboard-xm/
+
+## Hardware: OpenVizsla (~2010-2014)
+
+> OpenVizsla is a Open Hardware FPGA-based USB analyzer. Unlike other similar devices on the market, hardware design files are available as well as full source code for the firmware and client software of the device.
+
+This was a [Kickstarter Project](https://www.kickstarter.com/projects/bushing/openvizsla-open-source-usb-protocol-analyzer) to create an "Open Hardware FPGA-based USB analyzer" targeting **USB 2.0 High-Speed**. There seems to be a lot of mixed opinions/views about this project on the internet/forums calling scam and similar. It sounds like there were a lot of delays and other issues.
+
+According to [this blog post](http://debugmo.de/2014/05/ov3-hardware/), it sounds like they eventually got something working (years later) under the moniker 'OV3'. There seem to be a number of related posts on this blog [under the tag 'OpenVizsla'](http://debugmo.de/tags/OpenVizsla/):
+
+* http://debugmo.de/2014/05/ov3-hardware/
+* http://debugmo.de/2014/08/ov3-fpga-design/
+* http://debugmo.de/2014/09/ov3-fpga-helloworld/
+
+You should be able to find the latest news and code on the following website/GitHub pages:
+
+* http://openvizsla.org/
+* [GitHub](https://github.com/openvizsla/ov_ftdi)
+* https://twitter.com/openvizsla (no tweets)
+* https://twitter.com/hashtag/openvizsla (no activity since 2010)
+* https://www.kickstarter.com/projects/bushing/openvizsla-open-source-usb-protocol-analyzer/updates
+
+## Hardware: SerialUSB / GIMX USB Adapter (~2015, ~US$5-35)
+
+> A cheap USB proxy for input devices.
+
+SerialUSB is at the low end of hardware capture devices, designed to be a low cost solution to assist in adding support for USB gaming peripheral protocols to the [GIMX](http://blog.gimx.fr/) project.
+
+* http://blog.gimx.fr/serialusb/
+* https://github.com/matlo/serialusb (~US$5)
+* https://blog.gimx.fr/product/gimx-adapter/ (~US$35)
+* http://gimx.fr/wiki/index.php?title=DIY_USB_adapter
+* https://hackaday.com/2015/12/23/usb-proxy-rats-out-your-devices-secrets/
+
+For most purposes we probably won't need hardware for things at this level.. the software-based capture devices are likely good enough. But who knows.. maybe there are other uses for super cheap hardware capture..
+
+## Hardware: GoodFET (~2009-2018+, ~US$50)
+
+(Before I dive in too deeply.. if you want the latest/greatest in this space, check out the GreatFET.)
+
+> The GoodFET is an open-source JTAG adapter, loosely based upon the TI MSP430 FET UIF and EZ430U boards, as described in their documentation. In addition to JTAG, the GoodFET has been **inspired by HackADay's Bus Pirate to become a universal serial bus interface.**
+
+It "is a nifty little tool for quickly exposing embedded system buses to userland Python code.". Based on the bits and pieces I can pull together, I believe this will allow us to do our typical hardware based sniffing/dumping/etc, but I would have to find a better walkthrough/try it myself before being able to say that for certain.
+
+Now one thing about this project that tends to confuse me is the versions/revision naming.. for example here are a number of the older revisions and their names:
+
+* http://goodfet.sourceforge.net/hardware/goodfet10/ (rev 1, retired)
+* http://goodfet.sourceforge.net/hardware/goodfet11/ (rev 2, retired)
+* http://goodfet.sourceforge.net/hardware/goodfet20/ (rev 3, retired)
+* http://goodfet.sourceforge.net/hardware/badfet20/ (rev 4, retired)
+* http://goodfet.sourceforge.net/hardware/goodfet30/ (rev 5, retired)
+* http://goodfet.sourceforge.net/hardware/goodfet21/ (rev 6, retired)
+* http://goodfet.sourceforge.net/hardware/goodfet31/ (rev 8, retired)
+* http://goodfet.sourceforge.net/hardware/goodfet40/ (rev 12, retired)
+* http://goodfet.sourceforge.net/hardware/goodfet41/ (rev 13, retired)
+
+As best I can tell.. there seem to be multiple parallel hardware versions at certain times.. based on different chipsets. And those versions may fork/merge at later times. Attempting to follow that logic.. the two most current (non-retired) revisions seem to be:
+
+* http://goodfet.sourceforge.net/hardware/goodfet42/ (rev 22)
+* http://goodfet.sourceforge.net/hardware/goodfet32/ (rev 25)
+
+You should probably just spend time browsing around this site in general.. there are so many interesting sounding open-hardware designs.
+
+* http://goodfet.sourceforge.net/
+* https://github.com/travisgoodspeed/goodfet
+* https://github.com/travisgoodspeed/goodfet/tree/master/contrib
+
+You can order the boards (or request a free one!) from:
+
+* http://goodfet.sourceforge.net/orders/
+* https://www.adafruit.com/product/1279 (~US$50)
+* http://www.riverloopsecurity.com/projects/goodfet/
+
+Further reading:
+
+* https://exfil.co/2016/02/11/goodfet-on-os-x/
+* https://hackaday.com/tag/goodfet/
+
+## Hardware: Facedancer, Beagledancer, Raspdancer (2012-2018+, ~US$85-???)
+
+(Make sure to look at the facedancer 2.0 below as well)
+
+> The Facedancer21 is the twenty-fourth hardware revision of the GoodFET, owing its heritage to the GoodFET41 and Facedancer20. Unlike the general-purpose GoodFET boards, the only purpose of this board is to allow USB devices to be written in host-side Python, so that one workstation can fuzz-test the USB device drivers of another host.
+
+The facedancer is less about capturing data, and more about emulating a USB device with software (python to be exact!). One reason for wanting to do this might be to fuzz the devices drivers on a host system, though I'm sure there could be a number of other creative uses too.. Maybe you want to allow one hardware device to masquerade as another and talk to it's drivers..
+
+The following articles are a good read:
+
+* http://travisgoodspeed.blogspot.com.au/2012/07/emulating-usb-devices-with-python.html
+* http://travisgoodspeed.blogspot.com.au/2012/10/emulating-usb-dfu-to-capture-firmware.html
+* [Scapy Support for USB Protocol on Facedancer Boards, MAX2420, etc](http://rmspeers.com/archives/252)
+
+> The Facedancer hardware extends the GoodFET framework to allow for fast prototyping and fuzzing of USB device drivers. Software connect/disconnect allows the enumeration process to be repeated, and Ryan's fork allows for clean coding of the various data structures with Scapy.
+
+You can find out more about the facedancer boards at:
+
+* http://goodfet.sourceforge.net/hardware/facedancer21
+* [Youtube: SEC-T 2012 - Trashing USB layers using the Facedancer Board - Travis Goodspeed](https://www.youtube.com/watch?v=x-7ezoFju6I) (2013)
+* http://rmspeers.com/archives/252
+
+You can order the board (or request a free one!) from:
+
+* http://goodfet.sourceforge.net/orders/
+* https://int3.cc/products/facedancer21 (~US$85)
+
+Other hardware projects that connect with the facedancer:
+
+* https://github.com/dominicgs/BeagleDancer : A Facedancer21 expansion board for the BeagleBone
+* http://wiki.yobi.be/wiki/Raspdancer : Merging Facedancer11 and Facedancer21 with Raspberry Pi
+* https://speakerdeck.com/doegox/raspdancer
+* https://github.com/travisgoodspeed/goodfet/tree/master/contrib/facedancer/raspdancer
+
+## Hardware: Beaglebone Black + USBProxy (~2013?)
+
+(This has been superceded by the facedancer 2.0 below)
+
+> A proxy for USB devices, libUSB and gadgetFS. A USB man in the middle device using embedded Linux devices with on the go controllers.
+
+* https://github.com/dominicgs/USBProxy
+
+## Hardware: Facedancer 2.0 (2017-2018+)
+
+> This repository houses the next generation of FaceDancer software. Descended from the original GoodFET-based FaceDancer, this repository provides a python module that provides expanded FaceDancer support-- including support for multiple boards and some pretty significant new features.
+
+This is the v2.x of the facedancer, designed to be better/greater. I won't go too deeply into things, but the following are useful resources:
+
+* https://github.com/ktemkin/facedancer
+* https://github.com/ktemkin/facedancer#usbproxy-nouveau-and-protocol-analysis
+  * Replaces [USBProxy](https://github.com/dominicgs/USBProxy)
+
+Presentations/Training/etc:
+
+* [Youtube: FaceDancer 2.0 (SHA2017)](https://www.youtube.com/watch?v=L3Ug9591Vag&list=PLnOI9rJWBVjE_xz7uGH4QKLiU5X0A7fjv&index=143) ([Slides](http://dominicspill.com/presentations/2017/Temkin_Spill_FaceDancer2_slides.pdf), [Slides2](https://github.com/dominicgs/dominicgs.github.io/blob/master/presentations/2017/Temkin_Spill_FaceDancer2_slides.pdf), [Twitter](https://twitter.com/dominicgs/status/895341394730123265))
+* [Youtube: ToorCon 19 - Spill & Temkin - Facedancer 2.0 Next Generation USB Hacking](https://www.youtube.com/watch?v=HV9WfDRjJCg) (2017)
+  * [Facedancer 2 starts at 35:16](https://youtu.be/HV9WfDRjJCg?t=2116)
+* [Troopers Training: Hacking the USB World with FaceDancer](https://www.troopers.de/troopers18/trainings/jmpsxq/) ([PDF](https://hm-ts.de/pdf/TR18_HM_Hack_Facedancer.pdf), 2018)
+
+## Hardware: GreatFET (~2015-2018+)
+
+> GreatFET is a next generation GoodFET intended to serve as your custom Hi-Speed USB peripheral through the addition of expansion boards called "neighbors".
+
+Better GoodFET hardware, cheaper. Sounds great to me.
+
+According to the main site this is still at a 'functional prototype' stage though:
+
+> Functional prototype hardware has been produced. Firmware is in progress.
+
+That said.. looking around twitter and other places.. it sounds like it's pretty functional. Here are your main resources:
+
+* http://greatscottgadgets.com/greatfet/
+* https://github.com/greatscottgadgets/greatfet
+* https://github.com/greatscottgadgets/greatfet-hardware
+* https://github.com/greatscottgadgets/greatfet/wiki
+* https://github.com/greatscottgadgets/greatfet/wiki/GreatFET-One
+
+I couldn't find many resources about how to buy these.. but here is what I got:
+
+* https://oshpark.com/shared_projects/qZFKUiwj
+
+Presentations/etc:
+
+* [Youtube: TR18: Reverse Engineering Black Box Systems with GreatFET](https://www.youtube.com/watch?v=h3VWvZ162QE) ([Slides](https://download.ernw-insight.de/troopers/tr18/slides/TR18_AR_RE-Black-Box-Systems-GreatFET-Facedancer.pdf), [Agenda](https://www.troopers.de/troopers18/agenda/bcgyzl/)) (2018)
+* [Youtube: TR17 - Rusting up your GREATFET - Richo Healey, Dominic Spill](https://www.youtube.com/watch?v=4Ra9XNjNS3M) ([Slides](https://speakerdeck.com/richo/rust-greatfet)) (2017)
+* [Youtube: GreatFET: Making GoodFET Great Again](https://www.youtube.com/watch?v=4NIoAnsuFOQ) ([Slides](https://www.blackhat.com/docs/us-16/materials/us-16-Ossmann-GreatFET-Making-GoodFET-Great-Again-wp.pdf)) (2016)
+
+Further reading:
+
+* https://hackaday.com/tag/greatfet/
+* https://twitter.com/search?q=%23GreatFET&lang=en
 
 ## Hardware: Daisho
 
-## Hardware: OpenVizsla, Unsorted, etc
+> SuperSpeed USB 3.0 FPGA platform
 
 TODO
-
-RaspDancer / BeagleDancer
-
-umap fuzzing?
-
-* https://hackaday.com/2015/12/23/usb-proxy-rats-out-your-devices-secrets/
-  * https://github.com/matlo/serialusb : A cheap USB proxy for input devices
-
 
 https://greatscottgadgets.com/daisho/
   https://github.com/mossmann/daisho
@@ -172,47 +344,20 @@ https://greatscottgadgets.com/daisho/
   https://media.blackhat.com/us-13/US-13-Spill-Whats-on-the-Wire-WP.pdf
   https://arstechnica.com/information-technology/2015/01/playing-nsa-hardware-hackers-build-usb-cable-that-can-attack/
 
-* http://greatscottgadgets.com/greatfet/
-    * https://github.com/greatscottgadgets/greatfet : GreatFET firmware and host software
-    * https://github.com/greatscottgadgets/greatfet-hardware : like GoodFET but greater
-  * http://goodfet.sourceforge.net/
-    * https://github.com/travisgoodspeed/goodfet
+## Hardware: Further Reading
 
+TODO
 
-Facedancer..
-https://twitter.com/WEareTROOPERS/status/940521645428629504
-  https://www.troopers.de/troopers18/trainings/jmpsxq/
-  https://hm-ts.de/pdf/TR18_HM_Hack_Facedancer.pdf
-
-  Facedancer 2:
-  ToorCon 19 - Spill & Temkin - Facedancer 2.0 Next Generation USB Hacking: https://www.youtube.com/watch?v=HV9WfDRjJCg
-  https://twitter.com/dominicgs/status/895341394730123265
-    http://dominicspill.com/presentations/2017/Temkin_Spill_FaceDancer2_slides.pdf
-    https://www.youtube.com/watch?v=L3Ug9591Vag&list=PLnOI9rJWBVjE_xz7uGH4QKLiU5X0A7fjv&index=143
-
-  * https://github.com/ktemkin/facedancer : FaceDancer boards are simple hardware devices that act as "remote-controlled" USB controllers. With the proper software, you can use these boards to quickly and easily emulate USB devices-- and to fuzz USB host controllers!
-    * http://travisgoodspeed.blogspot.com.au/2012/07/emulating-usb-devices-with-python.html
-    * https://github.com/dominicgs/USBProxy : A proxy for USB devices, libUSB and gadgetFS
-      * Replaced by facedancer: https://github.com/ktemkin/facedancer#usbproxy-nouveau-and-protocol-analysis
-    * http://rmspeers.com/archives/252 : Scapy Support for USB Protocol on Facedancer Boards, MAX2420, etc.
-    * http://goodfet.sourceforge.net/orders/
-      * "PCBs for the GoodFET32, GoodFET42, GoodThopter11, Facedancer11, and Facedancer21 are available by sending USD $5 per board to sixtysixav at hotmail.com."
-      * https://int3.cc/products/facedancer21
-      * https://www.adafruit.com/product/1279 (Goodfet42)
-    * https://github.com/dominicgs/BeagleDancer : A Facedancer21 expansion board for the BeagleBone.
-
-  * https://hackaday.com/2013/07/02/usb-sniffing-with-the-beagleboard-xm/
-    * https://github.com/matlo/bb_usb_sniffer
-    * https://blog.gimx.fr/a-beagleboard-xm-based-usb-sniffer/
-    * https://www.elinux.org/BeagleBoard/GSoC/2010_Projects/USBSniffer
-      * https://beagleboard.org/p/drinkcat-myopenid-com/usb-sniffer-ba62d2
-
-* http://openvizsla.org/ ([GitHub](https://github.com/openvizsla/ov_ftdi))
-    * Open Hardware FPGA-based USB analyzer
-    * https://www.kickstarter.com/projects/bushing/openvizsla-open-source-usb-protocol-analyzer
+Should USBproxy be it's own thing..? Based on these slides sounds like it can stand alone with a beaglebone/etc?: https://github.com/dominicgs/dominicgs.github.io/blob/master/presentations/2015/NSA%20Playset-USB%20Tools-ShmooCon.pdf this also talks about daisho (usb3)..
 
 Further Reading?
   https://shmoo.gitbooks.io/2015-shmoocon-proceedings/content/build/01_nsa_playset_usb_tools.html (2015)
+  https://github.com/dominicgs/dominicgs.github.io/tree/master/presentations/2015
+  https://github.com/dominicgs/dominicgs.github.io/blob/master/presentations/2015/NSA%20Playset-USB%20Tools-ShmooCon.pdf
+
+  https://github.com/dominicgs/dominicgs.github.io/tree/master/presentations/2014
+  https://github.com/dominicgs/dominicgs.github.io/blob/master/presentations/2014/Spill_BSidesLV_USBProxy_slides.pdf
+  +more
 
   https://www.blackhat.com/docs/webcast/04232014-tools-of-the-hardware-hacking-trade.pdf (2014?)
 
@@ -228,6 +373,12 @@ TODO: Commercial device, various models from cheapish to super expensive, differ
   * https://www.totalphase.com/products/beagle-usb480/ ~$1400, USB 2
   * https://www.totalphase.com/products/beagle-usb5000-v2-standard/ ~$3420, USB 3
   * https://www.totalphase.com/products/beagle-usb5000-v2-ultimate/ ~$5700, USB 2/3
+
+## People to Watch
+
+TODO: Add interesting people to watch in the usb/hardware hacking space? eg. dominicgs, mossman, greatscottgadgets, ktemkin; basically anyone who made one of these hardware/etc projects..
+https://www.ktemkin.com/
+https://twitter.com/rich0h ? (did rust+greatfet talk)
 
 ## ?Code/Drivers/etc?
 
@@ -281,6 +432,7 @@ Definitely an area that could be interesting to explore deeper, maybe in a futur
 Once we understand the language these devices speak, how to listen to it, how to emulate it.. what's next? One idea is to apply the concept of fuzzing used in the software world (random/crafted data used to look for crashes in software), and turn it to hardware. And with the prevalence of IoT devices out there now (often with woeful security).. this could be another interesting rabbithole to explore (google: `usb hardware fuzzing`):
 
 * https://blog.quarkslab.com/usb-fuzzing-basics-from-fuzzing-to-bug-reporting.html (2014)
+* https://github.com/nccgroup/umap : The USB host security assessment tool (~2013)
 * [nccgroup/FrisbeeLite](https://github.com/nccgroup/FrisbeeLite) : A GUI-based USB device fuzzer
   * https://www.nccgroup.trust/au/our-research/fuzzing-usb-devices-using-frisbee-lite/ (2013)
 * [ollseg/usb-device-fuzzing](https://github.com/ollseg/usb-device-fuzzing) :
@@ -292,11 +444,8 @@ Some tools for testing USB devices (2012)
 
 ## Link Dump
 
-Now that we've got all of that out of the way, here's whats left of my link dump that didn't end up being categorised elsewhere:
+After all of that.. there is only one little link left in my linkdump, and from memory, I think it was the post that started the cascading flow of rabbitholes. Not really anything to see here that we haven't already covered:
 
-* TODO
 * https://electronics.stackexchange.com/questions/4180/reverse-engineering-usb-signals
 
 ## Conclusion
-
-

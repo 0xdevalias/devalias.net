@@ -12,6 +12,638 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>USB Reverse Engineering: Down the rabbit hole</title>
+	  <link>/devalias/2018/04/29/usb-reverse-engineering-down-the-rabbit-hole/</link>
+	  <author>devalias</author>
+	  <pubDate>2018-04-29T00:00:00+10:00</pubDate>
+	  <guid>/devalias/2018/04/29/usb-reverse-engineering-down-the-rabbit-hole/</guid>
+	  <description><![CDATA[
+	     <p>I tend to dive down rabbit holes a lot, and given the cost of context switching and memory deteriorating over time, sometimes the state I build up in my mind gets lost between the chances I get to dive in. These &#39;linkdump&#39; posts are an attempt to collate at least some of that state in a way that I can hopefully restore to my brain at a later point.</p>
+
+<p>This time around I was inspired to look into USB reverse engineering, protocol analyis, hardware hacking, and what would be involved in implementing custom drivers for arbitrary hardware. Or put another way: <strong>how do I hack all of the USBs?!??</strong></p>
+
+<p>It seems the deeper I went, the more interesting I found the content, and this post grew and grew. Hopefully it will help to shortcut your own journey down this path, and enlighten you to a whole new area of interesting things to hack!</p>
+
+<h2>Overview</h2>
+
+<ul>
+<li><a href="#tldr">tl;dr</a></li>
+<li><a href="#intro-to-usb">Intro to USB</a></li>
+<li><a href="#usb-re-intro">USB Reverse Engineering: An Introduction</a></li>
+<li><a href="#usb-re-further-reading">USB Reverse Engineering: Further Reading</a></li>
+<li><a href="#software">Software: Wireshark, usbmon, USBPcap, VirtualBox, etc</a></li>
+<li><a href="#hardware-tldr">Hardware: tl;dr</a></li>
+<li><a href="#hardware-usbsniffer">Hardware: BeagleBoard-XM / USBSniffer (~2010-2013, ~$149+)</a></li>
+<li><a href="#hardware-openvizsla">Hardware: OpenVizsla (~2010-2014)</a></li>
+<li><a href="#hardware-serialusb">Hardware: SerialUSB / GIMX USB Adapter (~2015, ~US$5-35)</a></li>
+<li><a href="#hardware-goodfet">Hardware: GoodFET (~2009-2018+, ~US$50)</a></li>
+<li><a href="#hardware-facedancer">Hardware: Facedancer, Beagledancer, Raspdancer (~2012-2018+, ~US$85-???)</a></li>
+<li><a href="#hardware-usbproxy">Hardware: Beaglebone Black + USBProxy (~2013?)</a></li>
+<li><a href="#hardware-daisho">Hardware: Daisho (~2013-?2018+?)</a></li>
+<li><a href="#hardware-greatfet">Hardware: GreatFET (~2015-2018+)</a></li>
+<li><a href="#hardware-facedancer-2">Hardware: Facedancer 2.0 (~2017-2018+)</a></li>
+<li><a href="#hardware-commercial-beagleusb">Commercial Hardware: TotalPhase BeagleUSB</a></li>
+<li><a href="#further-reading-presentations">Further Reading/Presentations</a></li>
+<li><a href="#people-to-watch">People to Watch</a></li>
+<li><a href="#code-drivers-etc">Code/Drivers/etc</a></li>
+<li><a href="#where-next">Where next? Device Emulation, USB over IP, etc</a></li>
+<li><a href="#iot-hardware-hacking-fuzzing-etc">IoT, Hardware Hacking, Fuzzing, etc</a></li>
+<li><a href="#link-dump">Link Dump</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ul>
+
+<h2><a name="tldr"></a>tl;dr</h2>
+
+<p>This is long, has many sections, and time is precious:</p>
+
+<ul>
+<li><strong>Walkthrough:</strong> Read the <a href="#adafruit">Adafruit one</a></li>
+<li><strong>Software:</strong> <a href="#software">Wireshark + usbpcap/usbmon</a></li>
+<li><strong>Hardware:</strong> <a href="#hardware-greatfet">GreatFET</a>, <a href="#hardware-facedancer-2">Facedancer 2.0</a>, <a href="#hardware-daisho">Daisho</a></li>
+<li><strong>Commercial Hardware:</strong> <a href="#hardware-commercial-beagleusb">BeagleUSB</a></li>
+<li><strong>Interfacing/Drivers:</strong> <a href="#libusb-pyusb">libusb/pyUSB</a></li>
+</ul>
+
+<h2><a name="intro-to-usb"></a>Intro to USB</h2>
+
+<p>USB (universal serial bus) is an industry standard covering cables, connectors and protocols; and is pretty ubiquitous among tech products these days. I won&#39;t get deep on describing all of the facts, since that&#39;s what Wikipedia is good at:</p>
+
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/USB">https://en.wikipedia.org/wiki/USB</a></li>
+</ul>
+
+<p>That said, it will be useful to understand some of the aspects of how USB devices and protocols are laid out, and some of the terminology used.</p>
+
+<p>A <a href="https://en.wikipedia.org/wiki/USB#System_design">USB system</a> (<a href="https://www.linuxvoice.com/drive-it-yourself-usb-car-6/">see also</a>) has:</p>
+
+<ul>
+<li>A <strong>host</strong>, with one or more downstream ports, and multiple peripherals</li>
+<li><strong>Hubs</strong> may be included, allowing up to 5 tiers</li>
+<li>A host may have multiple controllers, each with one or more ports</li>
+<li>Up to 127 devices can be connected to a single host controller</li>
+<li>A <strong>device</strong> may have several logical sub-devices, referred to as <strong>&#39;device functions&#39;</strong></li>
+<li>A <strong>composite device</strong> may provide multiple functions (eg. webcam + microphone)</li>
+<li>A <strong>compound device</strong> connects logical devices to a built in hub</li>
+</ul>
+
+<p>Digging into the protocol/communication side of things:</p>
+
+<ul>
+<li>Communication is based on <strong>pipes</strong> (logical channels), between the host and an endpoint (logical entity) on a device</li>
+<li>A device can have <strong>up to 32 endpoints</strong> (16 IN, 16 OUT)</li>
+<li><strong>Endpoints</strong> are defined and numbered during initialization, so tend to remain fairly permanent, whereas a pipe may be opened/closed</li>
+<li>Two types of pipe: <strong>stream</strong> and <strong>message</strong></li>
+<li><strong>Message pipes</strong> are bi-directional, used for control transfers short, simple commands + status response</li>
+<li><strong>Stream pipes</strong> are uni-directional, transfers data in isochronous, interrupt or bulk transfer</li>
+<li>A set of endpoints with associated metadata is also known as an <strong>interface</strong>, each is associated with a single device function</li>
+<li>All USB <strong>devices have at least one endpoint</strong> (0), default, used for control transfers. Descriptors sent on default pipe can describe other endpoints.</li>
+<li><strong>Descriptors</strong> form a hierarchy that you can view with tools like <code>lsusb</code>.</li>
+<li><strong>Device descriptor</strong>: contains information like device Vendor ID (VID) and Product ID (PID)</li>
+</ul>
+
+<p>There are different transport types that can be used:</p>
+
+<ul>
+<li><strong>Interrupt transfers</strong> are for short periodic real-time data exchanges.</li>
+<li><strong>Isochronous transfers</strong> are somewhat similar but less strict; they allow for larger data blocks and are used by web cameras and similar devices, where delays or even losses of a single frame are not crucial.</li>
+<li><strong>Bulk transfers</strong> are for large amounts of data.</li>
+<li><strong>Control transfer type</strong> is the only one that has a standardised request (and response) format, and is used to manage devices</li>
+</ul>
+
+<p><strong>Further reading:</strong></p>
+
+<ul>
+<li><a href="http://www.beyondlogic.org/usbnutshell">http://www.beyondlogic.org/usbnutshell</a></li>
+<li><a href="https://www.linuxvoice.com/drive-it-yourself-usb-car-6/">https://www.linuxvoice.com/drive-it-yourself-usb-car-6/</a></li>
+<li><a href="http://janaxelson.com/">Jan Axelson&#39;s USB Complete books</a></li>
+</ul>
+
+<h2><a name="usb-re-intro"></a>USB Reverse Engineering: An Introduction</h2>
+
+<p>Now, I could probably go through and write a whole blog post on this.. but, other people have done it for me! The following walks through an introduction to interfacing with, reverse engineering, understanding, and ultimately implementing software to drive a USB remote control car.</p>
+
+<ul>
+<li><a href="https://www.linuxvoice.com/drive-it-yourself-usb-car-6/">https://www.linuxvoice.com/drive-it-yourself-usb-car-6/</a> (2015)</li>
+<li><a href="https://github.com/vsinitsyn/usbcar.py">https://github.com/vsinitsyn/usbcar.py</a></li>
+</ul>
+
+<p>I found it quite easy to consume, and doesn&#39;t really assume much in the way of prior knowledge.</p>
+
+<p>One of the tools used above was <a href="https://linux.die.net/man/8/lsusb"><code>lsusb</code></a>: &quot;a utility for displaying information about USB buses in the system and the devices connected to them&quot;. Among other things, this allows the <strong>vendor and product ID</strong> of the device to be identified. Once identified, this tag can be used to query further information about the device, eg. <code>lsusb -vd 0a81:0702</code>.</p>
+
+<p><strong>Other relevant tools/concepts used include:</strong></p>
+
+<ul>
+<li><code>usbmon</code>: a facility in kernel which is
+used to collect traces of I/O on the USB bus</li>
+<li><a href="https://wiki.wireshark.org/CaptureSetup/USB">Wireshark USB Capture</a></li>
+<li><a href="https://github.com/pyusb/pyusb">PyUSB</a> : USB access for Python</li>
+<li><a href="https://github.com/libusb/libusb">libusb</a> : A cross-platform library to access USB devices</li>
+</ul>
+
+<h2><a name="usb-re-further-reading"></a>USB Reverse Engineering: Further Reading</h2>
+
+<p>The following are some additional relatively short reads on how others have approached reverse engineering some devices, including tools they used, and basic methodologies.</p>
+
+<p><a name="adafruit"></a>I would definitely suggest checking this one out first:</p>
+
+<ul>
+<li><a href="https://learn.adafruit.com/hacking-the-kinect">https://learn.adafruit.com/hacking-the-kinect</a> (2012, 2015?)</li>
+</ul>
+
+<p>By this stage you&#39;re probably not going to pick up masses of new information, but here are the rest for completeness, just in case:</p>
+
+<ul>
+<li><a href="https://github.com/openrazer/openrazer/wiki/Reverse-Engineering-USB-Protocol">https://github.com/openrazer/openrazer/wiki/Reverse-Engineering-USB-Protocol</a> (2017)</li>
+<li><a href="https://www.linuxvoice.com/drive-it-yourself-usb-car-6/">https://www.linuxvoice.com/drive-it-yourself-usb-car-6/</a> (2015)</li>
+<li><a href="https://www.mattcutts.com/blog/reverse-engineering-a-windows-usb-driver/">https://www.mattcutts.com/blog/reverse-engineering-a-windows-usb-driver/</a> (2013)</li>
+<li><a href="https://hackaday.com/2009/08/20/reverse-engineering-usb-drivers/">https://hackaday.com/2009/08/20/reverse-engineering-usb-drivers/</a> (2009)
+
+<ul>
+<li><a href="http://www.jespersaur.com/drupal/book/export/html/21">http://www.jespersaur.com/drupal/book/export/html/21</a></li>
+<li><a href="http://devdriven.com/2008/12/luxeed-led-keyboard-driver-for-linux/">http://devdriven.com/2008/12/luxeed-led-keyboard-driver-for-linux/</a></li>
+<li><a href="https://github.com/kstephens/luxeed">https://github.com/kstephens/luxeed</a></li>
+</ul></li>
+</ul>
+
+<p><strong>Some common tools/methods used in the above articles include:</strong></p>
+
+<ul>
+<li>Explore / Capture
+
+<ul>
+<li><code>lsusb -vv</code> (*nix) (<a href="https://linux.die.net/man/8/lsusb">ref</a>) / <code>system_profiler SPUSBDataType</code> (macOS) / <a href="http://www.nirsoft.net/utils/usb_devices_view.html">USBDeview</a> (Windows)</li>
+<li><code>usbmon</code> / USBsnoop / SnoopyPro</li>
+<li><a href="#hardware-commercial-beagleusb">Beagle480 / Beagle Data Center Software</a></li>
+<li>Virtualbox / KVM / QEMU</li>
+<li><a href="https://wiki.wireshark.org/CaptureSetup/USB">Wireshark</a></li>
+</ul></li>
+<li>Interact
+
+<ul>
+<li><a href="https://github.com/libusb/libusb">libusb</a> / libusb-win32</li>
+<li><a href="https://github.com/pyusb/pyusb">PyUSB</a></li>
+</ul></li>
+</ul>
+
+<p>The basic process seems to be:</p>
+
+<ul>
+<li>Setup to capture the device</li>
+<li>Identify the Vendor ID and Product ID</li>
+<li>Determine the device descriptors / endpoints</li>
+<li>Capture USB traffic / attempt to decode commands</li>
+<li>Make a driver / program to interact</li>
+<li>Potentially fuzz for other commands (generally safer to do read only)</li>
+</ul>
+
+<p>Another method of reverse engineering could be to reverse the device driver itself, and understand the functionality/features from that. This takes a more &#39;traditional&#39; software reverse engineering approach to solving the problem.</p>
+
+<p>If you want to be completely thorough, a hybrid approach may make the most sense (eg. analyse the traffic on from the device itself, then use the existing driver to help understand the data being sent back/forth and/or confirm you have captured all of the features)</p>
+
+<h2><a name="software"></a>Software: Wireshark, usbmon, USBPcap, VirtualBox, etc</h2>
+
+<p>So as we learned in the above articles, there are a number of &#39;software only&#39; methods we can use to capture/inspect USB traffic, with the main modern methods being:</p>
+
+<ul>
+<li><a href="https://wiki.wireshark.org/CaptureSetup/USB">WireShark</a></li>
+<li><a href="http://desowin.org/usbpcap/">USBpcap</a> (<a href="https://github.com/desowin/usbpcap">GitHub</a>)</li>
+<li><a href="https://www.kernel.org/doc/Documentation/usb/usbmon.txt">usbmon</a></li>
+</ul>
+
+<p>It is also possible to &#39;pass through&#39; USB devices with your favourite virtual machine software (VMware, Parallels, Virtualbox, KVM, QEMU, etc) to assist in capturing data, though I will leave that as an exercise to the reader to look up the specifics (some references are in the above walkthroughs).</p>
+
+<p>There are also some older programs and methods that might still work but probably aren&#39;t ideal anymore, including:</p>
+
+<ul>
+<li><a href="https://github.com/wcooley/usbrevue">USBREVue</a>: USBREVue is a suite of tools for reverse-engineering USB devices.</li>
+<li><a href="https://github.com/scanlime/vusb-analyzer">Virtual USB Analyzer</a> (<a href="http://vusb-analyzer.sourceforge.net/">old site</a>)</li>
+<li><a href="http://web.archive.org/web/20010429043148/http://www.jps.net/koma/">USB Snoopy</a></li>
+<li>usbsnoop (<a href="http://benoit.papillault.free.fr/usbsnoop/doc.en.php">1</a>, <a href="https://linuxtv.org/wiki/index.php/Usbsnoop">2</a>, <a href="https://sourceforge.net/projects/usbsnoop/">3</a>)</li>
+<li><a href="https://linuxtv.org/wiki/index.php/Usbreplay">usbreplay</a></li>
+<li><a href="https://web.archive.org/web/20151218000528/http://www.pcausa.com/Utilities/UsbSnoop/default.htm">SniffUSB</a></li>
+<li><a href="https://www.hhdsoftware.com/usb-monitor">USB Monitor</a> (Windows)</li>
+</ul>
+
+<h2><a name="hardware-tldr"></a>Hardware: tl;dr</h2>
+
+<p>Too many choices? Don&#39;t want to read through them all? A good bet is probably:</p>
+
+<ul>
+<li><strong>Hardware:</strong> <a href="#hardware-greatfet">GreatFET</a>, <a href="#hardware-facedancer-2">Facedancer 2.0</a>, <a href="#hardware-daisho">Daisho</a></li>
+<li><strong>Commercial Hardware:</strong> <a href="#hardware-commercial-beagleusb">BeagleUSB</a></li>
+</ul>
+
+<h2><a name="hardware-usbsniffer"></a>Hardware: BeagleBoard-XM / USBSniffer (~2010-2013, ~$149+)</h2>
+
+<p>Based on a <a href="https://www.elinux.org/BeagleBoard/GSoC/2010_Projects/USBSniffer">2010 GSoC BeagleBoard USB Sniffer</a>, this is an updated version of a <a href="http://beagleboard.org/beagleboard-xm">BeagleBoard-XM</a> based USB sniffer. It acts as a man-in-the-middle hardware proxy allowing USB traffic to be captured, and later viewed in Wireshark or similar.</p>
+
+<ul>
+<li><a href="https://blog.gimx.fr/a-beagleboard-xm-based-usb-sniffer/">https://blog.gimx.fr/a-beagleboard-xm-based-usb-sniffer/</a></li>
+<li><a href="https://github.com/matlo/bb_usb_sniffer">https://github.com/matlo/bb_usb_sniffer</a></li>
+<li><a href="https://www.elinux.org/BeagleBoard/GSoC/2010_Projects/USBSniffer">https://www.elinux.org/BeagleBoard/GSoC/2010_Projects/USBSniffer</a></li>
+<li><a href="https://hackaday.com/2013/07/02/usb-sniffing-with-the-beagleboard-xm/">https://hackaday.com/2013/07/02/usb-sniffing-with-the-beagleboard-xm/</a></li>
+</ul>
+
+<h2><a name="hardware-openvizsla"></a>Hardware: OpenVizsla (~2010-2014)</h2>
+
+<p>(You probably just want to look at <a href="hardware-daisho">daisho</a> below)</p>
+
+<blockquote>
+<p>OpenVizsla is a Open Hardware FPGA-based USB analyzer. Unlike other similar devices on the market, hardware design files are available as well as full source code for the firmware and client software of the device.</p>
+</blockquote>
+
+<p>This was a <a href="https://www.kickstarter.com/projects/bushing/openvizsla-open-source-usb-protocol-analyzer">Kickstarter Project</a> to create an &quot;Open Hardware FPGA-based USB analyzer&quot; targeting <strong>USB 2.0 High-Speed</strong>. There seems to be a lot of mixed opinions/views about this project on the internet/forums calling scam and similar. It sounds like there were a lot of delays and other issues.</p>
+
+<p>According to <a href="http://debugmo.de/2014/05/ov3-hardware/">this blog post</a>, it sounds like they eventually got something working (years later) under the moniker &#39;OV3&#39;. There seem to be a number of related posts on this blog <a href="http://debugmo.de/tags/OpenVizsla/">under the tag &#39;OpenVizsla&#39;</a>:</p>
+
+<ul>
+<li><a href="http://debugmo.de/2014/05/ov3-hardware/">http://debugmo.de/2014/05/ov3-hardware/</a></li>
+<li><a href="http://debugmo.de/2014/08/ov3-fpga-design/">http://debugmo.de/2014/08/ov3-fpga-design/</a></li>
+<li><a href="http://debugmo.de/2014/09/ov3-fpga-helloworld/">http://debugmo.de/2014/09/ov3-fpga-helloworld/</a></li>
+</ul>
+
+<p>You should be able to find the latest news and code on the following website/GitHub pages:</p>
+
+<ul>
+<li><a href="http://openvizsla.org/">http://openvizsla.org/</a></li>
+<li><a href="https://github.com/openvizsla/ov_ftdi">https://github.com/openvizsla/ov_ftdi</a></li>
+<li><a href="https://twitter.com/openvizsla">https://twitter.com/openvizsla</a> (no tweets)</li>
+<li><a href="https://twitter.com/hashtag/openvizsla">https://twitter.com/hashtag/openvizsla</a> (no activity since 2010)</li>
+<li><a href="https://www.kickstarter.com/projects/bushing/openvizsla-open-source-usb-protocol-analyzer/updates">https://www.kickstarter.com/projects/bushing/openvizsla-open-source-usb-protocol-analyzer/updates</a></li>
+</ul>
+
+<h2><a name="hardware-serialusb"></a>Hardware: SerialUSB / GIMX USB Adapter (~2015, ~US$5-35)</h2>
+
+<blockquote>
+<p>A cheap USB proxy for input devices.</p>
+</blockquote>
+
+<p>SerialUSB is at the low end of hardware capture devices, designed to be a low cost solution to assist in adding support for USB gaming peripheral protocols to the <a href="http://blog.gimx.fr/">GIMX</a> project.</p>
+
+<ul>
+<li><a href="http://blog.gimx.fr/serialusb/">http://blog.gimx.fr/serialusb/</a></li>
+<li><a href="https://github.com/matlo/serialusb">https://github.com/matlo/serialusb</a> (~US$5)</li>
+<li><a href="https://blog.gimx.fr/product/gimx-adapter/">https://blog.gimx.fr/product/gimx-adapter/</a> (~US$35)</li>
+<li><a href="http://gimx.fr/wiki/index.php?title=DIY_USB_adapter">http://gimx.fr/wiki/index.php?title=DIY_USB_adapter</a></li>
+<li><a href="https://hackaday.com/2015/12/23/usb-proxy-rats-out-your-devices-secrets/">https://hackaday.com/2015/12/23/usb-proxy-rats-out-your-devices-secrets/</a></li>
+</ul>
+
+<p>For most purposes we probably won&#39;t need hardware for things at this level.. the software-based capture devices are likely good enough. But who knows.. maybe there are other uses for super cheap hardware capture..</p>
+
+<h2><a name="hardware-goodfet"></a>Hardware: GoodFET (~2009-2018+, ~US$50)</h2>
+
+<p>(Before I dive in too deeply.. if you want the latest/greatest in this space, check out the <a href="#hardware-greatfet">GreatFET</a>.)</p>
+
+<blockquote>
+<p>The GoodFET is an open-source JTAG adapter, loosely based upon the TI MSP430 FET UIF and EZ430U boards, as described in their documentation. In addition to JTAG, the GoodFET has been <strong>inspired by HackADay&#39;s Bus Pirate to become a universal serial bus interface.</strong></p>
+</blockquote>
+
+<p>It &quot;is a nifty little tool for quickly exposing embedded system buses to userland Python code.&quot;. Based on the bits and pieces I can pull together, I believe this will allow us to do our typical hardware based sniffing/dumping/etc, but I would have to find a better walkthrough/try it myself before being able to say that for certain.</p>
+
+<p>Now one thing about this project that tends to confuse me is the versions/revision naming.. for example here are a number of the older revisions and their names:</p>
+
+<ul>
+<li><a href="http://goodfet.sourceforge.net/hardware/goodfet10/">http://goodfet.sourceforge.net/hardware/goodfet10/</a> (rev 1, retired)</li>
+<li><a href="http://goodfet.sourceforge.net/hardware/goodfet11/">http://goodfet.sourceforge.net/hardware/goodfet11/</a> (rev 2, retired)</li>
+<li><a href="http://goodfet.sourceforge.net/hardware/goodfet20/">http://goodfet.sourceforge.net/hardware/goodfet20/</a> (rev 3, retired)</li>
+<li><a href="http://goodfet.sourceforge.net/hardware/badfet20/">http://goodfet.sourceforge.net/hardware/badfet20/</a> (rev 4, retired)</li>
+<li><a href="http://goodfet.sourceforge.net/hardware/goodfet30/">http://goodfet.sourceforge.net/hardware/goodfet30/</a> (rev 5, retired)</li>
+<li><a href="http://goodfet.sourceforge.net/hardware/goodfet21/">http://goodfet.sourceforge.net/hardware/goodfet21/</a> (rev 6, retired)</li>
+<li><a href="http://goodfet.sourceforge.net/hardware/goodfet31/">http://goodfet.sourceforge.net/hardware/goodfet31/</a> (rev 8, retired)</li>
+<li><a href="http://goodfet.sourceforge.net/hardware/goodfet40/">http://goodfet.sourceforge.net/hardware/goodfet40/</a> (rev 12, retired)</li>
+<li><a href="http://goodfet.sourceforge.net/hardware/goodfet41/">http://goodfet.sourceforge.net/hardware/goodfet41/</a> (rev 13, retired)</li>
+</ul>
+
+<p>As best I can tell.. there seem to be multiple parallel hardware versions at certain times.. based on different chipsets. And those versions may fork/merge at later times. Attempting to follow that logic.. the two most current (non-retired) revisions seem to be:</p>
+
+<ul>
+<li><a href="http://goodfet.sourceforge.net/hardware/goodfet42/">http://goodfet.sourceforge.net/hardware/goodfet42/</a> (rev 22)</li>
+<li><a href="http://goodfet.sourceforge.net/hardware/goodfet32/">http://goodfet.sourceforge.net/hardware/goodfet32/</a> (rev 25)</li>
+</ul>
+
+<p>You should probably just spend time browsing around this site in general.. there are so many interesting sounding open-hardware designs.</p>
+
+<ul>
+<li><a href="http://goodfet.sourceforge.net/">http://goodfet.sourceforge.net/</a></li>
+<li><a href="https://github.com/travisgoodspeed/goodfet">https://github.com/travisgoodspeed/goodfet</a></li>
+<li><a href="https://github.com/travisgoodspeed/goodfet/tree/master/contrib">https://github.com/travisgoodspeed/goodfet/tree/master/contrib</a></li>
+</ul>
+
+<p>You can order the boards (or request a free one!) from:</p>
+
+<ul>
+<li><a href="http://goodfet.sourceforge.net/orders/">http://goodfet.sourceforge.net/orders/</a></li>
+<li><a href="https://www.adafruit.com/product/1279">https://www.adafruit.com/product/1279</a> (~US$50)</li>
+<li><a href="http://www.riverloopsecurity.com/projects/goodfet/">http://www.riverloopsecurity.com/projects/goodfet/</a></li>
+</ul>
+
+<p>Further reading:</p>
+
+<ul>
+<li><a href="https://exfil.co/2016/02/11/goodfet-on-os-x/">https://exfil.co/2016/02/11/goodfet-on-os-x/</a></li>
+<li><a href="https://hackaday.com/tag/goodfet/">https://hackaday.com/tag/goodfet/</a></li>
+</ul>
+
+<h2><a name="hardware-facedancer"></a>Hardware: Facedancer, Beagledancer, Raspdancer (~2012-2018+, ~US$85-???)</h2>
+
+<p>(Make sure to look at the <a href="hardware-facedancer-2">facedancer 2.0</a> below as well)</p>
+
+<blockquote>
+<p>The Facedancer21 is the twenty-fourth hardware revision of the GoodFET, owing its heritage to the GoodFET41 and Facedancer20. Unlike the general-purpose GoodFET boards, <strong>the only purpose of this board is to allow USB devices to be written in host-side Python</strong>, so that one workstation can fuzz-test the USB device drivers of another host.</p>
+</blockquote>
+
+<p>The facedancer is less about capturing data, and more about emulating a USB device with software (python to be exact!). One reason for wanting to do this might be to fuzz the devices drivers on a host system, though I&#39;m sure there could be a number of other creative uses too.. Maybe you want to allow one hardware device to masquerade as another and talk to it&#39;s drivers..</p>
+
+<p>The following articles are a good read:</p>
+
+<ul>
+<li><a href="http://travisgoodspeed.blogspot.com.au/2012/07/emulating-usb-devices-with-python.html">http://travisgoodspeed.blogspot.com.au/2012/07/emulating-usb-devices-with-python.html</a></li>
+<li><a href="http://travisgoodspeed.blogspot.com.au/2012/10/emulating-usb-dfu-to-capture-firmware.html">http://travisgoodspeed.blogspot.com.au/2012/10/emulating-usb-dfu-to-capture-firmware.html</a></li>
+<li><a href="http://rmspeers.com/archives/252">Scapy Support for USB Protocol on Facedancer Boards, MAX2420, etc</a></li>
+</ul>
+
+<blockquote>
+<p>The Facedancer hardware extends the GoodFET framework to allow for fast prototyping and fuzzing of USB device drivers. Software connect/disconnect allows the enumeration process to be repeated, and Ryan&#39;s fork allows for clean coding of the various data structures with Scapy.</p>
+</blockquote>
+
+<p>You can find out more about the facedancer boards at:</p>
+
+<ul>
+<li><a href="http://goodfet.sourceforge.net/hardware/facedancer21">http://goodfet.sourceforge.net/hardware/facedancer21</a></li>
+<li>YouTube: <a href="https://www.youtube.com/watch?v=x-7ezoFju6I">SEC-T 2012 - Trashing USB layers using the Facedancer Board - Travis Goodspeed</a> (2013)</li>
+<li><a href="http://rmspeers.com/archives/252">http://rmspeers.com/archives/252</a></li>
+</ul>
+
+<p>You can order the board (or request a free one!) from:</p>
+
+<ul>
+<li><a href="http://goodfet.sourceforge.net/orders/">http://goodfet.sourceforge.net/orders/</a></li>
+<li><a href="https://int3.cc/products/facedancer21">https://int3.cc/products/facedancer21</a> (~US$85)</li>
+</ul>
+
+<p>Other hardware projects that connect with the facedancer:</p>
+
+<ul>
+<li><a href="https://github.com/dominicgs/BeagleDancer">https://github.com/dominicgs/BeagleDancer</a> : A Facedancer21 expansion board for the BeagleBone</li>
+<li><a href="http://wiki.yobi.be/wiki/Raspdancer">http://wiki.yobi.be/wiki/Raspdancer</a> : Merging Facedancer11 and Facedancer21 with Raspberry Pi</li>
+<li><a href="https://speakerdeck.com/doegox/raspdancer">https://speakerdeck.com/doegox/raspdancer</a></li>
+<li><a href="https://github.com/travisgoodspeed/goodfet/tree/master/contrib/facedancer/raspdancer">https://github.com/travisgoodspeed/goodfet/tree/master/contrib/facedancer/raspdancer</a></li>
+</ul>
+
+<h2><a name="hardware-usbproxy"></a>Hardware: Beaglebone Black + USBProxy (~2013?)</h2>
+
+<p>(This has been superceded by the <a href="hardware-facedancer-2">facedancer 2.0</a> below)</p>
+
+<blockquote>
+<p>A proxy for USB devices, libUSB and gadgetFS. A USB man in the middle device using embedded Linux devices with on the go controllers.</p>
+</blockquote>
+
+<ul>
+<li><a href="https://github.com/dominicgs/USBProxy">https://github.com/dominicgs/USBProxy</a></li>
+</ul>
+
+<p>Presentations/etc:</p>
+
+<ul>
+<li>YouTube: <a href="https://www.youtube.com/watch?v=uDPxa5tcdnI">NSA Playset: USB Tools [ShmooCon 2015]</a> (2015) (<a href="https://shmoo.gitbooks.io/2015-shmoocon-proceedings/content/build/01_nsa_playset_usb_tools.html">Overview</a>, <a href="https://github.com/dominicgs/dominicgs.github.io/blob/master/presentations/2015/NSA%20Playset-USB%20Tools-ShmooCon.pdf">Slides</a>)</li>
+<li>YouTube: <a href="https://www.youtube.com/watch?v=rcfYgU-Be08">BG - USB Write Blocking with USBProxy - Dominic Spill
+</a> (2014) (<a href="https://github.com/dominicgs/dominicgs.github.io/blob/master/presentations/2014/Spill_BSidesLV_USBProxy_slides.pdf">Slides</a>)</li>
+<li>Youtube (<a href="https://www.youtube.com/watch?v=5JnAeakUBnU">1</a>, <a href="https://www.youtube.com/watch?v=l9wnu97785s">2</a>): ShmooCon 2014: An Open and Affordable USB Man in the Middle Device (2014) (<a href="https://github.com/dominicgs/dominicgs.github.io/blob/master/presentations/2014/Spill_USBProxy_ShmooCon_Slides.pdf">Slides</a>, <a href="https://github.com/dominicgs/dominicgs.github.io/blob/master/presentations/2014/Spill_USBProxy_ShmooCon_paper.pdf">Whitepaper</a>, <a href="https://github.com/dominicgs/dominicgs.github.io/blob/master/presentations/2014/Spill_USBProxy_ShmooCon_cfp.txt">CFP</a>)</li>
+<li>CFP: <a href="https://github.com/dominicgs/dominicgs.github.io/blob/master/presentations/2014/Spill_USBProxy_Haxpo_cfp.txt">Haxpo - Protecting USB devices with USBProxy</a></li>
+</ul>
+
+<h2><a name="hardware-daisho"></a>Hardware: Daisho (~2013-?2018+?)</h2>
+
+<blockquote>
+<p>SuperSpeed USB 3.0 FPGA platform</p>
+</blockquote>
+
+<p>This is a project designed for monitoring a number of high speed communication technologies at the physical layer, including USB 3.0, Gigabit ethernet, HDMI, etc. You can read more about it in the introduction blog:</p>
+
+<ul>
+<li><a href="http://ossmann.blogspot.com.au/2013/05/introducing-daisho.html">http://ossmann.blogspot.com.au/2013/05/introducing-daisho.html</a> (tag: <a href="http://ossmann.blogspot.com.au/search/label/daisho">daisho</a>)</li>
+</ul>
+
+<p>You can find more about the project at the following sites:</p>
+
+<ul>
+<li><a href="https://greatscottgadgets.com/daisho/">https://greatscottgadgets.com/daisho/</a></li>
+<li><a href="https://github.com/mossmann/daisho">https://github.com/mossmann/daisho</a></li>
+<li><a href="https://github.com/mossmann/daisho/wiki">https://github.com/mossmann/daisho/wiki</a></li>
+<li><a href="https://github.com/enjoy-digital/daisho_usb3ipcore_test">https://github.com/enjoy-digital/daisho_usb3ipcore_test</a></li>
+</ul>
+
+<p>Presentations/etc:</p>
+
+<ul>
+<li>YouTube: <a href="https://www.youtube.com/watch?v=uDPxa5tcdnI">NSA Playset: USB Tools [ShmooCon 2015]</a> (2015) (<a href="https://shmoo.gitbooks.io/2015-shmoocon-proceedings/content/build/01_nsa_playset_usb_tools.html">Overview</a>, <a href="https://github.com/dominicgs/dominicgs.github.io/blob/master/presentations/2015/NSA%20Playset-USB%20Tools-ShmooCon.pdf">Slides</a>)</li>
+<li>YouTube: <a href="https://www.youtube.com/watch?v=b2DsU1O6Lhg">Black Hat USA 2013 - What&#39;s on the Wire? Physical Layer Tapping with Project Daisho
+</a> (2013) (<a href="https://media.blackhat.com/us-13/US-13-Spill-Whats-on-the-Wire-Slides.pdf">Slides</a>, <a href="https://media.blackhat.com/us-13/US-13-Spill-Whats-on-the-Wire-WP.pdf">Whitepaper</a>)</li>
+</ul>
+
+<h2><a name="hardware-greatfet"></a>Hardware: GreatFET (~2015-2018+)</h2>
+
+<blockquote>
+<p>GreatFET is a next generation GoodFET intended to serve as your custom Hi-Speed USB peripheral through the addition of expansion boards called &quot;neighbors&quot;.</p>
+</blockquote>
+
+<p>Better GoodFET hardware, cheaper. Sounds great to me. According to the main site this is still at a &#39;functional prototype&#39; stage though:</p>
+
+<blockquote>
+<p>Functional prototype hardware has been produced. Firmware is in progress.</p>
+</blockquote>
+
+<p>That said.. looking around twitter and other places.. it sounds like it&#39;s pretty functional. Here are your main resources:</p>
+
+<ul>
+<li><a href="http://greatscottgadgets.com/greatfet/">http://greatscottgadgets.com/greatfet/</a></li>
+<li><a href="https://github.com/greatscottgadgets/greatfet">https://github.com/greatscottgadgets/greatfet</a></li>
+<li><a href="https://github.com/greatscottgadgets/greatfet-hardware">https://github.com/greatscottgadgets/greatfet-hardware</a></li>
+<li><a href="https://github.com/greatscottgadgets/greatfet/wiki">https://github.com/greatscottgadgets/greatfet/wiki</a></li>
+<li><a href="https://github.com/greatscottgadgets/greatfet/wiki/GreatFET-One">https://github.com/greatscottgadgets/greatfet/wiki/GreatFET-One</a></li>
+</ul>
+
+<p>I couldn&#39;t find many resources about how to buy these.. but here is what I got:</p>
+
+<ul>
+<li><a href="https://oshpark.com/shared_projects/qZFKUiwj">https://oshpark.com/shared_projects/qZFKUiwj</a></li>
+</ul>
+
+<p>Presentations/etc:</p>
+
+<ul>
+<li>YouTube: <a href="https://www.youtube.com/watch?v=h3VWvZ162QE">TR18 - Reverse Engineering Black Box Systems with GreatFET</a> (2018) (<a href="https://download.ernw-insight.de/troopers/tr18/slides/TR18_AR_RE-Black-Box-Systems-GreatFET-Facedancer.pdf">Slides</a>, <a href="https://www.troopers.de/troopers18/agenda/bcgyzl/">Agenda</a>)</li>
+<li>YouTube: <a href="https://www.youtube.com/watch?v=4Ra9XNjNS3M">TR17 - Rusting up your GREATFET - Richo Healey, Dominic Spill</a> (2017) (<a href="https://speakerdeck.com/richo/rust-greatfet">Slides</a>)</li>
+<li>YouTube: <a href="https://www.youtube.com/watch?v=4NIoAnsuFOQ">GreatFET: Making GoodFET Great Again</a> (2016) (<a href="https://www.blackhat.com/docs/us-16/materials/us-16-Ossmann-GreatFET-Making-GoodFET-Great-Again-wp.pdf">Slides</a>)</li>
+</ul>
+
+<p>Further reading:</p>
+
+<ul>
+<li><a href="https://hackaday.com/tag/greatfet/">https://hackaday.com/tag/greatfet/</a></li>
+<li><a href="https://twitter.com/search?q=%23GreatFET&lang=en">https://twitter.com/search?q=%23GreatFET&amp;lang=en</a></li>
+</ul>
+
+<h2><a name="hardware-facedancer-2"></a>Hardware: Facedancer 2.0 (~2017-2018+)</h2>
+
+<blockquote>
+<p>This repository houses the next generation of FaceDancer software. Descended from the original GoodFET-based FaceDancer, this repository provides a python module that provides expanded FaceDancer support-- including support for multiple boards and some pretty significant new features.</p>
+</blockquote>
+
+<p>This is the v2.x of the facedancer, designed to be better/greater. I won&#39;t go too deeply into things, but the following are useful resources:</p>
+
+<ul>
+<li><a href="https://github.com/ktemkin/facedancer">https://github.com/ktemkin/facedancer</a></li>
+<li><a href="https://github.com/ktemkin/facedancer#usbproxy-nouveau-and-protocol-analysis">https://github.com/ktemkin/facedancer#usbproxy-nouveau-and-protocol-analysis</a>
+
+<ul>
+<li>Replaces <a href="#hardware-usbproxy">USBProxy</a></li>
+</ul></li>
+</ul>
+
+<p>Presentations/Training/etc:</p>
+
+<ul>
+<li>YouTube: <a href="https://www.youtube.com/watch?v=L3Ug9591Vag&list=PLnOI9rJWBVjE_xz7uGH4QKLiU5X0A7fjv&index=143">FaceDancer 2.0 (SHA2017)</a> (2017) (<a href="http://dominicspill.com/presentations/2017/Temkin_Spill_FaceDancer2_slides.pdf">Slides</a>, <a href="https://github.com/dominicgs/dominicgs.github.io/blob/master/presentations/2017/Temkin_Spill_FaceDancer2_slides.pdf">Slides2</a>, <a href="https://twitter.com/dominicgs/status/895341394730123265">Twitter</a>)</li>
+<li>YouTube: <a href="https://www.youtube.com/watch?v=HV9WfDRjJCg">ToorCon 19 - Spill &amp; Temkin - Facedancer 2.0 Next Generation USB Hacking</a> (2017) (jump to <a href="https://youtu.be/HV9WfDRjJCg?t=2116">35:16</a>)</li>
+<li><a href="https://www.troopers.de/troopers18/trainings/jmpsxq/">Troopers Training: Hacking the USB World with FaceDancer</a> (<a href="https://hm-ts.de/pdf/TR18_HM_Hack_Facedancer.pdf">PDF</a>, 2018)</li>
+</ul>
+
+<h2><a name="hardware-commercial-beagleusb"></a>Commercial Hardware: TotalPhase BeagleUSB</h2>
+
+<p><a href="https://www.totalphase.com/">TotalPhase</a> are a company that provide a number of commercial hardware protocol analysers, <a href="https://www.totalphase.com/protocols/usb/">including USB</a>. I found that a number of the walkthroughs I would come across would at least mention these products in passing.</p>
+
+<p>As I understand it, <strong>they are only good for passively reading/inspecting/logging the traffic, so no good if you want to do injection or other nefarious things.</strong></p>
+
+<p>They have a number of different products ranging from the relatively cheap (for low speed), up to the rather expensive (for USB 3.0):</p>
+
+<ul>
+<li><a href="https://www.totalphase.com/products/beagle-usb12/">Beagle USB 12 Protocol Analyzer</a>: Low/Full Speed USB 2, ~US$475 (<a href="https://www.totalphase.com/support/articles/200800983-Beagle-USB-12-Protocol-Analyzer-Quick-Start-Guide">Guide</a>, <a href="https://www.adafruit.com/product/708">Adafruit</a>)</li>
+<li><a href="https://www.totalphase.com/products/beagle-usb480/">Beagle USB 480 Protocol Analyzer</a>: Low/Full/High Speed USB 2, ~US$1400</li>
+<li><a href="https://www.totalphase.com/products/beagle-usb5000-v2-standard/">Beagle USB 5000 v2 SuperSpeed Protocol Analyzer - Standard Edition</a>: USB 3.0, ~US$3600</li>
+<li><a href="https://www.totalphase.com/products/beagle-usb5000-v2-ultimate/">Beagle USB 5000 v2 SuperSpeed Protocol Analyzer - Ultimate Edition</a>: USB 2/3.0, ~US$6000</li>
+</ul>
+
+<h2><a name="further-reading-presentations"></a>Further Reading/Presentations</h2>
+
+<p>I figured I&#39;d add this section for some other interesting presentations/resources that just didn&#39;t seem to fit nicely into the categories above. Some of them go a little beyond just USB hardware hacking, and into more general/specific hardware hacking tools:</p>
+
+<ul>
+<li>YouTube: <a href="https://www.youtube.com/watch?v=7HnQnpJwr-c">DEF CON 22 - Jesse Michael and Mickey Shkatov - USB for all!!</a> (2014) (<a href="https://www.defcon.org/images/defcon-22/dc-22-presentations/Michael-Shkatov/DEFCON-22-Jesse-Michael-Mickey-Shkatov-USB-for-All!!-UPDATED.pdf">Slides</a>)</li>
+<li>YouTube: <a href="https://www.youtube.com/watch?v=PYeYxQqBTLo">Tools of the Hardware Hacking Trade - Duo Tech Talk
+</a> (2014) (<a href="https://www.blackhat.com/docs/webcast/04232014-tools-of-the-hardware-hacking-trade.pdf">Slides</a>)</li>
+</ul>
+
+<h2><a name="people-to-watch"></a>People to Watch</h2>
+
+<p>While I was doing this research there were a few names that just kept popping up time and time again, and seem to be working on really cool things in this space. To make it easier to follow them on their relevent platforms, I wanted to collect them together here for you (in no particular order):</p>
+
+<ul>
+<li>Travis Goodspeed (travisgoodspeed, <a href="https://twitter.com/travisgoodspeed">Twitter</a>, <a href="https://github.com/travisgoodspeed">GitHub</a>)</li>
+<li>Dominic Spill (dominicgs, <a href="https://twitter.com/dominicgs/">Twitter</a>, <a href="https://github.com/dominicgs/">GitHub</a>, <a href="https://dominicspill.com/">Website</a>)</li>
+<li>Kate Temkin (ktemkin, <a href="https://twitter.com/ktemkin/">Twitter</a>, <a href="https://github.com/ktemkin/">GitHub</a>, <a href="https://www.ktemkin.com/">Website</a>)</li>
+<li>Michael Ossmann (mossmann, <a href="https://twitter.com/michaelossmann">Twitter</a>, <a href="https://github.com/mossmann">GitHub</a>, <a href="http://www.ossmann.com/">Website</a>)</li>
+<li>Great Scott Gadgets (<a href="https://twitter.com/GSGLabs">Twitter</a>, <a href="https://github.com/greatscottgadgets">GitHub</a>, <a href="http://greatscottgadgets.com/">Website</a>)</li>
+</ul>
+
+<p>If I&#39;ve missed anyone that you feel deserves to be here too, please let me know!</p>
+
+<h2><a name="code-drivers-etc"></a>Code/Drivers/etc</h2>
+
+<p>So we know how to capture traffic from our devices, proxy it with hardware, break the protocols down and understand them. But we also want to be able to talk back to them, control them, and truly interact. This is where code and drivers comes in. Now we&#39;ve sort of skimmed over these topics in a few of the above sections, but for the sake of clarity I wanted to group them all here as well.</p>
+
+<p><a name="libusb-pyusb"></a>When I first thought about writing this section I thought we were going to be getting deep into kernel drivers, and fighting with arcane systems, but it seems we actually have a much nicer alternative before all of that, thanks to <strong>libusb, pyusb, and friends</strong>:</p>
+
+<ul>
+<li><a href="http://libusb.info/">http://libusb.info/</a> (<a href="https://github.com/libusb/libusb">GitHub</a>) : A cross-platform library to access USB devices</li>
+<li><a href="https://github.com/pyusb/pyusb">https://github.com/pyusb/pyusb</a> : USB access for Python</li>
+<li><a href="https://github.com/LibUsbDotNet/LibUsbDotNet">https://github.com/LibUsbDotNet/LibUsbDotNet</a> : Library for cross-platform USB device control using Mono/.NET</li>
+</ul>
+
+<p>You can see examples of using libusb/pyUSB in some of the walkthroughs mentioned earlier.</p>
+
+<p>Now while these libraries give us a whole lot of power and makes it pretty easy to write our software, there may be times where they just don&#39;t quite cover what we need. That&#39;s when we can go deeper into the weird and wonderful world of driver development. I won&#39;t cover this too in-depth at the moment as it could be a whole blog series on it&#39;s own, but a few resources to get you started:</p>
+
+<ul>
+<li><a href="https://github.com/daynix/UsbDk">https://github.com/daynix/UsbDk</a> : Usb Drivers Development Kit for Windows</li>
+<li><a href="http://www.fourwalledcubicle.com/LUFA.php">LUFA (Lightweight USB Framework for AVRs)</a> (<a href="https://github.com/abcminiuser/lufa">GitHub</a>)</li>
+<li><a href="https://docs.microsoft.com/en-us/windows-hardware/drivers/ddi/content/index">Windows Driver Kit (WDK)</a></li>
+<li><a href="https://github.com/pravic/winapi-kmd-rs">https://github.com/pravic/winapi-kmd-rs</a> : Windows Kernel-Mode Drivers written in Rust</li>
+<li><a href="http://www.linuxvoice.com/be-a-kernel-hacker/">http://www.linuxvoice.com/be-a-kernel-hacker/</a></li>
+</ul>
+
+<h2><a name="where-next"></a>Where next? Device Emulation, USB over IP, etc</h2>
+
+<p>Now that you&#39;ve figured out all of the intricacies of the device, understand it&#39;s protocol and wrote some software (or even a driver) to interface with it.. what about the other side of things?</p>
+
+<ul>
+<li>Can we emulate the device in software (for testing, or other purposes)</li>
+<li>Can we take the information from that device and stream it somewhere remotely?</li>
+<li>Can we make a new hardware device that &#39;presents itself&#39; as the device we just looked at? (eg. to interface with existing drivers/software)</li>
+</ul>
+
+<p>This is where device emulation and USB over IP can come to the party. I haven&#39;t dug too deeply into this topic, but a well placed Google search or two (<code>github usb over ip</code>, <code>github usb emulation</code>) turned up some interesting looking resources (and I&#39;m sure there are far more out there..):</p>
+
+<ul>
+<li><a href="https://github.com/forensix/libusbip">forensix/libusbip</a> : USB over IP</li>
+<li><a href="https://github.com/vavrusa/libusbnet">vavrusa/libusbnet</a> :
+libusb wrapper to enable communication with USB devices over TCP/IP</li>
+<li><a href="https://github.com/Frazew/PythonUSBIP">Frazew/PythonUSBIP</a> : USBIP protocol fully implemented in python + Full wiimote support using cwiid</li>
+<li><a href="https://github.com/lcgamboa/USBIP-Virtual-USB-Device">lcgamboa/USBIP-Virtual-USB-Device</a> :
+Emulates USB Devices using USBIP in Python or c</li>
+<li><a href="https://github.com/Microsoft/UDE">Microsoft/UDE</a> : USB Device Emulation Samples</li>
+<li><a href="https://github.com/EngineerTony/Arduino_USBKeyboard_Hacker">EngineerTony/Arduino<em>USBKeyboard</em>Hacker</a> : Uses the Arduino Uno microcontroller to emulate a USB keyboard and insert random text into the computer at random intervals</li>
+<li><a href="https://github.com/ViGEm/ViGEmBus">ViGEm/ViGEmBus</a> : Windows kernel-mode driver emulating well-known USB game controllers</li>
+</ul>
+
+<p>Also, don&#39;t forget those hardware devices mentioned above that are designed for emulation..</p>
+
+<p>Definitely an area that could be interesting to explore deeper, maybe in a future project/post.</p>
+
+<h2><a name="iot-hardware-hacking-fuzzing-etc"></a>IoT, Hardware Hacking, Fuzzing, etc</h2>
+
+<p>Once we understand the language these devices speak, how to listen to it, how to emulate it.. what&#39;s next? One idea is to apply the concept of fuzzing used in the software world (random/crafted data used to look for crashes in software), and turn it to hardware. And with the prevalence of IoT devices out there now (often with woeful security).. this could be another interesting rabbithole to explore (google: <code>usb hardware fuzzing</code>):</p>
+
+<ul>
+<li><a href="https://blog.quarkslab.com/usb-fuzzing-basics-from-fuzzing-to-bug-reporting.html">https://blog.quarkslab.com/usb-fuzzing-basics-from-fuzzing-to-bug-reporting.html</a> (2014)</li>
+<li><a href="https://github.com/nccgroup/umap">https://github.com/nccgroup/umap</a> : The USB host security assessment tool (~2013)</li>
+<li><a href="https://github.com/nccgroup/FrisbeeLite">nccgroup/FrisbeeLite</a> : A GUI-based USB device fuzzer
+
+<ul>
+<li><a href="https://www.nccgroup.trust/au/our-research/fuzzing-usb-devices-using-frisbee-lite/">https://www.nccgroup.trust/au/our-research/fuzzing-usb-devices-using-frisbee-lite/</a> (2013)</li>
+</ul></li>
+<li><a href="https://github.com/ollseg/usb-device-fuzzing">ollseg/usb-device-fuzzing</a> :
+Some tools for testing USB devices (2012)</li>
+<li><a href="https://labs.mwrinfosecurity.com/blog/usb-fuzzing-for-the-masses/">https://labs.mwrinfosecurity.com/blog/usb-fuzzing-for-the-masses/</a> (2011)</li>
+<li><a href="https://wikileaks.org/hbgary-emails//fileid/64995/17596">https://wikileaks.org/hbgary-emails//fileid/64995/17596</a> : USB Protocol Fuzzer Options (2009)</li>
+<li><a href="https://www.beyondsecurity.com/bestorm.html">https://www.beyondsecurity.com/bestorm.html</a> (commercial)
+
+<ul>
+<li><a href="https://www.beyondsecurity.com/bestorm_usb_case_study.html">https://www.beyondsecurity.com/bestorm_usb_case_study.html</a></li>
+</ul></li>
+</ul>
+
+<h2><a name="link-dump"></a>Link Dump</h2>
+
+<p>After all of that.. there is only one little link left in my linkdump, and from memory, I think it was the one that started this cascading flow of rabbitholes. Not really anything to see here that we haven&#39;t already covered, but for posterity:</p>
+
+<ul>
+<li><a href="https://electronics.stackexchange.com/questions/4180/reverse-engineering-usb-signals">https://electronics.stackexchange.com/questions/4180/reverse-engineering-usb-signals</a></li>
+</ul>
+
+<h2><a name="conclusion"></a>Conclusion</h2>
+
+<p>Well.. that got longer than I expected! What originally started out as me wanting to dump a few links I was collecting as I read into this subject, <strong>we seem to have ended up with a rough reference guide to getting started on AllTheThings(tm) relating to USB reverse engineering and associated hardware hacking.</strong></p>
+
+<p>While this post by itself isn&#39;t going to give you all the answers, hopefully it&#39;s given you enough of a base that you can branch out and dig deeper into the aspects that interest you. And when you do, let me know what you build/break/discover!</p>
+
+<p>Was there something I missed? A new shiny piece of hardware? An amazing program? Maybe you have some awesome techniques to share? Or just a story about what you&#39;ve been able to do with this newfound knowledge? I&#39;d love to hear from you in the comments below!</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>Imagine a world..</title>
 	  <link>/devalias/2018/04/20/imagine-a-world/</link>
 	  <author>devalias</author>
@@ -881,1364 +1513,6 @@ Memes&quot;</a> (<a href="https://twitter.com/bogan/status/934896629135556608">T
 <p>So an unexpected rabbit hole lead me to understand a little more about Webpack, RequireJS and how to use packaged JavaScript applications. Not a bad little lesson :)</p>
 
 <p>Had a similar experience or got any interesting tips to share about any of these technologies? Would love to hear from you in the comments!</p>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>Bugcrowd LevelUp 2017</title>
-	  <link>/devalias/2017/07/16/bugcrowd-levelup-2017/</link>
-	  <author>devalias</author>
-	  <pubDate>2017-07-16T00:00:00+10:00</pubDate>
-	  <guid>/devalias/2017/07/16/bugcrowd-levelup-2017/</guid>
-	  <description><![CDATA[
-	     <p>Today was <a href="https://pages.bugcrowd.com/level-up-virtual-hacking-conference">LevelUp, Bugcrowd&#39;s first Virtual Hacking Conference</a>. With 2 seperate streams over 8 hours, the <a href="https://docs.google.com/spreadsheets/d/1nKnwk3qVtoQlHs32atwwTIWjOHZ9kjnbwpPTJVfvKeo/pubhtml?gid=0&single=true">schedule was jammed packed</a> with interesting talks and knowledge drops across topics including web, mobile, IoT and even car hacking.</p>
-
-<p>Waking up at 1:30am (AEST) to get some Bulletproof coffee in before it started, I think I briefly moved once from the couch in the whole session. The rest was solid and intent focus on the topics, trying to keep up with all of the amazing content, while also taking notes (~1200 lines worth!), and <a href="https://twitter.com/search?l=&q=%23ItTakesACrowd%20from%3A_devalias&src=typd&lang=en">dropping out tweets</a> at the same time. I don&#39;t think i&#39;ve been as engaged or intently focussed on something for such a long period in a long time. Testament to the quality of the conference!</p>
-
-<p>One of the common themes of the conference today (besides all the tech knowledge) was that of community and sharing. This is something that speaks to my core, and one of the things that I love about the security industry. How people can be so open, be willing to share their knowledge, and humbly learn in return. Such a great way to bring everyone up across the board, and super grateful for it.</p>
-
-<p>There are a few places you can get connected with bug bounty hunters / security researchers that I wanted to list here:</p>
-
-<ul>
-<li>Twitter!
-
-<ul>
-<li>This sort of goes without saying given how active the security community is here. But with regards to this conference and related things, check out Bugcrowd&#39;s hashtag: <a href="https://twitter.com/search?q=%23ItTakesACrowd">#ItTakesACrowd</a></li>
-<li>Also make sure to follow <a href="https://twitter.com/Bugcrowd">@Bugcrowd</a>, and if you&#39;d like to see more from me (when I rarely but occasionally tweet) you can find me at <a href="https://twitter.com/_devalias">@_devalias</a> (always feel free to say hi!)</li>
-</ul></li>
-<li><a href="http://bugbountyworld.com/">Bug Bounty World</a>
-
-<ul>
-<li>A community for bug-bounty enthusiasts, open to all.</li>
-<li>Twitter: <a href="https://twitter.com/bugbounty_world">@bugbounty_world</a> (<a href="https://twitter.com/search?q=%23bugbountyworld">#bugbountyworld</a>)</li>
-</ul></li>
-<li><a href="https://bugbountyforum.com/">Bug Bounty Forum</a>
-
-<ul>
-<li>A community of bug bounty researchers, including slack channel and more!</li>
-<li>Twitter: <a href="https://twitter.com/bugbountyforum">@bugbountyforum</a></li>
-<li>GitHub: <a href="https://github.com/bugbountyforum/">bugbountyforum</a></li>
-</ul></li>
-<li><a href="https://forum.bugcrowd.com/">Bugcrowd Forum</a>
-
-<ul>
-<li>Make sure to also check out the discussions over at the Bugcrowd forum.</li>
-</ul></li>
-</ul>
-
-<p>In light of that theme, I wanted to share what I have from today, not only so I remember what I saw, but so that everyone else has the opportunity to see some of the great stuff that was presented today. This post will be largely my raw and unedited notes, with any future posts likely to be more structured/refined.</p>
-
-<p>It&#39;s also worth noting that every talk from both streams was recorded, and will be published to YouTube within the next week or so, so keep an eye out for that! I&#39;ll probably update this page when they&#39;re released, and I intend to write some more thorough blog posts based on each session when I have a chance to go back through it all at a slower pace, so keep an eye out for those!</p>
-
-<p>Do you have any awesome resources, comments, or things to add? I&#39;d love for you to share in the comments below!</p>
-
-<h2>Overview of this post</h2>
-
-<ul>
-<li><a href="#videos">Videos</a></li>
-<li><a href="#schedule">Schedule</a>
-
-<ul>
-<li>Stream 1</li>
-<li>Stream 2</li>
-</ul></li>
-<li><a href="#raw-notes">Raw Notes</a>
-
-<ul>
-<li>Welcome + Kickoff (Sam Houston)</li>
-<li>How to Hack Web v2 (Jason Haddix)</li>
-<li>How to Fail at Bug Bounty (Caleb Kinney)</li>
-<li>Giving Back to the Community (ZSeano)</li>
-<li>Doing Recon Like a Boss (Ben Sadeghipour)</li>
-<li>Hidden in Plain Site: Disclosing Information via Your APIs (Peter Yaworski)</li>
-<li>Targeting for Bug Bounty Research (Matthew Conway)</li>
-<li>How does unicode affect our Security? (Christopher Bleckmann-Dreher, @schniggie)</li>
-<li>Hacking Internet of Things for Bug Bounties (Aditya Gupta)</li>
-<li>Intro to Car Hacking (Alan Mond)</li>
-</ul></li>
-<li><a href="#thanks">Thanks!</a></li>
-</ul>
-
-<h2><a name="videos"></a>Videos</h2>
-
-<ul>
-<li>YouTube
-
-<ul>
-<li><a href="https://www.youtube.com/channel/UCo1NHk_bgbAbDBc4JinrXww">Bugcrowd</a></li>
-<li><a href="https://www.youtube.com/playlist?list=PLIK9nm3mu-S5InvR-myOS7hnae8w4EPFV">Levelup 2017 - Full Playlist of all sessions</a></li>
-<li><a href="https://www.youtube.com/watch?v=IiMDDaZPx7k">LevelUp 2017 - Stream 1 (raw)</a></li>
-</ul></li>
-<li>Facebook
-
-<ul>
-<li><a href="https://www.facebook.com/Bugcrowd/videos/1515474031828959/">LevelUp 2017 - Stream 2 (Part 1, raw)</a></li>
-<li><a href="https://www.facebook.com/Bugcrowd/videos/1515710201805342/">LevelUp 2017 - Stream 2 (Part 2, raw)</a>
-
-<ul>
-<li>Starts a little bit before &quot;Do you like fuzzing? Why I built fuzzapi to fuzz REST APIs for profit.&quot; by Abhijeth Dugginapeddi</li>
-</ul></li>
-</ul></li>
-</ul>
-
-<h2><a name="schedule"></a>Schedule</h2>
-
-<p>Just in case <a href="https://docs.google.com/spreadsheets/d/1nKnwk3qVtoQlHs32atwwTIWjOHZ9kjnbwpPTJVfvKeo/pubhtml?gid=0&single=true">the schedule</a> goes offline sometime in the future, here are the main bits for posterity:</p>
-
-<h3>Stream 1</h3>
-
-<ul>
-<li>Welcome
-
-<ul>
-<li>Welcome + Kickoff, Sam Houston (20min)</li>
-<li>Welcome, State of Bug Bounty &amp; The Future of Crowdsourced Securit, Casey Ellis (60min)</li>
-<li>How to Hack Web v2, Jason Haddix (50min)</li>
-</ul></li>
-<li>General Bug bounty and Web Hacking
-
-<ul>
-<li>How to Fail at Bug Bounty, Caleb Kinney (25min)</li>
-<li>Giving Back to the Community, ZSeano (45min)</li>
-<li>Doing Recon Like a Boss, Ben Sadeghipour (25min)</li>
-</ul></li>
-<li>Web Hacking
-
-<ul>
-<li>Hidden in Plain Site: Disclosing Information via Your APIs, Peter Yaworski (25min)</li>
-<li>Targeting for Bug Bounty Research, Matthew Conway (25min)</li>
-<li>How does unicode affect our Security?, Christopher Bleckmann-Dreher @schniggie (45min)</li>
-</ul></li>
-<li>Hardware Hacking
-
-<ul>
-<li>Hacking Internet of Things for Bug Bounties, Aditya Gupta (45min)</li>
-<li>Intro to Car Hacking, Alan Mond (25min)</li>
-<li>MarkDoom: How I Hacked Every Major IDE in 2 Weeks, Matt Austin (45min)</li>
-</ul></li>
-<li>Ending Ceremony
-
-<ul>
-<li>Final Words, JHaddix w/intro from Sam (30min)</li>
-</ul></li>
-</ul>
-
-<h3>Stream 2</h3>
-
-<ul>
-<li>Web Hacking and Mobile Hacking
-
-<ul>
-<li>OWASP iGoat – A Self Learning Tool for iOS App Pentesting and Security, Swaroop Yermalkar (25min)</li>
-<li>Esoteric sub-domain enumeration techniques, Bharath (45min)</li>
-<li>Finding Hidden Gems in Old Programs, Yappare (25min)</li>
-</ul></li>
-<li>Mobile Hacking and API Hacking
-
-<ul>
-<li>Breaking Mobile App Protection Mechanisms, Ben Actis (45min)</li>
-<li>Reverse Engineering Mobile Apps, Emily Walls (25min)</li>
-<li>Identifying and Evading Android Protections, Tim Strazzere (45min)</li>
-<li>Do you like fuzzing? Why I built fuzzapi to fuzz REST APIs for profit, Abhijeth Dugginapeddi (25min)</li>
-<li>Advanced Android Bug Bounty skills, Ben Actis (45min)</li>
-</ul></li>
-<li>Browser Hacking
-
-<ul>
-<li>Browser Exploitation for Fun and Profit, Dhiraj Mishra (25min)</li>
-</ul></li>
-</ul>
-
-<h2><a name="raw-notes"></a>Raw Notes</h2>
-
-<p>The following are my raw notes from todays session. Apologies in advance for the format..</p>
-
-<h3>Welcome + Kickoff  (Sam Houston)</h3>
-
-<pre>
-http://twitter.com/samhouston
-
-Stream 1, mostly web, switches to hardware later
-Stream 2, mostly mobile hacking
-
-Tweet with #ItTakesACrowd and @BugCrowd
-
-http://www.bugbountyworld.com, new slack, bugcrowd channel
-
-## Welcome, State of Bug Bounty & The Future of Crowdsourced Security (Casey Ellis)
-
-Casey Ellis, Founder/CEO of Bugcrowd
-
-https://twitter.com/caseyjohnellis
-
-casey@bugcrowd.com
-
-@caseyjohnellis #ItTakesACrowd
-</pre>
-
-<h3>How to Hack Web v2 (Jason Haddix)</h3>
-
-<pre>
-Head of Trust and Security at Bugcrowd
-
-https://twitter.com/jhaddix
-https://securityaegis.com
-https://blog.bugcrowd.com/author/jason-haddix
-
-The Bug Hunters Methodology (Def Con 23)
-    distilling a lot of learnings over the years
-  google it for the video
-
-The Bug Hunters Methodology v2
-  XXS, SSTI, SSRF, code/command injection, fuzzing, tooling
-  API testing, object deserialisation, XXE in v2.5
-
-Light reading:
-  Web Application Hackers Handbook
-  OWASP Testing Guide
-  Web Hacking 101
-  Breaking into information security
-  Mastering modern web penetration esting
-
-Discovery
-  Enumall (recon-ng, alt-dns wrapper, etc)
-
-Sub scraping
-  https://github.com/aboul3la/Sublist3r
-    scrapes search engines/etc for mentions of domains
-    sources are different from enumall
-
-  anshumanbh/brutesubs
-    set of docker images that include multiple tools
-      inc enumall and sublister
-      along with gobuster and altdns
-      run against a domain you want
-      need to modify config/docker scripts to add custom bits
-      disable bruteforce for enumall
-    did a presentation about this topic recently (TODO)
-
-  mandatoryprogrammer/cloudflare_enum
-  anshumanbh/censys.py
-
-Subdomain bruteforcing
-  Like: subbrute, gobuster, massdns, dns-parallel-prober, blacksheepwall
-  gobuster (21m) and massdns (1.5m) are quick
-  massdns found more quicker, but more false positives
-  could feed massdns stuff into gobuster to reduce?
-
-  blechschmidt/massdns
-
-  all.txt: https://gist.github.com/jhaddix/86A06C5DC309D085/80A018C66354A056
-           https://gist.github.com/jhaddix/86a06c5dc309d08580a018c66354a056
-    list of all the dns brute lists in one
-
-Acquisitions
-  crunchbase
-    protected by distil bot protection
-    can write a tool to beat that
-
-Port scanning
-  nmap is great, but don't try and scan 65536 hosts with the default port list
-  massscan
-    doesn't provide a default port list
-    use nmaps (giant list of ports)
-      https://twitter.com/_devalias/status/886280729327312896
-
-Visual identification
-  https://github.com/ChrisTruncer/EyeWitness
-    checks HTTP(S), RDP and a couple of other protocols too
-  https://github.com/breenmachine/httpscreenshot
-    another tool
-
-Platform identification and CVE searching
-  retire.js, wappalyzer, builtwith
-
-  https://vulners.com/
-    combine a lot of CVE/etc sources
-
-  https://github.com/vulnersCom/burp-vulners-scanner
-    search in scope domains
-    find versions/etc
-    link to vulns for lower than that version
-    get list of CVE's that might be related
-
-Content discovery/directory bruting
-  TBHMv1
-    wordlists: seclists, raft, digger_wordlists
-    patator
-    wpscan
-    cmsmap
-  
-  https://github.com/maurosoria/dirsearch
-
-  
-   https://github.com/OJ/gobuster
-    super fast
-
-  burp content discovery
-    in burp pro
-    pretty good, but sort of bogs down java
-
-  danielmiessler/RobotsDisallowed
-
-Parameter bruting?
-  https://github.com/maK-/parameth
-    This tool can be used to brute discover GET and POST parameters
-
-PortSwigger/backslash-powered-scanner
-  /resources/params
-    good wordlist
-
-XSS
-  TBHMv1
-    polyglot strings, seclists, flash reversing, common input vectors
-  TBHMv2
-    blind XSS
-      sleepy puppy (python)
-      xss hunter (python)
-      ground control (ruby, small)
-    polyglots
-    xss mindmap
-
-  Blind XSS
-    input may eventually end up on some backend app and executes somewhere
-    use a payload that loads JS
-    need a framework to catch it
-
-    XSSHunter
-      payload gathers a lot of really useful data
-
-Polyglots
-  injection string that executes in multuple contexts
-  may bypass multiple filters
-  starting to integrate in lots of scanners
-  0xS0bky/HackVault
-    unleashing an ultimate xss polyglot
-
-Jackmasa's XSS Mindmap
-  breaks down attacks based on context
-  PoC's
-  ideas for all sorts of things
-  used to just be in Japanese
-  ported recently to english
-  huge image file (svg)
-    https://github.com/jackmasa
-      seems to have a bunch of projects worth looking at
-    https://github.com/jackmasa/XSS.png/tree/master
-
-Server Side Template Injection (SSTI)
-
-  engine identification
-    wappalyzer, builtwith, vulners scanner
-    test fuzzing
-    tooling
-    tplmap + burp extension
-    backslash powered scanner?
-
-  tl;dr: send some template payload and check for result
-    {{2*3}}
-
-  epinna/tplmap
-    code/server side template injection detection/exploitation
-
-  other SSTI resources
-    lots of links
-
-Server Side Request Forgery (SSRF)
-  look for any paths/urls referenced
-  wilded/psychoPATH
-  will release a tool with his Def Con talk in a week
-  can bypass filtering blacklists using alternate IP encoding
-  SSRF bible: https://www.reddit.com/r/netsec/comments/2tpfz7/ssrf_bible_cheatsheet_by_onsec/
-    protocol/schema mappings
-    exploit examples
-    update coming soon, BlackHat US-17?
-  SSRF resources
-    many links
-    including BishopFox link: burp, collaborate and listen
-
-Code Inject, Command Injection, Future of Fuzzing
-  SQLi
-    polyglot, seclists, swlmap, params, tooling, resources
-
-  https://github.com/commixproject/commix
-    CMDi
-      supports PHP code injection
-      custo modules
-      powershell and python shells
-
-Burp backslash powered scanner
-  generic payloads
-  multi-tiered
-  checks responses
-  basically gives you an idea of where it might be useful to look
-    supports testers rather than replacing them!
-  watch the video THEN read the paper
-    see link
-
-Infrastructure and coding
-  subdomain takeover
-    register, control traffic that goes there
-    lists a bunch of services most often vuln
-    github
-      autoSubTakeover
-      HostileSubBruteforcer
-      tko-subs
-
-  Article: Deep dive into AWS S3..
-  yasinS/sandcastle
-  michernriksen
-  gitrob
-  dxa4481/truffleHog
-  
-Domain Discovery at Def Con
-DefCon hunt tool
-
-jhaddix/tbhm
-  The Bug Hunters Methodology
-
-jhaddix@bugcrowd.com
-</pre>
-
-<h3>How to Fail at Bug Bounty (Caleb Kinney)</h3>
-
-<pre>
-Twitter: @aphire
-Blog: http://bountyhuntersguild.com
-GitHub: calebkinney OrOneEqualsOne
-
-Lessons learned during bug bounties
-
-Conferences: rushing to see talks, not networking
-
-Failed to read the bug bounty program brief
-  rules of engagement
-  scope
-  focus areas
-  out of scope
-  excluded vuln types
-  rewards/incentives
-  disclosure rules
-
-Failed to show impact
-  used to submit every bug, priority often wasn't in thought process
-  understand vulnerability prioritisation and explain it to program owners
-    P1 - Critical
-    P2 - Severe
-    P3 - Moderate
-    P4 - Low
-    P5 - Informational / Won't Fix
-  can you combine a self-XSS with CSRF to up the priority?
-
-Failed to understant criticality
-  submitting a won't fix will hurt your average vuln score
-  utilize the Bugcrowd Vulnerability Rating Taxonomy
-
-Failed to understand the application
-  eg. 'vuln' that is a feature of the application
-  research the application and ask questions
-  cross-reference functions between different platforms (eg mobile/web)
-
-Failed to plan for private programs
-  Don't ignore the start time, may make you hit many duplicates
-  Schedule time to work on the program as soon as it's published
-
-Failed to plan for blacklisting
-  have a way to get a new IP address
-  or use a VPN/proxy
-
-Bug Bounty != Penetration Test
-
-Part time hunt tips
-  wide scopes
-    acquisitions/mergers
-  assume automated scanning
-  recon, recon, recon
-    subdomain bruteforcing, port-scanning, google dorking
-    censys.io
-    shodan.io
-  burp extensions
-    reflected parameters
-    https://github.com/allfro/BurpKit
-      used Webkit to better render responses in burp
-      JS
-    Co2
-  payload lists
-    polyglots!
-  community
-    read, give back, collaborate
-
-Hunting makes me a better tester
-  understand whats important
-  attuned to emergent security trends
-  challenge for more technical exploits
-  etc..
-
-Personal mobile recon setup
-  iPhone with Blink Shell
-    doesn't require jailbreak
-  DietPi with MOSH (jump mox)
-  Port Fowarding
-  personal recon script
-    Sublist3r, domain, knock, eyewitness
-    wraps a bunch of things and combines
-    https://github.com/OrOneEqualsOne/Recon
-    next gen will be a webapp to help 
-
-Bug Bounty Resources
-  https://twitter.com/_devalias/status/886295129807396865
-</pre>
-
-<h3>Giving Back to the Community (ZSeano)</h3>
-
-<pre>
-https://twitter.com/zseano
-http://zseano.com
-  tutorials, blog posts, etc
-full time bug bounty, ranked #2 on bugcrowd
-25 years old
-
-Overview
-  Finding first bug, chaining to higher priority
-  Recon: what are you missing
-  Big bounties for a living, and staying sane
-
-Open URL Redirects
-  easy to find
-  aboutads.info, run burp whilst opting out
-  google dorking
-    inurl:refirect inurl:&
-  bypasses
-    will release a lit of bypasses later
-  making them more useful
-    chain to account takeover via misconfigured oauth
-      check their facebook app
-        mobile app logs in via FB with app_token
-    make sure to url encode the redirect_url
-  Stored XSS + Oauth
-    redirect user to stored XSS page, JS executes, grab oauth token and login to users account
-  key things people miss
-    bypassing filters
-      generally use some form of regex
-      fuzz as much as possible
-      plan to update zseano.com with section on bypasses
-    not checking for oauth systems in place
-    try vulnerable parameter on as many endpoints as possible
-      eg. one param on one program used througout the web application
-      burp intruder against all endpoints, etc
-    check their mobile app
-      sometimes use oauth, FB login
-      google logins tend to be more secure
-    redirect oauth to stored XSS
-
-In future, want to do more talks on more topics
-
-Recon: go back in time
-  waybackmachine
-    search for old files like robots.txt
-    https://gist.github.com/mhmdiaa
-      waybackurls
-      waybackrobots
-    tool idea
-      scraping website from years back for URLs/links/etc
-      eg. burp-wayback-spider
-  .js files are your friends
-    way things work, paths
-    discovery of new endpoints
-    hardcoded app secrets
-    sometimes user information
-  built a couple of tool
-    Burp
-      copy selected URLs
-      copy links in selected items
-    zScanner
-      burp spider to discover endpoints
-      copy ites found, import to inputscanner
-      visits each url, extracts all input names + ids and links to js files
-      outputs to burp intruder format
-        mass test XSS/sql/etc
-      outputs 3 files, ready for burp intruder
-        getoutput.txt
-        postoutput.txt
-        posthostoutput.txt
-    use output from zScanner with JS-Scan
-      visit each .js file, extract URLs using regex
-      displays results on page
-      easier to see whats in files without manually reading
-    didn't plan on releasing these until recently
-
-Finding bugs full time
-  remain calm, take a step back
-  see if someone has found something similar
-  don't be afraid to ask people  
-  be professional, waiting to be paid can be annoying
-  be smart, learn where to spend your time
-  test programs before diving in
-  look at disclosed reports
-  bugcrowd are managed programs
-  managed programs on hackerone/synack can be good too
-  you don't need an update every week, unless its a P1
-  chain bugs to achieve the highest possible impact
-    usually leads to bigger payout
-  collaborate
-  You WILL have bad days. Take time to relax, collect your thoughts, then keep going.
-  re-test endpoints, re-visit certain areas of a site
-    can either report on the old bug, or open a new report
-    depends how much time you put in
-  Find a program you love that treats you fair and give it your all
-  Sharing is caring! If the program allows for it, share your bugs!  
-
-People need to fuzz more
-
-Store all vulnerable paramets found in a text file
-
-Include your bug bounty name/how to contact/etc in your user agent
-
-Have a few blog posts in the works
-</pre>
-
-<h3>Doing Recon Like a Boss (Ben Sadeghipour)</h3>
-
-<pre>
-https://twitter.com/Nahamsec
-
-Agenda
-  Overview
-  Traditional way (brute forcing)
-  AWS
-  Abusing Github
-  Asset identification
-
-Why
-  bigger attack surface
-  more bugs
-  more bounties
-  more problems
-
-Bruteforcing
-  tools
-    sublist3r, enumall, massdns, altdns, brutesubs, dns-parallel-prober, dnscan, knockpy, tko-subs, HostileSubBruteforce
-  find a patterns
-    .dev, .corp, .stage
-  brute force again
-    different permutations/environment
-
-Amazon Web Services
-  look for S3 buckets
-    site:s3.amazonaws.com + ...
-  use google for patterns
-  GitHub
-  automate your work
-
-Automation
-  create a list of subdomains
-  create a list of environments
-  automate
-  catch them all
-  new tool: Amazon S3 Bucket finder
-    other tools: sandcastle, bucket_finder
-    hopefully will release on github sometime next week
-
-AWS Recon, what could go wrong
-  S3 bucket not owned by company
-  may be out of scope
-  S3 bucket without sensitive info
-  3rd party apps
-
-Github Recon
-  environments (dev, stage, prod)
-  secret keys (API_key, AWS_Secret, etc)
-  internal credentials
-  API endpoints
-  Domain patterns
-  example
-    "foo.com" "dev"
-    "dev.foo.com"
-    "bar.com" API_key
-    "bar.com" password
-    "api.bar.com"
-    google dork
-      site:"github.com" "org"
-  tools
-    gitrob
-    git-all-secrets
-    truffleHog
-    git-secrets
-    repo-supervisor
-    do it manually..
-
-Asset identifcation
-  censys.io
-    look for SSL certificates
-    "company" + internal
-
-  shodan.io
-    search by hostname
-    filter for
-      ports 8443, 8080, 8180, etc
-      title: "dashboard [jenkins]"
-      product:Tomcat
-      hostname:corp.levelup.com
-      etc
-    buy book by shodan creator for $5
-
-  archive.org
-    review source
-    find old endpoints/functionality
-    look for JS files
-    exploit them!
-
-  .js files
-    endpoints
-    credentials/tokens
-    subdomains (inc internal)
-    new tool being released next week
-
-All tools included in this talk will be on the bugbountyforum website
-Personal tools will be released next week
-
-Burp 'should' be able to do JS parsing stuff
-  in reality, seems to not work as well as it should
-  can be easier to make external tools, do them your own way, etc
-  hope someone takes this tool (when released) and create a burp plugin for it
-  another tool (might get released)
-    crawl website, download all JS files locally
-</pre>
-
-<h3>Hidden in Plain Site: Disclosing Information via Your APIs (Peter Yaworski)</h3>
-
-<pre>
-https://twitter.com/yaworsk
-
-Application Security Engineer at Shopify
-Wrote Web Hacking 101
-  Hopefully Real World Web Hacking via No starch press
-
-Overview
-  What we're talking about
-  Why we care
-  Why it happens
-  How you find it
-  Examples
-
-What we're talking about
-  API's that reveal personal info or app sensitive info
-  Focus on API's that render info to page source, parsed by react/angular/etc
-
-Why we care
-  Easy
-  Impacts range from benign to critical
-  Sometimes they can be chained together
-
-Why it happens
-  automation of repetitive tasks
-  code abstraction
-  easy to make mistakes, incur technical debt
-
-Automation
-  eg. rails is great at automating repetitive tasks, generate scaffold
-  Will generate HTML view, but also .json endpoint for API
-  You could remove those from the HTML view, won't see the information
-  But can still get the full data from the API endpoint
-  May not realise you need to edit the json file as well
-
-Code abstraction
-  eg. merging all json fields
-  add new secret field
-  manually, haven't updated json file, so fine
-  but using json merge, the new param will be exposed
-
-How do you find it
-  initial recon
-    identify software on site
-      wappalyzer
-        look for rails, angular, react
-      eg rails sites follow certain patterns
-  watch your proxy history
-    look for gian json blobs in page sources
-    watch for API calls
-  mobile apps
-
-http://www.leanpub.com/web-hacking-101
-http://www.shopify.com/careers
-</pre>
-
-<h3>Targeting for Bug Bounty Research (Matthew Conway)</h3>
-
-<pre>
-Lead product security engineer: Heroku, Salesforce
-
-https://twitter.com/mattreduce
-
-Focuses
-  Efficient, repeatable discovery
-  Judge targets on measurable criteria
-  Keep flexible/portable records
-  Put it into use
-
-Reconnaissance Stage
-
-When to enumerate
-    start first, return to
-
-Why spend time on info gathering?
-  don't miss a target/vuln
-  better coverage for program owner
-  deep understanding yields great findings
-
-Enumeration methods
-  Before you find problems, you need to find all the places they live 
-  need to cast the net wide
-
-Enumerating hosts
-  information sources
-    dns
-      for info, but also vulns
-      eg. subdomain takeovers, exfil data, command&control
-    github
-      may identify api's/etc
-    rapid7 project sonar
-      scans the whole public internet, seeing what's vulnerable
-    google search
-      hosts
-      software running
-      secret pages
-    google certificate transparency report
-      can find hosts through subdomains company registered certs for
-    beta access
-      if a company with bug bounty program has beta program, try it
-      test new features
-      follow them on twitter, other social media, be aware of what they put out there
-    other open sites
-      dnsdumpster
-      threatcrowd
-      thratminer
-      https everywhere atlas
-      look for opportunities to repurpose tools online
-
-  techniques
-    google queries
-      site:foo.com
-      find results from subdomains not on list yet
-    brute forcing
-      try common subdomains
-      bonus points for expanding with own wordlist from crawling own targets
-    own scripts
-      automate this + anything else you can
-    dns tools
-      dig, host
-      dnsrecon
-      dnsenum
-      dnsmap
-    recon-ng
-      more framework than a script, like metasploit for recon
-    altdns (shubs)
-      read shubs blog: high frequency bug hunting
-    https://github.com/jhaddix/domain
-      Setup script for Regon-ng/altdns
-
-Recording results
-  CSV file, SQL database
-  get creative
-  choose what to catalog
-    domain
-    type
-    think about what you'd like to know when choosing the next target you want to work on
-  Find, Fix, Finish, Exploit, Analyze (F3EA) cycle
-  https://github.com/infosec-au/assetnote-poc
-    push notifications for passive DNS data
-  cleaning up data
-    write some scripts to run against hosts
-    screenshots
-   validating possible targets
-    SSL certificates used by that host
-    common cookie names across hosts
-    distinctive HTTP headers, fragments, etc
-    logo images
-    copyright lines
-    privacy policy links
-    contact information
-    google analytics tracking codes
-
-Using target data
-  understanding ownership
-    some sites give subdomains out to customers
-    just because it's on a subdomain of that company, may not be an app they control
-      eg company.github.io
-    subdomains that point to external services
-      eg. blog.company.com
-    find out who owns the host before you hack it
-  consider scope
-    may be explicitly in/out of scope
-    sometimes may be implicitly in scope based on rules of engagement
-  what now
-    enumerate services
-    look for vulnerabilities
-
-Summary
-  find out everything you can, keep good notes
-  Respect program scope, remember pitfalls
-  Automate as much as you can
-</pre>
-
-<h3>How does unicode affect our Security? (Christopher Bleckmann-Dreher, @schniggie)</h3>
-
-<pre>
-https://twitter.com/schniggie?lang=en
-Pentester, german car manufacturer
-Retired bughunter
-
-ASCII
-  7-bit, 128 characters
-
-ISO-8859-?
-  ASCII compatible
-  8-bit, 256 characters
-  Multiple standards
-
-Unicode
-  multibyte character set
-  fully ASCII/ISO-8859 compatible
-  Different encodings (UTF-8, UTF-16, UTF-32, UTF-EBCDIC, ..)
-  more like a database, links between copoint to character + some attributes
-  Basic Multilingual Plan 65k chars
-  Astral plans 1mil+ characters
-
-Unicode Encodings
-  different encodings use different bytes to store characters
-
-Security implications - Length
-  Length of UTF-8 string vs size of the string
-  When allocating memory, etc
-
-Security implications - JavaScript compare
-  comparing 2 strings that look the same to the eye
-  'ma\xF1ana' == 'man\u0303ana' -> false
-  length of strings differ
-
-Security implications - JavaScript regex
-  /foo.bar/.test('fooPOOEMOJIbar')
-  regex . should match 1 character
-  \s\S matches whitespace, not whole of astral symbols
-  multi-byte emoji
-  current JS in most browsers is ECMScript5
-    had trouble with chars in astral planes
-    not completely supported by default
-    some workarounds for it
-  http://scriptular.com
-    regex javascript application
-    can test it
-
-Security implications - MySQL vs UTF-8
-  create table, charset set to utf8
-  update table fooPOObar
-    shows a warning, incorrect string value
-  selecting back the entry, column name is only the prefix before poo emoji
-  solution: set database to utf8mb4
-
-Security implications - Internationalised Domain Names
-  Stored as ascii strings using punycode
-  eg. email spoofing using special characters
-  UTF8 symbols that look identical
-  Use punycode converter
-  Register the converted domain
-  real world attack scenarios
-    an attack released earlier this year to spoof apple.com/etc
-    not meant to be able to mix character sets in domain registrations
-      google registrar seemed to allow it
-    browsers realised that displaying UTF8 in the domain is bad
-      now show the punycode instead
-
-Unicode character - Right to left overide
-  can rename the file using ruby File.rename \xe2\x80
-  able to rename exe file to a file that looks like it has the extension .ppt
-  old attack, known since Windows 98 or so, still works today..
-
-Crashing every iOS and OSX device
-  2013, vulnerable to an arabic string
-  https://arstechnica.com/apple/2013/08/rendering-bug-crashes-os-x-and-ios-apps-with-string-of-arabic-characters/
-
-Backend != Backend
-  Frontend may allow UTF8
-  Backend may not be expecting it
-  exception from backend
-
-Spotify account hijacking
-  Allowed unicode usernames
-  Register an account with a superscript word of an existing account user
-  Trigger forget password function
-  Password reset canonical'ises the username
-  Sent him the password reset link
-  Using that, used the canonicalised name again
-  Was the victim user
-  Reset password on that user
-
-Phabricator bypass
-  Facebook, like github
-  Error, email at that domain not allowed
-  MySQL
-  add foo@attacker.comPOO@fb.com
-  POO is the new %00  
-
-Summary
-  for developer
-    verify methods, functions, frameworks handle unicode
-    input validation should handle unicode
-    verify all system and interconnection can handle unicode
-
-POO is the new %00
-</pre>
-
-<h3>Hacking Internet of Things for Bug Bounties (Aditya Gupta)</h3>
-
-<pre>
-https://twitter.com/adi1391
-
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Dropping a guide on IoT testing soon <a href="https://twitter.com/adi1391?ref_src=twsrc%5Etfw">@adi1391</a> <a href="https://twitter.com/hashtag/ItTakesACrowd?src=hash&amp;ref_src=twsrc%5Etfw">#ItTakesACrowd</a> <a href="https://twitter.com/Bugcrowd?ref_src=twsrc%5Etfw">@Bugcrowd</a> <a href="https://t.co/zO9NGS9K8n">pic.twitter.com/zO9NGS9K8n</a></p>&mdash; Glenn / devalias (@_devalias) <a href="https://twitter.com/_devalias/status/886339682958680064?ref_src=twsrc%5Etfw">July 15, 2017</a></blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-  Run attify, pentesting IoT devices
-  Author: "Learning Pentesting for Andorid Devices"
-  Book: IoT hackers handbook, this month
-  IoT pentesting guide to be released after this talk
-
-Why
-  if not, missing great stuff
-  best to do in 2017
-  easy targets
-  higher barrier of entry
-  enormous growth soon
-  be prepared
-  Examples
-    IoT fridge that sends spam email
-    Smart home compromised
-    Hardcoded password in a medical device
-    Shodan for scada things
-    Controlling mining trucks
-
-What
-  what to look for during IoT big bounties
-
-  When you look at a device
-    figure out possible attack vectors
-    look closely
-    pentesting mindset
-      components
-      entrypoints
-      communication
-      protocols
-      exposed ports
-
-  Once you have a target
-    compromise the whole target
-    don't just look at one small part, whole thing
-      micro and macro
-    where would be most vulnerable?
-      start there
-
-How
-  how to find vulns that companies will pay for
-  "Hacking IoT is not a 'black magic' It can be learnt. Too less resources."
-
-  How to start IoT bug bounty hunting
-    attack surface mapping
-    hacking the embedded device
-    hacking firmware
-      may not be available, but can dump from device
-    hacking mobile/web/cloud components
-    hacking radio communications
-
-  Attack Surface Mapping - Step 1
-    https://twitter.com/_devalias/status/886341534450307072
-    Recon
-      understanding device
-      visible ports
-      components
-      communication mediums
-    Available info
-      google
-      datasheets
-      support groups
-      community center
-      social engineering
-      FCC ID
-
-    Attack Surface Mapping - Step 2
-      https://twitter.com/_devalias/status/886341954404929536
-      map attack surface (architecture diagram)
-      entrypoints
-      commuications
-      additional web endpoints
-      protocol/standard
-      specifications
-
-      Creating an architecture diagram
-
-      Looking at a device
-        FCC ID mentioned on the back of the device
-          required for any radio communication device sold in US
-        https://fccid.io/
-          eg. EW780-8913-00
-            https://fccid.io/EW780-8913-00
-          gives you frequencies, internal/external pictures, etc
-          can look for JTAG/etc ports
-
-    What next?
-      perform exploits
-      be systematic
-      often one component leads to another
-      device -> dump firmware
-
-    How to approach
-      embedded -> firmware/web/mobile -> communication
-
-    Hack the embedded device
-      open device
-      physical tamper protections, special screws, etc
-        get a good screwdriver kit
-      look at chipsets
-        USB microscope
-        phone flashlight
-      identify things, label them
-      dig deep
-        look for exposed ports
-
-    UART are easy to find/export
-        multimeter to test Tx, Rx, GND
-        connect to attify badg or USB-TTL
-        identify baudrate
-        run minicom for shell access
-      screen can be used to connect to a TTY
-        sudo screen /dev/ttyUSB0 ..
-
-    JTAG
-      can be harder than UART
-      can be scattered across board
-      JTAGulator or arduino nano flashed with JTAGEnum
-      easily identify pinouts for JTAG
-      https://twitter.com/_devalias/status/886344370944786432
-        Hacking Embedded Devices - Debug JTAG
-
-    Dump Flash
-      look for flash chips
-      read compoent sheet/datasheet
-      may need to solder to adapter, pins are tiny
-      then can dump flash
-
-    NAND glitching
-      generate fault scenario, have it behave in unexpected way
-      drops to bootloader shell
-      can set bootloader flags, eg single user mode
-
-    Other attacks too
-
-Firmware Hacking
-  Easy to find basic vulns
-  Good at RE -> lots of stuff to find
-  Learn ARM and MIPS RE
-  Sensitive hardcoded values, API keys, encryption mechanisms, etc
-
-Firmware methodology
-  binwalk
-    extracts filesystem
-  firmwalker
-    identifies interesting things to look at
-  Firmware-Mod-Kit
-    allows filesystem modifications, then flash back to device
-  Detect if device allows firmware modifications, security checks, etc
-
-Encryption?
-  XOR with empty space will give you the key itself
-
-Hardcoded sensitive values
-  eg. creds to ftp update server, etc
-  Can find all sorts of things
-    api keys, backdoors, SSL certs, staging URLs, etc
-  Quick binary analysis in IDA
-    can see harcoded creds
-    command injection vulns
-    ROP
-    etc
-
-Analysing mobile apps
-  native libraries can store secrets
-    file, readelf
-    IDA demo version can dissass ARM binaries
-    look at functions, eg. encryption
-  understand the app code
-
-Hacking communication
-  look at mobile app -> device communication
-  MQTT? CoAP?
-  view resources unauthed?
-  publish messages/subscribe topics?
-
-  MQTT
-    works on pub/sub topic
-    might be able to subscribe to *
-
-Hacking radio
-  radio analysis/exploitation needs special hardware
-  depends on protocol
-  BLE/ZigBee most common
-
-  Hacking Zigbee
-    attify killerbee
-      zbstumbler
-      zbdump
-      zbreplay
-      etc
-
-  Hacking BLE
-    ubertooth, BLE sniffer
-    sniff traggic
-    see what handles being written
-    rewrite handles using gatttool
-
-Pentest methodology
-  focus on 'attacker simulated exploitation' rather than pentest
-  look at macro and micro
-  95% success rate, critical vulns, devices compromised
-  follow the guide
-
-https://www.iotpentestingguide.com/
-  https://twitter.com/_devalias/status/886350210724646912
-
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">&quot;Let&#39;s hack IoT coz it won&#39;t be always like the 2017&#39;s...&quot; <a href="https://twitter.com/adi1391?ref_src=twsrc%5Etfw">@adi1391</a> <a href="https://twitter.com/hashtag/ItTakesACrowd?src=hash&amp;ref_src=twsrc%5Etfw">#ItTakesACrowd</a> <a href="https://twitter.com/Bugcrowd?ref_src=twsrc%5Etfw">@Bugcrowd</a> <a href="https://t.co/RI6zXB9Tot">pic.twitter.com/RI6zXB9Tot</a></p>&mdash; Glenn / devalias (@_devalias) <a href="https://twitter.com/_devalias/status/886350674266537984?ref_src=twsrc%5Etfw">July 15, 2017</a></blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Absolutely mind blown! Such a great talk!!! &quot;Hacking Internet of Things for Bug Bounties&quot; <a href="https://twitter.com/adi1391?ref_src=twsrc%5Etfw">@adi1391</a> <a href="https://twitter.com/hashtag/ItTakesACrowd?src=hash&amp;ref_src=twsrc%5Etfw">#ItTakesACrowd</a> <a href="https://twitter.com/Bugcrowd?ref_src=twsrc%5Etfw">@Bugcrowd</a> <a href="https://t.co/Cfu2JF7SLJ">pic.twitter.com/Cfu2JF7SLJ</a></p>&mdash; Glenn / devalias (@_devalias) <a href="https://twitter.com/_devalias/status/886350817741094912?ref_src=twsrc%5Etfw">July 15, 2017</a></blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-</pre>
-
-<h3>Intro to Car Hacking (Alan Mond)</h3>
-
-<pre>
-https://twitter.com/mondalan?lang=en
-https://twitter.com/carloopio?lang=en
-  Car hacking tool
-
-Car Hacking 101
-  How to get started
-  vehicle networking basics
-  demo
-  build your own testing buck
-
-What are the different attack surfaces?
-  Tire pressure monitoring sensor
-    sensor in each tire, connects to car, measures pressure
-    communicates via low frequency radio signal
-    can intercept that signal
-  Bluetooth/wifi
-    hotspot may be open
-  ODBII port
-    underneath steering wheel
-    main entry point for access, but already inside car
-  Infotainment system
-    USB, root access possible, etc
-
-How to get started
-  Book: The Car Hacker's Handbook, Craig Smith
-  Free download http://ebook-dl.com/book/5277
-  Tools, protocols, references
-
-What you'll need
-  access to the OBD-II port
-    mandated to be on 'CAN' since 2008
-  CAN hardware tool
-    USB2CAN
-    microcontroller with CAN controller on it
-  OBD-II to serial (RS-232) cable
-  linux machine
-    rasberry pi, virtual machine on osx
-  OR
-    Carloop basic ($55)
-    open source
-    wireless
-  why not cheap ODB2 dongles from amazon?
-    could.. just a lot of work to use them
-    integrated circuit, converts raw CAN messages to values
-    not getting raw messages
-
-Most comprehensive list
-  github.com/jaredthecoder/awesome-vehicle-security
-  https://twitter.com/_devalias/status/886354216968609792
-
-Vehicle networking basics
-  CAN bus
-    connects all modules through 2 wires
-    dashboard, engine, control modules, infotainment system
-    Controller Area Network (CAN)
-    2 wires, high and low
-    more than 1 CAN bus on vehicle
-
-  Why focus on CAN?
-    mandated since 2008
-    well supported in linux
-    more than just diagnostics..
-    currently not encrypted at all..
-    signals go from high to low
-
-  Anatomy of a CAN message
-    arbitration ID
-    IDE: 0 (always for CAN)
-    Data length: 1 byte
-    Data: payload
-    ID and data most important
-
-Demo
-  intall can-utils
-  provision CarLoop with can-utils, flash over the air
-    https://www.carloop.io/apps/app-scoketcan
-  cansniffer
-  identify by ID, see what changes in the data
-    see what changes when you do something on the car
-    no documentation out there
-    manufacturers don't want you seeing it
-    straightforward when you start to see it happen though
-
-Build your own testing buck
-  can build a test bench for less than $100
-  Power supply
-  engine control module
-  CAN device
-  adding more modules, can get more interesting data
-  car-part.com
-
-tools and resources on
-  http://illmatics.com/carhacking.html
-  https://community.rapid7.com/community/transpo-security/blog/2017/07/11/building-a-car-hacking-development-workbench-part-1
-
-How to access proprietary parameter ID's?
-  harder to decode
-  query/response structure
-  specific to ODB-II
-  need to send specific PID to get it back
-  most people use a scan tool for that brand, use a y-splitter
-  then can capture the request/response
-
-Replay of keyfobs from HackRF/similar devices?
-  don't know much about it
-
-Difference between tools mentioned and those dropped with jeep hacking research?
-  that paper is a really good read
-  goes through process of decoding each CAN message
-  has some PID's you can look at (for same brand of car)
-  each manufacturer has different 'data dictionaries' for these PIDS
-  all tools very similar, can bus/receiver
-  simple toolchain
-
-bugcrowd running car hacking CTF, prize is a truck
-  https://www.carhackingvillage.com/
-
-https://store.carloop.io/
-</pre>
-
-<h2><a name="thanks"></a>Thanks!</h2>
-
-<p>Thanks for reading! Hope you found something useful.</p>
-
-<p>Do you have any awesome resources, comments, or things to add? I&#39;d love for you to share in the comments below! &lt;3</p>
 
 	  ]]></description>
 	</item>

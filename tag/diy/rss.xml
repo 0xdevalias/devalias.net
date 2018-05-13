@@ -12,6 +12,638 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>USB Reverse Engineering: Down the rabbit hole</title>
+	  <link>/devalias/2018/04/29/usb-reverse-engineering-down-the-rabbit-hole/</link>
+	  <author>devalias</author>
+	  <pubDate>2018-04-29T00:00:00+10:00</pubDate>
+	  <guid>/devalias/2018/04/29/usb-reverse-engineering-down-the-rabbit-hole/</guid>
+	  <description><![CDATA[
+	     <p>I tend to dive down rabbit holes a lot, and given the cost of context switching and memory deteriorating over time, sometimes the state I build up in my mind gets lost between the chances I get to dive in. These &#39;linkdump&#39; posts are an attempt to collate at least some of that state in a way that I can hopefully restore to my brain at a later point.</p>
+
+<p>This time around I was inspired to look into USB reverse engineering, protocol analyis, hardware hacking, and what would be involved in implementing custom drivers for arbitrary hardware. Or put another way: <strong>how do I hack all of the USBs?!??</strong></p>
+
+<p>It seems the deeper I went, the more interesting I found the content, and this post grew and grew. Hopefully it will help to shortcut your own journey down this path, and enlighten you to a whole new area of interesting things to hack!</p>
+
+<h2>Overview</h2>
+
+<ul>
+<li><a href="#tldr">tl;dr</a></li>
+<li><a href="#intro-to-usb">Intro to USB</a></li>
+<li><a href="#usb-re-intro">USB Reverse Engineering: An Introduction</a></li>
+<li><a href="#usb-re-further-reading">USB Reverse Engineering: Further Reading</a></li>
+<li><a href="#software">Software: Wireshark, usbmon, USBPcap, VirtualBox, etc</a></li>
+<li><a href="#hardware-tldr">Hardware: tl;dr</a></li>
+<li><a href="#hardware-usbsniffer">Hardware: BeagleBoard-XM / USBSniffer (~2010-2013, ~$149+)</a></li>
+<li><a href="#hardware-openvizsla">Hardware: OpenVizsla (~2010-2014)</a></li>
+<li><a href="#hardware-serialusb">Hardware: SerialUSB / GIMX USB Adapter (~2015, ~US$5-35)</a></li>
+<li><a href="#hardware-goodfet">Hardware: GoodFET (~2009-2018+, ~US$50)</a></li>
+<li><a href="#hardware-facedancer">Hardware: Facedancer, Beagledancer, Raspdancer (~2012-2018+, ~US$85-???)</a></li>
+<li><a href="#hardware-usbproxy">Hardware: Beaglebone Black + USBProxy (~2013?)</a></li>
+<li><a href="#hardware-daisho">Hardware: Daisho (~2013-?2018+?)</a></li>
+<li><a href="#hardware-greatfet">Hardware: GreatFET (~2015-2018+)</a></li>
+<li><a href="#hardware-facedancer-2">Hardware: Facedancer 2.0 (~2017-2018+)</a></li>
+<li><a href="#hardware-commercial-beagleusb">Commercial Hardware: TotalPhase BeagleUSB</a></li>
+<li><a href="#further-reading-presentations">Further Reading/Presentations</a></li>
+<li><a href="#people-to-watch">People to Watch</a></li>
+<li><a href="#code-drivers-etc">Code/Drivers/etc</a></li>
+<li><a href="#where-next">Where next? Device Emulation, USB over IP, etc</a></li>
+<li><a href="#iot-hardware-hacking-fuzzing-etc">IoT, Hardware Hacking, Fuzzing, etc</a></li>
+<li><a href="#link-dump">Link Dump</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ul>
+
+<h2><a name="tldr"></a>tl;dr</h2>
+
+<p>This is long, has many sections, and time is precious:</p>
+
+<ul>
+<li><strong>Walkthrough:</strong> Read the <a href="#adafruit">Adafruit one</a></li>
+<li><strong>Software:</strong> <a href="#software">Wireshark + usbpcap/usbmon</a></li>
+<li><strong>Hardware:</strong> <a href="#hardware-greatfet">GreatFET</a>, <a href="#hardware-facedancer-2">Facedancer 2.0</a>, <a href="#hardware-daisho">Daisho</a></li>
+<li><strong>Commercial Hardware:</strong> <a href="#hardware-commercial-beagleusb">BeagleUSB</a></li>
+<li><strong>Interfacing/Drivers:</strong> <a href="#libusb-pyusb">libusb/pyUSB</a></li>
+</ul>
+
+<h2><a name="intro-to-usb"></a>Intro to USB</h2>
+
+<p>USB (universal serial bus) is an industry standard covering cables, connectors and protocols; and is pretty ubiquitous among tech products these days. I won&#39;t get deep on describing all of the facts, since that&#39;s what Wikipedia is good at:</p>
+
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/USB">https://en.wikipedia.org/wiki/USB</a></li>
+</ul>
+
+<p>That said, it will be useful to understand some of the aspects of how USB devices and protocols are laid out, and some of the terminology used.</p>
+
+<p>A <a href="https://en.wikipedia.org/wiki/USB#System_design">USB system</a> (<a href="https://www.linuxvoice.com/drive-it-yourself-usb-car-6/">see also</a>) has:</p>
+
+<ul>
+<li>A <strong>host</strong>, with one or more downstream ports, and multiple peripherals</li>
+<li><strong>Hubs</strong> may be included, allowing up to 5 tiers</li>
+<li>A host may have multiple controllers, each with one or more ports</li>
+<li>Up to 127 devices can be connected to a single host controller</li>
+<li>A <strong>device</strong> may have several logical sub-devices, referred to as <strong>&#39;device functions&#39;</strong></li>
+<li>A <strong>composite device</strong> may provide multiple functions (eg. webcam + microphone)</li>
+<li>A <strong>compound device</strong> connects logical devices to a built in hub</li>
+</ul>
+
+<p>Digging into the protocol/communication side of things:</p>
+
+<ul>
+<li>Communication is based on <strong>pipes</strong> (logical channels), between the host and an endpoint (logical entity) on a device</li>
+<li>A device can have <strong>up to 32 endpoints</strong> (16 IN, 16 OUT)</li>
+<li><strong>Endpoints</strong> are defined and numbered during initialization, so tend to remain fairly permanent, whereas a pipe may be opened/closed</li>
+<li>Two types of pipe: <strong>stream</strong> and <strong>message</strong></li>
+<li><strong>Message pipes</strong> are bi-directional, used for control transfers short, simple commands + status response</li>
+<li><strong>Stream pipes</strong> are uni-directional, transfers data in isochronous, interrupt or bulk transfer</li>
+<li>A set of endpoints with associated metadata is also known as an <strong>interface</strong>, each is associated with a single device function</li>
+<li>All USB <strong>devices have at least one endpoint</strong> (0), default, used for control transfers. Descriptors sent on default pipe can describe other endpoints.</li>
+<li><strong>Descriptors</strong> form a hierarchy that you can view with tools like <code>lsusb</code>.</li>
+<li><strong>Device descriptor</strong>: contains information like device Vendor ID (VID) and Product ID (PID)</li>
+</ul>
+
+<p>There are different transport types that can be used:</p>
+
+<ul>
+<li><strong>Interrupt transfers</strong> are for short periodic real-time data exchanges.</li>
+<li><strong>Isochronous transfers</strong> are somewhat similar but less strict; they allow for larger data blocks and are used by web cameras and similar devices, where delays or even losses of a single frame are not crucial.</li>
+<li><strong>Bulk transfers</strong> are for large amounts of data.</li>
+<li><strong>Control transfer type</strong> is the only one that has a standardised request (and response) format, and is used to manage devices</li>
+</ul>
+
+<p><strong>Further reading:</strong></p>
+
+<ul>
+<li><a href="http://www.beyondlogic.org/usbnutshell">http://www.beyondlogic.org/usbnutshell</a></li>
+<li><a href="https://www.linuxvoice.com/drive-it-yourself-usb-car-6/">https://www.linuxvoice.com/drive-it-yourself-usb-car-6/</a></li>
+<li><a href="http://janaxelson.com/">Jan Axelson&#39;s USB Complete books</a></li>
+</ul>
+
+<h2><a name="usb-re-intro"></a>USB Reverse Engineering: An Introduction</h2>
+
+<p>Now, I could probably go through and write a whole blog post on this.. but, other people have done it for me! The following walks through an introduction to interfacing with, reverse engineering, understanding, and ultimately implementing software to drive a USB remote control car.</p>
+
+<ul>
+<li><a href="https://www.linuxvoice.com/drive-it-yourself-usb-car-6/">https://www.linuxvoice.com/drive-it-yourself-usb-car-6/</a> (2015)</li>
+<li><a href="https://github.com/vsinitsyn/usbcar.py">https://github.com/vsinitsyn/usbcar.py</a></li>
+</ul>
+
+<p>I found it quite easy to consume, and doesn&#39;t really assume much in the way of prior knowledge.</p>
+
+<p>One of the tools used above was <a href="https://linux.die.net/man/8/lsusb"><code>lsusb</code></a>: &quot;a utility for displaying information about USB buses in the system and the devices connected to them&quot;. Among other things, this allows the <strong>vendor and product ID</strong> of the device to be identified. Once identified, this tag can be used to query further information about the device, eg. <code>lsusb -vd 0a81:0702</code>.</p>
+
+<p><strong>Other relevant tools/concepts used include:</strong></p>
+
+<ul>
+<li><code>usbmon</code>: a facility in kernel which is
+used to collect traces of I/O on the USB bus</li>
+<li><a href="https://wiki.wireshark.org/CaptureSetup/USB">Wireshark USB Capture</a></li>
+<li><a href="https://github.com/pyusb/pyusb">PyUSB</a> : USB access for Python</li>
+<li><a href="https://github.com/libusb/libusb">libusb</a> : A cross-platform library to access USB devices</li>
+</ul>
+
+<h2><a name="usb-re-further-reading"></a>USB Reverse Engineering: Further Reading</h2>
+
+<p>The following are some additional relatively short reads on how others have approached reverse engineering some devices, including tools they used, and basic methodologies.</p>
+
+<p><a name="adafruit"></a>I would definitely suggest checking this one out first:</p>
+
+<ul>
+<li><a href="https://learn.adafruit.com/hacking-the-kinect">https://learn.adafruit.com/hacking-the-kinect</a> (2012, 2015?)</li>
+</ul>
+
+<p>By this stage you&#39;re probably not going to pick up masses of new information, but here are the rest for completeness, just in case:</p>
+
+<ul>
+<li><a href="https://github.com/openrazer/openrazer/wiki/Reverse-Engineering-USB-Protocol">https://github.com/openrazer/openrazer/wiki/Reverse-Engineering-USB-Protocol</a> (2017)</li>
+<li><a href="https://www.linuxvoice.com/drive-it-yourself-usb-car-6/">https://www.linuxvoice.com/drive-it-yourself-usb-car-6/</a> (2015)</li>
+<li><a href="https://www.mattcutts.com/blog/reverse-engineering-a-windows-usb-driver/">https://www.mattcutts.com/blog/reverse-engineering-a-windows-usb-driver/</a> (2013)</li>
+<li><a href="https://hackaday.com/2009/08/20/reverse-engineering-usb-drivers/">https://hackaday.com/2009/08/20/reverse-engineering-usb-drivers/</a> (2009)
+
+<ul>
+<li><a href="http://www.jespersaur.com/drupal/book/export/html/21">http://www.jespersaur.com/drupal/book/export/html/21</a></li>
+<li><a href="http://devdriven.com/2008/12/luxeed-led-keyboard-driver-for-linux/">http://devdriven.com/2008/12/luxeed-led-keyboard-driver-for-linux/</a></li>
+<li><a href="https://github.com/kstephens/luxeed">https://github.com/kstephens/luxeed</a></li>
+</ul></li>
+</ul>
+
+<p><strong>Some common tools/methods used in the above articles include:</strong></p>
+
+<ul>
+<li>Explore / Capture
+
+<ul>
+<li><code>lsusb -vv</code> (*nix) (<a href="https://linux.die.net/man/8/lsusb">ref</a>) / <code>system_profiler SPUSBDataType</code> (macOS) / <a href="http://www.nirsoft.net/utils/usb_devices_view.html">USBDeview</a> (Windows)</li>
+<li><code>usbmon</code> / USBsnoop / SnoopyPro</li>
+<li><a href="#hardware-commercial-beagleusb">Beagle480 / Beagle Data Center Software</a></li>
+<li>Virtualbox / KVM / QEMU</li>
+<li><a href="https://wiki.wireshark.org/CaptureSetup/USB">Wireshark</a></li>
+</ul></li>
+<li>Interact
+
+<ul>
+<li><a href="https://github.com/libusb/libusb">libusb</a> / libusb-win32</li>
+<li><a href="https://github.com/pyusb/pyusb">PyUSB</a></li>
+</ul></li>
+</ul>
+
+<p>The basic process seems to be:</p>
+
+<ul>
+<li>Setup to capture the device</li>
+<li>Identify the Vendor ID and Product ID</li>
+<li>Determine the device descriptors / endpoints</li>
+<li>Capture USB traffic / attempt to decode commands</li>
+<li>Make a driver / program to interact</li>
+<li>Potentially fuzz for other commands (generally safer to do read only)</li>
+</ul>
+
+<p>Another method of reverse engineering could be to reverse the device driver itself, and understand the functionality/features from that. This takes a more &#39;traditional&#39; software reverse engineering approach to solving the problem.</p>
+
+<p>If you want to be completely thorough, a hybrid approach may make the most sense (eg. analyse the traffic on from the device itself, then use the existing driver to help understand the data being sent back/forth and/or confirm you have captured all of the features)</p>
+
+<h2><a name="software"></a>Software: Wireshark, usbmon, USBPcap, VirtualBox, etc</h2>
+
+<p>So as we learned in the above articles, there are a number of &#39;software only&#39; methods we can use to capture/inspect USB traffic, with the main modern methods being:</p>
+
+<ul>
+<li><a href="https://wiki.wireshark.org/CaptureSetup/USB">WireShark</a></li>
+<li><a href="http://desowin.org/usbpcap/">USBpcap</a> (<a href="https://github.com/desowin/usbpcap">GitHub</a>)</li>
+<li><a href="https://www.kernel.org/doc/Documentation/usb/usbmon.txt">usbmon</a></li>
+</ul>
+
+<p>It is also possible to &#39;pass through&#39; USB devices with your favourite virtual machine software (VMware, Parallels, Virtualbox, KVM, QEMU, etc) to assist in capturing data, though I will leave that as an exercise to the reader to look up the specifics (some references are in the above walkthroughs).</p>
+
+<p>There are also some older programs and methods that might still work but probably aren&#39;t ideal anymore, including:</p>
+
+<ul>
+<li><a href="https://github.com/wcooley/usbrevue">USBREVue</a>: USBREVue is a suite of tools for reverse-engineering USB devices.</li>
+<li><a href="https://github.com/scanlime/vusb-analyzer">Virtual USB Analyzer</a> (<a href="http://vusb-analyzer.sourceforge.net/">old site</a>)</li>
+<li><a href="http://web.archive.org/web/20010429043148/http://www.jps.net/koma/">USB Snoopy</a></li>
+<li>usbsnoop (<a href="http://benoit.papillault.free.fr/usbsnoop/doc.en.php">1</a>, <a href="https://linuxtv.org/wiki/index.php/Usbsnoop">2</a>, <a href="https://sourceforge.net/projects/usbsnoop/">3</a>)</li>
+<li><a href="https://linuxtv.org/wiki/index.php/Usbreplay">usbreplay</a></li>
+<li><a href="https://web.archive.org/web/20151218000528/http://www.pcausa.com/Utilities/UsbSnoop/default.htm">SniffUSB</a></li>
+<li><a href="https://www.hhdsoftware.com/usb-monitor">USB Monitor</a> (Windows)</li>
+</ul>
+
+<h2><a name="hardware-tldr"></a>Hardware: tl;dr</h2>
+
+<p>Too many choices? Don&#39;t want to read through them all? A good bet is probably:</p>
+
+<ul>
+<li><strong>Hardware:</strong> <a href="#hardware-greatfet">GreatFET</a>, <a href="#hardware-facedancer-2">Facedancer 2.0</a>, <a href="#hardware-daisho">Daisho</a></li>
+<li><strong>Commercial Hardware:</strong> <a href="#hardware-commercial-beagleusb">BeagleUSB</a></li>
+</ul>
+
+<h2><a name="hardware-usbsniffer"></a>Hardware: BeagleBoard-XM / USBSniffer (~2010-2013, ~$149+)</h2>
+
+<p>Based on a <a href="https://www.elinux.org/BeagleBoard/GSoC/2010_Projects/USBSniffer">2010 GSoC BeagleBoard USB Sniffer</a>, this is an updated version of a <a href="http://beagleboard.org/beagleboard-xm">BeagleBoard-XM</a> based USB sniffer. It acts as a man-in-the-middle hardware proxy allowing USB traffic to be captured, and later viewed in Wireshark or similar.</p>
+
+<ul>
+<li><a href="https://blog.gimx.fr/a-beagleboard-xm-based-usb-sniffer/">https://blog.gimx.fr/a-beagleboard-xm-based-usb-sniffer/</a></li>
+<li><a href="https://github.com/matlo/bb_usb_sniffer">https://github.com/matlo/bb_usb_sniffer</a></li>
+<li><a href="https://www.elinux.org/BeagleBoard/GSoC/2010_Projects/USBSniffer">https://www.elinux.org/BeagleBoard/GSoC/2010_Projects/USBSniffer</a></li>
+<li><a href="https://hackaday.com/2013/07/02/usb-sniffing-with-the-beagleboard-xm/">https://hackaday.com/2013/07/02/usb-sniffing-with-the-beagleboard-xm/</a></li>
+</ul>
+
+<h2><a name="hardware-openvizsla"></a>Hardware: OpenVizsla (~2010-2014)</h2>
+
+<p>(You probably just want to look at <a href="hardware-daisho">daisho</a> below)</p>
+
+<blockquote>
+<p>OpenVizsla is a Open Hardware FPGA-based USB analyzer. Unlike other similar devices on the market, hardware design files are available as well as full source code for the firmware and client software of the device.</p>
+</blockquote>
+
+<p>This was a <a href="https://www.kickstarter.com/projects/bushing/openvizsla-open-source-usb-protocol-analyzer">Kickstarter Project</a> to create an &quot;Open Hardware FPGA-based USB analyzer&quot; targeting <strong>USB 2.0 High-Speed</strong>. There seems to be a lot of mixed opinions/views about this project on the internet/forums calling scam and similar. It sounds like there were a lot of delays and other issues.</p>
+
+<p>According to <a href="http://debugmo.de/2014/05/ov3-hardware/">this blog post</a>, it sounds like they eventually got something working (years later) under the moniker &#39;OV3&#39;. There seem to be a number of related posts on this blog <a href="http://debugmo.de/tags/OpenVizsla/">under the tag &#39;OpenVizsla&#39;</a>:</p>
+
+<ul>
+<li><a href="http://debugmo.de/2014/05/ov3-hardware/">http://debugmo.de/2014/05/ov3-hardware/</a></li>
+<li><a href="http://debugmo.de/2014/08/ov3-fpga-design/">http://debugmo.de/2014/08/ov3-fpga-design/</a></li>
+<li><a href="http://debugmo.de/2014/09/ov3-fpga-helloworld/">http://debugmo.de/2014/09/ov3-fpga-helloworld/</a></li>
+</ul>
+
+<p>You should be able to find the latest news and code on the following website/GitHub pages:</p>
+
+<ul>
+<li><a href="http://openvizsla.org/">http://openvizsla.org/</a></li>
+<li><a href="https://github.com/openvizsla/ov_ftdi">https://github.com/openvizsla/ov_ftdi</a></li>
+<li><a href="https://twitter.com/openvizsla">https://twitter.com/openvizsla</a> (no tweets)</li>
+<li><a href="https://twitter.com/hashtag/openvizsla">https://twitter.com/hashtag/openvizsla</a> (no activity since 2010)</li>
+<li><a href="https://www.kickstarter.com/projects/bushing/openvizsla-open-source-usb-protocol-analyzer/updates">https://www.kickstarter.com/projects/bushing/openvizsla-open-source-usb-protocol-analyzer/updates</a></li>
+</ul>
+
+<h2><a name="hardware-serialusb"></a>Hardware: SerialUSB / GIMX USB Adapter (~2015, ~US$5-35)</h2>
+
+<blockquote>
+<p>A cheap USB proxy for input devices.</p>
+</blockquote>
+
+<p>SerialUSB is at the low end of hardware capture devices, designed to be a low cost solution to assist in adding support for USB gaming peripheral protocols to the <a href="http://blog.gimx.fr/">GIMX</a> project.</p>
+
+<ul>
+<li><a href="http://blog.gimx.fr/serialusb/">http://blog.gimx.fr/serialusb/</a></li>
+<li><a href="https://github.com/matlo/serialusb">https://github.com/matlo/serialusb</a> (~US$5)</li>
+<li><a href="https://blog.gimx.fr/product/gimx-adapter/">https://blog.gimx.fr/product/gimx-adapter/</a> (~US$35)</li>
+<li><a href="http://gimx.fr/wiki/index.php?title=DIY_USB_adapter">http://gimx.fr/wiki/index.php?title=DIY_USB_adapter</a></li>
+<li><a href="https://hackaday.com/2015/12/23/usb-proxy-rats-out-your-devices-secrets/">https://hackaday.com/2015/12/23/usb-proxy-rats-out-your-devices-secrets/</a></li>
+</ul>
+
+<p>For most purposes we probably won&#39;t need hardware for things at this level.. the software-based capture devices are likely good enough. But who knows.. maybe there are other uses for super cheap hardware capture..</p>
+
+<h2><a name="hardware-goodfet"></a>Hardware: GoodFET (~2009-2018+, ~US$50)</h2>
+
+<p>(Before I dive in too deeply.. if you want the latest/greatest in this space, check out the <a href="#hardware-greatfet">GreatFET</a>.)</p>
+
+<blockquote>
+<p>The GoodFET is an open-source JTAG adapter, loosely based upon the TI MSP430 FET UIF and EZ430U boards, as described in their documentation. In addition to JTAG, the GoodFET has been <strong>inspired by HackADay&#39;s Bus Pirate to become a universal serial bus interface.</strong></p>
+</blockquote>
+
+<p>It &quot;is a nifty little tool for quickly exposing embedded system buses to userland Python code.&quot;. Based on the bits and pieces I can pull together, I believe this will allow us to do our typical hardware based sniffing/dumping/etc, but I would have to find a better walkthrough/try it myself before being able to say that for certain.</p>
+
+<p>Now one thing about this project that tends to confuse me is the versions/revision naming.. for example here are a number of the older revisions and their names:</p>
+
+<ul>
+<li><a href="http://goodfet.sourceforge.net/hardware/goodfet10/">http://goodfet.sourceforge.net/hardware/goodfet10/</a> (rev 1, retired)</li>
+<li><a href="http://goodfet.sourceforge.net/hardware/goodfet11/">http://goodfet.sourceforge.net/hardware/goodfet11/</a> (rev 2, retired)</li>
+<li><a href="http://goodfet.sourceforge.net/hardware/goodfet20/">http://goodfet.sourceforge.net/hardware/goodfet20/</a> (rev 3, retired)</li>
+<li><a href="http://goodfet.sourceforge.net/hardware/badfet20/">http://goodfet.sourceforge.net/hardware/badfet20/</a> (rev 4, retired)</li>
+<li><a href="http://goodfet.sourceforge.net/hardware/goodfet30/">http://goodfet.sourceforge.net/hardware/goodfet30/</a> (rev 5, retired)</li>
+<li><a href="http://goodfet.sourceforge.net/hardware/goodfet21/">http://goodfet.sourceforge.net/hardware/goodfet21/</a> (rev 6, retired)</li>
+<li><a href="http://goodfet.sourceforge.net/hardware/goodfet31/">http://goodfet.sourceforge.net/hardware/goodfet31/</a> (rev 8, retired)</li>
+<li><a href="http://goodfet.sourceforge.net/hardware/goodfet40/">http://goodfet.sourceforge.net/hardware/goodfet40/</a> (rev 12, retired)</li>
+<li><a href="http://goodfet.sourceforge.net/hardware/goodfet41/">http://goodfet.sourceforge.net/hardware/goodfet41/</a> (rev 13, retired)</li>
+</ul>
+
+<p>As best I can tell.. there seem to be multiple parallel hardware versions at certain times.. based on different chipsets. And those versions may fork/merge at later times. Attempting to follow that logic.. the two most current (non-retired) revisions seem to be:</p>
+
+<ul>
+<li><a href="http://goodfet.sourceforge.net/hardware/goodfet42/">http://goodfet.sourceforge.net/hardware/goodfet42/</a> (rev 22)</li>
+<li><a href="http://goodfet.sourceforge.net/hardware/goodfet32/">http://goodfet.sourceforge.net/hardware/goodfet32/</a> (rev 25)</li>
+</ul>
+
+<p>You should probably just spend time browsing around this site in general.. there are so many interesting sounding open-hardware designs.</p>
+
+<ul>
+<li><a href="http://goodfet.sourceforge.net/">http://goodfet.sourceforge.net/</a></li>
+<li><a href="https://github.com/travisgoodspeed/goodfet">https://github.com/travisgoodspeed/goodfet</a></li>
+<li><a href="https://github.com/travisgoodspeed/goodfet/tree/master/contrib">https://github.com/travisgoodspeed/goodfet/tree/master/contrib</a></li>
+</ul>
+
+<p>You can order the boards (or request a free one!) from:</p>
+
+<ul>
+<li><a href="http://goodfet.sourceforge.net/orders/">http://goodfet.sourceforge.net/orders/</a></li>
+<li><a href="https://www.adafruit.com/product/1279">https://www.adafruit.com/product/1279</a> (~US$50)</li>
+<li><a href="http://www.riverloopsecurity.com/projects/goodfet/">http://www.riverloopsecurity.com/projects/goodfet/</a></li>
+</ul>
+
+<p>Further reading:</p>
+
+<ul>
+<li><a href="https://exfil.co/2016/02/11/goodfet-on-os-x/">https://exfil.co/2016/02/11/goodfet-on-os-x/</a></li>
+<li><a href="https://hackaday.com/tag/goodfet/">https://hackaday.com/tag/goodfet/</a></li>
+</ul>
+
+<h2><a name="hardware-facedancer"></a>Hardware: Facedancer, Beagledancer, Raspdancer (~2012-2018+, ~US$85-???)</h2>
+
+<p>(Make sure to look at the <a href="hardware-facedancer-2">facedancer 2.0</a> below as well)</p>
+
+<blockquote>
+<p>The Facedancer21 is the twenty-fourth hardware revision of the GoodFET, owing its heritage to the GoodFET41 and Facedancer20. Unlike the general-purpose GoodFET boards, <strong>the only purpose of this board is to allow USB devices to be written in host-side Python</strong>, so that one workstation can fuzz-test the USB device drivers of another host.</p>
+</blockquote>
+
+<p>The facedancer is less about capturing data, and more about emulating a USB device with software (python to be exact!). One reason for wanting to do this might be to fuzz the devices drivers on a host system, though I&#39;m sure there could be a number of other creative uses too.. Maybe you want to allow one hardware device to masquerade as another and talk to it&#39;s drivers..</p>
+
+<p>The following articles are a good read:</p>
+
+<ul>
+<li><a href="http://travisgoodspeed.blogspot.com.au/2012/07/emulating-usb-devices-with-python.html">http://travisgoodspeed.blogspot.com.au/2012/07/emulating-usb-devices-with-python.html</a></li>
+<li><a href="http://travisgoodspeed.blogspot.com.au/2012/10/emulating-usb-dfu-to-capture-firmware.html">http://travisgoodspeed.blogspot.com.au/2012/10/emulating-usb-dfu-to-capture-firmware.html</a></li>
+<li><a href="http://rmspeers.com/archives/252">Scapy Support for USB Protocol on Facedancer Boards, MAX2420, etc</a></li>
+</ul>
+
+<blockquote>
+<p>The Facedancer hardware extends the GoodFET framework to allow for fast prototyping and fuzzing of USB device drivers. Software connect/disconnect allows the enumeration process to be repeated, and Ryan&#39;s fork allows for clean coding of the various data structures with Scapy.</p>
+</blockquote>
+
+<p>You can find out more about the facedancer boards at:</p>
+
+<ul>
+<li><a href="http://goodfet.sourceforge.net/hardware/facedancer21">http://goodfet.sourceforge.net/hardware/facedancer21</a></li>
+<li>YouTube: <a href="https://www.youtube.com/watch?v=x-7ezoFju6I">SEC-T 2012 - Trashing USB layers using the Facedancer Board - Travis Goodspeed</a> (2013)</li>
+<li><a href="http://rmspeers.com/archives/252">http://rmspeers.com/archives/252</a></li>
+</ul>
+
+<p>You can order the board (or request a free one!) from:</p>
+
+<ul>
+<li><a href="http://goodfet.sourceforge.net/orders/">http://goodfet.sourceforge.net/orders/</a></li>
+<li><a href="https://int3.cc/products/facedancer21">https://int3.cc/products/facedancer21</a> (~US$85)</li>
+</ul>
+
+<p>Other hardware projects that connect with the facedancer:</p>
+
+<ul>
+<li><a href="https://github.com/dominicgs/BeagleDancer">https://github.com/dominicgs/BeagleDancer</a> : A Facedancer21 expansion board for the BeagleBone</li>
+<li><a href="http://wiki.yobi.be/wiki/Raspdancer">http://wiki.yobi.be/wiki/Raspdancer</a> : Merging Facedancer11 and Facedancer21 with Raspberry Pi</li>
+<li><a href="https://speakerdeck.com/doegox/raspdancer">https://speakerdeck.com/doegox/raspdancer</a></li>
+<li><a href="https://github.com/travisgoodspeed/goodfet/tree/master/contrib/facedancer/raspdancer">https://github.com/travisgoodspeed/goodfet/tree/master/contrib/facedancer/raspdancer</a></li>
+</ul>
+
+<h2><a name="hardware-usbproxy"></a>Hardware: Beaglebone Black + USBProxy (~2013?)</h2>
+
+<p>(This has been superceded by the <a href="hardware-facedancer-2">facedancer 2.0</a> below)</p>
+
+<blockquote>
+<p>A proxy for USB devices, libUSB and gadgetFS. A USB man in the middle device using embedded Linux devices with on the go controllers.</p>
+</blockquote>
+
+<ul>
+<li><a href="https://github.com/dominicgs/USBProxy">https://github.com/dominicgs/USBProxy</a></li>
+</ul>
+
+<p>Presentations/etc:</p>
+
+<ul>
+<li>YouTube: <a href="https://www.youtube.com/watch?v=uDPxa5tcdnI">NSA Playset: USB Tools [ShmooCon 2015]</a> (2015) (<a href="https://shmoo.gitbooks.io/2015-shmoocon-proceedings/content/build/01_nsa_playset_usb_tools.html">Overview</a>, <a href="https://github.com/dominicgs/dominicgs.github.io/blob/master/presentations/2015/NSA%20Playset-USB%20Tools-ShmooCon.pdf">Slides</a>)</li>
+<li>YouTube: <a href="https://www.youtube.com/watch?v=rcfYgU-Be08">BG - USB Write Blocking with USBProxy - Dominic Spill
+</a> (2014) (<a href="https://github.com/dominicgs/dominicgs.github.io/blob/master/presentations/2014/Spill_BSidesLV_USBProxy_slides.pdf">Slides</a>)</li>
+<li>Youtube (<a href="https://www.youtube.com/watch?v=5JnAeakUBnU">1</a>, <a href="https://www.youtube.com/watch?v=l9wnu97785s">2</a>): ShmooCon 2014: An Open and Affordable USB Man in the Middle Device (2014) (<a href="https://github.com/dominicgs/dominicgs.github.io/blob/master/presentations/2014/Spill_USBProxy_ShmooCon_Slides.pdf">Slides</a>, <a href="https://github.com/dominicgs/dominicgs.github.io/blob/master/presentations/2014/Spill_USBProxy_ShmooCon_paper.pdf">Whitepaper</a>, <a href="https://github.com/dominicgs/dominicgs.github.io/blob/master/presentations/2014/Spill_USBProxy_ShmooCon_cfp.txt">CFP</a>)</li>
+<li>CFP: <a href="https://github.com/dominicgs/dominicgs.github.io/blob/master/presentations/2014/Spill_USBProxy_Haxpo_cfp.txt">Haxpo - Protecting USB devices with USBProxy</a></li>
+</ul>
+
+<h2><a name="hardware-daisho"></a>Hardware: Daisho (~2013-?2018+?)</h2>
+
+<blockquote>
+<p>SuperSpeed USB 3.0 FPGA platform</p>
+</blockquote>
+
+<p>This is a project designed for monitoring a number of high speed communication technologies at the physical layer, including USB 3.0, Gigabit ethernet, HDMI, etc. You can read more about it in the introduction blog:</p>
+
+<ul>
+<li><a href="http://ossmann.blogspot.com.au/2013/05/introducing-daisho.html">http://ossmann.blogspot.com.au/2013/05/introducing-daisho.html</a> (tag: <a href="http://ossmann.blogspot.com.au/search/label/daisho">daisho</a>)</li>
+</ul>
+
+<p>You can find more about the project at the following sites:</p>
+
+<ul>
+<li><a href="https://greatscottgadgets.com/daisho/">https://greatscottgadgets.com/daisho/</a></li>
+<li><a href="https://github.com/mossmann/daisho">https://github.com/mossmann/daisho</a></li>
+<li><a href="https://github.com/mossmann/daisho/wiki">https://github.com/mossmann/daisho/wiki</a></li>
+<li><a href="https://github.com/enjoy-digital/daisho_usb3ipcore_test">https://github.com/enjoy-digital/daisho_usb3ipcore_test</a></li>
+</ul>
+
+<p>Presentations/etc:</p>
+
+<ul>
+<li>YouTube: <a href="https://www.youtube.com/watch?v=uDPxa5tcdnI">NSA Playset: USB Tools [ShmooCon 2015]</a> (2015) (<a href="https://shmoo.gitbooks.io/2015-shmoocon-proceedings/content/build/01_nsa_playset_usb_tools.html">Overview</a>, <a href="https://github.com/dominicgs/dominicgs.github.io/blob/master/presentations/2015/NSA%20Playset-USB%20Tools-ShmooCon.pdf">Slides</a>)</li>
+<li>YouTube: <a href="https://www.youtube.com/watch?v=b2DsU1O6Lhg">Black Hat USA 2013 - What&#39;s on the Wire? Physical Layer Tapping with Project Daisho
+</a> (2013) (<a href="https://media.blackhat.com/us-13/US-13-Spill-Whats-on-the-Wire-Slides.pdf">Slides</a>, <a href="https://media.blackhat.com/us-13/US-13-Spill-Whats-on-the-Wire-WP.pdf">Whitepaper</a>)</li>
+</ul>
+
+<h2><a name="hardware-greatfet"></a>Hardware: GreatFET (~2015-2018+)</h2>
+
+<blockquote>
+<p>GreatFET is a next generation GoodFET intended to serve as your custom Hi-Speed USB peripheral through the addition of expansion boards called &quot;neighbors&quot;.</p>
+</blockquote>
+
+<p>Better GoodFET hardware, cheaper. Sounds great to me. According to the main site this is still at a &#39;functional prototype&#39; stage though:</p>
+
+<blockquote>
+<p>Functional prototype hardware has been produced. Firmware is in progress.</p>
+</blockquote>
+
+<p>That said.. looking around twitter and other places.. it sounds like it&#39;s pretty functional. Here are your main resources:</p>
+
+<ul>
+<li><a href="http://greatscottgadgets.com/greatfet/">http://greatscottgadgets.com/greatfet/</a></li>
+<li><a href="https://github.com/greatscottgadgets/greatfet">https://github.com/greatscottgadgets/greatfet</a></li>
+<li><a href="https://github.com/greatscottgadgets/greatfet-hardware">https://github.com/greatscottgadgets/greatfet-hardware</a></li>
+<li><a href="https://github.com/greatscottgadgets/greatfet/wiki">https://github.com/greatscottgadgets/greatfet/wiki</a></li>
+<li><a href="https://github.com/greatscottgadgets/greatfet/wiki/GreatFET-One">https://github.com/greatscottgadgets/greatfet/wiki/GreatFET-One</a></li>
+</ul>
+
+<p>I couldn&#39;t find many resources about how to buy these.. but here is what I got:</p>
+
+<ul>
+<li><a href="https://oshpark.com/shared_projects/qZFKUiwj">https://oshpark.com/shared_projects/qZFKUiwj</a></li>
+</ul>
+
+<p>Presentations/etc:</p>
+
+<ul>
+<li>YouTube: <a href="https://www.youtube.com/watch?v=h3VWvZ162QE">TR18 - Reverse Engineering Black Box Systems with GreatFET</a> (2018) (<a href="https://download.ernw-insight.de/troopers/tr18/slides/TR18_AR_RE-Black-Box-Systems-GreatFET-Facedancer.pdf">Slides</a>, <a href="https://www.troopers.de/troopers18/agenda/bcgyzl/">Agenda</a>)</li>
+<li>YouTube: <a href="https://www.youtube.com/watch?v=4Ra9XNjNS3M">TR17 - Rusting up your GREATFET - Richo Healey, Dominic Spill</a> (2017) (<a href="https://speakerdeck.com/richo/rust-greatfet">Slides</a>)</li>
+<li>YouTube: <a href="https://www.youtube.com/watch?v=4NIoAnsuFOQ">GreatFET: Making GoodFET Great Again</a> (2016) (<a href="https://www.blackhat.com/docs/us-16/materials/us-16-Ossmann-GreatFET-Making-GoodFET-Great-Again-wp.pdf">Slides</a>)</li>
+</ul>
+
+<p>Further reading:</p>
+
+<ul>
+<li><a href="https://hackaday.com/tag/greatfet/">https://hackaday.com/tag/greatfet/</a></li>
+<li><a href="https://twitter.com/search?q=%23GreatFET&lang=en">https://twitter.com/search?q=%23GreatFET&amp;lang=en</a></li>
+</ul>
+
+<h2><a name="hardware-facedancer-2"></a>Hardware: Facedancer 2.0 (~2017-2018+)</h2>
+
+<blockquote>
+<p>This repository houses the next generation of FaceDancer software. Descended from the original GoodFET-based FaceDancer, this repository provides a python module that provides expanded FaceDancer support-- including support for multiple boards and some pretty significant new features.</p>
+</blockquote>
+
+<p>This is the v2.x of the facedancer, designed to be better/greater. I won&#39;t go too deeply into things, but the following are useful resources:</p>
+
+<ul>
+<li><a href="https://github.com/ktemkin/facedancer">https://github.com/ktemkin/facedancer</a></li>
+<li><a href="https://github.com/ktemkin/facedancer#usbproxy-nouveau-and-protocol-analysis">https://github.com/ktemkin/facedancer#usbproxy-nouveau-and-protocol-analysis</a>
+
+<ul>
+<li>Replaces <a href="#hardware-usbproxy">USBProxy</a></li>
+</ul></li>
+</ul>
+
+<p>Presentations/Training/etc:</p>
+
+<ul>
+<li>YouTube: <a href="https://www.youtube.com/watch?v=L3Ug9591Vag&list=PLnOI9rJWBVjE_xz7uGH4QKLiU5X0A7fjv&index=143">FaceDancer 2.0 (SHA2017)</a> (2017) (<a href="http://dominicspill.com/presentations/2017/Temkin_Spill_FaceDancer2_slides.pdf">Slides</a>, <a href="https://github.com/dominicgs/dominicgs.github.io/blob/master/presentations/2017/Temkin_Spill_FaceDancer2_slides.pdf">Slides2</a>, <a href="https://twitter.com/dominicgs/status/895341394730123265">Twitter</a>)</li>
+<li>YouTube: <a href="https://www.youtube.com/watch?v=HV9WfDRjJCg">ToorCon 19 - Spill &amp; Temkin - Facedancer 2.0 Next Generation USB Hacking</a> (2017) (jump to <a href="https://youtu.be/HV9WfDRjJCg?t=2116">35:16</a>)</li>
+<li><a href="https://www.troopers.de/troopers18/trainings/jmpsxq/">Troopers Training: Hacking the USB World with FaceDancer</a> (<a href="https://hm-ts.de/pdf/TR18_HM_Hack_Facedancer.pdf">PDF</a>, 2018)</li>
+</ul>
+
+<h2><a name="hardware-commercial-beagleusb"></a>Commercial Hardware: TotalPhase BeagleUSB</h2>
+
+<p><a href="https://www.totalphase.com/">TotalPhase</a> are a company that provide a number of commercial hardware protocol analysers, <a href="https://www.totalphase.com/protocols/usb/">including USB</a>. I found that a number of the walkthroughs I would come across would at least mention these products in passing.</p>
+
+<p>As I understand it, <strong>they are only good for passively reading/inspecting/logging the traffic, so no good if you want to do injection or other nefarious things.</strong></p>
+
+<p>They have a number of different products ranging from the relatively cheap (for low speed), up to the rather expensive (for USB 3.0):</p>
+
+<ul>
+<li><a href="https://www.totalphase.com/products/beagle-usb12/">Beagle USB 12 Protocol Analyzer</a>: Low/Full Speed USB 2, ~US$475 (<a href="https://www.totalphase.com/support/articles/200800983-Beagle-USB-12-Protocol-Analyzer-Quick-Start-Guide">Guide</a>, <a href="https://www.adafruit.com/product/708">Adafruit</a>)</li>
+<li><a href="https://www.totalphase.com/products/beagle-usb480/">Beagle USB 480 Protocol Analyzer</a>: Low/Full/High Speed USB 2, ~US$1400</li>
+<li><a href="https://www.totalphase.com/products/beagle-usb5000-v2-standard/">Beagle USB 5000 v2 SuperSpeed Protocol Analyzer - Standard Edition</a>: USB 3.0, ~US$3600</li>
+<li><a href="https://www.totalphase.com/products/beagle-usb5000-v2-ultimate/">Beagle USB 5000 v2 SuperSpeed Protocol Analyzer - Ultimate Edition</a>: USB 2/3.0, ~US$6000</li>
+</ul>
+
+<h2><a name="further-reading-presentations"></a>Further Reading/Presentations</h2>
+
+<p>I figured I&#39;d add this section for some other interesting presentations/resources that just didn&#39;t seem to fit nicely into the categories above. Some of them go a little beyond just USB hardware hacking, and into more general/specific hardware hacking tools:</p>
+
+<ul>
+<li>YouTube: <a href="https://www.youtube.com/watch?v=7HnQnpJwr-c">DEF CON 22 - Jesse Michael and Mickey Shkatov - USB for all!!</a> (2014) (<a href="https://www.defcon.org/images/defcon-22/dc-22-presentations/Michael-Shkatov/DEFCON-22-Jesse-Michael-Mickey-Shkatov-USB-for-All!!-UPDATED.pdf">Slides</a>)</li>
+<li>YouTube: <a href="https://www.youtube.com/watch?v=PYeYxQqBTLo">Tools of the Hardware Hacking Trade - Duo Tech Talk
+</a> (2014) (<a href="https://www.blackhat.com/docs/webcast/04232014-tools-of-the-hardware-hacking-trade.pdf">Slides</a>)</li>
+</ul>
+
+<h2><a name="people-to-watch"></a>People to Watch</h2>
+
+<p>While I was doing this research there were a few names that just kept popping up time and time again, and seem to be working on really cool things in this space. To make it easier to follow them on their relevent platforms, I wanted to collect them together here for you (in no particular order):</p>
+
+<ul>
+<li>Travis Goodspeed (travisgoodspeed, <a href="https://twitter.com/travisgoodspeed">Twitter</a>, <a href="https://github.com/travisgoodspeed">GitHub</a>)</li>
+<li>Dominic Spill (dominicgs, <a href="https://twitter.com/dominicgs/">Twitter</a>, <a href="https://github.com/dominicgs/">GitHub</a>, <a href="https://dominicspill.com/">Website</a>)</li>
+<li>Kate Temkin (ktemkin, <a href="https://twitter.com/ktemkin/">Twitter</a>, <a href="https://github.com/ktemkin/">GitHub</a>, <a href="https://www.ktemkin.com/">Website</a>)</li>
+<li>Michael Ossmann (mossmann, <a href="https://twitter.com/michaelossmann">Twitter</a>, <a href="https://github.com/mossmann">GitHub</a>, <a href="http://www.ossmann.com/">Website</a>)</li>
+<li>Great Scott Gadgets (<a href="https://twitter.com/GSGLabs">Twitter</a>, <a href="https://github.com/greatscottgadgets">GitHub</a>, <a href="http://greatscottgadgets.com/">Website</a>)</li>
+</ul>
+
+<p>If I&#39;ve missed anyone that you feel deserves to be here too, please let me know!</p>
+
+<h2><a name="code-drivers-etc"></a>Code/Drivers/etc</h2>
+
+<p>So we know how to capture traffic from our devices, proxy it with hardware, break the protocols down and understand them. But we also want to be able to talk back to them, control them, and truly interact. This is where code and drivers comes in. Now we&#39;ve sort of skimmed over these topics in a few of the above sections, but for the sake of clarity I wanted to group them all here as well.</p>
+
+<p><a name="libusb-pyusb"></a>When I first thought about writing this section I thought we were going to be getting deep into kernel drivers, and fighting with arcane systems, but it seems we actually have a much nicer alternative before all of that, thanks to <strong>libusb, pyusb, and friends</strong>:</p>
+
+<ul>
+<li><a href="http://libusb.info/">http://libusb.info/</a> (<a href="https://github.com/libusb/libusb">GitHub</a>) : A cross-platform library to access USB devices</li>
+<li><a href="https://github.com/pyusb/pyusb">https://github.com/pyusb/pyusb</a> : USB access for Python</li>
+<li><a href="https://github.com/LibUsbDotNet/LibUsbDotNet">https://github.com/LibUsbDotNet/LibUsbDotNet</a> : Library for cross-platform USB device control using Mono/.NET</li>
+</ul>
+
+<p>You can see examples of using libusb/pyUSB in some of the walkthroughs mentioned earlier.</p>
+
+<p>Now while these libraries give us a whole lot of power and makes it pretty easy to write our software, there may be times where they just don&#39;t quite cover what we need. That&#39;s when we can go deeper into the weird and wonderful world of driver development. I won&#39;t cover this too in-depth at the moment as it could be a whole blog series on it&#39;s own, but a few resources to get you started:</p>
+
+<ul>
+<li><a href="https://github.com/daynix/UsbDk">https://github.com/daynix/UsbDk</a> : Usb Drivers Development Kit for Windows</li>
+<li><a href="http://www.fourwalledcubicle.com/LUFA.php">LUFA (Lightweight USB Framework for AVRs)</a> (<a href="https://github.com/abcminiuser/lufa">GitHub</a>)</li>
+<li><a href="https://docs.microsoft.com/en-us/windows-hardware/drivers/ddi/content/index">Windows Driver Kit (WDK)</a></li>
+<li><a href="https://github.com/pravic/winapi-kmd-rs">https://github.com/pravic/winapi-kmd-rs</a> : Windows Kernel-Mode Drivers written in Rust</li>
+<li><a href="http://www.linuxvoice.com/be-a-kernel-hacker/">http://www.linuxvoice.com/be-a-kernel-hacker/</a></li>
+</ul>
+
+<h2><a name="where-next"></a>Where next? Device Emulation, USB over IP, etc</h2>
+
+<p>Now that you&#39;ve figured out all of the intricacies of the device, understand it&#39;s protocol and wrote some software (or even a driver) to interface with it.. what about the other side of things?</p>
+
+<ul>
+<li>Can we emulate the device in software (for testing, or other purposes)</li>
+<li>Can we take the information from that device and stream it somewhere remotely?</li>
+<li>Can we make a new hardware device that &#39;presents itself&#39; as the device we just looked at? (eg. to interface with existing drivers/software)</li>
+</ul>
+
+<p>This is where device emulation and USB over IP can come to the party. I haven&#39;t dug too deeply into this topic, but a well placed Google search or two (<code>github usb over ip</code>, <code>github usb emulation</code>) turned up some interesting looking resources (and I&#39;m sure there are far more out there..):</p>
+
+<ul>
+<li><a href="https://github.com/forensix/libusbip">forensix/libusbip</a> : USB over IP</li>
+<li><a href="https://github.com/vavrusa/libusbnet">vavrusa/libusbnet</a> :
+libusb wrapper to enable communication with USB devices over TCP/IP</li>
+<li><a href="https://github.com/Frazew/PythonUSBIP">Frazew/PythonUSBIP</a> : USBIP protocol fully implemented in python + Full wiimote support using cwiid</li>
+<li><a href="https://github.com/lcgamboa/USBIP-Virtual-USB-Device">lcgamboa/USBIP-Virtual-USB-Device</a> :
+Emulates USB Devices using USBIP in Python or c</li>
+<li><a href="https://github.com/Microsoft/UDE">Microsoft/UDE</a> : USB Device Emulation Samples</li>
+<li><a href="https://github.com/EngineerTony/Arduino_USBKeyboard_Hacker">EngineerTony/Arduino<em>USBKeyboard</em>Hacker</a> : Uses the Arduino Uno microcontroller to emulate a USB keyboard and insert random text into the computer at random intervals</li>
+<li><a href="https://github.com/ViGEm/ViGEmBus">ViGEm/ViGEmBus</a> : Windows kernel-mode driver emulating well-known USB game controllers</li>
+</ul>
+
+<p>Also, don&#39;t forget those hardware devices mentioned above that are designed for emulation..</p>
+
+<p>Definitely an area that could be interesting to explore deeper, maybe in a future project/post.</p>
+
+<h2><a name="iot-hardware-hacking-fuzzing-etc"></a>IoT, Hardware Hacking, Fuzzing, etc</h2>
+
+<p>Once we understand the language these devices speak, how to listen to it, how to emulate it.. what&#39;s next? One idea is to apply the concept of fuzzing used in the software world (random/crafted data used to look for crashes in software), and turn it to hardware. And with the prevalence of IoT devices out there now (often with woeful security).. this could be another interesting rabbithole to explore (google: <code>usb hardware fuzzing</code>):</p>
+
+<ul>
+<li><a href="https://blog.quarkslab.com/usb-fuzzing-basics-from-fuzzing-to-bug-reporting.html">https://blog.quarkslab.com/usb-fuzzing-basics-from-fuzzing-to-bug-reporting.html</a> (2014)</li>
+<li><a href="https://github.com/nccgroup/umap">https://github.com/nccgroup/umap</a> : The USB host security assessment tool (~2013)</li>
+<li><a href="https://github.com/nccgroup/FrisbeeLite">nccgroup/FrisbeeLite</a> : A GUI-based USB device fuzzer
+
+<ul>
+<li><a href="https://www.nccgroup.trust/au/our-research/fuzzing-usb-devices-using-frisbee-lite/">https://www.nccgroup.trust/au/our-research/fuzzing-usb-devices-using-frisbee-lite/</a> (2013)</li>
+</ul></li>
+<li><a href="https://github.com/ollseg/usb-device-fuzzing">ollseg/usb-device-fuzzing</a> :
+Some tools for testing USB devices (2012)</li>
+<li><a href="https://labs.mwrinfosecurity.com/blog/usb-fuzzing-for-the-masses/">https://labs.mwrinfosecurity.com/blog/usb-fuzzing-for-the-masses/</a> (2011)</li>
+<li><a href="https://wikileaks.org/hbgary-emails//fileid/64995/17596">https://wikileaks.org/hbgary-emails//fileid/64995/17596</a> : USB Protocol Fuzzer Options (2009)</li>
+<li><a href="https://www.beyondsecurity.com/bestorm.html">https://www.beyondsecurity.com/bestorm.html</a> (commercial)
+
+<ul>
+<li><a href="https://www.beyondsecurity.com/bestorm_usb_case_study.html">https://www.beyondsecurity.com/bestorm_usb_case_study.html</a></li>
+</ul></li>
+</ul>
+
+<h2><a name="link-dump"></a>Link Dump</h2>
+
+<p>After all of that.. there is only one little link left in my linkdump, and from memory, I think it was the one that started this cascading flow of rabbitholes. Not really anything to see here that we haven&#39;t already covered, but for posterity:</p>
+
+<ul>
+<li><a href="https://electronics.stackexchange.com/questions/4180/reverse-engineering-usb-signals">https://electronics.stackexchange.com/questions/4180/reverse-engineering-usb-signals</a></li>
+</ul>
+
+<h2><a name="conclusion"></a>Conclusion</h2>
+
+<p>Well.. that got longer than I expected! What originally started out as me wanting to dump a few links I was collecting as I read into this subject, <strong>we seem to have ended up with a rough reference guide to getting started on AllTheThings(tm) relating to USB reverse engineering and associated hardware hacking.</strong></p>
+
+<p>While this post by itself isn&#39;t going to give you all the answers, hopefully it&#39;s given you enough of a base that you can branch out and dig deeper into the aspects that interest you. And when you do, let me know what you build/break/discover!</p>
+
+<p>Was there something I missed? A new shiny piece of hardware? An amazing program? Maybe you have some awesome techniques to share? Or just a story about what you&#39;ve been able to do with this newfound knowledge? I&#39;d love to hear from you in the comments below!</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>Imagine a world..</title>
 	  <link>/devalias/2018/04/20/imagine-a-world/</link>
 	  <author>devalias</author>

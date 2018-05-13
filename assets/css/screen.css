@@ -245,8 +245,13 @@ h6 {
 }
 
 a {
-    color: #4A4A4A;
+    /*color: #4A4A4A;*/
+    color: #80b13c;
     transition: color 0.3s ease;
+}
+
+.post-title a, .author-social a {
+    color: #4A4A4A;
 }
 
 a:hover {
@@ -257,7 +262,7 @@ p, ul, ol, dl {
     -webkit-font-feature-settings: 'liga' 1, 'onum' 1, 'kern' 1;
     -moz-font-feature-settings: 'liga' 1, 'onum' 1, 'kern' 1;
     -o-font-feature-settings: 'liga' 1, 'onum' 1, 'kern' 1;
-    margin: 0 0 1.75em 0;
+    /*margin: 0 0 1.75em 0;*/
     text-rendering: geometricPrecision;
 }
 
@@ -288,9 +293,9 @@ dl dd {
     margin-bottom: 1em
 }
 
-li {
+/*li {
     margin: 0.4em 0;
-}
+}*/
 
 li li {
     margin: 0;
@@ -1608,7 +1613,7 @@ body:not(.post-template) .post-title {
    ========================================================================== */
 
 @media only screen and (max-width: 900px) {
-   
+
     .main-header {
         -webkit-box-sizing: border-box;
         -moz-box-sizing: border-box;

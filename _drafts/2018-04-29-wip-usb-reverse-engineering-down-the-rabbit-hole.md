@@ -22,6 +22,15 @@ This time around I was inspired to look into USB reverse engineering, protocol a
 
 It seems the further I went, the more and more interesting I found the content I was finding. Hopefully it will help to shortcut your own journey down this path, and enlighten you to a whole area of new and interesting things to hack!
 
+## tl;dr
+
+This is long, and has many options, and time is precious:
+
+* **Walkthrough:** Read the [adafruit one](https://learn.adafruit.com/hacking-the-kinect)
+* **Software:** Wireshark + usbpcap/usbmon
+* **Hardware:** GreatFET, Facedancer 2.0
+* **Commercial Hardware:** BeagleUSB
+
 ## Intro to USB
 
 USB (universal serial bus) is an industry standard covering cables, connectors and protocols; and is pretty ubiquitous among tech products these days. I won't get deep on describing all of the facts, since that's what Wikipedia is good at:
@@ -238,7 +247,7 @@ Further reading:
 * https://exfil.co/2016/02/11/goodfet-on-os-x/
 * https://hackaday.com/tag/goodfet/
 
-## Hardware: Facedancer, Beagledancer, Raspdancer (2012-2018+, ~US$85-???)
+## Hardware: Facedancer, Beagledancer, Raspdancer (~2012-2018+, ~US$85-???)
 
 (Make sure to look at the facedancer 2.0 below as well)
 
@@ -280,22 +289,34 @@ Other hardware projects that connect with the facedancer:
 
 * https://github.com/dominicgs/USBProxy
 
-## Hardware: Facedancer 2.0 (2017-2018+)
+Presentations/etc:
 
-> This repository houses the next generation of FaceDancer software. Descended from the original GoodFET-based FaceDancer, this repository provides a python module that provides expanded FaceDancer support-- including support for multiple boards and some pretty significant new features.
+* [YouTube: NSA Playset: USB Tools [ShmooCon 2015]](https://www.youtube.com/watch?v=uDPxa5tcdnI) (2015) ([Overview](https://shmoo.gitbooks.io/2015-shmoocon-proceedings/content/build/01_nsa_playset_usb_tools.html), [Slides](https://github.com/dominicgs/dominicgs.github.io/blob/master/presentations/2015/NSA%20Playset-USB%20Tools-ShmooCon.pdf))
+* [YouTube: BG - USB Write Blocking with USBProxy - Dominic Spill
+](https://www.youtube.com/watch?v=rcfYgU-Be08) (2014) ([Slides](https://github.com/dominicgs/dominicgs.github.io/blob/master/presentations/2014/Spill_BSidesLV_USBProxy_slides.pdf))
+* Youtube ([1](https://www.youtube.com/watch?v=5JnAeakUBnU), [2](https://www.youtube.com/watch?v=l9wnu97785s)): ShmooCon 2014: An Open and Affordable USB Man in the Middle Device (2014) ([Slides](https://github.com/dominicgs/dominicgs.github.io/blob/master/presentations/2014/Spill_USBProxy_ShmooCon_Slides.pdf), [Whitepaper](https://github.com/dominicgs/dominicgs.github.io/blob/master/presentations/2014/Spill_USBProxy_ShmooCon_paper.pdf), [CFP](https://github.com/dominicgs/dominicgs.github.io/blob/master/presentations/2014/Spill_USBProxy_ShmooCon_cfp.txt))
+* [CFP: Haxpo - Protecting USB devices with USBProxy](https://github.com/dominicgs/dominicgs.github.io/blob/master/presentations/2014/Spill_USBProxy_Haxpo_cfp.txt)
 
-This is the v2.x of the facedancer, designed to be better/greater. I won't go too deeply into things, but the following are useful resources:
+## Hardware: Daisho (~2013-?2018+?)
 
-* https://github.com/ktemkin/facedancer
-* https://github.com/ktemkin/facedancer#usbproxy-nouveau-and-protocol-analysis
-  * Replaces [USBProxy](https://github.com/dominicgs/USBProxy)
+> SuperSpeed USB 3.0 FPGA platform
 
-Presentations/Training/etc:
+This is a project designed for monitoring a number of high speed communication technologies at the physical layer, including USB 3.0, Gigabit ethernet, HDMI, etc. You can read more about it in the introduction blog:
 
-* [Youtube: FaceDancer 2.0 (SHA2017)](https://www.youtube.com/watch?v=L3Ug9591Vag&list=PLnOI9rJWBVjE_xz7uGH4QKLiU5X0A7fjv&index=143) ([Slides](http://dominicspill.com/presentations/2017/Temkin_Spill_FaceDancer2_slides.pdf), [Slides2](https://github.com/dominicgs/dominicgs.github.io/blob/master/presentations/2017/Temkin_Spill_FaceDancer2_slides.pdf), [Twitter](https://twitter.com/dominicgs/status/895341394730123265))
-* [Youtube: ToorCon 19 - Spill & Temkin - Facedancer 2.0 Next Generation USB Hacking](https://www.youtube.com/watch?v=HV9WfDRjJCg) (2017)
-  * [Facedancer 2 starts at 35:16](https://youtu.be/HV9WfDRjJCg?t=2116)
-* [Troopers Training: Hacking the USB World with FaceDancer](https://www.troopers.de/troopers18/trainings/jmpsxq/) ([PDF](https://hm-ts.de/pdf/TR18_HM_Hack_Facedancer.pdf), 2018)
+* http://ossmann.blogspot.com.au/2013/05/introducing-daisho.html (tag: [daisho](http://ossmann.blogspot.com.au/search/label/daisho))
+
+You can find more about the project at the following sites:
+
+* https://greatscottgadgets.com/daisho/
+* https://github.com/mossmann/daisho
+* https://github.com/mossmann/daisho/wiki
+* https://github.com/enjoy-digital/daisho_usb3ipcore_test
+
+Presentations/etc:
+
+* [YouTube: NSA Playset: USB Tools [ShmooCon 2015]](https://www.youtube.com/watch?v=uDPxa5tcdnI) (2015) ([Overview](https://shmoo.gitbooks.io/2015-shmoocon-proceedings/content/build/01_nsa_playset_usb_tools.html), [Slides](https://github.com/dominicgs/dominicgs.github.io/blob/master/presentations/2015/NSA%20Playset-USB%20Tools-ShmooCon.pdf))
+* [YouTube: Black Hat USA 2013 - What's on the Wire? Physical Layer Tapping with Project Daisho
+](https://www.youtube.com/watch?v=b2DsU1O6Lhg) (2013) ([Slides](https://media.blackhat.com/us-13/US-13-Spill-Whats-on-the-Wire-Slides.pdf), [Whitepaper](https://media.blackhat.com/us-13/US-13-Spill-Whats-on-the-Wire-WP.pdf))
 
 ## Hardware: GreatFET (~2015-2018+)
 
@@ -321,47 +342,31 @@ I couldn't find many resources about how to buy these.. but here is what I got:
 
 Presentations/etc:
 
-* [Youtube: TR18: Reverse Engineering Black Box Systems with GreatFET](https://www.youtube.com/watch?v=h3VWvZ162QE) ([Slides](https://download.ernw-insight.de/troopers/tr18/slides/TR18_AR_RE-Black-Box-Systems-GreatFET-Facedancer.pdf), [Agenda](https://www.troopers.de/troopers18/agenda/bcgyzl/)) (2018)
-* [Youtube: TR17 - Rusting up your GREATFET - Richo Healey, Dominic Spill](https://www.youtube.com/watch?v=4Ra9XNjNS3M) ([Slides](https://speakerdeck.com/richo/rust-greatfet)) (2017)
-* [Youtube: GreatFET: Making GoodFET Great Again](https://www.youtube.com/watch?v=4NIoAnsuFOQ) ([Slides](https://www.blackhat.com/docs/us-16/materials/us-16-Ossmann-GreatFET-Making-GoodFET-Great-Again-wp.pdf)) (2016)
+* [YouTube: TR18 - Reverse Engineering Black Box Systems with GreatFET](https://www.youtube.com/watch?v=h3VWvZ162QE) (2018) ([Slides](https://download.ernw-insight.de/troopers/tr18/slides/TR18_AR_RE-Black-Box-Systems-GreatFET-Facedancer.pdf), [Agenda](https://www.troopers.de/troopers18/agenda/bcgyzl/))
+* [YouTube: TR17 - Rusting up your GREATFET - Richo Healey, Dominic Spill](https://www.youtube.com/watch?v=4Ra9XNjNS3M) (2017) ([Slides](https://speakerdeck.com/richo/rust-greatfet))
+* [YouTube: GreatFET: Making GoodFET Great Again](https://www.youtube.com/watch?v=4NIoAnsuFOQ) (2016) ([Slides](https://www.blackhat.com/docs/us-16/materials/us-16-Ossmann-GreatFET-Making-GoodFET-Great-Again-wp.pdf))
 
 Further reading:
 
 * https://hackaday.com/tag/greatfet/
 * https://twitter.com/search?q=%23GreatFET&lang=en
 
-## Hardware: Daisho
+## Hardware: Facedancer 2.0 (~2017-2018+)
 
-> SuperSpeed USB 3.0 FPGA platform
+> This repository houses the next generation of FaceDancer software. Descended from the original GoodFET-based FaceDancer, this repository provides a python module that provides expanded FaceDancer support-- including support for multiple boards and some pretty significant new features.
 
-TODO
+This is the v2.x of the facedancer, designed to be better/greater. I won't go too deeply into things, but the following are useful resources:
 
-https://greatscottgadgets.com/daisho/
-  https://github.com/mossmann/daisho
-  https://github.com/mossmann/daisho/wiki
-  https://github.com/enjoy-digital/daisho_usb3ipcore_test
-  http://ossmann.blogspot.com/2013/05/introducing-daisho.html
-  https://media.blackhat.com/us-13/US-13-Spill-Whats-on-the-Wire-WP.pdf
-  https://arstechnica.com/information-technology/2015/01/playing-nsa-hardware-hackers-build-usb-cable-that-can-attack/
+* https://github.com/ktemkin/facedancer
+* https://github.com/ktemkin/facedancer#usbproxy-nouveau-and-protocol-analysis
+  * Replaces [USBProxy](https://github.com/dominicgs/USBProxy)
 
-## Hardware: Further Reading
+Presentations/Training/etc:
 
-TODO
-
-Should USBproxy be it's own thing..? Based on these slides sounds like it can stand alone with a beaglebone/etc?: https://github.com/dominicgs/dominicgs.github.io/blob/master/presentations/2015/NSA%20Playset-USB%20Tools-ShmooCon.pdf this also talks about daisho (usb3)..
-
-Further Reading?
-  https://shmoo.gitbooks.io/2015-shmoocon-proceedings/content/build/01_nsa_playset_usb_tools.html (2015)
-  https://github.com/dominicgs/dominicgs.github.io/tree/master/presentations/2015
-  https://github.com/dominicgs/dominicgs.github.io/blob/master/presentations/2015/NSA%20Playset-USB%20Tools-ShmooCon.pdf
-
-  https://github.com/dominicgs/dominicgs.github.io/tree/master/presentations/2014
-  https://github.com/dominicgs/dominicgs.github.io/blob/master/presentations/2014/Spill_BSidesLV_USBProxy_slides.pdf
-  +more
-
-  https://www.blackhat.com/docs/webcast/04232014-tools-of-the-hardware-hacking-trade.pdf (2014?)
-
-  https://www.defcon.org/images/defcon-22/dc-22-presentations/Michael-Shkatov/DEFCON-22-Jesse-Michael-Mickey-Shkatov-USB-for-All!!-UPDATED.pdf (2014?)
+* [YouTube: FaceDancer 2.0 (SHA2017)](https://www.youtube.com/watch?v=L3Ug9591Vag&list=PLnOI9rJWBVjE_xz7uGH4QKLiU5X0A7fjv&index=143) (2017) ([Slides](http://dominicspill.com/presentations/2017/Temkin_Spill_FaceDancer2_slides.pdf), [Slides2](https://github.com/dominicgs/dominicgs.github.io/blob/master/presentations/2017/Temkin_Spill_FaceDancer2_slides.pdf), [Twitter](https://twitter.com/dominicgs/status/895341394730123265))
+* [YouTube: ToorCon 19 - Spill & Temkin - Facedancer 2.0 Next Generation USB Hacking](https://www.youtube.com/watch?v=HV9WfDRjJCg) (2017)
+  * [Facedancer 2 starts at 35:16](https://youtu.be/HV9WfDRjJCg?t=2116)
+* [Troopers Training: Hacking the USB World with FaceDancer](https://www.troopers.de/troopers18/trainings/jmpsxq/) ([PDF](https://hm-ts.de/pdf/TR18_HM_Hack_Facedancer.pdf), 2018)
 
 ## Commercial Hardware: TotalPhase BeagleUSB
 
@@ -374,36 +379,45 @@ TODO: Commercial device, various models from cheapish to super expensive, differ
   * https://www.totalphase.com/products/beagle-usb5000-v2-standard/ ~$3420, USB 3
   * https://www.totalphase.com/products/beagle-usb5000-v2-ultimate/ ~$5700, USB 2/3
 
+## Further Reading/Presentations
+
+I figured I'd add this section for some other interesting presentations/resources that just didn't seem to fit nicely into the categories above. Some of them go a little beyond just USB hardware hacking, and into more general/specific hardware hacking tools:
+
+* [YouTube: DEF CON 22 - Jesse Michael and Mickey Shkatov - USB for all!!](https://www.youtube.com/watch?v=7HnQnpJwr-c) (2014) ([Slides](https://www.defcon.org/images/defcon-22/dc-22-presentations/Michael-Shkatov/DEFCON-22-Jesse-Michael-Mickey-Shkatov-USB-for-All!!-UPDATED.pdf))
+* [YouTube: Tools of the Hardware Hacking Trade - Duo Tech Talk
+](https://www.youtube.com/watch?v=PYeYxQqBTLo) (2014) ([Slides](https://www.blackhat.com/docs/webcast/04232014-tools-of-the-hardware-hacking-trade.pdf))
+
 ## People to Watch
 
-TODO: Add interesting people to watch in the usb/hardware hacking space? eg. dominicgs, mossman, greatscottgadgets, ktemkin; basically anyone who made one of these hardware/etc projects..
-https://www.ktemkin.com/
-https://twitter.com/rich0h ? (did rust+greatfet talk)
+While I was doing this reasearch there were a few names that just kept popping up time and time again, and seem to be working on really cool things in this space. To make it easier to follow them on their relevent platforms, I wanted to collect them together here for you (in no particular order):
 
-## ?Code/Drivers/etc?
+* Travis Goodspeed (travisgoodspeed, [Twitter](https://twitter.com/travisgoodspeed), [GitHub](https://github.com/travisgoodspeed))
+* Dominic Spill (dominicgs, [Twitter](https://twitter.com/dominicgs/), [GitHub](https://github.com/dominicgs/), [Website](https://dominicspill.com/))
+* Kate Temkin (ktemkin, [Twitter](https://twitter.com/ktemkin/), [GitHub](https://github.com/ktemkin/), [Website](https://www.ktemkin.com/))
+* Michael Ossmann (mossmann, [Twitter](https://twitter.com/michaelossmann), [GitHub](https://github.com/mossmann), [Website](http://www.ossmann.com/))
+* Great Scott Gadgets ([Twitter](https://twitter.com/GSGLabs), [GitHub](https://github.com/greatscottgadgets), [Website](http://greatscottgadgets.com/))
 
-TODO: libusb, pyusb, etc
+If I've missed anyone that you feel deserves to be here too, please let me know!
 
+## Code/Drivers/etc
+
+So we know how to capture traffic from our devices, proxy it with hardware, break the protocols down and understand them. But we also want to be able to talk back to them, control them, and truly interact. This is where code and drivers comes in. Now we've sort of skimmed over these topics in a few of the above sections, but for the sake of clarity I wanted to group them all here as well.
+
+When I first thought about writing this section I thought we were going to be getting deep into kernel drivers, and fighting with arcane systems, but it seems we actually have a much nicer alternative before all of that, thanks to **libusb, pyusb, and friends**:
+
+* http://libusb.info/ ([GitHub](https://github.com/libusb/libusb)) : A cross-platform library to access USB devices
 * https://github.com/pyusb/pyusb : USB access for Python
+* https://github.com/LibUsbDotNet/LibUsbDotNet : Library for cross-platform USB device control using Mono/.NET
 
-* http://libusb.info/ ([GitHub](https://github.com/libusb/libusb))
-    * A cross-platform library to access USB devices
-  * https://sourceforge.net/projects/libusbk/
-  * https://github.com/LibUsbDotNet/LibUsbDotNet
-  * https://github.com/daynix/UsbDk
+You can see examples of using libusb/pyUSB in some of the walkthroughs mentioned earlier.
 
-* http://www.fourwalledcubicle.com/LUFA.php
-    * https://github.com/abcminiuser/lufa : LUFA - the Lightweight USB Framework for AVRs.
+Now while these libraries give us a whole lot of power and makes it pretty easy to write our software, there may be times where they just don't quite cover what we need. That's when we can go deeper into the weird and wonderful world of driver development. I won't cover this too in-depth at the moment as it could be a whole blog series on it's own, but a few resources to get you started:
 
-* https://github.com/makestuff/libfpgalink
-    * https://github.com/makestuff/libfpgalink/wiki/FPGALink
-
-TODO: ?Custom Drivers?, windows driver kit, rust drivers, etc.. maybe combine this with the above..
-
-* Driver development
-  * [Windows Driver Kit (WDK)](https://docs.microsoft.com/en-us/windows-hardware/drivers/ddi/content/index)
-  * https://github.com/pravic/winapi-kmd-rs : Windows Kernel-Mode Drivers written in Rust
-  * http://www.linuxvoice.com/be-a-kernel-hacker/
+* https://github.com/daynix/UsbDk : Usb Drivers Development Kit for Windows
+* [LUFA (Lightweight USB Framework for AVRs)](http://www.fourwalledcubicle.com/LUFA.php) ([GitHub](https://github.com/abcminiuser/lufa))
+* [Windows Driver Kit (WDK)](https://docs.microsoft.com/en-us/windows-hardware/drivers/ddi/content/index)
+* https://github.com/pravic/winapi-kmd-rs : Windows Kernel-Mode Drivers written in Rust
+* http://www.linuxvoice.com/be-a-kernel-hacker/
 
 ## Where next? Device Emulation, USB over IP, etc
 
@@ -425,6 +439,8 @@ Emulates USB Devices using USBIP in Python or c
 * [EngineerTony/Arduino_USBKeyboard_Hacker](https://github.com/EngineerTony/Arduino_USBKeyboard_Hacker) : Uses the Arduino Uno microcontroller to emulate a USB keyboard and insert random text into the computer at random intervals
 * [ViGEm/ViGEmBus](https://github.com/ViGEm/ViGEmBus) : Windows kernel-mode driver emulating well-known USB game controllers
 
+Also, don't forget those hardware devices mentioned above that are designed for emulation..
+
 Definitely an area that could be interesting to explore deeper, maybe in a future project/post.
 
 ## IoT, Hardware Hacking, Fuzzing, etc
@@ -444,8 +460,14 @@ Some tools for testing USB devices (2012)
 
 ## Link Dump
 
-After all of that.. there is only one little link left in my linkdump, and from memory, I think it was the post that started the cascading flow of rabbitholes. Not really anything to see here that we haven't already covered:
+After all of that.. there is only one little link left in my linkdump, and from memory, I think it was the post that started this cascading flow of rabbitholes. Not really anything to see here that we haven't already covered, but for posterity:
 
 * https://electronics.stackexchange.com/questions/4180/reverse-engineering-usb-signals
 
 ## Conclusion
+
+Well.. that got longer than I expected! What originally started out as me wanting to dump a few links I was collecting as I read into this subject, we seem to have ended up with a rough reference guide to getting started on AllTheThings(tm) relating to USB reverse engineering and associated hardware hacking.
+
+While this post by itself isn't going to give you all the answers, hopefully it's given you enough of a base that you can branch out and dig deeper into the aspects that interest you. And when you do? Let me know what you build/break/discover!
+
+Was there something I missed? A new shiny piece of hardware? An amazing program? Maybe you have some awesome techniques to share, or just a story about what you've been able to do with this newfound knowledge? I'd love to hear from you in the comments below!

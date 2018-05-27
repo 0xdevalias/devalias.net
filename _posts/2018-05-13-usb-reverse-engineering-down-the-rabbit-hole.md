@@ -33,8 +33,21 @@ categories:
 - devalias
 disqus: true
 webmention: true
-crosspost_to_medium: false
+crosspost_to_medium: true
+crossposted:
+- https://hackaday.com/2018/05/25/usb-reverse-engineering-a-universal-guide
+- https://twitter.com/hackaday/status/1000195085504536576
+- https://www.facebook.com/hackaday.io/posts/2040723869274213
+- https://hackernoon.com/usb-reverse-engineering-down-the-rabbit-hole-c4809a5b55c4
+- https://twitter.com/_devalias/status/1000500518198722560
+- https://www.facebook.com/ensquared/posts/10160389499435414
+- https://www.linkedin.com/feed/update/urn:li:activity:6406284509926563840
+- https://news.ycombinator.com/item?id=17164700
 ---
+> Thanks [for the featured writeup Hackaday](https://hackaday.com/2018/05/25/usb-reverse-engineering-a-universal-guide)! Make sure to check out the [comments](https://hackaday.com/2018/05/25/usb-reverse-engineering-a-universal-guide/#comments) over there as well.
+>
+> Looks like [Hackernoon picked it up](https://hackernoon.com/usb-reverse-engineering-down-the-rabbit-hole-c4809a5b55c4) as well, make sure to check in with the comments there too.
+
 I tend to dive down rabbit holes a lot, and given the cost of context switching and memory deteriorating over time, sometimes the state I build up in my mind gets lost between the chances I get to dive in. These 'linkdump' posts are an attempt to collate at least some of that state in a way that I can hopefully restore to my brain at a later point.
 
 This time around I was inspired to look into USB reverse engineering, protocol analyis, hardware hacking, and what would be involved in implementing custom drivers for arbitrary hardware. Or put another way: **how do I hack all of the USBs?!??**

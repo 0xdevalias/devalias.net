@@ -47,6 +47,8 @@ crossposted:
 > Thanks [for the featured writeup Hackaday](https://hackaday.com/2018/05/25/usb-reverse-engineering-a-universal-guide)! Make sure to check out the [comments](https://hackaday.com/2018/05/25/usb-reverse-engineering-a-universal-guide/#comments) over there as well.
 >
 > Looks like [Hackernoon picked it up](https://hackernoon.com/usb-reverse-engineering-down-the-rabbit-hole-c4809a5b55c4) as well, make sure to check in with the comments there too.
+>
+> It would be great if you could also [head over to Hacker News](https://news.ycombinator.com/item?id=17164700), give an upvote, and join in the comments there. Let's get this information out there!
 
 I tend to dive down rabbit holes a lot, and given the cost of context switching and memory deteriorating over time, sometimes the state I build up in my mind gets lost between the chances I get to dive in. These 'linkdump' posts are an attempt to collate at least some of that state in a way that I can hopefully restore to my brain at a later point.
 

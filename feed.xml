@@ -1,4 +1,49 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en_GB"><generator uri="https://jekyllrb.com/" version="3.8.0">Jekyll</generator><link href="http://devalias.net/feed.xml" rel="self" type="application/atom+xml" /><link href="http://devalias.net/" rel="alternate" type="text/html" hreflang="en_GB" /><updated>2018-05-27T10:45:49+10:00</updated><id>http://devalias.net/</id><title type="html">/dev/alias – Hack. Dev. Transcend.</title><subtitle>Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.</subtitle><entry><title type="html">USB Reverse Engineering: Down the rabbit hole</title><link href="http://devalias.net/devalias/2018/05/13/usb-reverse-engineering-down-the-rabbit-hole/" rel="alternate" type="text/html" title="USB Reverse Engineering: Down the rabbit hole" /><published>2018-05-13T00:00:00+10:00</published><updated>2018-05-13T00:00:00+10:00</updated><id>http://devalias.net/devalias/2018/05/13/usb-reverse-engineering-down-the-rabbit-hole</id><content type="html" xml:base="http://devalias.net/devalias/2018/05/13/usb-reverse-engineering-down-the-rabbit-hole/">&lt;blockquote&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en_GB"><generator uri="https://jekyllrb.com/" version="3.8.0">Jekyll</generator><link href="http://devalias.net/feed.xml" rel="self" type="application/atom+xml" /><link href="http://devalias.net/" rel="alternate" type="text/html" hreflang="en_GB" /><updated>2018-08-19T09:48:03+10:00</updated><id>http://devalias.net/</id><title type="html">/dev/alias – Hack. Dev. Transcend.</title><subtitle>Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.</subtitle><entry><title type="html">Presenting at DEF CON 26 - Bug Bounty Hunting on Steroids</title><link href="http://devalias.net/devalias/2018/08/19/presenting-at-def-con-26-bug-bounty-hunting-on-steroids/" rel="alternate" type="text/html" title="Presenting at DEF CON 26 - Bug Bounty Hunting on Steroids" /><published>2018-08-19T00:00:00+10:00</published><updated>2018-08-19T00:00:00+10:00</updated><id>http://devalias.net/devalias/2018/08/19/presenting-at-def-con-26-bug-bounty-hunting-on-steroids</id><content type="html" xml:base="http://devalias.net/devalias/2018/08/19/presenting-at-def-con-26-bug-bounty-hunting-on-steroids/">&lt;p&gt;Wow, what a trip! I just had the opportunity to not only live out a childhood dream of attending &lt;a href=&quot;https://www.defcon.org/&quot;&gt;DEF CON&lt;/a&gt;, but I even had the privilege to be able to present at the &lt;a href=&quot;http://reconvillage.org/talks-2018/#bug-bounty-hunting-on-steroids---anshuman-bhartiya-and-glenn-devalias-grant&quot;&gt;DEF CON Recon Village&lt;/a&gt;! Talk about achievement unlocked!&lt;/p&gt;
+
+&lt;p&gt;If you&amp;#39;ve been &lt;a href=&quot;https://twitter.com/i/moments/1030953718177394688&quot;&gt;following along on twitter&lt;/a&gt;, you might be aware that I&amp;#39;ve been working on a security automation framework with regards to bug bounty hunting; to increase our agility, automate the boring bits, and let us JustHackThings. It&amp;#39;s something that our team (&lt;a href=&quot;https://twitter.com/anshuman_bh&quot;&gt;@anshuman_bh&lt;/a&gt;, &lt;a href=&quot;https://twitter.com/mhmdiaa&quot;&gt;@mhmdiaa&lt;/a&gt;, and &lt;a href=&quot;https://twitter.com/_devalias&quot;&gt;myself&lt;/a&gt;) have been calling BountyMachine.&lt;/p&gt;
+
+&lt;p&gt;It&amp;#39;s no secret in the security/pentest/bug bounty world that there are a lot of boring bits when it comes to assessments. The recon, finding good targets, and all those things that eventually lead to being able to do all of the sweet hacks. There are a lot of people thinking about and working in this space to try and make things better, both publicly/open source, as well as privately with their own methods and frameworks.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://twitter.com/anshuman_bh&quot;&gt;@anshuman_bh&lt;/a&gt; has been working on improving this space over a number of years, with various open source projects and explorations (such as &lt;a href=&quot;https://github.com/anshumanbh/brutesubs&quot;&gt;brutesubs&lt;/a&gt;, &lt;a href=&quot;https://github.com/anshumanbh/FASTSAM&quot;&gt;FASTSAM&lt;/a&gt;, &lt;a href=&quot;https://github.com/anshumanbh/hodor&quot;&gt;hodor&lt;/a&gt;, &lt;a href=&quot;https://github.com/anshumanbh/kubebot&quot;&gt;kubebot&lt;/a&gt;, etc) eventually leading us to where we are now. It was actually after I referenced some of his projects in my talk &lt;a href=&quot;/devalias/2017/11/19/presenting-all-the-things-bsides-wellington-csides-sectalks/&quot;&gt;&amp;quot;Gophers, whales and.. clouds? Oh my!&amp;quot;&lt;/a&gt; (&lt;a href=&quot;https://github.com/0xdevalias/gopherblazer&quot;&gt;GitHub&lt;/a&gt;) at BSides Wellington last year that he reached out about this current project. Not to mention &lt;a href=&quot;https://twitter.com/mhmdiaa&quot;&gt;@mhmdiaa&lt;/a&gt;&amp;#39;s &lt;a href=&quot;https://www.youtube.com/watch?v=3Q-QyGlc_Xk&quot;&gt;&amp;quot;Automation For Bug Hunters&amp;quot; presentation on Bug Bounty World&lt;/a&gt; (&lt;a href=&quot;https://speakerdeck.com/mhmdiaa/automation-for-bug-hunters&quot;&gt;slides&lt;/a&gt;) and other work in this space. With our views and efforts so closely aligned we decided to join forces and work on this latest rendition, a v3 of sorts, BountyMachine.&lt;/p&gt;
+
+&lt;p&gt;So coming back to our talk at DEF CON this year, &amp;quot;Bug Bounty Hunting on Steroids&amp;quot; was an opportunity to share what we have been working on, along with some of the process, patterns, ideas and lessons we have learned along the way; with the ultimate goal of inspiring others to think outside the current box, and reinvent the way we all approach our security research.&lt;/p&gt;
+
+&lt;p&gt;I put together a little &lt;a href=&quot;https://medium.com/tsscyber/def-con-2018-6ff9542451b8#906b&quot;&gt;overview post for our work blog at TSS&lt;/a&gt; (we had a few of us speaking this year!), so instead of repeating all of the talk specifics you can check that out. I will reshare the &lt;a href=&quot;http://reconvillage.org/talks-2018/#bug-bounty-hunting-on-steroids---anshuman-bhartiya-and-glenn-devalias-grant&quot;&gt;talk overview&lt;/a&gt; here though, for posterity:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Bug bounty programs are a hot topic these days. More and more companies are realizing the benefits of running a program, and researchers are jumping at the opportunity to grab some swag and make some extra cash from the bugs they find. Reporting security issues has never been as easy, open, and risk-free as it is right now. Everybody wins!&lt;/p&gt;
+
+&lt;p&gt;Though that doesn’t mean we should stop there. As researchers, we spend a lot of time doing the same menial tasks for each program: monitoring for new targets, checking for common issues, remembering just which flags you needed to pass to that tool (or even which tool is best for that job). We build new tools, hack together shell scripts, and generally make small incremental changes to our process. But surely there’s a better approach?&lt;/p&gt;
+
+&lt;p&gt;Are you sick of repeating the same tedious tasks over and over? Wouldn’t it be nice to have your own bug hunting machine? One that -&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Is always watching&lt;/li&gt;
+&lt;li&gt;Reacts as soon as a new target becomes available&lt;/li&gt;
+&lt;li&gt;Takes care of those tedious repetitive steps for you&lt;/li&gt;
+&lt;li&gt;Makes life easy when you want to integrate a new tool/workflow&lt;/li&gt;
+&lt;li&gt;Doesn’t cost the world to run, and trivially scales&lt;/li&gt;
+&lt;li&gt;Leverages lessons and technologies battle tested in the dev world to improve your offensive capacity, capability and productivity&lt;/li&gt;
+&lt;li&gt;Monitors your own infrastructure and reacts before hackers can (while saving you the cost of those Bug Bounty payouts in the meantime)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;We call this approach Bug Bounty Hunting on Steroids. We will discuss our research and approach to building such a machine, sharing some of the lessons we learned along the way.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Now if you didn&amp;#39;t manage to catch us at DEF CON (and I don&amp;#39;t blame you, there was SO much happening ALL THE TIME.. it&amp;#39;s such a non-stop week..) don&amp;#39;t fret! Our &lt;a href=&quot;https://speakerdeck.com/bountymachine/bug-bounty-hunting-on-steroids&quot;&gt;slides are online&lt;/a&gt;, we put together a bit of a &lt;a href=&quot;https://medium.com/@bountymachine/introducing-bountymachine-234cad93b5d2&quot;&gt;blog post covering a bunch of the areas we were talking about&lt;/a&gt;, and I believe the talk was also recorded, so once that is online I will link to that too. Or if Twitter is more your style, go along and &lt;a href=&quot;https://twitter.com/_devalias/status/1030946732069142528&quot;&gt;retweet this one&lt;/a&gt; (and make sure to follow the team for more BountyMachine updates!).&lt;/p&gt;
+
+&lt;p&gt;The response to our talk has been awesome: we packed out the presentation room, had a lot of really interesting questions after the talk; and have had a constant stream of feedback, questions and support on twitter and elsewhere since.&lt;/p&gt;
+
+&lt;p&gt;I truly believe that this is the space we need to be thinking and working in right now:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;encoding and automating our processes&lt;/li&gt;
+&lt;li&gt;improving our tooling&lt;/li&gt;
+&lt;li&gt;accelerating our agility&lt;/li&gt;
+&lt;li&gt;collaboratively working to improve the entire security space&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Does this resonate with you? Are you sick of the same repetitive manual processes again and again? Want to automate it? Want to save your precious time for actually doing the interesting hacks? Me too! Let&amp;#39;s talk! You can find me here in the comments, &lt;a href=&quot;https://twitter.com/_devalias&quot;&gt;twitter&lt;/a&gt;, or idling around the various slack channels (user: devalias) and otherwise across the internet. How can we work together to improve the entire state of things?&lt;/p&gt;</content><author><name>Glenn 'devalias' Grant</name></author><category term="security" /><category term="automation" /><category term="speaker" /><category term="defcon" /><category term="reconvillage" /><category term="bountymachine" /><category term="bugbounty" /><category term="anshumanbh" /><category term="mhmdiaa" /><summary type="html">Wow, what a trip! I just had the opportunity to not only live out a childhood dream of attending DEF CON, but I even had the privilege to be able to present at the DEF CON Recon Village! Talk about achievement unlocked!</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://devalias.net/assets/images/cover4.jpg" /></entry><entry><title type="html">USB Reverse Engineering: Down the rabbit hole</title><link href="http://devalias.net/devalias/2018/05/13/usb-reverse-engineering-down-the-rabbit-hole/" rel="alternate" type="text/html" title="USB Reverse Engineering: Down the rabbit hole" /><published>2018-05-13T00:00:00+10:00</published><updated>2018-05-13T00:00:00+10:00</updated><id>http://devalias.net/devalias/2018/05/13/usb-reverse-engineering-down-the-rabbit-hole</id><content type="html" xml:base="http://devalias.net/devalias/2018/05/13/usb-reverse-engineering-down-the-rabbit-hole/">&lt;blockquote&gt;
 &lt;p&gt;Thanks &lt;a href=&quot;https://hackaday.com/2018/05/25/usb-reverse-engineering-a-universal-guide&quot;&gt;for the featured writeup Hackaday&lt;/a&gt;! Make sure to check out the &lt;a href=&quot;https://hackaday.com/2018/05/25/usb-reverse-engineering-a-universal-guide/#comments&quot;&gt;comments&lt;/a&gt; over there as well.&lt;/p&gt;
 
 &lt;p&gt;Looks like &lt;a href=&quot;https://hackernoon.com/usb-reverse-engineering-down-the-rabbit-hole-c4809a5b55c4&quot;&gt;Hackernoon picked it up&lt;/a&gt; as well, make sure to check in with the comments there too.&lt;/p&gt;
@@ -1277,119 +1322,4 @@ Memes&amp;quot;&lt;/a&gt; (&lt;a href=&quot;https://twitter.com/bogan/status/934
 &lt;ul&gt;
 &lt;li&gt;This has a quick summary of boxes 1-6 as well&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Glenn 'devalias' Grant</name></author><category term="quicknote" /><category term="bulletproof" /><category term="bulletproof-quarterly" /><category term="dave-asprey" /><category term="quarterly" /><category term="biohacking" /><category term="biohacked.com" /><category term="samina" /><category term="siabotanics" /><category term="xpressgo" /><category term="fatwater" /><category term="beekeepers-naturals" /><category term="nima" /><category term="teloyears" /><category term="eye-armor" /><summary type="html">Time for another Bulletproof Biohacked.com quarterly box.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://devalias.net/assets/images/cover4.jpg" /></entry><entry><title type="html">An unexpected journey with webpack and RequireJS</title><link href="http://devalias.net/devalias/2017/08/05/unexpected-journey-webpack-requirejs/" rel="alternate" type="text/html" title="An unexpected journey with webpack and RequireJS" /><published>2017-08-05T00:00:00+10:00</published><updated>2017-08-05T00:00:00+10:00</updated><id>http://devalias.net/devalias/2017/08/05/unexpected-journey-webpack-requirejs</id><content type="html" xml:base="http://devalias.net/devalias/2017/08/05/unexpected-journey-webpack-requirejs/">&lt;p&gt;So the other day I &lt;a href=&quot;https://github.com/blueclosure/BCDetect/issues/27&quot;&gt;ran into what seemed like a bug&lt;/a&gt; in some software I was using during a test. Narrowing things down in the codebase, it looked as though the error may have been related to a &lt;a href=&quot;https://github.com/auth0/idtoken-verifier&quot;&gt;library in use by the application&lt;/a&gt; I was testing.&lt;/p&gt;
-
-&lt;p&gt;I needed an easy way to isolate the code that seemed to be causing the error from the rest of the application, which took me down a rabbit hole to learn a little bit more about a few different technologies.&lt;/p&gt;
-
-&lt;h2&gt;The Situation&lt;/h2&gt;
-
-&lt;p&gt;So I had a &lt;a href=&quot;https://github.com/auth0/idtoken-verifier&quot;&gt;JavaScript project&lt;/a&gt; that I wanted to build and include in a little test webpage. A few things in the repo stood out:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/auth0/idtoken-verifier/blob/master/package.json&quot;&gt;package.json&lt;/a&gt; - So it&amp;#39;s using &lt;a href=&quot;https://nodejs.org/&quot;&gt;node.js&lt;/a&gt; in some measure.
-
-&lt;ul&gt;
-&lt;li&gt;This also had a number of entries under the &lt;code&gt;scripts&lt;/code&gt; section, including some that made use of &lt;code&gt;gulp&lt;/code&gt; (another build tool)&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/auth0/idtoken-verifier/blob/master/gulpfile.js&quot;&gt;gulpfile.js&lt;/a&gt; - Another strong indicator that &lt;a href=&quot;https://gulpjs.com/&quot;&gt;gulp&lt;/a&gt; was in use. Didn&amp;#39;t need to dig too deeply into this side of things, though it did indicate that &lt;code&gt;webpack&lt;/code&gt; was in use.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/auth0/idtoken-verifier/blob/master/webpack.config.js&quot;&gt;webpack.config.js&lt;/a&gt; / &lt;a href=&quot;https://github.com/auth0/idtoken-verifier/blob/master/webpack.prod.config.js&quot;&gt;webpack.prod.config.js&lt;/a&gt; - The &lt;a href=&quot;https://webpack.github.io/&quot;&gt;webpack&lt;/a&gt; configuration files.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;So now I had a fair idea of what we had to work with, time to try and build it.&lt;/p&gt;
-
-&lt;h2&gt;Building with npm and gulp&lt;/h2&gt;
-
-&lt;p&gt;This part was actually extremely straightforward, so I won&amp;#39;t spend too long here. After cloning the repo, all I had to do was:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;npm install&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;npm build&lt;/code&gt; (which is just a &lt;a href=&quot;https://github.com/auth0/idtoken-verifier/blob/master/package.json#L8&quot;&gt;script&lt;/a&gt; that runs &lt;code&gt;gulp build&lt;/code&gt;)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;After a bunch of downloads and a few warnings, I had 3 new files sitting in my &lt;code&gt;./build&lt;/code&gt; folder. So easy!&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;idtoken-verifier.js&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;idtoken-verifier.min.js&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;idtoken-verifier.min.js.map&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;For the purposes of my standalone test website, I should only need the main file.&lt;/p&gt;
-
-&lt;h2&gt;So I built it, but how do I use it?&lt;/h2&gt;
-
-&lt;p&gt;Now that I had the library built, I just had to include the script in a little test webpage, call the functionality I needed, and I&amp;#39;d be done. But looking at the start of the built script.. it didn&amp;#39;t look as straightforward as I expected.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;webpackUniversalModuleDefinition&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;root&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;factory&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;exports&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'object'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;module&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'object'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;exports&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;factory&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;define&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'function'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;define&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;amd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;define&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;idtoken-verifier&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[],&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;factory&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;exports&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'object'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;exports&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;idtoken-verifier&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;factory&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;root&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;idtoken-verifier&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;factory&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;})(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Looks like &lt;code&gt;webpack&lt;/code&gt; plays a part here.. and something called a &amp;#39;universal module definition&amp;#39;.&lt;/p&gt;
-
-&lt;h2&gt;Webpack&lt;/h2&gt;
-
-&lt;p&gt;I started off by doing a little reading about webpack config, and in particular this &lt;code&gt;umd&lt;/code&gt; thing:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://webpack.github.io/docs/library-and-externals.html#configuration-options&quot;&gt;https://webpack.github.io/docs/library-and-externals.html#configuration-options&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://webpack.github.io/docs/configuration.html#output-librarytarget&quot;&gt;https://webpack.github.io/docs/configuration.html#output-librarytarget&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;So it seems that &lt;code&gt;webpack&lt;/code&gt; allows you to export &amp;#39;wrapped&amp;#39; modules in a number of formats, and &lt;code&gt;umd&lt;/code&gt; is a combination of &lt;code&gt;amd&lt;/code&gt;, &lt;code&gt;commonjs2&lt;/code&gt; and/or a property in the root.&lt;/p&gt;
-
-&lt;p&gt;Sure enough, looking at the &lt;code&gt;output&lt;/code&gt; section of the &lt;a href=&quot;https://github.com/auth0/idtoken-verifier/blob/master/webpack.prod.config.js#L15-L21&quot;&gt;webpack config&lt;/a&gt; I came across some references to &lt;code&gt;umd&lt;/code&gt;:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;output: {
-  path: path.join(__dirname, '../build'),
-  filename: '[name].min.js',
-  library: 'idtoken-verifier',
-  libraryTarget: 'umd',
-  umdNamedDefine: true
-},
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;At this point I decided to learn how to use an &lt;code&gt;amd&lt;/code&gt; module, and after some quick googling I was lead to RequireJS.&lt;/p&gt;
-
-&lt;h2&gt;RequireJS&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://requirejs.org/&quot;&gt;RequireJS&lt;/a&gt; is a JavaScript module loader, and &lt;a href=&quot;http://requirejs.org/docs/whyamd.html&quot;&gt;supports AMD&lt;/a&gt; (or &amp;#39;Asynchronous Module Definition&amp;#39;) modules. Since I just wanted to get this code working, I went back to Google to find a quick example of how to use RequireJS, finding myself on the following page:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://coderwall.com/p/u8xgvq/requirejs-basic-introduction&quot;&gt;https://coderwall.com/p/u8xgvq/requirejs-basic-introduction&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;So it sounds like RequireJS handles a lot of the module injection/ordering that I would have otherwise had to think about myself. I decided to make life easy for myself and use &lt;a href=&quot;https://cdnjs.com/libraries/require.js/&quot;&gt;a CDN hosted version&lt;/a&gt;, so all I had to do was stick the following code in the &lt;code&gt;head&lt;/code&gt; section of my test page:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;data-main=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;main&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.js&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;This loaded RequireJS and told it to inject the &lt;code&gt;main.js&lt;/code&gt; file, which looks like:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'idtoken-verifier'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;IdTokenVerifier&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;verifier&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;IdTokenVerifier&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({});&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;// Do interesting things here..&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Sticking to the &amp;#39;easy and obvious&amp;#39; pattern that I&amp;#39;d seen so far, this would inject the &lt;code&gt;idtoken-verifier.js&lt;/code&gt; file, and then make the library accessible inside this &lt;code&gt;require&lt;/code&gt; block. Nice!&lt;/p&gt;
-
-&lt;h2&gt;Bringing it all together with Plunker&lt;/h2&gt;
-
-&lt;p&gt;I wanted to keep all of the files together in an easily accessible format so others could test and play with it. After a little looking around I ended up using &lt;a href=&quot;http://plnkr.co/&quot;&gt;Plunker&lt;/a&gt; since it let me have multiple files (unlike &lt;a href=&quot;https://jsfiddle.net/&quot;&gt;JSFiddle&lt;/a&gt;):&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://plnkr.co/edit/4BMgtaSt03R9tMY5Hcki&quot;&gt;http://plnkr.co/edit/4BMgtaSt03R9tMY5Hcki&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2&gt;Success?&lt;/h2&gt;
-
-&lt;p&gt;I found that trying to test the Plunker hosted version complicated things a bit, so I ended up downloading the zipped files and hosting them locally with Python while I tested things:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;python &lt;span class=&quot;nt&quot;&gt;-m&lt;/span&gt; SimpleHTTPServer
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Running it through the tool.. everything worked as expected, no bugs. &lt;em&gt;sadface&lt;/em&gt; I could have spent more time digging into the specifics and trying to unearth what actually lead to the bug in the first place, but given I had other things I needed to test I decided to leave that as a possible future endeavour, if I run into it again.&lt;/p&gt;
-
-&lt;h2&gt;Conclusion&lt;/h2&gt;
-
-&lt;p&gt;So an unexpected rabbit hole lead me to understand a little more about Webpack, RequireJS and how to use packaged JavaScript applications. Not a bad little lesson :)&lt;/p&gt;
-
-&lt;p&gt;Had a similar experience or got any interesting tips to share about any of these technologies? Would love to hear from you in the comments!&lt;/p&gt;</content><author><name>Glenn 'devalias' Grant</name></author><category term="security" /><category term="bcdetect" /><category term="auth0" /><category term="nodejs" /><category term="npm" /><category term="gulp" /><category term="webpack" /><category term="requirejs" /><category term="plunker" /><category term="python" /><summary type="html">So the other day I ran into what seemed like a bug in some software I was using during a test. Narrowing things down in the codebase, it looked as though the error may have been related to a library in use by the application I was testing.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://devalias.net/assets/images/cover4.jpg" /></entry></feed>
+&lt;/ul&gt;</content><author><name>Glenn 'devalias' Grant</name></author><category term="quicknote" /><category term="bulletproof" /><category term="bulletproof-quarterly" /><category term="dave-asprey" /><category term="quarterly" /><category term="biohacking" /><category term="biohacked.com" /><category term="samina" /><category term="siabotanics" /><category term="xpressgo" /><category term="fatwater" /><category term="beekeepers-naturals" /><category term="nima" /><category term="teloyears" /><category term="eye-armor" /><summary type="html">Time for another Bulletproof Biohacked.com quarterly box.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://devalias.net/assets/images/cover4.jpg" /></entry></feed>

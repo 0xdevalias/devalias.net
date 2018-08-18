@@ -12,6 +12,63 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>Presenting at DEF CON 26 - Bug Bounty Hunting on Steroids</title>
+	  <link>/devalias/2018/08/19/presenting-at-def-con-26-bug-bounty-hunting-on-steroids/</link>
+	  <author>devalias</author>
+	  <pubDate>2018-08-19T00:00:00+10:00</pubDate>
+	  <guid>/devalias/2018/08/19/presenting-at-def-con-26-bug-bounty-hunting-on-steroids/</guid>
+	  <description><![CDATA[
+	     <p>Wow, what a trip! I just had the opportunity to not only live out a childhood dream of attending <a href="https://www.defcon.org/">DEF CON</a>, but I even had the privilege to be able to present at the <a href="http://reconvillage.org/talks-2018/#bug-bounty-hunting-on-steroids---anshuman-bhartiya-and-glenn-devalias-grant">DEF CON Recon Village</a>! Talk about achievement unlocked!</p>
+
+<p>If you&#39;ve been <a href="https://twitter.com/i/moments/1030953718177394688">following along on twitter</a>, you might be aware that I&#39;ve been working on a security automation framework with regards to bug bounty hunting; to increase our agility, automate the boring bits, and let us JustHackThings. It&#39;s something that our team (<a href="https://twitter.com/anshuman_bh">@anshuman_bh</a>, <a href="https://twitter.com/mhmdiaa">@mhmdiaa</a>, and <a href="https://twitter.com/_devalias">myself</a>) have been calling BountyMachine.</p>
+
+<p>It&#39;s no secret in the security/pentest/bug bounty world that there are a lot of boring bits when it comes to assessments. The recon, finding good targets, and all those things that eventually lead to being able to do all of the sweet hacks. There are a lot of people thinking about and working in this space to try and make things better, both publicly/open source, as well as privately with their own methods and frameworks.</p>
+
+<p><a href="https://twitter.com/anshuman_bh">@anshuman_bh</a> has been working on improving this space over a number of years, with various open source projects and explorations (such as <a href="https://github.com/anshumanbh/brutesubs">brutesubs</a>, <a href="https://github.com/anshumanbh/FASTSAM">FASTSAM</a>, <a href="https://github.com/anshumanbh/hodor">hodor</a>, <a href="https://github.com/anshumanbh/kubebot">kubebot</a>, etc) eventually leading us to where we are now. It was actually after I referenced some of his projects in my talk <a href="/devalias/2017/11/19/presenting-all-the-things-bsides-wellington-csides-sectalks/">&quot;Gophers, whales and.. clouds? Oh my!&quot;</a> (<a href="https://github.com/0xdevalias/gopherblazer">GitHub</a>) at BSides Wellington last year that he reached out about this current project. Not to mention <a href="https://twitter.com/mhmdiaa">@mhmdiaa</a>&#39;s <a href="https://www.youtube.com/watch?v=3Q-QyGlc_Xk">&quot;Automation For Bug Hunters&quot; presentation on Bug Bounty World</a> (<a href="https://speakerdeck.com/mhmdiaa/automation-for-bug-hunters">slides</a>) and other work in this space. With our views and efforts so closely aligned we decided to join forces and work on this latest rendition, a v3 of sorts, BountyMachine.</p>
+
+<p>So coming back to our talk at DEF CON this year, &quot;Bug Bounty Hunting on Steroids&quot; was an opportunity to share what we have been working on, along with some of the process, patterns, ideas and lessons we have learned along the way; with the ultimate goal of inspiring others to think outside the current box, and reinvent the way we all approach our security research.</p>
+
+<p>I put together a little <a href="https://medium.com/tsscyber/def-con-2018-6ff9542451b8#906b">overview post for our work blog at TSS</a> (we had a few of us speaking this year!), so instead of repeating all of the talk specifics you can check that out. I will reshare the <a href="http://reconvillage.org/talks-2018/#bug-bounty-hunting-on-steroids---anshuman-bhartiya-and-glenn-devalias-grant">talk overview</a> here though, for posterity:</p>
+
+<blockquote>
+<p>Bug bounty programs are a hot topic these days. More and more companies are realizing the benefits of running a program, and researchers are jumping at the opportunity to grab some swag and make some extra cash from the bugs they find. Reporting security issues has never been as easy, open, and risk-free as it is right now. Everybody wins!</p>
+
+<p>Though that doesn’t mean we should stop there. As researchers, we spend a lot of time doing the same menial tasks for each program: monitoring for new targets, checking for common issues, remembering just which flags you needed to pass to that tool (or even which tool is best for that job). We build new tools, hack together shell scripts, and generally make small incremental changes to our process. But surely there’s a better approach?</p>
+
+<p>Are you sick of repeating the same tedious tasks over and over? Wouldn’t it be nice to have your own bug hunting machine? One that -</p>
+
+<ul>
+<li>Is always watching</li>
+<li>Reacts as soon as a new target becomes available</li>
+<li>Takes care of those tedious repetitive steps for you</li>
+<li>Makes life easy when you want to integrate a new tool/workflow</li>
+<li>Doesn’t cost the world to run, and trivially scales</li>
+<li>Leverages lessons and technologies battle tested in the dev world to improve your offensive capacity, capability and productivity</li>
+<li>Monitors your own infrastructure and reacts before hackers can (while saving you the cost of those Bug Bounty payouts in the meantime)</li>
+</ul>
+
+<p>We call this approach Bug Bounty Hunting on Steroids. We will discuss our research and approach to building such a machine, sharing some of the lessons we learned along the way.</p>
+</blockquote>
+
+<p>Now if you didn&#39;t manage to catch us at DEF CON (and I don&#39;t blame you, there was SO much happening ALL THE TIME.. it&#39;s such a non-stop week..) don&#39;t fret! Our <a href="https://speakerdeck.com/bountymachine/bug-bounty-hunting-on-steroids">slides are online</a>, we put together a bit of a <a href="https://medium.com/@bountymachine/introducing-bountymachine-234cad93b5d2">blog post covering a bunch of the areas we were talking about</a>, and I believe the talk was also recorded, so once that is online I will link to that too. Or if Twitter is more your style, go along and <a href="https://twitter.com/_devalias/status/1030946732069142528">retweet this one</a> (and make sure to follow the team for more BountyMachine updates!).</p>
+
+<p>The response to our talk has been awesome: we packed out the presentation room, had a lot of really interesting questions after the talk; and have had a constant stream of feedback, questions and support on twitter and elsewhere since.</p>
+
+<p>I truly believe that this is the space we need to be thinking and working in right now:</p>
+
+<ul>
+<li>encoding and automating our processes</li>
+<li>improving our tooling</li>
+<li>accelerating our agility</li>
+<li>collaboratively working to improve the entire security space</li>
+</ul>
+
+<p>Does this resonate with you? Are you sick of the same repetitive manual processes again and again? Want to automate it? Want to save your precious time for actually doing the interesting hacks? Me too! Let&#39;s talk! You can find me here in the comments, <a href="https://twitter.com/_devalias">twitter</a>, or idling around the various slack channels (user: devalias) and otherwise across the internet. How can we work together to improve the entire state of things?</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>USB Reverse Engineering: Down the rabbit hole</title>
 	  <link>/devalias/2018/05/13/usb-reverse-engineering-down-the-rabbit-hole/</link>
 	  <author>devalias</author>
@@ -1394,133 +1451,6 @@ Memes&quot;</a> (<a href="https://twitter.com/bogan/status/934896629135556608">T
 <li>This has a quick summary of boxes 1-6 as well</li>
 </ul></li>
 </ul>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>An unexpected journey with webpack and RequireJS</title>
-	  <link>/devalias/2017/08/05/unexpected-journey-webpack-requirejs/</link>
-	  <author>devalias</author>
-	  <pubDate>2017-08-05T00:00:00+10:00</pubDate>
-	  <guid>/devalias/2017/08/05/unexpected-journey-webpack-requirejs/</guid>
-	  <description><![CDATA[
-	     <p>So the other day I <a href="https://github.com/blueclosure/BCDetect/issues/27">ran into what seemed like a bug</a> in some software I was using during a test. Narrowing things down in the codebase, it looked as though the error may have been related to a <a href="https://github.com/auth0/idtoken-verifier">library in use by the application</a> I was testing.</p>
-
-<p>I needed an easy way to isolate the code that seemed to be causing the error from the rest of the application, which took me down a rabbit hole to learn a little bit more about a few different technologies.</p>
-
-<h2>The Situation</h2>
-
-<p>So I had a <a href="https://github.com/auth0/idtoken-verifier">JavaScript project</a> that I wanted to build and include in a little test webpage. A few things in the repo stood out:</p>
-
-<ul>
-<li><a href="https://github.com/auth0/idtoken-verifier/blob/master/package.json">package.json</a> - So it&#39;s using <a href="https://nodejs.org/">node.js</a> in some measure.
-
-<ul>
-<li>This also had a number of entries under the <code>scripts</code> section, including some that made use of <code>gulp</code> (another build tool)</li>
-</ul></li>
-<li><a href="https://github.com/auth0/idtoken-verifier/blob/master/gulpfile.js">gulpfile.js</a> - Another strong indicator that <a href="https://gulpjs.com/">gulp</a> was in use. Didn&#39;t need to dig too deeply into this side of things, though it did indicate that <code>webpack</code> was in use.</li>
-<li><a href="https://github.com/auth0/idtoken-verifier/blob/master/webpack.config.js">webpack.config.js</a> / <a href="https://github.com/auth0/idtoken-verifier/blob/master/webpack.prod.config.js">webpack.prod.config.js</a> - The <a href="https://webpack.github.io/">webpack</a> configuration files.</li>
-</ul>
-
-<p>So now I had a fair idea of what we had to work with, time to try and build it.</p>
-
-<h2>Building with npm and gulp</h2>
-
-<p>This part was actually extremely straightforward, so I won&#39;t spend too long here. After cloning the repo, all I had to do was:</p>
-
-<ul>
-<li><code>npm install</code></li>
-<li><code>npm build</code> (which is just a <a href="https://github.com/auth0/idtoken-verifier/blob/master/package.json#L8">script</a> that runs <code>gulp build</code>)</li>
-</ul>
-
-<p>After a bunch of downloads and a few warnings, I had 3 new files sitting in my <code>./build</code> folder. So easy!</p>
-
-<ul>
-<li><code>idtoken-verifier.js</code></li>
-<li><code>idtoken-verifier.min.js</code></li>
-<li><code>idtoken-verifier.min.js.map</code></li>
-</ul>
-
-<p>For the purposes of my standalone test website, I should only need the main file.</p>
-
-<h2>So I built it, but how do I use it?</h2>
-
-<p>Now that I had the library built, I just had to include the script in a little test webpage, call the functionality I needed, and I&#39;d be done. But looking at the start of the built script.. it didn&#39;t look as straightforward as I expected.</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="p">(</span><span class="kd">function</span> <span class="nx">webpackUniversalModuleDefinition</span><span class="p">(</span><span class="nx">root</span><span class="p">,</span> <span class="nx">factory</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">if</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">exports</span> <span class="o">===</span> <span class="s1">'object'</span> <span class="o">&amp;&amp;</span> <span class="k">typeof</span> <span class="nx">module</span> <span class="o">===</span> <span class="s1">'object'</span><span class="p">)</span>
-        <span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nx">factory</span><span class="p">();</span>
-    <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">define</span> <span class="o">===</span> <span class="s1">'function'</span> <span class="o">&amp;&amp;</span> <span class="nx">define</span><span class="p">.</span><span class="nx">amd</span><span class="p">)</span>
-        <span class="nx">define</span><span class="p">(</span><span class="s2">"idtoken-verifier"</span><span class="p">,</span> <span class="p">[],</span> <span class="nx">factory</span><span class="p">);</span>
-    <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">exports</span> <span class="o">===</span> <span class="s1">'object'</span><span class="p">)</span>
-        <span class="nx">exports</span><span class="p">[</span><span class="s2">"idtoken-verifier"</span><span class="p">]</span> <span class="o">=</span> <span class="nx">factory</span><span class="p">();</span>
-    <span class="k">else</span>
-        <span class="nx">root</span><span class="p">[</span><span class="s2">"idtoken-verifier"</span><span class="p">]</span> <span class="o">=</span> <span class="nx">factory</span><span class="p">();</span>
-<span class="p">})(</span><span class="k">this</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-</code></pre></div>
-<p>Looks like <code>webpack</code> plays a part here.. and something called a &#39;universal module definition&#39;.</p>
-
-<h2>Webpack</h2>
-
-<p>I started off by doing a little reading about webpack config, and in particular this <code>umd</code> thing:</p>
-
-<ul>
-<li><a href="https://webpack.github.io/docs/library-and-externals.html#configuration-options">https://webpack.github.io/docs/library-and-externals.html#configuration-options</a></li>
-<li><a href="https://webpack.github.io/docs/configuration.html#output-librarytarget">https://webpack.github.io/docs/configuration.html#output-librarytarget</a></li>
-</ul>
-
-<p>So it seems that <code>webpack</code> allows you to export &#39;wrapped&#39; modules in a number of formats, and <code>umd</code> is a combination of <code>amd</code>, <code>commonjs2</code> and/or a property in the root.</p>
-
-<p>Sure enough, looking at the <code>output</code> section of the <a href="https://github.com/auth0/idtoken-verifier/blob/master/webpack.prod.config.js#L15-L21">webpack config</a> I came across some references to <code>umd</code>:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">output: {
-  path: path.join(__dirname, '../build'),
-  filename: '[name].min.js',
-  library: 'idtoken-verifier',
-  libraryTarget: 'umd',
-  umdNamedDefine: true
-},
-</code></pre></div>
-<p>At this point I decided to learn how to use an <code>amd</code> module, and after some quick googling I was lead to RequireJS.</p>
-
-<h2>RequireJS</h2>
-
-<p><a href="http://requirejs.org/">RequireJS</a> is a JavaScript module loader, and <a href="http://requirejs.org/docs/whyamd.html">supports AMD</a> (or &#39;Asynchronous Module Definition&#39;) modules. Since I just wanted to get this code working, I went back to Google to find a quick example of how to use RequireJS, finding myself on the following page:</p>
-
-<ul>
-<li><a href="https://coderwall.com/p/u8xgvq/requirejs-basic-introduction">https://coderwall.com/p/u8xgvq/requirejs-basic-introduction</a></li>
-</ul>
-
-<p>So it sounds like RequireJS handles a lot of the module injection/ordering that I would have otherwise had to think about myself. I decided to make life easy for myself and use <a href="https://cdnjs.com/libraries/require.js/">a CDN hosted version</a>, so all I had to do was stick the following code in the <code>head</code> section of my test page:</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;script </span><span class="na">data-main=</span><span class="s">"main"</span> <span class="na">src=</span><span class="s">"https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
-</code></pre></div>
-<p>This loaded RequireJS and told it to inject the <code>main.js</code> file, which looks like:</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">require</span><span class="p">([</span><span class="s1">'idtoken-verifier'</span><span class="p">],</span> <span class="kd">function</span><span class="p">(</span><span class="nx">IdTokenVerifier</span><span class="p">){</span>
-    <span class="kd">var</span> <span class="nx">verifier</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">IdTokenVerifier</span><span class="p">({});</span>
-    <span class="c1">// Do interesting things here..</span>
-<span class="p">});</span>
-</code></pre></div>
-<p>Sticking to the &#39;easy and obvious&#39; pattern that I&#39;d seen so far, this would inject the <code>idtoken-verifier.js</code> file, and then make the library accessible inside this <code>require</code> block. Nice!</p>
-
-<h2>Bringing it all together with Plunker</h2>
-
-<p>I wanted to keep all of the files together in an easily accessible format so others could test and play with it. After a little looking around I ended up using <a href="http://plnkr.co/">Plunker</a> since it let me have multiple files (unlike <a href="https://jsfiddle.net/">JSFiddle</a>):</p>
-
-<ul>
-<li><a href="http://plnkr.co/edit/4BMgtaSt03R9tMY5Hcki">http://plnkr.co/edit/4BMgtaSt03R9tMY5Hcki</a></li>
-</ul>
-
-<h2>Success?</h2>
-
-<p>I found that trying to test the Plunker hosted version complicated things a bit, so I ended up downloading the zipped files and hosting them locally with Python while I tested things:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">python <span class="nt">-m</span> SimpleHTTPServer
-</code></pre></div>
-<p>Running it through the tool.. everything worked as expected, no bugs. <em>sadface</em> I could have spent more time digging into the specifics and trying to unearth what actually lead to the bug in the first place, but given I had other things I needed to test I decided to leave that as a possible future endeavour, if I run into it again.</p>
-
-<h2>Conclusion</h2>
-
-<p>So an unexpected rabbit hole lead me to understand a little more about Webpack, RequireJS and how to use packaged JavaScript applications. Not a bad little lesson :)</p>
-
-<p>Had a similar experience or got any interesting tips to share about any of these technologies? Would love to hear from you in the comments!</p>
 
 	  ]]></description>
 	</item>

@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="shortcut icon" href="/assets/images/authors/devalias.png" >
+
+  <meta name="referrer" content="origin" />
+  <meta name="generator" content="Jekyll 3.x" />
+
+  <link type="application/atom+xml" rel="alternate" href="http://devalias.net/feed.xml" title="/dev/alias – Hack. Dev. Transcend." />
+
+  <!-- Begin Jekyll SEO tag v2.4.0 -->
+<title>Presenting at DEF CON 26 - Bug Bounty Hunting on Steroids | /dev/alias – Hack. Dev. Transcend.</title>
+<meta name="generator" content="Jekyll v3.8.0" />
+<meta property="og:title" content="Presenting at DEF CON 26 - Bug Bounty Hunting on Steroids" />
+<meta name="author" content="Glenn 'devalias' Grant" />
+<meta property="og:locale" content="en_GB" />
+<meta name="description" content="Wow, what a trip! I just had the opportunity to not only live out a childhood dream of attending DEF CON, but I even had the privilege to be able to present at the DEF CON Recon Village! Talk about achievement unlocked!" />
+<meta property="og:description" content="Wow, what a trip! I just had the opportunity to not only live out a childhood dream of attending DEF CON, but I even had the privilege to be able to present at the DEF CON Recon Village! Talk about achievement unlocked!" />
+<link rel="canonical" href="http://devalias.net/devalias/2018/08/19/presenting-at-def-con-26-bug-bounty-hunting-on-steroids/" />
+<meta property="og:url" content="http://devalias.net/devalias/2018/08/19/presenting-at-def-con-26-bug-bounty-hunting-on-steroids/" />
+<meta property="og:site_name" content="/dev/alias – Hack. Dev. Transcend." />
+<meta property="og:image" content="http://devalias.net/assets/images/cover4.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-08-19T00:00:00+10:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@_devalias" />
+<meta name="twitter:creator" content="@_devalias" />
+<script type="application/ld+json">
+{"description":"Wow, what a trip! I just had the opportunity to not only live out a childhood dream of attending DEF CON, but I even had the privilege to be able to present at the DEF CON Recon Village! Talk about achievement unlocked!","author":{"@type":"Person","name":"Glenn 'devalias' Grant"},"@type":"BlogPosting","url":"http://devalias.net/devalias/2018/08/19/presenting-at-def-con-26-bug-bounty-hunting-on-steroids/","image":"http://devalias.net/assets/images/cover4.jpg","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://devalias.net/assets/images/cover4.jpg"},"name":"Glenn 'devalias' Grant"},"headline":"Presenting at DEF CON 26 - Bug Bounty Hunting on Steroids","dateModified":"2018-08-19T00:00:00+10:00","datePublished":"2018-08-19T00:00:00+10:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://devalias.net/devalias/2018/08/19/presenting-at-def-con-26-bug-bounty-hunting-on-steroids/"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  <!-- old tags, still needed? -->
+  <meta name="twitter:title" content="/dev/alias – Hack. Dev. Transcend." />
+  <meta name="twitter:description" content="Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more." />
+  <!-- <meta name="twitter:image" content="/assets/images/cover4.jpg" /> -->
+  <!-- /end tags -->
+
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
+
+  <link rel="stylesheet" type="text/css" href="/assets/css/screen.css" />
+  <link rel="stylesheet" type="text/css" href="/assets/css/syntax.css" />
+
+  <link rel="stylesheet" type="text/css" href="/assets/css/custom.css" />
+
+  <!-- Font Awesome -->
+<script defer src="https://use.fontawesome.com/releases/v5.0.1/js/all.js"></script>
+
+
+  
+    <!-- Webmention -->
+<link rel="dns-prefetch" href="https://webmention.io"><link rel="preconnect" href="https://webmention.io"><link rel="preconnect" href="ws://webmention.io:8080"><link rel="pingback" href="https://webmention.io/devalias.net/xmlrpc"><link rel="webmention" href="https://webmention.io/devalias.net/webmention">
+
+
+  
+
+  <!-- https://indieauth.com/ -->
+<link href="https://github.com/0xdevalias" rel="me">
+<link href="https://twitter.com/_devalias" rel="me">
+<link href="https://www.instagram.com/_devalias/" rel="me">
+<link href="https://www.linkedin.com/in/glenn-devalias-grant/" rel="me">
+
+</head>
+
+
+<body class="post-template nav-closed">
+
+    <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+        
+            <li class="nav-home " role="presentation">
+                <a href="/">Home</a>
+            </li>
+        
+            <li class="nav-now " role="presentation">
+                <a href="/now">Now</a>
+            </li>
+        
+            <li class="nav-about " role="presentation">
+                <a href="/about">About</a>
+            </li>
+        
+            <li class="nav-coaching " role="presentation">
+                <a href="/coaching">Coaching</a>
+            </li>
+        
+            <li class="nav-dev " role="presentation">
+                <a href="/dev">Development</a>
+            </li>
+        
+            <li class="nav-sec " role="presentation">
+                <a href="/sec">Security</a>
+            </li>
+        
+            <li class="nav-personal " role="presentation">
+                <a href="/personal">Personal</a>
+            </li>
+        
+            <li class="nav-stuff-i-like " role="presentation">
+                <a href="/stuff-i-like">Stuff I Like</a>
+            </li>
+        
+            <li class="nav-go-deeper " role="presentation">
+                <a href="/go-deeper">Go Deeper...</a>
+            </li>
+        
+    </ul>
+    <a class="subscribe-button" href="/feed.xml"><i class="fas fa-rss-square"></i> Subscribe</a>
+</div>
+<span class="nav-cover"></span>
+
+
+    <div class="site-wrapper">
+        <!-- [[! Everything else gets inserted here ]] -->
+        <!-- Layout: Post -->
+<!-- Template: header -->
+
+
+
+
+<header class="main-header
+               
+                    " style="background-image: url(/assets/images/cover4.jpg)
+                ">
+    <nav class="main-nav overlay clearfix">
+        
+          <a class="blog-logo" href="/"><img src="/assets/images/devalias-prompt.png" alt="Blog Logo" /></a>
+        
+        
+            <a class="menu-button" href="#"><i class="fas fa-bars"></i> <span class="word">Menu</span></a>
+        
+    </nav>
+
+    
+        
+            <div class="vertical">
+                <div class="main-header-content inner">
+                    
+                        <h1 class="page-title">Presenting at DEF CON 26 - Bug Bounty Hunting on Steroids</h1>
+                    
+                    
+                </div>
+            </div>
+        
+    
+
+    
+</header>
+<!-- /Template: header -->
+
+
+<main id="content" class="content" role="main">
+    <article class="post ">
+        <header class="post-header">
+            <!-- <h1 class="post-title">Presenting at DEF CON 26 - Bug Bounty Hunting on Steroids</h1> -->
+            <section class="post-meta">
+    
+        <img class="author-thumb" src="/assets/images/authors/devalias.png" alt="Author image" nopin="nopin" />
+    
+    
+        <a href='/author/devalias'>Glenn 'devalias' Grant</a>
+    
+    |
+    <time class="post-date" datetime="2018-08-19">19 Aug 2018</time>
+    |
+    
+        5 minutes
+    
+    to read
+    <!-- [[tags prefix=" on "]] -->
+    
+        |
+        
+            <a href='/tag/security'>#security</a>,
+        
+            <a href='/tag/automation'>#automation</a>,
+        
+            <a href='/tag/speaker'>#speaker</a>,
+        
+            <a href='/tag/defcon'>#defcon</a>,
+        
+            <a href='/tag/reconvillage'>#reconvillage</a>,
+        
+            <a href='/tag/bountymachine'>#bountymachine</a>,
+        
+            <a href='/tag/bugbounty'>#bugbounty</a>,
+        
+            <a href='/tag/anshumanbh'>#anshumanbh</a>,
+        
+            <a href='/tag/mhmdiaa'>#mhmdiaa</a>
+        
+    
+    
+</section>
+
+        </header>
+
+        <section class="post-content">
+            <p>Wow, what a trip! I just had the opportunity to not only live out a childhood dream of attending <a href="https://www.defcon.org/">DEF CON</a>, but I even had the privilege to be able to present at the <a href="http://reconvillage.org/talks-2018/#bug-bounty-hunting-on-steroids---anshuman-bhartiya-and-glenn-devalias-grant">DEF CON Recon Village</a>! Talk about achievement unlocked!</p>
+
+<p>If you&#39;ve been <a href="https://twitter.com/i/moments/1030953718177394688">following along on twitter</a>, you might be aware that I&#39;ve been working on a security automation framework with regards to bug bounty hunting; to increase our agility, automate the boring bits, and let us JustHackThings. It&#39;s something that our team (<a href="https://twitter.com/anshuman_bh">@anshuman_bh</a>, <a href="https://twitter.com/mhmdiaa">@mhmdiaa</a>, and <a href="https://twitter.com/_devalias">myself</a>) have been calling BountyMachine.</p>
+
+<p>It&#39;s no secret in the security/pentest/bug bounty world that there are a lot of boring bits when it comes to assessments. The recon, finding good targets, and all those things that eventually lead to being able to do all of the sweet hacks. There are a lot of people thinking about and working in this space to try and make things better, both publicly/open source, as well as privately with their own methods and frameworks.</p>
+
+<p><a href="https://twitter.com/anshuman_bh">@anshuman_bh</a> has been working on improving this space over a number of years, with various open source projects and explorations (such as <a href="https://github.com/anshumanbh/brutesubs">brutesubs</a>, <a href="https://github.com/anshumanbh/FASTSAM">FASTSAM</a>, <a href="https://github.com/anshumanbh/hodor">hodor</a>, <a href="https://github.com/anshumanbh/kubebot">kubebot</a>, etc) eventually leading us to where we are now. It was actually after I referenced some of his projects in my talk <a href="/devalias/2017/11/19/presenting-all-the-things-bsides-wellington-csides-sectalks/">&quot;Gophers, whales and.. clouds? Oh my!&quot;</a> (<a href="https://github.com/0xdevalias/gopherblazer">GitHub</a>) at BSides Wellington last year that he reached out about this current project. Not to mention <a href="https://twitter.com/mhmdiaa">@mhmdiaa</a>&#39;s <a href="https://www.youtube.com/watch?v=3Q-QyGlc_Xk">&quot;Automation For Bug Hunters&quot; presentation on Bug Bounty World</a> (<a href="https://speakerdeck.com/mhmdiaa/automation-for-bug-hunters">slides</a>) and other work in this space. With our views and efforts so closely aligned we decided to join forces and work on this latest rendition, a v3 of sorts, BountyMachine.</p>
+
+<p>So coming back to our talk at DEF CON this year, &quot;Bug Bounty Hunting on Steroids&quot; was an opportunity to share what we have been working on, along with some of the process, patterns, ideas and lessons we have learned along the way; with the ultimate goal of inspiring others to think outside the current box, and reinvent the way we all approach our security research.</p>
+
+<p>I put together a little <a href="https://medium.com/tsscyber/def-con-2018-6ff9542451b8#906b">overview post for our work blog at TSS</a> (we had a few of us speaking this year!), so instead of repeating all of the talk specifics you can check that out. I will reshare the <a href="http://reconvillage.org/talks-2018/#bug-bounty-hunting-on-steroids---anshuman-bhartiya-and-glenn-devalias-grant">talk overview</a> here though, for posterity:</p>
+
+<blockquote>
+<p>Bug bounty programs are a hot topic these days. More and more companies are realizing the benefits of running a program, and researchers are jumping at the opportunity to grab some swag and make some extra cash from the bugs they find. Reporting security issues has never been as easy, open, and risk-free as it is right now. Everybody wins!</p>
+
+<p>Though that doesn’t mean we should stop there. As researchers, we spend a lot of time doing the same menial tasks for each program: monitoring for new targets, checking for common issues, remembering just which flags you needed to pass to that tool (or even which tool is best for that job). We build new tools, hack together shell scripts, and generally make small incremental changes to our process. But surely there’s a better approach?</p>
+
+<p>Are you sick of repeating the same tedious tasks over and over? Wouldn’t it be nice to have your own bug hunting machine? One that -</p>
+
+<ul>
+<li>Is always watching</li>
+<li>Reacts as soon as a new target becomes available</li>
+<li>Takes care of those tedious repetitive steps for you</li>
+<li>Makes life easy when you want to integrate a new tool/workflow</li>
+<li>Doesn’t cost the world to run, and trivially scales</li>
+<li>Leverages lessons and technologies battle tested in the dev world to improve your offensive capacity, capability and productivity</li>
+<li>Monitors your own infrastructure and reacts before hackers can (while saving you the cost of those Bug Bounty payouts in the meantime)</li>
+</ul>
+
+<p>We call this approach Bug Bounty Hunting on Steroids. We will discuss our research and approach to building such a machine, sharing some of the lessons we learned along the way.</p>
+</blockquote>
+
+<p>Now if you didn&#39;t manage to catch us at DEF CON (and I don&#39;t blame you, there was SO much happening ALL THE TIME.. it&#39;s such a non-stop week..) don&#39;t fret! Our <a href="https://speakerdeck.com/bountymachine/bug-bounty-hunting-on-steroids">slides are online</a>, we put together a bit of a <a href="https://medium.com/@bountymachine/introducing-bountymachine-234cad93b5d2">blog post covering a bunch of the areas we were talking about</a>, and I believe the talk was also recorded, so once that is online I will link to that too. Or if Twitter is more your style, go along and <a href="https://twitter.com/_devalias/status/1030946732069142528">retweet this one</a> (and make sure to follow the team for more BountyMachine updates!).</p>
+
+<p>The response to our talk has been awesome: we packed out the presentation room, had a lot of really interesting questions after the talk; and have had a constant stream of feedback, questions and support on twitter and elsewhere since.</p>
+
+<p>I truly believe that this is the space we need to be thinking and working in right now:</p>
+
+<ul>
+<li>encoding and automating our processes</li>
+<li>improving our tooling</li>
+<li>accelerating our agility</li>
+<li>collaboratively working to improve the entire security space</li>
+</ul>
+
+<p>Does this resonate with you? Are you sick of the same repetitive manual processes again and again? Want to automate it? Want to save your precious time for actually doing the interesting hacks? Me too! Let&#39;s talk! You can find me here in the comments, <a href="https://twitter.com/_devalias">twitter</a>, or idling around the various slack channels (user: devalias) and otherwise across the internet. How can we work together to improve the entire state of things?</p>
+
+        </section>
+
+        <footer class="post-footer">
+
+            <!-- #author-->
+
+            
+	<figure class="author-image">
+	    <a class="img" href="/author/devalias" style="background-image: url(/assets/images/authors/devalias.png)"><span class="hidden">devalias's Picture</span></a>
+	</figure>
+
+
+            <section class="author">
+                <h4>
+                    
+                        <a href="/author/devalias">Glenn 'devalias' Grant</a>
+                    
+                </h4>
+
+                
+                    <p> Glenn is a full-stack, polyglot developer with an acute interest in the offensive side of security; as well as technology, efficiency, biohacking, health, personal growth and a whole lot more.</p>
+                
+                <div class="author-meta">
+    
+        <span class="author-location">
+            <i class="fas fa-location-arrow"></i>
+            Australia
+        </span>
+    
+    
+        <span class="author-link">
+            <a href="http://www.devalias.net/">
+                <i class="fas fa-external-link-alt"></i>
+                devalias.net
+            </a>
+        </span>
+    
+    
+</div>
+
+                <div class="author-social">
+    <a href="/author/devalias/rss.xml" title="RSS Feed"><i class="fas fa-rss-square fa-1x"></i></a>
+    
+        <a href="https://keybase.io/devalias" title="Keybase" target="_blank"><i class="fas fa-key fa-1x"></i></a>
+    
+    
+        <a href="https://www.linkedin.com/in/glenn-devalias-grant" title="LinkedIn" target="_blank"><i class="fab fa-linkedin fa-1x"></i></a>
+    
+    
+        <a href="https://twitter.com/_devalias" title="Twitter" target="_blank"><i class="fab fa-twitter-square fa-1x"></i></a>
+    
+    
+        <a href="https://instagram.com/_devalias" title="Instagram" target="_blank"><i class="fab fa-instagram fa-1x"></i></a>
+    
+    
+        <a href="https://medium.com/@devalias" title="Medium" target="_blank"><i class="fab fa-medium fa-1x"></i></a>
+    
+    
+        <a href="https://github.com/0xdevalias" title="Github" target="_blank"><i class="fab fa-github-square fa-1x"></i></a>
+    
+    
+    
+    
+        <a href="https://speakerdeck.com/0xdevalias" title="SpeakerDeck" target="_blank">
+            <!-- TODO: Correctly handle size differences -->
+            <!-- SVG Source: https://github.com/FortAwesome/Font-Awesome/issues/1688#issuecomment-266479369 -->
+            
+                <!-- Includes hacky resizing to make it work for this size.. -->
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="15" height="20" viewBox="5 -7 16.875 35">
+                    <path d="M25.6 3.8c-1-1-2.199-1.5-3.6-1.5h-16.9c-1.4 0-2.6 0.5-3.6 1.5s-1.5 2.2-1.5 3.6v17.2c0 1.4 0.5 2.5 1.5 3.5s2.2 1.5 3.6 1.5h16.8c1.398 0 2.6-0.5 3.6-1.5s1.5-2.2 1.5-3.6v-17.1c0-1.4-0.4-2.6-1.4-3.6zM22.286 20.188c0 1.313-1.063 2.375-2.375 2.375h-12.437c-1.311 0-2.375-1.063-2.375-2.375v-8.375c0-1.312 1.063-2.375 2.375-2.375h12.437c1.311 0 2.375 1.063 2.375 2.375v8.375z"></path>
+                    <path d="M12.75 18.49v-4.977l-4.277 2.487z"></path>
+                    <path d="M14.684 18.516l4.228-2.516-4.228-2.514z"></path>
+                </svg>
+            
+        </a>
+    
+    
+        <a href="https://www.slideshare.net/GlenndevaliasGrant" title="SlideShare" target="_blank"><i class="fab fa-slideshare fa-1x"></i></a>
+    
+    
+        <a href="https://www.reddit.com/user/_devalias" title="Reddit" target="_blank"><i class="fab fa-reddit-square fa-1x"></i></a>
+    
+    
+        <a href="https://news.ycombinator.com/user?id=alias1" title="Hacker News" target="_blank"><i class="fab fa-hacker-news-square fa-1x"></i></a>
+    
+    
+        <a href="https://stackoverflow.com/users/1137085/devalias" title="StackOverflow" target="_blank"><i class="fab fa-stack-overflow fa-1x"></i></a>
+    
+    
+        <a href="https://stackexchange.com/users/1156663/devalias" title="StackExchange" target="_blank"><i class="fab fa-stack-exchange fa-1x"></i></a>
+    
+</div>
+
+            </section>
+
+            <!-- /author  -->
+
+            
+
+
+
+
+
+<section class="share">
+    <h4>Share this post</h4>
+
+    
+    <a href="http://twitter.com/share?text=Presenting+at+DEF+CON+26+-+Bug+Bounty+Hunting+on+Steroids&amp;url=http%3A%2F%2Fdevalias.net%2Fdevalias%2F2018%2F08%2F19%2Fpresenting-at-def-con-26-bug-bounty-hunting-on-steroids%2F&amp;via=_devalias" title="Share on Twitter" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"><i class="fab fa-twitter-square fa-2x"></i></a>
+
+    
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3A%2F%2Fdevalias.net%2Fdevalias%2F2018%2F08%2F19%2Fpresenting-at-def-con-26-bug-bounty-hunting-on-steroids%2F&amp;title=Presenting+at+DEF+CON+26+-+Bug+Bounty+Hunting+on+Steroids&amp;&source=https%3A%2F%2Fwww.linkedin.com%2Fin%2Fglenn-devalias-grant%2F" title="Share on LinkedIn" onclick="window.open(this.href, 'linkedin-share', 'width=520,height=570');return false;"><i class="fab fa-linkedin fa-2x"></i></a>
+
+    <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fdevalias.net%2Fdevalias%2F2018%2F08%2F19%2Fpresenting-at-def-con-26-bug-bounty-hunting-on-steroids%2F" title="Share on Facebook" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;"><i class="fab fa-facebook-square fa-2x"></i></a>
+
+    <a href="https://plus.google.com/share?url=http%3A%2F%2Fdevalias.net%2Fdevalias%2F2018%2F08%2F19%2Fpresenting-at-def-con-26-bug-bounty-hunting-on-steroids%2F"  title="Share on Google+" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;"><i class="fab fa-google-plus-square fa-2x"></i></a>
+</section>
+
+
+            
+                <!-- Add Disqus Comments -->
+                <div id="disqus_thread"></div>
+<script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'devalias'; // required: replace example with your forum shortname
+        var disqus_identifier = '/devalias/2018/08/19/presenting-at-def-con-26-bug-bounty-hunting-on-steroids/';
+        var disqus_url = 'http://devalias.net/devalias/2018/08/19/presenting-at-def-con-26-bug-bounty-hunting-on-steroids/';
+ 
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>
+
+            
+
+            
+                
+                    
+
+
+
+
+
+
+                
+            
+
+        </footer>
+
+    </article>
+
+</main>
+
+<aside class="read-next">
+
+    <!-- [[! next_post ]] -->
+    
+    <!-- [[! /next_post ]] -->
+    <!-- [[! prev_post ]] -->
+    
+        <a class="read-next-story prev no-cover" href="/devalias/2018/05/13/usb-reverse-engineering-down-the-rabbit-hole/">
+            <section class="post">
+                <h2>USB Reverse Engineering: Down the rabbit hole</h2>
+                <p>Thanks for the featured writeup Hackaday! Make sure to check out the comments over there as well. Looks like Hackernoon picked it up as well,...</p>
+            </section>
+        </a>
+    
+    <!-- [[! /prev_post ]] -->
+</aside>
+
+<!-- /Layout: Post -->
+
+
+        <footer class="site-footer clearfix">
+            <section class="copyright">
+                <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">devalias.net</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://www.devalias.net/" property="cc:attributionName" rel="cc:attributionURL">Glenn 'devalias' Grant</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+            </section>
+            <section class="poweredby">
+                <div>
+                    <strong>Build:</strong> ddd789604
+                    <a href="https://github.com/alias1/devalias.net/tree/master/_posts/2018-08-19-presenting-at-def-con-26-bug-bounty-hunting-on-steroids.md" target="_blank">
+                        <i class="fas fa-edit"></i>
+                        Edit on GitHub
+                    </a>
+                </div>
+                Proudly published with
+                <a href="https://jekyllrb.com/" target="_blank">Jekyll</a>
+                using
+                <a href="https://github.com/biomadeira/jasper" target="_blank">Jasper</a>
+                to
+                <a href="https://github.com/" target="_blank">GitHub</a>
+            </section>
+        </footer>
+    </div>
+    <!-- [[! Ghost outputs important scripts and data with this tag ]] -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <!-- [[! The main JavaScript file for Casper ]] -->
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="/assets/js/index.js"></script>
+
+        <!-- Google Analytics Tracking code -->
+     <script>
+	    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	    ga('create', 'UA-27970144-1', 'auto');
+	    ga('send', 'pageview');
+     </script>
+    
+        <script src="//assets/js//JekyllWebmentionIO.js" async></script>
+<template style="display:none" id="webmention-bookmarks"><div class="webmentions webmentions--bookmarks">
+  {% if webmentions.size > 0 %}
+    <ol class="webmentions__list">
+      {% for webmention in webmentions %}
+        <li id="webmention-{{ webmention.id }}" class="webmentions__item webmention webmention--{{ webmention.type }}">
+          <div class="webmention__content p-content">
+            {{ webmention.content }}
+          </div>
+          <div class="webmention__meta">
+            {% if webmention.author %}
+              <a class="webmention__author h-card u-url" href="{{ webmention.author.url }}">{{ webmention.author.name }}</a>
+            {% endif %}
+            {% if webmention.pubdate and webmention.url %}on{% endif %}
+            {% if webmention.pubdate %}
+              <a class="webmention__source u-url" href="{{ webmention.url }}">
+                <time class="webmention__pubdate dt-published" datetime="{{ webmention.pubdate | date: '%FT%T%:z' }}">{{ webmention.pubdate | date: '%d %B %Y' }}</time>
+              </a>
+            {% endif %}
+          </div>
+        </li>
+      {% endfor %}
+    </ol>
+  {% else %}
+    <p class="webmentions__not-found">No bookmarks were found.</p>
+  {% endif %}
+</div></template><template style="display:none" id="webmention-likes"><div class="webmentions webmentions--likes">
+  {% if webmentions.size > 0 %}
+    <ol class="webmentions__list">
+      {% for webmention in webmentions %}
+        <li id="webmention-{{ webmention.id }}" class="webmentions__item webmention webmention--{{ webmention.type }}">
+          <div class="webmention__author p-author h-card">
+            <a class="u-url" href="{{ webmention.author.url }}">
+              <img class="webmention__author__photo u-photo" src="{{ webmention.author.photo }}" alt="" title="{{ webmention.author.name }}">
+            </a>
+          </div>
+        </li>
+      {% endfor %}
+    </ol>
+  {% else %}
+    <p class="webmentions__not-found">No likes were found.</p>
+  {% endif %}
+</div></template><template style="display:none" id="webmention-links"><div class="webmentions webmentions--links">
+  {% if webmentions.size > 0 %}
+    <ol class="webmentions__list">
+      {% for webmention in webmentions %}
+        <li id="webmention-{{ webmention.id }}" class="webmentions__item webmention webmention--{{ webmention.type }}">
+          <div class="webmention__content p-content">
+            {{ webmention.content }}
+          </div>
+          <div class="webmention__meta">
+            {% if webmention.author %}
+              <a class="webmention__author h-card u-url" href="{{ webmention.author.url }}">{{ webmention.author.name }}</a>
+            {% endif %}
+            {% if webmention.pubdate and webmention.url %}on{% endif %}
+            {% if webmention.pubdate %}
+              <a class="webmention__source u-url" href="{{ webmention.url }}">
+                <time class="webmention__pubdate dt-published" datetime="{{ webmention.pubdate | date: '%FT%T%:z' }}">{{ webmention.pubdate | date: '%d %B %Y' }}</time>
+              </a>
+            {% endif %}
+          </div>
+        </li>
+      {% endfor %}
+    </ol>
+  {% else %}
+    <p class="webmentions__not-found">No links were found.</p>
+  {% endif %}
+</div></template><template style="display:none" id="webmention-posts"><div class="webmentions webmentions--posts">
+  {% if webmentions.size > 0 %}
+    <ol class="webmentions__list">
+      {% for webmention in webmentions %}
+        <li id="webmention-{{ webmention.id }}" class="webmentions__item webmention webmention--{{ webmention.type }}">
+          <a class="webmention__title webmention__source u-url" href="{{ webmention.url }}">{{ webmention.title }}</a>
+          <div class="webmention__meta">
+            {% if webmention.pubdate %}
+              <time class="webmention__pubdate dt-published" datetime="{{ webmention.pubdate | date: '%FT%T%:z' }}">{{ webmention.pubdate | date: '%d %B %Y' }}</time>
+            {% endif %}
+          </div>
+        </li>
+      {% endfor %}
+    </ol>
+  {% else %}
+    <p class="webmentions__not-found">No posts were found.</p>
+  {% endif %}
+</div></template><template style="display:none" id="webmention-replies"><div class="webmentions webmentions--replies">
+  {% if webmentions.size > 0 %}
+    <ol class="webmentions__list">
+      {% for webmention in webmentions %}
+        <li id="webmention-{{ webmention.id }}" class="webmentions__item webmention webmention--{{ webmention.type }}">
+          <div class="webmention__content p-content">
+            {{ webmention.content }}
+          </div>
+          <div class="webmention__meta">
+            {% if webmention.author %}
+              <a class="webmention__author h-card u-url" href="{{ webmention.author.url }}">
+                {% if webmention.author.photo %}
+                  <img class="webmention__author__photo u-photo" src="{{ webmention.author.photo }}" alt="" title="{{ webmention.author.name }}">
+                {% endif %}
+                <b class="p-name">{{ webmention.author.name }}</b>
+              </a>
+            {% endif %}
+            {% if webmention.pubdate and webmention.author %}on{% endif %}
+            {% if webmention.pubdate %}
+              <a class="webmention__source u-url" href="{{ webmention.url }}">
+                <time class="webmention__pubdate dt-published" datetime="{{ webmention.pubdate | date: '%FT%T%:z' }}">{{ webmention.pubdate | date: '%d %B %Y' }}</time>
+              </a>
+            {% endif %}
+          </div>
+        </li>
+      {% endfor %}
+    </ol>
+  {% else %}
+    <p class="webmentions__not-found">No replies were found.</p>
+  {% endif %}
+</div></template><template style="display:none" id="webmention-reposts"><div class="webmentions webmentions--reposts">
+  {% if webmentions.size > 0 %}
+    <ol class="webmentions__list">
+      {% for webmention in webmentions %}
+        <li id="webmention-{{ webmention.id }}" class="webmentions__item webmention webmention--{{ webmention.type }}">
+          <div class="webmention__author p-author h-card">
+            <a class="u-url" href="{{ webmention.author.url }}">
+              <img class="webmention__author__photo u-photo" src="{{ webmention.author.photo }}" alt="" title="{{ webmention.author.name }}">
+            </a>
+          </div>
+        </li>
+      {% endfor %}
+    </ol>
+  {% else %}
+    <p class="webmentions__not-found">No reposts were found.</p>
+  {% endif %}
+</div></template><template style="display:none" id="webmention-rsvps"><div class="webmentions webmentions--rsvps">
+  {% if webmentions.size > 0 %}
+    <ol class="webmentions__list">
+      {% for webmention in webmentions %}
+        <li id="webmention-{{ webmention.id }}" class="webmentions__item webmention webmention--{{ webmention.type }}">
+          <div class="webmention__author p-author h-card">
+            <a class="u-url" href="{{ webmention.author.url }}">
+              <img class="webmention__author__photo u-photo" src="{{ webmention.author.photo }}" alt="Avatar for {{ webmention.author.name }}" title="{{ webmention.author.name }}">
+              <b class="p-name">{{ webmention.author.name }}</b>
+              {{ webmention.content }}
+            </a>
+          </div>
+        </li>
+      {% endfor %}
+    </ol>
+  {% else %}
+    <p class="webmentions__not-found">No RSVPs were found.</p>
+  {% endif %}
+</div></template><template style="display:none" id="webmention-count">{% capture webmention_types %}{{ types | join: ',' }}{% endcapture %}
+<span class="webmention-count"{% unless webmention_types=="" %} data-webmention-types="{{ webmention_types }}"{% endunless %}>{{ count }}</span></template><template style="display:none" id="webmention-webmentions">{% capture webmention_types %}{{ types | join: ',' }}{% endcapture %}
+<div class="webmentions"{% unless webmention_types=="" %} data-webmention-types="{{ webmention_types }}"{% endunless %}>
+  {% if webmentions.size > 0 %}
+    <ol class="webmentions__list">
+      {% for webmention in webmentions %}
+        <li id="webmention-{{ webmention.id }}" class="webmentions__item">
+          <article class="h-cite webmention webmention--{{ webmention.type }}
+            {% unless webmention.author %}webmention--no-author{% endunless %}
+            {% unless webmention.author.photo %}webmention--no-photo{% endunless %}
+            {% if webmention.source=='twitter' %}{% if webmention.type=='like' or webmention.type=='repost' %}webmention--author-starts{% endif %}{% endif %}
+            ">
+            {% if webmention.author %}
+              <div class="webmention__author p-author h-card">
+                <a class="u-url" href="{{ webmention.author.url }}">
+                  {% if webmention.author.photo %}
+                    <img class="webmention__author__photo u-photo" src="{{ webmention.author.photo }}" alt="" title="{{ webmention.author.name }}">
+                  {% endif %}
+                  <b class="p-name">{{ webmention.author.name }}</b>
+                </a>
+              </div>
+            {% endif %}
+
+            <div class="webmention__content p-content">
+              {% if webmention.content %}
+                {{ webmention.content }}
+              {% else %}
+                {{ webmention.title }}
+              {% endif %}
+            </div>
+            
+            <div class="webmention__meta">
+              {% if webmention.pubdate %}
+                <time class="webmention__pubdate dt-published"
+                      datetime="{{ webmention.pubdate | date: '%FT%T%:z' }}">{{ webmention.pubdate | date: '%d %B %Y' }}</time>
+              {% endif %}
+              {% if webmention.pubdate and webmention.url %}|{% endif %}
+              {% if webmention.url %}
+                <a class="webmention__source u-url" href="{{ webmention.url }}">Permalink</a>
+              {% endif %}
+            </div>
+          </article>
+        </li>
+      {% endfor %}
+    </ol>
+  {% else %}
+    <p class="webmentions__not-found">No webmentions were found.</p>
+  {% endif %}
+</div></template>
+    
+    
+</body>
+</html>

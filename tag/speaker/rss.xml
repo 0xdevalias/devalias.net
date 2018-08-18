@@ -12,6 +12,63 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>Presenting at DEF CON 26 - Bug Bounty Hunting on Steroids</title>
+	  <link>/devalias/2018/08/19/presenting-at-def-con-26-bug-bounty-hunting-on-steroids/</link>
+	  <author>devalias</author>
+	  <pubDate>2018-08-19T00:00:00+10:00</pubDate>
+	  <guid>/devalias/2018/08/19/presenting-at-def-con-26-bug-bounty-hunting-on-steroids/</guid>
+	  <description><![CDATA[
+	     <p>Wow, what a trip! I just had the opportunity to not only live out a childhood dream of attending <a href="https://www.defcon.org/">DEF CON</a>, but I even had the privilege to be able to present at the <a href="http://reconvillage.org/talks-2018/#bug-bounty-hunting-on-steroids---anshuman-bhartiya-and-glenn-devalias-grant">DEF CON Recon Village</a>! Talk about achievement unlocked!</p>
+
+<p>If you&#39;ve been <a href="https://twitter.com/i/moments/1030953718177394688">following along on twitter</a>, you might be aware that I&#39;ve been working on a security automation framework with regards to bug bounty hunting; to increase our agility, automate the boring bits, and let us JustHackThings. It&#39;s something that our team (<a href="https://twitter.com/anshuman_bh">@anshuman_bh</a>, <a href="https://twitter.com/mhmdiaa">@mhmdiaa</a>, and <a href="https://twitter.com/_devalias">myself</a>) have been calling BountyMachine.</p>
+
+<p>It&#39;s no secret in the security/pentest/bug bounty world that there are a lot of boring bits when it comes to assessments. The recon, finding good targets, and all those things that eventually lead to being able to do all of the sweet hacks. There are a lot of people thinking about and working in this space to try and make things better, both publicly/open source, as well as privately with their own methods and frameworks.</p>
+
+<p><a href="https://twitter.com/anshuman_bh">@anshuman_bh</a> has been working on improving this space over a number of years, with various open source projects and explorations (such as <a href="https://github.com/anshumanbh/brutesubs">brutesubs</a>, <a href="https://github.com/anshumanbh/FASTSAM">FASTSAM</a>, <a href="https://github.com/anshumanbh/hodor">hodor</a>, <a href="https://github.com/anshumanbh/kubebot">kubebot</a>, etc) eventually leading us to where we are now. It was actually after I referenced some of his projects in my talk <a href="/devalias/2017/11/19/presenting-all-the-things-bsides-wellington-csides-sectalks/">&quot;Gophers, whales and.. clouds? Oh my!&quot;</a> (<a href="https://github.com/0xdevalias/gopherblazer">GitHub</a>) at BSides Wellington last year that he reached out about this current project. Not to mention <a href="https://twitter.com/mhmdiaa">@mhmdiaa</a>&#39;s <a href="https://www.youtube.com/watch?v=3Q-QyGlc_Xk">&quot;Automation For Bug Hunters&quot; presentation on Bug Bounty World</a> (<a href="https://speakerdeck.com/mhmdiaa/automation-for-bug-hunters">slides</a>) and other work in this space. With our views and efforts so closely aligned we decided to join forces and work on this latest rendition, a v3 of sorts, BountyMachine.</p>
+
+<p>So coming back to our talk at DEF CON this year, &quot;Bug Bounty Hunting on Steroids&quot; was an opportunity to share what we have been working on, along with some of the process, patterns, ideas and lessons we have learned along the way; with the ultimate goal of inspiring others to think outside the current box, and reinvent the way we all approach our security research.</p>
+
+<p>I put together a little <a href="https://medium.com/tsscyber/def-con-2018-6ff9542451b8#906b">overview post for our work blog at TSS</a> (we had a few of us speaking this year!), so instead of repeating all of the talk specifics you can check that out. I will reshare the <a href="http://reconvillage.org/talks-2018/#bug-bounty-hunting-on-steroids---anshuman-bhartiya-and-glenn-devalias-grant">talk overview</a> here though, for posterity:</p>
+
+<blockquote>
+<p>Bug bounty programs are a hot topic these days. More and more companies are realizing the benefits of running a program, and researchers are jumping at the opportunity to grab some swag and make some extra cash from the bugs they find. Reporting security issues has never been as easy, open, and risk-free as it is right now. Everybody wins!</p>
+
+<p>Though that doesn’t mean we should stop there. As researchers, we spend a lot of time doing the same menial tasks for each program: monitoring for new targets, checking for common issues, remembering just which flags you needed to pass to that tool (or even which tool is best for that job). We build new tools, hack together shell scripts, and generally make small incremental changes to our process. But surely there’s a better approach?</p>
+
+<p>Are you sick of repeating the same tedious tasks over and over? Wouldn’t it be nice to have your own bug hunting machine? One that -</p>
+
+<ul>
+<li>Is always watching</li>
+<li>Reacts as soon as a new target becomes available</li>
+<li>Takes care of those tedious repetitive steps for you</li>
+<li>Makes life easy when you want to integrate a new tool/workflow</li>
+<li>Doesn’t cost the world to run, and trivially scales</li>
+<li>Leverages lessons and technologies battle tested in the dev world to improve your offensive capacity, capability and productivity</li>
+<li>Monitors your own infrastructure and reacts before hackers can (while saving you the cost of those Bug Bounty payouts in the meantime)</li>
+</ul>
+
+<p>We call this approach Bug Bounty Hunting on Steroids. We will discuss our research and approach to building such a machine, sharing some of the lessons we learned along the way.</p>
+</blockquote>
+
+<p>Now if you didn&#39;t manage to catch us at DEF CON (and I don&#39;t blame you, there was SO much happening ALL THE TIME.. it&#39;s such a non-stop week..) don&#39;t fret! Our <a href="https://speakerdeck.com/bountymachine/bug-bounty-hunting-on-steroids">slides are online</a>, we put together a bit of a <a href="https://medium.com/@bountymachine/introducing-bountymachine-234cad93b5d2">blog post covering a bunch of the areas we were talking about</a>, and I believe the talk was also recorded, so once that is online I will link to that too. Or if Twitter is more your style, go along and <a href="https://twitter.com/_devalias/status/1030946732069142528">retweet this one</a> (and make sure to follow the team for more BountyMachine updates!).</p>
+
+<p>The response to our talk has been awesome: we packed out the presentation room, had a lot of really interesting questions after the talk; and have had a constant stream of feedback, questions and support on twitter and elsewhere since.</p>
+
+<p>I truly believe that this is the space we need to be thinking and working in right now:</p>
+
+<ul>
+<li>encoding and automating our processes</li>
+<li>improving our tooling</li>
+<li>accelerating our agility</li>
+<li>collaboratively working to improve the entire security space</li>
+</ul>
+
+<p>Does this resonate with you? Are you sick of the same repetitive manual processes again and again? Want to automate it? Want to save your precious time for actually doing the interesting hacks? Me too! Let&#39;s talk! You can find me here in the comments, <a href="https://twitter.com/_devalias">twitter</a>, or idling around the various slack channels (user: devalias) and otherwise across the internet. How can we work together to improve the entire state of things?</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>Presenting all the things! (BSides Wellington, CSides Canberra, SecTalks Canberra)</title>
 	  <link>/devalias/2017/11/19/presenting-all-the-things-bsides-wellington-csides-sectalks/</link>
 	  <author>devalias</author>

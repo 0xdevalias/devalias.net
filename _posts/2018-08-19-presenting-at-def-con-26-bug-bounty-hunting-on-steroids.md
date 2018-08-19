@@ -18,6 +18,7 @@ webmention: true
 crosspost_to_medium: true
 crossposted:
 - https://medium.com/@devalias/presenting-at-def-con-26-bug-bounty-hunting-on-steroids-df3273c2853a
+- https://www.linkedin.com/pulse/presenting-def-con-26-bug-bounty-hunting-steroids-grant/
 - https://www.linkedin.com/feed/update/urn:li:activity:6436734460477214720
 - https://twitter.com/_devalias/status/1030967390048153600
 ---

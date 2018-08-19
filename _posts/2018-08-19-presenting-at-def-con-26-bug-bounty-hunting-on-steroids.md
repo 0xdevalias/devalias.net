@@ -15,9 +15,11 @@ categories:
 - devalias
 disqus: true
 webmention: true
-crosspost_to_medium: false
+crosspost_to_medium: true
 crossposted:
-- https://medium.com/TODO
+- https://medium.com/@devalias/presenting-at-def-con-26-bug-bounty-hunting-on-steroids-df3273c2853a
+- https://www.linkedin.com/feed/update/urn:li:activity:6436734460477214720
+- https://twitter.com/_devalias/status/1030967390048153600
 ---
 Wow, what a trip! I just had the opportunity to not only live out a childhood dream of attending [DEF CON](https://www.defcon.org/), but I even had the privilege to be able to present at the [DEF CON Recon Village](http://reconvillage.org/talks-2018/#bug-bounty-hunting-on-steroids---anshuman-bhartiya-and-glenn-devalias-grant)! Talk about achievement unlocked!
 

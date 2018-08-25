@@ -11,7 +11,7 @@ Living in **Canberra, Australia**.
 
 Working at **[TSS](https://www.dtss.com.au)** doing **InfoSec** things, but focussing more of my time on **development** now, rather than **pentesting**.
 
-**Outside of work** my time/energy is mostly split between **dance** (hip hop, breaking, etc. at [Project Beats](https://www.projectbeats.com.au/)) and **side projects** ([GitHub](https://github.com/0xdevalias), [Blog](/)).
+**Outside of work** my time/energy is mostly split between **dance** (hip hop, breaking, etc. at [Project Beats](https://www.projectbeats.com.au/)) and **side projects** ([GitHub](https://github.com/0xdevalias), [Blog](/)) such as [BountyMachine](/tag/bountymachine/).
 
 Recently I've been excitedly discovering a whole new world in the **hardware/electronics/maker** side of things. I'll often go down random **research** rabbitholes in **health, wellness, tech,** or some combination of; and my intention is to collate and capture what I learn in blog posts as I go.
 

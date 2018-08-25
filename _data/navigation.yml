@@ -12,17 +12,21 @@
   name: 'about'
   path: '/about'
 -
-  class: 'nav-coaching'
-  name: 'Coaching'
-  path: '/coaching'
+  class: 'nav-speaker'
+  name: 'Speaker'
+  path: '/speaker'
+-
+  class: 'nav-sec'
+  name: 'Security'
+  path: '/sec'
 -
   class: 'nav-dev'
   name: 'Development'
   path: '/dev'
 -
-  class: 'nav-sec'
-  name: 'Security'
-  path: '/sec'
+  class: 'nav-coaching'
+  name: 'Coaching'
+  path: '/coaching'
 -
   class: 'nav-personal'
   name: 'Personal'

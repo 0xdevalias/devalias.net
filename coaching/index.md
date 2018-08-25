@@ -10,7 +10,9 @@ redirect_from:
 
 [[Home](/) > Coaching]
 
-[Glenn 'devalias' Grant](/author/devalias) is a certified Bulletproof Coach, who studied through the Bulletproof Training Institute, and graduated in 2017.
+[Glenn 'devalias' Grant](/author/devalias) is a [certified Human Potential Coach](https://www.credential.net/irnmir4a), who studied through the [Bulletproof Training Institute](https://bi198.isrefer.com/go/CoachTraining/alias/), and graduated in 2017.
+
+![Certified Human Potential Coach](https://api.accredible.com/v1/frontend/credential_website_embed_image/badge/11278620)
 
 I found Bulletproof after struggling with health and weight issues over the years. It was the catalyst I needed to start cleaning up my diet, learn to appreciate whole foods, and really discover the joy of being on a path of constantly improving myself, my health and my focus.
 

@@ -5,6 +5,7 @@ title: Music
 redirect_from:
 - /music/
 - /media/
+- /focus/
 ---
 
 [[Home](/) > [Personal](/personal/) > Media]
@@ -18,6 +19,12 @@ redirect_from:
 * [Bandcamp](https://bandcamp.com/devalias/feed)
 * [di.fm](https://www.di.fm/)
 * [Last.fm](https://www.last.fm/) ([Scrobblers](https://www.last.fm/about/trackmymusic), [WebScrobbler](https://chrome.google.com/webstore/detail/web-scrobbler/hhinaapppaileiechjoiifaancjggfjm))
+
+## Focus
+
+* [Brain.fm](https://www1.brain.fm/app)
+* [Noisli](https://www.noisli.com/)
+* [Rainy Mood](http://www.rainymood.com/)
 
 ## Media
 

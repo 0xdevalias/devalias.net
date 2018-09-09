@@ -26,7 +26,7 @@ title: Interests
 
 #### Canberra, ACT, Australia
 
-* [Woden Valley Gymnastics](http://wodenvalley.gymnastics.org.au/content.aspx?file=68554|39628j)
+* [Canberra](/personal/interests/canberra)
 
 ## Relaxation/Health
 

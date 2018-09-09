@@ -8,6 +8,10 @@ crossposted:
 
 [[Home](/) > [Personal](/personal/) > Events/Theatre/Etc]
 
+# 2018
+
+* TODO: BSidesCBR, BSidesLV, DEF CON 26, Kiwicon, Psyland, Burning Seed, Dragon Dreaming, Dance shows (ADCC, Fresh Funk Beauty and the Beast, Battlegrounds, etc), Barnum, Jakop Ahlbom Horror, Supremacy, Midnight Mafia, Book of Mormon, Dimmu Borgir
+
 # 2017
 
 * TODO

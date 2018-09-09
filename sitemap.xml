@@ -311,6 +311,9 @@
 <loc>http://devalias.net/personal/interests/archery/</loc>
 </url>
 <url>
+<loc>http://devalias.net/personal/interests/canberra/</loc>
+</url>
+<url>
 <loc>http://devalias.net/personal/interests/floating/</loc>
 </url>
 <url>
@@ -320,13 +323,10 @@
 <loc>http://devalias.net/</loc>
 </url>
 <url>
-<loc>http://devalias.net/sec/stuff-i-like/</loc>
-</url>
-<url>
-<loc>http://devalias.net/sec/hackables/</loc>
-</url>
-<url>
 <loc>http://devalias.net/personal/stuff-i-like/</loc>
+</url>
+<url>
+<loc>http://devalias.net/sec/</loc>
 </url>
 <url>
 <loc>http://devalias.net/dev/chrome-extensions/</loc>
@@ -341,7 +341,7 @@
 <loc>http://devalias.net/coaching/</loc>
 </url>
 <url>
-<loc>http://devalias.net/sec/</loc>
+<loc>http://devalias.net/sec/hackables/</loc>
 </url>
 <url>
 <loc>http://devalias.net/personal/events/</loc>
@@ -357,6 +357,9 @@
 </url>
 <url>
 <loc>http://devalias.net/speaker/</loc>
+</url>
+<url>
+<loc>http://devalias.net/sec/stuff-i-like/</loc>
 </url>
 <url>
 <loc>http://devalias.net/personal/interests/neurofeedback/</loc>

@@ -37,6 +37,13 @@ I'm most (publicly) active on **[GitHub](https://github.com/0xdevalias), [Twitte
 
 </center>
 
+Medium: [Claps](https://medium.com/@devalias/has-recommended), [Highlights](https://medium.com/@devalias/highlights)
+
 ## Watching
 
 {% include trakt_watching.html %}
+
+## Playing
+
+* HowLongToBeat: [Playing](https://howlongtobeat.com/user.php?n=devalias&s=games&playing=1)
+* Steam: [Recently Played](https://steamcommunity.com/id/devalias/games/?tab=recent), [All Games](https://steamcommunity.com/id/devalias/games/?tab=all&sort=playtime)

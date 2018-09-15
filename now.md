@@ -45,5 +45,6 @@ Medium: [Claps](https://medium.com/@devalias/has-recommended), [Highlights](http
 
 ## Playing
 
+* Player.me: [Currently Playing](https://player.me/devalias/games/current-playing)
 * HowLongToBeat: [Playing](https://howlongtobeat.com/user.php?n=devalias&s=games&playing=1)
 * Steam: [Recently Played](https://steamcommunity.com/id/devalias/games/?tab=recent), [All Games](https://steamcommunity.com/id/devalias/games/?tab=all&sort=playtime)

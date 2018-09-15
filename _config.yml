@@ -140,7 +140,7 @@ webmentions:
   js:
     source: false
     destination: /assets/js/
-  disabled: false
+  disabled: true
 
 plugins:
   - jekyll-redirect-from        # https://github.com/jekyll/jekyll-redirect-from

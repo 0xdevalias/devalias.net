@@ -22,9 +22,11 @@ categories:
 - devalias
 disqus: true
 webmention: true
-crosspost_to_medium: false
+crosspost_to_medium: true
 crossposted:
-- TODO
+- https://medium.com/@devalias/forming-serverless-clouds-with-aws-cloudformation-sam-cdk-amplify-bd8bb0b00e5a
+- https://www.linkedin.com/pulse/forming-serverless-clouds-aws-cloudformation-sam-cdk-amplify-grant/
+- https://twitter.com/_devalias/status/1040880037015089152
 ---
 Recently I have been playing around with a few little side projects, and trying out different ways of getting them IntoTheCloud(tm). If you know me, you know that I'm pretty big on increasing efficiency, reducing boilerplate/time to start, automation, infrastructure as code (IaC), and similar fun things.
 

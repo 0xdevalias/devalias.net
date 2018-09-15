@@ -1,4 +1,303 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en_GB"><generator uri="https://jekyllrb.com/" version="3.8.0">Jekyll</generator><link href="http://devalias.net/feed.xml" rel="self" type="application/atom+xml" /><link href="http://devalias.net/" rel="alternate" type="text/html" hreflang="en_GB" /><updated>2018-09-12T11:24:51+10:00</updated><id>http://devalias.net/</id><title type="html">/dev/alias – Hack. Dev. Transcend.</title><subtitle>Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.</subtitle><entry><title type="html">Presenting at DEF CON 26 - Bug Bounty Hunting on Steroids</title><link href="http://devalias.net/devalias/2018/08/19/presenting-at-def-con-26-bug-bounty-hunting-on-steroids/" rel="alternate" type="text/html" title="Presenting at DEF CON 26 - Bug Bounty Hunting on Steroids" /><published>2018-08-19T00:00:00+10:00</published><updated>2018-08-19T00:00:00+10:00</updated><id>http://devalias.net/devalias/2018/08/19/presenting-at-def-con-26-bug-bounty-hunting-on-steroids</id><content type="html" xml:base="http://devalias.net/devalias/2018/08/19/presenting-at-def-con-26-bug-bounty-hunting-on-steroids/">&lt;p&gt;Wow, what a trip! I just had the opportunity to not only live out a childhood dream of attending &lt;a href=&quot;https://www.defcon.org/&quot;&gt;DEF CON&lt;/a&gt;, but I even had the privilege to be able to present at the &lt;a href=&quot;http://reconvillage.org/talks-2018/#bug-bounty-hunting-on-steroids---anshuman-bhartiya-and-glenn-devalias-grant&quot;&gt;DEF CON Recon Village&lt;/a&gt;! Talk about achievement unlocked!&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en_GB"><generator uri="https://jekyllrb.com/" version="3.8.0">Jekyll</generator><link href="http://devalias.net/feed.xml" rel="self" type="application/atom+xml" /><link href="http://devalias.net/" rel="alternate" type="text/html" hreflang="en_GB" /><updated>2018-09-15T18:24:15+10:00</updated><id>http://devalias.net/</id><title type="html">/dev/alias – Hack. Dev. Transcend.</title><subtitle>Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.</subtitle><entry><title type="html">Forming Serverless Clouds with AWS: CloudFormation, SAM, CDK, Amplify</title><link href="http://devalias.net/devalias/2018/09/15/forming-serverless-clouds-aws-cloudformation-sam-cdk-amplify/" rel="alternate" type="text/html" title="Forming Serverless Clouds with AWS: CloudFormation, SAM, CDK, Amplify" /><published>2018-09-15T00:00:00+10:00</published><updated>2018-09-15T00:00:00+10:00</updated><id>http://devalias.net/devalias/2018/09/15/forming-serverless-clouds-aws-cloudformation-sam-cdk-amplify</id><content type="html" xml:base="http://devalias.net/devalias/2018/09/15/forming-serverless-clouds-aws-cloudformation-sam-cdk-amplify/">&lt;p&gt;Recently I have been playing around with a few little side projects, and trying out different ways of getting them IntoTheCloud(tm). If you know me, you know that I&amp;#39;m pretty big on increasing efficiency, reducing boilerplate/time to start, automation, infrastructure as code (IaC), and similar fun things.&lt;/p&gt;
+
+&lt;p&gt;With these explorations I have been looking to see how I can go from &amp;#39;cool project idea&amp;#39; to having a PoC &lt;a href=&quot;https://aws.amazon.com/serverless/&quot;&gt;serverless&lt;/a&gt; application running InTheCloud(tm) with as little time, effort, boilerplate, and ongoing cost required; with the hope that if it is quick/easy enough, and the patterns simple enough, I will actually get around to hacking on more of my side projects (or it will be quicker and cheaper to get clients projects up and running).&lt;/p&gt;
+
+&lt;h2&gt;&lt;a name=&quot;aws&quot;&gt;&lt;/a&gt;AWS&lt;/h2&gt;
+
+&lt;p&gt;For this particular exploration I have been playing around a lot in &lt;a href=&quot;https://aws.amazon.com/&quot;&gt;AWS&lt;/a&gt; (Amazon&amp;#39;s Cloud), with a particular focus on &lt;a href=&quot;https://aws.amazon.com/serverless/&quot;&gt;serverless&lt;/a&gt; patterns. As you probably know, AWS is huge, basically runs a good chunk of the internet, and seemingly &lt;a href=&quot;https://aws.amazon.com/products/&quot;&gt;has a product line for every possible thing you could dream of&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Since I was looking to speed up my &amp;#39;new project boilerplate&amp;#39;, I decided to focus in on the following projects/services:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://aws.amazon.com/cloudformation/&quot;&gt;AWS CloudFormation&lt;/a&gt; (&lt;a href=&quot;#cloudformation&quot;&gt;see below&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/awslabs/serverless-application-model&quot;&gt;AWS Serverless Application Model (SAM)&lt;/a&gt; (&lt;a href=&quot;#sam&quot;&gt;see below&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/awslabs/aws-cdk&quot;&gt;AWS Cloud Development Kit (CDK)&lt;/a&gt; (&lt;a href=&quot;#cdk&quot;&gt;see below&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://aws-amplify.github.io/&quot;&gt;AWS Amplify&lt;/a&gt; (&lt;a href=&quot;#amplify&quot;&gt;see below&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I&amp;#39;ll go into a bit more detail on each of these below, but since I saw so much potential crossover/overlap between them, I opened a few issues on their respective repositories. You might find more interesting tips, tricks, and aspects in those threads too:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/awslabs/aws-sam-cli/issues/663&quot;&gt;awslabs/aws-sam-cli#663&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/awslabs/aws-cdk/issues/703&quot;&gt;awslabs/aws-cdk#703&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/aws-amplify/amplify-cli/issues/160&quot;&gt;aws-amplify/amplify-cli#160&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;&lt;a name=&quot;cloudformation&quot;&gt;&lt;/a&gt;AWS CloudFormation&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://aws.amazon.com/cloudformation/&quot;&gt;AWS CloudFormation&lt;/a&gt; provides a common language for you to describe and provision all the infrastructure resources in your cloud environment. CloudFormation allows you to use a simple text file to model and provision, in an automated and secure manner, all the resources needed for your applications across all regions and accounts. This file serves as the single source of truth for your cloud environment.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Basically, &lt;a href=&quot;https://aws.amazon.com/cloudformation/&quot;&gt;CloudFormation&lt;/a&gt; is a bunch of JSON or YAML that defines all of the AWS resources/projects you want to use, how to configure them, and how to tie it all together. Then you can just push it ToTheCloud(tm), some kind of magic happens while you go make coffee, and you&amp;#39;re done. It&amp;#39;s AWS&amp;#39;s basic Infrastructure as Code (IaC) service.&lt;/p&gt;
+
+&lt;p&gt;In reality, CloudFormation templates can VERY quickly get massively out of hand, huge, confusing, and pretty hard to cognitively reason about. It&amp;#39;s great as an underlying technology layer.. but it isn&amp;#39;t really optimised for human consumption (particularly the JSON format). Thankfully some of the other projects I will talk about a little later aim to solve that human interface problem.&lt;/p&gt;
+
+&lt;p&gt;Within CloudFormation there are a few high level concepts that it&amp;#39;s good to be aware of:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacks.html&quot;&gt;Stack&lt;/a&gt;: This ties together all of your resources in an &lt;a href=&quot;https://docs.aws.amazon.com/general/latest/gr/rande.html&quot;&gt;AWS Region&lt;/a&gt; into a single unit.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html&quot;&gt;Nested Stack&lt;/a&gt;: A stack created within another stack. Allows you to seperate common patterns into their own templates and tie them all together.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.html&quot;&gt;StackSet&lt;/a&gt;: This ties together multiple Stacks, and allows you to manage them across multiple regions and accounts.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Since Stacks by themselves are single region, you can run into some weird problems depending on the services you want to use. For example, when I want to deploy my application in &lt;code&gt;ap-southeast-2&lt;/code&gt;, but want to use &lt;a href=&quot;https://aws.amazon.com/cloudfront/&quot;&gt;AWS CloudFront&lt;/a&gt; (&lt;a href=&quot;https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cnames-and-https-requirements.html#https-requirements-aws-region&quot;&gt;which runs in &lt;code&gt;us-east-1&lt;/code&gt;&lt;/a&gt;) with a HTTPS certificate issued through &lt;a href=&quot;https://aws.amazon.com/certificate-manager/&quot;&gt;AWS Certificate Manager&lt;/a&gt;, I can&amp;#39;t natively do this within a single stack.&lt;/p&gt;
+
+&lt;p&gt;There are workarounds such as &lt;a href=&quot;https://github.com/awslabs/serverless-application-model/issues/565#issuecomment-419129580&quot;&gt;using custom resources&lt;/a&gt; to manage the deployment, or &lt;a href=&quot;https://github.com/awslabs/serverless-application-model/issues/565#issuecomment-419608229&quot;&gt;using a StackSet&lt;/a&gt; with &lt;a href=&quot;https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/outputs-section-structure.html&quot;&gt;exported outputs&lt;/a&gt; and &lt;a href=&quot;https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-importvalue.html&quot;&gt;&lt;code&gt;Fn::ImportValue&lt;/code&gt;&lt;/a&gt; to deploy the related components across different regions; but sometimes it can take a little digging to figure out the best way to do it.&lt;/p&gt;
+
+&lt;p&gt;If you&amp;#39;re interested in trying the &lt;a href=&quot;https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-custom-resources.html&quot;&gt;Custom Resource&lt;/a&gt; approach, the following was how one person explained their implementation to me:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;It&amp;#39;s a bit complicated due to specifics of ACM certificate issuance. The general way it works is:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;CloudFormation creates a custom resource that has the same &amp;quot;signature&amp;quot; as an ACM certificate. It takes the same parameters and has the same return values (Ref and attribute values).&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;The custom resource invokes a Lambda function in the account. This function requests a new certificate from ACM in us-east-1.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;The Lambda function then sends a message to an SQS queue in the account. This queue is subscribed by the same Lambda function. The queue is effectively a &amp;quot;while&amp;quot; loop to reinvoke the function every 30 seconds to check whether the certificate has been issued.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Every time the Lambda function is invoked by the queued message:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;If the certificate has been issued, the function responds with a success back to CloudFormation with the appropriate return values. The function returns successfully, which removes the message from the SQS queue.&lt;/li&gt;
+&lt;li&gt;If the certificate issuance failed, the function responds with a failure back to CloudFormation with an appropriate message. The function returns successfully, which removes the message from the SQS queue.&lt;/li&gt;
+&lt;li&gt;If the certificate is still awaiting verification, the function does nothing and throws an error. The error causes SQS to keep the message in the queue and retry 30 seconds later.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Meanwhile, the ACM certificate verification occurs (a human approves it via an email sent to the domain owner, or a DNS record is added to the domain to verify the certificate).&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;While it is pretty convoluted setup for a single project, I expect that if designed well this could be wrapped up into a simple open source/deployable component that everyone could make use of rather easily. Perhaps something for the &lt;a href=&quot;https://aws.amazon.com/serverless/serverlessrepo/&quot;&gt;AWS Serverless Application Repository&lt;/a&gt; or as a &lt;a href=&quot;https://aws.amazon.com/blogs/devops/construct-your-own-launch-stack-url/&quot;&gt;Launch Stack Button&lt;/a&gt;?&lt;/p&gt;
+
+&lt;h2&gt;&lt;a name=&quot;sam&quot;&gt;&lt;/a&gt;AWS Severless Application Model (SAM)&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;The &lt;a href=&quot;https://docs.aws.amazon.com/lambda/latest/dg/serverless_app.html&quot;&gt;AWS Serverless Application Model (AWS SAM)&lt;/a&gt; is a model to define serverless applications. AWS SAM is natively supported by AWS CloudFormation and defines simplified syntax for expressing serverless resources. The specification currently covers APIs, Lambda functions and Amazon DynamoDB tables.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;AWS SAM (&lt;a href=&quot;https://github.com/awslabs/serverless-application-model&quot;&gt;GitHub&lt;/a&gt;, &lt;a href=&quot;https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md&quot;&gt;Spec/Usage&lt;/a&gt;, &lt;a href=&quot;https://github.com/awslabs/serverless-application-model/tree/master/examples&quot;&gt;Examples&lt;/a&gt;, &lt;a href=&quot;https://awslabs.github.io/serverless-application-model/&quot;&gt;Site&lt;/a&gt;, &lt;a href=&quot;https://github.com/awslabs/aws-sam-cli&quot;&gt;CLI&lt;/a&gt;, &lt;a href=&quot;https://github.com/awslabs/aws-sam-cli/tree/master/samcli/local/init/templates&quot;&gt;Templates&lt;/a&gt;) seems to have come about because using CloudFormation directly was just too verbose and time consuming for some of the more common serverless usecases. By wrapping these cases up in a simplified/abstracted way makes it easier to get started, and therefore more likely for people to use the serverless resources AWS provides. It similarly follows the CloudFormation model of defining your resources in YAML, and uses a &lt;a href=&quot;https://pypi.org/project/aws-sam-translator/&quot;&gt;translator&lt;/a&gt; (&lt;a href=&quot;https://github.com/awslabs/serverless-application-model/tree/master/samtranslator&quot;&gt;GitHub&lt;/a&gt;) to build the raw underlying CloudFormation template.&lt;/p&gt;
+
+&lt;p&gt;While AWS SAM seems great for these common usecases, there are definitely areas where you will need to fall back to using native CloudFormation (which you can thankfully use directly within a SAM template). There are also a number of areas where limitations in what SAM allows you to configure means &lt;a href=&quot;https://github.com/awslabs/serverless-application-model/issues/566#issuecomment-419311289&quot;&gt;you may not be able to use it&amp;#39;s simplified abstractions&lt;/a&gt;. These are likely to improve over time as &lt;a href=&quot;https://github.com/awslabs/serverless-application-model/issues&quot;&gt;people run into the issues&lt;/a&gt;, and the maintainer team implements/improves features.&lt;/p&gt;
+
+&lt;p&gt;What is really nice is just how simple it is to get a new project off the ground:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Have a look at &lt;a href=&quot;https://github.com/awslabs/aws-sam-cli#get-started&quot;&gt;Get Started&lt;/a&gt; and &lt;a href=&quot;https://github.com/awslabs/aws-sam-cli/blob/develop/docs/installation.rst#using-pip&quot;&gt;install/upgrade the CLI&lt;/a&gt;: &lt;code&gt;pip install --upgrade aws-sam-cli&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/awslabs/aws-sam-cli/blob/develop/docs/usage.rst&quot;&gt;Init your new application&lt;/a&gt;: &lt;code&gt;sam init --runtime nodejs8.10 --name foo-app&lt;/code&gt;
+
+&lt;ul&gt;
+&lt;li&gt;There are MANY supported runtimes (&lt;code&gt;sam init --help&lt;/code&gt;).. so choose your favourite: &lt;code&gt;[python3.6|python2.7|python|nodejs6.10|nodejs8.10|nodejs4.3|nodejs|dotnetcore2.0|dotnetcore1.0|dotnetcore|dotnet|go1.x|go|java8|java]&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Pull down your app dependencies: &lt;code&gt;cd foo-app/hello_world &amp;amp;&amp;amp; npm install&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Run your API locally (&lt;code&gt;sam local --help&lt;/code&gt;): &lt;code&gt;cd ../ &amp;amp;&amp;amp; sam local start-api&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;View your application in all of it&amp;#39;s glory: &lt;a href=&quot;http://127.0.0.1:3000/hello&quot;&gt;http://127.0.0.1:3000/hello&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a name=&quot;sam-example&quot;&gt;&lt;/a&gt;If you have a look at the generated SAM template (&lt;code&gt;template.yaml&lt;/code&gt;), you&amp;#39;ll see that the entire stack is only ~45 lines (including newlines and comments), with the main function code only taking up ~15 lines. Not bad to get a PoC application running:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;&lt;span class=&quot;na&quot;&gt;HelloWorldFunction&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;Type&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;AWS::Serverless::Function&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;Properties&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;CodeUri&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;hello_world/&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;Handler&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;app.lambdaHandler&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;Runtime&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;nodejs8.10&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;Environment&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;Variables&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;PARAM1&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;VALUE&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;Events&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;HelloWorld&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;Type&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Api&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;Properties&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;na&quot;&gt;Path&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;/hello&lt;/span&gt;
+          &lt;span class=&quot;na&quot;&gt;Method&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;get&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Once we&amp;#39;re ready to &lt;a href=&quot;https://github.com/awslabs/aws-sam-cli/blob/develop/docs/deploying_serverless_applications.rst&quot;&gt;deploy this to the cloud&lt;/a&gt;, we have just a couple more commands to run:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Make sure our template is valid: &lt;code&gt;sam validate&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Package any external code and upload to S3 (bucket must already exist): &lt;code&gt;sam package --template-file ./template.yaml --output-template-file ./packaged.yaml --s3-bucket FOO-PKGS-BUCKET&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Deploy our stack: &lt;code&gt;sam deploy --template-file ./packaged.yaml --stack-name Foo-App --capabilities CAPABILITY_IAM&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Now if you&amp;#39;re like me and enjoy writing your backend in &lt;a href=&quot;https://golang.org/&quot;&gt;Golang&lt;/a&gt;, then you may find the default template (&lt;code&gt;sam init --runtime go1.x --name foo-app&lt;/code&gt;) a little lacking (eg. no &lt;a href=&quot;https://github.com/golang/dep&quot;&gt;&lt;code&gt;dep&lt;/code&gt;&lt;/a&gt;, basic Makefile, etc). Thankfully we have the ability to pass a &lt;code&gt;--location&lt;/code&gt; flag to tell it to use a different template project.&lt;/p&gt;
+
+&lt;p&gt;But how do we know what the template project should look like? Digging into the code we find the &lt;a href=&quot;https://github.com/awslabs/aws-sam-cli/blob/6164d6d2e7351a849ad3d79973ac18b8d3d1d371/samcli/local/init/__init__.py#L35&quot;&gt;&lt;code&gt;generate_project&lt;/code&gt;&lt;/a&gt; function, which accepts the &lt;code&gt;location&lt;/code&gt; parameter. &lt;a href=&quot;https://github.com/awslabs/aws-sam-cli/blob/6164d6d2e7351a849ad3d79973ac18b8d3d1d371/samcli/local/init/__init__.py#L68&quot;&gt;If the parameter is defined it will be used&lt;/a&gt;, otherwise it is looked up in the &lt;a href=&quot;https://github.com/awslabs/aws-sam-cli/blob/6164d6d2e7351a849ad3d79973ac18b8d3d1d371/samcli/local/init/__init__.py#L16-L32&quot;&gt;&lt;code&gt;RUNTIME_TEMPLATE_MAPPING&lt;/code&gt;&lt;/a&gt;, which links the runtime you specified (eg. &lt;code&gt;go1.x&lt;/code&gt;) to the template project to use (eg. &lt;a href=&quot;https://github.com/awslabs/aws-sam-cli/blob/6164d6d2e7351a849ad3d79973ac18b8d3d1d371/samcli/local/init/__init__.py#L28&quot;&gt;&lt;code&gt;cookiecutter-aws-sam-hello-golang&lt;/code&gt;&lt;/a&gt;). These templates are looked up in the &lt;a href=&quot;https://github.com/awslabs/aws-sam-cli/blob/6164d6d2e7351a849ad3d79973ac18b8d3d1d371/samcli/local/init/__init__.py#L13-L14&quot;&gt;&lt;code&gt;_templates&lt;/code&gt; variable path&lt;/a&gt;, which after some digging I managed to &lt;a href=&quot;https://github.com/awslabs/aws-sam-cli/tree/6164d6d2e7351a849ad3d79973ac18b8d3d1d371/samcli/local/init/templates&quot;&gt;locate in the repo at &lt;code&gt;aws-sam-cli/samcli/local/init/templates/&lt;/code&gt;&lt;/a&gt;. There also appear to be a few more templates on the &lt;a href=&quot;https://github.com/aws-samples?utf8=%E2%9C%93&amp;q=cookiecutter&amp;type=&amp;language=&quot;&gt;aws-samples GitHub&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Having a look at the &lt;a href=&quot;https://github.com/awslabs/aws-sam-cli/tree/6164d6d2e7351a849ad3d79973ac18b8d3d1d371/samcli/local/init/templates/cookiecutter-aws-sam-hello-golang&quot;&gt;Golang template project&lt;/a&gt;, it appears that these are &lt;a href=&quot;https://github.com/audreyr/cookiecutter&quot;&gt;Cookiecutter&lt;/a&gt; (&lt;a href=&quot;https://cookiecutter.readthedocs.io/en/latest/&quot;&gt;docs&lt;/a&gt;) templates. So to make our own customised SAM Golang starter template, after &lt;a href=&quot;https://cookiecutter.readthedocs.io/en/latest/installation.html#install-cookiecutter&quot;&gt;installing Cookiecutter&lt;/a&gt; (&lt;code&gt;pip install --upgrade cookiecutter&lt;/code&gt;), we can copy the &lt;a href=&quot;https://github.com/awslabs/aws-sam-cli/tree/master/samcli/local/init/templates/cookiecutter-aws-sam-hello-golang&quot;&gt;existing template&lt;/a&gt;, &lt;a href=&quot;https://cookiecutter.readthedocs.io/en/latest/usage.html#make-your-changes&quot;&gt;make our desired changes&lt;/a&gt;, and save it somewhere useful for future use (such as GitHub). Then when we want to use it in a new project:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;sam init --runtime go1.x --location gh:0xdevalias/TODO-cookiecutter-aws-sam-golang --name foo-app&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;While I haven&amp;#39;t abstracted out my patterns into a custom starter template yet, this may be something I end up doing in future, so make sure to &lt;a href=&quot;https://github.com/0xdevalias?utf8=%E2%9C%93&amp;tab=repositories&amp;q=cookiecutter-&amp;type=&amp;language=&quot;&gt;keep an eye on my GitHub&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2&gt;&lt;a name=&quot;cdk&quot;&gt;&lt;/a&gt;AWS Cloud Development Kit (CDK)&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;The &lt;a href=&quot;https://github.com/awslabs/aws-cdk&quot;&gt;AWS Cloud Development Kit (AWS CDK)&lt;/a&gt; is an open-source software development framework to define cloud infrastructure in code and provision it through AWS CloudFormation. The CDK integrates fully with AWS services and offers a higher level object-oriented abstraction to define AWS resources imperatively. Using the CDK’s library of infrastructure constructs, you can easily encapsulate AWS best practices in your infrastructure definition and share it without worrying about boilerplate logic. The CDK improves the end-to-end development experience because you get to use the power of modern programming languages to define your AWS infrastructure in a predictable and efficient manner. The CDK is currently available for Java, JavaScript, and TypeScript.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;AWS CDK (&lt;a href=&quot;https://github.com/awslabs/aws-cdk&quot;&gt;GitHub&lt;/a&gt;, &lt;a href=&quot;https://github.com/awslabs/aws-cdk/blob/master/CHANGELOG.md&quot;&gt;Changelog&lt;/a&gt;, &lt;a href=&quot;https://awslabs.github.io/aws-cdk/&quot;&gt;Site&lt;/a&gt;, &lt;a href=&quot;https://awslabs.github.io/aws-cdk/reference.html&quot;&gt;Reference&lt;/a&gt;, Examples: &lt;a href=&quot;https://awslabs.github.io/aws-cdk/examples.html&quot;&gt;1&lt;/a&gt;, &lt;a href=&quot;https://github.com/awslabs/aws-cdk/tree/master/examples&quot;&gt;2&lt;/a&gt;) moves away from directly constructing raw YAML/JSON by hand, and takes more of a &amp;#39;generator code&amp;#39; approach, providing a development kit of libraries that you can use to describe how your cloud infrastructure should look, connect, and interact. Once it&amp;#39;s all defined in code, you can use it to generate the CloudFormation / &lt;a href=&quot;https://awslabs.github.io/aws-cdk/refs/_aws-cdk_aws-sam.html&quot;&gt;AWS SAM&lt;/a&gt; YAML, deploy it to the cloud, and everything else you would come to expect from these sorts of tools.&lt;/p&gt;
+
+&lt;p&gt;The CDK is divided up into a number of libraries, with &lt;a href=&quot;https://awslabs.github.io/aws-cdk/reference.html&quot;&gt;each representing an AWS service&lt;/a&gt;. Each of these libraries is broken up into two different levels of &lt;a href=&quot;https://awslabs.github.io/aws-cdk/constructs.html&quot;&gt;Constructs&lt;/a&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://awslabs.github.io/aws-cdk/cloudformation.html&quot;&gt;CloudFormation Resource&lt;/a&gt;: low-level constructs that provide a direct, one-to-one, mapping to an AWS CloudFormation resource, as listed in the &lt;a href=&quot;https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html&quot;&gt;AWS CloudFormation Resource Types Reference&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://awslabs.github.io/aws-cdk/aws-construct-lib.html&quot;&gt;AWS Construct Library&lt;/a&gt;: handwritten by AWS and come with convenient defaults and additional knowledge about the inner workings of the AWS resources they represent. In general, you will be able to express your intent without worrying about the details too much, and the correct resources will automatically be defined for you.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Where possible you should be able to use the higher level constructs to get things done (and these will only get better over time), but it&amp;#39;s nice to know that we have an easy way to drop down to the lower-level functionality when we need to. There also appears to be the ability to create new Construct libs (&lt;code&gt;cdk init --list&lt;/code&gt;, &lt;a href=&quot;https://github.com/awslabs/aws-cdk/tree/master/packages/aws-cdk/lib/init-templates/lib&quot;&gt;template&lt;/a&gt;), so it&amp;#39;s possible you could build your own custom construct abstractions with this. Another area for future exploration.&lt;/p&gt;
+
+&lt;p&gt;As is pretty standard by now, you define a &lt;a href=&quot;https://awslabs.github.io/aws-cdk/stacks.html&quot;&gt;stack&lt;/a&gt; which contains all of the features and services you want to use, then configure the &lt;a href=&quot;https://awslabs.github.io/aws-cdk/environments.html#environments&quot;&gt;environment&lt;/a&gt; to define where it should be deployed. You can define multiple stacks within your &lt;a href=&quot;https://awslabs.github.io/aws-cdk/apps.html&quot;&gt;CDK App&lt;/a&gt;, which means we have a nice way to handle cross-region deployments. There is built in support for uploading &lt;a href=&quot;https://awslabs.github.io/aws-cdk/assets.html&quot;&gt;assets&lt;/a&gt; (&lt;a href=&quot;https://awslabs.github.io/aws-cdk/refs/_aws-cdk_assets.html#id2&quot;&gt;ref&lt;/a&gt;) that your application may require (eg. lambda code, etc), as well as &lt;a href=&quot;https://awslabs.github.io/aws-cdk/applets.html&quot;&gt;applets&lt;/a&gt; for running custom code as part of your build (eg. compiling code/assets).&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://awslabs.github.io/aws-cdk/getting-started.html&quot;&gt;Getting started&lt;/a&gt; with a new project is pretty simple (note: if you don&amp;#39;t have default creds configured, make sure to use &lt;code&gt;AWS_PROFILE&lt;/code&gt;/&lt;code&gt;--profile&lt;/code&gt; &lt;a href=&quot;https://github.com/awslabs/aws-cdk/issues/130#issuecomment-421508274&quot;&gt;or things will hang&lt;/a&gt;):&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://awslabs.github.io/aws-cdk/getting-started.html#install-the-command-line-toolkit&quot;&gt;Install the CDK CLI&lt;/a&gt;: &lt;code&gt;npm install -g aws-cdk&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Check what templates/languages are available: &lt;code&gt;cdk init --list&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Init a new app: &lt;code&gt;mkdir foo &amp;amp;&amp;amp; cd foo &amp;amp;&amp;amp; cdk init app --language=typescript&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://awslabs.github.io/aws-cdk/getting-started.html#compile-the-code&quot;&gt;Compile CDK App Typescript&lt;/a&gt;: &lt;code&gt;npm run build&lt;/code&gt; (or &lt;code&gt;npm run watch&lt;/code&gt; in another terminal)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://awslabs.github.io/aws-cdk/getting-started.html#list-the-stacks-in-the-app&quot;&gt;List the stacks&lt;/a&gt;: &lt;code&gt;cdk ls --long&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://awslabs.github.io/aws-cdk/getting-started.html#synthesize-an-cfn-template&quot;&gt;Synthesize the code to CloudFormation YAML&lt;/a&gt;: &lt;code&gt;cdk synth&lt;/code&gt; or &lt;code&gt;cdk synth FooStack&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;When you&amp;#39;re happy and think you&amp;#39;re ready to deploy:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://awslabs.github.io/aws-cdk/getting-started.html#preparing-for-deployment&quot;&gt;Diff to see changes&lt;/a&gt; (and make sure you&amp;#39;re still happy): &lt;code&gt;cdk diff&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://awslabs.github.io/aws-cdk/getting-started.html#deploying-the-stack&quot;&gt;Deploy&lt;/a&gt;: &lt;code&gt;cdk deploy&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Following along from our previous &lt;a href=&quot;#sam-example&quot;&gt;AWS SAM example&lt;/a&gt;, we can create an equivalent &lt;a href=&quot;https://github.com/awslabs/aws-cdk/issues/716&quot;&gt;example SAM function&lt;/a&gt; (&lt;a href=&quot;https://awslabs.github.io/aws-cdk/refs/_aws-cdk_aws-sam.html&quot;&gt;ref&lt;/a&gt;) in &lt;code&gt;./bin/foo.ts&lt;/code&gt; with code such as the following:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-typescript&quot; data-lang=&quot;typescript&quot;&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;sam&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'@aws-cdk/aws-serverless'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;lambda&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'@aws-cdk/aws-lambda'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-typescript&quot; data-lang=&quot;typescript&quot;&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;helloWorld&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;sam&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;cloudformation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;FunctionResource&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;HelloWorldFunction&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;codeUri&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;hello_world/&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;handler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;app.lambdaHandler&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;runtime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;lambda&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Runtime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;NodeJS810&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;environment&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;variables&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;PARAM1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;VALUE&quot;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;events&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;HelloWorld&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Api&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;properties&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;/hello&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;method&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;get&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Remember you will need to &lt;code&gt;npm install&lt;/code&gt; any additional packages you need before you can use them:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;npm i @aws-cdk/aws-serverless @aws-cdk/aws-lambda
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Once we compile (&lt;code&gt;npm run build&lt;/code&gt;) and synthesize (&lt;code&gt;cdk synth&lt;/code&gt;), we can see we end up with equivalent YAML to our &lt;a href=&quot;#sam-example&quot;&gt;previous SAM example&lt;/a&gt;:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;&lt;span class=&quot;na&quot;&gt;HelloWorldFunction&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;Type&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;AWS::Serverless::Function'&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;Properties&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;CodeUri&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;hello_world/&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;Handler&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;app.lambdaHandler&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;Runtime&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;nodejs8.10&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;Environment&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;Variables&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;PARAM1&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;VALUE&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;Events&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;HelloWorld&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;Properties&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;na&quot;&gt;Method&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;get&lt;/span&gt;
+          &lt;span class=&quot;na&quot;&gt;Path&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;/hello&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;Type&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Api&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;While CDK is &lt;a href=&quot;https://aws.amazon.com/blogs/developer/aws-cdk-developer-preview/&quot;&gt;quite a new project (Aug 2018)&lt;/a&gt;, we can already see that it is quite powerful to work with.&lt;/p&gt;
+
+&lt;h2&gt;&lt;a name=&quot;amplify&quot;&gt;&lt;/a&gt;Amplify&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://aws-amplify.github.io/&quot;&gt;Amplify&lt;/a&gt; is an open source project which is focused on mobile and web developers building applications. This consists of a library, UI components, and a CLI toolchain. The design follows a category based model allowing developers to perform advanced use cases with declarative client APIs so that they can focus on their application code (e.g. Auth.signIn() or API.graphql()). This allows developers to focus on their business use cases and less time on re-implementing the most common use cases around mobile or web app development (Auth flows, Storage and API interaction, Analytics, etc.) (&lt;a href=&quot;https://github.com/aws-amplify/amplify-cli/issues/160#issuecomment-421100213&quot;&gt;Source&lt;/a&gt;)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://aws-amplify.github.io/&quot;&gt;AWS Amplify&lt;/a&gt; (&lt;a href=&quot;https://github.com/aws-amplify&quot;&gt;GitHub&lt;/a&gt;) combines a number of different complementary aspects to simplify modern mobile and web development:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/aws-amplify/amplify-cli&quot;&gt;CLI&lt;/a&gt;: uses AWS CloudFormation and nested stacks to define and provision commonly required backend services and features&lt;/li&gt;
+&lt;li&gt;Library / &lt;a href=&quot;https://aws-amplify.github.io/media/ui_library&quot;&gt;UI Components&lt;/a&gt;: These appear to be broken down based on platform
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://aws-amplify.github.io/amplify-js/media/quick_start?platform=react&quot;&gt;Web / JavaScript / React Native&lt;/a&gt; (&lt;a href=&quot;https://github.com/aws-amplify/amplify-js&quot;&gt;GitHub&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://docs.aws.amazon.com/aws-mobile/latest/developerguide/getting-started.html#ios-swift&quot;&gt;iOS&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://docs.aws.amazon.com/aws-mobile/latest/developerguide/getting-started.html#android-java&quot;&gt;Android&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Of all of the projects I have explored today, this is the one I have the least experience with, so I may not have fully come to understand/appreciate the depth of it yet. In a bit of a difference from the previous projects, this seems to take more of a &amp;#39;full-stack&amp;#39; approach to solving common application needs.&lt;/p&gt;
+
+&lt;p&gt;One of the nice things about the &lt;a href=&quot;https://github.com/aws-amplify/amplify-cli&quot;&gt;Amplify CLI&lt;/a&gt; is how it aims to provide simple menu-driven options for getting everything going:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/aws-amplify/amplify-cli#install-the-cli&quot;&gt;Install the CLI&lt;/a&gt;: &lt;code&gt;npm install -g @aws-amplify/cli&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Init a new project: &lt;code&gt;amplify init&lt;/code&gt; and follow the menu choices&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;⇒  amplify init
+Note: It is recommended to run this command from the root of your app directory
+? Choose your default editor: None
+? Choose the type of app that you're building: javascript
+Please tell us about your project
+? What javascript framework are you using: react
+? Source Directory Path:  src
+? Distribution Directory Path: build
+? Build Command:  npm run-script build
+? Start Command: npm run-script start
+
+Using default provider awscloudformation
+
+Initializing project in the cloud...
+..snip..
+Your project has been successfully initialized and connected to the cloud!
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;Choose a category (feature) you want to add (&lt;code&gt;amplify --help&lt;/code&gt;), and select it: eg. &lt;code&gt;amplify function add&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;⇒  amplify function add
+Using service: Lambda, provided by: awscloudformation
+? Provide a friendly name for your resource to be used as a label for this category in the project: HelloWorld
+? Provide the AWS Lambda function name: HelloWorld
+? Choose the function template that you want to use: Serverless express function (Integration with Amazon API Gateway)
+? Do you want to edit the local lambda function now? false
+Successfully added resource HelloWorld locally.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;At this point you should be able to see the generated files in &lt;code&gt;./amplify/backend/function/HelloWorld&lt;/code&gt;. Of particular note is the generated CloudFormation JSON (&lt;code&gt;HelloWorld-cloudformation-template.json&lt;/code&gt;). While it is nice that it is automatically generated, using the JSON form, and not appearing to leverage SAM means that it ends up being quite a verbose file to cognitively reason about. I believe the intention is that you don&amp;#39;t modify this directly (and I read somewhere that even if you do it may be overwritten?). If nothing else, it serves as a decent reference implementation for this kind of feature, that you could then translate back to your preferred method (eg. SAM/CDK).&lt;/p&gt;
+
+&lt;p&gt;Digging into the source, it appears these templates are located within the &lt;a href=&quot;amplify-category-function&quot;&gt;specific subpackage&lt;/a&gt; of the CLI, in the &lt;a href=&quot;https://github.com/aws-amplify/amplify-cli/tree/master/packages/amplify-category-function/provider-utils/awscloudformation&quot;&gt;cloudformation provider&lt;/a&gt; (eg. &lt;a href=&quot;https://github.com/aws-amplify/amplify-cli/blob/master/packages/amplify-category-function/provider-utils/awscloudformation/cloudformation-templates/lambda-cloudformation-template.json.ejs&quot;&gt;the function template used above&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;While currently there only appears to be a single &amp;#39;provider&amp;#39; (&lt;a href=&quot;https://github.com/aws-amplify/amplify-cli/tree/master/packages/amplify-provider-awscloudformation&quot;&gt;&lt;code&gt;amplify-provider-awscloudformation&lt;/code&gt;&lt;/a&gt;), language around the websites/repos implies that in future they would like to support additional providers, so it &lt;a href=&quot;https://github.com/aws-amplify/amplify-cli/issues/171&quot;&gt;may be possible to implement CDK&lt;/a&gt; and/or SAM into this flow, for a &amp;#39;best of all worlds&amp;#39; situation.&lt;/p&gt;
+
+&lt;p&gt;Implementing the most basic use case (&lt;code&gt;function&lt;/code&gt;) as we did above isn&amp;#39;t really where Amplify shines. For example, you can add an &lt;a href=&quot;https://aws-amplify.github.io/amplify-js/media/authentication_guide&quot;&gt;authentication system&lt;/a&gt; (&lt;a href=&quot;https://aws-amplify.github.io/amplify-js/api/classes/authclass.html&quot;&gt;JS Ref&lt;/a&gt;) to your backend with just &lt;code&gt;amplify auth add&lt;/code&gt;, or a new &lt;a href=&quot;https://aws-amplify.github.io/amplify-js/media/api_guide&quot;&gt;GraphQL/REST api&lt;/a&gt; with &lt;code&gt;amplify api add&lt;/code&gt;, and similar simplicity for other common features and patterns.&lt;/p&gt;
+
+&lt;p&gt;Moving from the backend infrastructure, Amplify also features libraries and UI components to consume these features in your application. For example, getting up and running with React (&lt;a href=&quot;https://aws-amplify.github.io/amplify-js/media/react_guide&quot;&gt;1&lt;/a&gt;, &lt;a href=&quot;https://aws-amplify.github.io/amplify-js/media/quick_start?platform=react&quot;&gt;2&lt;/a&gt;) can be as simple as:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;create-react-app my-app
+cd my-app
+npm install --save aws-amplify
+npm install --save aws-amplify-react
+
+amplify init
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;And then a &lt;a href=&quot;https://aws-amplify.github.io/amplify-js/media/quick_start#step-4-set-up-your-backend&quot;&gt;few little code changes&lt;/a&gt; to wire things into place.&lt;/p&gt;
+
+&lt;p&gt;As part of all of this, you get access to the &lt;a href=&quot;https://aws-amplify.github.io/amplify-js/media/ui_guide&quot;&gt;UI Components&lt;/a&gt;, which should dramatically reduce the amount of boilerplate wiring up required to make use of these common application patterns.&lt;/p&gt;
+
+&lt;p&gt;I feel like I haven&amp;#39;t even begun to dive deep enough into the &lt;a href=&quot;https://aws-amplify.github.io/amplify-js/api/&quot;&gt;frontend JS&lt;/a&gt;/&lt;a href=&quot;https://aws-amplify.github.io/amplify-js/media/ui_guide&quot;&gt;UI component libraries&lt;/a&gt; to do them justice, so I will leave that as an excerise to the reader (or a future blog post).&lt;/p&gt;
+
+&lt;p&gt;As mentioned in previous sections, this is also quite a new project (&lt;a href=&quot;https://aws.amazon.com/blogs/mobile/announcing-aws-amplify-and-the-aws-mobile-cli/&quot;&gt;Amplify (Nov 2017)&lt;/a&gt;, &lt;a href=&quot;https://aws.amazon.com/blogs/mobile/announcing-the-aws-amplify-cli-toolchain/&quot;&gt;CLI (Aug 2018)&lt;/a&gt;), so I&amp;#39;m sure things are going to get much better as time goes on.&lt;/p&gt;
+
+&lt;h2&gt;&lt;a name=&quot;conclusion&quot;&gt;&lt;/a&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;We explored a number of different AWS serverless friendly projects and options, and how they may be able to be leveraged together synergistically, or to do similar things as each other. This is still an area I am actively exploring, and a lot of the projects are still quite young, so I&amp;#39;m excited to see what improvements and new efficient patterns come out of this! Maybe I will write a more specific follow up blog at some point detailing how I actually end up using some of these technologies in practice.&lt;/p&gt;
+
+&lt;h2&gt;&lt;a name=&quot;where-next&quot;&gt;&lt;/a&gt;Where Next?&lt;/h2&gt;
+
+&lt;p&gt;You could &lt;a href=&quot;https://aws.amazon.com/serverless/&quot;&gt;learn more about serverless&lt;/a&gt; and &lt;a href=&quot;https://aws.amazon.com/serverless/build-a-web-app/&quot;&gt;build a web app&lt;/a&gt;, put together a modern frontend with &lt;a href=&quot;https://github.com/facebook/create-react-app&quot;&gt;Create React App&lt;/a&gt; + &lt;a href=&quot;https://redux.js.org/introduction&quot;&gt;Redux&lt;/a&gt; + &lt;a href=&quot;https://redux-saga.js.org/&quot;&gt;Redux-Saga&lt;/a&gt;, design a serverless Golang backend with &lt;a href=&quot;https://aws.amazon.com/sdk-for-go/&quot;&gt;AWS SDK for Golang&lt;/a&gt; + &lt;a href=&quot;https://github.com/gorilla/mux&quot;&gt;Gorilla Mux&lt;/a&gt; + &lt;a href=&quot;https://github.com/awslabs/aws-lambda-go-api-proxy#other-frameworks&quot;&gt;AWS Lambda Go Api Proxy&lt;/a&gt;, read more about Authentication with &lt;a href=&quot;https://aws.amazon.com/cognito/&quot;&gt;AWS Cognito&lt;/a&gt;, learn about &lt;a href=&quot;https://graphql.org/&quot;&gt;GraphQL&lt;/a&gt;.. so many interesting things out there to learn about and play with!&lt;/p&gt;
+
+&lt;p&gt;What are you planning to build? Have any tips or suggestions? A story of how this helped (or hindered) you on a project? I&amp;#39;d love to hear about it in the comments below!&lt;/p&gt;</content><author><name>Glenn 'devalias' Grant</name></author><category term="dev" /><category term="infrastructure" /><category term="automation" /><category term="serverless" /><category term="cloud" /><category term="aws" /><category term="amazon" /><category term="cloudformation" /><category term="sam" /><category term="cdk" /><category term="amplify" /><category term="golang" /><category term="react" /><category term="graphql" /><category term="boilerplate" /><category term="generator" /><summary type="html">Recently I have been playing around with a few little side projects, and trying out different ways of getting them IntoTheCloud(tm). If you know me, you know that I&amp;#39;m pretty big on increasing efficiency, reducing boilerplate/time to start, automation, infrastructure as code (IaC), and similar fun things.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://devalias.net/assets/images/cover4.jpg" /></entry><entry><title type="html">Presenting at DEF CON 26 - Bug Bounty Hunting on Steroids</title><link href="http://devalias.net/devalias/2018/08/19/presenting-at-def-con-26-bug-bounty-hunting-on-steroids/" rel="alternate" type="text/html" title="Presenting at DEF CON 26 - Bug Bounty Hunting on Steroids" /><published>2018-08-19T00:00:00+10:00</published><updated>2018-08-19T00:00:00+10:00</updated><id>http://devalias.net/devalias/2018/08/19/presenting-at-def-con-26-bug-bounty-hunting-on-steroids</id><content type="html" xml:base="http://devalias.net/devalias/2018/08/19/presenting-at-def-con-26-bug-bounty-hunting-on-steroids/">&lt;p&gt;Wow, what a trip! I just had the opportunity to not only live out a childhood dream of attending &lt;a href=&quot;https://www.defcon.org/&quot;&gt;DEF CON&lt;/a&gt;, but I even had the privilege to be able to present at the &lt;a href=&quot;http://reconvillage.org/talks-2018/#bug-bounty-hunting-on-steroids---anshuman-bhartiya-and-glenn-devalias-grant&quot;&gt;DEF CON Recon Village&lt;/a&gt;! Talk about achievement unlocked!&lt;/p&gt;
 
 &lt;p&gt;If you&amp;#39;ve been &lt;a href=&quot;https://twitter.com/i/moments/1030953718177394688&quot;&gt;following along on twitter&lt;/a&gt;, you might be aware that I&amp;#39;ve been working on a security automation framework with regards to bug bounty hunting; to increase our agility, automate the boring bits, and let us JustHackThings. It&amp;#39;s something that our team (&lt;a href=&quot;https://twitter.com/anshuman_bh&quot;&gt;@anshuman_bh&lt;/a&gt;, &lt;a href=&quot;https://twitter.com/mhmdiaa&quot;&gt;@mhmdiaa&lt;/a&gt;, and &lt;a href=&quot;https://twitter.com/_devalias&quot;&gt;myself&lt;/a&gt;) have been calling BountyMachine.&lt;/p&gt;
 
@@ -1233,93 +1532,4 @@ Memes&amp;quot;&lt;/a&gt; (&lt;a href=&quot;https://twitter.com/bogan/status/934
 
 &lt;p&gt;It seems the core issues here were a few bugs popping up in legacy code, and passing user-controlled values into sensitive areas without proper checks/sanitisation. Easy mistakes to make when managing such a large codebase that has evolved over the years.&lt;/p&gt;
 
-&lt;p&gt;Have you had a similar experience? Manage a large codebase and legacy code? Got good tips for how best to identify and avoid these sorts of issues? Would love to hear your ideas in the comments!&lt;/p&gt;</content><author><name>Glenn 'devalias' Grant</name></author><category term="security" /><category term="cve" /><category term="squiz" /><category term="matrix" /><category term="bug-bounty" /><category term="bugcrowd" /><category term="xss" /><category term="rce" /><summary type="html">Earlier this year I had an opportunity to spend some time looking at Squiz Matrix, a Content Management System (CMS) used across a number of sectors including higher eduction, media and publishing, goverment, finance, health, and utilities. With a huge number of features, a massive PHP codebase, and a numbr of high profile sectors as clients, I set out to see if I could find any interesting little bugs hidden away.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://devalias.net/assets/images/cover4.jpg" /></entry><entry><title type="html">Biohacked Box #4 (Autumn, September 2017)</title><link href="http://devalias.net/devalias/2017/09/05/biohacked-box-4-autumn/" rel="alternate" type="text/html" title="Biohacked Box #4 (Autumn, September 2017)" /><published>2017-09-05T00:00:00+10:00</published><updated>2017-09-05T00:00:00+10:00</updated><id>http://devalias.net/devalias/2017/09/05/biohacked-box-4-autumn</id><content type="html" xml:base="http://devalias.net/devalias/2017/09/05/biohacked-box-4-autumn/">&lt;p&gt;Time for another Bulletproof &lt;a href=&quot;http://biohacked.com/&quot;&gt;Biohacked.com&lt;/a&gt; quarterly box.&lt;/p&gt;
-
-&lt;h2&gt;Contents&lt;/h2&gt;
-
-&lt;p&gt;If you want to follow along with the official unboxing video, head on over and &lt;a href=&quot;https://biohacked.com/BBQ317/&quot;&gt;watch with me&lt;/a&gt; (&lt;a href=&quot;https://www.youtube.com/watch?v=cbFMoXAszOY&quot;&gt;YouTube&lt;/a&gt;).&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;0:00 Intro
-
-&lt;ul&gt;
-&lt;li&gt;~US$220 of value&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;0:56 &lt;a href=&quot;https://www.samina.com/&quot;&gt;Samina Travel Cushion&lt;/a&gt; (~US$75)
-
-&lt;ul&gt;
-&lt;li&gt;No petrochemical/flame retardents.&lt;/li&gt;
-&lt;li&gt;Green company&lt;/li&gt;
-&lt;li&gt;Climate regulating, conforms to body, self cleaning&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.justhealthysleep.com/bulletproofbed&quot;&gt;Discount on sleep system&lt;/a&gt;: bulletproofbed (Expires 31/10/2017)&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;3:11 &lt;a href=&quot;https://www.siabotanics.com/product_p/enex.htm&quot;&gt;Siabotanics Energy Elixir&lt;/a&gt; (~US$59)
-
-&lt;ul&gt;
-&lt;li&gt;Essential oils&lt;/li&gt;
-&lt;li&gt;Topical, stimulate circulation/blood flow to brain&lt;/li&gt;
-&lt;li&gt;1 drop to each temple, 2 drops behind each ear, 900 drops in a bottle&lt;/li&gt;
-&lt;li&gt;35% off: ENEX35 (till 10/15/2017)&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;4:32 &lt;a href=&quot;https://biohacked.com/product/xpressgo-espresso-maker/&quot;&gt;XpressGo Portable Espresso Maker&lt;/a&gt; (~US$60)
-
-&lt;ul&gt;
-&lt;li&gt;Pump creates enough pressure to make real espresso&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;6:05 &lt;a href=&quot;https://www.bulletproof.com/fatwater-mango-12ct-case&quot;&gt;Bulletproof FATwater - Mango Flavor&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;6:43 &lt;a href=&quot;https://beekeepersnaturals.com/product/propolis-spray/&quot;&gt;BeeKeepers Naturals Propolis Spray&lt;/a&gt; (~US$14)
-
-&lt;ul&gt;
-&lt;li&gt;Bees make propolis to keep fungus/bacteria/etc from growing in the hive&lt;/li&gt;
-&lt;li&gt;Immune booster, antiinflammatory&lt;/li&gt;
-&lt;li&gt;Sustainable bee company&lt;/li&gt;
-&lt;li&gt;20% off: BIOHACKED ()&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;8:15 Golden Ticket: &lt;a href=&quot;https://nimasensor.com/&quot;&gt;Nima Sensor&lt;/a&gt; (~US$279)
-
-&lt;ul&gt;
-&lt;li&gt;Portable gluten sensor&lt;/li&gt;
-&lt;li&gt;Gluten == lectin&lt;/li&gt;
-&lt;li&gt;Nima app allows you to find truly gluten free restaurants&lt;/li&gt;
-&lt;li&gt;20% off starter kit: BIOHACKED (till 30/09/2017)&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;10:10 Golden Ticket: &lt;a href=&quot;https://www.teloyears.com/home/&quot;&gt;TeloYears&lt;/a&gt; (~US$89)
-
-&lt;ul&gt;
-&lt;li&gt;DNA health test, telomere length&lt;/li&gt;
-&lt;li&gt;Protective caps on the end of DNA, protect genetic information during cellular division&lt;/li&gt;
-&lt;li&gt;Telomere length reduces each time cell divides, when they&amp;#39;re gone, cell dies&lt;/li&gt;
-&lt;li&gt;Dave does this test every 6-12 months&lt;/li&gt;
-&lt;li&gt;$10 off: DAVE17&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;11:17 Random discount cards/etc
-
-&lt;ul&gt;
-&lt;li&gt;Nima Sensor&lt;/li&gt;
-&lt;li&gt;TeloYears&lt;/li&gt;
-&lt;li&gt;Box overview booklet&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;12:20 Bulletproof Eye Armor: $15 off subscription: VISIONHACK (till 29/12/2017)
-
-&lt;ul&gt;
-&lt;li&gt;Designed to help eyes deal with blue light&lt;/li&gt;
-&lt;li&gt;Dave takes 4/day&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;13:13 Wrap up&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2&gt;Previous Boxes&lt;/h2&gt;
-
-&lt;p&gt;Want to see what the previous boxes have been like? Check out my other posts:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;/devalias/2017/06/04/biohacked-box-3/&quot;&gt;Biohacked Box #3&lt;/a&gt; (June 2017)&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;/devalias/2017/03/01/biohacked-box-2/&quot;&gt;Biohacked Box #2&lt;/a&gt; (March 2017)&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;/devalias/2016/12/20/biohacked-box-1-bulletproof-biohacking-box-9/&quot;&gt;Biohacked Box #1&lt;/a&gt; (December 2016)&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;/devalias/2016/10/13/bulletproof-biohacking-box-8/&quot;&gt;Quarterly Biohacking Box #8&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;/devalias/2016/07/21/bulletproof-quarterly-biohacking-box-7/&quot;&gt;Quarterly Biohacking Box #7&lt;/a&gt;
-
-&lt;ul&gt;
-&lt;li&gt;This has a quick summary of boxes 1-6 as well&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Glenn 'devalias' Grant</name></author><category term="quicknote" /><category term="bulletproof" /><category term="bulletproof-quarterly" /><category term="dave-asprey" /><category term="quarterly" /><category term="biohacking" /><category term="biohacked.com" /><category term="samina" /><category term="siabotanics" /><category term="xpressgo" /><category term="fatwater" /><category term="beekeepers-naturals" /><category term="nima" /><category term="teloyears" /><category term="eye-armor" /><summary type="html">Time for another Bulletproof Biohacked.com quarterly box.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://devalias.net/assets/images/cover4.jpg" /></entry></feed>
+&lt;p&gt;Have you had a similar experience? Manage a large codebase and legacy code? Got good tips for how best to identify and avoid these sorts of issues? Would love to hear your ideas in the comments!&lt;/p&gt;</content><author><name>Glenn 'devalias' Grant</name></author><category term="security" /><category term="cve" /><category term="squiz" /><category term="matrix" /><category term="bug-bounty" /><category term="bugcrowd" /><category term="xss" /><category term="rce" /><summary type="html">Earlier this year I had an opportunity to spend some time looking at Squiz Matrix, a Content Management System (CMS) used across a number of sectors including higher eduction, media and publishing, goverment, finance, health, and utilities. With a huge number of features, a massive PHP codebase, and a numbr of high profile sectors as clients, I set out to see if I could find any interesting little bugs hidden away.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://devalias.net/assets/images/cover4.jpg" /></entry></feed>

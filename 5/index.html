@@ -51,11 +51,6 @@
 
 
   
-    <!-- Webmention -->
-<link rel="dns-prefetch" href="https://webmention.io"><link rel="preconnect" href="https://webmention.io"><link rel="preconnect" href="ws://webmention.io:8080"><meta property="webmention:redirected_from" content="http://devalias.net/1/"><link rel="pingback" href="https://webmention.io/devalias.net/xmlrpc"><link rel="webmention" href="https://webmention.io/devalias.net/webmention">
-
-
-  
 
   <!-- https://indieauth.com/ -->
 <link href="https://github.com/0xdevalias" rel="me">
@@ -180,6 +175,76 @@
     </div>
 
     <!-- This is the post loop - each post will be output using this markup -->
+    
+    <article class="post">
+        <header class="post-header">
+            <h2 class="post-title"><a href="/devalias/2016/09/07/graphql-why-you-should-care/">GraphQL: Why You Should Care</a></h2>
+        </header>
+        <section class="post-excerpt">
+            <p>If you haven&#39;t yet come across <a href="http://graphql.org/">GraphQL</a>, it&#39;s kind of exciting stuff. It&#39;s a query language developed by <a href="https://code.facebook.com/posts/">Facebook</a>, that basically lets you request... <a class="read-more" href="/devalias/2016/09/07/graphql-why-you-should-care/">&raquo;</a></p>
+        </section>
+        <footer>
+            
+            <section class="post-meta">
+    
+        <img class="author-thumb" src="/assets/images/authors/devalias.png" alt="Author image" nopin="nopin" />
+    
+    
+        <a href='/author/devalias'>Glenn 'devalias' Grant</a>
+    
+    |
+    <time class="post-date" datetime="">07 Sep 2016</time>
+    |
+    
+        5 minutes
+    
+    to read
+    <!-- [[tags prefix=" on "]] -->
+    
+        |
+        
+            <a href='/tag/dev'>#dev</a>,
+        
+            <a href='/tag/web'>#web</a>,
+        
+            <a href='/tag/tech-stack'>#tech-stack</a>,
+        
+            <a href='/tag/graphql'>#graphql</a>,
+        
+            <a href='/tag/relay'>#relay</a>,
+        
+            <a href='/tag/redux'>#redux</a>,
+        
+            <a href='/tag/cashay'>#cashay</a>,
+        
+            <a href='/tag/adrenaline'>#adrenaline</a>,
+        
+            <a href='/tag/sangria'>#sangria</a>,
+        
+            <a href='/tag/scala'>#scala</a>,
+        
+            <a href='/tag/akka'>#akka</a>,
+        
+            <a href='/tag/akka-http'>#akka-http</a>,
+        
+            <a href='/tag/apollo-stack'>#apollo-stack</a>,
+        
+            <a href='/tag/falcor'>#falcor</a>,
+        
+            <a href='/tag/rest'>#rest</a>,
+        
+            <a href='/tag/hateos'>#hateos</a>,
+        
+            <a href='/tag/facebook'>#facebook</a>,
+        
+            <a href='/tag/netflix'>#netflix</a>
+        
+    
+    
+</section>
+
+        </footer>
+    </article>
     
     <article class="post">
         <header class="post-header">
@@ -442,52 +507,6 @@
         </footer>
     </article>
     
-    <article class="post">
-        <header class="post-header">
-            <h2 class="post-title"><a href="/devalias/2016/05/22/v3-now-with-more-hyde/">v3.0 -  Now with more Hyde</a></h2>
-        </header>
-        <section class="post-excerpt">
-            <p>Time for another rebirth! As you may have noticed, I haven&#39;t really written much over the last year or two. While I&#39;ve been busy, distracted and... <a class="read-more" href="/devalias/2016/05/22/v3-now-with-more-hyde/">&raquo;</a></p>
-        </section>
-        <footer>
-            
-            <section class="post-meta">
-    
-        <img class="author-thumb" src="/assets/images/authors/devalias.png" alt="Author image" nopin="nopin" />
-    
-    
-        <a href='/author/devalias'>Glenn 'devalias' Grant</a>
-    
-    |
-    <time class="post-date" datetime="">22 May 2016</time>
-    |
-    
-        1 minute
-    
-    to read
-    <!-- [[tags prefix=" on "]] -->
-    
-        |
-        
-            <a href='/tag/v3.0'>#v3.0</a>,
-        
-            <a href='/tag/tumblr'>#tumblr</a>,
-        
-            <a href='/tag/jekyll'>#jekyll</a>,
-        
-            <a href='/tag/octopress'>#octopress</a>,
-        
-            <a href='/tag/github'>#github</a>,
-        
-            <a href='/tag/open-source'>#open-source</a>
-        
-    
-    
-</section>
-
-        </footer>
-    </article>
-    
 
     <!-- Previous/next page links - displayed on every page -->
     
@@ -511,7 +530,7 @@
             </section>
             <section class="poweredby">
                 <div>
-                    <strong>Build:</strong> 1c19b2583
+                    <strong>Build:</strong> 35220da6d
                     <a href="https://github.com/alias1/devalias.net/tree/master/5/index.html" target="_blank">
                         <i class="fas fa-edit"></i>
                         Edit on GitHub
@@ -542,204 +561,6 @@
 	    ga('create', 'UA-27970144-1', 'auto');
 	    ga('send', 'pageview');
      </script>
-    
-        <script src="//assets/js//JekyllWebmentionIO.js" async></script>
-<template style="display:none" id="webmention-bookmarks"><div class="webmentions webmentions--bookmarks">
-  {% if webmentions.size > 0 %}
-    <ol class="webmentions__list">
-      {% for webmention in webmentions %}
-        <li id="webmention-{{ webmention.id }}" class="webmentions__item webmention webmention--{{ webmention.type }}">
-          <div class="webmention__content p-content">
-            {{ webmention.content }}
-          </div>
-          <div class="webmention__meta">
-            {% if webmention.author %}
-              <a class="webmention__author h-card u-url" href="{{ webmention.author.url }}">{{ webmention.author.name }}</a>
-            {% endif %}
-            {% if webmention.pubdate and webmention.url %}on{% endif %}
-            {% if webmention.pubdate %}
-              <a class="webmention__source u-url" href="{{ webmention.url }}">
-                <time class="webmention__pubdate dt-published" datetime="{{ webmention.pubdate | date: '%FT%T%:z' }}">{{ webmention.pubdate | date: '%d %B %Y' }}</time>
-              </a>
-            {% endif %}
-          </div>
-        </li>
-      {% endfor %}
-    </ol>
-  {% else %}
-    <p class="webmentions__not-found">No bookmarks were found.</p>
-  {% endif %}
-</div></template><template style="display:none" id="webmention-likes"><div class="webmentions webmentions--likes">
-  {% if webmentions.size > 0 %}
-    <ol class="webmentions__list">
-      {% for webmention in webmentions %}
-        <li id="webmention-{{ webmention.id }}" class="webmentions__item webmention webmention--{{ webmention.type }}">
-          <div class="webmention__author p-author h-card">
-            <a class="u-url" href="{{ webmention.author.url }}">
-              <img class="webmention__author__photo u-photo" src="{{ webmention.author.photo }}" alt="" title="{{ webmention.author.name }}">
-            </a>
-          </div>
-        </li>
-      {% endfor %}
-    </ol>
-  {% else %}
-    <p class="webmentions__not-found">No likes were found.</p>
-  {% endif %}
-</div></template><template style="display:none" id="webmention-links"><div class="webmentions webmentions--links">
-  {% if webmentions.size > 0 %}
-    <ol class="webmentions__list">
-      {% for webmention in webmentions %}
-        <li id="webmention-{{ webmention.id }}" class="webmentions__item webmention webmention--{{ webmention.type }}">
-          <div class="webmention__content p-content">
-            {{ webmention.content }}
-          </div>
-          <div class="webmention__meta">
-            {% if webmention.author %}
-              <a class="webmention__author h-card u-url" href="{{ webmention.author.url }}">{{ webmention.author.name }}</a>
-            {% endif %}
-            {% if webmention.pubdate and webmention.url %}on{% endif %}
-            {% if webmention.pubdate %}
-              <a class="webmention__source u-url" href="{{ webmention.url }}">
-                <time class="webmention__pubdate dt-published" datetime="{{ webmention.pubdate | date: '%FT%T%:z' }}">{{ webmention.pubdate | date: '%d %B %Y' }}</time>
-              </a>
-            {% endif %}
-          </div>
-        </li>
-      {% endfor %}
-    </ol>
-  {% else %}
-    <p class="webmentions__not-found">No links were found.</p>
-  {% endif %}
-</div></template><template style="display:none" id="webmention-posts"><div class="webmentions webmentions--posts">
-  {% if webmentions.size > 0 %}
-    <ol class="webmentions__list">
-      {% for webmention in webmentions %}
-        <li id="webmention-{{ webmention.id }}" class="webmentions__item webmention webmention--{{ webmention.type }}">
-          <a class="webmention__title webmention__source u-url" href="{{ webmention.url }}">{{ webmention.title }}</a>
-          <div class="webmention__meta">
-            {% if webmention.pubdate %}
-              <time class="webmention__pubdate dt-published" datetime="{{ webmention.pubdate | date: '%FT%T%:z' }}">{{ webmention.pubdate | date: '%d %B %Y' }}</time>
-            {% endif %}
-          </div>
-        </li>
-      {% endfor %}
-    </ol>
-  {% else %}
-    <p class="webmentions__not-found">No posts were found.</p>
-  {% endif %}
-</div></template><template style="display:none" id="webmention-replies"><div class="webmentions webmentions--replies">
-  {% if webmentions.size > 0 %}
-    <ol class="webmentions__list">
-      {% for webmention in webmentions %}
-        <li id="webmention-{{ webmention.id }}" class="webmentions__item webmention webmention--{{ webmention.type }}">
-          <div class="webmention__content p-content">
-            {{ webmention.content }}
-          </div>
-          <div class="webmention__meta">
-            {% if webmention.author %}
-              <a class="webmention__author h-card u-url" href="{{ webmention.author.url }}">
-                {% if webmention.author.photo %}
-                  <img class="webmention__author__photo u-photo" src="{{ webmention.author.photo }}" alt="" title="{{ webmention.author.name }}">
-                {% endif %}
-                <b class="p-name">{{ webmention.author.name }}</b>
-              </a>
-            {% endif %}
-            {% if webmention.pubdate and webmention.author %}on{% endif %}
-            {% if webmention.pubdate %}
-              <a class="webmention__source u-url" href="{{ webmention.url }}">
-                <time class="webmention__pubdate dt-published" datetime="{{ webmention.pubdate | date: '%FT%T%:z' }}">{{ webmention.pubdate | date: '%d %B %Y' }}</time>
-              </a>
-            {% endif %}
-          </div>
-        </li>
-      {% endfor %}
-    </ol>
-  {% else %}
-    <p class="webmentions__not-found">No replies were found.</p>
-  {% endif %}
-</div></template><template style="display:none" id="webmention-reposts"><div class="webmentions webmentions--reposts">
-  {% if webmentions.size > 0 %}
-    <ol class="webmentions__list">
-      {% for webmention in webmentions %}
-        <li id="webmention-{{ webmention.id }}" class="webmentions__item webmention webmention--{{ webmention.type }}">
-          <div class="webmention__author p-author h-card">
-            <a class="u-url" href="{{ webmention.author.url }}">
-              <img class="webmention__author__photo u-photo" src="{{ webmention.author.photo }}" alt="" title="{{ webmention.author.name }}">
-            </a>
-          </div>
-        </li>
-      {% endfor %}
-    </ol>
-  {% else %}
-    <p class="webmentions__not-found">No reposts were found.</p>
-  {% endif %}
-</div></template><template style="display:none" id="webmention-rsvps"><div class="webmentions webmentions--rsvps">
-  {% if webmentions.size > 0 %}
-    <ol class="webmentions__list">
-      {% for webmention in webmentions %}
-        <li id="webmention-{{ webmention.id }}" class="webmentions__item webmention webmention--{{ webmention.type }}">
-          <div class="webmention__author p-author h-card">
-            <a class="u-url" href="{{ webmention.author.url }}">
-              <img class="webmention__author__photo u-photo" src="{{ webmention.author.photo }}" alt="Avatar for {{ webmention.author.name }}" title="{{ webmention.author.name }}">
-              <b class="p-name">{{ webmention.author.name }}</b>
-              {{ webmention.content }}
-            </a>
-          </div>
-        </li>
-      {% endfor %}
-    </ol>
-  {% else %}
-    <p class="webmentions__not-found">No RSVPs were found.</p>
-  {% endif %}
-</div></template><template style="display:none" id="webmention-count">{% capture webmention_types %}{{ types | join: ',' }}{% endcapture %}
-<span class="webmention-count"{% unless webmention_types=="" %} data-webmention-types="{{ webmention_types }}"{% endunless %}>{{ count }}</span></template><template style="display:none" id="webmention-webmentions">{% capture webmention_types %}{{ types | join: ',' }}{% endcapture %}
-<div class="webmentions"{% unless webmention_types=="" %} data-webmention-types="{{ webmention_types }}"{% endunless %}>
-  {% if webmentions.size > 0 %}
-    <ol class="webmentions__list">
-      {% for webmention in webmentions %}
-        <li id="webmention-{{ webmention.id }}" class="webmentions__item">
-          <article class="h-cite webmention webmention--{{ webmention.type }}
-            {% unless webmention.author %}webmention--no-author{% endunless %}
-            {% unless webmention.author.photo %}webmention--no-photo{% endunless %}
-            {% if webmention.source=='twitter' %}{% if webmention.type=='like' or webmention.type=='repost' %}webmention--author-starts{% endif %}{% endif %}
-            ">
-            {% if webmention.author %}
-              <div class="webmention__author p-author h-card">
-                <a class="u-url" href="{{ webmention.author.url }}">
-                  {% if webmention.author.photo %}
-                    <img class="webmention__author__photo u-photo" src="{{ webmention.author.photo }}" alt="" title="{{ webmention.author.name }}">
-                  {% endif %}
-                  <b class="p-name">{{ webmention.author.name }}</b>
-                </a>
-              </div>
-            {% endif %}
-
-            <div class="webmention__content p-content">
-              {% if webmention.content %}
-                {{ webmention.content }}
-              {% else %}
-                {{ webmention.title }}
-              {% endif %}
-            </div>
-            
-            <div class="webmention__meta">
-              {% if webmention.pubdate %}
-                <time class="webmention__pubdate dt-published"
-                      datetime="{{ webmention.pubdate | date: '%FT%T%:z' }}">{{ webmention.pubdate | date: '%d %B %Y' }}</time>
-              {% endif %}
-              {% if webmention.pubdate and webmention.url %}|{% endif %}
-              {% if webmention.url %}
-                <a class="webmention__source u-url" href="{{ webmention.url }}">Permalink</a>
-              {% endif %}
-            </div>
-          </article>
-        </li>
-      {% endfor %}
-    </ol>
-  {% else %}
-    <p class="webmentions__not-found">No webmentions were found.</p>
-  {% endif %}
-</div></template>
     
     
 </body>

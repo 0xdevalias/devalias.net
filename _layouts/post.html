@@ -46,9 +46,15 @@ class: 'post-template'
 
             {% include social-share.html %}
 
-            {% if page.disqus %}
-                <!-- Add Disqus Comments -->
-                {% include post/disqus.html %}
+            {% if jekyll.environment == "production" %}
+                {% if page.disqus %}
+                    <!-- Add Disqus Comments -->
+                    {% include post/disqus.html %}
+                {% endif %}
+            {% else %}
+                <div>
+                    Note: Disqus comments disabled when jekyll.environment != production
+                </div>
             {% endif %}
 
             {% unless site.webmentions.disabled %}

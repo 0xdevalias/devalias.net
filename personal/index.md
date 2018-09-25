@@ -10,6 +10,7 @@ current: personal
 TODO: Personal index page
 
 * [Interests/Hobbies](interests/)
+* [Interesting Companies (..to work for)](interesting-companies/)
 * [Stuff I Like](stuff-i-like/)
 * [Events/Theatre/Etc](events/)
 

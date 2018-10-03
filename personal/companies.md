@@ -69,3 +69,5 @@ This list was originally started at: https://gist.github.com/0xdevalias/a1ddfa22
 
 * [Tesla](https://www.tesla.com/en_AU/careers)
 * [SpaceX](https://www.spacex.com/careers)
+* [CloudFlare](https://www.cloudflare.com/careers/)
+* [BitTorrent](https://www.bittorrent.com/company/about/jobs/)

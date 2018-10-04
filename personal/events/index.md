@@ -2,11 +2,18 @@
 layout: page
 class: 'page-template'
 title: Events
+redirect_from: /events/
 crossposted:
 - https://www.facebook.com/notes/glenn-%C3%A1lias-grant/my-ravesevents/10150184475990968
 ---
 
 [[Home](/) > [Personal](/personal/) > Events/Theatre/Etc]
+
+# What's On / Upcoming
+
+* https://www.facebook.com/events/
+* https://www.meetup.com/find/events/
+* https://FL/events/
 
 # 2018
 

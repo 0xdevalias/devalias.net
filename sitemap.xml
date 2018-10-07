@@ -327,10 +327,10 @@
 <loc>http://devalias.net/go-deeper/</loc>
 </url>
 <url>
-<loc>http://devalias.net/</loc>
+<loc>http://devalias.net/personal/health-wellness/</loc>
 </url>
 <url>
-<loc>http://devalias.net/sec/</loc>
+<loc>http://devalias.net/</loc>
 </url>
 <url>
 <loc>http://devalias.net/dev/chrome-extensions/</loc>
@@ -367,6 +367,9 @@
 </url>
 <url>
 <loc>http://devalias.net/sec/hackables/</loc>
+</url>
+<url>
+<loc>http://devalias.net/sec/</loc>
 </url>
 <url>
 <loc>http://devalias.net/personal/saved/</loc>

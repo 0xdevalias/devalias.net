@@ -25,6 +25,32 @@ The following links are presented in no particular order, but hopefully serve as
   * [International Board of Lifestyle Medicine (IBLM)](https://iblm.co/)
 * Functional Nutrition
   * [Functional Diagnostic Nutrition (FDN)](https://functionaldiagnosticnutrition.com/)
+* Genetics
+  * https://promethease.com/
+  * http://geneticgenie.org/
+  * https://www.snpedia.com/
+  * https://www.drbenlynch.com/23andme-v5-chip/
+    * https://www.drbenlynch.com/product/strategene/
+  * https://medicalfuturist.com/top-companies-genomics
+* Biohacking
+  * https://www.selfhacked.com/
+    * https://www.labtestanalyzer.com/
+    * https://get.selfdecode.com/
+* Methylation / MTHFR / Etc
+  * http://mthfr.net/
+  * https://www.mthfrsupport.com.au/mthfr-support-consultations/
+  * https://www.mthfrsupport.com.au/sterlings-app/
+  * http://geneticgenie.org/
+  * https://mthfrsupport.com/forums/topic/why-sterlings-app-and-not-genetics-genie/
+  * http://www.biobalance.org.au/_downloads/targeted-nutritional-treatment-of-mental-illness.pdf
+  * http://undermethylation.com/treatment/supplements-for-undermethylation/
+  * https://www.longecity.org/forum/topic/38054-under-methylation/
+* Heavy Metals / Mercury / Etc
+  * http://www.noamalgam.com/
+  * https://www.livingnetwork.co.za/chelationnetwork/chelation-the-andy-cutler-protocol/
+  * http://myjourneybacktohealth.com/
+* Haemochromatosis
+  * https://haemochromatosis.org.au/
 
 ## NSW (Sydney, etc)
 

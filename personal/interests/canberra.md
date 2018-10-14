@@ -10,17 +10,31 @@ redirect_from: /canberra/
 
 # Movement, Etc
 
-## Aerials, Circus, Etc
+## Aerials, Circus, Acro, Etc
 
 * http://www.aerialsports.com.au/
+  * https://www.facebook.com/aerialsportscanberra/
+  * [Aerial Sports - Acrobats in Training](https://www.facebook.com/groups/1893763870842283/)
 * https://warehousecircus.org.au/
   * https://warehousecircus.org.au/programs/adult-classes/
   * https://warehousecircus.org.au/programs/adult-specialty-training/
   * https://warehousecircus.org.au/programs/aerial-classes/
+* http://regenerateyoga.com/blog/faqs-acro-yoga-workshops-and-classes
+  * [AcroYoga Canberra](https://www.facebook.com/groups/371589732919346/about/)
 
 ## Dance
 
 * https://projectbeats.com.au/ (Street Styles: Hip Hop, Breaking, Popping, etc)
+  * https://www.facebook.com/projectbeatsdance/
+  * [Project Beats Dance Classes](https://www.facebook.com/groups/459897344163753/)
+* [ANU Dance](https://www.facebook.com/groups/dance.anu/)
+* [Canberra Dance Open Classes and Workshops](https://www.facebook.com/groups/332223410135292/)
+
+## Functional Movement
+
+* https://praksis.com.au/
+  * https://www.facebook.com/praksiscanberra
+* [Natural Movement Canberra](https://www.facebook.com/groups/455890707816590/)
 
 ## Gymnastics
 
@@ -32,11 +46,21 @@ redirect_from: /canberra/
 
 * http://www.swimskate.com.au/ice-skating/
 
+## Massage
+
+* https://www.sensorimassage.com.au/
+  * https://www.facebook.com/sensorimassage/
+
 ## Parkour
 
 * https://parkour.asn.au/communities/canberra/
   * https://www.facebook.com/canberrapk
 * https://www.runleaproll.com.au/timetable
+
+## Pilates
+
+* http://www.higherfunction.com.au/classwork-timetable-prices/
+* https://www.blochaus.com.au/classes_2/#pilates
 
 ## Pole
 
@@ -53,8 +77,11 @@ redirect_from: /canberra/
 
 ## Yoga
 
-* TODO
 * https://projectbeats.com.au/ (Flexibility Class)
+  * https://www.facebook.com/carissajaemeyer/ (Cosmic Movement Canberra)
+* http://regenerateyoga.com
+  * https://www.facebook.com/regenerateyoga/
+* https://www.blochaus.com.au/classes_2/#yoga
 
 ## Other
 

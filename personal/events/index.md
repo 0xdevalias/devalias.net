@@ -23,6 +23,7 @@ crossposted:
 
 * TODO
     * Platypus con
+    * Gatecrasher, Nik Fish
 * [03/10/2017] Dragon Dreaming Festival
 * [29/07/2017] 1984 (Canberra Theatre, Canberra)
 * [08/07/2017] Kinky Boots (Capitol Theatre, Sydney)

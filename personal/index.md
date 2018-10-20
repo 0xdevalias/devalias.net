@@ -11,9 +11,11 @@ TODO: Personal index page
 
 * [Interests/Hobbies](interests/)
 * [Interesting Companies (..to work for)](interesting-companies/)
+* [Conferences/Meetups](/conferences-meetups/)
 * [Health/Wellness](health-wellness/)
 * [Stuff I Like](stuff-i-like/)
 * [Events/Theatre/Etc](events/)
+
 
 ## Posts
 

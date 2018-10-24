@@ -1,1 +1,1 @@
-Sitemap: http://devalias.net/sitemap.xml
+Sitemap: https://www.devalias.net/sitemap.xml

@@ -1,7 +1,7 @@
 ---
 layout: page
 class: 'page-template'
-title: Media: Music, Movies, Series, Media, etc
+title: "Media: Music, Movies, Series, Media, etc"
 redirect_from:
 - /music/
 - /movies/
@@ -39,7 +39,7 @@ redirect_from:
   * [Coming Soon | Dendy](https://www.dendy.com.au/movies/coming-soon)
   * [Coming Soon | Hoyts](https://www.hoyts.com.au/movie/coming-soon)
   * [Upcoming Movies (AU) | IMDb](https://www.imdb.com/calendar/?region=au)
-  * https://www.rottentomatoes.com/browse/upcoming/
+  * [Upcoming Movies | Rotten Tomatoes](https://www.rottentomatoes.com/browse/upcoming/)
 * APIs
   * https://developers.themoviedb.org/3/movies/get-popular-movies
   * https://developers.themoviedb.org/3/movies/get-now-playing

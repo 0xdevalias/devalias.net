@@ -14,6 +14,26 @@ crossposted:
 * https://www.facebook.com/events/
 * https://www.meetup.com/find/events/
 * https://FL/events/
+* https://www.songkick.com/
+* https://www.bandsintown.com/
+* [Ticketek](https://premier.ticketek.com.au/)
+  * [Concerts](https://premier.ticketek.com.au/shows/genre.aspx?c=2048)
+* [Ticketmaster](https://www.ticketmaster.com.au/)
+  * [Musicals](https://www.ticketmaster.com.au/browse/musicals-catid-207/arts-theatre-and-comedy-rid-10002)
+  * [Circus](http://www.ticketmaster.com.au/browse/circus-catid-29/family-and-attractions-rid-10003)
+* Canberra Venues
+  * https://www.smithsalternative.com/calendar
+  * https://www.thebasementcanberra.com.au/gig-guide/
+  * https://canberratheatrecentre.com.au/whats-on/
+  * http://www.theq.net.au/category/whats-on/
+  * [Llewellyn Hall](http://www.anu.edu.au/events?field_event_type_tid=All&combine=Llewellyn%20Hall#more-events)
+* Sydney Venues
+  * http://www.metrotheatre.com.au/events/metro
+  * https://www.capitoltheatre.com.au/
+  * https://www.sydneylyric.com.au/
+  * https://www.sydneyshowground.com.au/events/
+* See Also
+  * [Movies, Series, etc](/personal/media/)
 
 # 2018
 

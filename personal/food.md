@@ -3,7 +3,7 @@ layout: page
 class: 'page-template'
 title: Food
 permalink: /personal/food/
-redirect_from: /food
+redirect_from: /food/
 ---
 
 [[Home](/) > [Personal](/personal/) > Food]

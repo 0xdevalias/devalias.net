@@ -18,6 +18,9 @@ redirect_from: /sydney/
 
 * http://www.crossoverdance.com/ (Street Styles: Hip Hop, Breaking, Popping, etc)
   * http://www.facebook.com/crossoverdance
+* https://groovetherapy101.com/
+  * https://groovetherapy101.com/schedules-bookings/
+  * https://www.facebook.com/groovetherapy101/
 
 ## Functional Movement
 
@@ -62,12 +65,12 @@ redirect_from: /sydney/
 
 * TODO
 
-## Other
+# Other
 
-# InfoSec
+## InfoSec
 
 * TODO
 
-# Startup, Entrepreneur, Coworking, etc
+## Startup, Entrepreneur, Coworking, etc
 
 * TODO

@@ -9,6 +9,7 @@ title: Interests
 * Places
   * [Canberra](/personal/interests/canberra)
   * [Sydney](/personal/interests/sydney)
+  * [Melbourne](/personal/interests/melbourne)
   * [Wellington (NZ)](/personal/interests/wellington)
   * [Tokyo (JP)](/personal/interests/tokyo)
 * [Goth](/personal/interests/goth/)
@@ -28,6 +29,7 @@ title: Interests
 * See also
   * [Canberra](/personal/interests/canberra)
   * [Sydney](/personal/interests/sydney)
+  * [Melbourne](/personal/interests/melbourne)
   * [Wellington (NZ)](/personal/interests/wellington)
   * [Tokyo (JP)](/personal/interests/tokyo)
   * [Devalias - Neuralmind - Hobbies/Interests - Trampolining](https://alias1.github.io/devalias-neuralmind/#!hobbies-interests/hobbies-interests.md#Trampolining)

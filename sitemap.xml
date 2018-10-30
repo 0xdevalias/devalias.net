@@ -342,9 +342,6 @@
 <loc>https://www.devalias.net/</loc>
 </url>
 <url>
-<loc>https://www.devalias.net/personal/</loc>
-</url>
-<url>
 <loc>https://www.devalias.net/personal/events/</loc>
 </url>
 <url>
@@ -355,6 +352,9 @@
 </url>
 <url>
 <loc>https://www.devalias.net/personal/stuff-i-like/</loc>
+</url>
+<url>
+<loc>https://www.devalias.net/personal/</loc>
 </url>
 <url>
 <loc>https://www.devalias.net/speaker/</loc>
@@ -382,6 +382,9 @@
 </url>
 <url>
 <loc>https://www.devalias.net/personal/saved/</loc>
+</url>
+<url>
+<loc>https://www.devalias.net/personal/interests/melbourne/</loc>
 </url>
 <url>
 <loc>https://www.devalias.net/personal/interests/neurofeedback/</loc>

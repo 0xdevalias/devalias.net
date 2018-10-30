@@ -10,6 +10,7 @@ title: Interests
   * [Canberra](/personal/interests/canberra)
   * [Sydney](/personal/interests/sydney)
   * [Wellington (NZ)](/personal/interests/wellington)
+  * [Tokyo (JP)](/personal/interests/tokyo)
 * [Goth](/personal/interests/goth/)
 * TODO: Interests/Hobbies/Etc
   * Scuba Diving
@@ -26,8 +27,9 @@ title: Interests
 * [Archery](archery/)
 * See also
   * [Canberra](/personal/interests/canberra)
-  * [Sydney](/personal/interests/Sydney)
+  * [Sydney](/personal/interests/sydney)
   * [Wellington (NZ)](/personal/interests/wellington)
+  * [Tokyo (JP)](/personal/interests/tokyo)
   * [Devalias - Neuralmind - Hobbies/Interests - Trampolining](https://alias1.github.io/devalias-neuralmind/#!hobbies-interests/hobbies-interests.md#Trampolining)
 
 ## Relaxation/Health

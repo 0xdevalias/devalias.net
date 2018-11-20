@@ -72,3 +72,4 @@ This list was originally started at: https://gist.github.com/0xdevalias/a1ddfa22
 * [CloudFlare](https://www.cloudflare.com/careers/)
 * [BitTorrent](https://www.bittorrent.com/company/about/jobs/)
 * [Auth0](https://auth0.com/careers) ([Culture](https://auth0.com/careers/culture)) - Remote
+* [Keyp](https://keyp.io/jobs/) - Remote: Decentralised sovereign identity

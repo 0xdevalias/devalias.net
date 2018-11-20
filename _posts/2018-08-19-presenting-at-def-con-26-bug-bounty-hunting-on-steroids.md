@@ -22,6 +22,8 @@ crossposted:
 - https://www.linkedin.com/feed/update/urn:li:activity:6436734460477214720
 - https://twitter.com/_devalias/status/1030967390048153600
 ---
+(Update: The [talk recording is now up on YouTube](https://www.youtube.com/watch?v=7WYjSDZxFYc), latest links to related content in [this tweet](https://twitter.com/_devalias/status/1063897184695767040))
+
 Wow, what a trip! I just had the opportunity to not only live out a childhood dream of attending [DEF CON](https://www.defcon.org/), but I even had the privilege to be able to present at the [DEF CON Recon Village](http://reconvillage.org/talks-2018/#bug-bounty-hunting-on-steroids---anshuman-bhartiya-and-glenn-devalias-grant)! Talk about achievement unlocked!
 
 If you've been [following along on twitter](https://twitter.com/i/moments/1030953718177394688), you might be aware that I've been working on a security automation framework with regards to bug bounty hunting; to increase our agility, automate the boring bits, and let us JustHackThings. It's something that our team ([@anshuman_bh](https://twitter.com/anshuman_bh), [@mhmdiaa](https://twitter.com/mhmdiaa), and [myself](https://twitter.com/_devalias)) have been calling BountyMachine.
@@ -50,7 +52,7 @@ I put together a little [overview post for our work blog at TSS](https://medium.
 >
 > We call this approach Bug Bounty Hunting on Steroids. We will discuss our research and approach to building such a machine, sharing some of the lessons we learned along the way.
 
-Now if you didn't manage to catch us at DEF CON (and I don't blame you, there was SO much happening ALL THE TIME.. it's such a non-stop week..) don't fret! Our [slides are online](https://speakerdeck.com/bountymachine/bug-bounty-hunting-on-steroids), we put together a bit of a [blog post covering a bunch of the areas we were talking about](https://medium.com/@bountymachine/introducing-bountymachine-234cad93b5d2), and I believe the talk was also recorded, so once that is online I will link to that too. Or if Twitter is more your style, go along and [retweet this one](https://twitter.com/_devalias/status/1030946732069142528) (and make sure to follow the team for more BountyMachine updates!).
+Now if you didn't manage to catch us at DEF CON (and I don't blame you, there was SO much happening ALL THE TIME.. it's such a non-stop week..) don't fret! Our [slides are online](https://speakerdeck.com/bountymachine/bug-bounty-hunting-on-steroids), we put together a bit of a [blog post covering a bunch of the areas we were talking about](https://medium.com/@bountymachine/introducing-bountymachine-234cad93b5d2), and [the talk was also recorded](https://www.youtube.com/watch?v=7WYjSDZxFYc), so you can catch up on that at your leisure. Or if Twitter is more your style, go along and [retweet this one](https://twitter.com/_devalias/status/1030946732069142528) (and make sure to follow the team for more BountyMachine updates!).
 
 The response to our talk has been awesome: we packed out the presentation room, had a lot of really interesting questions after the talk; and have had a constant stream of feedback, questions and support on twitter and elsewhere since.
 

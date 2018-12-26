@@ -24,6 +24,10 @@
   name: 'Development'
   path: '/dev'
 -
+  class: 'nav-writing'
+  name: 'Writing'
+  path: '/writing'
+-
   class: 'nav-coaching'
   name: 'Coaching'
   path: '/coaching'

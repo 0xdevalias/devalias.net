@@ -9,7 +9,7 @@ _(This is a [now page](https://nownownow.com/about), inspired by [Derek Sivers's
 
 Living in **Canberra, Australia**.
 
-Working at **[TSS](https://www.dtss.com.au)** doing **InfoSec** things, but focussing more of my time on **development** now, rather than **pentesting**.
+Working at **[Bugcrowd](https://www.bugcrowd.com/)** doing **Software Engineering** things, but still with a strong interest in **bug bounties**, **pentesting**, and **InfoSec** in general.
 
 **Outside of work** my time/energy is mostly split between **dance** (hip hop, breaking, etc. at [Project Beats](https://www.projectbeats.com.au/)) and **side projects** ([GitHub](https://github.com/0xdevalias), [Blog](/)) such as [BountyMachine](/tag/bountymachine/).
 

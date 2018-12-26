@@ -12,6 +12,7 @@ title: Interests
   * [Melbourne](/personal/interests/melbourne)
   * [Wellington (NZ)](/personal/interests/wellington)
   * [Tokyo (JP)](/personal/interests/tokyo)
+* [Dance / Hip Hop / Rave](/personal/interests/dance)
 * [Goth](/personal/interests/goth/)
 * TODO: Interests/Hobbies/Etc
   * Scuba Diving

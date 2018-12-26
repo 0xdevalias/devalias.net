@@ -354,9 +354,6 @@
 <loc>https://www.devalias.net/personal/media/</loc>
 </url>
 <url>
-<loc>https://www.devalias.net/personal/stuff-i-like/</loc>
-</url>
-<url>
 <loc>https://www.devalias.net/personal/</loc>
 </url>
 <url>
@@ -384,6 +381,9 @@
 <loc>https://www.devalias.net/coaching/</loc>
 </url>
 <url>
+<loc>https://www.devalias.net/personal/stuff-i-like/</loc>
+</url>
+<url>
 <loc>https://www.devalias.net/personal/saved/</loc>
 </url>
 <url>
@@ -397,9 +397,6 @@
 </url>
 <url>
 <loc>https://www.devalias.net/now/</loc>
-</url>
-<url>
-<loc>https://www.devalias.net/stuff-i-like/</loc>
 </url>
 <url>
 <loc>https://www.devalias.net/personal/interests/sydney/</loc>
@@ -2028,5 +2025,9 @@
 <url>
 <loc>https://www.devalias.net/personal/events/files/LakeG-Little_Shop_of_Horrors_Program.pdf</loc>
 <lastmod>2016-08-11T13:03:01+10:00</lastmod>
+</url>
+<url>
+<loc>https://www.devalias.net/writing/</loc>
+<lastmod>2018-12-26T13:29:03+11:00</lastmod>
 </url>
 </urlset>

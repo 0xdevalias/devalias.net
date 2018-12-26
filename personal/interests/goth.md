@@ -13,3 +13,4 @@ redirect_from: /goth/
   * http://www.newgothcity.com/nevada.html
   * http://www.newgothcity.com/new_york_page.html
 * http://www.lacarmina.com/ (Japan, travel)
+* http://www.sfgothic.net/calendar.html (San Francisco, USA)

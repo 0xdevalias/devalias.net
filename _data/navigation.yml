@@ -31,10 +31,6 @@
   class: 'nav-personal'
   name: 'Personal'
   path: '/personal'
--
-  class: 'nav-stuff-i-like'
-  name: 'Stuff I Like'
-  path: '/stuff-i-like'
 # -
 #   class: 'nav-author'
 #   name: 'Posts by devalias'

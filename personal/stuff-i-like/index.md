@@ -2,12 +2,17 @@
 layout: page
 class: 'page-template'
 title: Stuff I Like
-redirect_from: /stuff-i-like/personal/
+redirect_from:
+  - /stuff-i-like/personal/
+  - /stuff-i-like/
 ---
 
 [[Home](/) > [Personal](/personal/) > Stuff I Like]
 
 * TODO: Personal stuff I use/like
+  * [Development](/dev/stuff-i-like/)
+  * [Security](/sec/stuff-i-like/)
+  * [Personal](/personal/stuff-i-like/)
 
 ## Reading (Reading/Books/Etc)
 

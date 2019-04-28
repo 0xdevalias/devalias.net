@@ -14,6 +14,12 @@ redirect_from:
   * [Security](/sec/stuff-i-like/)
   * [Personal](/personal/stuff-i-like/)
 
+## Products / Brands
+
+* [FATCO](https://www.fatco.com/) (Deoderant, etc)
+* [Morrocco Method](https://shop.morroccomethod.com/Shampoos) (shampoos, etc)
+* [Organic 3 GutPro Probiotic Powder](https://www.shopnaturally.com.au/product/organic3-gutpro-probiotic-powder-16-5g/)
+
 ## Reading (Reading/Books/Etc)
 
 * Amazon/Kindle

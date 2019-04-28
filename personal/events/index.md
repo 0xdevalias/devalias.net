@@ -25,7 +25,7 @@ crossposted:
   * https://www.smithsalternative.com/calendar
   * https://www.thebasementcanberra.com.au/gig-guide/
   * https://canberratheatrecentre.com.au/whats-on/
-  * http://www.theq.net.au/category/whats-on/
+  * https://theq.net.au/whats-on/
   * [Llewellyn Hall](http://www.anu.edu.au/events?field_event_type_tid=All&combine=Llewellyn%20Hall#more-events)
 * Sydney Venues
   * http://www.metrotheatre.com.au/events/metro

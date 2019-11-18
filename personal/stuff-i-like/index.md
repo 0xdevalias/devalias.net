@@ -19,6 +19,9 @@ redirect_from:
 * [FATCO](https://www.fatco.com/) (Deoderant, etc)
 * [Morrocco Method](https://shop.morroccomethod.com/Shampoos) (shampoos, etc)
 * [Organic 3 GutPro Probiotic Powder](https://www.shopnaturally.com.au/product/organic3-gutpro-probiotic-powder-16-5g/)
+* Vitamix
+  * https://shop.rawblend.com.au/vitamix-ascent-series-a3500i/ (~AU$1195)
+  * https://shop.rawblend.com.au/vitamix-ascent-series-accessories-package/ (~AU$439)
 
 ## Reading (Reading/Books/Etc)
 

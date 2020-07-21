@@ -75,16 +75,15 @@ defaults:
       class: "post-template"
       navigation: True
 
-# Conversion
-markdown: redcarpet
-redcarpet:
-  extensions:
-    - "tables"
-    - "autolink"
-    - "strikethrough"
-    - "space_after_headers"
-    #- "with_toc_data"
-    - "fenced_code_blocks"
+# Markdown
+#   https://jekyllrb.com/docs/configuration/markdown/
+#   https://kramdown.gettalong.org/options.html
+
+kramdown:
+  input: GFM
+  smart_quotes: apos,apos,quot,quot
+  show_warnings: true
+
 lsi: false # Index for related posts (enabled by command line)
 
 keep_files:

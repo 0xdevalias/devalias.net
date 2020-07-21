@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
 gem 'jekyll','~>4.1.0'
-gem 'redcarpet'
 
 # LSI (related posts)
 # Note: You need to install one of nmatrix or narray first, and export NMATRIX=1 or NARRAY=1 before running bundle install

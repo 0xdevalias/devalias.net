@@ -94,7 +94,6 @@ GEM
     rb-fsevent (0.10.4)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
-    redcarpet (3.5.0)
     rexml (3.2.4)
     rouge (3.21.0)
     safe_yaml (1.0.5)
@@ -140,7 +139,6 @@ DEPENDENCIES
   jekyll-twitter-plugin
   jekyll_version_plugin
   nmatrix
-  redcarpet
 
 BUNDLED WITH
    2.1.4

@@ -73,7 +73,7 @@ GEM
       jekyll (>= 3.7, < 5.0)
     jekyll-time-to-read (0.1.2)
       jekyll
-    jekyll-twitter-plugin (2.0.0)
+    jekyll-twitter-plugin (2.1.0)
     jekyll-watch (2.2.1)
       listen (~> 3.0)
     jekyll-webmention_io (2.9.1)

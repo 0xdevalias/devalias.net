@@ -4,10 +4,16 @@ gem 'jekyll','~>4.1.0'
 gem 'redcarpet'
 
 # LSI (related posts)
-# Note: You need to install nmatrix and narray first, and/or export NMATRIX=1 NARRAY=1 before running bundle install, otherwise gsl won't use them
-gem 'narray'
+# Note: You need to install one of nmatrix or narray first, and export NMATRIX=1 or NARRAY=1 before running bundle install
+# otherwise gsl won't use them. Note that you can only use one or the other, not both.
+#   see https://github.com/SciRuby/rb-gsl#nmatrix-and-narray-usage
+#
+# Both of these seem to be extremely outdated, see:
+#   https://github.com/0xdevalias/devalias.net/issues/83
+#   https://github.com/jekyll/classifier-reborn/issues/192
+#   https://github.com/SciRuby/rb-gsl/issues/63
 gem 'nmatrix'
-gem 'gsl'
+gem 'gsl' # Note: you need to install a compatible version (eg. 2.1) of gsl first: brew install gsl@2.1
 gem 'classifier-reborn'
 
 group :jekyll_plugins do

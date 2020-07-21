@@ -24,7 +24,7 @@ group :jekyll_plugins do
   gem 'jekyll_version_plugin'
   gem 'jekyll-deploy'
   # gem 'jekyll-crosspost-to-medium'
-  gem 'jekyll-webmention_io'
+  # gem 'jekyll-webmention_io' # incompatible with jekyll 4, see https://github.com/aarongustafson/jekyll-webmention_io/issues/130
   gem 'jekyll-time-to-read'
   gem 'jekyll-twitter-plugin'
 end

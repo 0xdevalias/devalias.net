@@ -38,4 +38,4 @@ Enjoy!
 
 https://gist.github.com/0xdevalias/7554985
 
-{% gist 0xdevalias/7554985 %}
+{% gist 7554985 %}

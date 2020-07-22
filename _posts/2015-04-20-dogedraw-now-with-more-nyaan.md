@@ -27,4 +27,4 @@ A little while (and far too long typing out pixel art as code) later, and we hav
 
 https://gist.github.com/0xdevalias/e8bb28726a37854606ad
 
-{% gist 0xdevalias/e8bb28726a37854606ad %}
+{% gist e8bb28726a37854606ad %}

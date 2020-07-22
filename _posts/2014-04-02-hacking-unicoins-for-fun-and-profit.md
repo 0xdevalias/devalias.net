@@ -29,4 +29,4 @@ Enjoy your unicoins! <3 /dev/alias
 
 https://gist.github.com/0xdevalias/9905949
 
-{% gist 0xdevalias/9905949 %}
+{% gist 9905949 %}

@@ -18,4 +18,4 @@ So I figured it might be useful to be able to post gists here. Turns out it's ac
 
 https://gist.github.com/soemarko/1395926
 
-{% gist soemarko/1395926 %}
+{% gist 1395926 %}

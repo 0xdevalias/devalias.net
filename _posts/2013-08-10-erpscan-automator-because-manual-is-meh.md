@@ -24,4 +24,4 @@ At time of writing, configuration is all done inside the script, with no support
 
 https://gist.github.com/0xdevalias/6118709
 
-{% gist 0xdevalias/6118709 %}
+{% gist 6118709 %}

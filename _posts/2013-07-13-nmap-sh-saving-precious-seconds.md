@@ -24,4 +24,4 @@ With that in mind, here's a little bash script I threw together today to reduce 
 
 https://gist.github.com/0xdevalias/5963377
 
-{% gist 0xdevalias/5963377 %}
+{% gist 5963377 %}

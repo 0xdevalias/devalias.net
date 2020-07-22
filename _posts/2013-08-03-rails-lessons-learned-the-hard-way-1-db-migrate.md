@@ -22,4 +22,4 @@ Generate your model first, make all manual edits, and then only AFTER you have m
 
 https://gist.github.com/0xdevalias/5790864
 
-{% gist 0xdevalias/5790864 %}
+{% gist 5790864 %}

@@ -26,4 +26,4 @@ Just goes to show that no matter how secure a technology you create, in the end 
 
 https://gist.github.com/0xdevalias/6101928
 
-{% gist 0xdevalias/6101928 %}
+{% gist 6101928 %}

@@ -11,5 +11,5 @@ Some useful commands to remember:
 
 ## Build & Deploy
 
-* `jekyll build --lsi`
-* `jekyll deploy`
+* `bin/build`
+* `bin/deploy`

@@ -75,14 +75,14 @@ defaults:
       class: "post-template"
       navigation: True
 
-# Markdown
+# Conversion
 #   https://jekyllrb.com/docs/configuration/markdown/
-#   https://kramdown.gettalong.org/options.html
+#   https://github.com/jekyll/jekyll-commonmark#configuration
+markdown: CommonMark
 
-kramdown:
-  input: GFM
-  smart_quotes: apos,apos,quot,quot
-  show_warnings: true
+commonmark:
+  options: ["UNSAFE", "FOOTNOTES", "STRIKETHROUGH_DOUBLE_TILDE", "VALIDATE_UTF8", "GITHUB_PRE_LANG", "HARDBREAKS"]
+  extensions: ["autolink", "strikethrough", "table", "tasklist"]
 
 lsi: false # Index for related posts (enabled by command line)
 

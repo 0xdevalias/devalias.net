@@ -17,6 +17,7 @@ gem 'classifier-reborn'
 
 group :jekyll_plugins do
   gem 'jekyll-admin'
+  gem 'jekyll-commonmark'
   gem 'jekyll-compose'
   gem 'jekyll-paginate'
   gem 'jekyll-redirect-from'

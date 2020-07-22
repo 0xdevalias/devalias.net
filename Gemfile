@@ -16,7 +16,7 @@ gem 'gsl' # Note: you need to install a compatible version (eg. 2.1) of gsl firs
 gem 'classifier-reborn'
 
 group :jekyll_plugins do
-  gem 'jekyll-admin'
+  # gem 'jekyll-admin' # using outdated 1.4.x version of sinatra, see https://github.com/jekyll/jekyll-admin/issues/601
   gem 'jekyll-commonmark'
   gem 'jekyll-compose'
   gem 'jekyll-paginate'

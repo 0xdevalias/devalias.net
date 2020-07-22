@@ -38,10 +38,6 @@ GEM
       rouge (~> 3.0)
       safe_yaml (~> 1.0)
       terminal-table (~> 1.8)
-    jekyll-admin (0.10.2)
-      jekyll (>= 3.7, < 5.0)
-      sinatra (~> 1.4)
-      sinatra-contrib (~> 1.4)
     jekyll-commonmark (1.3.1)
       commonmarker (~> 0.14)
       jekyll (>= 3.7, < 5.0)
@@ -79,7 +75,6 @@ GEM
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
     mercenary (0.4.0)
-    multi_json (1.15.0)
     multipart-post (2.1.1)
     nmatrix (0.2.4)
       packable (~> 1.3, >= 1.3.5)
@@ -91,11 +86,6 @@ GEM
     pathutil (0.16.2)
       forwardable-extended (~> 2.6)
     public_suffix (4.0.5)
-    rack (1.6.13)
-    rack-protection (1.5.5)
-      rack
-    rack-test (1.1.0)
-      rack (>= 1.0, < 3)
     rb-fsevent (0.10.4)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
@@ -109,20 +99,8 @@ GEM
     sawyer (0.8.2)
       addressable (>= 2.3.5)
       faraday (> 0.8, < 2.0)
-    sinatra (1.4.8)
-      rack (~> 1.5)
-      rack-protection (~> 1.4)
-      tilt (>= 1.3, < 3)
-    sinatra-contrib (1.4.7)
-      backports (>= 2.0)
-      multi_json
-      rack-protection
-      rack-test
-      sinatra (~> 1.4.0)
-      tilt (>= 1.3, < 3)
     terminal-table (1.8.0)
       unicode-display_width (~> 1.1, >= 1.1.1)
-    tilt (2.0.10)
     unicode-display_width (1.7.0)
 
 PLATFORMS
@@ -132,7 +110,6 @@ DEPENDENCIES
   classifier-reborn
   gsl
   jekyll (~> 4.1.0)
-  jekyll-admin
   jekyll-commonmark
   jekyll-compose
   jekyll-deploy

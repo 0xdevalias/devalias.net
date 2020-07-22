@@ -44,7 +44,7 @@ github_branch: 'master'
 #   base_url: https://twitter.com
 
 # https://github.com/jekyll/github-metadata
-repository: alias1/devalias.net
+repository: 0xdevalias/devalias.net
 
 #google_site_verification: ""
 # webmaster_verifications:

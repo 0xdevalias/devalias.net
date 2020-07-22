@@ -23,4 +23,6 @@ A side by side comparison (now that I finally got it figured out!) of [Play Fram
 
 <3 /dev/alias
 
-{% gist alias1/1d3b44312d8a68ddbaa5 %}
+https://gist.github.com/0xdevalias/1d3b44312d8a68ddbaa5
+
+{% gist 1d3b44312d8a68ddbaa5 %}

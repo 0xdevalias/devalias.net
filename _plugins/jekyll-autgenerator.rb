@@ -1,7 +1,9 @@
+# Modified slightly from: https://github.com/jekyller/jasper2/blob/master/_plugins/jekyll-autgenerator.rb
+
 module Jekyll
 
   class AuthorsGenerator < Generator
-  
+
     safe true
 
     def generate(site)
@@ -13,8 +15,8 @@ module Jekyll
       end
     end
 
-    def build_subpages(site, type, posts) 
-      posts[1] = posts[1].sort_by { |p| -p.date.to_f }     
+    def build_subpages(site, type, posts)
+      posts[1] = posts[1].sort_by { |p| -p.date.to_f }
       atomize(site, type, posts)
       paginate(site, type, posts)
     end
@@ -35,7 +37,7 @@ module Jekyll
         end
         newpage = GroupSubPageAuthor.new(site, site.source, path, type, posts[0])
         newpage.pager = pager
-        site.pages << newpage 
+        site.pages << newpage
 
       end
     end
@@ -54,7 +56,7 @@ module Jekyll
       self.data[type] = val
     end
   end
-  
+
   class AtomPageAuthor < Page
     def initialize(site, base, dir, type, val, posts)
       @site = site

@@ -36,4 +36,6 @@ ln -s /path/to/vFeed/bin/vfeed_update.sh vfeed_update
 
 Enjoy!
 
-{% gist alias1/7554985 %}
+https://gist.github.com/0xdevalias/7554985
+
+{% gist 7554985 %}

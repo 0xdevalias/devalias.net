@@ -20,5 +20,6 @@ Decided I will make this a regular little mini collection of things I learned th
 
 Generate your model first, make all manual edits, and then only AFTER you have made all your manual edits (and double checked them), run rake db:migrate. It will save you a fair few headaches.
 
+https://gist.github.com/0xdevalias/5790864
 
-{% gist alias1/5790864 %}
+{% gist 5790864 %}

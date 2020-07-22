@@ -44,7 +44,7 @@ github_branch: 'master'
 #   base_url: https://twitter.com
 
 # https://github.com/jekyll/github-metadata
-repository: alias1/devalias.net
+repository: 0xdevalias/devalias.net
 
 #google_site_verification: ""
 # webmaster_verifications:
@@ -76,15 +76,14 @@ defaults:
       navigation: True
 
 # Conversion
-markdown: redcarpet
-redcarpet:
-  extensions:
-    - "tables"
-    - "autolink"
-    - "strikethrough"
-    - "space_after_headers"
-    #- "with_toc_data"
-    - "fenced_code_blocks"
+#   https://jekyllrb.com/docs/configuration/markdown/
+#   https://github.com/jekyll/jekyll-commonmark#configuration
+markdown: CommonMark
+
+commonmark:
+  options: ["UNSAFE", "FOOTNOTES", "STRIKETHROUGH_DOUBLE_TILDE", "VALIDATE_UTF8", "GITHUB_PRE_LANG", "HARDBREAKS"]
+  extensions: ["autolink", "strikethrough", "table", "tasklist"]
+
 lsi: false # Index for related posts (enabled by command line)
 
 keep_files:
@@ -92,14 +91,11 @@ keep_files:
   - .nojekyll # To prevent GitHub re-processing
 
 exclude:
-  - "Gemfile"
-  - "Gemfile.lock"
   - "PUBLISHING.md"
   - "README.md"
   - "TODO.txt"
   - "ojekyll.txt"
   - "bin/"
-  - ".jekyll-cache/"
 
 # TODO: Enable these checks + fix any errors associated with them
 # liquid:

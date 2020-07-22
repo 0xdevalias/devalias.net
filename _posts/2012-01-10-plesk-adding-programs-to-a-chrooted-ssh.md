@@ -61,7 +61,7 @@ The final (rather simple) step involves updating any chrooted directories that h
 
 This can also be done without the script:
 
-``
+```
 /usr/local/psa/admin/sbin/chrootmng --remove --source=/var/www/vhosts/chroot --target=/var/www/vhosts/<domain name>
 /usr/local/psa/admin/sbin/chrootmng --create --source=/var/www/vhosts/chroot --target=/var/www/vhosts/<domain name>
 ```

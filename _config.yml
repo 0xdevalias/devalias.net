@@ -91,14 +91,11 @@ keep_files:
   - .nojekyll # To prevent GitHub re-processing
 
 exclude:
-  - "Gemfile"
-  - "Gemfile.lock"
   - "PUBLISHING.md"
   - "README.md"
   - "TODO.txt"
   - "ojekyll.txt"
   - "bin/"
-  - ".jekyll-cache/"
 
 # TODO: Enable these checks + fix any errors associated with them
 # liquid:

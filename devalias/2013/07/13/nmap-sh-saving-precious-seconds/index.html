@@ -14,9 +14,9 @@
 
   <link type="application/atom+xml" rel="alternate" href="https://www.devalias.net/feed.xml" title="/dev/alias – Hack. Dev. Transcend." />
 
-  <!-- Begin Jekyll SEO tag v2.4.0 -->
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
 <title>nmap.sh - Saving Precious Seconds | /dev/alias – Hack. Dev. Transcend.</title>
-<meta name="generator" content="Jekyll v3.8.0" />
+<meta name="generator" content="Jekyll v4.1.1" />
 <meta property="og:title" content="nmap.sh - Saving Precious Seconds" />
 <meta name="author" content="Glenn 'devalias' Grant" />
 <meta property="og:locale" content="en_GB" />
@@ -29,10 +29,12 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2013-07-13T08:00:00+10:00" />
 <meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://www.devalias.net/assets/images/cover4.jpg" />
+<meta property="twitter:title" content="nmap.sh - Saving Precious Seconds" />
 <meta name="twitter:site" content="@_devalias" />
 <meta name="twitter:creator" content="@_devalias" />
 <script type="application/ld+json">
-{"description":"In the course of my work I end up issuing the same simple commands again and again, and while they are pretty easy to remember, they still take more time than they really need to.","author":{"@type":"Person","name":"Glenn 'devalias' Grant"},"@type":"BlogPosting","url":"https://www.devalias.net/devalias/2013/07/13/nmap-sh-saving-precious-seconds/","image":"https://www.devalias.net/assets/images/cover4.jpg","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://www.devalias.net/assets/images/cover4.jpg"},"name":"Glenn 'devalias' Grant"},"headline":"nmap.sh - Saving Precious Seconds","dateModified":"2013-07-13T08:00:00+10:00","datePublished":"2013-07-13T08:00:00+10:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.devalias.net/devalias/2013/07/13/nmap-sh-saving-precious-seconds/"},"@context":"http://schema.org"}</script>
+{"image":"https://www.devalias.net/assets/images/cover4.jpg","author":{"@type":"Person","name":"Glenn 'devalias' Grant"},"headline":"nmap.sh - Saving Precious Seconds","dateModified":"2013-07-13T08:00:00+10:00","datePublished":"2013-07-13T08:00:00+10:00","url":"https://www.devalias.net/devalias/2013/07/13/nmap-sh-saving-precious-seconds/","description":"In the course of my work I end up issuing the same simple commands again and again, and while they are pretty easy to remember, they still take more time than they really need to.","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://www.devalias.net/assets/images/cover4.jpg"},"name":"Glenn 'devalias' Grant"},"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.devalias.net/devalias/2013/07/13/nmap-sh-saving-precious-seconds/"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -205,11 +207,27 @@
 
         <section class="post-content">
             <p>In the course of my work I end up issuing the same simple commands again and again, and while they are pretty easy to remember, they still take more time than they really need to.</p>
-
-<p>With that in mind, here&#39;s a little bash script I threw together today to reduce the time it takes to kick off a standard (in my day to day usage) nmap scan. Hopefully you can get some use out of it.</p>
-
-<p><noscript><pre>404: Not Found
-</pre></noscript><script src="https://gist.github.com/alias1/5963377.js"> </script></p>
+<p>With that in mind, here's a little bash script I threw together today to reduce the time it takes to kick off a standard (in my day to day usage) nmap scan. Hopefully you can get some use out of it.</p>
+<p><a href="https://gist.github.com/0xdevalias/5963377">https://gist.github.com/0xdevalias/5963377</a></p>
+<p><noscript><pre>#!/bin/bash<br />
+echo &quot;-----------------------------------------------&quot;<br />
+echo &quot;A very simple script to make nmap scanning a little quicker to kick off&quot;<br />
+echo &quot;By Glenn '/dev/alias' Grant (devalias.net)&quot;<br />
+echo &quot;v0.3&quot;<br />
+echo &quot;-----------------------------------------------&quot;<br />
+_iphost=$1<br />
+_now=$(date +&quot;%Y%m%d-%H%M&quot;)<br />
+_nmapopts=&quot;-A -vvv ${@:2}&quot;<br />
+_nmapoptshidden=&quot;--webxml&quot;<br />
+_nmapoptsfilename=$(echo $_nmapopts | tr -d ' ')<br />
+_file=&quot;nmap-$_now-$_iphost$_nmapoptsfilename&quot;</p>
+<p>if [ -z &quot;$1&quot; ]; then<br />
+echo &quot;Usage: nmap.sh ipOrHostnameToScan [any other arguments here]&quot;<br />
+echo &quot;Default Options: $_nmapoptshidden $_nmapopts&quot;<br />
+exit<br />
+fi</p>
+<p>nmap -oA $_file $_nmapoptshidden $_nmapopts $_iphost<br />
+</pre></noscript><script src="https://gist.github.com/5963377.js"> </script></p>
 
         </section>
 
@@ -394,7 +412,7 @@
             </section>
             <section class="poweredby">
                 <div>
-                    <strong>Build:</strong> 9b128d3c0
+                    <strong>Build:</strong> 618e30db6
                     <a href="https://github.com/0xdevalias/devalias.net/tree/master/_posts/2013-07-13-nmap-sh-saving-precious-seconds.md" target="_blank">
                         <i class="fas fa-edit"></i>
                         Edit on GitHub

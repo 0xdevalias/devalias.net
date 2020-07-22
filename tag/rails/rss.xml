@@ -19,11 +19,9 @@
 	  <guid>/devalias/2013/08/03/rails-lessons-learned-the-hard-way-1-db-migrate/</guid>
 	  <description><![CDATA[
 	     <p>Decided I will make this a regular little mini collection of things I learned the hard way with Ruby on Rails. So here it is, lesson #1!</p>
-
 <p>Generate your model first, make all manual edits, and then only AFTER you have made all your manual edits (and double checked them), run rake db:migrate. It will save you a fair few headaches.</p>
-
-<p><noscript><pre>404: Not Found
-</pre></noscript><script src="https://gist.github.com/alias1/5790864.js"> </script></p>
+<p><a href="https://gist.github.com/0xdevalias/5790864">https://gist.github.com/0xdevalias/5790864</a></p>
+<p><noscript><pre>rails g model identity name:string email:string password_digest:string</pre></noscript><script src="https://gist.github.com/5790864.js"> </script></p>
 
 	  ]]></description>
 	</item>

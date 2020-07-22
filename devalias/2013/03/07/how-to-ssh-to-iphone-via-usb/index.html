@@ -14,9 +14,9 @@
 
   <link type="application/atom+xml" rel="alternate" href="https://www.devalias.net/feed.xml" title="/dev/alias – Hack. Dev. Transcend." />
 
-  <!-- Begin Jekyll SEO tag v2.4.0 -->
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
 <title>How to SSH to iPhone/iPad/iDevice via USB | /dev/alias – Hack. Dev. Transcend.</title>
-<meta name="generator" content="Jekyll v3.8.0" />
+<meta name="generator" content="Jekyll v4.1.1" />
 <meta property="og:title" content="How to SSH to iPhone/iPad/iDevice via USB" />
 <meta name="author" content="Glenn 'devalias' Grant" />
 <meta property="og:locale" content="en_GB" />
@@ -29,10 +29,12 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2013-03-07T08:38:49+11:00" />
 <meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://www.devalias.net/assets/images/cover4.jpg" />
+<meta property="twitter:title" content="How to SSH to iPhone/iPad/iDevice via USB" />
 <meta name="twitter:site" content="@_devalias" />
 <meta name="twitter:creator" content="@_devalias" />
 <script type="application/ld+json">
-{"description":"So in order to run the iPad through a debug proxy (Burp Suite), and still be able to forward on the traffic to the net, I needed to be able to talk to it over USB. (yay limited tech to work with!)","author":{"@type":"Person","name":"Glenn 'devalias' Grant"},"@type":"BlogPosting","url":"https://www.devalias.net/devalias/2013/03/07/how-to-ssh-to-iphone-via-usb/","image":"https://www.devalias.net/assets/images/cover4.jpg","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://www.devalias.net/assets/images/cover4.jpg"},"name":"Glenn 'devalias' Grant"},"headline":"How to SSH to iPhone/iPad/iDevice via USB","dateModified":"2013-03-07T08:38:49+11:00","datePublished":"2013-03-07T08:38:49+11:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.devalias.net/devalias/2013/03/07/how-to-ssh-to-iphone-via-usb/"},"@context":"http://schema.org"}</script>
+{"image":"https://www.devalias.net/assets/images/cover4.jpg","author":{"@type":"Person","name":"Glenn 'devalias' Grant"},"headline":"How to SSH to iPhone/iPad/iDevice via USB","dateModified":"2013-03-07T08:38:49+11:00","datePublished":"2013-03-07T08:38:49+11:00","url":"https://www.devalias.net/devalias/2013/03/07/how-to-ssh-to-iphone-via-usb/","description":"So in order to run the iPad through a debug proxy (Burp Suite), and still be able to forward on the traffic to the net, I needed to be able to talk to it over USB. (yay limited tech to work with!)","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://www.devalias.net/assets/images/cover4.jpg"},"name":"Glenn 'devalias' Grant"},"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.devalias.net/devalias/2013/03/07/how-to-ssh-to-iphone-via-usb/"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -215,20 +217,16 @@
 
         <section class="post-content">
             <p>So in order to run the iPad through a debug proxy (Burp Suite), and still be able to forward on the traffic to the net, I needed to be able to talk to it over USB. (yay limited tech to work with!)</p>
-
-<p>This wasn&#39;t actually too hard to get going thanks to a little tool called usbmuxd.</p>
-
+<p>This wasn't actually too hard to get going thanks to a little tool called usbmuxd.</p>
 <h2>Process</h2>
-
 <ol>
 <li>Install usbmuxd (i did this through homebrew: brew install libmuxd)</li>
 <li>Startup the included iproxy tool (<code>iproxy LOCAL_PORT DEVICE_PORT)iproxy 2222 22</code>)</li>
-<li>Plug in your iDevice (I assume you already have SSH setup on it and enabled)
+<li>Plug in your iDevice (I assume you already have SSH setup on it and enabled)<br />
 SSH to localhost:LOCAL_PORT, making sure to specify the account you want to logon as <code>ssh root@127.0.0.1 -p 2222</code></li>
 <li>???</li>
 <li>Profit!</li>
 </ol>
-
 <p>Yay for things just working how they should!</p>
 
         </section>
@@ -388,7 +386,7 @@ SSH to localhost:LOCAL_PORT, making sure to specify the account you want to logo
         <a class="read-next-story no-cover" href="/devalias/2013/06/17/gists-on-tumblr/">
             <section class="post">
                 <h2>Gists</h2>
-                <p>So I figured it might be useful to be able to post gists here. Turns out it's actually pretty easy thanks to soemarko {% gist...</p>
+                <p>So I figured it might be useful to be able to post gists here. Turns out it's actually pretty easy thanks to soemarko https://gist.github.com/soemarko/1395926 {%...</p>
             </section>
         </a>
     
@@ -398,7 +396,7 @@ SSH to localhost:LOCAL_PORT, making sure to specify the account you want to logo
         <a class="read-next-story prev no-cover" href="/devalias/2013/02/27/ipen-hacking-with-the-idevice/">
             <section class="post">
                 <h2>iPen: Hacking with the iDevice (Setting up your iPhone as a Penetration Tester)</h2>
-                <p>Today I finally got around to the task i&#39;ve been looking forward to for the last week or so. We got an iPad to play...</p>
+                <p>Today I finally got around to the task i've been looking forward to for the last week or so. We got an iPad to play...</p>
             </section>
         </a>
     
@@ -414,7 +412,7 @@ SSH to localhost:LOCAL_PORT, making sure to specify the account you want to logo
             </section>
             <section class="poweredby">
                 <div>
-                    <strong>Build:</strong> 9b128d3c0
+                    <strong>Build:</strong> 618e30db6
                     <a href="https://github.com/0xdevalias/devalias.net/tree/master/_posts/2013-03-07-how-to-ssh-to-iphone-via-usb.md" target="_blank">
                         <i class="fas fa-edit"></i>
                         Edit on GitHub

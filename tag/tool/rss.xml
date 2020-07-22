@@ -19,19 +19,38 @@
 	  <guid>/devalias/2013/11/21/vfeed-wrapper-helper-scripts-for-speed-and-efficiency/</guid>
 	  <description><![CDATA[
 	     <p>Just wanted to share some quick little bash scripts I threw together to make vFeed a little quicker/more efficient for my use.</p>
-
-<p>If you don&#39;t know it already, <a href="https://github.com/toolswatch/vfeed">vFeed</a> is an Open Source Cross Linked and Aggregated Local Vulnerability Database put together by the fine folks over at <a href="http://www.toolswatch.org/vfeed/">ToolsWatch</a>. You can query it for a whole bunch of information and details that may aid you in your pentests, all from the convenience of a local database.</p>
-
+<p>If you don't know it already, <a href="https://github.com/toolswatch/vfeed">vFeed</a> is an Open Source Cross Linked and Aggregated Local Vulnerability Database put together by the fine folks over at <a href="http://www.toolswatch.org/vfeed/">ToolsWatch</a>. You can query it for a whole bunch of information and details that may aid you in your pentests, all from the convenience of a local database.</p>
 <p>To make life easier, I throw these scripts in my vFeed directory and symlink them from bin.</p>
-<div class="highlight"><pre><code class="language-" data-lang="">cd /path/to/bin
+<pre><code>cd /path/to/bin
 ln -s /path/to/vFeed/bin/vfeed.sh vfeed
 ln -s /path/to/vFeed/bin/vfeedcli.sh vfeedcli
 ln -s /path/to/vFeed/bin/vfeed_update.sh vfeed_update
-</code></pre></div>
+</code></pre>
 <p>Enjoy!</p>
-
-<p><noscript><pre>404: Not Found
-</pre></noscript><script src="https://gist.github.com/alias1/7554985.js"> </script></p>
+<p><a href="https://gist.github.com/0xdevalias/7554985">https://gist.github.com/0xdevalias/7554985</a></p>
+<p><noscript><pre># vfeed.sh - README</p>
+<ul>
+<li>Version: 0.2 (20131126)</li>
+<li>Created By: Glenn 'devalias' Grant (<a href="http://devalias.net">http://devalias.net</a>)</li>
+<li>License: The MIT License (MIT) - Copyright (c) 2013 Glenn 'devalias' Grant (see <a href="http://choosealicense.com/licenses/mit/">http://choosealicense.com/licenses/mit/</a> for full license text)</li>
+<li>vFeed URL: <a href="https://github.com/toolswatch/vfeed">https://github.com/toolswatch/vfeed</a></li>
+<li>vFeed.sh announcement/info: <a href="http://blog.devalias.net/post/67532513020/vfeed-wrapper-helper-scripts-for-speed-and-efficiency">http://blog.devalias.net/post/67532513020/vfeed-wrapper-helper-scripts-for-speed-and-efficiency</a></li>
+</ul>
+<h2>Version 0.2 (20131126)</h2>
+<ul>
+<li>Updated to support vFeed Beta v0.4.6
+<ul>
+<li>Added Defense::get_suricata command support</li>
+<li>Added Patches::get_vmware command support</li>
+</ul>
+</li>
+<li>Update vfeed_update.sh to pull the latest version from git</li>
+</ul>
+<h2>Version 0.1 (20131120)</h2>
+<ul>
+<li>Initial version. Supports vFeed Beta v0.4.5<br />
+</pre></noscript><script src="https://gist.github.com/7554985.js"> </script></li>
+</ul>
 
 	  ]]></description>
 	</item>
@@ -43,30 +62,19 @@ ln -s /path/to/vFeed/bin/vfeed_update.sh vfeed_update
 	  <pubDate>2013-11-14T09:00:52+11:00</pubDate>
 	  <guid>/devalias/2013/11/14/sparty-sharepoint-frontpage-auditing-tool-now-with-more-ntlm/</guid>
 	  <description><![CDATA[
-	     <p>I&#39;ve been doing a little bit of poking around Sharepoint security lately, doing some research and playing with some assessment/pentest tools. One such tool (released this year at <a href="https://www.blackhat.com/us-13/">Black Hat USA</a>) is called <a href="http://sparty.secniche.org/">Sparty</a>. Written by <a href="https://twitter.com/AdityaKSood">0kn0ck</a> (aka Aditya K Sood) of <a href="http://secniche.org/">SecNiche Security Labs</a>, Sparty is a tool designed to assist in auditing sites built on Microsoft Sharepoint and/or Frontpage.</p>
-
+	     <p>I've been doing a little bit of poking around Sharepoint security lately, doing some research and playing with some assessment/pentest tools. One such tool (released this year at <a href="https://www.blackhat.com/us-13/">Black Hat USA</a>) is called <a href="http://sparty.secniche.org/">Sparty</a>. Written by <a href="https://twitter.com/AdityaKSood">0kn0ck</a> (aka Aditya K Sood) of <a href="http://secniche.org/">SecNiche Security Labs</a>, Sparty is a tool designed to assist in auditing sites built on Microsoft Sharepoint and/or Frontpage.</p>
 <p>From the official site:</p>
-
 <blockquote>
 <p>Sparty is an open source tool written in python to audit web applications using sharepoint and frontpage architecture. The motivation behind this tool is to provide an easy and robust way to scrutinize the security configurations of sharepoint and frontpage based web applications. Due to the complex nature of these web administration software, it is required to have a simple and efficient tool that gathers information, check access permissions, dump critical information from default files and perform automated exploitation if security risks are identified. A number of automated scanners fall short of this and Sparty is a solution to that.</p>
 </blockquote>
-
-<p>You can download a copy from the <a href="http://sparty.secniche.org/">project page</a> (I&#39;ll be a good net citizen and won&#39;t link directly to the <code>.tar.gz</code>)</p>
-
-<p>I won&#39;t dive into usage/etc here as it&#39;s still a very early release too (v0.1!) So if you want to find out a bit more about that you should look at the <a href="http://sparty.secniche.org/usage.html">Sparty Usage</a> page over at SecNiche.</p>
-
+<p>You can download a copy from the <a href="http://sparty.secniche.org/">project page</a> (I'll be a good net citizen and won't link directly to the <code>.tar.gz</code>)</p>
+<p>I won't dive into usage/etc here as it's still a very early release too (v0.1!) So if you want to find out a bit more about that you should look at the <a href="http://sparty.secniche.org/usage.html">Sparty Usage</a> page over at SecNiche.</p>
 <h2>Now With More NTLM Authentication!</h2>
-
 <p>In playing with the tool there were a few things that I kept running into that gave me some minor annoyance that I had to work around.</p>
-
 <p>Firstly, there was a hard version check for Python 2.6 (I was running 2.7), so before I could even list the help I had to disable that (simple fix)</p>
-
 <p>The next issue was a little more frustrating at first, and took a bit longer to solve. In running the tool, I was only receiving <code>401 Unauthorized</code> responses. After looking a little further into it, I discovered that this was due to the server requesting NTLM authentication, which the tool was not providing. A bit more hacking around (and a bunch of google/python documentation) and I had a solution that would allow me to enter my authentication credentials (or some I acquired) and then proceed with using the tool as normal.</p>
-
 <h2>Sharing is Caring!</h2>
-
-<p>As we know, sharing is caring, so i&#39;ve made my changes (and any others I may make to Sparty in the future) available over at Github.</p>
-
+<p>As we know, sharing is caring, so i've made my changes (and any others I may make to Sparty in the future) available over at Github.</p>
 <p><strong>Click over to <a href="https://github.com/alias1/sparty">alias1/sparty</a> and check it out!</strong></p>
 
 	  ]]></description>

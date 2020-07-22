@@ -14,9 +14,9 @@
 
   <link type="application/atom+xml" rel="alternate" href="https://www.devalias.net/feed.xml" title="/dev/alias – Hack. Dev. Transcend." />
 
-  <!-- Begin Jekyll SEO tag v2.4.0 -->
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
 <title>Play! Framework - Seperated WS Library | /dev/alias – Hack. Dev. Transcend.</title>
-<meta name="generator" content="Jekyll v3.8.0" />
+<meta name="generator" content="Jekyll v4.1.1" />
 <meta property="og:title" content="Play! Framework - Seperated WS Library" />
 <meta name="author" content="Glenn 'devalias' Grant" />
 <meta property="og:locale" content="en_GB" />
@@ -29,10 +29,12 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2014-06-26T03:48:00+10:00" />
 <meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://www.devalias.net/assets/images/cover4.jpg" />
+<meta property="twitter:title" content="Play! Framework - Seperated WS Library" />
 <meta name="twitter:site" content="@_devalias" />
 <meta name="twitter:creator" content="@_devalias" />
 <script type="application/ld+json">
-{"description":"So as we all (should) know, Play! Framework has released v2.3.x","author":{"@type":"Person","name":"Glenn 'devalias' Grant"},"@type":"BlogPosting","url":"https://www.devalias.net/devalias/2014/06/26/play-framework-seperated-ws-library/","image":"https://www.devalias.net/assets/images/cover4.jpg","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://www.devalias.net/assets/images/cover4.jpg"},"name":"Glenn 'devalias' Grant"},"headline":"Play! Framework - Seperated WS Library","dateModified":"2014-06-26T03:48:00+10:00","datePublished":"2014-06-26T03:48:00+10:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.devalias.net/devalias/2014/06/26/play-framework-seperated-ws-library/"},"@context":"http://schema.org"}</script>
+{"image":"https://www.devalias.net/assets/images/cover4.jpg","author":{"@type":"Person","name":"Glenn 'devalias' Grant"},"headline":"Play! Framework - Seperated WS Library","dateModified":"2014-06-26T03:48:00+10:00","datePublished":"2014-06-26T03:48:00+10:00","url":"https://www.devalias.net/devalias/2014/06/26/play-framework-seperated-ws-library/","description":"So as we all (should) know, Play! Framework has released v2.3.x","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://www.devalias.net/assets/images/cover4.jpg"},"name":"Glenn 'devalias' Grant"},"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.devalias.net/devalias/2014/06/26/play-framework-seperated-ws-library/"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -209,25 +211,17 @@
 
         <section class="post-content">
             <p>So as we all (should) know, <a href="https://www.playframework.com/">Play! Framework</a> has released <a href="https://www.typesafe.com/blog/announcing-play-230">v2.3.x</a></p>
-
 <p>With it comes a <a href="https://www.playframework.com/documentation/2.3.x/Highlights23">whole range</a> of new features, including one that caught my eye:</p>
-
 <blockquote>
 <p>Play WS</p>
-
 <p>Separate library</p>
-
 <p>The WS client library has been refactored into its own library which can be used outside of Play. You can now have multiple WSClient objects, rather than only using the WS singleton.</p>
 </blockquote>
-
-<p>This was particularly exciting for me, as I&#39;ve grown to know, understand and love the simple abstractions the Play WS library provides.</p>
-
+<p>This was particularly exciting for me, as I've grown to know, understand and love the simple abstractions the Play WS library provides.</p>
 <p>Sweet! So how do I get it in my projects? Had a look over at <a href="https://github.com/playframework">playframework@Github</a> to no avail (was expecting a new repo)</p>
-
 <p>After a little more digging, I came across the <a href="https://www.playframework.com/documentation/2.3.x/Repositories">Play! Repositories</a> page, which lead me to finding what I wanted.</p>
-
 <p>A little xml magic later and we have the following for a maven project wanting to use the Java version of the WS library:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">&lt;dependencies&gt;
+<pre><code>&lt;dependencies&gt;
     &lt;groupId&gt;com.typesafe.play&lt;/groupId&gt;
     &lt;artifactId&gt;play-java-ws_2.10&lt;/artifactId&gt;
     &lt;version&gt;2.3.0&lt;/version&gt;
@@ -237,13 +231,11 @@
     &lt;id&gt;Typesafe Releases&lt;/id&gt;
     &lt;url&gt;http://repo.typesafe.com/typesafe/releases/&lt;/url&gt;
 &lt;/repositories&gt;
-</code></pre></div>
+</code></pre>
 <p>Hope this saves you guys some time, and as always, happy hacking!</p>
-
 <h2>&quot;There is no started application&quot;</h2>
-
 <p>If you end up getting a &quot;There is no started application&quot; message when you try to use WS, you will need to do something like the following:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">AsyncHttpClientConfig.Builder builder = new com.ning.http.client.AsyncHttpClientConfig.Builder();
+<pre><code>AsyncHttpClientConfig.Builder builder = new com.ning.http.client.AsyncHttpClientConfig.Builder();
 NingWSClient wsClient = new play.libs.ws.ning.NingWSClient(builder.build());
 
 // Instead of this
@@ -251,18 +243,16 @@ NingWSClient wsClient = new play.libs.ws.ning.NingWSClient(builder.build());
 
 // Use this
 WSRequestHolder ws = wsClient.url(url)
-</code></pre></div>
+</code></pre>
 <p>See the following for more details:</p>
-
 <ul>
 <li><a href="http://stackoverflow.com/questions/24881145/how-do-i-use-play-ws-library-in-normal-sbt-project-instead-of-play">http://stackoverflow.com/questions/24881145/how-do-i-use-play-ws-library-in-normal-sbt-project-instead-of-play</a>
-
 <ul>
 <li>Scala - Using WSClient: <a href="http://www.playframework.com/documentation/2.3.x/ScalaWS">http://www.playframework.com/documentation/2.3.x/ScalaWS</a></li>
 <li>Java - Using WSClient: <a href="http://www.playframework.com/documentation/2.3.x/JavaWS">http://www.playframework.com/documentation/2.3.x/JavaWS</a></li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <p>(Note: The tl;dr/raw/likely most up to date notes I made for this are <a href="https://gist.github.com/alias1/288dce6b353f2a72a7d4">available as a gist</a>)</p>
 
         </section>
@@ -448,7 +438,7 @@ WSRequestHolder ws = wsClient.url(url)
             </section>
             <section class="poweredby">
                 <div>
-                    <strong>Build:</strong> 9b128d3c0
+                    <strong>Build:</strong> 618e30db6
                     <a href="https://github.com/0xdevalias/devalias.net/tree/master/_posts/2014-06-26-play-framework-seperated-ws-library.md" target="_blank">
                         <i class="fas fa-edit"></i>
                         Edit on GitHub

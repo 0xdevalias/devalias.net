@@ -19,28 +19,20 @@
 	  <guid>/devalias/2016/08/31/shared-devices-need-account-switching/</guid>
 	  <description><![CDATA[
 	     <p>Living in share houses and using tech like the Apple TV has highlighted an annoying situation: so many apps these days want you to sign in to enable access, personalised features, etc; but most offer no good solution for when you share the device with other people.</p>
-
 <p>There are some apps out there that handle this pretty well:</p>
-
 <ul>
-<li><a href="https://www.plex.tv/">Plex</a> allows you to switch between different users in your &#39;home&#39;, each of which can either be a fully independent account, or a &#39;managed user&#39; that exists under the main account.</li>
-<li><a href="https://www.netflix.com/au/">Netflix</a> allows switching between different users under the one subscription. While this is ok.. it doesn&#39;t work so well for a share house. What if we each have our own Netflix subscriptions, but want to share the device without having to log out and back in to our own accounts?</li>
+<li><a href="https://www.plex.tv/">Plex</a> allows you to switch between different users in your 'home', each of which can either be a fully independent account, or a 'managed user' that exists under the main account.</li>
+<li><a href="https://www.netflix.com/au/">Netflix</a> allows switching between different users under the one subscription. While this is ok.. it doesn't work so well for a share house. What if we each have our own Netflix subscriptions, but want to share the device without having to log out and back in to our own accounts?</li>
 </ul>
-
-<p>And then there are so many apps that don&#39;t even seem to give the option, two of which immediately jump to mind for me:</p>
-
+<p>And then there are so many apps that don't even seem to give the option, two of which immediately jump to mind for me:</p>
 <ul>
-<li><a href="https://www.youtube.com/">YouTube</a> let&#39;s you sign in to a single account, but no switching features save for logging out.</li>
-<li><a href="https://www.ted.com/">TED</a>&#39;s app suffers from the same issue.</li>
+<li><a href="https://www.youtube.com/">YouTube</a> let's you sign in to a single account, but no switching features save for logging out.</li>
+<li><a href="https://www.ted.com/">TED</a>'s app suffers from the same issue.</li>
 </ul>
-
-<p>This could be fixed at the individual app level. It would be REALLY nice to see support for multiple account switching added to any app made for a device that could potentially be shared (Apple TV/etc, far less likely to be useful on an iPhone.. but it might be for some users) But this requires extra effort from every app developer out there. Perhaps a common framework could be developed to help support this.. but then making it generic enough to fit into everyone&#39;s different architectures would be a challenge.</p>
-
-<p>An even better solution could be baked into the OS itself by Apple.. I boot up my Apple TV and am presented with an account chooser asking which particular registered user I am. If I haven&#39;t already logged in, there&#39;s the option for signing in to my Apple account to add myself as a new user. Once logged in, I&#39;m presented with my own homescreen of apps, laid out to my own preferences, logged in to my own accounts, and saving my own personal data.</p>
-
-<p>This poses some issues about duplication of apps between users, space requirements, etc. So a mid-ground could be allowing the owner/&#39;master&#39; user to control app installation, but then for each other user to be able to maintain their own stored data/signin status/etc.</p>
-
-<p>What do you think? Is this a feature you&#39;d use, or does it just seem like over-engineered bloat? Let me know your thoughts in the comments!</p>
+<p>This could be fixed at the individual app level. It would be REALLY nice to see support for multiple account switching added to any app made for a device that could potentially be shared (Apple TV/etc, far less likely to be useful on an iPhone.. but it might be for some users) But this requires extra effort from every app developer out there. Perhaps a common framework could be developed to help support this.. but then making it generic enough to fit into everyone's different architectures would be a challenge.</p>
+<p>An even better solution could be baked into the OS itself by Apple.. I boot up my Apple TV and am presented with an account chooser asking which particular registered user I am. If I haven't already logged in, there's the option for signing in to my Apple account to add myself as a new user. Once logged in, I'm presented with my own homescreen of apps, laid out to my own preferences, logged in to my own accounts, and saving my own personal data.</p>
+<p>This poses some issues about duplication of apps between users, space requirements, etc. So a mid-ground could be allowing the owner/'master' user to control app installation, but then for each other user to be able to maintain their own stored data/signin status/etc.</p>
+<p>What do you think? Is this a feature you'd use, or does it just seem like over-engineered bloat? Let me know your thoughts in the comments!</p>
 
 	  ]]></description>
 	</item>

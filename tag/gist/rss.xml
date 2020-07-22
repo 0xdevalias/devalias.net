@@ -18,12 +18,84 @@
 	  <pubDate>2015-04-20T12:00:00+10:00</pubDate>
 	  <guid>/devalias/2015/04/20/dogedraw-now-with-more-nyaan/</guid>
 	  <description><![CDATA[
-	     <p>Over the last few days I&#39;ve been mentoring web dev at <a href="http://hact.io/">HS.HACT.IO</a>, inspiring a group of younger kids to get into tech as creators. One of the other mentors showed us a site he previously put together, <a href="http://dogedraw.com/">DogeDraw</a>. After playing around with it for a little, I decided it was a little too manual, so started hacking away in the JS console to make it more fun.</p>
-
+	     <p>Over the last few days I've been mentoring web dev at <a href="http://hact.io/">HS.HACT.IO</a>, inspiring a group of younger kids to get into tech as creators. One of the other mentors showed us a site he previously put together, <a href="http://dogedraw.com/">DogeDraw</a>. After playing around with it for a little, I decided it was a little too manual, so started hacking away in the JS console to make it more fun.</p>
 <p>A little while (and far too long typing out pixel art as code) later, and we have nyaan hacks! You can clear a section of the screen with a solid block of colour, or better yet, stamp out some pixel art nyaan cat across the page!</p>
+<p><a href="https://gist.github.com/0xdevalias/e8bb28726a37854606ad">https://gist.github.com/0xdevalias/e8bb28726a37854606ad</a></p>
+<p><noscript><pre># Dogedraw, now with more Nyaan!</p>
+<p>Paste these functions into the js console on <a href="https://dogedraw.firebaseapp.com">https://dogedraw.firebaseapp.com</a> and run them to nyaan nyaan nyaan..</p>
+<p>Developed at <a href="http://hs.hact.io">http://hs.hact.io</a> 2015!!</p>
+<pre><code>function clearScreen(w, h, color) {
+  var pixelDataRef = new Firebase(&amp;#39;https://dogedraw.firebaseio.com/pixels&amp;#39;);
+  for (var i = 0; i &amp;lt; h; i++) {
+    for (var j = 0; j &amp;lt; w; j++) {
+      pixelDataRef.child(j + &amp;quot;:&amp;quot; + i).set(color);
+    }
+  }
+}
+    
+function nyaan(startX, startY) {
+  function rpt(value, times) {
+    var arr = [];
+    for (rpti = 0; rpti &amp;lt; times; rpti++) {
+      arr[rpti] = value;
+    }
+    return arr;
+  }
 
-<p><noscript><pre>404: Not Found
-</pre></noscript><script src="https://gist.github.com/alias1/e8bb28726a37854606ad.js"> </script></p>
+  function cc(arr) {
+    var joined = [];
+    for (cci = 0; cci &amp;lt; arr.length; cci++) {
+      joined = joined.concat(arr[cci]);
+    }
+    return joined;
+  }
+
+  var nyaanHax = new Firebase(&amp;#39;https://dogedraw.firebaseio.com/pixels&amp;#39;);
+
+  var w = &amp;quot;fff&amp;quot; // white
+  var bl = &amp;quot;00f&amp;quot; // blue
+  var k = &amp;quot;000&amp;quot; // black
+  var r = &amp;quot;f00&amp;quot; // red
+  var gy = &amp;quot;333&amp;quot; // grey
+  var gr = &amp;quot;0f0&amp;quot; // green
+  var y1 = &amp;quot;FFFFE0&amp;quot; // pale yellow
+  var y2 = &amp;quot;FFFF00&amp;quot; // yellow
+  var o = &amp;quot;FF4500&amp;quot; // orange
+  var p1 = &amp;quot;FFC0CB&amp;quot; // pink
+  var p2 = &amp;quot;9370DB&amp;quot; //purple
+  var p3 = &amp;quot;800080&amp;quot; // dark purple
+
+  var nyaan = []
+  nyaan[0] = rpt(w, 38)
+  nyaan[1] = cc([rpt(w, 3), rpt(r, 6), rpt(w, 7), rpt(k, 14), rpt(w, 8)])
+  nyaan[2] = cc([[w], rpt(r, 14), [k], rpt(y1, 14), [k], rpt(w, 7)])
+  nyaan[3] = cc([[w], rpt(r, 3), rpt(o, 5), rpt(r, 5), [k, y1, y1], rpt(p1, 4), [p2, p1, p1, p2], rpt(p1, 3), rpt(y1, 3), [k], rpt(w, 6)])
+  nyaan[4] = cc([[w], rpt(o, 13), [k, y1], rpt(p1, 2), [p2], rpt(p1, 4), [k, k], rpt(p1, 5), [y1, k, w, k, k], rpt(w, 3)])
+  nyaan[5] = cc([[w], rpt(o, 3), rpt(y2, 4), rpt(k, 4), rpt(o, 2), [k, y1], rpt(p1, 6), [k, gy, gy, k], [p1, p1, p2, p1, y1, k, k, gy, gy, k], rpt(w, 2)])
+  nyaan[6] = cc([[w], rpt(y2, 6), [k, gy, gy, gy], rpt(k, 4), [y1], rpt(p1, 6), [k, gy, gy, gy, k], rpt(p1, 3), [y1, k, gy, gy, gy, k], rpt(w, 2)])
+  nyaan[7] = cc([[w], rpt(y2, 3), rpt(gr, 3), [k, k], rpt(gy, 5), [k, y1], rpt(p1, 3), [p2], rpt(p1, 2), [k], rpt(gy, 4), rpt(k, 4), rpt(gy, 4), [k], rpt(w, 2)])
+  nyaan[8] = cc([[w], rpt(gr, 8), rpt(k, 4), [gy, k, y1], rpt(p1, 6), [k], rpt(gy, 12), [k], rpt(w, 2)])
+  nyaan[9] = cc([[w], rpt(gr, 3), rpt(bl, 8), rpt(k, 3), [y1], rpt(p1, 4), [p2, k], rpt(gy, 3), [w, k], rpt(gy, 5), [w, k, gy, gy, k, w]])
+  nyaan[10] = cc([[w], rpt(bl, 13), [k, y1, p1, p2], rpt(p1, 3), [k], rpt(gy, 3), [k, k], rpt(gy, 3), [k, gy, k, k, gy, gy, k, w]])
+  nyaan[11] = cc([[w], rpt(bl, 3), rpt(p3, 5), rpt(bl, 5), [k, y1], rpt(p1, 3), [p2, p1, k, gy, p1 ,p1], rpt(gy, 9), [p1, p1, k, w]])
+  nyaan[12] = cc([[w], rpt(p3, 12), [k, k, y1, y1, p1, p2, p1, p1, k, gy, p1, p1, gy, k, gy, gy, k, gy, gy, k, gy, p1, p1, k, w]])
+  nyaan[13] = cc([[w], rpt(p3, 3), rpt(w, 5), rpt(p3, 2), rpt(k, 4), rpt(y1, 3), rpt(p1, 4), [k], rpt(gy, 3), rpt(k, 7), rpt(gy, 2), [k, w, w]])
+  nyaan[14] = cc([rpt(w, 10), [k, gy, gy, gy, k, k], rpt(y1, 7), [k], rpt(gy, 10), [k], rpt(w, 3)])
+  nyaan[15] = cc([rpt(w, 10), [k, gy, gy, k, w], rpt(k, 19), rpt(w, 4)])
+  nyaan[16] = cc([rpt(w, 10), rpt(k, 3), rpt(w, 3), [k, gy, gy, k, w, w, w, k, gy, gy, k, w, k, gy, gy, k], rpt(w, 6)])
+  nyaan[17] = cc([rpt(w, 17), rpt(k, 3), rpt(w, 4), rpt(k, 3), rpt(w, 2), rpt(k, 3), rpt(w, 6)])
+  nyaan[18] = rpt(w, 38)
+
+  for (var i = 0; i &amp;lt; nyaan.length; i++) {
+    for (var j = 0; j &amp;lt; nyaan[i].length; j++) {
+      nyaanHax.child(parseInt(startX+j) + &amp;quot;:&amp;quot; + parseInt(startY+i)).set(nyaan[i][j]);
+    }
+  }
+
+  return &amp;quot;I drew a cat!&amp;quot;
+}
+```&lt;/pre&gt;&lt;/noscript&gt;&lt;script src=&quot;https://gist.github.com/e8bb28726a37854606ad.js&quot;&gt; &lt;/script&gt;
+</code></pre>
 
 	  ]]></description>
 	</item>
@@ -36,11 +108,71 @@
 	  <guid>/devalias/2014/05/15/java-scala-future-promise-map-headsplode/</guid>
 	  <description><![CDATA[
 	     <p>A side by side comparison (now that I finally got it figured out!) of <a href="https://www.playframework.com/">Play Framework</a> v2.2.x promise unwrapping in <a href="https://www.java.com/en/">Java</a> and <a href="http://www.scala-lang.org/">Scala</a>. Hopefully this will be able to save some of you a bunch of mind numbing ponderings and failures.</p>
-
 <p>&lt;3 /dev/alias</p>
+<p><a href="https://gist.github.com/0xdevalias/1d3b44312d8a68ddbaa5">https://gist.github.com/0xdevalias/1d3b44312d8a68ddbaa5</a></p>
+<p><noscript><pre># Java/Scala Future/Promise Map</p>
+<p>A side by side comparison (now that I finally got it figured out!) of Play Framework v2.2.x promise unwrapping in Java and Scala.</p>
+<h2>Java</h2>
+<pre lang="java"><code>  public Promise&amp;lt;ObjectNode&amp;gt; getEmployees(final Optional&amp;lt;String&amp;gt; filterEmail)
+	{
+		// Call the webservice
+		Promise&amp;lt;Response&amp;gt; promiseOfEmployees = this.xero.getEmployees(filterEmail);
+		
+		// Map into an ObjectNode
+		Promise&amp;lt;ObjectNode&amp;gt; promiseJson = promiseOfEmployees.map(new F.Function&amp;lt;WS.Response, ObjectNode&amp;gt;()
+		{
+			@Override
+			public ObjectNode apply(final Response response) throws Throwable
+			{
+				JsonNode responseJson = response.asJson();
 
-<p><noscript><pre>404: Not Found
-</pre></noscript><script src="https://gist.github.com/alias1/1d3b44312d8a68ddbaa5.js"> </script></p>
+				ObjectNode json = Json.newObject();
+
+				json.put(&amp;quot;foo&amp;quot;, &amp;quot;bar&amp;quot;);
+
+				return json;
+			}
+		});
+
+		// Return
+		return promiseJson;
+	}
+</code></pre>
+<h2>Scala</h2>
+<pre lang="scala"><code>def getEmployees(filterEmail: Optional[String]): Promise[ObjectNode] = {
+    // Call the webservice
+    val promiseOfEmployees: Promise[Response] = this.xero.getEmployees(filterEmail)
+    
+    // Map into an ObjectNode
+    val promiseJson: Future[ObjectNode] = promiseOfEmployees.wrapped().map { response =&amp;gt;
+      val jsonResponse: JsonNode = response.asJson();
+      val json: ObjectNode = Json.newObject()
+      json.put(&amp;quot;foo&amp;quot;, &amp;quot;bar&amp;quot;);
+      json // Return
+    }
+
+    // Return
+    return Promise.wrap(promiseJson)
+  }
+</code></pre>
+<h2>Scala (Implicit)</h2>
+<pre lang="scala"><code>  def getEmployees(filterEmail: Optional[String]): Promise[ObjectNode] = {
+    // Call the webservice
+    val promiseOfEmployees = this.xero.getEmployees(filterEmail)
+
+    // Map into an ObjectNode
+    val promiseJson = promiseOfEmployees.wrapped().map { response =&amp;gt;
+      val jsonResponse = response.asJson();
+      val json = Json.newObject()
+      json.put(&amp;quot;foo&amp;quot;, &amp;quot;bar&amp;quot;);
+      json // Return
+    }
+
+    // Return
+    return Promise.wrap(promiseJson)
+  }
+</code></pre>
+<p>&lt;3 Glenn / devalias</pre></noscript><script src="https://gist.github.com/1d3b44312d8a68ddbaa5.js"> </script></p>
 
 	  ]]></description>
 	</item>
@@ -52,16 +184,39 @@
 	  <pubDate>2014-04-02T06:38:02+11:00</pubDate>
 	  <guid>/devalias/2014/04/02/hacking-unicoins-for-fun-and-profit/</guid>
 	  <description><![CDATA[
-	     <p><a href="https://stackoverflow.com/">Stackoverflow</a> introduced an amusing little April Fools feature called &#39;Unicoins&#39;. Essentially, this currency (that you can earn by mining rocks, since all of the (rather amusing) payment options are currently unavailable&#39;) allows you to by silly upgrades for the website. From &#39;Colorful comments&#39; and &#39;Guaranteed Answer&#39; through to &#39;Voting animations&#39; which gives you &#39;happy unicorn animations everytime you vote&#39;.</p>
-
+	     <p><a href="https://stackoverflow.com/">Stackoverflow</a> introduced an amusing little April Fools feature called 'Unicoins'. Essentially, this currency (that you can earn by mining rocks, since all of the (rather amusing) payment options are currently unavailable') allows you to by silly upgrades for the website. From 'Colorful comments' and 'Guaranteed Answer' through to 'Voting animations' which gives you 'happy unicorn animations everytime you vote'.</p>
 <p>Anyways, long story short, I saw a system and wondered how to beat it. Turns out each rock is simply an AJAX request to /unicoin/rock to get a rock ID, and when you sucessfully mine it, you POST back a static fkey (bound to each user I assume?) and the rockId to /unicoin/mine?rock=theRockId</p>
-
-<p>I&#39;ve put together a little automagical javascript to prevent you all getting RSI. It&#39;s for health reasons.. honestly.</p>
-
+<p>I've put together a little automagical javascript to prevent you all getting RSI. It's for health reasons.. honestly.</p>
 <p>Enjoy your unicoins! &lt;3 /dev/alias</p>
-
-<p><noscript><pre>404: Not Found
-</pre></noscript><script src="https://gist.github.com/alias1/9905949.js"> </script></p>
+<p><a href="https://gist.github.com/0xdevalias/9905949">https://gist.github.com/0xdevalias/9905949</a></p>
+<p><noscript><pre>First, go to stackoverflow.com then define this in your Javascript console:</p>
+<pre><code>var hackMeSomeUnicoins = function(myFkey) {
+  console.log(&amp;quot;Ok, let&amp;#39;s hack you some shiny unicoins! &amp;lt;3 /dev/alias (www.devalias.net)&amp;quot;)
+  console.log(&amp;quot;The powers that be say you can only mine a rock every 10sec, so we do it every 11sec to be sure.&amp;quot;)
+  window.setInterval(function(){
+    $.get( &amp;quot;http://stackoverflow.com/unicoin/rock&amp;quot;, function( data ) {
+      var rockId = data.rock;
+      $.post( &amp;quot;http://stackoverflow.com/unicoin/mine?rock=&amp;quot; + rockId, { fkey: myFkey })
+      .done(function( data ) {
+        console.log(data);
+      });
+    });
+  }, 11000);
+};
+</code></pre>
+<p>Once you have done that, just call this from the console:</p>
+<pre><code>hackMeSomeUnicoins(StackExchange.options.user.fkey);
+</code></pre>
+<p>(Thanks to @ouranos for the fkey options string)</p>
+<p><del>You can get your fkey by inspecting the POST made when you successfully (manually) mine a rock. (It's also stored in a data-fkey type value somewhere, but haven't been bothered to find it and automagically pull it out (feel free to contribute some JS to do it)</del></p>
+<p>Pimping this:</p>
+<ul>
+<li><a href="http://blog.devalias.net/post/81346968483/hacking-unicoins-for-fun-and-profit-stackoverflow-com">http://blog.devalias.net/post/81346968483/hacking-unicoins-for-fun-and-profit-stackoverflow-com</a>
+<ul>
+<li><a href="https://twitter.com/_devalias/status/450809279784955904">https://twitter.com/_devalias/status/450809279784955904</a></pre></noscript><script src="https://gist.github.com/9905949.js"> </script></li>
+</ul>
+</li>
+</ul>
 
 	  ]]></description>
 	</item>
@@ -74,19 +229,38 @@
 	  <guid>/devalias/2013/11/21/vfeed-wrapper-helper-scripts-for-speed-and-efficiency/</guid>
 	  <description><![CDATA[
 	     <p>Just wanted to share some quick little bash scripts I threw together to make vFeed a little quicker/more efficient for my use.</p>
-
-<p>If you don&#39;t know it already, <a href="https://github.com/toolswatch/vfeed">vFeed</a> is an Open Source Cross Linked and Aggregated Local Vulnerability Database put together by the fine folks over at <a href="http://www.toolswatch.org/vfeed/">ToolsWatch</a>. You can query it for a whole bunch of information and details that may aid you in your pentests, all from the convenience of a local database.</p>
-
+<p>If you don't know it already, <a href="https://github.com/toolswatch/vfeed">vFeed</a> is an Open Source Cross Linked and Aggregated Local Vulnerability Database put together by the fine folks over at <a href="http://www.toolswatch.org/vfeed/">ToolsWatch</a>. You can query it for a whole bunch of information and details that may aid you in your pentests, all from the convenience of a local database.</p>
 <p>To make life easier, I throw these scripts in my vFeed directory and symlink them from bin.</p>
-<div class="highlight"><pre><code class="language-" data-lang="">cd /path/to/bin
+<pre><code>cd /path/to/bin
 ln -s /path/to/vFeed/bin/vfeed.sh vfeed
 ln -s /path/to/vFeed/bin/vfeedcli.sh vfeedcli
 ln -s /path/to/vFeed/bin/vfeed_update.sh vfeed_update
-</code></pre></div>
+</code></pre>
 <p>Enjoy!</p>
-
-<p><noscript><pre>404: Not Found
-</pre></noscript><script src="https://gist.github.com/alias1/7554985.js"> </script></p>
+<p><a href="https://gist.github.com/0xdevalias/7554985">https://gist.github.com/0xdevalias/7554985</a></p>
+<p><noscript><pre># vfeed.sh - README</p>
+<ul>
+<li>Version: 0.2 (20131126)</li>
+<li>Created By: Glenn 'devalias' Grant (<a href="http://devalias.net">http://devalias.net</a>)</li>
+<li>License: The MIT License (MIT) - Copyright (c) 2013 Glenn 'devalias' Grant (see <a href="http://choosealicense.com/licenses/mit/">http://choosealicense.com/licenses/mit/</a> for full license text)</li>
+<li>vFeed URL: <a href="https://github.com/toolswatch/vfeed">https://github.com/toolswatch/vfeed</a></li>
+<li>vFeed.sh announcement/info: <a href="http://blog.devalias.net/post/67532513020/vfeed-wrapper-helper-scripts-for-speed-and-efficiency">http://blog.devalias.net/post/67532513020/vfeed-wrapper-helper-scripts-for-speed-and-efficiency</a></li>
+</ul>
+<h2>Version 0.2 (20131126)</h2>
+<ul>
+<li>Updated to support vFeed Beta v0.4.6
+<ul>
+<li>Added Defense::get_suricata command support</li>
+<li>Added Patches::get_vmware command support</li>
+</ul>
+</li>
+<li>Update vfeed_update.sh to pull the latest version from git</li>
+</ul>
+<h2>Version 0.1 (20131120)</h2>
+<ul>
+<li>Initial version. Supports vFeed Beta v0.4.5<br />
+</pre></noscript><script src="https://gist.github.com/7554985.js"> </script></li>
+</ul>
 
 	  ]]></description>
 	</item>
@@ -99,11 +273,83 @@ ln -s /path/to/vFeed/bin/vfeed_update.sh vfeed_update
 	  <guid>/devalias/2013/08/10/erpscan-automator-because-manual-is-meh/</guid>
 	  <description><![CDATA[
 	     <p>Another quick little tool for you guys today that I hacked together to save myself some time. This one automates running through a number of tests using the <a href="https://erpscan.com/research/free-pentesting-tools-for-sap-and-oracle/">ERPScan SAP Pentesting Tool</a></p>
-
 <p>At time of writing, configuration is all done inside the script, with no support for command line parameters (might add them in the future)</p>
-
-<p><noscript><pre>404: Not Found
-</pre></noscript><script src="https://gist.github.com/alias1/6118709.js"> </script></p>
+<p><a href="https://gist.github.com/0xdevalias/6118709">https://gist.github.com/0xdevalias/6118709</a></p>
+<p><noscript><pre>@echo off<br />
+@rem ----------------<br />
+@rem Config - Banner<br />
+@rem ----------------<br />
+set BAT_VER=0.1 (20130703)<br />
+set BANNER_DASH=--------------------------------<br />
+set BANNER_NAMEVER=Erpscan Automator v%BAT_VER%<br />
+set BANNER_BY=Created By: Glenn 'devalias' Grant (<a href="http://devalias.net">http://devalias.net</a>)<br />
+set BANNER_UPDATES=Updates at: <a href="https://gist.github.com/alias1/6118709">https://gist.github.com/alias1/6118709</a><br />
+set BANNER_LICENSE=License: The MIT License (MIT) - Copyright (c) 2013 Glenn 'devalias' Grant (see <a href="http://choosealicense.com/licenses/mit/">http://choosealicense.com/licenses/mit/</a> for full license text)</p>
+<p>@rem ----------------<br />
+@rem Parms<br />
+@rem ----------------<br />
+set OUT_NAME=CHANGEME_TO_YOUR_OUTFILE_NAME<br />
+set SITE=<a href="http://example.com:1234/changeme/to/your/url">http://example.com:1234/changeme/to/your/url</a><br />
+set USER=CHANGEME_TOYOUR_TESTUSER<br />
+set PASS=CHANGEME_TOYOUR_TESTPASS<br />
+set MODULES=1 2 3 4 5 9 10 11 15 16 17 18 19</p>
+<p>@rem ----------------<br />
+@rem Config<br />
+@rem ----------------<br />
+set ERPSCAN_PATH=&quot;X:\CHANGEME\H4x0rTools\Erpscan&quot;<br />
+set ERPSCAN_FILENAME=black.pl<br />
+set SITE_OPT=-s<br />
+set USER_OPT=-u<br />
+set PASS_OPT=-p<br />
+set MODULE_OPT=-m<br />
+set BAT_FILENAME=%~nx0<br />
+set BAT_PATH=%~dp0<br />
+set OUT_EXT=.txt<br />
+set OUT_FILE=&quot;%BAT_PATH%/%OUT_NAME%%OUT_EXT%&quot;</p>
+<p>@rem ----------------<br />
+@rem Main Program<br />
+@rem ----------------<br />
+title %BANNER_NAMEVER%</p>
+<p>echo %BANNER_DASH%<br />
+echo %BANNER_NAMEVER%<br />
+echo %BANNER_BY%<br />
+echo %BANNER_UPDATES%<br />
+echo %BANNER_LICENSE%<br />
+echo %BANNER_DASH%</p>
+<p>echo %BANNER_DASH% &gt;&gt; %OUT_FILE%<br />
+echo Generated with %BANNER_NAMEVER% &gt;&gt; %OUT_FILE%<br />
+echo %BANNER_BY% &gt;&gt; %OUT_FILE<br />
+%echo %BANNER_UPDATES% &gt;&gt; %OUT_FILE<br />
+echo %BANNER_LICENSE% &gt;&gt; %OUT_FILE%<br />
+echo %BANNER_DASH% &gt;&gt; %OUT_FILE%</p>
+<p>echo.<br />
+echo Site:    %SITE%<br />
+echo User:    %USER%<br />
+echo Pass:    hidden<br />
+echo Modules: %MODULES%</p>
+<p>echo. &gt;&gt; %OUT_FILE%<br />
+echo Site:   %SITE% &gt;&gt; %OUT_FILE%<br />
+echo User:   %USER% &gt;&gt; %OUT_FILE%<br />
+echo Pass:   hidden &gt;&gt; %OUT_FILE%<br />
+echo Modules: %MODULES% &gt;&gt; %OUT_FILE%</p>
+<p>cd /D %ERPSCAN_PATH%</p>
+<p>SETLOCAL ENABLEDELAYEDEXPANSION<br />
+for %%x in (%MODULES%) do (<br />
+set MODULE=%%x</p>
+<p>echo.<br />
+echo --------------------------------<br />
+echo Running module !MODULE!..<br />
+echo --------------------------------</p>
+<p>echo. &gt;&gt; %OUT_FILE%<br />
+echo -------------------------------- &gt;&gt; %OUT_FILE%<br />
+echo Running module !MODULE!.. &gt;&gt; %OUT_FILE%<br />
+echo -------------------------------- &gt;&gt; %OUT_FILE%</p>
+<p>perl %ERPSCAN_FILENAME% %SITE_OPT% %SITE% %USER_OPT% %USER% %PASS_OPT% %PASS% %MODULE_OPT% !MODULE! &gt;&gt; %OUT_FILE%<br />
+)</p>
+<p>echo.<br />
+echo Done</p>
+<p>pause<br />
+</pre></noscript><script src="https://gist.github.com/6118709.js"> </script></p>
 
 	  ]]></description>
 	</item>
@@ -116,11 +362,9 @@ ln -s /path/to/vFeed/bin/vfeed_update.sh vfeed_update
 	  <guid>/devalias/2013/08/03/rails-lessons-learned-the-hard-way-1-db-migrate/</guid>
 	  <description><![CDATA[
 	     <p>Decided I will make this a regular little mini collection of things I learned the hard way with Ruby on Rails. So here it is, lesson #1!</p>
-
 <p>Generate your model first, make all manual edits, and then only AFTER you have made all your manual edits (and double checked them), run rake db:migrate. It will save you a fair few headaches.</p>
-
-<p><noscript><pre>404: Not Found
-</pre></noscript><script src="https://gist.github.com/alias1/5790864.js"> </script></p>
+<p><a href="https://gist.github.com/0xdevalias/5790864">https://gist.github.com/0xdevalias/5790864</a></p>
+<p><noscript><pre>rails g model identity name:string email:string password_digest:string</pre></noscript><script src="https://gist.github.com/5790864.js"> </script></p>
 
 	  ]]></description>
 	</item>
@@ -133,11 +377,27 @@ ln -s /path/to/vFeed/bin/vfeed_update.sh vfeed_update
 	  <guid>/devalias/2013/07/13/nmap-sh-saving-precious-seconds/</guid>
 	  <description><![CDATA[
 	     <p>In the course of my work I end up issuing the same simple commands again and again, and while they are pretty easy to remember, they still take more time than they really need to.</p>
-
-<p>With that in mind, here&#39;s a little bash script I threw together today to reduce the time it takes to kick off a standard (in my day to day usage) nmap scan. Hopefully you can get some use out of it.</p>
-
-<p><noscript><pre>404: Not Found
-</pre></noscript><script src="https://gist.github.com/alias1/5963377.js"> </script></p>
+<p>With that in mind, here's a little bash script I threw together today to reduce the time it takes to kick off a standard (in my day to day usage) nmap scan. Hopefully you can get some use out of it.</p>
+<p><a href="https://gist.github.com/0xdevalias/5963377">https://gist.github.com/0xdevalias/5963377</a></p>
+<p><noscript><pre>#!/bin/bash<br />
+echo &quot;-----------------------------------------------&quot;<br />
+echo &quot;A very simple script to make nmap scanning a little quicker to kick off&quot;<br />
+echo &quot;By Glenn '/dev/alias' Grant (devalias.net)&quot;<br />
+echo &quot;v0.3&quot;<br />
+echo &quot;-----------------------------------------------&quot;<br />
+_iphost=$1<br />
+_now=$(date +&quot;%Y%m%d-%H%M&quot;)<br />
+_nmapopts=&quot;-A -vvv ${@:2}&quot;<br />
+_nmapoptshidden=&quot;--webxml&quot;<br />
+_nmapoptsfilename=$(echo $_nmapopts | tr -d ' ')<br />
+_file=&quot;nmap-$_now-$_iphost$_nmapoptsfilename&quot;</p>
+<p>if [ -z &quot;$1&quot; ]; then<br />
+echo &quot;Usage: nmap.sh ipOrHostnameToScan [any other arguments here]&quot;<br />
+echo &quot;Default Options: $_nmapoptshidden $_nmapopts&quot;<br />
+exit<br />
+fi</p>
+<p>nmap -oA $_file $_nmapoptshidden $_nmapopts $_iphost<br />
+</pre></noscript><script src="https://gist.github.com/5963377.js"> </script></p>
 
 	  ]]></description>
 	</item>
@@ -149,17 +409,16 @@ ln -s /path/to/vFeed/bin/vfeed_update.sh vfeed_update
 	  <pubDate>2013-06-17T05:00:00+10:00</pubDate>
 	  <guid>/devalias/2013/06/17/gists-on-tumblr/</guid>
 	  <description><![CDATA[
-	     <p>So I figured it might be useful to be able to post gists here. Turns out it&#39;s actually pretty easy thanks to soemarko</p>
-
-<p><noscript><pre>&lt;!-- Add the following lines to theme&#39;s html code right before &lt;/head&gt; --&gt;
-&lt;script src=&quot;<a href="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js&quot;&gt;&lt;/script">http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js&amp;quot;&amp;gt;&amp;lt;/script</a>&gt;
-&lt;script src=&quot;<a href="http://static.tumblr.com/fpifyru/VCxlv9xwi/writecapture.js&quot;&gt;&lt;/script">http://static.tumblr.com/fpifyru/VCxlv9xwi/writecapture.js&amp;quot;&amp;gt;&amp;lt;/script</a>&gt;
-&lt;script src=&quot;<a href="http://static.tumblr.com/fpifyru/AKFlv9zdu/embedgist.js&quot;&gt;&lt;/script">http://static.tumblr.com/fpifyru/AKFlv9zdu/embedgist.js&amp;quot;&amp;gt;&amp;lt;/script</a>&gt;</p>
-
-<p>&lt;!--
-  Usage: just add &lt;div class=&quot;gist&quot;&gt;[gist URL]&lt;/div&gt;
-  Example: &lt;div class=&quot;gist&quot;&gt;<a href="https://gist.github.com/1395926&lt;/div">https://gist.github.com/1395926&amp;lt;/div</a>&gt;
---&gt;</pre></noscript><script src="https://gist.github.com/soemarko/1395926.js"> </script></p>
+	     <p>So I figured it might be useful to be able to post gists here. Turns out it's actually pretty easy thanks to soemarko</p>
+<p><a href="https://gist.github.com/soemarko/1395926">https://gist.github.com/soemarko/1395926</a></p>
+<p><noscript><pre>&lt;!-- Add the following lines to theme's html code right before &lt;/head&gt; --&gt;<br />
+&lt;script src=&quot;<a href="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js&amp;quot;&amp;gt;&amp;lt;/script">http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js&amp;quot;&amp;gt;&amp;lt;/script</a>&gt;<br />
+&lt;script src=&quot;<a href="http://static.tumblr.com/fpifyru/VCxlv9xwi/writecapture.js&amp;quot;&amp;gt;&amp;lt;/script">http://static.tumblr.com/fpifyru/VCxlv9xwi/writecapture.js&amp;quot;&amp;gt;&amp;lt;/script</a>&gt;<br />
+&lt;script src=&quot;<a href="http://static.tumblr.com/fpifyru/AKFlv9zdu/embedgist.js&amp;quot;&amp;gt;&amp;lt;/script">http://static.tumblr.com/fpifyru/AKFlv9zdu/embedgist.js&amp;quot;&amp;gt;&amp;lt;/script</a>&gt;</p>
+<p>&lt;!--<br />
+Usage: just add &lt;div class=&quot;gist&quot;&gt;[gist URL]&lt;/div&gt;<br />
+Example: &lt;div class=&quot;gist&quot;&gt;<a href="https://gist.github.com/1395926&amp;lt;/div">https://gist.github.com/1395926&amp;lt;/div</a>&gt;<br />
+--&gt;</pre></noscript><script src="https://gist.github.com/1395926.js"> </script></p>
 
 	  ]]></description>
 	</item>

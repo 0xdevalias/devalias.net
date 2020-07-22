@@ -14,9 +14,9 @@
 
   <link type="application/atom+xml" rel="alternate" href="https://www.devalias.net/feed.xml" title="/dev/alias – Hack. Dev. Transcend." />
 
-  <!-- Begin Jekyll SEO tag v2.4.0 -->
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
 <title>Hacking Unicoins for Fun and Profit (Stackoverflow.com April Fools 2014) | /dev/alias – Hack. Dev. Transcend.</title>
-<meta name="generator" content="Jekyll v3.8.0" />
+<meta name="generator" content="Jekyll v4.1.1" />
 <meta property="og:title" content="Hacking Unicoins for Fun and Profit (Stackoverflow.com April Fools 2014)" />
 <meta name="author" content="Glenn 'devalias' Grant" />
 <meta property="og:locale" content="en_GB" />
@@ -29,10 +29,12 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2014-04-02T06:38:02+11:00" />
 <meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://www.devalias.net/assets/images/cover4.jpg" />
+<meta property="twitter:title" content="Hacking Unicoins for Fun and Profit (Stackoverflow.com April Fools 2014)" />
 <meta name="twitter:site" content="@_devalias" />
 <meta name="twitter:creator" content="@_devalias" />
 <script type="application/ld+json">
-{"description":"Stackoverflow introduced an amusing little April Fools feature called &#39;Unicoins&#39;. Essentially, this currency (that you can earn by mining rocks, since all of the (rather amusing) payment options are currently unavailable&#39;) allows you to by silly upgrades for the website. From &#39;Colorful comments&#39; and &#39;Guaranteed Answer&#39; through to &#39;Voting animations&#39; which gives you &#39;happy unicorn animations everytime you vote&#39;.","author":{"@type":"Person","name":"Glenn 'devalias' Grant"},"@type":"BlogPosting","url":"https://www.devalias.net/devalias/2014/04/02/hacking-unicoins-for-fun-and-profit/","image":"https://www.devalias.net/assets/images/cover4.jpg","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://www.devalias.net/assets/images/cover4.jpg"},"name":"Glenn 'devalias' Grant"},"headline":"Hacking Unicoins for Fun and Profit (Stackoverflow.com April Fools 2014)","dateModified":"2014-04-02T06:38:02+11:00","datePublished":"2014-04-02T06:38:02+11:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.devalias.net/devalias/2014/04/02/hacking-unicoins-for-fun-and-profit/"},"@context":"http://schema.org"}</script>
+{"image":"https://www.devalias.net/assets/images/cover4.jpg","author":{"@type":"Person","name":"Glenn 'devalias' Grant"},"headline":"Hacking Unicoins for Fun and Profit (Stackoverflow.com April Fools 2014)","dateModified":"2014-04-02T06:38:02+11:00","datePublished":"2014-04-02T06:38:02+11:00","url":"https://www.devalias.net/devalias/2014/04/02/hacking-unicoins-for-fun-and-profit/","description":"Stackoverflow introduced an amusing little April Fools feature called &#39;Unicoins&#39;. Essentially, this currency (that you can earn by mining rocks, since all of the (rather amusing) payment options are currently unavailable&#39;) allows you to by silly upgrades for the website. From &#39;Colorful comments&#39; and &#39;Guaranteed Answer&#39; through to &#39;Voting animations&#39; which gives you &#39;happy unicorn animations everytime you vote&#39;.","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://www.devalias.net/assets/images/cover4.jpg"},"name":"Glenn 'devalias' Grant"},"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.devalias.net/devalias/2014/04/02/hacking-unicoins-for-fun-and-profit/"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -173,7 +175,7 @@
     <time class="post-date" datetime="2014-04-02">02 Apr 2014</time>
     |
     
-        Less than 1 minute
+        1 minute
     
     to read
     <!-- [[tags prefix=" on "]] -->
@@ -206,16 +208,39 @@
         </header>
 
         <section class="post-content">
-            <p><a href="https://stackoverflow.com/">Stackoverflow</a> introduced an amusing little April Fools feature called &#39;Unicoins&#39;. Essentially, this currency (that you can earn by mining rocks, since all of the (rather amusing) payment options are currently unavailable&#39;) allows you to by silly upgrades for the website. From &#39;Colorful comments&#39; and &#39;Guaranteed Answer&#39; through to &#39;Voting animations&#39; which gives you &#39;happy unicorn animations everytime you vote&#39;.</p>
-
+            <p><a href="https://stackoverflow.com/">Stackoverflow</a> introduced an amusing little April Fools feature called 'Unicoins'. Essentially, this currency (that you can earn by mining rocks, since all of the (rather amusing) payment options are currently unavailable') allows you to by silly upgrades for the website. From 'Colorful comments' and 'Guaranteed Answer' through to 'Voting animations' which gives you 'happy unicorn animations everytime you vote'.</p>
 <p>Anyways, long story short, I saw a system and wondered how to beat it. Turns out each rock is simply an AJAX request to /unicoin/rock to get a rock ID, and when you sucessfully mine it, you POST back a static fkey (bound to each user I assume?) and the rockId to /unicoin/mine?rock=theRockId</p>
-
-<p>I&#39;ve put together a little automagical javascript to prevent you all getting RSI. It&#39;s for health reasons.. honestly.</p>
-
+<p>I've put together a little automagical javascript to prevent you all getting RSI. It's for health reasons.. honestly.</p>
 <p>Enjoy your unicoins! &lt;3 /dev/alias</p>
-
-<p><noscript><pre>404: Not Found
-</pre></noscript><script src="https://gist.github.com/alias1/9905949.js"> </script></p>
+<p><a href="https://gist.github.com/0xdevalias/9905949">https://gist.github.com/0xdevalias/9905949</a></p>
+<p><noscript><pre>First, go to stackoverflow.com then define this in your Javascript console:</p>
+<pre><code>var hackMeSomeUnicoins = function(myFkey) {
+  console.log(&amp;quot;Ok, let&amp;#39;s hack you some shiny unicoins! &amp;lt;3 /dev/alias (www.devalias.net)&amp;quot;)
+  console.log(&amp;quot;The powers that be say you can only mine a rock every 10sec, so we do it every 11sec to be sure.&amp;quot;)
+  window.setInterval(function(){
+    $.get( &amp;quot;http://stackoverflow.com/unicoin/rock&amp;quot;, function( data ) {
+      var rockId = data.rock;
+      $.post( &amp;quot;http://stackoverflow.com/unicoin/mine?rock=&amp;quot; + rockId, { fkey: myFkey })
+      .done(function( data ) {
+        console.log(data);
+      });
+    });
+  }, 11000);
+};
+</code></pre>
+<p>Once you have done that, just call this from the console:</p>
+<pre><code>hackMeSomeUnicoins(StackExchange.options.user.fkey);
+</code></pre>
+<p>(Thanks to @ouranos for the fkey options string)</p>
+<p><del>You can get your fkey by inspecting the POST made when you successfully (manually) mine a rock. (It's also stored in a data-fkey type value somewhere, but haven't been bothered to find it and automagically pull it out (feel free to contribute some JS to do it)</del></p>
+<p>Pimping this:</p>
+<ul>
+<li><a href="http://blog.devalias.net/post/81346968483/hacking-unicoins-for-fun-and-profit-stackoverflow-com">http://blog.devalias.net/post/81346968483/hacking-unicoins-for-fun-and-profit-stackoverflow-com</a>
+<ul>
+<li><a href="https://twitter.com/_devalias/status/450809279784955904">https://twitter.com/_devalias/status/450809279784955904</a></pre></noscript><script src="https://gist.github.com/9905949.js"> </script></li>
+</ul>
+</li>
+</ul>
 
         </section>
 
@@ -401,7 +426,7 @@
             </section>
             <section class="poweredby">
                 <div>
-                    <strong>Build:</strong> 9b128d3c0
+                    <strong>Build:</strong> 618e30db6
                     <a href="https://github.com/0xdevalias/devalias.net/tree/master/_posts/2014-04-02-hacking-unicoins-for-fun-and-profit.md" target="_blank">
                         <i class="fas fa-edit"></i>
                         Edit on GitHub

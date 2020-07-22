@@ -14,9 +14,9 @@
 
   <link type="application/atom+xml" rel="alternate" href="https://www.devalias.net/feed.xml" title="/dev/alias – Hack. Dev. Transcend." />
 
-  <!-- Begin Jekyll SEO tag v2.4.0 -->
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
 <title>Sparty - Sharepoint and Frontpage Auditing Tool (Now With More NTLM Authentication!) | /dev/alias – Hack. Dev. Transcend.</title>
-<meta name="generator" content="Jekyll v3.8.0" />
+<meta name="generator" content="Jekyll v4.1.1" />
 <meta property="og:title" content="Sparty - Sharepoint and Frontpage Auditing Tool (Now With More NTLM Authentication!)" />
 <meta name="author" content="Glenn 'devalias' Grant" />
 <meta property="og:locale" content="en_GB" />
@@ -29,10 +29,12 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2013-11-14T09:00:52+11:00" />
 <meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://www.devalias.net/assets/images/cover4.jpg" />
+<meta property="twitter:title" content="Sparty - Sharepoint and Frontpage Auditing Tool (Now With More NTLM Authentication!)" />
 <meta name="twitter:site" content="@_devalias" />
 <meta name="twitter:creator" content="@_devalias" />
 <script type="application/ld+json">
-{"description":"I&#39;ve been doing a little bit of poking around Sharepoint security lately, doing some research and playing with some assessment/pentest tools. One such tool (released this year at Black Hat USA) is called Sparty. Written by 0kn0ck (aka Aditya K Sood) of SecNiche Security Labs, Sparty is a tool designed to assist in auditing sites built on Microsoft Sharepoint and/or Frontpage.","author":{"@type":"Person","name":"Glenn 'devalias' Grant"},"@type":"BlogPosting","url":"https://www.devalias.net/devalias/2013/11/14/sparty-sharepoint-frontpage-auditing-tool-now-with-more-ntlm/","image":"https://www.devalias.net/assets/images/cover4.jpg","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://www.devalias.net/assets/images/cover4.jpg"},"name":"Glenn 'devalias' Grant"},"headline":"Sparty - Sharepoint and Frontpage Auditing Tool (Now With More NTLM Authentication!)","dateModified":"2013-11-14T09:00:52+11:00","datePublished":"2013-11-14T09:00:52+11:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.devalias.net/devalias/2013/11/14/sparty-sharepoint-frontpage-auditing-tool-now-with-more-ntlm/"},"@context":"http://schema.org"}</script>
+{"image":"https://www.devalias.net/assets/images/cover4.jpg","author":{"@type":"Person","name":"Glenn 'devalias' Grant"},"headline":"Sparty - Sharepoint and Frontpage Auditing Tool (Now With More NTLM Authentication!)","dateModified":"2013-11-14T09:00:52+11:00","datePublished":"2013-11-14T09:00:52+11:00","url":"https://www.devalias.net/devalias/2013/11/14/sparty-sharepoint-frontpage-auditing-tool-now-with-more-ntlm/","description":"I&#39;ve been doing a little bit of poking around Sharepoint security lately, doing some research and playing with some assessment/pentest tools. One such tool (released this year at Black Hat USA) is called Sparty. Written by 0kn0ck (aka Aditya K Sood) of SecNiche Security Labs, Sparty is a tool designed to assist in auditing sites built on Microsoft Sharepoint and/or Frontpage.","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://www.devalias.net/assets/images/cover4.jpg"},"name":"Glenn 'devalias' Grant"},"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.devalias.net/devalias/2013/11/14/sparty-sharepoint-frontpage-auditing-tool-now-with-more-ntlm/"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -214,30 +216,19 @@
         </header>
 
         <section class="post-content">
-            <p>I&#39;ve been doing a little bit of poking around Sharepoint security lately, doing some research and playing with some assessment/pentest tools. One such tool (released this year at <a href="https://www.blackhat.com/us-13/">Black Hat USA</a>) is called <a href="http://sparty.secniche.org/">Sparty</a>. Written by <a href="https://twitter.com/AdityaKSood">0kn0ck</a> (aka Aditya K Sood) of <a href="http://secniche.org/">SecNiche Security Labs</a>, Sparty is a tool designed to assist in auditing sites built on Microsoft Sharepoint and/or Frontpage.</p>
-
+            <p>I've been doing a little bit of poking around Sharepoint security lately, doing some research and playing with some assessment/pentest tools. One such tool (released this year at <a href="https://www.blackhat.com/us-13/">Black Hat USA</a>) is called <a href="http://sparty.secniche.org/">Sparty</a>. Written by <a href="https://twitter.com/AdityaKSood">0kn0ck</a> (aka Aditya K Sood) of <a href="http://secniche.org/">SecNiche Security Labs</a>, Sparty is a tool designed to assist in auditing sites built on Microsoft Sharepoint and/or Frontpage.</p>
 <p>From the official site:</p>
-
 <blockquote>
 <p>Sparty is an open source tool written in python to audit web applications using sharepoint and frontpage architecture. The motivation behind this tool is to provide an easy and robust way to scrutinize the security configurations of sharepoint and frontpage based web applications. Due to the complex nature of these web administration software, it is required to have a simple and efficient tool that gathers information, check access permissions, dump critical information from default files and perform automated exploitation if security risks are identified. A number of automated scanners fall short of this and Sparty is a solution to that.</p>
 </blockquote>
-
-<p>You can download a copy from the <a href="http://sparty.secniche.org/">project page</a> (I&#39;ll be a good net citizen and won&#39;t link directly to the <code>.tar.gz</code>)</p>
-
-<p>I won&#39;t dive into usage/etc here as it&#39;s still a very early release too (v0.1!) So if you want to find out a bit more about that you should look at the <a href="http://sparty.secniche.org/usage.html">Sparty Usage</a> page over at SecNiche.</p>
-
+<p>You can download a copy from the <a href="http://sparty.secniche.org/">project page</a> (I'll be a good net citizen and won't link directly to the <code>.tar.gz</code>)</p>
+<p>I won't dive into usage/etc here as it's still a very early release too (v0.1!) So if you want to find out a bit more about that you should look at the <a href="http://sparty.secniche.org/usage.html">Sparty Usage</a> page over at SecNiche.</p>
 <h2>Now With More NTLM Authentication!</h2>
-
 <p>In playing with the tool there were a few things that I kept running into that gave me some minor annoyance that I had to work around.</p>
-
 <p>Firstly, there was a hard version check for Python 2.6 (I was running 2.7), so before I could even list the help I had to disable that (simple fix)</p>
-
 <p>The next issue was a little more frustrating at first, and took a bit longer to solve. In running the tool, I was only receiving <code>401 Unauthorized</code> responses. After looking a little further into it, I discovered that this was due to the server requesting NTLM authentication, which the tool was not providing. A bit more hacking around (and a bunch of google/python documentation) and I had a solution that would allow me to enter my authentication credentials (or some I acquired) and then proceed with using the tool as normal.</p>
-
 <h2>Sharing is Caring!</h2>
-
-<p>As we know, sharing is caring, so i&#39;ve made my changes (and any others I may make to Sparty in the future) available over at Github.</p>
-
+<p>As we know, sharing is caring, so i've made my changes (and any others I may make to Sparty in the future) available over at Github.</p>
 <p><strong>Click over to <a href="https://github.com/alias1/sparty">alias1/sparty</a> and check it out!</strong></p>
 
         </section>
@@ -407,7 +398,7 @@
         <a class="read-next-story prev no-cover" href="/devalias/2013/10/31/wp-cli-like-drush-but-for-wordpress/">
             <section class="post">
                 <h2>wp-cli - Like Drush but for Wordpress</h2>
-                <p>So there&#39;s this cool little tool I came across, similar in function to Drush (which is an awesome tool for Drupal that you should totally...</p>
+                <p>So there's this cool little tool I came across, similar in function to Drush (which is an awesome tool for Drupal that you should totally...</p>
             </section>
         </a>
     
@@ -423,7 +414,7 @@
             </section>
             <section class="poweredby">
                 <div>
-                    <strong>Build:</strong> 9b128d3c0
+                    <strong>Build:</strong> 618e30db6
                     <a href="https://github.com/0xdevalias/devalias.net/tree/master/_posts/2013-11-14-sparty-sharepoint-frontpage-auditing-tool-now-with-more-ntlm.md" target="_blank">
                         <i class="fas fa-edit"></i>
                         Edit on GitHub

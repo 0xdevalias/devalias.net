@@ -20,20 +20,13 @@
 	  <description><![CDATA[
 	     <blockquote>
 <p>Thanks <a href="https://hackaday.com/2018/05/25/usb-reverse-engineering-a-universal-guide">for the featured writeup Hackaday</a>! Make sure to check out the <a href="https://hackaday.com/2018/05/25/usb-reverse-engineering-a-universal-guide/#comments">comments</a> over there as well.</p>
-
 <p>Looks like <a href="https://hackernoon.com/usb-reverse-engineering-down-the-rabbit-hole-c4809a5b55c4">Hackernoon picked it up</a> as well, make sure to check in with the comments there too.</p>
-
-<p>It would be great if you could also <a href="https://news.ycombinator.com/item?id=17164700">head over to Hacker News</a>, give an upvote, and join in the comments there. Let&#39;s get this information out there!</p>
+<p>It would be great if you could also <a href="https://news.ycombinator.com/item?id=17164700">head over to Hacker News</a>, give an upvote, and join in the comments there. Let's get this information out there!</p>
 </blockquote>
-
-<p>I tend to dive down rabbit holes a lot, and given the cost of context switching and memory deteriorating over time, sometimes the state I build up in my mind gets lost between the chances I get to dive in. These &#39;linkdump&#39; posts are an attempt to collate at least some of that state in a way that I can hopefully restore to my brain at a later point.</p>
-
+<p>I tend to dive down rabbit holes a lot, and given the cost of context switching and memory deteriorating over time, sometimes the state I build up in my mind gets lost between the chances I get to dive in. These 'linkdump' posts are an attempt to collate at least some of that state in a way that I can hopefully restore to my brain at a later point.</p>
 <p>This time around I was inspired to look into USB reverse engineering, protocol analyis, hardware hacking, and what would be involved in implementing custom drivers for arbitrary hardware. Or put another way: <strong>how do I hack all of the USBs?!??</strong></p>
-
 <p>It seems the deeper I went, the more interesting I found the content, and this post grew and grew. Hopefully it will help to shortcut your own journey down this path, and enlighten you to a whole new area of interesting things to hack!</p>
-
 <h2>Overview</h2>
-
 <ul>
 <li><a href="#tldr">tl;dr</a></li>
 <li><a href="#intro-to-usb">Intro to USB</a></li>
@@ -59,11 +52,8 @@
 <li><a href="#link-dump">Link Dump</a></li>
 <li><a href="#conclusion">Conclusion</a></li>
 </ul>
-
 <h2><a name="tldr"></a>tl;dr</h2>
-
 <p>This is long, has many sections, and time is precious:</p>
-
 <ul>
 <li><strong>Walkthrough:</strong> Read the <a href="#adafruit">Adafruit one</a></li>
 <li><strong>Software:</strong> <a href="#software">Wireshark + usbpcap/usbmon</a></li>
@@ -71,31 +61,23 @@
 <li><strong>Commercial Hardware:</strong> <a href="#hardware-commercial-beagleusb">BeagleUSB</a></li>
 <li><strong>Interfacing/Drivers:</strong> <a href="#libusb-pyusb">libusb/pyUSB</a></li>
 </ul>
-
 <h2><a name="intro-to-usb"></a>Intro to USB</h2>
-
-<p>USB (universal serial bus) is an industry standard covering cables, connectors and protocols; and is pretty ubiquitous among tech products these days. I won&#39;t get deep on describing all of the facts, since that&#39;s what Wikipedia is good at:</p>
-
+<p>USB (universal serial bus) is an industry standard covering cables, connectors and protocols; and is pretty ubiquitous among tech products these days. I won't get deep on describing all of the facts, since that's what Wikipedia is good at:</p>
 <ul>
 <li><a href="https://en.wikipedia.org/wiki/USB">https://en.wikipedia.org/wiki/USB</a></li>
 </ul>
-
 <p>That said, it will be useful to understand some of the aspects of how USB devices and protocols are laid out, and some of the terminology used.</p>
-
 <p>A <a href="https://en.wikipedia.org/wiki/USB#System_design">USB system</a> (<a href="https://www.linuxvoice.com/drive-it-yourself-usb-car-6/">see also</a>) has:</p>
-
 <ul>
 <li>A <strong>host</strong>, with one or more downstream ports, and multiple peripherals</li>
 <li><strong>Hubs</strong> may be included, allowing up to 5 tiers</li>
 <li>A host may have multiple controllers, each with one or more ports</li>
 <li>Up to 127 devices can be connected to a single host controller</li>
-<li>A <strong>device</strong> may have several logical sub-devices, referred to as <strong>&#39;device functions&#39;</strong></li>
+<li>A <strong>device</strong> may have several logical sub-devices, referred to as <strong>'device functions'</strong></li>
 <li>A <strong>composite device</strong> may provide multiple functions (eg. webcam + microphone)</li>
 <li>A <strong>compound device</strong> connects logical devices to a built in hub</li>
 </ul>
-
 <p>Digging into the protocol/communication side of things:</p>
-
 <ul>
 <li>Communication is based on <strong>pipes</strong> (logical channels), between the host and an endpoint (logical entity) on a device</li>
 <li>A device can have <strong>up to 32 endpoints</strong> (16 IN, 16 OUT)</li>
@@ -108,94 +90,73 @@
 <li><strong>Descriptors</strong> form a hierarchy that you can view with tools like <code>lsusb</code>.</li>
 <li><strong>Device descriptor</strong>: contains information like device Vendor ID (VID) and Product ID (PID)</li>
 </ul>
-
 <p>There are different transport types that can be used:</p>
-
 <ul>
 <li><strong>Interrupt transfers</strong> are for short periodic real-time data exchanges.</li>
 <li><strong>Isochronous transfers</strong> are somewhat similar but less strict; they allow for larger data blocks and are used by web cameras and similar devices, where delays or even losses of a single frame are not crucial.</li>
 <li><strong>Bulk transfers</strong> are for large amounts of data.</li>
 <li><strong>Control transfer type</strong> is the only one that has a standardised request (and response) format, and is used to manage devices</li>
 </ul>
-
 <p><strong>Further reading:</strong></p>
-
 <ul>
 <li><a href="http://www.beyondlogic.org/usbnutshell">http://www.beyondlogic.org/usbnutshell</a></li>
 <li><a href="https://www.linuxvoice.com/drive-it-yourself-usb-car-6/">https://www.linuxvoice.com/drive-it-yourself-usb-car-6/</a></li>
-<li><a href="http://janaxelson.com/">Jan Axelson&#39;s USB Complete books</a></li>
+<li><a href="http://janaxelson.com/">Jan Axelson's USB Complete books</a></li>
 </ul>
-
 <h2><a name="usb-re-intro"></a>USB Reverse Engineering: An Introduction</h2>
-
 <p>Now, I could probably go through and write a whole blog post on this.. but, other people have done it for me! The following walks through an introduction to interfacing with, reverse engineering, understanding, and ultimately implementing software to drive a USB remote control car.</p>
-
 <ul>
 <li><a href="https://www.linuxvoice.com/drive-it-yourself-usb-car-6/">https://www.linuxvoice.com/drive-it-yourself-usb-car-6/</a> (2015)</li>
 <li><a href="https://github.com/vsinitsyn/usbcar.py">https://github.com/vsinitsyn/usbcar.py</a></li>
 </ul>
-
-<p>I found it quite easy to consume, and doesn&#39;t really assume much in the way of prior knowledge.</p>
-
+<p>I found it quite easy to consume, and doesn't really assume much in the way of prior knowledge.</p>
 <p>One of the tools used above was <a href="https://linux.die.net/man/8/lsusb"><code>lsusb</code></a>: &quot;a utility for displaying information about USB buses in the system and the devices connected to them&quot;. Among other things, this allows the <strong>vendor and product ID</strong> of the device to be identified. Once identified, this tag can be used to query further information about the device, eg. <code>lsusb -vd 0a81:0702</code>.</p>
-
 <p><strong>Other relevant tools/concepts used include:</strong></p>
-
 <ul>
-<li><code>usbmon</code>: a facility in kernel which is
+<li><code>usbmon</code>: a facility in kernel which is<br />
 used to collect traces of I/O on the USB bus</li>
 <li><a href="https://wiki.wireshark.org/CaptureSetup/USB">Wireshark USB Capture</a></li>
 <li><a href="https://github.com/pyusb/pyusb">PyUSB</a> : USB access for Python</li>
 <li><a href="https://github.com/libusb/libusb">libusb</a> : A cross-platform library to access USB devices</li>
 </ul>
-
 <h2><a name="usb-re-further-reading"></a>USB Reverse Engineering: Further Reading</h2>
-
 <p>The following are some additional relatively short reads on how others have approached reverse engineering some devices, including tools they used, and basic methodologies.</p>
-
 <p><a name="adafruit"></a>I would definitely suggest checking this one out first:</p>
-
 <ul>
 <li><a href="https://learn.adafruit.com/hacking-the-kinect">https://learn.adafruit.com/hacking-the-kinect</a> (2012, 2015?)</li>
 </ul>
-
-<p>By this stage you&#39;re probably not going to pick up masses of new information, but here are the rest for completeness, just in case:</p>
-
+<p>By this stage you're probably not going to pick up masses of new information, but here are the rest for completeness, just in case:</p>
 <ul>
 <li><a href="https://github.com/openrazer/openrazer/wiki/Reverse-Engineering-USB-Protocol">https://github.com/openrazer/openrazer/wiki/Reverse-Engineering-USB-Protocol</a> (2017)</li>
 <li><a href="https://www.linuxvoice.com/drive-it-yourself-usb-car-6/">https://www.linuxvoice.com/drive-it-yourself-usb-car-6/</a> (2015)</li>
 <li><a href="https://www.mattcutts.com/blog/reverse-engineering-a-windows-usb-driver/">https://www.mattcutts.com/blog/reverse-engineering-a-windows-usb-driver/</a> (2013)</li>
 <li><a href="https://hackaday.com/2009/08/20/reverse-engineering-usb-drivers/">https://hackaday.com/2009/08/20/reverse-engineering-usb-drivers/</a> (2009)
-
 <ul>
 <li><a href="http://www.jespersaur.com/drupal/book/export/html/21">http://www.jespersaur.com/drupal/book/export/html/21</a></li>
 <li><a href="http://devdriven.com/2008/12/luxeed-led-keyboard-driver-for-linux/">http://devdriven.com/2008/12/luxeed-led-keyboard-driver-for-linux/</a></li>
 <li><a href="https://github.com/kstephens/luxeed">https://github.com/kstephens/luxeed</a></li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <p><strong>Some common tools/methods used in the above articles include:</strong></p>
-
 <ul>
 <li>Explore / Capture
-
 <ul>
 <li><code>lsusb -vv</code> (*nix) (<a href="https://linux.die.net/man/8/lsusb">ref</a>) / <code>system_profiler SPUSBDataType</code> (macOS) / <a href="http://www.nirsoft.net/utils/usb_devices_view.html">USBDeview</a> (Windows)</li>
 <li><code>usbmon</code> / USBsnoop / SnoopyPro</li>
 <li><a href="#hardware-commercial-beagleusb">Beagle480 / Beagle Data Center Software</a></li>
 <li>Virtualbox / KVM / QEMU</li>
 <li><a href="https://wiki.wireshark.org/CaptureSetup/USB">Wireshark</a></li>
-</ul></li>
+</ul>
+</li>
 <li>Interact
-
 <ul>
 <li><a href="https://github.com/libusb/libusb">libusb</a> / libusb-win32</li>
 <li><a href="https://github.com/pyusb/pyusb">PyUSB</a></li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <p>The basic process seems to be:</p>
-
 <ul>
 <li>Setup to capture the device</li>
 <li>Identify the Vendor ID and Product ID</li>
@@ -204,25 +165,17 @@ used to collect traces of I/O on the USB bus</li>
 <li>Make a driver / program to interact</li>
 <li>Potentially fuzz for other commands (generally safer to do read only)</li>
 </ul>
-
-<p>Another method of reverse engineering could be to reverse the device driver itself, and understand the functionality/features from that. This takes a more &#39;traditional&#39; software reverse engineering approach to solving the problem.</p>
-
+<p>Another method of reverse engineering could be to reverse the device driver itself, and understand the functionality/features from that. This takes a more 'traditional' software reverse engineering approach to solving the problem.</p>
 <p>If you want to be completely thorough, a hybrid approach may make the most sense (eg. analyse the traffic on from the device itself, then use the existing driver to help understand the data being sent back/forth and/or confirm you have captured all of the features)</p>
-
 <h2><a name="software"></a>Software: Wireshark, usbmon, USBPcap, VirtualBox, etc</h2>
-
-<p>So as we learned in the above articles, there are a number of &#39;software only&#39; methods we can use to capture/inspect USB traffic, with the main modern methods being:</p>
-
+<p>So as we learned in the above articles, there are a number of 'software only' methods we can use to capture/inspect USB traffic, with the main modern methods being:</p>
 <ul>
 <li><a href="https://wiki.wireshark.org/CaptureSetup/USB">WireShark</a></li>
 <li><a href="http://desowin.org/usbpcap/">USBpcap</a> (<a href="https://github.com/desowin/usbpcap">GitHub</a>)</li>
 <li><a href="https://www.kernel.org/doc/Documentation/usb/usbmon.txt">usbmon</a></li>
 </ul>
-
-<p>It is also possible to &#39;pass through&#39; USB devices with your favourite virtual machine software (VMware, Parallels, Virtualbox, KVM, QEMU, etc) to assist in capturing data, though I will leave that as an exercise to the reader to look up the specifics (some references are in the above walkthroughs).</p>
-
-<p>There are also some older programs and methods that might still work but probably aren&#39;t ideal anymore, including:</p>
-
+<p>It is also possible to 'pass through' USB devices with your favourite virtual machine software (VMware, Parallels, Virtualbox, KVM, QEMU, etc) to assist in capturing data, though I will leave that as an exercise to the reader to look up the specifics (some references are in the above walkthroughs).</p>
+<p>There are also some older programs and methods that might still work but probably aren't ideal anymore, including:</p>
 <ul>
 <li><a href="https://github.com/wcooley/usbrevue">USBREVue</a>: USBREVue is a suite of tools for reverse-engineering USB devices.</li>
 <li><a href="https://github.com/scanlime/vusb-analyzer">Virtual USB Analyzer</a> (<a href="http://vusb-analyzer.sourceforge.net/">old site</a>)</li>
@@ -232,47 +185,33 @@ used to collect traces of I/O on the USB bus</li>
 <li><a href="https://web.archive.org/web/20151218000528/http://www.pcausa.com/Utilities/UsbSnoop/default.htm">SniffUSB</a></li>
 <li><a href="https://www.hhdsoftware.com/usb-monitor">USB Monitor</a> (Windows)</li>
 </ul>
-
 <h2><a name="hardware-tldr"></a>Hardware: tl;dr</h2>
-
-<p>Too many choices? Don&#39;t want to read through them all? A good bet is probably:</p>
-
+<p>Too many choices? Don't want to read through them all? A good bet is probably:</p>
 <ul>
 <li><strong>Hardware:</strong> <a href="#hardware-greatfet">GreatFET</a>, <a href="#hardware-facedancer-2">Facedancer 2.0</a>, <a href="#hardware-daisho">Daisho</a></li>
 <li><strong>Commercial Hardware:</strong> <a href="#hardware-commercial-beagleusb">BeagleUSB</a></li>
 </ul>
-
 <h2><a name="hardware-usbsniffer"></a>Hardware: BeagleBoard-XM / USBSniffer (~2010-2013, ~$149+)</h2>
-
 <p>Based on a <a href="https://www.elinux.org/BeagleBoard/GSoC/2010_Projects/USBSniffer">2010 GSoC BeagleBoard USB Sniffer</a>, this is an updated version of a <a href="http://beagleboard.org/beagleboard-xm">BeagleBoard-XM</a> based USB sniffer. It acts as a man-in-the-middle hardware proxy allowing USB traffic to be captured, and later viewed in Wireshark or similar.</p>
-
 <ul>
 <li><a href="https://blog.gimx.fr/a-beagleboard-xm-based-usb-sniffer/">https://blog.gimx.fr/a-beagleboard-xm-based-usb-sniffer/</a></li>
 <li><a href="https://github.com/matlo/bb_usb_sniffer">https://github.com/matlo/bb_usb_sniffer</a></li>
 <li><a href="https://www.elinux.org/BeagleBoard/GSoC/2010_Projects/USBSniffer">https://www.elinux.org/BeagleBoard/GSoC/2010_Projects/USBSniffer</a></li>
 <li><a href="https://hackaday.com/2013/07/02/usb-sniffing-with-the-beagleboard-xm/">https://hackaday.com/2013/07/02/usb-sniffing-with-the-beagleboard-xm/</a></li>
 </ul>
-
 <h2><a name="hardware-openvizsla"></a>Hardware: OpenVizsla (~2010-2014)</h2>
-
 <p>(You probably just want to look at <a href="hardware-daisho">daisho</a> below)</p>
-
 <blockquote>
 <p>OpenVizsla is a Open Hardware FPGA-based USB analyzer. Unlike other similar devices on the market, hardware design files are available as well as full source code for the firmware and client software of the device.</p>
 </blockquote>
-
 <p>This was a <a href="https://www.kickstarter.com/projects/bushing/openvizsla-open-source-usb-protocol-analyzer">Kickstarter Project</a> to create an &quot;Open Hardware FPGA-based USB analyzer&quot; targeting <strong>USB 2.0 High-Speed</strong>. There seems to be a lot of mixed opinions/views about this project on the internet/forums calling scam and similar. It sounds like there were a lot of delays and other issues.</p>
-
-<p>According to <a href="http://debugmo.de/2014/05/ov3-hardware/">this blog post</a>, it sounds like they eventually got something working (years later) under the moniker &#39;OV3&#39;. There seem to be a number of related posts on this blog <a href="http://debugmo.de/tags/OpenVizsla/">under the tag &#39;OpenVizsla&#39;</a>:</p>
-
+<p>According to <a href="http://debugmo.de/2014/05/ov3-hardware/">this blog post</a>, it sounds like they eventually got something working (years later) under the moniker 'OV3'. There seem to be a number of related posts on this blog <a href="http://debugmo.de/tags/OpenVizsla/">under the tag 'OpenVizsla'</a>:</p>
 <ul>
 <li><a href="http://debugmo.de/2014/05/ov3-hardware/">http://debugmo.de/2014/05/ov3-hardware/</a></li>
 <li><a href="http://debugmo.de/2014/08/ov3-fpga-design/">http://debugmo.de/2014/08/ov3-fpga-design/</a></li>
 <li><a href="http://debugmo.de/2014/09/ov3-fpga-helloworld/">http://debugmo.de/2014/09/ov3-fpga-helloworld/</a></li>
 </ul>
-
 <p>You should be able to find the latest news and code on the following website/GitHub pages:</p>
-
 <ul>
 <li><a href="http://openvizsla.org/">http://openvizsla.org/</a></li>
 <li><a href="https://github.com/openvizsla/ov_ftdi">https://github.com/openvizsla/ov_ftdi</a></li>
@@ -280,15 +219,11 @@ used to collect traces of I/O on the USB bus</li>
 <li><a href="https://twitter.com/hashtag/openvizsla">https://twitter.com/hashtag/openvizsla</a> (no activity since 2010)</li>
 <li><a href="https://www.kickstarter.com/projects/bushing/openvizsla-open-source-usb-protocol-analyzer/updates">https://www.kickstarter.com/projects/bushing/openvizsla-open-source-usb-protocol-analyzer/updates</a></li>
 </ul>
-
 <h2><a name="hardware-serialusb"></a>Hardware: SerialUSB / GIMX USB Adapter (~2015, ~US$5-35)</h2>
-
 <blockquote>
 <p>A cheap USB proxy for input devices.</p>
 </blockquote>
-
 <p>SerialUSB is at the low end of hardware capture devices, designed to be a low cost solution to assist in adding support for USB gaming peripheral protocols to the <a href="http://blog.gimx.fr/">GIMX</a> project.</p>
-
 <ul>
 <li><a href="http://blog.gimx.fr/serialusb/">http://blog.gimx.fr/serialusb/</a></li>
 <li><a href="https://github.com/matlo/serialusb">https://github.com/matlo/serialusb</a> (~US$5)</li>
@@ -296,21 +231,14 @@ used to collect traces of I/O on the USB bus</li>
 <li><a href="http://gimx.fr/wiki/index.php?title=DIY_USB_adapter">http://gimx.fr/wiki/index.php?title=DIY_USB_adapter</a></li>
 <li><a href="https://hackaday.com/2015/12/23/usb-proxy-rats-out-your-devices-secrets/">https://hackaday.com/2015/12/23/usb-proxy-rats-out-your-devices-secrets/</a></li>
 </ul>
-
-<p>For most purposes we probably won&#39;t need hardware for things at this level.. the software-based capture devices are likely good enough. But who knows.. maybe there are other uses for super cheap hardware capture..</p>
-
+<p>For most purposes we probably won't need hardware for things at this level.. the software-based capture devices are likely good enough. But who knows.. maybe there are other uses for super cheap hardware capture..</p>
 <h2><a name="hardware-goodfet"></a>Hardware: GoodFET (~2009-2018+, ~US$50)</h2>
-
 <p>(Before I dive in too deeply.. if you want the latest/greatest in this space, check out the <a href="#hardware-greatfet">GreatFET</a>.)</p>
-
 <blockquote>
-<p>The GoodFET is an open-source JTAG adapter, loosely based upon the TI MSP430 FET UIF and EZ430U boards, as described in their documentation. In addition to JTAG, the GoodFET has been <strong>inspired by HackADay&#39;s Bus Pirate to become a universal serial bus interface.</strong></p>
+<p>The GoodFET is an open-source JTAG adapter, loosely based upon the TI MSP430 FET UIF and EZ430U boards, as described in their documentation. In addition to JTAG, the GoodFET has been <strong>inspired by HackADay's Bus Pirate to become a universal serial bus interface.</strong></p>
 </blockquote>
-
 <p>It &quot;is a nifty little tool for quickly exposing embedded system buses to userland Python code.&quot;. Based on the bits and pieces I can pull together, I believe this will allow us to do our typical hardware based sniffing/dumping/etc, but I would have to find a better walkthrough/try it myself before being able to say that for certain.</p>
-
 <p>Now one thing about this project that tends to confuse me is the versions/revision naming.. for example here are a number of the older revisions and their names:</p>
-
 <ul>
 <li><a href="http://goodfet.sourceforge.net/hardware/goodfet10/">http://goodfet.sourceforge.net/hardware/goodfet10/</a> (rev 1, retired)</li>
 <li><a href="http://goodfet.sourceforge.net/hardware/goodfet11/">http://goodfet.sourceforge.net/hardware/goodfet11/</a> (rev 2, retired)</li>
@@ -322,148 +250,107 @@ used to collect traces of I/O on the USB bus</li>
 <li><a href="http://goodfet.sourceforge.net/hardware/goodfet40/">http://goodfet.sourceforge.net/hardware/goodfet40/</a> (rev 12, retired)</li>
 <li><a href="http://goodfet.sourceforge.net/hardware/goodfet41/">http://goodfet.sourceforge.net/hardware/goodfet41/</a> (rev 13, retired)</li>
 </ul>
-
 <p>As best I can tell.. there seem to be multiple parallel hardware versions at certain times.. based on different chipsets. And those versions may fork/merge at later times. Attempting to follow that logic.. the two most current (non-retired) revisions seem to be:</p>
-
 <ul>
 <li><a href="http://goodfet.sourceforge.net/hardware/goodfet42/">http://goodfet.sourceforge.net/hardware/goodfet42/</a> (rev 22)</li>
 <li><a href="http://goodfet.sourceforge.net/hardware/goodfet32/">http://goodfet.sourceforge.net/hardware/goodfet32/</a> (rev 25)</li>
 </ul>
-
 <p>You should probably just spend time browsing around this site in general.. there are so many interesting sounding open-hardware designs.</p>
-
 <ul>
 <li><a href="http://goodfet.sourceforge.net/">http://goodfet.sourceforge.net/</a></li>
 <li><a href="https://github.com/travisgoodspeed/goodfet">https://github.com/travisgoodspeed/goodfet</a></li>
 <li><a href="https://github.com/travisgoodspeed/goodfet/tree/master/contrib">https://github.com/travisgoodspeed/goodfet/tree/master/contrib</a></li>
 </ul>
-
 <p>You can order the boards (or request a free one!) from:</p>
-
 <ul>
 <li><a href="http://goodfet.sourceforge.net/orders/">http://goodfet.sourceforge.net/orders/</a></li>
 <li><a href="https://www.adafruit.com/product/1279">https://www.adafruit.com/product/1279</a> (~US$50)</li>
 <li><a href="http://www.riverloopsecurity.com/projects/goodfet/">http://www.riverloopsecurity.com/projects/goodfet/</a></li>
 </ul>
-
 <p>Further reading:</p>
-
 <ul>
 <li><a href="https://exfil.co/2016/02/11/goodfet-on-os-x/">https://exfil.co/2016/02/11/goodfet-on-os-x/</a></li>
 <li><a href="https://hackaday.com/tag/goodfet/">https://hackaday.com/tag/goodfet/</a></li>
 </ul>
-
 <h2><a name="hardware-facedancer"></a>Hardware: Facedancer, Beagledancer, Raspdancer (~2012-2018+, ~US$85-???)</h2>
-
 <p>(Make sure to look at the <a href="hardware-facedancer-2">facedancer 2.0</a> below as well)</p>
-
 <blockquote>
 <p>The Facedancer21 is the twenty-fourth hardware revision of the GoodFET, owing its heritage to the GoodFET41 and Facedancer20. Unlike the general-purpose GoodFET boards, <strong>the only purpose of this board is to allow USB devices to be written in host-side Python</strong>, so that one workstation can fuzz-test the USB device drivers of another host.</p>
 </blockquote>
-
-<p>The facedancer is less about capturing data, and more about emulating a USB device with software (python to be exact!). One reason for wanting to do this might be to fuzz the devices drivers on a host system, though I&#39;m sure there could be a number of other creative uses too.. Maybe you want to allow one hardware device to masquerade as another and talk to it&#39;s drivers..</p>
-
+<p>The facedancer is less about capturing data, and more about emulating a USB device with software (python to be exact!). One reason for wanting to do this might be to fuzz the devices drivers on a host system, though I'm sure there could be a number of other creative uses too.. Maybe you want to allow one hardware device to masquerade as another and talk to it's drivers..</p>
 <p>The following articles are a good read:</p>
-
 <ul>
 <li><a href="http://travisgoodspeed.blogspot.com.au/2012/07/emulating-usb-devices-with-python.html">http://travisgoodspeed.blogspot.com.au/2012/07/emulating-usb-devices-with-python.html</a></li>
 <li><a href="http://travisgoodspeed.blogspot.com.au/2012/10/emulating-usb-dfu-to-capture-firmware.html">http://travisgoodspeed.blogspot.com.au/2012/10/emulating-usb-dfu-to-capture-firmware.html</a></li>
 <li><a href="http://rmspeers.com/archives/252">Scapy Support for USB Protocol on Facedancer Boards, MAX2420, etc</a></li>
 </ul>
-
 <blockquote>
-<p>The Facedancer hardware extends the GoodFET framework to allow for fast prototyping and fuzzing of USB device drivers. Software connect/disconnect allows the enumeration process to be repeated, and Ryan&#39;s fork allows for clean coding of the various data structures with Scapy.</p>
+<p>The Facedancer hardware extends the GoodFET framework to allow for fast prototyping and fuzzing of USB device drivers. Software connect/disconnect allows the enumeration process to be repeated, and Ryan's fork allows for clean coding of the various data structures with Scapy.</p>
 </blockquote>
-
 <p>You can find out more about the facedancer boards at:</p>
-
 <ul>
 <li><a href="http://goodfet.sourceforge.net/hardware/facedancer21">http://goodfet.sourceforge.net/hardware/facedancer21</a></li>
 <li>YouTube: <a href="https://www.youtube.com/watch?v=x-7ezoFju6I">SEC-T 2012 - Trashing USB layers using the Facedancer Board - Travis Goodspeed</a> (2013)</li>
 <li><a href="http://rmspeers.com/archives/252">http://rmspeers.com/archives/252</a></li>
 </ul>
-
 <p>You can order the board (or request a free one!) from:</p>
-
 <ul>
 <li><a href="http://goodfet.sourceforge.net/orders/">http://goodfet.sourceforge.net/orders/</a></li>
 <li><a href="https://int3.cc/products/facedancer21">https://int3.cc/products/facedancer21</a> (~US$85)</li>
 </ul>
-
 <p>Other hardware projects that connect with the facedancer:</p>
-
 <ul>
 <li><a href="https://github.com/dominicgs/BeagleDancer">https://github.com/dominicgs/BeagleDancer</a> : A Facedancer21 expansion board for the BeagleBone</li>
 <li><a href="http://wiki.yobi.be/wiki/Raspdancer">http://wiki.yobi.be/wiki/Raspdancer</a> : Merging Facedancer11 and Facedancer21 with Raspberry Pi</li>
 <li><a href="https://speakerdeck.com/doegox/raspdancer">https://speakerdeck.com/doegox/raspdancer</a></li>
 <li><a href="https://github.com/travisgoodspeed/goodfet/tree/master/contrib/facedancer/raspdancer">https://github.com/travisgoodspeed/goodfet/tree/master/contrib/facedancer/raspdancer</a></li>
 </ul>
-
 <h2><a name="hardware-usbproxy"></a>Hardware: Beaglebone Black + USBProxy (~2013?)</h2>
-
 <p>(This has been superceded by the <a href="hardware-facedancer-2">facedancer 2.0</a> below)</p>
-
 <blockquote>
 <p>A proxy for USB devices, libUSB and gadgetFS. A USB man in the middle device using embedded Linux devices with on the go controllers.</p>
 </blockquote>
-
 <ul>
 <li><a href="https://github.com/dominicgs/USBProxy">https://github.com/dominicgs/USBProxy</a></li>
 </ul>
-
 <p>Presentations/etc:</p>
-
 <ul>
 <li>YouTube: <a href="https://www.youtube.com/watch?v=uDPxa5tcdnI">NSA Playset: USB Tools [ShmooCon 2015]</a> (2015) (<a href="https://shmoo.gitbooks.io/2015-shmoocon-proceedings/content/build/01_nsa_playset_usb_tools.html">Overview</a>, <a href="https://github.com/dominicgs/dominicgs.github.io/blob/master/presentations/2015/NSA%20Playset-USB%20Tools-ShmooCon.pdf">Slides</a>)</li>
-<li>YouTube: <a href="https://www.youtube.com/watch?v=rcfYgU-Be08">BG - USB Write Blocking with USBProxy - Dominic Spill
+<li>YouTube: <a href="https://www.youtube.com/watch?v=rcfYgU-Be08">BG - USB Write Blocking with USBProxy - Dominic Spill<br />
 </a> (2014) (<a href="https://github.com/dominicgs/dominicgs.github.io/blob/master/presentations/2014/Spill_BSidesLV_USBProxy_slides.pdf">Slides</a>)</li>
 <li>Youtube (<a href="https://www.youtube.com/watch?v=5JnAeakUBnU">1</a>, <a href="https://www.youtube.com/watch?v=l9wnu97785s">2</a>): ShmooCon 2014: An Open and Affordable USB Man in the Middle Device (2014) (<a href="https://github.com/dominicgs/dominicgs.github.io/blob/master/presentations/2014/Spill_USBProxy_ShmooCon_Slides.pdf">Slides</a>, <a href="https://github.com/dominicgs/dominicgs.github.io/blob/master/presentations/2014/Spill_USBProxy_ShmooCon_paper.pdf">Whitepaper</a>, <a href="https://github.com/dominicgs/dominicgs.github.io/blob/master/presentations/2014/Spill_USBProxy_ShmooCon_cfp.txt">CFP</a>)</li>
 <li>CFP: <a href="https://github.com/dominicgs/dominicgs.github.io/blob/master/presentations/2014/Spill_USBProxy_Haxpo_cfp.txt">Haxpo - Protecting USB devices with USBProxy</a></li>
 </ul>
-
 <h2><a name="hardware-daisho"></a>Hardware: Daisho (~2013-?2018+?)</h2>
-
 <blockquote>
 <p>SuperSpeed USB 3.0 FPGA platform</p>
 </blockquote>
-
 <p>This is a project designed for monitoring a number of high speed communication technologies at the physical layer, including USB 3.0, Gigabit ethernet, HDMI, etc. You can read more about it in the introduction blog:</p>
-
 <ul>
 <li><a href="http://ossmann.blogspot.com.au/2013/05/introducing-daisho.html">http://ossmann.blogspot.com.au/2013/05/introducing-daisho.html</a> (tag: <a href="http://ossmann.blogspot.com.au/search/label/daisho">daisho</a>)</li>
 </ul>
-
 <p>You can find more about the project at the following sites:</p>
-
 <ul>
 <li><a href="https://greatscottgadgets.com/daisho/">https://greatscottgadgets.com/daisho/</a></li>
 <li><a href="https://github.com/mossmann/daisho">https://github.com/mossmann/daisho</a></li>
 <li><a href="https://github.com/mossmann/daisho/wiki">https://github.com/mossmann/daisho/wiki</a></li>
 <li><a href="https://github.com/enjoy-digital/daisho_usb3ipcore_test">https://github.com/enjoy-digital/daisho_usb3ipcore_test</a></li>
 </ul>
-
 <p>Presentations/etc:</p>
-
 <ul>
 <li>YouTube: <a href="https://www.youtube.com/watch?v=uDPxa5tcdnI">NSA Playset: USB Tools [ShmooCon 2015]</a> (2015) (<a href="https://shmoo.gitbooks.io/2015-shmoocon-proceedings/content/build/01_nsa_playset_usb_tools.html">Overview</a>, <a href="https://github.com/dominicgs/dominicgs.github.io/blob/master/presentations/2015/NSA%20Playset-USB%20Tools-ShmooCon.pdf">Slides</a>)</li>
-<li>YouTube: <a href="https://www.youtube.com/watch?v=b2DsU1O6Lhg">Black Hat USA 2013 - What&#39;s on the Wire? Physical Layer Tapping with Project Daisho
+<li>YouTube: <a href="https://www.youtube.com/watch?v=b2DsU1O6Lhg">Black Hat USA 2013 - What's on the Wire? Physical Layer Tapping with Project Daisho<br />
 </a> (2013) (<a href="https://media.blackhat.com/us-13/US-13-Spill-Whats-on-the-Wire-Slides.pdf">Slides</a>, <a href="https://media.blackhat.com/us-13/US-13-Spill-Whats-on-the-Wire-WP.pdf">Whitepaper</a>)</li>
 </ul>
-
 <h2><a name="hardware-greatfet"></a>Hardware: GreatFET (~2015-2018+)</h2>
-
 <blockquote>
 <p>GreatFET is a next generation GoodFET intended to serve as your custom Hi-Speed USB peripheral through the addition of expansion boards called &quot;neighbors&quot;.</p>
 </blockquote>
-
-<p>Better GoodFET hardware, cheaper. Sounds great to me. According to the main site this is still at a &#39;functional prototype&#39; stage though:</p>
-
+<p>Better GoodFET hardware, cheaper. Sounds great to me. According to the main site this is still at a 'functional prototype' stage though:</p>
 <blockquote>
 <p>Functional prototype hardware has been produced. Firmware is in progress.</p>
 </blockquote>
-
-<p>That said.. looking around twitter and other places.. it sounds like it&#39;s pretty functional. Here are your main resources:</p>
-
+<p>That said.. looking around twitter and other places.. it sounds like it's pretty functional. Here are your main resources:</p>
 <ul>
 <li><a href="http://greatscottgadgets.com/greatfet/">http://greatscottgadgets.com/greatfet/</a></li>
 <li><a href="https://github.com/greatscottgadgets/greatfet">https://github.com/greatscottgadgets/greatfet</a></li>
@@ -471,82 +358,59 @@ used to collect traces of I/O on the USB bus</li>
 <li><a href="https://github.com/greatscottgadgets/greatfet/wiki">https://github.com/greatscottgadgets/greatfet/wiki</a></li>
 <li><a href="https://github.com/greatscottgadgets/greatfet/wiki/GreatFET-One">https://github.com/greatscottgadgets/greatfet/wiki/GreatFET-One</a></li>
 </ul>
-
-<p>I couldn&#39;t find many resources about how to buy these.. but here is what I got:</p>
-
+<p>I couldn't find many resources about how to buy these.. but here is what I got:</p>
 <ul>
 <li><a href="https://oshpark.com/shared_projects/qZFKUiwj">https://oshpark.com/shared_projects/qZFKUiwj</a></li>
 </ul>
-
 <p>Presentations/etc:</p>
-
 <ul>
 <li>YouTube: <a href="https://www.youtube.com/watch?v=h3VWvZ162QE">TR18 - Reverse Engineering Black Box Systems with GreatFET</a> (2018) (<a href="https://download.ernw-insight.de/troopers/tr18/slides/TR18_AR_RE-Black-Box-Systems-GreatFET-Facedancer.pdf">Slides</a>, <a href="https://www.troopers.de/troopers18/agenda/bcgyzl/">Agenda</a>)</li>
 <li>YouTube: <a href="https://www.youtube.com/watch?v=4Ra9XNjNS3M">TR17 - Rusting up your GREATFET - Richo Healey, Dominic Spill</a> (2017) (<a href="https://speakerdeck.com/richo/rust-greatfet">Slides</a>)</li>
 <li>YouTube: <a href="https://www.youtube.com/watch?v=4NIoAnsuFOQ">GreatFET: Making GoodFET Great Again</a> (2016) (<a href="https://www.blackhat.com/docs/us-16/materials/us-16-Ossmann-GreatFET-Making-GoodFET-Great-Again-wp.pdf">Slides</a>)</li>
 </ul>
-
 <p>Further reading:</p>
-
 <ul>
 <li><a href="https://hackaday.com/tag/greatfet/">https://hackaday.com/tag/greatfet/</a></li>
-<li><a href="https://twitter.com/search?q=%23GreatFET&lang=en">https://twitter.com/search?q=%23GreatFET&amp;lang=en</a></li>
+<li><a href="https://twitter.com/search?q=%23GreatFET&amp;lang=en">https://twitter.com/search?q=%23GreatFET&amp;lang=en</a></li>
 </ul>
-
 <h2><a name="hardware-facedancer-2"></a>Hardware: Facedancer 2.0 (~2017-2018+)</h2>
-
 <blockquote>
 <p>This repository houses the next generation of FaceDancer software. Descended from the original GoodFET-based FaceDancer, this repository provides a python module that provides expanded FaceDancer support-- including support for multiple boards and some pretty significant new features.</p>
 </blockquote>
-
-<p>This is the v2.x of the facedancer, designed to be better/greater. I won&#39;t go too deeply into things, but the following are useful resources:</p>
-
+<p>This is the v2.x of the facedancer, designed to be better/greater. I won't go too deeply into things, but the following are useful resources:</p>
 <ul>
 <li><a href="https://github.com/ktemkin/facedancer">https://github.com/ktemkin/facedancer</a></li>
 <li><a href="https://github.com/ktemkin/facedancer#usbproxy-nouveau-and-protocol-analysis">https://github.com/ktemkin/facedancer#usbproxy-nouveau-and-protocol-analysis</a>
-
 <ul>
 <li>Replaces <a href="#hardware-usbproxy">USBProxy</a></li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <p>Presentations/Training/etc:</p>
-
 <ul>
-<li>YouTube: <a href="https://www.youtube.com/watch?v=L3Ug9591Vag&list=PLnOI9rJWBVjE_xz7uGH4QKLiU5X0A7fjv&index=143">FaceDancer 2.0 (SHA2017)</a> (2017) (<a href="http://dominicspill.com/presentations/2017/Temkin_Spill_FaceDancer2_slides.pdf">Slides</a>, <a href="https://github.com/dominicgs/dominicgs.github.io/blob/master/presentations/2017/Temkin_Spill_FaceDancer2_slides.pdf">Slides2</a>, <a href="https://twitter.com/dominicgs/status/895341394730123265">Twitter</a>)</li>
+<li>YouTube: <a href="https://www.youtube.com/watch?v=L3Ug9591Vag&amp;list=PLnOI9rJWBVjE_xz7uGH4QKLiU5X0A7fjv&amp;index=143">FaceDancer 2.0 (SHA2017)</a> (2017) (<a href="http://dominicspill.com/presentations/2017/Temkin_Spill_FaceDancer2_slides.pdf">Slides</a>, <a href="https://github.com/dominicgs/dominicgs.github.io/blob/master/presentations/2017/Temkin_Spill_FaceDancer2_slides.pdf">Slides2</a>, <a href="https://twitter.com/dominicgs/status/895341394730123265">Twitter</a>)</li>
 <li>YouTube: <a href="https://www.youtube.com/watch?v=HV9WfDRjJCg">ToorCon 19 - Spill &amp; Temkin - Facedancer 2.0 Next Generation USB Hacking</a> (2017) (jump to <a href="https://youtu.be/HV9WfDRjJCg?t=2116">35:16</a>)</li>
 <li><a href="https://www.troopers.de/troopers18/trainings/jmpsxq/">Troopers Training: Hacking the USB World with FaceDancer</a> (<a href="https://hm-ts.de/pdf/TR18_HM_Hack_Facedancer.pdf">PDF</a>, 2018)</li>
 </ul>
-
 <h2><a name="hardware-commercial-beagleusb"></a>Commercial Hardware: TotalPhase BeagleUSB</h2>
-
 <p><a href="https://www.totalphase.com/">TotalPhase</a> are a company that provide a number of commercial hardware protocol analysers, <a href="https://www.totalphase.com/protocols/usb/">including USB</a>. I found that a number of the walkthroughs I would come across would at least mention these products in passing.</p>
-
 <p>As I understand it, <strong>they are only good for passively reading/inspecting/logging the traffic, so no good if you want to do injection or other nefarious things.</strong></p>
-
 <p>They have a number of different products ranging from the relatively cheap (for low speed), up to the rather expensive (for USB 3.0):</p>
-
 <ul>
 <li><a href="https://www.totalphase.com/products/beagle-usb12/">Beagle USB 12 Protocol Analyzer</a>: Low/Full Speed USB 2, ~US$475 (<a href="https://www.totalphase.com/support/articles/200800983-Beagle-USB-12-Protocol-Analyzer-Quick-Start-Guide">Guide</a>, <a href="https://www.adafruit.com/product/708">Adafruit</a>)</li>
 <li><a href="https://www.totalphase.com/products/beagle-usb480/">Beagle USB 480 Protocol Analyzer</a>: Low/Full/High Speed USB 2, ~US$1400</li>
 <li><a href="https://www.totalphase.com/products/beagle-usb5000-v2-standard/">Beagle USB 5000 v2 SuperSpeed Protocol Analyzer - Standard Edition</a>: USB 3.0, ~US$3600</li>
 <li><a href="https://www.totalphase.com/products/beagle-usb5000-v2-ultimate/">Beagle USB 5000 v2 SuperSpeed Protocol Analyzer - Ultimate Edition</a>: USB 2/3.0, ~US$6000</li>
 </ul>
-
 <h2><a name="further-reading-presentations"></a>Further Reading/Presentations</h2>
-
-<p>I figured I&#39;d add this section for some other interesting presentations/resources that just didn&#39;t seem to fit nicely into the categories above. Some of them go a little beyond just USB hardware hacking, and into more general/specific hardware hacking tools:</p>
-
+<p>I figured I'd add this section for some other interesting presentations/resources that just didn't seem to fit nicely into the categories above. Some of them go a little beyond just USB hardware hacking, and into more general/specific hardware hacking tools:</p>
 <ul>
 <li>YouTube: <a href="https://www.youtube.com/watch?v=7HnQnpJwr-c">DEF CON 22 - Jesse Michael and Mickey Shkatov - USB for all!!</a> (2014) (<a href="https://www.defcon.org/images/defcon-22/dc-22-presentations/Michael-Shkatov/DEFCON-22-Jesse-Michael-Mickey-Shkatov-USB-for-All!!-UPDATED.pdf">Slides</a>)</li>
-<li>YouTube: <a href="https://www.youtube.com/watch?v=PYeYxQqBTLo">Tools of the Hardware Hacking Trade - Duo Tech Talk
+<li>YouTube: <a href="https://www.youtube.com/watch?v=PYeYxQqBTLo">Tools of the Hardware Hacking Trade - Duo Tech Talk<br />
 </a> (2014) (<a href="https://www.blackhat.com/docs/webcast/04232014-tools-of-the-hardware-hacking-trade.pdf">Slides</a>)</li>
 </ul>
-
 <h2><a name="people-to-watch"></a>People to Watch</h2>
-
 <p>While I was doing this research there were a few names that just kept popping up time and time again, and seem to be working on really cool things in this space. To make it easier to follow them on their relevent platforms, I wanted to collect them together here for you (in no particular order):</p>
-
 <ul>
 <li>Travis Goodspeed (travisgoodspeed, <a href="https://twitter.com/travisgoodspeed">Twitter</a>, <a href="https://github.com/travisgoodspeed">GitHub</a>)</li>
 <li>Dominic Spill (dominicgs, <a href="https://twitter.com/dominicgs/">Twitter</a>, <a href="https://github.com/dominicgs/">GitHub</a>, <a href="https://dominicspill.com/">Website</a>)</li>
@@ -554,25 +418,17 @@ used to collect traces of I/O on the USB bus</li>
 <li>Michael Ossmann (mossmann, <a href="https://twitter.com/michaelossmann">Twitter</a>, <a href="https://github.com/mossmann">GitHub</a>, <a href="http://www.ossmann.com/">Website</a>)</li>
 <li>Great Scott Gadgets (<a href="https://twitter.com/GSGLabs">Twitter</a>, <a href="https://github.com/greatscottgadgets">GitHub</a>, <a href="http://greatscottgadgets.com/">Website</a>)</li>
 </ul>
-
-<p>If I&#39;ve missed anyone that you feel deserves to be here too, please let me know!</p>
-
+<p>If I've missed anyone that you feel deserves to be here too, please let me know!</p>
 <h2><a name="code-drivers-etc"></a>Code/Drivers/etc</h2>
-
-<p>So we know how to capture traffic from our devices, proxy it with hardware, break the protocols down and understand them. But we also want to be able to talk back to them, control them, and truly interact. This is where code and drivers comes in. Now we&#39;ve sort of skimmed over these topics in a few of the above sections, but for the sake of clarity I wanted to group them all here as well.</p>
-
+<p>So we know how to capture traffic from our devices, proxy it with hardware, break the protocols down and understand them. But we also want to be able to talk back to them, control them, and truly interact. This is where code and drivers comes in. Now we've sort of skimmed over these topics in a few of the above sections, but for the sake of clarity I wanted to group them all here as well.</p>
 <p><a name="libusb-pyusb"></a>When I first thought about writing this section I thought we were going to be getting deep into kernel drivers, and fighting with arcane systems, but it seems we actually have a much nicer alternative before all of that, thanks to <strong>libusb, pyusb, and friends</strong>:</p>
-
 <ul>
 <li><a href="http://libusb.info/">http://libusb.info/</a> (<a href="https://github.com/libusb/libusb">GitHub</a>) : A cross-platform library to access USB devices</li>
 <li><a href="https://github.com/pyusb/pyusb">https://github.com/pyusb/pyusb</a> : USB access for Python</li>
 <li><a href="https://github.com/LibUsbDotNet/LibUsbDotNet">https://github.com/LibUsbDotNet/LibUsbDotNet</a> : Library for cross-platform USB device control using Mono/.NET</li>
 </ul>
-
 <p>You can see examples of using libusb/pyUSB in some of the walkthroughs mentioned earlier.</p>
-
-<p>Now while these libraries give us a whole lot of power and makes it pretty easy to write our software, there may be times where they just don&#39;t quite cover what we need. That&#39;s when we can go deeper into the weird and wonderful world of driver development. I won&#39;t cover this too in-depth at the moment as it could be a whole blog series on it&#39;s own, but a few resources to get you started:</p>
-
+<p>Now while these libraries give us a whole lot of power and makes it pretty easy to write our software, there may be times where they just don't quite cover what we need. That's when we can go deeper into the weird and wonderful world of driver development. I won't cover this too in-depth at the moment as it could be a whole blog series on it's own, but a few resources to get you started:</p>
 <ul>
 <li><a href="https://github.com/daynix/UsbDk">https://github.com/daynix/UsbDk</a> : Usb Drivers Development Kit for Windows</li>
 <li><a href="http://www.fourwalledcubicle.com/LUFA.php">LUFA (Lightweight USB Framework for AVRs)</a> (<a href="https://github.com/abcminiuser/lufa">GitHub</a>)</li>
@@ -580,73 +436,56 @@ used to collect traces of I/O on the USB bus</li>
 <li><a href="https://github.com/pravic/winapi-kmd-rs">https://github.com/pravic/winapi-kmd-rs</a> : Windows Kernel-Mode Drivers written in Rust</li>
 <li><a href="http://www.linuxvoice.com/be-a-kernel-hacker/">http://www.linuxvoice.com/be-a-kernel-hacker/</a></li>
 </ul>
-
 <h2><a name="where-next"></a>Where next? Device Emulation, USB over IP, etc</h2>
-
-<p>Now that you&#39;ve figured out all of the intricacies of the device, understand it&#39;s protocol and wrote some software (or even a driver) to interface with it.. what about the other side of things?</p>
-
+<p>Now that you've figured out all of the intricacies of the device, understand it's protocol and wrote some software (or even a driver) to interface with it.. what about the other side of things?</p>
 <ul>
 <li>Can we emulate the device in software (for testing, or other purposes)</li>
 <li>Can we take the information from that device and stream it somewhere remotely?</li>
-<li>Can we make a new hardware device that &#39;presents itself&#39; as the device we just looked at? (eg. to interface with existing drivers/software)</li>
+<li>Can we make a new hardware device that 'presents itself' as the device we just looked at? (eg. to interface with existing drivers/software)</li>
 </ul>
-
-<p>This is where device emulation and USB over IP can come to the party. I haven&#39;t dug too deeply into this topic, but a well placed Google search or two (<code>github usb over ip</code>, <code>github usb emulation</code>) turned up some interesting looking resources (and I&#39;m sure there are far more out there..):</p>
-
+<p>This is where device emulation and USB over IP can come to the party. I haven't dug too deeply into this topic, but a well placed Google search or two (<code>github usb over ip</code>, <code>github usb emulation</code>) turned up some interesting looking resources (and I'm sure there are far more out there..):</p>
 <ul>
 <li><a href="https://github.com/forensix/libusbip">forensix/libusbip</a> : USB over IP</li>
-<li><a href="https://github.com/vavrusa/libusbnet">vavrusa/libusbnet</a> :
+<li><a href="https://github.com/vavrusa/libusbnet">vavrusa/libusbnet</a> :<br />
 libusb wrapper to enable communication with USB devices over TCP/IP</li>
 <li><a href="https://github.com/Frazew/PythonUSBIP">Frazew/PythonUSBIP</a> : USBIP protocol fully implemented in python + Full wiimote support using cwiid</li>
-<li><a href="https://github.com/lcgamboa/USBIP-Virtual-USB-Device">lcgamboa/USBIP-Virtual-USB-Device</a> :
+<li><a href="https://github.com/lcgamboa/USBIP-Virtual-USB-Device">lcgamboa/USBIP-Virtual-USB-Device</a> :<br />
 Emulates USB Devices using USBIP in Python or c</li>
 <li><a href="https://github.com/Microsoft/UDE">Microsoft/UDE</a> : USB Device Emulation Samples</li>
-<li><a href="https://github.com/EngineerTony/Arduino_USBKeyboard_Hacker">EngineerTony/Arduino<em>USBKeyboard</em>Hacker</a> : Uses the Arduino Uno microcontroller to emulate a USB keyboard and insert random text into the computer at random intervals</li>
+<li><a href="https://github.com/EngineerTony/Arduino_USBKeyboard_Hacker">EngineerTony/Arduino_USBKeyboard_Hacker</a> : Uses the Arduino Uno microcontroller to emulate a USB keyboard and insert random text into the computer at random intervals</li>
 <li><a href="https://github.com/ViGEm/ViGEmBus">ViGEm/ViGEmBus</a> : Windows kernel-mode driver emulating well-known USB game controllers</li>
 </ul>
-
-<p>Also, don&#39;t forget those hardware devices mentioned above that are designed for emulation..</p>
-
+<p>Also, don't forget those hardware devices mentioned above that are designed for emulation..</p>
 <p>Definitely an area that could be interesting to explore deeper, maybe in a future project/post.</p>
-
 <h2><a name="iot-hardware-hacking-fuzzing-etc"></a>IoT, Hardware Hacking, Fuzzing, etc</h2>
-
-<p>Once we understand the language these devices speak, how to listen to it, how to emulate it.. what&#39;s next? One idea is to apply the concept of fuzzing used in the software world (random/crafted data used to look for crashes in software), and turn it to hardware. And with the prevalence of IoT devices out there now (often with woeful security).. this could be another interesting rabbithole to explore (google: <code>usb hardware fuzzing</code>):</p>
-
+<p>Once we understand the language these devices speak, how to listen to it, how to emulate it.. what's next? One idea is to apply the concept of fuzzing used in the software world (random/crafted data used to look for crashes in software), and turn it to hardware. And with the prevalence of IoT devices out there now (often with woeful security).. this could be another interesting rabbithole to explore (google: <code>usb hardware fuzzing</code>):</p>
 <ul>
 <li><a href="https://blog.quarkslab.com/usb-fuzzing-basics-from-fuzzing-to-bug-reporting.html">https://blog.quarkslab.com/usb-fuzzing-basics-from-fuzzing-to-bug-reporting.html</a> (2014)</li>
 <li><a href="https://github.com/nccgroup/umap">https://github.com/nccgroup/umap</a> : The USB host security assessment tool (~2013)</li>
 <li><a href="https://github.com/nccgroup/FrisbeeLite">nccgroup/FrisbeeLite</a> : A GUI-based USB device fuzzer
-
 <ul>
 <li><a href="https://www.nccgroup.trust/au/our-research/fuzzing-usb-devices-using-frisbee-lite/">https://www.nccgroup.trust/au/our-research/fuzzing-usb-devices-using-frisbee-lite/</a> (2013)</li>
-</ul></li>
-<li><a href="https://github.com/ollseg/usb-device-fuzzing">ollseg/usb-device-fuzzing</a> :
+</ul>
+</li>
+<li><a href="https://github.com/ollseg/usb-device-fuzzing">ollseg/usb-device-fuzzing</a> :<br />
 Some tools for testing USB devices (2012)</li>
 <li><a href="https://labs.mwrinfosecurity.com/blog/usb-fuzzing-for-the-masses/">https://labs.mwrinfosecurity.com/blog/usb-fuzzing-for-the-masses/</a> (2011)</li>
 <li><a href="https://wikileaks.org/hbgary-emails//fileid/64995/17596">https://wikileaks.org/hbgary-emails//fileid/64995/17596</a> : USB Protocol Fuzzer Options (2009)</li>
 <li><a href="https://www.beyondsecurity.com/bestorm.html">https://www.beyondsecurity.com/bestorm.html</a> (commercial)
-
 <ul>
 <li><a href="https://www.beyondsecurity.com/bestorm_usb_case_study.html">https://www.beyondsecurity.com/bestorm_usb_case_study.html</a></li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <h2><a name="link-dump"></a>Link Dump</h2>
-
-<p>After all of that.. there is only one little link left in my linkdump, and from memory, I think it was the one that started this cascading flow of rabbitholes. Not really anything to see here that we haven&#39;t already covered, but for posterity:</p>
-
+<p>After all of that.. there is only one little link left in my linkdump, and from memory, I think it was the one that started this cascading flow of rabbitholes. Not really anything to see here that we haven't already covered, but for posterity:</p>
 <ul>
 <li><a href="https://electronics.stackexchange.com/questions/4180/reverse-engineering-usb-signals">https://electronics.stackexchange.com/questions/4180/reverse-engineering-usb-signals</a></li>
 </ul>
-
 <h2><a name="conclusion"></a>Conclusion</h2>
-
 <p>Well.. that got longer than I expected! What originally started out as me wanting to dump a few links I was collecting as I read into this subject, <strong>we seem to have ended up with a rough reference guide to getting started on AllTheThings(tm) relating to USB reverse engineering and associated hardware hacking.</strong></p>
-
-<p>While this post by itself isn&#39;t going to give you all the answers, hopefully it&#39;s given you enough of a base that you can branch out and dig deeper into the aspects that interest you. And when you do, let me know what you build/break/discover!</p>
-
-<p>Was there something I missed? A new shiny piece of hardware? An amazing program? Maybe you have some awesome techniques to share? Or just a story about what you&#39;ve been able to do with this newfound knowledge? I&#39;d love to hear from you in the comments below!</p>
+<p>While this post by itself isn't going to give you all the answers, hopefully it's given you enough of a base that you can branch out and dig deeper into the aspects that interest you. And when you do, let me know what you build/break/discover!</p>
+<p>Was there something I missed? A new shiny piece of hardware? An amazing program? Maybe you have some awesome techniques to share? Or just a story about what you've been able to do with this newfound knowledge? I'd love to hear from you in the comments below!</p>
 
 	  ]]></description>
 	</item>
@@ -658,18 +497,12 @@ Some tools for testing USB devices (2012)</li>
 	  <pubDate>2018-04-07T00:00:00+10:00</pubDate>
 	  <guid>/devalias/2018/04/07/diy-light-therapy-red-infrared-cold-laser-lllt-blue-uv/</guid>
 	  <description><![CDATA[
-	     <p>I tend to dive down rabbit holes a lot, and given the cost of context switching and memory deteriorating over time, sometimes the state I build up in my mind gets lost between the chances I get to dive in. These &#39;linkdump&#39; posts are an attempt to collate at least some of that state in a way that I can hopefully restore to my brain at a later point.</p>
-
-<p>This time around I was inspired to look into Red/Infrared light therapy, originally motivated by some Bulletproof blog posts/talk (<a href="https://blog.bulletproof.com/health-benefits-red-light-therapy/">1</a>, <a href="https://blog.bulletproof.com/light-hacking-for-better-energy-mood-and-performance/">2</a>, <a href="https://blog.bulletproof.com/tag/light-hacking/">etc</a>), and the cost of the <a href="https://joovv.com/products/joovv-light?variant=39356431502">Joovv</a> light panels. Let&#39;s dig in!</p>
-
+	     <p>I tend to dive down rabbit holes a lot, and given the cost of context switching and memory deteriorating over time, sometimes the state I build up in my mind gets lost between the chances I get to dive in. These 'linkdump' posts are an attempt to collate at least some of that state in a way that I can hopefully restore to my brain at a later point.</p>
+<p>This time around I was inspired to look into Red/Infrared light therapy, originally motivated by some Bulletproof blog posts/talk (<a href="https://blog.bulletproof.com/health-benefits-red-light-therapy/">1</a>, <a href="https://blog.bulletproof.com/light-hacking-for-better-energy-mood-and-performance/">2</a>, <a href="https://blog.bulletproof.com/tag/light-hacking/">etc</a>), and the cost of the <a href="https://joovv.com/products/joovv-light?variant=39356431502">Joovv</a> light panels. Let's dig in!</p>
 <h2>Joovv</h2>
-
-<p><a href="https://joovv.com/">Joovv</a> is one of those hip health/wellness brands making red/infrared light therapy devices. They tout all of the good buzzwords like low/free of EMF, etc, and they&#39;re working in an emerging space (light therapy) that at least at a cursory level of skimming the research sounds like it could have some really cool benefits. The downside? Popular brands and fancy marketing costs money, businesses need money to survive, and so for the <a href="https://joovv.com/products/joovv-light?variant=39356431502">Joovv Mini</a> we&#39;re looking at about ~US$600. Too expensive for my tastes, particularly for what appears to just be an array of LEDs.</p>
-
+<p><a href="https://joovv.com/">Joovv</a> is one of those hip health/wellness brands making red/infrared light therapy devices. They tout all of the good buzzwords like low/free of EMF, etc, and they're working in an emerging space (light therapy) that at least at a cursory level of skimming the research sounds like it could have some really cool benefits. The downside? Popular brands and fancy marketing costs money, businesses need money to survive, and so for the <a href="https://joovv.com/products/joovv-light?variant=39356431502">Joovv Mini</a> we're looking at about ~US$600. Too expensive for my tastes, particularly for what appears to just be an array of LEDs.</p>
 <p>Now, being a builder/breaker type, with a growing interest in the hardware/maker side.. I decided to look into it a little and figure if I could build my own. For reasons, for science!</p>
-
 <p>So looking at the <a href="https://joovv.com/products/joovv-light?variant=39356431502">Joovv Mini</a>, we can infer the following:</p>
-
 <ul>
 <li>There are 2 grids of LEDs, each consisting of a 6x5 array of LEDs, for a total of 30 LEDs per grid, or 60 in the entire Joov Mini</li>
 <li>If you get the mixed Red/Infra Red panels, you end up with: 14 red (660nm), 16 near infrared (850nm) per grid (28 red, 32 near infrared total)</li>
@@ -678,184 +511,136 @@ Some tools for testing USB devices (2012)</li>
 <li>Total dimensions are: 15&quot; x 8.25&quot; x 3&quot;</li>
 <li>Irradiance/treatment area are listed as: &gt;100+mw/cm^2, 25&quot; x 18&quot; (these will vary based on wavelength, distance used, etc)</li>
 </ul>
-
-<p>The other models just appear to use different counts of the &#39;LED grid&#39;, and include:</p>
-
+<p>The other models just appear to use different counts of the 'LED grid', and include:</p>
 <ul>
 <li><a href="https://joovv.com/products/joovv-light?variant=39356431502">Joovv Mini</a>: 2 grids, 60 LEDs, 2 fans, 120w, ~US$595 (or ~US$9.91/LED)</li>
 <li><a href="https://joovv.com/products/joovv-light?variant=39356431694">Joovv Original</a>: 5 grids, 150 LEDs, 5 fans, 300w, ~US$995 (or ~US$6.6/LED)</li>
 <li><a href="https://joovv.com/products/joovv-light?variant=39356431886">Joovv Max</a>: 16 grids, 480 LEDs, 16 fans, 960w, ~US$2695 (or ~US$5.6/LED)</li>
 </ul>
-
-<p>So this gives us some pretty good starting parameters from a &#39;best of breed&#39; product, to use as a basis when we go digging around elsewhere. It also goes to show that there is probably a decent bit of margin between hardware costs and final product (as there always is), so DIY savings abound! We want:</p>
-
+<p>So this gives us some pretty good starting parameters from a 'best of breed' product, to use as a basis when we go digging around elsewhere. It also goes to show that there is probably a decent bit of margin between hardware costs and final product (as there always is), so DIY savings abound! We want:</p>
 <ul>
 <li>A bunch of 2w (or higher) red (660nm)/NIR (850nm) LEDs</li>
 <li>Some fans</li>
 <li>Power</li>
 <li>Casing, etc</li>
 </ul>
-
 <h2>Other Commercial Products</h2>
-
 <p>So there are a number of other products in this space too.. just a couple off the top of my head:</p>
-
 <ul>
 <li><a href="https://catalyticcolor.com/redjuvenator-light-therapy/">REDjuvenator</a>
-
 <ul>
 <li>15 x 15 array of LEDs (225 total), 1 foot square panel</li>
 <li>Formula #1: Looks like all red LEDs</li>
 <li>Formula #2: Looks like red/near infrared</li>
 <li>Formula #3: Claims the benefits of #1 + #2</li>
-<li>Formula #4: &#39;Bacteria buster&#39;, looks like red + UV LEDs</li>
-</ul></li>
+<li>Formula #4: 'Bacteria buster', looks like red + UV LEDs</li>
+</ul>
+</li>
 <li>Bulletproof Labs <a href="http://bulletprooflabs.com/body/">REDcharger</a> (which is a rebranding of another device.. but I forget the name at the moment..): 630nm/880nm. I think there were like 40,000 LEDs in this.. I feel like there was some small amount of blue/UV in there as well from memory..</li>
 </ul>
-
 <h2>Sourcing LEDs</h2>
-
-<p>Now I haven&#39;t done a whole lot in this hardware building space before.. but I do know that <a href="https://www.aliexpress.com/">AliExpress</a> tends to have AllTheThings(tm).. I won&#39;t directly link as you may find better deals, but a few searches included:</p>
-
+<p>Now I haven't done a whole lot in this hardware building space before.. but I do know that <a href="https://www.aliexpress.com/">AliExpress</a> tends to have AllTheThings(tm).. I won't directly link as you may find better deals, but a few searches included:</p>
 <ul>
 <li>660nm led</li>
 <li>850nm led</li>
 </ul>
-
 <p>Now.. I could go for the 2w spec like Joovv uses.. but maybe there are more interesting/cheaper combinations. Looking through the search results the following seemed common: 1w, 3w, 5w. Maybe we could change up the parameters for our build? For example, <a href="https://www.aliexpress.com/item/10pcs-1W-3W-High-Power-LED-Full-Spectrum-White-Warm-white-Green-Blue-Deep-Red-660nm/32859370682.html">one supplier</a> listed the following (may not be the best price, or the best supplier, just one example):</p>
-
 <ul>
 <li>1w, deep red (660nm): ~US$3.10/10pc == US$0.31/ea</li>
 <li>3w, deep red (660nm): ~US$3.50/10pc == US$0.35/ea</li>
 <li>1w, infrared (850nm): ~US$6.90/10pc == US$0.69/ea</li>
 <li>3w, infrared (850nm): ~US$7.90/10pc == US$0.79/ea</li>
 </ul>
-
 <p>So from a completely naive back of napkin cost calculation using the 3w LEDs:</p>
-
 <ul>
 <li>Mini: 28 red (~US$9.80), 32 NIR (~US$25.28), <strong>Total:</strong> ~US$35.08</li>
 <li>Original: 70 red (~US$24.50), 80 NIR (~US$63.20), <strong>Total:</strong> ~US$87.70</li>
 <li>Max: 224 red (~US$78.40), 256 NIR (~US$202.24), <strong>Total:</strong> ~US$280.64</li>
 </ul>
-
 <p>Obviously there will be additional costs for the power supply, fans, casing, construction, etc.. but those costs seem far nicer to me.</p>
-
-<p>There were also some <a href="https://www.aliexpress.com/item/High-Power-LED-Chip-Deep-Red-LED-660nm-Plant-Grow-Light-1W-3W-5W-10W-20W/32633843531.html">other providers</a> that had some interesting looking LED arrays, with powers such as: 1w, 3w, 5w, 10w, 20w, 30w, 50w, 100w. So we could go super powerful if we wanted (though maybe wouldn&#39;t get as good coverage..). Also.. is there a sweet spot for the power/brightness? Need to dig into the research more for that.. It sounds like there is.</p>
-
-<p>In doing some reading, it seems that a lot of the &#39;grow lights&#39; actually operate in the same spectrums (good for plants, good for us!), so that may be another path worth looking into.</p>
-
+<p>There were also some <a href="https://www.aliexpress.com/item/High-Power-LED-Chip-Deep-Red-LED-660nm-Plant-Grow-Light-1W-3W-5W-10W-20W/32633843531.html">other providers</a> that had some interesting looking LED arrays, with powers such as: 1w, 3w, 5w, 10w, 20w, 30w, 50w, 100w. So we could go super powerful if we wanted (though maybe wouldn't get as good coverage..). Also.. is there a sweet spot for the power/brightness? Need to dig into the research more for that.. It sounds like there is.</p>
+<p>In doing some reading, it seems that a lot of the 'grow lights' actually operate in the same spectrums (good for plants, good for us!), so that may be another path worth looking into.</p>
 <h2>But what about EMFs?</h2>
-
-<p>So one of the claims among a number of these products is that they&#39;re &#39;low/free from EMFs&#39;, and a cursory skim of some of the research sounds plausible that EMFs could be a thing worth caring about (search terms: EMF voltage regulated calcium channels, etc). Now this isn&#39;t an area I&#39;ve really looked much into, but if we assume they are bad.. what can we do about it? Off the top of my head, and completely unsubstantiated, I would imagine some form of <a href="https://en.wikipedia.org/wiki/Faraday_cage">faraday cage</a> type device would do the trick, given it&#39;s an &quot;enclosure used to block electromagnetic fields&quot;. So maybe that&#39;s an area to read more into..</p>
-
+<p>So one of the claims among a number of these products is that they're 'low/free from EMFs', and a cursory skim of some of the research sounds plausible that EMFs could be a thing worth caring about (search terms: EMF voltage regulated calcium channels, etc). Now this isn't an area I've really looked much into, but if we assume they are bad.. what can we do about it? Off the top of my head, and completely unsubstantiated, I would imagine some form of <a href="https://en.wikipedia.org/wiki/Faraday_cage">faraday cage</a> type device would do the trick, given it's an &quot;enclosure used to block electromagnetic fields&quot;. So maybe that's an area to read more into..</p>
 <h2>But what about blue light?</h2>
-
 <p>So.. seems we can use blue/UV light for things too.. more related to inhibiting bad stuff it seems. Could definitely be an interesting rabbit hole to dive deeper down:</p>
-
 <ul>
 <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5626244/">Blue light treatment of Pseudomonas aeruginosa: Strong bactericidal activity, synergism with antibiotics and inactivation of virulence factors</a>
-
 <ul>
 <li>One of the more common infection types in Cystic Fibrosis.. interesting..</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <p>There also seems to be some stuff in the space of using blue (technically violet, 360-400nm) light for myopia/similar:</p>
-
 <ul>
 <li><a href="https://blog.bulletproof.com/violet-light-eye-health/">https://blog.bulletproof.com/violet-light-eye-health/</a></li>
 <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5233810/">PubMed: Violet Light Exposure Can Be a Preventive Strategy Against Myopia Progression</a></li>
 </ul>
-
 <h2>Lasers!</h2>
-
-<p>So, moving a bit away from the LED side of things.. a lot of the &#39;Low Level Laser Therapy&#39; or &#39;Cold Laser&#39; treatments out there are using laser diodes instead. They can penetrate deeper, tend to be higher power, more focussed, etc. I&#39;ve heard about these sorts of things being used to aid in healing of injured joints and more, enough to catch my interest. But once again, these things are expensive (a treatment might cost you $50/session).. and hard to come buy for the biohacker type who isn&#39;t a medical professional. For example:</p>
-
+<p>So, moving a bit away from the LED side of things.. a lot of the 'Low Level Laser Therapy' or 'Cold Laser' treatments out there are using laser diodes instead. They can penetrate deeper, tend to be higher power, more focussed, etc. I've heard about these sorts of things being used to aid in healing of injured joints and more, enough to catch my interest. But once again, these things are expensive (a treatment might cost you $50/session).. and hard to come buy for the biohacker type who isn't a medical professional. For example:</p>
 <ul>
 <li><a href="https://www.thorlaser.com/products/">THOR Laser</a>
-
 <ul>
 <li>~US$14,000-24,000</li>
 <li>Various LED/laser probe options (810nm IR laser, 660nm laser, etc)</li>
 <li>These ones sound quite low powered too: 30mW, 75mW, 200mW, etc</li>
-</ul></li>
+</ul>
+</li>
 <li><a href="http://multiradiance.com.au/products/mr4-super-pulsed-laser">MR4 Super Pulsed Laser</a>:
-
 <ul>
 <li>~AU$10,000</li>
 <li>Infrared (860-960nm)</li>
 <li>Red (600-740nm)</li>
 <li>Laser (25w, pulsed)</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <p>So looking deeper into the wavelengths, power levels, and options, we find:</p>
-
 <ul>
 <li><a href="https://www.coldlasers.org/therapy/wavelength/">https://www.coldlasers.org/therapy/wavelength/</a></li>
 </ul>
-
 <p>Skimming through some of this stuff.. it sounds like we want to look into pulsed/super pulsed laser diodes.. but what are they?</p>
-
 <ul>
 <li><a href="https://www.pulselaserrelief.com.au/super-pulsed-low-level-laser-therapy">https://www.pulselaserrelief.com.au/super-pulsed-low-level-laser-therapy</a></li>
 </ul>
-
 <p><strong>tl;dr:</strong> high power, low heat, deeper penetration, 904-905nm Gallium Arsenide (GaAS) diode</p>
-
 <p>And if we turn to our trusty component dealer <a href="https://www.aliexpress.com/">AliExpress</a>, we turn up a few interesting search results:</p>
-
 <ul>
 <li>pulsed laser diode 25w</li>
 </ul>
-
-<p>Now remember.. lasers are dangerous, you can and will destroy your eyes if you do bad things with them. Always wear proper laser eye safety when doing anything like this. Also, if you&#39;re in a country like Australia, they may just actually not let you import these full stop.. yay for draconian laws! There might be a way around it for &#39;legit reasons&#39; (rather than annoying cats with red dots), but it&#39;s not an area I&#39;ve deeply looked into yet.</p>
-
-<p>Now that that&#39;s out of the way.. maybe like ~US$25 for a laser diode.. and then need to power it, probably cool it, etc. Better than $25k!</p>
-
+<p>Now remember.. lasers are dangerous, you can and will destroy your eyes if you do bad things with them. Always wear proper laser eye safety when doing anything like this. Also, if you're in a country like Australia, they may just actually not let you import these full stop.. yay for draconian laws! There might be a way around it for 'legit reasons' (rather than annoying cats with red dots), but it's not an area I've deeply looked into yet.</p>
+<p>Now that that's out of the way.. maybe like ~US$25 for a laser diode.. and then need to power it, probably cool it, etc. Better than $25k!</p>
 <h2>Link Dump</h2>
-
-<p>Now that we&#39;ve got all of that out of the way, how about that link dump:</p>
-
+<p>Now that we've got all of that out of the way, how about that link dump:</p>
 <ul>
 <li><a href="https://www.redlighttherapy.com.au/">https://www.redlighttherapy.com.au/</a></li>
 <li><a href="https://draxe.com/red-light-therapy/">https://draxe.com/red-light-therapy/</a></li>
 <li><a href="https://redlightman.com/blog/complete-guide-light-therapy-dosing/">https://redlightman.com/blog/complete-guide-light-therapy-dosing/</a></li>
 <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3288797/">PubMed: The Nuts and Bolts of Low-level Laser (Light) Therapy</a>
-
 <ul>
 <li>&quot;The wavelengths of light used for LLLT fall into an “optical window” at red and NIR wavelengths (600–1070 nm) (Fig. 1d). Effective tissue penetration is maximized in this range, as the principal tissue chromophores (hemoglobin and melanin) have high absorption bands at wavelengths shorter than 600 nm. Wavelengths in the range 600–700 nm are used to treat superficial tissue, and longer wavelengths in the range 780–950 nm, which penetrate further, are used to treat deeper-seated tissues. Wavelengths in the range 700–770 nm have been found to have limited biochemical activity and are therefore not used.&quot;</li>
-</ul></li>
+</ul>
+</li>
 <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4126803/">PubMed: Low-level laser (light) therapy (LLLT) in skin: stimulating, healing, restoring</a></li>
 </ul>
-
 <p>And if we want to try sensing/reading different wavelengths (maybe for testing, or reverse engineering things, or just for fun!):</p>
-
 <ul>
 <li><a href="http://forum.arduino.cc/index.php?topic=17429.0">Arduino Forum: Sensing wavelength of lights</a></li>
 <li><a href="https://hackaday.com/2014/07/31/diy-usb-spectrometer-actually-works/">https://hackaday.com/2014/07/31/diy-usb-spectrometer-actually-works/</a></li>
 <li><a href="https://www.photonicsonline.com/doc/wavelength-sensor-and-circuit-pss-ws-756-pcb-0001">https://www.photonicsonline.com/doc/wavelength-sensor-and-circuit-pss-ws-756-pcb-0001</a></li>
 <li><a href="https://www.first-sensor.com/en/products/optical-sensors/detectors/wavelength-sensitive-diodes-ws/">https://www.first-sensor.com/en/products/optical-sensors/detectors/wavelength-sensitive-diodes-ws/</a></li>
 </ul>
-
 <p>Full spectrum bulbs:</p>
-
 <ul>
 <li><a href="http://www.viva-lite.com.au/">http://www.viva-lite.com.au/</a></li>
 </ul>
-
 <p>Power supplies that are probably actually safe enough to plug into 240v:</p>
-
 <ul>
 <li><a href="https://www.meanwell-led-drivers.com.au/">https://www.meanwell-led-drivers.com.au/</a></li>
 </ul>
-
 <h2>Conclusion</h2>
-
 <p>So now we have a wide variety of interesting starting points, and some key words/aspects to dig deeper into this area of research/DIY building. We learned that a lot of these products, while very cool and useful, also tend to be WAY overpriced. Maybe we can build our own, open source the designs/components/learnings from it, and move everyone forward together (rather than only those who have the big $$ to benefit).</p>
-
-<p>Was this useful? Have you built your own DIY light hacking devices? Got a cool story to share? Some new research? I&#39;d love to hear what you&#39;re doing in this space in the comments below!</p>
+<p>Was this useful? Have you built your own DIY light hacking devices? Got a cool story to share? Some new research? I'd love to hear what you're doing in this space in the comments below!</p>
 
 	  ]]></description>
 	</item>
@@ -867,16 +652,11 @@ Some tools for testing USB devices (2012)</li>
 	  <pubDate>2017-07-14T00:00:00+10:00</pubDate>
 	  <guid>/devalias/2017/07/14/link-dump-clearing-out-my-todo-list/</guid>
 	  <description><![CDATA[
-	     <p>I tend to stumble across a lot of interesting things as I travel across the web, and one of my productivity methods is to save the things I don&#39;t have time to check out immediately to <a href="https://todoist.com/">Todoist</a>. Unfortunately, time can be short, and life busy, so those &#39;thats an interesting article&#39;, &#39;i could use that tech thing&#39; and &#39;that would be cool to blog about&#39; things tend to just build up, and clutter my todo lists in an ever less efficient manner. So today lets clear some of that out!</p>
-
+	     <p>I tend to stumble across a lot of interesting things as I travel across the web, and one of my productivity methods is to save the things I don't have time to check out immediately to <a href="https://todoist.com/">Todoist</a>. Unfortunately, time can be short, and life busy, so those 'thats an interesting article', 'i could use that tech thing' and 'that would be cool to blog about' things tend to just build up, and clutter my todo lists in an ever less efficient manner. So today lets clear some of that out!</p>
 <p>This post will be a vaguely categorised link dump, and depending on if I remember why I saved it, maybe some notes too.</p>
-
 <p>Looking over everything, there seem to be trends around development, security, privacy, blog/website, docker, tech, automation, branding and general performance/efficiency. Not really surprising when I think about the things that tend to interest me :)</p>
-
 <p>Hope you find something interesting!</p>
-
 <h2>Development</h2>
-
 <ul>
 <li><a href="https://www.jetbrains.com/research/devecosystem-2017/">The State of Developer Ecosystem 2017 - Infographic | JetBrains</a></li>
 <li><a href="https://insights.stackoverflow.com/survey/2017">Developer Survey Results 2017 - Stackoverflow</a></li>
@@ -884,45 +664,42 @@ Some tools for testing USB devices (2012)</li>
 <li><a href="https://hackernoon.com/how-it-feels-to-learn-javascript-in-2016-d3a717dd577f">How it feels to learn JavaScript in 2016 – Hacker Noon</a></li>
 <li><a href="https://mightysignal.com/top-ios-sdks">Most Used SDKs in Top 200 Free iOS Apps | MightySignal - Mobile App &amp; SDK Intelligence for iOS / Android</a></li>
 <li>Frontend Package Managers
-
 <ul>
 <li><a href="https://yarnpkg.com/en/">Yarn</a>: Package Manager</li>
 <li><a href="https://code.facebook.com/posts/1840075619545360">Yarn: A new package manager for JavaScript</a></li>
 <li><a href="https://github.com/yarnpkg/yarn">yarnpkg/yarn</a>: Fast, reliable, and secure dependency management.</li>
 <li><a href="https://bower.io/blog/2016/using-bower-with-yarn/">Using Bower with Yarn</a>: bower support dropped for now</li>
-<li><a href="https://www.slant.co/versus/17851/5094/%7Eyarn_vs_bower">Yarn vs Bower detailed comparison as of 2017 - Slant</a></li>
-<li><a href="https://www.slant.co/topics/1488/%7Efront-end-package-managers">13 Best front-end package managers as of 2017 - Slant</a></li>
-</ul></li>
-<li>Frontend JS Languages 
-
+<li><a href="https://www.slant.co/versus/17851/5094/~yarn_vs_bower">Yarn vs Bower detailed comparison as of 2017 - Slant</a></li>
+<li><a href="https://www.slant.co/topics/1488/~front-end-package-managers">13 Best front-end package managers as of 2017 - Slant</a></li>
+</ul>
+</li>
+<li>Frontend JS Languages
 <ul>
 <li><a href="https://medium.com/front-end-hacking/es2015-vs-elm-vs-typescript-a88dbc5d14d9">ES2015 JavaScript vs. Elm vs. TypeScript – Frontend Weekly – Medium</a></li>
 <li><a href="http://mutanatum.com/posts/2017-01-12-Browser-FP-Head-to-Head.html">Selecting a platform - JavaScript vs Elm vs PureScript vs GHCjs vs Scalajs | MutanatuM</a></li>
-</ul></li>
+</ul>
+</li>
 <li>Code Review
-
 <ul>
 <li><a href="https://codacy.com/">Automated code reviews &amp; code analytics | Codacy</a>: Check code style, security, duplication, complexity and coverage on every change while tracking code quality throughout your sprints.</li>
 <li><a href="https://codeclimate.com/">Code Climate</a>: Get automated code review for test coverage, complexity, duplication, security, style, and more, and merge with confidence.</li>
-</ul></li>
+</ul>
+</li>
 <li><a href="http://www.foundweekends.org/conscript/">Conscript — Conscript</a>: Distribution mechanism for Scala apps using Github and Maven repositories as the infrastructure. You can use it to install and update apps similar to APT or Home Brew.</li>
 <li><a href="http://www.foundweekends.org/giter8/">Giter8 — Giter8</a>: Command line tool to generate files and directories from templates published on Github or any other git repository</li>
 <li><a href="https://github.com/lightbend/paradox">lightbend/paradox</a>: Paradox is a markdown documentation tool for software projects.</li>
 <li><a href="https://github.com/sirthias/pegdown/">sirthias/pegdown</a>: A pure-Java Markdown processor based on a parboiled PEG parser supporting a number of extensions</li>
 <li><a href="https://ace.c9.io/">Ace - The High Performance Code Editor for the Web</a>
-
 <ul>
 <li><a href="https://github.com/ajaxorg/ace">ajaxorg/ace</a>: Ace (Ajax.org Cloud9 Editor)</li>
 <li><a href="https://github.com/lyrasoft/ace-markdown-editor">lyrasoft/ace-markdown-editor</a>: A Markdown editor for Joomla CMS</li>
 <li><a href="https://ace.c9.io/kitchen-sink.html?doc=Markdown">Ace Kitchen Sink</a></li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <h2>Security</h2>
-
 <ul>
 <li>CTF
-
 <ul>
 <li><a href="http://www.learn2hack.com.au/">Experience IT - Cyber Security | learn2hack | TAFE</a>: Hands on training for high school students run by industry experts with pathways to tertiary qualifications. This course provides an introduction to defensive and offensive security strategies and tactics and is suitable for high school students aged 15-18.</li>
 <li><a href="https://ctf.0ops.net/">0CTF 2017</a></li>
@@ -934,26 +711,26 @@ Some tools for testing USB devices (2012)</li>
 <li><a href="https://github.com/legitbs/quals-2014">legitbs/quals-2014</a></li>
 <li><a href="https://github.com/legitbs/finals-2013">legitbs/finals-2013</a>: Source for many challenges from DEF CON 21 CTF Finals</li>
 <li><a href="https://github.com/legitbs/quals-2013">legitbs/quals-2013</a>: Source for many challenges from DEF CON 21 CTF Qualifier</li>
-<li><a href="http://flaws.cloud/">flaws.cloud</a>: Through a series of levels you&#39;ll learn about common mistakes and gotchas when using Amazon Web Services (AWS).</li>
+<li><a href="http://flaws.cloud/">flaws.cloud</a>: Through a series of levels you'll learn about common mistakes and gotchas when using Amazon Web Services (AWS).</li>
 <li><a href="https://dook.biz/2017/03/crikeyconctf-2017-koala-gallery-writeup/">CrikeyConCTF 2017 – Koala Gallery Writeup</a></li>
-</ul></li>
+</ul>
+</li>
 <li>BSides 2017
-
 <ul>
 <li><a href="http://buffered.io/posts/bsidescbr-ctf-round-up/">BSidesCBR CTF Round Up | OJ</a></li>
 <li><a href="https://github.com/OJ/bsides-2017-ctf-docker">OJ/bsides-2017-ctf-docker</a>: BSidesCBR CTF docker compose files</li>
 <li><a href="https://www.rootusers.com/bsides-canberra-2017-ctf-rekt-exfil-write/">BSides Canberra 2017 CTF - Rekt Exfil Write-up - RootUsers</a></li>
-</ul></li>
+</ul>
+</li>
 <li>Reverse Engineering, etc
-
 <ul>
 <li><a href="https://binary.ninja/">binary.ninja</a>: A reverse engineering platform</li>
 <li><a href="http://kaitai.io/">Kaitai Struct: declarative binary format parsing language</a> A new way to develop parsers for binary structures.</li>
 <li><a href="http://www.hopperapp.com/">Hopper</a>: The macOS and Linux Disassembler</li>
 <li><a href="http://cerbero.io/profiler/">Cerbero - Profiler</a>: Cerbero Profiler is a tool designed primarily for malware and forensic analysis.</li>
-</ul></li>
+</ul>
+</li>
 <li>Recon, DNS, etc
-
 <ul>
 <li>find IP ranges, reverse IP lookups, etc</li>
 <li>seclists subdomain section</li>
@@ -968,38 +745,39 @@ Some tools for testing USB devices (2012)</li>
 <li><a href="https://bitbucket.org/LaNMaSteR53/recon-ng">LaNMaSteR53 / Recon-ng — Bitbucket</a>: Recon-ng is a full-featured Web Reconnaissance framework written in Python.</li>
 <li><a href="http://tools.kali.org/information-gathering/dnsenum">dnsenum | Penetration Testing Tools</a></li>
 <li><a href="https://github.com/ChrisTruncer/EyeWitness">ChrisTruncer/EyeWitness</a>: EyeWitness is designed to take screenshots of websites, provide some server header info, and identify default credentials if possible.</li>
-</ul></li>
+</ul>
+</li>
 <li>Dockerised
-
 <ul>
 <li><a href="https://zeltser.com/metasploit-framework-docker-container/">Run Metasploit Framework as a Docker Container Without Installation Pains</a></li>
 <li><a href="https://hub.docker.com/r/k0st/alpine-nikto/">k0st/alpine-nikto | DockerHub</a>: Dockerized nikto</li>
 <li>docker run --rm -it activeshadow/nikto /bin/bash</li>
 <li><a href="https://github.com/kost/docker-webscan">kost/docker-webscan</a>: Dockerized versions of various web security scanning tools and utilities</li>
-</ul></li>
+</ul>
+</li>
 <li>Frameworks, automation, etc
-
 <ul>
 <li><a href="https://github.com/trustedsec/ptf">trustedsec/ptf</a>: The Penetration Testers Framework (PTF) is a way for modular support for up-to-date tools.</li>
 <li><a href="http://www.golismero.com/">Golismero Project. The web knife.</a>
-
 <ul>
-<li>GoLismero is a free software framework for security testing. It&#39;s currently geared towards web security, but it can easily be expanded to other kinds of scans. It can run their own security tests and manage a lot of well known security tools (OpenVas, Wfuzz, SQLMap, DNS recon, robot analyzer...) take their results, feedback to the rest of tools and merge all of results. And all of this automatically.</li>
+<li>GoLismero is a free software framework for security testing. It's currently geared towards web security, but it can easily be expanded to other kinds of scans. It can run their own security tests and manage a lot of well known security tools (OpenVas, Wfuzz, SQLMap, DNS recon, robot analyzer...) take their results, feedback to the rest of tools and merge all of results. And all of this automatically.</li>
 <li><a href="https://github.com/golismero/golismero">golismero/golismero</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="http://www.spiderfoot.net/">SpiderFoot – Open Source Intelligence Automation</a>
-
 <ul>
-<li><a href="https://github.com/smicallef/spiderfoot">smicallef/spiderfoot</a>: SpiderFoot, the open source footprinting and intelligence-gathering tool. </li>
-</ul></li>
-</ul></li>
+<li><a href="https://github.com/smicallef/spiderfoot">smicallef/spiderfoot</a>: SpiderFoot, the open source footprinting and intelligence-gathering tool.</li>
+</ul>
+</li>
+</ul>
+</li>
 <li><a href="https://bugcrowd.com/vulnerability-rating-taxonomy">Vulnerability Rating Taxonomy | Bugcrowd</a>
-
 <ul>
 <li>Bugcrowd’s VRT is a resource outlining Bugcrowd’s baseline priority rating, including certain edge cases, for vulnerabilities that we often see.</li>
 <li><a href="https://github.com/bugcrowd/vulnerability-rating-taxonomy">bugcrowd/vulnerability-rating-taxonomy</a></li>
-</ul></li>
-<li><a href="https://www.pastemonitor.com/">PasteMonitor</a>: PasteMonitor watches for keywords you&#39;re interested in on Pastebin.</li>
+</ul>
+</li>
+<li><a href="https://www.pastemonitor.com/">PasteMonitor</a>: PasteMonitor watches for keywords you're interested in on Pastebin.</li>
 <li><a href="https://requestb.in/">RequestBin — Collect, inspect and debug HTTP requests and webhooks</a></li>
 <li><a href="https://github.com/Runscope/requestbin">Runscope/requestbin</a>: Inspect HTTP requests. Debug webhooks.</li>
 <li><a href="https://github.com/maurosoria/dirsearch">maurosoria/dirsearch</a>: Web path scanner</li>
@@ -1010,15 +788,13 @@ Some tools for testing USB devices (2012)</li>
 <li><a href="https://medium.com/on-docker/secrets-and-lie-abilities-the-state-of-modern-secret-management-2017-c82ec9136a3d">Secrets and LIE-abilities: The State of Modern Secret Management [2017]</a></li>
 <li><a href="https://www.cert.gov.au/vulnerability-disclosures">Vulnerability Disclosures | CERT Australia</a></li>
 <li>Where are BURP setttings saved?
-
 <ul>
 <li>On OSX it is stored in the com.apple.java.util.prefs.plist under ~/Library/Preferences.</li>
 <li>Also, you need to make sure you use the burp-&gt;exit to quit and not the Burp.StartBurp-&gt;Quit (Command-Q) to exit. Otherwise, it will not save the settings.</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <h2>Privacy</h2>
-
 <ul>
 <li><a href="http://www.shellntel.com/blog/2016/3/30/vpn-over-dns-1">VPN over DNS</a></li>
 <li><a href="https://www.whonix.org/wiki/Main_Page">Whonix</a>: Whonix is a free desktop operating system (OS) that is specifically designed for advanced security and privacy. Based on Tor, Debian GNU/Linux and the principle of security by isolation, it realistically addresses common attack vectors while maintaining usability.</li>
@@ -1027,68 +803,65 @@ Some tools for testing USB devices (2012)</li>
 <li><a href="https://blog.jessfraz.com/post/running-a-tor-relay-with-docker/">2: Running a Tor relay with Docker</a></li>
 <li><a href="https://blog.jessfraz.com/post/tor-socks-proxy-and-privoxy-containers/">3: Tor Socks Proxy and Privoxy Containers</a></li>
 <li>Advanced Privacy and Anonymity Using VMs, VPN’s, Tor
-
 <ul>
 <li><a href="https://www.ivpn.net/privacy-guides/advanced-privacy-and-anonymity-part-1">Part 1 - Introduction to Series</a></li>
-<li><a href="https://www.ivpn.net/privacy-guides/advanced-privacy-and-anonymity-part-2">Part 2 - Basic Setup Using VM&#39;s, VPNs and TOR</a></li>
+<li><a href="https://www.ivpn.net/privacy-guides/advanced-privacy-and-anonymity-part-2">Part 2 - Basic Setup Using VM's, VPNs and TOR</a></li>
 <li><a href="https://www.ivpn.net/privacy-guides/advanced-privacy-and-anonymity-part-3">Part 3 - Planning Advanced VM and VPN Setup</a></li>
 <li><a href="https://www.ivpn.net/privacy-guides/advanced-privacy-and-anonymity-part-4">Part 4 - Setting Up Secure Host Machines</a></li>
 <li><a href="https://www.ivpn.net/privacy-guides/advanced-privacy-and-anonymity-part-5">Part 5 - Installing VirtualBox and Creating Linux VMs</a></li>
 <li><a href="https://www.ivpn.net/privacy-guides/advanced-privacy-and-anonymity-part-6">Part 6 - Creating pfSense 2.2.6 VMs as VPN Clients</a></li>
 <li><a href="https://www.ivpn.net/privacy-guides/advanced-privacy-and-anonymity-part-7">Part 7 - Paying Anonymously with Cash and Bitcoins</a></li>
 <li><a href="https://www.ivpn.net/privacy-guides/advanced-privacy-and-anonymity-part-8">Part 8 - Creating Nested Chains of VPNs and Tor</a></li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <h2>Blog / Website / Social</h2>
-
 <ul>
 <li><a href="https://www.ohow.co/removing-google-analytics-spam/">Ultimate Guide to Blocking and Cleaning Google Analytics Spam and Other Junk Traffic</a></li>
 <li><a href="https://later.com/blog/ultimate-guide-to-using-instagram-hashtags/">The Ultimate Guide to Instagram Hashtags in 2017</a></li>
 <li><a href="https://staticman.net/docs/">Staticman</a>: I bring user-generated content to static sites</li>
 <li>Blog Inspiration
-
 <ul>
 <li><a href="http://rhiaro.co.uk/">Amy/Rhiaro | tampering with arrangements</a>: Lots of social web/lifelogging type stuff, seems cool</li>
 <li><a href="http://www.savespendsplurge.com/tag/what-i-bought/">What I bought | Save. Spend. Splurge.</a>: Lifelogging type stuff</li>
 <li><a href="https://github.com/aarongustafson/aarongustafson.github.io/tree/source">aarongustafson/aarongustafson.github.io</a> (<a href="https://www.aaron-gustafson.com/">web</a>): Web standards &amp; accessibility advocate at Microsoft</li>
-</ul></li>
+</ul>
+</li>
 <li>Jekyll
-
 <ul>
 <li><a href="https://mademistakes.com/articles/using-jekyll-2016/">How I’m Using Jekyll in 2016</a></li>
 <li><a href="https://jekyllrb.com/docs/collections/">Jekyll Collections</a>: For writings/etc?</li>
-</ul></li>
+</ul>
+</li>
 <li>Jekyll Plugins
-
 <ul>
 <li><a href="https://github.com/pattex/jekyll-tagging/issues/43#issuecomment-289595438">Generate a /tag/index.html · Issue #43 · pattex/jekyll-tagging</a>: TODO: Implement tag_cloud for my blog</li>
 <li><a href="https://github.com/jekyll/jekyll-archives">jekyll/jekyll-archives</a>: Archive pages for your Jekyll tags and categories</li>
 <li><a href="https://github.com/pattex/jekyll-tagging">pattex/jekyll-tagging</a>: Jekyll plugin to automatically generate a tag cloud and tag pages.</li>
 <li><a href="https://github.com/toshimaru/jekyll-tagging-related_posts">toshimaru/jekyll-tagging-related_posts</a>: Jekyll related_posts function based on tags (works on Jekyll3)</li>
-<li><a href="https://github.com/octopress/paginate/">octopress/paginate</a>: A simple paginator for Jekyll sites. </li>
+<li><a href="https://github.com/octopress/paginate/">octopress/paginate</a>: A simple paginator for Jekyll sites.</li>
 <li><a href="https://github.com/jekyll/jekyll-assets">jekyll/jekyll-assets</a>: Asset pipelines for Jekyll.</li>
 <li><a href="https://github.com/robwierzbowski/jekyll-picture-tag">robwierzbowski/jekyll-picture-tag</a>: Easy responsive images for Jekyll.</li>
 <li>Jekyll wiki plugin?</li>
-</ul></li>
+</ul>
+</li>
 <li>GitHub Issues
-
 <ul>
 <li><a href="https://github.com/indirect/jekyll-postfiles/issues/6">Make this a ruby gem · Issue #6 · indirect/jekyll-postfiles</a></li>
 <li><a href="https://github.com/aarongustafson/jekyll-webmention_io/issues/11">Give rake task the ability to detect and notify pingback endpoints · Issue #11 · aarongustafson/jekyll-webmention_io</a></li>
 <li><a href="https://github.com/aarongustafson/jekyll-webmention_io/issues/12">Rake task will download entire file looking for webmention endpoint · Issue #12 · aarongustafson/jekyll-webmention_io</a></li>
-</ul></li>
+</ul>
+</li>
 <li>Discoverability, etc
-
 <ul>
 <li><a href="http://oembed.com/">oEmbed</a>:oEmbed is a format for allowing an embedded representation of a URL on third party sites.</li>
 <li><a href="http://pingomatic.com/">Ping-o-Matic!</a>: Ping-O-Matic is a service to update different search engines that your blog has updated.</li>
 <li><a href="https://developer.mozilla.org/en-US/docs/Web/RSS/Getting_Started/Syndicating">Syndicating content with RSS</a></li>
-</ul></li>
+</ul>
+</li>
 <li>Indieweb, etc
-
 <ul>
-<li><a href="http://indiewebify.me/">IndieWebify.Me - a guide to getting you on the IndieWeb</a>: We should all own the content we&#39;re creating, rather than just posting to third-party content silos.Publish on your own domain, and syndicate out to silos. This is the basis of the &quot;Indie Web&quot; movement.</li>
+<li><a href="http://indiewebify.me/">IndieWebify.Me - a guide to getting you on the IndieWeb</a>: We should all own the content we're creating, rather than just posting to third-party content silos.Publish on your own domain, and syndicate out to silos. This is the basis of the &quot;Indie Web&quot; movement.</li>
 <li><a href="http://activitystrea.ms">Activity Streams</a>: JSON Activity Streams Spec</li>
 <li><a href="http://indiewebcamp.com/backfeed">backfeed - IndieWeb</a>: Backfeed is the process of syndicating interactions on your POSSE copies back (AKA reverse syndicating) to your original posts.</li>
 <li><a href="http://indiewebcamp.com/Bridgy">Bridgy - IndieWeb</a>: Bridgy is an open source project and proxy that implements backfeed and POSSE as a service. Bridgy sends webmentions for comments, likes, etc. on Facebook, Twitter, Google+, Instagram, and Flickr.</li>
@@ -1097,71 +870,62 @@ Some tools for testing USB devices (2012)</li>
 <li><a href="https://checkmention.appspot.com/">Checkmention</a>: This site lets you test your webmention implementation on your indieweb site, and whether it robustly detects certain types of XSS attacks.</li>
 <li><a href="https://github.com/indieweb/mention-client-ruby">indieweb/mention-client-ruby</a>: A Ruby gem for sending webmention (and pingback) notifications</li>
 <li><a href="https://www.w3.org/wiki/Socialwg">W3C social working group</a></li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <h2>Docker</h2>
-
 <ul>
 <li><a href="https://github.com/Perlence/docker-multi-build">Perlence/docker-multi-build</a>: Concurrent multi-stage Docker builds
-
 <ul>
 <li>This is outdated now, it exists in docker core</li>
-</ul></li>
+</ul>
+</li>
 <li><a href="https://www.iron.io/how-to-cross-compile-go-programs-using-docker/">How to Cross Compile Go Programs using Docker | Iron.io</a></li>
 <li><a href="https://hub.docker.com/_/golang/">golang | DockerHub</a></li>
 </ul>
-
 <h2>Automation, Scraping, etc</h2>
-
 <ul>
 <li><a href="https://hackernoon.com/guide-to-web-automation-889557804453">Guide to Web Automation | Hackernoon</a>
-
 <ul>
 <li><a href="https://github.com/peterdemin/web-automation-2017">peterdemin/web-automation-2017</a>: An attempt to cover state of web automation in 2017
-
 <ul>
 <li>This GitHub should have a bunch of other projects detailed in some of the (probably closed) issues</li>
-</ul></li>
-</ul></li>
-<li><a href="https://scrapy.org/">Scrapy</a>: An open source and collaborative framework for extracting the data you need from websites.
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="https://scrapy.org/">Scrapy</a>: An open source and collaborative framework for extracting the data you need from websites.<br />
 In a fast, simple, yet extensible way.</li>
 <li><a href="https://github.com/scrapinghub/portia/">scrapinghub/portia</a>: Visual scraping for Scrapy</li>
 <li><a href="https://github.com/Netflix/Scumblr">Netflix/Scumblr</a>: Web framework that allows performing periodic syncs of data sources and performing analysis on the identified results</li>
 <li><a href="https://home-assistant.io/">Home Assistant</a>: Home Assistant is an open-source home automation platform running on Python 3.</li>
 </ul>
-
 <h2>Tech</h2>
-
 <ul>
 <li>Tmux
-
 <ul>
 <li><a href="https://github.com/jimeh/tmuxifier">jimeh/tmuxifier</a>: Tmuxify your Tmux. Powerful session, window &amp; pane management for Tmux.</li>
 <li><a href="https://github.com/tmuxinator/tmuxinator">tmuxinator/tmuxinator</a>: Manage complex tmux sessions easily</li>
-</ul></li>
+</ul>
+</li>
 <li><a href="https://github.com/dundalek/markmap">dundalek/markmap</a>: Visualize markdown documents as mindmaps
-
 <ul>
 <li>Can we use this to make nice markdown mindmap summaries?</li>
-</ul></li>
+</ul>
+</li>
 <li><a href="https://github.com/donnemartin/haxor-news">donnemartin/haxor-news</a>: Browse Hacker News like a haxor: A Hacker News command line interface (CLI).</li>
 <li><a href="https://apple.stackexchange.com/questions/237136/where-does-launchpad-store-folder-information-database-etc">Where does launchpad store folder information? (database, etc?)</a></li>
 <li><a href="https://dcos.io/">The Definitive Platform for Modern Apps | DC/OS</a>: DC/OS (the datacenter operating system) is an open-source, distributed operating system based on the Apache Mesos distributed systems kernel.</li>
 <li><a href="https://snapcraft.io/">snapcraft - Snaps are universal Linux packages</a>: package linux apps for every linux/server/cloud/device</li>
 </ul>
-
 <h2>Branding</h2>
-
 <ul>
 <li><a href="https://library.gv.com/the-three-hour-brand-sprint-3ccabf4b768a#.h7s3gqfx8">The Three-Hour Brand Sprint – GV Library</a></li>
 <li><a href="https://blog.docker.com/2013/06/announcing-new-docker-style/">Announcing a New Logo and Style for Docker - Docker Blog</a></li>
 <li><a href="https://99designs.com.au/logo-design">Logo Design - Get A Custom Logo Design from Professional Logo Designers | 99designs</a></li>
 <li><a href="https://99designs.com.au/logo-design/contests/create-cool-open-source-project-logo-219415">Docker - Create cool open-source project logo. | Logo design contest</a></li>
 </ul>
-
 <h2>Alfred-esque</h2>
-
 <ul>
 <li><a href="http://www.packal.org/workflow/homebrew-and-cask-alfred">Homebrew and Cask for Alfred</a></li>
 <li><a href="https://github.com/danielbayerlein/alfred-workflows/tree/master/homebrew">Alfred Workflow for Homebrew (danielbayerlein/alfred-workflows)</a></li>
@@ -1170,25 +934,19 @@ In a fast, simple, yet extensible way.</li>
 <li><a href="https://github.com/laconalabs/lacona-cli">laconalabs/lacona-cli</a></li>
 <li>Automator services ~/Library/Services</li>
 </ul>
-
 <h2>Windows</h2>
-
 <ul>
 <li><a href="http://boxstarter.org/">Boxstarter</a>: Repeatable, reboot resilient windows environment installations made easy using Chocolatey packages</li>
 <li><a href="https://chocolatey.org/">Chocolatey - The package manager for Windows</a></li>
 <li><a href="https://www.nuget.org/">NuGet Gallery | Home</a></li>
 </ul>
-
 <h2>MacOS (OSX) on Windows</h2>
-
 <ul>
 <li><a href="http://www.apple.com/au/shop/product/MJ2R2ZA/A/magic-trackpad-2">Apple Magic Magic Trackpad 2</a></li>
 <li><a href="http://extramagic.forbootcamp.org/">ExtraMagic</a>: OSX-Trackpad Multitouch on Windows</li>
 <li><a href="https://sourceforge.net/projects/ccseer/">Seer</a>: OSX-like Spacebar Preview on Windows</li>
 </ul>
-
 <h2>GitHub</h2>
-
 <ul>
 <li><a href="https://github.com/Homebrew/homebrew-bundle/issues/147"><code>brew bundle check</code> should list whats missing · Issue #147 · Homebrew/homebrew-bundle</a>: brew bundle check/dryrun</li>
 <li><a href="https://github.com/erocarrera/pefile/issues/123">Broken links in readme · Issue #123 · erocarrera/pefile</a></li>
@@ -1196,32 +954,25 @@ In a fast, simple, yet extensible way.</li>
 <li><a href="https://github.com/erocarrera/pefile/issues/125">Flag to skip parsing on PE object instantiation · Issue #125 · erocarrera/pefile</a></li>
 <li><a href="https://github.com/jgm/gitit/issues/580">Github Flavoured Markdown · Issue #580 · jgm/gitit</a></li>
 </ul>
-
 <h2>Quantified Self</h2>
-
 <ul>
 <li><a href="https://hello.is/">Sense</a>: Sleep tracker</li>
 </ul>
-
 <h2>Performance, nootropics, etc</h2>
-
 <ul>
 <li><a href="https://www.hongstarr.com/">Hong</a>: Bulletproof Coach in Melbourne, written up on Living Bulletproof, etc</li>
 <li><a href="https://www.gethapi.com.au/products/flow">Hapi | Flow</a></li>
 <li><a href="https://www.totalnootropics.com.au/collections/all-products">Total Nootropics</a></li>
 <li><a href="https://nootroplus.com/">Nootroplus - Premium Nootropics</a></li>
 </ul>
-
 <h2>Interests, activities, etc</h2>
-
 <ul>
 <li>Climbing
-
 <ul>
 <li><a href="http://climbingschool.com.au/courses/">Courses - Blue Mountains Climbing School</a></li>
-</ul></li>
+</ul>
+</li>
 <li>Archery
-
 <ul>
 <li><a href="https://www.canberraarchery.club/come-and-try">Canberra Archery - Come and Try</a></li>
 <li><a href="http://home.tuggeranongarchery.com/index.php/activities/come-and-try">Tuggeranong Archery - Come and Try</a></li>
@@ -1229,33 +980,30 @@ In a fast, simple, yet extensible way.</li>
 <li><a href="http://capitalfieldarchers.com.au/">Capital Field Archers</a></li>
 <li><a href="https://www.bowhunters.org.au/index.php/author-login/branch-f-southern-nsw-act">Branch F - Southern NSW &amp; ACT</a></li>
 <li><a href="https://www.bowhunters.org.au/">BowHunters</a></li>
-</ul></li>
+</ul>
+</li>
 <li>Shooting
-
 <ul>
 <li><a href="http://ssaa.org.au/act/ssaa-act-inc.html">SSAA ACT Inc</a></li>
 <li><a href="http://actsmallborerifleclub.com/">ACT Smallbore Rifle Club Inc</a></li>
 <li><a href="http://www.canberrarifleclub.org.au/wordpress/?page_id=110">Canberra Rifle Club</a>: Preliminary Information for Interested Persons</li>
-</ul></li>
+</ul>
+</li>
 <li>Medieval
-
 <ul>
 <li><a href="https://www.facebook.com/AncientArtsFellowship/">Ancient Arts Fellowship</a></li>
 <li><a href="http://www.aaf.org.au/fighting/">Ancient Arts Fellowship - Fighting</a></li>
 <li><a href="https://www.facebook.com/TheHundredSwords">The Hundred Swords</a></li>
 <li><a href="http://politarchopolis.lochac.sca.org/">The Barony of Politarchopolis</a></li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <h2>Gaming</h2>
-
 <ul>
 <li><a href="http://raptr.com/">Raptr</a>: Raptr makes PC gaming fast, beautiful, and hassle-free.</li>
 <li><a href="http://www.gameplay-time-tracker.info/en/download.aspx">Gameplay Time Tracker</a></li>
 </ul>
-
 <h2>Unsorted</h2>
-
 <ul>
 <li><a href="https://www.gitbook.com/">GitBook · Documentation made easy</a></li>
 <li><a href="https://www.blinkist.com/en/pricing.html">Blinkist: Serving curious minds</a></li>

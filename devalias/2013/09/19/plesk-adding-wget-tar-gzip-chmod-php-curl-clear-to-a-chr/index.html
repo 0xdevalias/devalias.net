@@ -14,9 +14,9 @@
 
   <link type="application/atom+xml" rel="alternate" href="https://www.devalias.net/feed.xml" title="/dev/alias – Hack. Dev. Transcend." />
 
-  <!-- Begin Jekyll SEO tag v2.4.0 -->
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
 <title>Plesk - Adding wget/tar/gzip/chmod/php/curl/clear to a chrooted SSH | /dev/alias – Hack. Dev. Transcend.</title>
-<meta name="generator" content="Jekyll v3.8.0" />
+<meta name="generator" content="Jekyll v4.1.1" />
 <meta property="og:title" content="Plesk - Adding wget/tar/gzip/chmod/php/curl/clear to a chrooted SSH" />
 <meta name="author" content="Glenn 'devalias' Grant" />
 <meta property="og:locale" content="en_GB" />
@@ -29,10 +29,12 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2013-09-19T08:00:00+10:00" />
 <meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://www.devalias.net/assets/images/cover4.jpg" />
+<meta property="twitter:title" content="Plesk - Adding wget/tar/gzip/chmod/php/curl/clear to a chrooted SSH" />
 <meta name="twitter:site" content="@_devalias" />
 <meta name="twitter:creator" content="@_devalias" />
 <script type="application/ld+json">
-{"description":"(tl;dr How to setup wget, tar, gzip, chmod, php and curl in a chrooted environment for Plesk.)","author":{"@type":"Person","name":"Glenn 'devalias' Grant"},"@type":"BlogPosting","url":"https://www.devalias.net/devalias/2013/09/19/plesk-adding-wget-tar-gzip-chmod-php-curl-clear-to-a-chr/","image":"https://www.devalias.net/assets/images/cover4.jpg","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://www.devalias.net/assets/images/cover4.jpg"},"name":"Glenn 'devalias' Grant"},"headline":"Plesk - Adding wget/tar/gzip/chmod/php/curl/clear to a chrooted SSH","dateModified":"2013-09-19T08:00:00+10:00","datePublished":"2013-09-19T08:00:00+10:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.devalias.net/devalias/2013/09/19/plesk-adding-wget-tar-gzip-chmod-php-curl-clear-to-a-chr/"},"@context":"http://schema.org"}</script>
+{"image":"https://www.devalias.net/assets/images/cover4.jpg","author":{"@type":"Person","name":"Glenn 'devalias' Grant"},"headline":"Plesk - Adding wget/tar/gzip/chmod/php/curl/clear to a chrooted SSH","dateModified":"2013-09-19T08:00:00+10:00","datePublished":"2013-09-19T08:00:00+10:00","url":"https://www.devalias.net/devalias/2013/09/19/plesk-adding-wget-tar-gzip-chmod-php-curl-clear-to-a-chr/","description":"(tl;dr How to setup wget, tar, gzip, chmod, php and curl in a chrooted environment for Plesk.)","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://www.devalias.net/assets/images/cover4.jpg"},"name":"Glenn 'devalias' Grant"},"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.devalias.net/devalias/2013/09/19/plesk-adding-wget-tar-gzip-chmod-php-curl-clear-to-a-chr/"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -221,99 +223,80 @@
 
         <section class="post-content">
             <p>(<strong>tl;dr</strong> How to setup wget, tar, gzip, chmod, php and curl in a chrooted environment for Plesk.)</p>
-
 <p>So those of you that have been around for a while (or read back through the archive) will know that a while ago I posted <a href="/post/15535429513/plesk-adding-programs-to-a-chrooted-ssh">Plesk - Adding programs to a chrooted SSH</a>, giving a few hints and tips about configuring a chrooted environment in Plesk.</p>
-
-<p>Today I bring you a few more little tidbits to help you out with adding <em>wget, tar, gzip and chmod</em> to your Plesk chroot&#39;d environment. I followed these steps recently in helping a client get their new site up and running.</p>
-
+<p>Today I bring you a few more little tidbits to help you out with adding <em>wget, tar, gzip and chmod</em> to your Plesk chroot'd environment. I followed these steps recently in helping a client get their new site up and running.</p>
 <p><strong>Edit:</strong> So it turns out Parallels has an <a href="http://kb.odin.com/en/115842">updated script called chroot_update.sh</a> which makes this even easier again (yay for easy!) So I will show you how do use that for PHP and curl (at the bottom).</p>
-
 <h2>Using chroot_update.sh</h2>
-
 <p>Adding programs to chroot is made MUCH easier now with the <a href="http://kb.odin.com/en/115842">chroot_update.sh</a> script from Parallels.</p>
-
 <p>To setup/update the initial chroot environment</p>
-<div class="highlight"><pre><code class="language-" data-lang="">./chroot_update.sh --update
-</code></pre></div>
-<p>To add a new program (and it&#39;s dependent shared libraries)</p>
-<div class="highlight"><pre><code class="language-" data-lang="">./chroot_update.sh --add /path/to/programname
-</code></pre></div>
+<pre><code>./chroot_update.sh --update
+</code></pre>
+<p>To add a new program (and it's dependent shared libraries)</p>
+<pre><code>./chroot_update.sh --add /path/to/programname
+</code></pre>
 <p>or</p>
-<div class="highlight"><pre><code class="language-" data-lang="">./chroot_update.sh --add `which programname`
-</code></pre></div>
+<pre><code>./chroot_update.sh --add `which programname`
+</code></pre>
 <p>Then to update each sites individual chroot folder</p>
-<div class="highlight"><pre><code class="language-" data-lang="">./chroot_update.sh --apply all
-</code></pre></div>
+<pre><code>./chroot_update.sh --apply all
+</code></pre>
 <p>If you find there are some missing shared objects, figure out which ones are missing using ldd and copy them in to the chroot folder</p>
-<div class="highlight"><pre><code class="language-" data-lang="">ldd /path/to/programname
+<pre><code>ldd /path/to/programname
 cp /path/to/missingobject chroot/path/to/missingobject
 ./chroot_update.sh --apply all
-</code></pre></div>
+</code></pre>
 <h2>Wget</h2>
-
 <p><a href="https://www.gnu.org/software/wget/">Wget</a> is an awesome little program for downloading files off the net. For anyone who has ever setup an install of some 3rd party program and had to individually upload each and every file, this is a lifesaver!</p>
-
 <p>To find out where the wget executable is</p>
-<div class="highlight"><pre><code class="language-" data-lang="">which wget
-</code></pre></div>
+<pre><code>which wget
+</code></pre>
 <p>To check if it has any dependancies</p>
-<div class="highlight"><pre><code class="language-" data-lang="">ldd `which wget`
-</code></pre></div>
+<pre><code>ldd `which wget`
+</code></pre>
 <p>This will probably give you a whole list of things, but it seems the only one we really need to worry about (at least that I did) was <em>libssl.so.6</em>. So we copy both it and the executable to the chroot template folder</p>
-<div class="highlight"><pre><code class="language-" data-lang="">cp `which wget` /var/www/vhosts/chroot/bin
+<pre><code>cp `which wget` /var/www/vhosts/chroot/bin
 cp /lib64/libssl.so.6 /var/www/vhosts/chroot/lib64
-</code></pre></div>
-<p>And it&#39;s done! To update any sites already generated, checkout the <a href="/post/15535429513/plesk-adding-programs-to-a-chrooted-ssh">original article</a></p>
-
+</code></pre>
+<p>And it's done! To update any sites already generated, checkout the <a href="/post/15535429513/plesk-adding-programs-to-a-chrooted-ssh">original article</a></p>
 <h2>Tar</h2>
-
-<p><a href="https://www.gnu.org/software/tar/">Tar</a> is the defacto standard for archiving/unarchiving files on *nix, so.. it&#39;s pretty useful.</p>
-
+<p><a href="https://www.gnu.org/software/tar/">Tar</a> is the defacto standard for archiving/unarchiving files on *nix, so.. it's pretty useful.</p>
 <p>To find out where the tar executable is</p>
-<div class="highlight"><pre><code class="language-" data-lang="">which tar
-</code></pre></div>
+<pre><code>which tar
+</code></pre>
 <p>To check if it has any dependancies</p>
-<div class="highlight"><pre><code class="language-" data-lang="">ldd `which tar`
-</code></pre></div>
-<p>In my case, nothing needed here, so let&#39;s just copy the executable</p>
-<div class="highlight"><pre><code class="language-" data-lang="">cp `which tar` /var/www/vhosts/chroot/bin
-</code></pre></div>
+<pre><code>ldd `which tar`
+</code></pre>
+<p>In my case, nothing needed here, so let's just copy the executable</p>
+<pre><code>cp `which tar` /var/www/vhosts/chroot/bin
+</code></pre>
 <p>Done! Same as before, to update any sites already generated, checkout the <a href="/post/15535429513/plesk-adding-programs-to-a-chrooted-ssh">original article</a></p>
-
 <h2>Gzip</h2>
-
-<p><a href="http://www.gzip.org/">Gzip</a> let&#39;s you open gzip compressed files (funnily enough) It&#39;s also what <code>tar</code> calls when you tell it to extract a <code>.tar.gz</code> file.</p>
-
+<p><a href="http://www.gzip.org/">Gzip</a> let's you open gzip compressed files (funnily enough) It's also what <code>tar</code> calls when you tell it to extract a <code>.tar.gz</code> file.</p>
 <p>To find out where the gzip executable is</p>
-<div class="highlight"><pre><code class="language-" data-lang="">which gzip
-</code></pre></div>
+<pre><code>which gzip
+</code></pre>
 <p>To check if it has any dependancies</p>
-<div class="highlight"><pre><code class="language-" data-lang="">ldd `which gzip`
-</code></pre></div>
-<p>In my case, nothing needed here, so let&#39;s just copy the executable</p>
-<div class="highlight"><pre><code class="language-" data-lang="">cp `which gzip` /var/www/vhosts/chroot/bin
-</code></pre></div>
+<pre><code>ldd `which gzip`
+</code></pre>
+<p>In my case, nothing needed here, so let's just copy the executable</p>
+<pre><code>cp `which gzip` /var/www/vhosts/chroot/bin
+</code></pre>
 <p>Done! Same as before, to update any sites already generated, checkout the <a href="/post/15535429513/plesk-adding-programs-to-a-chrooted-ssh">original article</a></p>
-
 <h2>Chmod</h2>
-
-<p><a href="https://en.wikipedia.org/wiki/Chmod">Chmod</a> let&#39;s you change permissions on files, kinda useful to be able to do.</p>
-
+<p><a href="https://en.wikipedia.org/wiki/Chmod">Chmod</a> let's you change permissions on files, kinda useful to be able to do.</p>
 <p>To find out where the chmod executable is</p>
-<div class="highlight"><pre><code class="language-" data-lang="">which chmod
-</code></pre></div>
+<pre><code>which chmod
+</code></pre>
 <p>To check if it has any dependancies</p>
-<div class="highlight"><pre><code class="language-" data-lang="">ldd `which chmod`
-</code></pre></div>
-<p>In my case, nothing needed here, so let&#39;s just copy the executable</p>
-<div class="highlight"><pre><code class="language-" data-lang="">cp `which chmod` /var/www/vhosts/chroot/bin
-</code></pre></div>
+<pre><code>ldd `which chmod`
+</code></pre>
+<p>In my case, nothing needed here, so let's just copy the executable</p>
+<pre><code>cp `which chmod` /var/www/vhosts/chroot/bin
+</code></pre>
 <p>Done! Same as before, to update any sites already generated, checkout the <a href="/post/15535429513/plesk-adding-programs-to-a-chrooted-ssh">original article</a></p>
-
 <h2>PHP</h2>
-
 <p>Sticking to the <code>chroot_update.sh</code> method, installing php is easier than it would otherwise be, but there are still quite a few manual steps due to the dependencies of some of the shared libraries.</p>
-<div class="highlight"><pre><code class="language-" data-lang="">./chroot_update.sh --add `which php`
+<pre><code>./chroot_update.sh --add `which php`
 cp -R /usr/lib64/php chroot/usr/lib64
 ./chroot_update.sh --add /usr/lib64/php/modules/gd.so
 ./chroot_update.sh --add /usr/lib64/php/modules/imap.so
@@ -326,21 +309,19 @@ cp -R /etc/php.d chroot/etc
 cp /etc/localtime chroot/etc/
 cp -R /usr/share/zoneinfo chroot/usr/share/
 ./chroot_update.sh --apply all
-</code></pre></div>
+</code></pre>
 <p>Your mileage my vary depending on what modules you have installed, but the method is the same as above for other files. You may need to play around with some php.ini type settings to get things working, but it should be relatively straightforward.</p>
-
 <h2>Curl</h2>
-
 <p>Sticking to the <code>chroot_update.sh</code> method, installing curl is really simple</p>
-<div class="highlight"><pre><code class="language-" data-lang="">./chroot_update.sh --add `which curl`
+<pre><code>./chroot_update.sh --add `which curl`
 ./chroot_update.sh --apply all
-</code></pre></div>
+</code></pre>
 <h2>Clear</h2>
-
 <p>Sticking to the <code>chroot_update.sh</code> method, installing clear is really simple</p>
-<div class="highlight"><pre><code class="language-" data-lang="">./chroot_update.sh --add `which clear`
+<pre><code>./chroot_update.sh --add `which clear`
 ./chroot_update.sh --apply all
-</code></pre></div>
+</code></pre>
+
         </section>
 
         <footer class="post-footer">
@@ -525,7 +506,7 @@ cp -R /usr/share/zoneinfo chroot/usr/share/
             </section>
             <section class="poweredby">
                 <div>
-                    <strong>Build:</strong> 9b128d3c0
+                    <strong>Build:</strong> 618e30db6
                     <a href="https://github.com/0xdevalias/devalias.net/tree/master/_posts/2013-09-19-plesk-adding-wget-tar-gzip-chmod-php-curl-clear-to-a-chr.md" target="_blank">
                         <i class="fas fa-edit"></i>
                         Edit on GitHub

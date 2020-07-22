@@ -19,11 +19,71 @@
 	  <guid>/devalias/2014/05/15/java-scala-future-promise-map-headsplode/</guid>
 	  <description><![CDATA[
 	     <p>A side by side comparison (now that I finally got it figured out!) of <a href="https://www.playframework.com/">Play Framework</a> v2.2.x promise unwrapping in <a href="https://www.java.com/en/">Java</a> and <a href="http://www.scala-lang.org/">Scala</a>. Hopefully this will be able to save some of you a bunch of mind numbing ponderings and failures.</p>
-
 <p>&lt;3 /dev/alias</p>
+<p><a href="https://gist.github.com/0xdevalias/1d3b44312d8a68ddbaa5">https://gist.github.com/0xdevalias/1d3b44312d8a68ddbaa5</a></p>
+<p><noscript><pre># Java/Scala Future/Promise Map</p>
+<p>A side by side comparison (now that I finally got it figured out!) of Play Framework v2.2.x promise unwrapping in Java and Scala.</p>
+<h2>Java</h2>
+<pre lang="java"><code>  public Promise&amp;lt;ObjectNode&amp;gt; getEmployees(final Optional&amp;lt;String&amp;gt; filterEmail)
+	{
+		// Call the webservice
+		Promise&amp;lt;Response&amp;gt; promiseOfEmployees = this.xero.getEmployees(filterEmail);
+		
+		// Map into an ObjectNode
+		Promise&amp;lt;ObjectNode&amp;gt; promiseJson = promiseOfEmployees.map(new F.Function&amp;lt;WS.Response, ObjectNode&amp;gt;()
+		{
+			@Override
+			public ObjectNode apply(final Response response) throws Throwable
+			{
+				JsonNode responseJson = response.asJson();
 
-<p><noscript><pre>404: Not Found
-</pre></noscript><script src="https://gist.github.com/alias1/1d3b44312d8a68ddbaa5.js"> </script></p>
+				ObjectNode json = Json.newObject();
+
+				json.put(&amp;quot;foo&amp;quot;, &amp;quot;bar&amp;quot;);
+
+				return json;
+			}
+		});
+
+		// Return
+		return promiseJson;
+	}
+</code></pre>
+<h2>Scala</h2>
+<pre lang="scala"><code>def getEmployees(filterEmail: Optional[String]): Promise[ObjectNode] = {
+    // Call the webservice
+    val promiseOfEmployees: Promise[Response] = this.xero.getEmployees(filterEmail)
+    
+    // Map into an ObjectNode
+    val promiseJson: Future[ObjectNode] = promiseOfEmployees.wrapped().map { response =&amp;gt;
+      val jsonResponse: JsonNode = response.asJson();
+      val json: ObjectNode = Json.newObject()
+      json.put(&amp;quot;foo&amp;quot;, &amp;quot;bar&amp;quot;);
+      json // Return
+    }
+
+    // Return
+    return Promise.wrap(promiseJson)
+  }
+</code></pre>
+<h2>Scala (Implicit)</h2>
+<pre lang="scala"><code>  def getEmployees(filterEmail: Optional[String]): Promise[ObjectNode] = {
+    // Call the webservice
+    val promiseOfEmployees = this.xero.getEmployees(filterEmail)
+
+    // Map into an ObjectNode
+    val promiseJson = promiseOfEmployees.wrapped().map { response =&amp;gt;
+      val jsonResponse = response.asJson();
+      val json = Json.newObject()
+      json.put(&amp;quot;foo&amp;quot;, &amp;quot;bar&amp;quot;);
+      json // Return
+    }
+
+    // Return
+    return Promise.wrap(promiseJson)
+  }
+</code></pre>
+<p>&lt;3 Glenn / devalias</pre></noscript><script src="https://gist.github.com/1d3b44312d8a68ddbaa5.js"> </script></p>
 
 	  ]]></description>
 	</item>
@@ -36,29 +96,27 @@
 	  <guid>/devalias/2014/04/17/using-lombok-with-play-framework-22x/</guid>
 	  <description><![CDATA[
 	     <p><a href="https://projectlombok.org/">Lombok</a> is a project that removes some of the tediousness of Java by letting you use annotations to replace the verbosity of Getters/Setters (and heaps of other cool things!)</p>
-
 <ul>
 <li>This is mostly a note for me to help save a TON of time screwing around again.</li>
-<li>Play 2.2.x works &#39;out of the box&#39; just by including lombok in your dependencies</li>
+<li>Play 2.2.x works 'out of the box' just by including lombok in your dependencies</li>
 </ul>
-<div class="highlight"><pre><code class="language-" data-lang="">libraryDependencies ++= Seq(
+<pre><code>libraryDependencies ++= Seq(
   foo,
   bar,
   baz,
-  "org.projectlombok" % "lombok" % "1.12.6"
+  &quot;org.projectlombok&quot; % &quot;lombok&quot; % &quot;1.12.6&quot;
 )
-</code></pre></div>
+</code></pre>
 <ul>
-<li>Where you run into issues is that play eclipse won&#39;t add the correct stuff for lombok to work correctly.</li>
+<li>Where you run into issues is that play eclipse won't add the correct stuff for lombok to work correctly.</li>
 <li>After a lot of messing around, I just went back to the method suggested on the site
-
 <ul>
 <li>Download from <a href="http://projectlombok.org/download.html">http://projectlombok.org/download.html</a></li>
 <li>Run the installer and let it configure Eclipse</li>
 <li>Done</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <p>&lt;3</p>
 
 	  ]]></description>

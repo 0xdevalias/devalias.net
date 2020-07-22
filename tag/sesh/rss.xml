@@ -19,23 +19,17 @@
 	  <guid>/devalias/2013/08/08/new-window-with-tabs-to-right-chrome-extension/</guid>
 	  <description><![CDATA[
 	     <p>(tl;dr I wrote a chrome extension, <a href="https://chrome.google.com/webstore/detail/new-window-with-tabs-to-r/ldahcfljppchbfgdokomobmfdfplaman">get it in the web store</a> or <a href="https://github.com/alias1/chrome-NewWindowWithTabsToRight">check it out on GitHub</a>)</p>
-
 <p>So I decided I would re-dip my feet into the wonderful world that is chrome extensions. I had a little look a while back, but never really got to making anything relevant.</p>
-
 <p>This time around I decided to start off simple, and something that I would find useful, so without further ado building up drumroll here is the copypasta of the description I wrote for the chrome web store (there are SO many extra little hoops you have to jump through to go from working code to published in the web store.. Maybe a potential future topic?):</p>
-
 <blockquote>
-<p>This is a simple little extension (my first proper one!) that I wanted to make my life a little easier.
-It lets you create a new window with the tabs to the right (optionally including the current tab)
-My main reason for wanting this was to more effectively make use of the &#39;Sesh&#39; extension by Yuji Kosugi when I forgot to open a new window before opening a ton of tabs.
-If you have any comments, criticisms, praise, hatred, marriage proposals, fluffy bunnies, or transdimensional gateway blueprints, feel free to send them through to me at <a href="mailto:feedback@devalias.net">feedback@devalias.net</a> (Make sure to mention the extension name in the subject so I know what you&#39;re talking about!)</p>
+<p>This is a simple little extension (my first proper one!) that I wanted to make my life a little easier.<br />
+It lets you create a new window with the tabs to the right (optionally including the current tab)<br />
+My main reason for wanting this was to more effectively make use of the 'Sesh' extension by Yuji Kosugi when I forgot to open a new window before opening a ton of tabs.<br />
+If you have any comments, criticisms, praise, hatred, marriage proposals, fluffy bunnies, or transdimensional gateway blueprints, feel free to send them through to me at <a href="mailto:feedback@devalias.net">feedback@devalias.net</a> (Make sure to mention the extension name in the subject so I know what you're talking about!)</p>
 </blockquote>
-
-<p>Since that&#39;s a blockquote and I can&#39;t link in it, here is a link to <a href="https://chrome.google.com/webstore/detail/sesh/emclpejnhkiogdlimfgipbdfpdcnhhoj">Sesh</a> by <a href="https://about.me/yujily">Yuji Kosugi</a> (highly recommended if you&#39;re a tab junkie like myself!)</p>
-
-<p>So yeah, that&#39;s it! Check it out in the <a href="https://chrome.google.com/webstore/detail/new-window-with-tabs-to-r/ldahcfljppchbfgdokomobmfdfplaman">Chrome Web Store</a> and let me know what you think!!</p>
-
-<p>Oh, by the way, since I love you guys and open source software, it&#39;s released under the MIT Licence and you can go and <a href="https://github.com/alias1/chrome-NewWindowWithTabsToRight">check it out over at GitHub</a>! &lt;3</p>
+<p>Since that's a blockquote and I can't link in it, here is a link to <a href="https://chrome.google.com/webstore/detail/sesh/emclpejnhkiogdlimfgipbdfpdcnhhoj">Sesh</a> by <a href="https://about.me/yujily">Yuji Kosugi</a> (highly recommended if you're a tab junkie like myself!)</p>
+<p>So yeah, that's it! Check it out in the <a href="https://chrome.google.com/webstore/detail/new-window-with-tabs-to-r/ldahcfljppchbfgdokomobmfdfplaman">Chrome Web Store</a> and let me know what you think!!</p>
+<p>Oh, by the way, since I love you guys and open source software, it's released under the MIT Licence and you can go and <a href="https://github.com/alias1/chrome-NewWindowWithTabsToRight">check it out over at GitHub</a>! &lt;3</p>
 
 	  ]]></description>
 	</item>

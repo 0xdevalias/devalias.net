@@ -14,9 +14,9 @@
 
   <link type="application/atom+xml" rel="alternate" href="https://www.devalias.net/feed.xml" title="/dev/alias – Hack. Dev. Transcend." />
 
-  <!-- Begin Jekyll SEO tag v2.4.0 -->
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
 <title>Atlassian Confluence: Cross-Site Scripting (XSS) (CVE-2017-16856) | /dev/alias – Hack. Dev. Transcend.</title>
-<meta name="generator" content="Jekyll v3.8.0" />
+<meta name="generator" content="Jekyll v4.1.1" />
 <meta property="og:title" content="Atlassian Confluence: Cross-Site Scripting (XSS) (CVE-2017-16856)" />
 <meta name="author" content="Glenn 'devalias' Grant" />
 <meta property="og:locale" content="en_GB" />
@@ -29,10 +29,12 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2017-12-05T00:00:00+11:00" />
 <meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://www.devalias.net/assets/images/cover4.jpg" />
+<meta property="twitter:title" content="Atlassian Confluence: Cross-Site Scripting (XSS) (CVE-2017-16856)" />
 <meta name="twitter:site" content="@_devalias" />
 <meta name="twitter:creator" content="@_devalias" />
 <script type="application/ld+json">
-{"description":"Earlier this year I spent some time delving into Atlassian Confluence to see if I could dig up any bugs that had slipped through the cracks. I wasn&#39;t really expecting to turn up much, but I was super excited and surprised when I managed to find an issue within the RSS feed plugin leading to Cross-Site Scripting (XSS) (Twitter: 1, 2; LinkedIn: 1, 2; BugCrowd: 1, 2).","author":{"@type":"Person","name":"Glenn 'devalias' Grant"},"@type":"BlogPosting","url":"https://www.devalias.net/devalias/2017/12/05/atlassian-confluence-cross-site-scripting-xss/","image":"https://www.devalias.net/assets/images/cover4.jpg","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://www.devalias.net/assets/images/cover4.jpg"},"name":"Glenn 'devalias' Grant"},"headline":"Atlassian Confluence: Cross-Site Scripting (XSS) (CVE-2017-16856)","dateModified":"2017-12-05T00:00:00+11:00","datePublished":"2017-12-05T00:00:00+11:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.devalias.net/devalias/2017/12/05/atlassian-confluence-cross-site-scripting-xss/"},"@context":"http://schema.org"}</script>
+{"image":"https://www.devalias.net/assets/images/cover4.jpg","author":{"@type":"Person","name":"Glenn 'devalias' Grant"},"headline":"Atlassian Confluence: Cross-Site Scripting (XSS) (CVE-2017-16856)","dateModified":"2017-12-05T00:00:00+11:00","datePublished":"2017-12-05T00:00:00+11:00","url":"https://www.devalias.net/devalias/2017/12/05/atlassian-confluence-cross-site-scripting-xss/","description":"Earlier this year I spent some time delving into Atlassian Confluence to see if I could dig up any bugs that had slipped through the cracks. I wasn&#39;t really expecting to turn up much, but I was super excited and surprised when I managed to find an issue within the RSS feed plugin leading to Cross-Site Scripting (XSS) (Twitter: 1, 2; LinkedIn: 1, 2; BugCrowd: 1, 2).","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://www.devalias.net/assets/images/cover4.jpg"},"name":"Glenn 'devalias' Grant"},"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.devalias.net/devalias/2017/12/05/atlassian-confluence-cross-site-scripting-xss/"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -201,47 +203,32 @@
         </header>
 
         <section class="post-content">
-            <p>Earlier this year I spent some time delving into <a href="https://www.atlassian.com/software/confluence">Atlassian Confluence</a> to see if I could dig up any bugs that had slipped through the cracks. I wasn&#39;t really expecting to turn up much, but I was super excited and surprised when I managed to find an issue within the RSS feed plugin leading to Cross-Site Scripting (XSS) (Twitter: <a href="https://twitter.com/_devalias/status/922234470274498560">1</a>, <a href="https://twitter.com/_devalias/status/938271825414455298">2</a>; LinkedIn: <a href="https://www.linkedin.com/feed/update/urn:li:activity:6328008786355331072/">1</a>, <a href="https://www.linkedin.com/feed/update/urn:li:activity:6344043067401732096">2</a>; BugCrowd: <a href="https://bugcrowd.com/devalias">1</a>, <a href="https://bugcrowd.com/atlassian/hall-of-fame">2</a>).</p>
-
+            <p>Earlier this year I spent some time delving into <a href="https://www.atlassian.com/software/confluence">Atlassian Confluence</a> to see if I could dig up any bugs that had slipped through the cracks. I wasn't really expecting to turn up much, but I was super excited and surprised when I managed to find an issue within the RSS feed plugin leading to Cross-Site Scripting (XSS) (Twitter: <a href="https://twitter.com/_devalias/status/922234470274498560">1</a>, <a href="https://twitter.com/_devalias/status/938271825414455298">2</a>; LinkedIn: <a href="https://www.linkedin.com/feed/update/urn:li:activity:6328008786355331072/">1</a>, <a href="https://www.linkedin.com/feed/update/urn:li:activity:6344043067401732096">2</a>; BugCrowd: <a href="https://bugcrowd.com/devalias">1</a>, <a href="https://bugcrowd.com/atlassian/hall-of-fame">2</a>).</p>
 <p>Thanks to <a href="https://www.atlassian.com/trust/security">Atlassian</a> and <a href="https://www.bugcrowd.com/">BugCrowd</a> for running an awesome bug bounty program and giving researchers the opportunity to hack things, make the internet safer, AND get rewarded while doing so!</p>
-
 <h2>The CVE</h2>
-
 <ul>
 <li><strong><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-16856">CVE-2017-16856</a></strong>: The RSS Feed macro in Atlassian Confluence before version 6.5.2 allows remote attackers to inject arbitrary HTML or JavaScript via cross site scripting (XSS) vulnerabilities in various rss properties which were used as links without restriction on their scheme.
-
 <ul>
 <li><a href="https://jira.atlassian.com/browse/CONFSERVER-54395">Confluece Bug Report (CONFSERVER-54395)</a></li>
 <li><a href="https://confluence.atlassian.com/doc/issues-resolved-in-6-5-2-940701301.html">Confluence - Issues resolved in 6.5.2</a></li>
 <li><a href="http://www.securityfocus.com/bid/102094">SecurityFocus</a></li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <h2>Remediation</h2>
-
 <p>This issue was fixed in Confluence <code>6.5.2</code>. Update to this version or newer to be protected. See the CVE advisory details for more information.</p>
-
 <h2>Chaining bugs, social engineering and platform features</h2>
-
-<p>As part of my PoC, I put together some fun little phishing code using the Confluence web plugin API&#39;s. If there is interest (and I&#39;m allowed), I might share it (and some of the useful features/places to look to build similar) sometime.</p>
-
-<p>Once XSS is achieved, if the current user isn&#39;t already an &#39;elevated&#39; administrator, the code provides error messages using standard Confluence GUI elements to convince the user to elevate their privileges with &#39;websudo&#39;. Once they do that, you can basically abuse their full privileges to create new administrators, or (my favourite) install a small malicious plugin to provide Remote Code Execution (RCE) on the server.</p>
-
-<p>While these aren&#39;t security issues in themselves, it does show how you can leverage social engineering techniques and other platform features to chain smaller issues into something more powerful and damaging.</p>
-
+<p>As part of my PoC, I put together some fun little phishing code using the Confluence web plugin API's. If there is interest (and I'm allowed), I might share it (and some of the useful features/places to look to build similar) sometime.</p>
+<p>Once XSS is achieved, if the current user isn't already an 'elevated' administrator, the code provides error messages using standard Confluence GUI elements to convince the user to elevate their privileges with 'websudo'. Once they do that, you can basically abuse their full privileges to create new administrators, or (my favourite) install a small malicious plugin to provide Remote Code Execution (RCE) on the server.</p>
+<p>While these aren't security issues in themselves, it does show how you can leverage social engineering techniques and other platform features to chain smaller issues into something more powerful and damaging.</p>
 <h2>Acknowledgements</h2>
-
 <p>These issues were identified by <a href="http://devalias.net">myself</a> and the team at <a href="https://dtss.com.au">TSS</a>:</p>
-
 <ul>
-<li>Glenn &#39;devalias&#39; Grant (<a href="http://devalias.net">http://devalias.net</a>) of TSS (<a href="https://dtss.com.au">https://dtss.com.au</a>)</li>
+<li>Glenn 'devalias' Grant (<a href="http://devalias.net">http://devalias.net</a>) of TSS (<a href="https://dtss.com.au">https://dtss.com.au</a>)</li>
 </ul>
-
 <h2>Conclusion</h2>
-
 <p>It pays to look in places less travelled. If there are older features in products, or things that may not be as popular/used as often, try looking in there. Who knows what may have been overlooked.</p>
-
-<p>Have you ever looked into some popular software and found issues you never expected to find? Got a cool story to share about it? Maybe you&#39;ve chained some bugs in an interesting way, or just want to hear more about my PoC? I&#39;d love to hear from you in the comments below!</p>
+<p>Have you ever looked into some popular software and found issues you never expected to find? Got a cool story to share about it? Maybe you've chained some bugs in an interesting way, or just want to hear more about my PoC? I'd love to hear from you in the comments below!</p>
 
         </section>
 
@@ -427,7 +414,7 @@
             </section>
             <section class="poweredby">
                 <div>
-                    <strong>Build:</strong> 9b128d3c0
+                    <strong>Build:</strong> 618e30db6
                     <a href="https://github.com/0xdevalias/devalias.net/tree/master/_posts/2017-12-05-atlassian-confluence-cross-site-scripting-xss.md" target="_blank">
                         <i class="fas fa-edit"></i>
                         Edit on GitHub

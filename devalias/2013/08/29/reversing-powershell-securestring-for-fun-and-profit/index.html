@@ -14,9 +14,9 @@
 
   <link type="application/atom+xml" rel="alternate" href="https://www.devalias.net/feed.xml" title="/dev/alias – Hack. Dev. Transcend." />
 
-  <!-- Begin Jekyll SEO tag v2.4.0 -->
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
 <title>Reversing PowerShell &#39;SecureString&#39; For Fun And Profit | /dev/alias – Hack. Dev. Transcend.</title>
-<meta name="generator" content="Jekyll v3.8.0" />
+<meta name="generator" content="Jekyll v4.1.1" />
 <meta property="og:title" content="Reversing PowerShell &#39;SecureString&#39; For Fun And Profit" />
 <meta name="author" content="Glenn 'devalias' Grant" />
 <meta property="og:locale" content="en_GB" />
@@ -29,10 +29,12 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2013-08-29T08:00:52+10:00" />
 <meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://www.devalias.net/assets/images/cover4.jpg" />
+<meta property="twitter:title" content="Reversing PowerShell &#39;SecureString&#39; For Fun And Profit" />
 <meta name="twitter:site" content="@_devalias" />
 <meta name="twitter:creator" content="@_devalias" />
 <script type="application/ld+json">
-{"description":"Something that I needed to do in an engagement recently and thought it might be useful to you guys. Here&#39;s a little function and demonstration to show just how insecure it is to store an encrypted PowerShell &#39;SecureString&#39; WITH the key to decrypt it in a script file (or anywhere for that matter)","author":{"@type":"Person","name":"Glenn 'devalias' Grant"},"@type":"BlogPosting","url":"https://www.devalias.net/devalias/2013/08/29/reversing-powershell-securestring-for-fun-and-profit/","image":"https://www.devalias.net/assets/images/cover4.jpg","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://www.devalias.net/assets/images/cover4.jpg"},"name":"Glenn 'devalias' Grant"},"headline":"Reversing PowerShell &#39;SecureString&#39; For Fun And Profit","dateModified":"2013-08-29T08:00:52+10:00","datePublished":"2013-08-29T08:00:52+10:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.devalias.net/devalias/2013/08/29/reversing-powershell-securestring-for-fun-and-profit/"},"@context":"http://schema.org"}</script>
+{"image":"https://www.devalias.net/assets/images/cover4.jpg","author":{"@type":"Person","name":"Glenn 'devalias' Grant"},"headline":"Reversing PowerShell &#39;SecureString&#39; For Fun And Profit","dateModified":"2013-08-29T08:00:52+10:00","datePublished":"2013-08-29T08:00:52+10:00","url":"https://www.devalias.net/devalias/2013/08/29/reversing-powershell-securestring-for-fun-and-profit/","description":"Something that I needed to do in an engagement recently and thought it might be useful to you guys. Here&#39;s a little function and demonstration to show just how insecure it is to store an encrypted PowerShell &#39;SecureString&#39; WITH the key to decrypt it in a script file (or anywhere for that matter)","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://www.devalias.net/assets/images/cover4.jpg"},"name":"Glenn 'devalias' Grant"},"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.devalias.net/devalias/2013/08/29/reversing-powershell-securestring-for-fun-and-profit/"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -173,7 +175,7 @@
     <time class="post-date" datetime="2013-08-29">29 Aug 2013</time>
     |
     
-        Less than 1 minute
+        1 minute
     
     to read
     <!-- [[tags prefix=" on "]] -->
@@ -208,12 +210,28 @@
         </header>
 
         <section class="post-content">
-            <p>Something that I needed to do in an engagement recently and thought it might be useful to you guys. Here&#39;s a little function and demonstration to show just how insecure it is to store an encrypted <a href="https://en.wikipedia.org/wiki/Windows_PowerShell">PowerShell</a> <a href="http://social.technet.microsoft.com/wiki/contents/articles/4546.working-with-passwords-secure-strings-and-credentials-in-windows-powershell.aspx">&#39;SecureString&#39;</a> WITH the key to decrypt it in a script file (or anywhere for that matter)</p>
-
+            <p>Something that I needed to do in an engagement recently and thought it might be useful to you guys. Here's a little function and demonstration to show just how insecure it is to store an encrypted <a href="https://en.wikipedia.org/wiki/Windows_PowerShell">PowerShell</a> <a href="http://social.technet.microsoft.com/wiki/contents/articles/4546.working-with-passwords-secure-strings-and-credentials-in-windows-powershell.aspx">'SecureString'</a> WITH the key to decrypt it in a script file (or anywhere for that matter)</p>
 <p>Just goes to show that no matter how secure a technology you create, in the end it all comes down to the underpaid, overworked IT staff that have to implement it, and the <em>managerial guidelines</em> that they need to work within.</p>
-
-<p><noscript><pre>404: Not Found
-</pre></noscript><script src="https://gist.github.com/alias1/6101928.js"> </script></p>
+<p><a href="https://gist.github.com/0xdevalias/6101928">https://gist.github.com/0xdevalias/6101928</a></p>
+<p><noscript><pre># Reverse-SecureString</p>
+<h1>Version: 1.0 (20130729)</h1>
+<h1>Created By: Glenn 'devalias' Grant (<a href="http://devalias.net">http://devalias.net</a>)</h1>
+<h1>License: The MIT License (MIT) - Copyright (c) 2013 Glenn 'devalias' Grant (see <a href="http://choosealicense.com/licenses/mit/">http://choosealicense.com/licenses/mit/</a> for full license text)</h1>
+<p>function Reverse-SecureString([string]$secureString,[string]$key)<br />
+{<br />
+$objSecString=ConvertTo-SecureString -String $secureString -Key ([Byte[]]$key.Split(&quot; &quot;))<br />
+$secString=[System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($objSecString)<br />
+$plaintext=[System.Runtime.InteropServices.Marshal]::PtrToStringAuto($secString)<br />
+return $plaintext<br />
+}</p>
+<h1>Example SecureString decryption</h1>
+<p>$password = &quot;76492d1116743f0423413b16050a5345MgB8AFAAVwBiAGkAegBjAEcANQA5AEMAOABVAFoAUQBoADMAZAA1AEUAcgBGAHcAPQA9AHwAYgAxAGUAYwA0AGQA<br />
+YwBkADUANQAwAGUAYQBmADYAMwA5AGEANwAyADAAMwBmADAANwA3AGUANgA3ADYAYgA0AGIANgA4ADYAZAA3ADkAZgBkAGYAMgAzADcAMQA2ADkAYgA3AGMA<br />
+YwA0AGUAZQA1AGIANAA5ADEAZABjADQAZQA5ADgANQAxADUAYwBmADgAZQBjADMAMgBmADgANgBhADAANQBlADAANgBkAGIAZABlAGMAZAA2ADcAMwBmAGYA<br />
+YwA5ADMAZQAwADYAZAA5AGMAMwAyAGUANgAyAGUAMAA3ADcAYgBkADIAYQAzAGIAOAA3ADQAMwA2ADIAMAA2AA==&quot;<br />
+$key = &quot;114 138 230 113 215 43 58 173 155 129 196 29 105 162 10 25 187 79 18 221 142 29 155 43 28 20 19 40 103 83 110 240&quot;<br />
+$passPlaintext = Reverse-SecureString &quot;$password&quot; &quot;$key&quot;<br />
+Write-Host $passPlaintext # This should output: TotallySecurePasswordLol!</pre></noscript><script src="https://gist.github.com/6101928.js"> </script></p>
 
         </section>
 
@@ -399,7 +417,7 @@
             </section>
             <section class="poweredby">
                 <div>
-                    <strong>Build:</strong> 9b128d3c0
+                    <strong>Build:</strong> 618e30db6
                     <a href="https://github.com/0xdevalias/devalias.net/tree/master/_posts/2013-08-29-reversing-powershell-securestring-for-fun-and-profit.md" target="_blank">
                         <i class="fas fa-edit"></i>
                         Edit on GitHub

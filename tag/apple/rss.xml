@@ -19,28 +19,20 @@
 	  <guid>/devalias/2016/08/31/shared-devices-need-account-switching/</guid>
 	  <description><![CDATA[
 	     <p>Living in share houses and using tech like the Apple TV has highlighted an annoying situation: so many apps these days want you to sign in to enable access, personalised features, etc; but most offer no good solution for when you share the device with other people.</p>
-
 <p>There are some apps out there that handle this pretty well:</p>
-
 <ul>
-<li><a href="https://www.plex.tv/">Plex</a> allows you to switch between different users in your &#39;home&#39;, each of which can either be a fully independent account, or a &#39;managed user&#39; that exists under the main account.</li>
-<li><a href="https://www.netflix.com/au/">Netflix</a> allows switching between different users under the one subscription. While this is ok.. it doesn&#39;t work so well for a share house. What if we each have our own Netflix subscriptions, but want to share the device without having to log out and back in to our own accounts?</li>
+<li><a href="https://www.plex.tv/">Plex</a> allows you to switch between different users in your 'home', each of which can either be a fully independent account, or a 'managed user' that exists under the main account.</li>
+<li><a href="https://www.netflix.com/au/">Netflix</a> allows switching between different users under the one subscription. While this is ok.. it doesn't work so well for a share house. What if we each have our own Netflix subscriptions, but want to share the device without having to log out and back in to our own accounts?</li>
 </ul>
-
-<p>And then there are so many apps that don&#39;t even seem to give the option, two of which immediately jump to mind for me:</p>
-
+<p>And then there are so many apps that don't even seem to give the option, two of which immediately jump to mind for me:</p>
 <ul>
-<li><a href="https://www.youtube.com/">YouTube</a> let&#39;s you sign in to a single account, but no switching features save for logging out.</li>
-<li><a href="https://www.ted.com/">TED</a>&#39;s app suffers from the same issue.</li>
+<li><a href="https://www.youtube.com/">YouTube</a> let's you sign in to a single account, but no switching features save for logging out.</li>
+<li><a href="https://www.ted.com/">TED</a>'s app suffers from the same issue.</li>
 </ul>
-
-<p>This could be fixed at the individual app level. It would be REALLY nice to see support for multiple account switching added to any app made for a device that could potentially be shared (Apple TV/etc, far less likely to be useful on an iPhone.. but it might be for some users) But this requires extra effort from every app developer out there. Perhaps a common framework could be developed to help support this.. but then making it generic enough to fit into everyone&#39;s different architectures would be a challenge.</p>
-
-<p>An even better solution could be baked into the OS itself by Apple.. I boot up my Apple TV and am presented with an account chooser asking which particular registered user I am. If I haven&#39;t already logged in, there&#39;s the option for signing in to my Apple account to add myself as a new user. Once logged in, I&#39;m presented with my own homescreen of apps, laid out to my own preferences, logged in to my own accounts, and saving my own personal data.</p>
-
-<p>This poses some issues about duplication of apps between users, space requirements, etc. So a mid-ground could be allowing the owner/&#39;master&#39; user to control app installation, but then for each other user to be able to maintain their own stored data/signin status/etc.</p>
-
-<p>What do you think? Is this a feature you&#39;d use, or does it just seem like over-engineered bloat? Let me know your thoughts in the comments!</p>
+<p>This could be fixed at the individual app level. It would be REALLY nice to see support for multiple account switching added to any app made for a device that could potentially be shared (Apple TV/etc, far less likely to be useful on an iPhone.. but it might be for some users) But this requires extra effort from every app developer out there. Perhaps a common framework could be developed to help support this.. but then making it generic enough to fit into everyone's different architectures would be a challenge.</p>
+<p>An even better solution could be baked into the OS itself by Apple.. I boot up my Apple TV and am presented with an account chooser asking which particular registered user I am. If I haven't already logged in, there's the option for signing in to my Apple account to add myself as a new user. Once logged in, I'm presented with my own homescreen of apps, laid out to my own preferences, logged in to my own accounts, and saving my own personal data.</p>
+<p>This poses some issues about duplication of apps between users, space requirements, etc. So a mid-ground could be allowing the owner/'master' user to control app installation, but then for each other user to be able to maintain their own stored data/signin status/etc.</p>
+<p>What do you think? Is this a feature you'd use, or does it just seem like over-engineered bloat? Let me know your thoughts in the comments!</p>
 
 	  ]]></description>
 	</item>
@@ -53,35 +45,26 @@
 	  <guid>/devalias/2016/07/07/access-files-from-other-time-machine-backups/</guid>
 	  <description><![CDATA[
 	     <p>There are two main methods for accessing files from other Time Machine backups:</p>
-
 <ol>
 <li>Using Time Machine</li>
 <li>Accessing the backup file directly</li>
 </ol>
-
-<p>Before we get started, if you&#39;re using Time Capsule or a network volume for backup, you first need to navigate to the backup location and double click to mount the <code>.sparsebundle</code>. (it may ask you for a password if the backup is encrypted) Once that&#39;s done, continue as normal below.</p>
-
+<p>Before we get started, if you're using Time Capsule or a network volume for backup, you first need to navigate to the backup location and double click to mount the <code>.sparsebundle</code>. (it may ask you for a password if the backup is encrypted) Once that's done, continue as normal below.</p>
 <h2>Using Time Machine</h2>
-
 <ul>
 <li>Hold alt/option</li>
 <li>Click on the Time Maching (backup) icon in the menu bar</li>
 <li>Select &quot;Browse Other Backup Disks...&quot;</li>
 <li>Select the backup you want to browse.</li>
 </ul>
-
 <h2>Accessing the backup file directly</h2>
-
-<p>Unfortunately while trying to access my old machine&#39;s backup file, the above method didn&#39;t want to work for me. Luckily, we can get access to the files the good old fashioned manual way!</p>
-
+<p>Unfortunately while trying to access my old machine's backup file, the above method didn't want to work for me. Luckily, we can get access to the files the good old fashioned manual way!</p>
 <ul>
 <li>Locate and mount the <code>.sparsebundle</code></li>
 <li>Navigate to the <code>Backups.backupdb/yourmachinename/Latest</code> folder</li>
 <li>Enjoy!</li>
 </ul>
-
 <h2>References</h2>
-
 <ul>
 <li><a href="http://www.creativetechs.com/tipsblog/access-files-from-other-time-machine-backups/">http://www.creativetechs.com/tipsblog/access-files-from-other-time-machine-backups/</a></li>
 <li><a href="https://apple.stackexchange.com/questions/158645/recover-certain-files-from-time-machine-from-previous-mac">https://apple.stackexchange.com/questions/158645/recover-certain-files-from-time-machine-from-previous-mac</a></li>
@@ -97,15 +80,11 @@
 	  <pubDate>2011-09-16T13:02:00+10:00</pubDate>
 	  <guid>/devalias/2011/09/16/the-dark-side-macbook-pro/</guid>
 	  <description><![CDATA[
-	     <p>I am a firm believer in the &#39;build it yourself&#39; aspect of computing, and with that comes an inherent dislike for the overpriced, simplistic, bright coloured devilspawn known as Apple. With that being said, there was a time that I walked among the darkness, though it was many many ages ago. Over recent years I have been drawing ever slowly back in that direction though, each shiny new device they release bringing me that much closer. It seems now that I have finally stepped over that threshold, into the darkness once more.</p>
-
-<p>Last saturday I purchased a Macbook Pro. <em>shudders</em> I swore to myself I wouldn&#39;t ever buy an overpriced, mainstream, &#39;cool&#39;, bright coloured apple computer. In my defense, the new Macbook Pro is very very shiny, decked out with a 15&quot; screen, 2.2ghz cpu, 8gb ram, 1gb graphics, 500gb 7200rpm hdd and packaged in a &#39;unibody&#39; slab of metal for the case.</p>
-
+	     <p>I am a firm believer in the 'build it yourself' aspect of computing, and with that comes an inherent dislike for the overpriced, simplistic, bright coloured devilspawn known as Apple. With that being said, there was a time that I walked among the darkness, though it was many many ages ago. Over recent years I have been drawing ever slowly back in that direction though, each shiny new device they release bringing me that much closer. It seems now that I have finally stepped over that threshold, into the darkness once more.</p>
+<p>Last saturday I purchased a Macbook Pro. <em>shudders</em> I swore to myself I wouldn't ever buy an overpriced, mainstream, 'cool', bright coloured apple computer. In my defense, the new Macbook Pro is very very shiny, decked out with a 15&quot; screen, 2.2ghz cpu, 8gb ram, 1gb graphics, 500gb 7200rpm hdd and packaged in a 'unibody' slab of metal for the case.</p>
 <p>Now the case is somewhat shiny, though it could do with some harder lines/edges and a much darker shade to give it that look that I like in my hardware. As the plan currently stands, a few vinyl stickers should give it that darker and more interesting look. Probably a black background, biohazard around the apple in bright green, a BackTrack dragon, maybe a few other things, and a carbon fibre look around the keyboard.</p>
-
 <p>All in all pretty happy with my purchase. Should be powerful enough to satisfy my portable computing needs, as well as running BackTrack in Parallels for pentesting, as well as having a full coding environment set up for writing iPhone software.</p>
-
-<p>I&#39;ll post again once I have it set up, hopefully with some pictures and thoughts about the setup process.</p>
+<p>I'll post again once I have it set up, hopefully with some pictures and thoughts about the setup process.</p>
 
 	  ]]></description>
 	</item>

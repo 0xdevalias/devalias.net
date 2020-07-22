@@ -18,41 +18,34 @@
 	  <pubDate>2014-02-13T09:00:41+11:00</pubDate>
 	  <guid>/devalias/2014/02/13/y-u-no-update-kali/</guid>
 	  <description><![CDATA[
-	     <p><img src="/devalias/2014/02/13/y-u-no-update-kali/yunoupdatekali.jpg" alt="Kali Linux Y U No Update"></p>
-
+	     <p><img src="yunoupdatekali.jpg" alt="Kali Linux Y U No Update" /></p>
 <p>Not too long ago I was setting up a new pentest machine with Kali. Fairly straightforward a task, though slightly inconvenienced by the fact that the net was down at the time. No matter I thought, continue offline and all should be fine.. apparently not.</p>
-
-<p>When you don&#39;t have a live net connection during setup Kali decides not to fill in the server details needed by apt-get to pull down anything more than security updates (no new tools for you!) Thankfully this is a simple and quick fix.</p>
-
+<p>When you don't have a live net connection during setup Kali decides not to fill in the server details needed by apt-get to pull down anything more than security updates (no new tools for you!) Thankfully this is a simple and quick fix.</p>
 <h2>But how?</h2>
-
-<p>Having a look over at the <a href="http://docs.kali.org/general-use/kali-linux-sources-list-repositories">Kali documentation</a> we find the instructions and url&#39;s required. Basically we just have to..</p>
-
+<p>Having a look over at the <a href="http://docs.kali.org/general-use/kali-linux-sources-list-repositories">Kali documentation</a> we find the instructions and url's required. Basically we just have to..</p>
 <ul>
 <li>Edit <code>/etc/apt/sources.list</code></li>
 <li>Add or ensure the following lines are present:</li>
 </ul>
-
 <h3>For general Kali repositories (aka everyone)</h3>
-<div class="highlight"><pre><code class="language-" data-lang="">deb http://http.kali.org/kali kali main non-free contrib
+<pre><code>deb http://http.kali.org/kali kali main non-free contrib
 deb http://security.kali.org/kali-security kali/updates main contrib non-free
-</code></pre></div>
-<h3>To use the source (aka Jedi&#39;s)</h3>
-<div class="highlight"><pre><code class="language-" data-lang="">deb-src http://http.kali.org/kali kali main non-free contrib
+</code></pre>
+<h3>To use the source (aka Jedi's)</h3>
+<pre><code>deb-src http://http.kali.org/kali kali main non-free contrib
 deb-src http://security.kali.org/kali-security kali/updates main contrib non-free
-</code></pre></div>
+</code></pre>
 <h3>And finally for those who like to live (and bleed) on the edge</h3>
-<div class="highlight"><pre><code class="language-" data-lang="">deb http://repo.kali.org/kali kali-bleeding-edge main
+<pre><code>deb http://repo.kali.org/kali kali-bleeding-edge main
 #deb-src http://repo.kali.org/kali kali-bleeding-edge main
-</code></pre></div>
+</code></pre>
 <h2>Now we update!</h2>
-
 <p>Once this is done (and saved) we can just do our standard</p>
-<div class="highlight"><pre><code class="language-" data-lang="">apt-get update &amp;&amp; apt-get upgrade
-</code></pre></div>
+<pre><code>apt-get update &amp;&amp; apt-get upgrade
+</code></pre>
 <p>or</p>
-<div class="highlight"><pre><code class="language-" data-lang="">apt-get update &amp;&amp; apt-get upgrade
-</code></pre></div>
+<pre><code>apt-get update &amp;&amp; apt-get upgrade
+</code></pre>
 <p>Happy (ethical) hacking!</p>
 
 	  ]]></description>

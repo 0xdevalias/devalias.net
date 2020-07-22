@@ -14,9 +14,9 @@
 
   <link type="application/atom+xml" rel="alternate" href="https://www.devalias.net/feed.xml" title="/dev/alias – Hack. Dev. Transcend." />
 
-  <!-- Begin Jekyll SEO tag v2.4.0 -->
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
 <title>vFeed - Wrapper/Helper Scripts For Speed and Efficiency | /dev/alias – Hack. Dev. Transcend.</title>
-<meta name="generator" content="Jekyll v3.8.0" />
+<meta name="generator" content="Jekyll v4.1.1" />
 <meta property="og:title" content="vFeed - Wrapper/Helper Scripts For Speed and Efficiency" />
 <meta name="author" content="Glenn 'devalias' Grant" />
 <meta property="og:locale" content="en_GB" />
@@ -29,10 +29,12 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2013-11-21T09:00:54+11:00" />
 <meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://www.devalias.net/assets/images/cover4.jpg" />
+<meta property="twitter:title" content="vFeed - Wrapper/Helper Scripts For Speed and Efficiency" />
 <meta name="twitter:site" content="@_devalias" />
 <meta name="twitter:creator" content="@_devalias" />
 <script type="application/ld+json">
-{"description":"Just wanted to share some quick little bash scripts I threw together to make vFeed a little quicker/more efficient for my use.","author":{"@type":"Person","name":"Glenn 'devalias' Grant"},"@type":"BlogPosting","url":"https://www.devalias.net/devalias/2013/11/21/vfeed-wrapper-helper-scripts-for-speed-and-efficiency/","image":"https://www.devalias.net/assets/images/cover4.jpg","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://www.devalias.net/assets/images/cover4.jpg"},"name":"Glenn 'devalias' Grant"},"headline":"vFeed - Wrapper/Helper Scripts For Speed and Efficiency","dateModified":"2013-11-21T09:00:54+11:00","datePublished":"2013-11-21T09:00:54+11:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.devalias.net/devalias/2013/11/21/vfeed-wrapper-helper-scripts-for-speed-and-efficiency/"},"@context":"http://schema.org"}</script>
+{"image":"https://www.devalias.net/assets/images/cover4.jpg","author":{"@type":"Person","name":"Glenn 'devalias' Grant"},"headline":"vFeed - Wrapper/Helper Scripts For Speed and Efficiency","dateModified":"2013-11-21T09:00:54+11:00","datePublished":"2013-11-21T09:00:54+11:00","url":"https://www.devalias.net/devalias/2013/11/21/vfeed-wrapper-helper-scripts-for-speed-and-efficiency/","description":"Just wanted to share some quick little bash scripts I threw together to make vFeed a little quicker/more efficient for my use.","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://www.devalias.net/assets/images/cover4.jpg"},"name":"Glenn 'devalias' Grant"},"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.devalias.net/devalias/2013/11/21/vfeed-wrapper-helper-scripts-for-speed-and-efficiency/"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -173,7 +175,7 @@
     <time class="post-date" datetime="2013-11-21">21 Nov 2013</time>
     |
     
-        Less than 1 minute
+        1 minute
     
     to read
     <!-- [[tags prefix=" on "]] -->
@@ -211,19 +213,38 @@
 
         <section class="post-content">
             <p>Just wanted to share some quick little bash scripts I threw together to make vFeed a little quicker/more efficient for my use.</p>
-
-<p>If you don&#39;t know it already, <a href="https://github.com/toolswatch/vfeed">vFeed</a> is an Open Source Cross Linked and Aggregated Local Vulnerability Database put together by the fine folks over at <a href="http://www.toolswatch.org/vfeed/">ToolsWatch</a>. You can query it for a whole bunch of information and details that may aid you in your pentests, all from the convenience of a local database.</p>
-
+<p>If you don't know it already, <a href="https://github.com/toolswatch/vfeed">vFeed</a> is an Open Source Cross Linked and Aggregated Local Vulnerability Database put together by the fine folks over at <a href="http://www.toolswatch.org/vfeed/">ToolsWatch</a>. You can query it for a whole bunch of information and details that may aid you in your pentests, all from the convenience of a local database.</p>
 <p>To make life easier, I throw these scripts in my vFeed directory and symlink them from bin.</p>
-<div class="highlight"><pre><code class="language-" data-lang="">cd /path/to/bin
+<pre><code>cd /path/to/bin
 ln -s /path/to/vFeed/bin/vfeed.sh vfeed
 ln -s /path/to/vFeed/bin/vfeedcli.sh vfeedcli
 ln -s /path/to/vFeed/bin/vfeed_update.sh vfeed_update
-</code></pre></div>
+</code></pre>
 <p>Enjoy!</p>
-
-<p><noscript><pre>404: Not Found
-</pre></noscript><script src="https://gist.github.com/alias1/7554985.js"> </script></p>
+<p><a href="https://gist.github.com/0xdevalias/7554985">https://gist.github.com/0xdevalias/7554985</a></p>
+<p><noscript><pre># vfeed.sh - README</p>
+<ul>
+<li>Version: 0.2 (20131126)</li>
+<li>Created By: Glenn 'devalias' Grant (<a href="http://devalias.net">http://devalias.net</a>)</li>
+<li>License: The MIT License (MIT) - Copyright (c) 2013 Glenn 'devalias' Grant (see <a href="http://choosealicense.com/licenses/mit/">http://choosealicense.com/licenses/mit/</a> for full license text)</li>
+<li>vFeed URL: <a href="https://github.com/toolswatch/vfeed">https://github.com/toolswatch/vfeed</a></li>
+<li>vFeed.sh announcement/info: <a href="http://blog.devalias.net/post/67532513020/vfeed-wrapper-helper-scripts-for-speed-and-efficiency">http://blog.devalias.net/post/67532513020/vfeed-wrapper-helper-scripts-for-speed-and-efficiency</a></li>
+</ul>
+<h2>Version 0.2 (20131126)</h2>
+<ul>
+<li>Updated to support vFeed Beta v0.4.6
+<ul>
+<li>Added Defense::get_suricata command support</li>
+<li>Added Patches::get_vmware command support</li>
+</ul>
+</li>
+<li>Update vfeed_update.sh to pull the latest version from git</li>
+</ul>
+<h2>Version 0.1 (20131120)</h2>
+<ul>
+<li>Initial version. Supports vFeed Beta v0.4.5<br />
+</pre></noscript><script src="https://gist.github.com/7554985.js"> </script></li>
+</ul>
 
         </section>
 
@@ -392,7 +413,7 @@ ln -s /path/to/vFeed/bin/vfeed_update.sh vfeed_update
         <a class="read-next-story prev no-cover" href="/devalias/2013/11/14/sparty-sharepoint-frontpage-auditing-tool-now-with-more-ntlm/">
             <section class="post">
                 <h2>Sparty - Sharepoint and Frontpage Auditing Tool (Now With More NTLM Authentication!)</h2>
-                <p>I&#39;ve been doing a little bit of poking around Sharepoint security lately, doing some research and playing with some assessment/pentest tools. One such tool (released...</p>
+                <p>I've been doing a little bit of poking around Sharepoint security lately, doing some research and playing with some assessment/pentest tools. One such tool (released...</p>
             </section>
         </a>
     
@@ -408,7 +429,7 @@ ln -s /path/to/vFeed/bin/vfeed_update.sh vfeed_update
             </section>
             <section class="poweredby">
                 <div>
-                    <strong>Build:</strong> 9b128d3c0
+                    <strong>Build:</strong> 618e30db6
                     <a href="https://github.com/0xdevalias/devalias.net/tree/master/_posts/2013-11-21-vfeed-wrapper-helper-scripts-for-speed-and-efficiency.md" target="_blank">
                         <i class="fas fa-edit"></i>
                         Edit on GitHub

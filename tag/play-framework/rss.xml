@@ -19,66 +19,56 @@
 	  <guid>/devalias/2016/08/24/starting-a-new-web-application-1-an-exploration-of-options/</guid>
 	  <description><![CDATA[
 	     <p>Finding myself with some free time (and looking into starting a new project), I thought I might catch myself up on the state of web technologies, and what might be a good stack to work with.</p>
-
-<p>The details collected here are most certainly not a complete layout of the entire landscape, and there will no doubt be leanings toward my personal tastes (<a href="http://www.reactivemanifesto.org/">reactive</a>, api-driven, etc). You should use this more as a starter into your own deeper research than as a source of ultimate truth. With that out of the way, let&#39;s get into it!</p>
-
+<p>The details collected here are most certainly not a complete layout of the entire landscape, and there will no doubt be leanings toward my personal tastes (<a href="http://www.reactivemanifesto.org/">reactive</a>, api-driven, etc). You should use this more as a starter into your own deeper research than as a source of ultimate truth. With that out of the way, let's get into it!</p>
 <p><strong>Quicklinks</strong></p>
-
 <ul>
 <li><a href="#frontend">Frontend</a>
-
 <ul>
 <li><a href="#frontend-frameworks">Frameworks</a></li>
 <li><a href="#frontend-ui">UI</a></li>
 <li><a href="#frontend-scripting">Scripting</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="#backend">Backend</a></li>
 <li><a href="#tooling">Tooling</a></li>
 <li><a href="#conclusions">Conclusions</a></li>
 <li><a href="#updates">Updates</a></li>
 </ul>
-
 <h2><a name="frontend"></a>Frontend</h2>
-
-<p>The frontend is the pretty, interactive, main part that people will be seeing. You can have the most amazingly streamlined and perfect backend code, but noone&#39;s going to notice and love it without a strong frontend to back it up.</p>
-
+<p>The frontend is the pretty, interactive, main part that people will be seeing. You can have the most amazingly streamlined and perfect backend code, but noone's going to notice and love it without a strong frontend to back it up.</p>
 <p><strong><a name="frontend-frameworks"></a>Frameworks</strong></p>
-
-<p>The days of raw JavaScript and jQuery selectors is long gone. We&#39;re looking for a nice, modern framework to help put together our frontend. Here&#39;s a little selection of some of our options:</p>
-
+<p>The days of raw JavaScript and jQuery selectors is long gone. We're looking for a nice, modern framework to help put together our frontend. Here's a little selection of some of our options:</p>
 <ul>
 <li><a href="https://facebook.github.io/react/">React</a> (<a href="https://github.com/reactjs">GitHub</a>) (most likely with a flavour of <a href="https://facebook.github.io/flux/">Flux</a> (<a href="https://github.com/facebook/flux">GitHub</a>))
-
 <ul>
-<li>A frontend framework from Facebook that is taking the web by storm. Probably my personal favourite from what I&#39;ve seen so far.</li>
-<li>It even let&#39;s you <a href="https://facebook.github.io/react-native/">build for native devices</a>!</li>
-</ul></li>
+<li>A frontend framework from Facebook that is taking the web by storm. Probably my personal favourite from what I've seen so far.</li>
+<li>It even let's you <a href="https://facebook.github.io/react-native/">build for native devices</a>!</li>
+</ul>
+</li>
 <li><a href="https://angular.io/">Angular (v2)</a> (or if you like outdated for some reason <a href="https://angularjs.org/">AngularJS (v1)</a>)
-
 <ul>
 <li>Also <a href="https://mobile.angular.io/">available for native devices</a></li>
-<li>I was a big fan of AngularJS (v1), and I want to like v2, but I don&#39;t think it will be my main choice.</li>
-</ul></li>
-<li>There are a TON of other frontend frameworks, of varying popularity and support. I won&#39;t delve into them much, but there&#39;s heaps of info out there
-
+<li>I was a big fan of AngularJS (v1), and I want to like v2, but I don't think it will be my main choice.</li>
+</ul>
+</li>
+<li>There are a TON of other frontend frameworks, of varying popularity and support. I won't delve into them much, but there's heaps of info out there
 <ul>
 <li><a href="http://emberjs.com/">Ember</a></li>
 <li><a href="https://vuejs.org/">Vue.js</a>
-
 <ul>
-<li>From reading around the web, there&#39;s a decent amount of good stuff talking about Vue. In the end I decided against it since it&#39;s not supported by a big backer, and the skills aren&#39;t as useful on a resume. That said, for a personal project it could be a great fit!</li>
+<li>From reading around the web, there's a decent amount of good stuff talking about Vue. In the end I decided against it since it's not supported by a big backer, and the skills aren't as useful on a resume. That said, for a personal project it could be a great fit!</li>
 <li><a href="https://vuejs.org/guide/comparison.html">https://vuejs.org/guide/comparison.html</a></li>
 <li><a href="http://blog.evanyou.me/2015/10/25/vuejs-re-introduction/">http://blog.evanyou.me/2015/10/25/vuejs-re-introduction/</a></li>
 <li><a href="http://vuejs.org/2016/04/27/announcing-2.0/">http://vuejs.org/2016/04/27/announcing-2.0/</a></li>
 <li><a href="https://github.com/vuejs/vue">vue</a>, <a href="https://github.com/vuejs/vue-rx">vue-rx</a>, <a href="https://github.com/vuejs/vue-resource">vue-resource</a>, <a href="https://github.com/vuejs/vue-router">vue-router</a>, <a href="https://github.com/vuejs/vuex">vuex</a>, <a href="https://github.com/revue/revue">revuew</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="http://aurelia.io/">Aurelia</a></li>
 <li><a href="http://riotjs.com/">Riot</a> (<a href="https://muut.com/blog/technology/riot-2.0/">v2</a>)</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <p>As with most things, every man and his dog has their own opinion, so here are a few comparisons I found useful:</p>
-
 <ul>
 <li><a href="https://www.ociweb.com/resources/publications/sett/comparison-of-angular-2-and-react/">&quot;Comparison of Angular 2 and React&quot; by Mark Volkmann and Lance Finney</a></li>
 <li><a href="http://blog.backand.com/angular-2-vs-react/">&quot;Angular 2 vs. React&quot; by Itay Herskovits</a></li>
@@ -86,212 +76,191 @@
 <li><a href="https://rlafranchi.github.io/2016/05/03/vue-vs-react/">&quot;Vue.js vs React.js&quot; by Richard LaFranchi</a></li>
 <li><a href="https://forums.meteor.com/t/why-doesnt-mdg-just-adopt-vue-js-and-forget-about-react-vs-blaze/13926/6">&quot;Why doesn’t MDG just adopt Vue.js and forget about React vs Blaze?&quot;</a></li>
 </ul>
-
 <p><strong><a name="frontend-ui"></a>UI</strong></p>
-
-<p>Even if you like to go oldschool and code your site by hand in notepad/vi, you can&#39;t deny the ease/benefits of using a frontend UI framework.</p>
-
+<p>Even if you like to go oldschool and code your site by hand in notepad/vi, you can't deny the ease/benefits of using a frontend UI framework.</p>
 <ul>
 <li><a href="https://getbootstrap.com/">Bootstrap</a> (<a href="https://blog.getbootstrap.com/2015/08/19/bootstrap-4-alpha/">v4</a>)
-
 <ul>
 <li>Released by Twitter, and arguably one of the most used frontend UI frameworks out there.</li>
 <li><a href="https://react-bootstrap.github.io/">React-Bootstrap</a> (<a href="https://github.com/react-bootstrap/react-bootstrap">GitHub</a>)</li>
 <li><a href="https://ng-bootstrap.github.io/#/home">ng-bootstrap</a> by the angular-ui team (<a href="https://github.com/ng-bootstrap/ng-bootstrap">GitHub</a>)</li>
 <li><a href="https://valor-software.com/ng2-bootstrap/">ng2-bootstrap</a> by valor-software (<a href="https://github.com/valor-software/ng2-bootstrap">GitHub</a>)</li>
-</ul></li>
+</ul>
+</li>
 <li><a href="http://foundation.zurb.com/">Foundation</a>
-
 <ul>
 <li>While not as well known as the other two mentioned here, those that make use of foundation swear by it.</li>
 <li><a href="https://react.foundation/">React-Foundation</a> (<a href="https://github.com/nordsoftware/react-foundation">GitHub</a>)</li>
 <li><a href="https://aruberto.github.io/react-foundation-components/">React-Foundation-Components</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="https://material.google.com/">Material Design</a>
-
 <ul>
 <li>Following a set of design principals from Google, this lays out a slick, consistent look and feel.</li>
 <li><a href="https://getmdl.io/">Material Design Lite</a></li>
 <li><a href="http://www.material-ui.com/">For React</a> (<a href="https://github.com/callemall/material-ui">GitHub</a>)</li>
 <li><a href="https://material.angular.io/">For Angular (v2)</a> (<a href="https://github.com/angular/material2">GitHub</a>)</li>
 <li><a href="https://material.angularjs.io/">For AngularJS (v1)</a> (<a href="https://github.com/angular/material">GitHub</a>)</li>
-</ul></li>
 </ul>
-
-<p>Can&#39;t decide? Try some comparisons:</p>
-
+</li>
+</ul>
+<p>Can't decide? Try some comparisons:</p>
 <ul>
 <li><a href="http://blog.teamtreehouse.com/the-rundown-bootstrap-vs-google-mdl-vs-foundation">&quot;The Rundown: Bootstrap vs. Google MDL vs. Foundation&quot; by treehouse</a></li>
 <li><a href="https://dannyherran.com/2016/03/state-of-affairs-bootstrap-4-vs-foundation-6/">&quot;State of affairs: Bootstrap 4 vs Foundation 6.2&quot; by Danny Herran</a></li>
 </ul>
-
 <p><strong><a name="frontend-scripting"></a>Scripting</strong></p>
-
-<p>Modern web apps live by the functionality they enable in the browser, and to do this, we need a JS-esque language. Your chosen frontend framework may sway your choice (eg. Angular (v2) has a strong preference for TypeScript), but ultimately, it&#39;s up to what you/your team feel comfortable with. With <a href="https://github.com/jashkenas/coffeescript/wiki/list-of-languages-that-compile-to-js">so many options</a> out there, it&#39;s hard to pick.. And of course, you could always stick to plain JavaScript.. and with the new features coming in <a href="http://es6-features.org/">ES6</a> (eg. <a href="http://www.html5rocks.com/en/tutorials/es6/promises/">promises</a>) and beyond, it might be a good choice.</p>
-
+<p>Modern web apps live by the functionality they enable in the browser, and to do this, we need a JS-esque language. Your chosen frontend framework may sway your choice (eg. Angular (v2) has a strong preference for TypeScript), but ultimately, it's up to what you/your team feel comfortable with. With <a href="https://github.com/jashkenas/coffeescript/wiki/list-of-languages-that-compile-to-js">so many options</a> out there, it's hard to pick.. And of course, you could always stick to plain JavaScript.. and with the new features coming in <a href="http://es6-features.org/">ES6</a> (eg. <a href="http://www.html5rocks.com/en/tutorials/es6/promises/">promises</a>) and beyond, it might be a good choice.</p>
 <ul>
 <li><a href="https://babeljs.io/">Babel</a>
-
 <ul>
 <li>A transpiler that lets you play with all the fun features of JavaScript ES6 and beyond, while maintaining compatibility with all of the older browsers.</li>
-</ul></li>
+</ul>
+</li>
 <li><a href="https://www.typescriptlang.org/">TypeScript</a> (<a href="https://github.com/Microsoft/TypeScript">GitHub</a>)
-
 <ul>
 <li>&quot;TypeScript is a typed superset of JavaScript that compiles to plain JavaScript&quot;</li>
-<li>If you&#39;re using Angular (v2) and like sticking to convention, this is the one for you.</li>
-</ul></li>
+<li>If you're using Angular (v2) and like sticking to convention, this is the one for you.</li>
+</ul>
+</li>
 <li><a href="http://coffeescript.org/">CoffeeScript</a> (or maybe <a href="https://github.com/michaelficarra/CoffeeScriptRedux">v2</a>)
-
 <ul>
-<li>This used to be my choice, but looking at the other options available now, I think i&#39;ll be moving on.</li>
+<li>This used to be my choice, but looking at the other options available now, I think i'll be moving on.</li>
 <li>As always, there are a bunch of arguments for and against..
-
 <ul>
 <li><a href="https://robots.thoughtbot.com/replace-coffeescript-with-es6">&quot;Replace CoffeeScript with ES6&quot; by Blake Williams</a></li>
 <li><a href="http://tech.noredink.com/post/111583727108/dont-replace-coffeescript-with-es6-transpilers">&quot;Don’t Replace CoffeeScript with ES6 Transpilers&quot; by Richard Feldman</a></li>
 <li>etc</li>
-</ul></li>
-<li>If you&#39;re looking for a way out, why not <a href="https://github.com/decaffeinate/decaffeinate">decaffeinate</a>?</li>
-</ul></li>
-<li><a href="https://flowtype.org/">Flow</a> (<a href="https://github.com/facebook/flow">GitHub</a>)
-
-<ul>
-<li>While it&#39;s not a language unto itself, it does allow you the benefits of typed JavaScript without having to dive into something like TypeScript.</li>
-</ul></li>
-<li><a href="https://www.scala-js.org/">Scala.js</a>
-
-<ul>
-<li>A little left field, this transpiles Scala code into JavaScript. While I probably wouldn&#39;t see myself using this as a main choice, it could make for some interesting reusability between front and backend.</li>
-</ul></li>
 </ul>
-
+</li>
+<li>If you're looking for a way out, why not <a href="https://github.com/decaffeinate/decaffeinate">decaffeinate</a>?</li>
+</ul>
+</li>
+<li><a href="https://flowtype.org/">Flow</a> (<a href="https://github.com/facebook/flow">GitHub</a>)
+<ul>
+<li>While it's not a language unto itself, it does allow you the benefits of typed JavaScript without having to dive into something like TypeScript.</li>
+</ul>
+</li>
+<li><a href="https://www.scala-js.org/">Scala.js</a>
+<ul>
+<li>A little left field, this transpiles Scala code into JavaScript. While I probably wouldn't see myself using this as a main choice, it could make for some interesting reusability between front and backend.</li>
+</ul>
+</li>
+</ul>
 <h2><a name="backend"></a>Backend</h2>
-
 <p>My preferences for backend tech stacks lean heavily towards <a href="http://www.scala-lang.org/">Scala</a> and the <a href="https://www.lightbend.com/platform">Lightbend Reactive Platform</a> these days, but I will make quick mention of some of the other options available.</p>
-
 <ul>
 <li><a href="http://doc.akka.io/docs/akka-http/current/scala.html">Akka-HTTP</a>
-
 <ul>
 <li>Taking the power of asynchronous, message based actors, and applying them to HTTP. Definite win.</li>
 <li><a href="https://softwaremill.github.io/bootzooka/">Bootzooka</a> (<a href="https://github.com/softwaremill/bootzooka">GitHub</a>)
-
 <ul>
 <li>&quot;Bootzooka is a simple application scaffolding project to allow quick start of development for modern, web based applications.&quot;</li>
-<li>While not perfect, it&#39;s a decent implementation of a starter app, tying together some useful technologies.</li>
-</ul></li>
-</ul></li>
+<li>While not perfect, it's a decent implementation of a starter app, tying together some useful technologies.</li>
+</ul>
+</li>
+</ul>
+</li>
 <li><a href="https://www.playframework.com/">Play Framework</a>
-
 <ul>
 <li>&quot;Play is a high-productivity Java and Scala web application framework that integrates the components and APIs you need for modern web application development.&quot;</li>
-</ul></li>
+</ul>
+</li>
 <li><a href="http://scalatra.org/">Scalatra</a>
-
 <ul>
 <li>&quot;Scalatra is a simple, accessible and free web micro-framework. It combines the power of the JVM with the beauty and brevity of Scala, helping you quickly build high-performance web sites and APIs.&quot;</li>
-</ul></li>
+</ul>
+</li>
 <li><a href="https://liftweb.net/">Lift</a> (<a href="https://github.com/lift/framework">GitHub</a>)
-
 <ul>
 <li>&quot;Lift is the most powerful, most secure web framework available today. There are Seven Things that distinguish Lift from other web frameworks.&quot;</li>
-</ul></li>
+</ul>
+</li>
 <li><a href="http://http4s.org/">http4s</a> (<a href="https://github.com/http4s/http4s">GitHub</a>)
-
 <ul>
 <li>&quot;A typeful, purely functional, streaming library for HTTP clients and servers in Scala.&quot;</li>
-</ul></li>
+</ul>
+</li>
 <li><a href="https://twitter.github.io/finatra/">Finatra</a>
-
 <ul>
 <li>&quot;Fast, testable, Scala services built on TwitterServer and Finagle.&quot;</li>
-</ul></li>
+</ul>
+</li>
 <li><a href="https://github.com/airbnb/hypernova">Hypernova</a>
-
 <ul>
 <li>&quot;A service for server-side rendering your JavaScript views&quot;</li>
 <li>While not a choice unto itself, this should help speed things up and keep your site nice and search engine friendly.</li>
-</ul></li>
+</ul>
+</li>
 <li>There will be a number of opinions spread throughout the net, including:
-
 <ul>
 <li><a href="https://scala.libhunt.com/categories/585-web-frameworks">https://scala.libhunt.com/categories/585-web-frameworks</a></li>
 <li><a href="https://www.reddit.com/r/scala/comments/3kaael/which_framework_to_use_for_development_of_a_rest/">https://www.reddit.com/r/scala/comments/3kaael/which_framework_to_use_for_development_of_a_rest/</a></li>
 <li><a href="https://www.quora.com/Is-Play-the-best-web-framework-written-in-Scala">https://www.quora.com/Is-Play-the-best-web-framework-written-in-Scala</a></li>
-</ul></li>
+</ul>
+</li>
 <li>You also have all of your other typical options
-
 <ul>
 <li><a href="https://www.ruby-lang.org/en/">Ruby</a>
-
 <ul>
 <li><a href="http://rubyonrails.org/">Ruby on Rails</a></li>
 <li><a href="http://www.sinatrarb.com/">Sinatra</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="https://nodejs.org/en/">Node</a>
-
 <ul>
 <li><a href="http://expressjs.com/">Express</a>: &quot;Fast, unopinionated, minimalist web framework for Node.js&quot;</li>
 <li><a href="https://www.meteor.com/">Meteor</a>: &quot;Meteor is an open source platform for web, mobile, and desktop.&quot;</li>
-<li><a href="http://noeticforce.com/best-nodejs-frameworks-for-web-and-app-development">&quot;Node.js Frameworks: The 10 Best for Web and Apps Development&quot; by noeticsunil</a>
+<li><a href="http://noeticforce.com/best-nodejs-frameworks-for-web-and-app-development">&quot;Node.js Frameworks: The 10 Best for Web and Apps Development&quot; by noeticsunil</a><br />
 mobile, and desktop.&quot;</li>
-</ul></li>
+</ul>
+</li>
 <li><a href="https://www.python.org/">Python</a>
-
 <ul>
 <li><a href="https://www.djangoproject.com/">Django</a></li>
 <li><a href="https://wiki.python.org/moin/WebFrameworks">Web Frameworks for Python</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="https://secure.php.net/">PHP</a>
-
 <ul>
 <li><a href="https://octobercms.com/">October</a>: &quot;October is a free, open-source, self-hosted CMS platform based on the Laravel PHP Framework. A simple and modular CMS that grows with you, with a precise and beautiful interface that comes as second nature.&quot;</li>
 <li><a href="https://laravel.com/">Laravel</a></li>
-</ul></li>
-<li>etc</li>
-</ul></li>
 </ul>
-
+</li>
+<li>etc</li>
+</ul>
+</li>
+</ul>
 <h2><a name="tooling"></a>Tooling</h2>
-
 <p>With the crazy mix of technologies and steps involved in modern web app development, it makes a ton of sense to tie it all together with some automation.</p>
-
 <ul>
 <li><a href="https://webpack.github.io/">Webpack</a> (<a href="https://github.com/webpack/webpack">GitHub</a>)
-
 <ul>
 <li>&quot;Webpack is a bundler for modules. The main purpose is to bundle JavaScript files for usage in a browser, yet it is also capable of transforming, bundling, or packaging just about any resource or asset.&quot;</li>
 <li><a href="http://blog.andrewray.me/webpack-when-to-use-and-why/">&quot;Webpack: When To Use And Why&quot; by Andrew Ray</a></li>
 <li><a href="https://github.com/webpack/less-loader">https://github.com/webpack/less-loader</a></li>
 <li><a href="https://github.com/shakacode/bootstrap-loader">https://github.com/shakacode/bootstrap-loader</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="http://gulpjs.com/">Gulp</a> (<a href="https://github.com/gulpjs/gulp">GitHub</a>
-
 <ul>
 <li>Gulp is a streaming javascript task runner that lets you automate tasks.</li>
-</ul></li>
+</ul>
+</li>
 <li><a href="http://gruntjs.com/">Grunt</a> (<a href="https://github.com/gruntjs/">GitHub</a>)
-
 <ul>
 <li>Grunt is basically the older, less streaming, less awesome version of Gulp.</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <p>While a little different in purpose to the things mentioned above, getting everything nicely tested and deployed is always good:</p>
-
 <ul>
 <li><a href="https://bitbucket.org/product/features/pipelines">Bitbucket Pipelines</a>: &quot;Build, test and deploy from Bitbucket&quot;</li>
 </ul>
-
 <h2><a name="conclusions"></a>Conclusions</h2>
-
-<p>Hopefully this has given you a decent starting point for figuring out what combination of technologies is going to work best for your next project. If you want to see the direction I&#39;ve decided to go, make sure you read on in <a href="#TODO">Part 2</a>.</p>
-
+<p>Hopefully this has given you a decent starting point for figuring out what combination of technologies is going to work best for your next project. If you want to see the direction I've decided to go, make sure you read on in <a href="#TODO">Part 2</a>.</p>
 <p>Have I missed something important? Not given love to your favourite stack? Got a cool pointer? Or just want to say hi? Let me know in the comments!</p>
-
 <h2><a name="updates"></a>Updates</h2>
-
 <ul>
 <li>2017-04-11 Added some more backend web frameworks, updated akka-http link, fixed some formatting</li>
 </ul>
@@ -307,25 +276,17 @@ mobile, and desktop.&quot;</li>
 	  <guid>/devalias/2014/06/26/play-framework-seperated-ws-library/</guid>
 	  <description><![CDATA[
 	     <p>So as we all (should) know, <a href="https://www.playframework.com/">Play! Framework</a> has released <a href="https://www.typesafe.com/blog/announcing-play-230">v2.3.x</a></p>
-
 <p>With it comes a <a href="https://www.playframework.com/documentation/2.3.x/Highlights23">whole range</a> of new features, including one that caught my eye:</p>
-
 <blockquote>
 <p>Play WS</p>
-
 <p>Separate library</p>
-
 <p>The WS client library has been refactored into its own library which can be used outside of Play. You can now have multiple WSClient objects, rather than only using the WS singleton.</p>
 </blockquote>
-
-<p>This was particularly exciting for me, as I&#39;ve grown to know, understand and love the simple abstractions the Play WS library provides.</p>
-
+<p>This was particularly exciting for me, as I've grown to know, understand and love the simple abstractions the Play WS library provides.</p>
 <p>Sweet! So how do I get it in my projects? Had a look over at <a href="https://github.com/playframework">playframework@Github</a> to no avail (was expecting a new repo)</p>
-
 <p>After a little more digging, I came across the <a href="https://www.playframework.com/documentation/2.3.x/Repositories">Play! Repositories</a> page, which lead me to finding what I wanted.</p>
-
 <p>A little xml magic later and we have the following for a maven project wanting to use the Java version of the WS library:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">&lt;dependencies&gt;
+<pre><code>&lt;dependencies&gt;
     &lt;groupId&gt;com.typesafe.play&lt;/groupId&gt;
     &lt;artifactId&gt;play-java-ws_2.10&lt;/artifactId&gt;
     &lt;version&gt;2.3.0&lt;/version&gt;
@@ -335,13 +296,11 @@ mobile, and desktop.&quot;</li>
     &lt;id&gt;Typesafe Releases&lt;/id&gt;
     &lt;url&gt;http://repo.typesafe.com/typesafe/releases/&lt;/url&gt;
 &lt;/repositories&gt;
-</code></pre></div>
+</code></pre>
 <p>Hope this saves you guys some time, and as always, happy hacking!</p>
-
 <h2>&quot;There is no started application&quot;</h2>
-
 <p>If you end up getting a &quot;There is no started application&quot; message when you try to use WS, you will need to do something like the following:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">AsyncHttpClientConfig.Builder builder = new com.ning.http.client.AsyncHttpClientConfig.Builder();
+<pre><code>AsyncHttpClientConfig.Builder builder = new com.ning.http.client.AsyncHttpClientConfig.Builder();
 NingWSClient wsClient = new play.libs.ws.ning.NingWSClient(builder.build());
 
 // Instead of this
@@ -349,18 +308,16 @@ NingWSClient wsClient = new play.libs.ws.ning.NingWSClient(builder.build());
 
 // Use this
 WSRequestHolder ws = wsClient.url(url)
-</code></pre></div>
+</code></pre>
 <p>See the following for more details:</p>
-
 <ul>
 <li><a href="http://stackoverflow.com/questions/24881145/how-do-i-use-play-ws-library-in-normal-sbt-project-instead-of-play">http://stackoverflow.com/questions/24881145/how-do-i-use-play-ws-library-in-normal-sbt-project-instead-of-play</a>
-
 <ul>
 <li>Scala - Using WSClient: <a href="http://www.playframework.com/documentation/2.3.x/ScalaWS">http://www.playframework.com/documentation/2.3.x/ScalaWS</a></li>
 <li>Java - Using WSClient: <a href="http://www.playframework.com/documentation/2.3.x/JavaWS">http://www.playframework.com/documentation/2.3.x/JavaWS</a></li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <p>(Note: The tl;dr/raw/likely most up to date notes I made for this are <a href="https://gist.github.com/alias1/288dce6b353f2a72a7d4">available as a gist</a>)</p>
 
 	  ]]></description>
@@ -374,11 +331,71 @@ WSRequestHolder ws = wsClient.url(url)
 	  <guid>/devalias/2014/05/15/java-scala-future-promise-map-headsplode/</guid>
 	  <description><![CDATA[
 	     <p>A side by side comparison (now that I finally got it figured out!) of <a href="https://www.playframework.com/">Play Framework</a> v2.2.x promise unwrapping in <a href="https://www.java.com/en/">Java</a> and <a href="http://www.scala-lang.org/">Scala</a>. Hopefully this will be able to save some of you a bunch of mind numbing ponderings and failures.</p>
-
 <p>&lt;3 /dev/alias</p>
+<p><a href="https://gist.github.com/0xdevalias/1d3b44312d8a68ddbaa5">https://gist.github.com/0xdevalias/1d3b44312d8a68ddbaa5</a></p>
+<p><noscript><pre># Java/Scala Future/Promise Map</p>
+<p>A side by side comparison (now that I finally got it figured out!) of Play Framework v2.2.x promise unwrapping in Java and Scala.</p>
+<h2>Java</h2>
+<pre lang="java"><code>  public Promise&amp;lt;ObjectNode&amp;gt; getEmployees(final Optional&amp;lt;String&amp;gt; filterEmail)
+	{
+		// Call the webservice
+		Promise&amp;lt;Response&amp;gt; promiseOfEmployees = this.xero.getEmployees(filterEmail);
+		
+		// Map into an ObjectNode
+		Promise&amp;lt;ObjectNode&amp;gt; promiseJson = promiseOfEmployees.map(new F.Function&amp;lt;WS.Response, ObjectNode&amp;gt;()
+		{
+			@Override
+			public ObjectNode apply(final Response response) throws Throwable
+			{
+				JsonNode responseJson = response.asJson();
 
-<p><noscript><pre>404: Not Found
-</pre></noscript><script src="https://gist.github.com/alias1/1d3b44312d8a68ddbaa5.js"> </script></p>
+				ObjectNode json = Json.newObject();
+
+				json.put(&amp;quot;foo&amp;quot;, &amp;quot;bar&amp;quot;);
+
+				return json;
+			}
+		});
+
+		// Return
+		return promiseJson;
+	}
+</code></pre>
+<h2>Scala</h2>
+<pre lang="scala"><code>def getEmployees(filterEmail: Optional[String]): Promise[ObjectNode] = {
+    // Call the webservice
+    val promiseOfEmployees: Promise[Response] = this.xero.getEmployees(filterEmail)
+    
+    // Map into an ObjectNode
+    val promiseJson: Future[ObjectNode] = promiseOfEmployees.wrapped().map { response =&amp;gt;
+      val jsonResponse: JsonNode = response.asJson();
+      val json: ObjectNode = Json.newObject()
+      json.put(&amp;quot;foo&amp;quot;, &amp;quot;bar&amp;quot;);
+      json // Return
+    }
+
+    // Return
+    return Promise.wrap(promiseJson)
+  }
+</code></pre>
+<h2>Scala (Implicit)</h2>
+<pre lang="scala"><code>  def getEmployees(filterEmail: Optional[String]): Promise[ObjectNode] = {
+    // Call the webservice
+    val promiseOfEmployees = this.xero.getEmployees(filterEmail)
+
+    // Map into an ObjectNode
+    val promiseJson = promiseOfEmployees.wrapped().map { response =&amp;gt;
+      val jsonResponse = response.asJson();
+      val json = Json.newObject()
+      json.put(&amp;quot;foo&amp;quot;, &amp;quot;bar&amp;quot;);
+      json // Return
+    }
+
+    // Return
+    return Promise.wrap(promiseJson)
+  }
+</code></pre>
+<p>&lt;3 Glenn / devalias</pre></noscript><script src="https://gist.github.com/1d3b44312d8a68ddbaa5.js"> </script></p>
 
 	  ]]></description>
 	</item>
@@ -391,29 +408,27 @@ WSRequestHolder ws = wsClient.url(url)
 	  <guid>/devalias/2014/04/17/using-lombok-with-play-framework-22x/</guid>
 	  <description><![CDATA[
 	     <p><a href="https://projectlombok.org/">Lombok</a> is a project that removes some of the tediousness of Java by letting you use annotations to replace the verbosity of Getters/Setters (and heaps of other cool things!)</p>
-
 <ul>
 <li>This is mostly a note for me to help save a TON of time screwing around again.</li>
-<li>Play 2.2.x works &#39;out of the box&#39; just by including lombok in your dependencies</li>
+<li>Play 2.2.x works 'out of the box' just by including lombok in your dependencies</li>
 </ul>
-<div class="highlight"><pre><code class="language-" data-lang="">libraryDependencies ++= Seq(
+<pre><code>libraryDependencies ++= Seq(
   foo,
   bar,
   baz,
-  "org.projectlombok" % "lombok" % "1.12.6"
+  &quot;org.projectlombok&quot; % &quot;lombok&quot; % &quot;1.12.6&quot;
 )
-</code></pre></div>
+</code></pre>
 <ul>
-<li>Where you run into issues is that play eclipse won&#39;t add the correct stuff for lombok to work correctly.</li>
+<li>Where you run into issues is that play eclipse won't add the correct stuff for lombok to work correctly.</li>
 <li>After a lot of messing around, I just went back to the method suggested on the site
-
 <ul>
 <li>Download from <a href="http://projectlombok.org/download.html">http://projectlombok.org/download.html</a></li>
 <li>Run the installer and let it configure Eclipse</li>
 <li>Done</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <p>&lt;3</p>
 
 	  ]]></description>

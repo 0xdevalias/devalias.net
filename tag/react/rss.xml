@@ -18,157 +18,125 @@
 	  <pubDate>2018-09-15T00:00:00+10:00</pubDate>
 	  <guid>/devalias/2018/09/15/forming-serverless-clouds-aws-cloudformation-sam-cdk-amplify/</guid>
 	  <description><![CDATA[
-	     <p>Recently I have been playing around with a few little side projects, and trying out different ways of getting them IntoTheCloud(tm). If you know me, you know that I&#39;m pretty big on increasing efficiency, reducing boilerplate/time to start, automation, infrastructure as code (IaC), and similar fun things.</p>
-
-<p>With these explorations I have been looking to see how I can go from &#39;cool project idea&#39; to having a PoC <a href="https://aws.amazon.com/serverless/">serverless</a> application running InTheCloud(tm) with as little time, effort, boilerplate, and ongoing cost required; with the hope that if it is quick/easy enough, and the patterns simple enough, I will actually get around to hacking on more of my side projects (or it will be quicker and cheaper to get clients projects up and running).</p>
-
+	     <p>Recently I have been playing around with a few little side projects, and trying out different ways of getting them IntoTheCloud(tm). If you know me, you know that I'm pretty big on increasing efficiency, reducing boilerplate/time to start, automation, infrastructure as code (IaC), and similar fun things.</p>
+<p>With these explorations I have been looking to see how I can go from 'cool project idea' to having a PoC <a href="https://aws.amazon.com/serverless/">serverless</a> application running InTheCloud(tm) with as little time, effort, boilerplate, and ongoing cost required; with the hope that if it is quick/easy enough, and the patterns simple enough, I will actually get around to hacking on more of my side projects (or it will be quicker and cheaper to get clients projects up and running).</p>
 <h2><a name="aws"></a>AWS</h2>
-
-<p>For this particular exploration I have been playing around a lot in <a href="https://aws.amazon.com/">AWS</a> (Amazon&#39;s Cloud), with a particular focus on <a href="https://aws.amazon.com/serverless/">serverless</a> patterns. As you probably know, AWS is huge, basically runs a good chunk of the internet, and seemingly <a href="https://aws.amazon.com/products/">has a product line for every possible thing you could dream of</a>.</p>
-
-<p>Since I was looking to speed up my &#39;new project boilerplate&#39;, I decided to focus in on the following projects/services:</p>
-
+<p>For this particular exploration I have been playing around a lot in <a href="https://aws.amazon.com/">AWS</a> (Amazon's Cloud), with a particular focus on <a href="https://aws.amazon.com/serverless/">serverless</a> patterns. As you probably know, AWS is huge, basically runs a good chunk of the internet, and seemingly <a href="https://aws.amazon.com/products/">has a product line for every possible thing you could dream of</a>.</p>
+<p>Since I was looking to speed up my 'new project boilerplate', I decided to focus in on the following projects/services:</p>
 <ul>
 <li><a href="https://aws.amazon.com/cloudformation/">AWS CloudFormation</a> (<a href="#cloudformation">see below</a>)</li>
 <li><a href="https://github.com/awslabs/serverless-application-model">AWS Serverless Application Model (SAM)</a> (<a href="#sam">see below</a>)</li>
 <li><a href="https://github.com/awslabs/aws-cdk">AWS Cloud Development Kit (CDK)</a> (<a href="#cdk">see below</a>)</li>
 <li><a href="https://aws-amplify.github.io/">AWS Amplify</a> (<a href="#amplify">see below</a>)</li>
 </ul>
-
-<p>I&#39;ll go into a bit more detail on each of these below, but since I saw so much potential crossover/overlap between them, I opened a few issues on their respective repositories. You might find more interesting tips, tricks, and aspects in those threads too:</p>
-
+<p>I'll go into a bit more detail on each of these below, but since I saw so much potential crossover/overlap between them, I opened a few issues on their respective repositories. You might find more interesting tips, tricks, and aspects in those threads too:</p>
 <ul>
 <li><a href="https://github.com/awslabs/aws-sam-cli/issues/663">awslabs/aws-sam-cli#663</a></li>
 <li><a href="https://github.com/awslabs/aws-cdk/issues/703">awslabs/aws-cdk#703</a></li>
 <li><a href="https://github.com/aws-amplify/amplify-cli/issues/160">aws-amplify/amplify-cli#160</a></li>
 </ul>
-
 <h2><a name="cloudformation"></a>AWS CloudFormation</h2>
-
 <blockquote>
 <p><a href="https://aws.amazon.com/cloudformation/">AWS CloudFormation</a> provides a common language for you to describe and provision all the infrastructure resources in your cloud environment. CloudFormation allows you to use a simple text file to model and provision, in an automated and secure manner, all the resources needed for your applications across all regions and accounts. This file serves as the single source of truth for your cloud environment.</p>
 </blockquote>
-
-<p>Basically, <a href="https://aws.amazon.com/cloudformation/">CloudFormation</a> is a bunch of JSON or YAML that defines all of the AWS resources/projects you want to use, how to configure them, and how to tie it all together. Then you can just push it ToTheCloud(tm), some kind of magic happens while you go make coffee, and you&#39;re done. It&#39;s AWS&#39;s basic Infrastructure as Code (IaC) service.</p>
-
-<p>In reality, CloudFormation templates can VERY quickly get massively out of hand, huge, confusing, and pretty hard to cognitively reason about. It&#39;s great as an underlying technology layer.. but it isn&#39;t really optimised for human consumption (particularly the JSON format). Thankfully some of the other projects I will talk about a little later aim to solve that human interface problem.</p>
-
-<p>Within CloudFormation there are a few high level concepts that it&#39;s good to be aware of:</p>
-
+<p>Basically, <a href="https://aws.amazon.com/cloudformation/">CloudFormation</a> is a bunch of JSON or YAML that defines all of the AWS resources/projects you want to use, how to configure them, and how to tie it all together. Then you can just push it ToTheCloud(tm), some kind of magic happens while you go make coffee, and you're done. It's AWS's basic Infrastructure as Code (IaC) service.</p>
+<p>In reality, CloudFormation templates can VERY quickly get massively out of hand, huge, confusing, and pretty hard to cognitively reason about. It's great as an underlying technology layer.. but it isn't really optimised for human consumption (particularly the JSON format). Thankfully some of the other projects I will talk about a little later aim to solve that human interface problem.</p>
+<p>Within CloudFormation there are a few high level concepts that it's good to be aware of:</p>
 <ul>
 <li><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacks.html">Stack</a>: This ties together all of your resources in an <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html">AWS Region</a> into a single unit.</li>
 <li><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html">Nested Stack</a>: A stack created within another stack. Allows you to seperate common patterns into their own templates and tie them all together.</li>
 <li><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.html">StackSet</a>: This ties together multiple Stacks, and allows you to manage them across multiple regions and accounts.</li>
 </ul>
-
-<p>Since Stacks by themselves are single region, you can run into some weird problems depending on the services you want to use. For example, when I want to deploy my application in <code>ap-southeast-2</code>, but want to use <a href="https://aws.amazon.com/cloudfront/">AWS CloudFront</a> (<a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cnames-and-https-requirements.html#https-requirements-aws-region">which runs in <code>us-east-1</code></a>) with a HTTPS certificate issued through <a href="https://aws.amazon.com/certificate-manager/">AWS Certificate Manager</a>, I can&#39;t natively do this within a single stack.</p>
-
+<p>Since Stacks by themselves are single region, you can run into some weird problems depending on the services you want to use. For example, when I want to deploy my application in <code>ap-southeast-2</code>, but want to use <a href="https://aws.amazon.com/cloudfront/">AWS CloudFront</a> (<a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cnames-and-https-requirements.html#https-requirements-aws-region">which runs in <code>us-east-1</code></a>) with a HTTPS certificate issued through <a href="https://aws.amazon.com/certificate-manager/">AWS Certificate Manager</a>, I can't natively do this within a single stack.</p>
 <p>There are workarounds such as <a href="https://github.com/awslabs/serverless-application-model/issues/565#issuecomment-419129580">using custom resources</a> to manage the deployment, or <a href="https://github.com/awslabs/serverless-application-model/issues/565#issuecomment-419608229">using a StackSet</a> with <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/outputs-section-structure.html">exported outputs</a> and <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-importvalue.html"><code>Fn::ImportValue</code></a> to deploy the related components across different regions; but sometimes it can take a little digging to figure out the best way to do it.</p>
-
-<p>If you&#39;re interested in trying the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-custom-resources.html">Custom Resource</a> approach, the following was how one person explained their implementation to me:</p>
-
+<p>If you're interested in trying the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-custom-resources.html">Custom Resource</a> approach, the following was how one person explained their implementation to me:</p>
 <blockquote>
-<p>It&#39;s a bit complicated due to specifics of ACM certificate issuance. The general way it works is:</p>
-
+<p>It's a bit complicated due to specifics of ACM certificate issuance. The general way it works is:</p>
 <ul>
-<li><p>CloudFormation creates a custom resource that has the same &quot;signature&quot; as an ACM certificate. It takes the same parameters and has the same return values (Ref and attribute values).</p></li>
-<li><p>The custom resource invokes a Lambda function in the account. This function requests a new certificate from ACM in us-east-1.</p></li>
-<li><p>The Lambda function then sends a message to an SQS queue in the account. This queue is subscribed by the same Lambda function. The queue is effectively a &quot;while&quot; loop to reinvoke the function every 30 seconds to check whether the certificate has been issued.</p></li>
-<li><p>Every time the Lambda function is invoked by the queued message:</p>
-
+<li>
+<p>CloudFormation creates a custom resource that has the same &quot;signature&quot; as an ACM certificate. It takes the same parameters and has the same return values (Ref and attribute values).</p>
+</li>
+<li>
+<p>The custom resource invokes a Lambda function in the account. This function requests a new certificate from ACM in us-east-1.</p>
+</li>
+<li>
+<p>The Lambda function then sends a message to an SQS queue in the account. This queue is subscribed by the same Lambda function. The queue is effectively a &quot;while&quot; loop to reinvoke the function every 30 seconds to check whether the certificate has been issued.</p>
+</li>
+<li>
+<p>Every time the Lambda function is invoked by the queued message:</p>
 <ul>
 <li>If the certificate has been issued, the function responds with a success back to CloudFormation with the appropriate return values. The function returns successfully, which removes the message from the SQS queue.</li>
 <li>If the certificate issuance failed, the function responds with a failure back to CloudFormation with an appropriate message. The function returns successfully, which removes the message from the SQS queue.</li>
 <li>If the certificate is still awaiting verification, the function does nothing and throws an error. The error causes SQS to keep the message in the queue and retry 30 seconds later.</li>
-</ul></li>
-<li><p>Meanwhile, the ACM certificate verification occurs (a human approves it via an email sent to the domain owner, or a DNS record is added to the domain to verify the certificate).</p></li>
+</ul>
+</li>
+<li>
+<p>Meanwhile, the ACM certificate verification occurs (a human approves it via an email sent to the domain owner, or a DNS record is added to the domain to verify the certificate).</p>
+</li>
 </ul>
 </blockquote>
-
 <p>While it is pretty convoluted setup for a single project, I expect that if designed well this could be wrapped up into a simple open source/deployable component that everyone could make use of rather easily. Perhaps something for the <a href="https://aws.amazon.com/serverless/serverlessrepo/">AWS Serverless Application Repository</a> or as a <a href="https://aws.amazon.com/blogs/devops/construct-your-own-launch-stack-url/">Launch Stack Button</a>?</p>
-
 <h2><a name="sam"></a>AWS Severless Application Model (SAM)</h2>
-
 <blockquote>
 <p>The <a href="https://docs.aws.amazon.com/lambda/latest/dg/serverless_app.html">AWS Serverless Application Model (AWS SAM)</a> is a model to define serverless applications. AWS SAM is natively supported by AWS CloudFormation and defines simplified syntax for expressing serverless resources. The specification currently covers APIs, Lambda functions and Amazon DynamoDB tables.</p>
 </blockquote>
-
 <p>AWS SAM (<a href="https://github.com/awslabs/serverless-application-model">GitHub</a>, <a href="https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md">Spec/Usage</a>, <a href="https://github.com/awslabs/serverless-application-model/tree/master/examples">Examples</a>, <a href="https://awslabs.github.io/serverless-application-model/">Site</a>, <a href="https://github.com/awslabs/aws-sam-cli">CLI</a>, <a href="https://github.com/awslabs/aws-sam-cli/tree/master/samcli/local/init/templates">Templates</a>) seems to have come about because using CloudFormation directly was just too verbose and time consuming for some of the more common serverless usecases. By wrapping these cases up in a simplified/abstracted way makes it easier to get started, and therefore more likely for people to use the serverless resources AWS provides. It similarly follows the CloudFormation model of defining your resources in YAML, and uses a <a href="https://pypi.org/project/aws-sam-translator/">translator</a> (<a href="https://github.com/awslabs/serverless-application-model/tree/master/samtranslator">GitHub</a>) to build the raw underlying CloudFormation template.</p>
-
-<p>While AWS SAM seems great for these common usecases, there are definitely areas where you will need to fall back to using native CloudFormation (which you can thankfully use directly within a SAM template). There are also a number of areas where limitations in what SAM allows you to configure means <a href="https://github.com/awslabs/serverless-application-model/issues/566#issuecomment-419311289">you may not be able to use it&#39;s simplified abstractions</a>. These are likely to improve over time as <a href="https://github.com/awslabs/serverless-application-model/issues">people run into the issues</a>, and the maintainer team implements/improves features.</p>
-
+<p>While AWS SAM seems great for these common usecases, there are definitely areas where you will need to fall back to using native CloudFormation (which you can thankfully use directly within a SAM template). There are also a number of areas where limitations in what SAM allows you to configure means <a href="https://github.com/awslabs/serverless-application-model/issues/566#issuecomment-419311289">you may not be able to use it's simplified abstractions</a>. These are likely to improve over time as <a href="https://github.com/awslabs/serverless-application-model/issues">people run into the issues</a>, and the maintainer team implements/improves features.</p>
 <p>What is really nice is just how simple it is to get a new project off the ground:</p>
-
 <ul>
 <li>Have a look at <a href="https://github.com/awslabs/aws-sam-cli#get-started">Get Started</a> and <a href="https://github.com/awslabs/aws-sam-cli/blob/develop/docs/installation.rst#using-pip">install/upgrade the CLI</a>: <code>pip install --upgrade aws-sam-cli</code></li>
 <li><a href="https://github.com/awslabs/aws-sam-cli/blob/develop/docs/usage.rst">Init your new application</a>: <code>sam init --runtime nodejs8.10 --name foo-app</code>
-
 <ul>
 <li>There are MANY supported runtimes (<code>sam init --help</code>).. so choose your favourite: <code>[python3.6|python2.7|python|nodejs6.10|nodejs8.10|nodejs4.3|nodejs|dotnetcore2.0|dotnetcore1.0|dotnetcore|dotnet|go1.x|go|java8|java]</code></li>
-</ul></li>
+</ul>
+</li>
 <li>Pull down your app dependencies: <code>cd foo-app/hello_world &amp;&amp; npm install</code></li>
 <li>Run your API locally (<code>sam local --help</code>): <code>cd ../ &amp;&amp; sam local start-api</code></li>
-<li>View your application in all of it&#39;s glory: <a href="http://127.0.0.1:3000/hello">http://127.0.0.1:3000/hello</a></li>
+<li>View your application in all of it's glory: <a href="http://127.0.0.1:3000/hello">http://127.0.0.1:3000/hello</a></li>
 </ul>
-
-<p><a name="sam-example"></a>If you have a look at the generated SAM template (<code>template.yaml</code>), you&#39;ll see that the entire stack is only ~45 lines (including newlines and comments), with the main function code only taking up ~15 lines. Not bad to get a PoC application running:</p>
-<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">HelloWorldFunction</span><span class="pi">:</span>
-  <span class="na">Type</span><span class="pi">:</span> <span class="s">AWS::Serverless::Function</span>
-  <span class="na">Properties</span><span class="pi">:</span>
-    <span class="na">CodeUri</span><span class="pi">:</span> <span class="s">hello_world/</span>
-    <span class="na">Handler</span><span class="pi">:</span> <span class="s">app.lambdaHandler</span>
-    <span class="na">Runtime</span><span class="pi">:</span> <span class="s">nodejs8.10</span>
-    <span class="na">Environment</span><span class="pi">:</span>
-      <span class="na">Variables</span><span class="pi">:</span>
-        <span class="na">PARAM1</span><span class="pi">:</span> <span class="s">VALUE</span>
-    <span class="na">Events</span><span class="pi">:</span>
-      <span class="na">HelloWorld</span><span class="pi">:</span>
-        <span class="na">Type</span><span class="pi">:</span> <span class="s">Api</span>
-        <span class="na">Properties</span><span class="pi">:</span>
-          <span class="na">Path</span><span class="pi">:</span> <span class="s">/hello</span>
-          <span class="na">Method</span><span class="pi">:</span> <span class="s">get</span>
-</code></pre></div>
-<p>Once we&#39;re ready to <a href="https://github.com/awslabs/aws-sam-cli/blob/develop/docs/deploying_serverless_applications.rst">deploy this to the cloud</a>, we have just a couple more commands to run:</p>
-
+<p><a name="sam-example"></a>If you have a look at the generated SAM template (<code>template.yaml</code>), you'll see that the entire stack is only ~45 lines (including newlines and comments), with the main function code only taking up ~15 lines. Not bad to get a PoC application running:</p>
+<pre lang="yaml"><code>HelloWorldFunction:
+  Type: AWS::Serverless::Function
+  Properties:
+    CodeUri: hello_world/
+    Handler: app.lambdaHandler
+    Runtime: nodejs8.10
+    Environment:
+      Variables:
+        PARAM1: VALUE
+    Events:
+      HelloWorld:
+        Type: Api
+        Properties:
+          Path: /hello
+          Method: get
+</code></pre>
+<p>Once we're ready to <a href="https://github.com/awslabs/aws-sam-cli/blob/develop/docs/deploying_serverless_applications.rst">deploy this to the cloud</a>, we have just a couple more commands to run:</p>
 <ul>
 <li>Make sure our template is valid: <code>sam validate</code></li>
 <li>Package any external code and upload to S3 (bucket must already exist): <code>sam package --template-file ./template.yaml --output-template-file ./packaged.yaml --s3-bucket FOO-PKGS-BUCKET</code></li>
 <li>Deploy our stack: <code>sam deploy --template-file ./packaged.yaml --stack-name Foo-App --capabilities CAPABILITY_IAM</code></li>
 </ul>
-
-<p>Now if you&#39;re like me and enjoy writing your backend in <a href="https://golang.org/">Golang</a>, then you may find the default template (<code>sam init --runtime go1.x --name foo-app</code>) a little lacking (eg. no <a href="https://github.com/golang/dep"><code>dep</code></a>, basic Makefile, etc). Thankfully we have the ability to pass a <code>--location</code> flag to tell it to use a different template project.</p>
-
-<p>But how do we know what the template project should look like? Digging into the code we find the <a href="https://github.com/awslabs/aws-sam-cli/blob/6164d6d2e7351a849ad3d79973ac18b8d3d1d371/samcli/local/init/__init__.py#L35"><code>generate_project</code></a> function, which accepts the <code>location</code> parameter. <a href="https://github.com/awslabs/aws-sam-cli/blob/6164d6d2e7351a849ad3d79973ac18b8d3d1d371/samcli/local/init/__init__.py#L68">If the parameter is defined it will be used</a>, otherwise it is looked up in the <a href="https://github.com/awslabs/aws-sam-cli/blob/6164d6d2e7351a849ad3d79973ac18b8d3d1d371/samcli/local/init/__init__.py#L16-L32"><code>RUNTIME_TEMPLATE_MAPPING</code></a>, which links the runtime you specified (eg. <code>go1.x</code>) to the template project to use (eg. <a href="https://github.com/awslabs/aws-sam-cli/blob/6164d6d2e7351a849ad3d79973ac18b8d3d1d371/samcli/local/init/__init__.py#L28"><code>cookiecutter-aws-sam-hello-golang</code></a>). These templates are looked up in the <a href="https://github.com/awslabs/aws-sam-cli/blob/6164d6d2e7351a849ad3d79973ac18b8d3d1d371/samcli/local/init/__init__.py#L13-L14"><code>_templates</code> variable path</a>, which after some digging I managed to <a href="https://github.com/awslabs/aws-sam-cli/tree/6164d6d2e7351a849ad3d79973ac18b8d3d1d371/samcli/local/init/templates">locate in the repo at <code>aws-sam-cli/samcli/local/init/templates/</code></a>. There also appear to be a few more templates on the <a href="https://github.com/aws-samples?utf8=%E2%9C%93&q=cookiecutter&type=&language=">aws-samples GitHub</a>.</p>
-
+<p>Now if you're like me and enjoy writing your backend in <a href="https://golang.org/">Golang</a>, then you may find the default template (<code>sam init --runtime go1.x --name foo-app</code>) a little lacking (eg. no <a href="https://github.com/golang/dep"><code>dep</code></a>, basic Makefile, etc). Thankfully we have the ability to pass a <code>--location</code> flag to tell it to use a different template project.</p>
+<p>But how do we know what the template project should look like? Digging into the code we find the <a href="https://github.com/awslabs/aws-sam-cli/blob/6164d6d2e7351a849ad3d79973ac18b8d3d1d371/samcli/local/init/__init__.py#L35"><code>generate_project</code></a> function, which accepts the <code>location</code> parameter. <a href="https://github.com/awslabs/aws-sam-cli/blob/6164d6d2e7351a849ad3d79973ac18b8d3d1d371/samcli/local/init/__init__.py#L68">If the parameter is defined it will be used</a>, otherwise it is looked up in the <a href="https://github.com/awslabs/aws-sam-cli/blob/6164d6d2e7351a849ad3d79973ac18b8d3d1d371/samcli/local/init/__init__.py#L16-L32"><code>RUNTIME_TEMPLATE_MAPPING</code></a>, which links the runtime you specified (eg. <code>go1.x</code>) to the template project to use (eg. <a href="https://github.com/awslabs/aws-sam-cli/blob/6164d6d2e7351a849ad3d79973ac18b8d3d1d371/samcli/local/init/__init__.py#L28"><code>cookiecutter-aws-sam-hello-golang</code></a>). These templates are looked up in the <a href="https://github.com/awslabs/aws-sam-cli/blob/6164d6d2e7351a849ad3d79973ac18b8d3d1d371/samcli/local/init/__init__.py#L13-L14"><code>_templates</code> variable path</a>, which after some digging I managed to <a href="https://github.com/awslabs/aws-sam-cli/tree/6164d6d2e7351a849ad3d79973ac18b8d3d1d371/samcli/local/init/templates">locate in the repo at <code>aws-sam-cli/samcli/local/init/templates/</code></a>. There also appear to be a few more templates on the <a href="https://github.com/aws-samples?utf8=%E2%9C%93&amp;q=cookiecutter&amp;type=&amp;language=">aws-samples GitHub</a>.</p>
 <p>Having a look at the <a href="https://github.com/awslabs/aws-sam-cli/tree/6164d6d2e7351a849ad3d79973ac18b8d3d1d371/samcli/local/init/templates/cookiecutter-aws-sam-hello-golang">Golang template project</a>, it appears that these are <a href="https://github.com/audreyr/cookiecutter">Cookiecutter</a> (<a href="https://cookiecutter.readthedocs.io/en/latest/">docs</a>) templates. So to make our own customised SAM Golang starter template, after <a href="https://cookiecutter.readthedocs.io/en/latest/installation.html#install-cookiecutter">installing Cookiecutter</a> (<code>pip install --upgrade cookiecutter</code>), we can copy the <a href="https://github.com/awslabs/aws-sam-cli/tree/master/samcli/local/init/templates/cookiecutter-aws-sam-hello-golang">existing template</a>, <a href="https://cookiecutter.readthedocs.io/en/latest/usage.html#make-your-changes">make our desired changes</a>, and save it somewhere useful for future use (such as GitHub). Then when we want to use it in a new project:</p>
-
 <ul>
 <li><code>sam init --runtime go1.x --location gh:0xdevalias/TODO-cookiecutter-aws-sam-golang --name foo-app</code></li>
 </ul>
-
-<p>While I haven&#39;t abstracted out my patterns into a custom starter template yet, this may be something I end up doing in future, so make sure to <a href="https://github.com/0xdevalias?utf8=%E2%9C%93&tab=repositories&q=cookiecutter-&type=&language=">keep an eye on my GitHub</a>.</p>
-
+<p>While I haven't abstracted out my patterns into a custom starter template yet, this may be something I end up doing in future, so make sure to <a href="https://github.com/0xdevalias?utf8=%E2%9C%93&amp;tab=repositories&amp;q=cookiecutter-&amp;type=&amp;language=">keep an eye on my GitHub</a>.</p>
 <h2><a name="cdk"></a>AWS Cloud Development Kit (CDK)</h2>
-
 <blockquote>
 <p>The <a href="https://github.com/awslabs/aws-cdk">AWS Cloud Development Kit (AWS CDK)</a> is an open-source software development framework to define cloud infrastructure in code and provision it through AWS CloudFormation. The CDK integrates fully with AWS services and offers a higher level object-oriented abstraction to define AWS resources imperatively. Using the CDK’s library of infrastructure constructs, you can easily encapsulate AWS best practices in your infrastructure definition and share it without worrying about boilerplate logic. The CDK improves the end-to-end development experience because you get to use the power of modern programming languages to define your AWS infrastructure in a predictable and efficient manner. The CDK is currently available for Java, JavaScript, and TypeScript.</p>
 </blockquote>
-
-<p>AWS CDK (<a href="https://github.com/awslabs/aws-cdk">GitHub</a>, <a href="https://github.com/awslabs/aws-cdk/blob/master/CHANGELOG.md">Changelog</a>, <a href="https://awslabs.github.io/aws-cdk/">Site</a>, <a href="https://awslabs.github.io/aws-cdk/reference.html">Reference</a>, Examples: <a href="https://awslabs.github.io/aws-cdk/examples.html">1</a>, <a href="https://github.com/awslabs/aws-cdk/tree/master/examples">2</a>) moves away from directly constructing raw YAML/JSON by hand, and takes more of a &#39;generator code&#39; approach, providing a development kit of libraries that you can use to describe how your cloud infrastructure should look, connect, and interact. Once it&#39;s all defined in code, you can use it to generate the CloudFormation / <a href="https://awslabs.github.io/aws-cdk/refs/_aws-cdk_aws-sam.html">AWS SAM</a> YAML, deploy it to the cloud, and everything else you would come to expect from these sorts of tools.</p>
-
+<p>AWS CDK (<a href="https://github.com/awslabs/aws-cdk">GitHub</a>, <a href="https://github.com/awslabs/aws-cdk/blob/master/CHANGELOG.md">Changelog</a>, <a href="https://awslabs.github.io/aws-cdk/">Site</a>, <a href="https://awslabs.github.io/aws-cdk/reference.html">Reference</a>, Examples: <a href="https://awslabs.github.io/aws-cdk/examples.html">1</a>, <a href="https://github.com/awslabs/aws-cdk/tree/master/examples">2</a>) moves away from directly constructing raw YAML/JSON by hand, and takes more of a 'generator code' approach, providing a development kit of libraries that you can use to describe how your cloud infrastructure should look, connect, and interact. Once it's all defined in code, you can use it to generate the CloudFormation / <a href="https://awslabs.github.io/aws-cdk/refs/_aws-cdk_aws-sam.html">AWS SAM</a> YAML, deploy it to the cloud, and everything else you would come to expect from these sorts of tools.</p>
 <p>The CDK is divided up into a number of libraries, with <a href="https://awslabs.github.io/aws-cdk/reference.html">each representing an AWS service</a>. Each of these libraries is broken up into two different levels of <a href="https://awslabs.github.io/aws-cdk/constructs.html">Constructs</a>:</p>
-
 <ul>
 <li><a href="https://awslabs.github.io/aws-cdk/cloudformation.html">CloudFormation Resource</a>: low-level constructs that provide a direct, one-to-one, mapping to an AWS CloudFormation resource, as listed in the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">AWS CloudFormation Resource Types Reference</a>.</li>
 <li><a href="https://awslabs.github.io/aws-cdk/aws-construct-lib.html">AWS Construct Library</a>: handwritten by AWS and come with convenient defaults and additional knowledge about the inner workings of the AWS resources they represent. In general, you will be able to express your intent without worrying about the details too much, and the correct resources will automatically be defined for you.</li>
 </ul>
-
-<p>Where possible you should be able to use the higher level constructs to get things done (and these will only get better over time), but it&#39;s nice to know that we have an easy way to drop down to the lower-level functionality when we need to. There also appears to be the ability to create new Construct libs (<code>cdk init --list</code>, <a href="https://github.com/awslabs/aws-cdk/tree/master/packages/aws-cdk/lib/init-templates/lib">template</a>), so it&#39;s possible you could build your own custom construct abstractions with this. Another area for future exploration.</p>
-
+<p>Where possible you should be able to use the higher level constructs to get things done (and these will only get better over time), but it's nice to know that we have an easy way to drop down to the lower-level functionality when we need to. There also appears to be the ability to create new Construct libs (<code>cdk init --list</code>, <a href="https://github.com/awslabs/aws-cdk/tree/master/packages/aws-cdk/lib/init-templates/lib">template</a>), so it's possible you could build your own custom construct abstractions with this. Another area for future exploration.</p>
 <p>As is pretty standard by now, you define a <a href="https://awslabs.github.io/aws-cdk/stacks.html">stack</a> which contains all of the features and services you want to use, then configure the <a href="https://awslabs.github.io/aws-cdk/environments.html#environments">environment</a> to define where it should be deployed. You can define multiple stacks within your <a href="https://awslabs.github.io/aws-cdk/apps.html">CDK App</a>, which means we have a nice way to handle cross-region deployments. There is built in support for uploading <a href="https://awslabs.github.io/aws-cdk/assets.html">assets</a> (<a href="https://awslabs.github.io/aws-cdk/refs/_aws-cdk_assets.html#id2">ref</a>) that your application may require (eg. lambda code, etc), as well as <a href="https://awslabs.github.io/aws-cdk/applets.html">applets</a> for running custom code as part of your build (eg. compiling code/assets).</p>
-
-<p><a href="https://awslabs.github.io/aws-cdk/getting-started.html">Getting started</a> with a new project is pretty simple (note: if you don&#39;t have default creds configured, make sure to use <code>AWS_PROFILE</code>/<code>--profile</code> <a href="https://github.com/awslabs/aws-cdk/issues/130#issuecomment-421508274">or things will hang</a>):</p>
-
+<p><a href="https://awslabs.github.io/aws-cdk/getting-started.html">Getting started</a> with a new project is pretty simple (note: if you don't have default creds configured, make sure to use <code>AWS_PROFILE</code>/<code>--profile</code> <a href="https://github.com/awslabs/aws-cdk/issues/130#issuecomment-421508274">or things will hang</a>):</p>
 <ul>
 <li><a href="https://awslabs.github.io/aws-cdk/getting-started.html#install-the-command-line-toolkit">Install the CDK CLI</a>: <code>npm install -g aws-cdk</code></li>
 <li>Check what templates/languages are available: <code>cdk init --list</code></li>
@@ -177,87 +145,78 @@
 <li><a href="https://awslabs.github.io/aws-cdk/getting-started.html#list-the-stacks-in-the-app">List the stacks</a>: <code>cdk ls --long</code></li>
 <li><a href="https://awslabs.github.io/aws-cdk/getting-started.html#synthesize-an-cfn-template">Synthesize the code to CloudFormation YAML</a>: <code>cdk synth</code> or <code>cdk synth FooStack</code></li>
 </ul>
-
-<p>When you&#39;re happy and think you&#39;re ready to deploy:</p>
-
+<p>When you're happy and think you're ready to deploy:</p>
 <ul>
-<li><a href="https://awslabs.github.io/aws-cdk/getting-started.html#preparing-for-deployment">Diff to see changes</a> (and make sure you&#39;re still happy): <code>cdk diff</code></li>
+<li><a href="https://awslabs.github.io/aws-cdk/getting-started.html#preparing-for-deployment">Diff to see changes</a> (and make sure you're still happy): <code>cdk diff</code></li>
 <li><a href="https://awslabs.github.io/aws-cdk/getting-started.html#deploying-the-stack">Deploy</a>: <code>cdk deploy</code></li>
 </ul>
-
 <p>Following along from our previous <a href="#sam-example">AWS SAM example</a>, we can create an equivalent <a href="https://github.com/awslabs/aws-cdk/issues/716">example SAM function</a> (<a href="https://awslabs.github.io/aws-cdk/refs/_aws-cdk_aws-sam.html">ref</a>) in <code>./bin/foo.ts</code> with code such as the following:</p>
-<div class="highlight"><pre><code class="language-typescript" data-lang="typescript"><span class="k">import</span> <span class="nx">sam</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'@aws-cdk/aws-serverless'</span><span class="p">);</span>
-<span class="k">import</span> <span class="nx">lambda</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'@aws-cdk/aws-lambda'</span><span class="p">);</span>
-</code></pre></div><div class="highlight"><pre><code class="language-typescript" data-lang="typescript"><span class="kd">const</span> <span class="nx">helloWorld</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">sam</span><span class="p">.</span><span class="nx">cloudformation</span><span class="p">.</span><span class="nx">FunctionResource</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s2">"HelloWorldFunction"</span><span class="p">,</span> <span class="p">{</span>
-  <span class="na">codeUri</span><span class="p">:</span> <span class="s2">"hello_world/"</span><span class="p">,</span>
-  <span class="na">handler</span><span class="p">:</span> <span class="s2">"app.lambdaHandler"</span><span class="p">,</span>
-  <span class="na">runtime</span><span class="p">:</span> <span class="nx">lambda</span><span class="p">.</span><span class="nx">Runtime</span><span class="p">.</span><span class="nx">NodeJS810</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span>
-  <span class="na">environment</span><span class="p">:</span> <span class="p">{</span>
-    <span class="na">variables</span><span class="p">:</span> <span class="p">{</span>
-      <span class="na">PARAM1</span><span class="p">:</span> <span class="s2">"VALUE"</span>
-    <span class="p">}</span>
-  <span class="p">},</span>
-  <span class="na">events</span><span class="p">:</span> <span class="p">{</span>
-    <span class="na">HelloWorld</span><span class="p">:</span> <span class="p">{</span>
-      <span class="na">type</span><span class="p">:</span> <span class="s2">"Api"</span><span class="p">,</span>
-      <span class="na">properties</span><span class="p">:</span> <span class="p">{</span>
-        <span class="na">path</span><span class="p">:</span> <span class="s2">"/hello"</span><span class="p">,</span>
-        <span class="na">method</span><span class="p">:</span> <span class="s2">"get"</span><span class="p">,</span>
-      <span class="p">}</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-<span class="p">});</span>
-</code></pre></div>
+<pre lang="typescript"><code>import sam = require('@aws-cdk/aws-serverless');
+import lambda = require('@aws-cdk/aws-lambda');
+</code></pre>
+<pre lang="typescript"><code>const helloWorld = new sam.cloudformation.FunctionResource(this, &quot;HelloWorldFunction&quot;, {
+  codeUri: &quot;hello_world/&quot;,
+  handler: &quot;app.lambdaHandler&quot;,
+  runtime: lambda.Runtime.NodeJS810.name,
+  environment: {
+    variables: {
+      PARAM1: &quot;VALUE&quot;
+    }
+  },
+  events: {
+    HelloWorld: {
+      type: &quot;Api&quot;,
+      properties: {
+        path: &quot;/hello&quot;,
+        method: &quot;get&quot;,
+      }
+    }
+  }
+});
+</code></pre>
 <p>Remember you will need to <code>npm install</code> any additional packages you need before you can use them:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">npm i @aws-cdk/aws-serverless @aws-cdk/aws-lambda
-</code></pre></div>
+<pre><code>npm i @aws-cdk/aws-serverless @aws-cdk/aws-lambda
+</code></pre>
 <p>Once we compile (<code>npm run build</code>) and synthesize (<code>cdk synth</code>), we can see we end up with equivalent YAML to our <a href="#sam-example">previous SAM example</a>:</p>
-<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">HelloWorldFunction</span><span class="pi">:</span>
-  <span class="na">Type</span><span class="pi">:</span> <span class="s1">'</span><span class="s">AWS::Serverless::Function'</span>
-  <span class="na">Properties</span><span class="pi">:</span>
-    <span class="na">CodeUri</span><span class="pi">:</span> <span class="s">hello_world/</span>
-    <span class="na">Handler</span><span class="pi">:</span> <span class="s">app.lambdaHandler</span>
-    <span class="na">Runtime</span><span class="pi">:</span> <span class="s">nodejs8.10</span>
-    <span class="na">Environment</span><span class="pi">:</span>
-      <span class="na">Variables</span><span class="pi">:</span>
-        <span class="na">PARAM1</span><span class="pi">:</span> <span class="s">VALUE</span>
-    <span class="na">Events</span><span class="pi">:</span>
-      <span class="na">HelloWorld</span><span class="pi">:</span>
-        <span class="na">Properties</span><span class="pi">:</span>
-          <span class="na">Method</span><span class="pi">:</span> <span class="s">get</span>
-          <span class="na">Path</span><span class="pi">:</span> <span class="s">/hello</span>
-        <span class="na">Type</span><span class="pi">:</span> <span class="s">Api</span>
-</code></pre></div>
+<pre lang="yaml"><code>HelloWorldFunction:
+  Type: 'AWS::Serverless::Function'
+  Properties:
+    CodeUri: hello_world/
+    Handler: app.lambdaHandler
+    Runtime: nodejs8.10
+    Environment:
+      Variables:
+        PARAM1: VALUE
+    Events:
+      HelloWorld:
+        Properties:
+          Method: get
+          Path: /hello
+        Type: Api
+</code></pre>
 <p>While CDK is <a href="https://aws.amazon.com/blogs/developer/aws-cdk-developer-preview/">quite a new project (Aug 2018)</a>, we can already see that it is quite powerful to work with.</p>
-
 <h2><a name="amplify"></a>Amplify</h2>
-
 <blockquote>
 <p><a href="https://aws-amplify.github.io/">Amplify</a> is an open source project which is focused on mobile and web developers building applications. This consists of a library, UI components, and a CLI toolchain. The design follows a category based model allowing developers to perform advanced use cases with declarative client APIs so that they can focus on their application code (e.g. Auth.signIn() or API.graphql()). This allows developers to focus on their business use cases and less time on re-implementing the most common use cases around mobile or web app development (Auth flows, Storage and API interaction, Analytics, etc.) (<a href="https://github.com/aws-amplify/amplify-cli/issues/160#issuecomment-421100213">Source</a>)</p>
 </blockquote>
-
 <p><a href="https://aws-amplify.github.io/">AWS Amplify</a> (<a href="https://github.com/aws-amplify">GitHub</a>) combines a number of different complementary aspects to simplify modern mobile and web development:</p>
-
 <ul>
 <li><a href="https://github.com/aws-amplify/amplify-cli">CLI</a>: uses AWS CloudFormation and nested stacks to define and provision commonly required backend services and features</li>
 <li>Library / <a href="https://aws-amplify.github.io/media/ui_library">UI Components</a>: These appear to be broken down based on platform
-
 <ul>
 <li><a href="https://aws-amplify.github.io/amplify-js/media/quick_start?platform=react">Web / JavaScript / React Native</a> (<a href="https://github.com/aws-amplify/amplify-js">GitHub</a>)</li>
 <li><a href="https://docs.aws.amazon.com/aws-mobile/latest/developerguide/getting-started.html#ios-swift">iOS</a></li>
 <li><a href="https://docs.aws.amazon.com/aws-mobile/latest/developerguide/getting-started.html#android-java">Android</a></li>
-</ul></li>
 </ul>
-
-<p>Of all of the projects I have explored today, this is the one I have the least experience with, so I may not have fully come to understand/appreciate the depth of it yet. In a bit of a difference from the previous projects, this seems to take more of a &#39;full-stack&#39; approach to solving common application needs.</p>
-
+</li>
+</ul>
+<p>Of all of the projects I have explored today, this is the one I have the least experience with, so I may not have fully come to understand/appreciate the depth of it yet. In a bit of a difference from the previous projects, this seems to take more of a 'full-stack' approach to solving common application needs.</p>
 <p>One of the nice things about the <a href="https://github.com/aws-amplify/amplify-cli">Amplify CLI</a> is how it aims to provide simple menu-driven options for getting everything going:</p>
-
 <ul>
 <li><a href="https://github.com/aws-amplify/amplify-cli#install-the-cli">Install the CLI</a>: <code>npm install -g @aws-amplify/cli</code></li>
 <li>Init a new project: <code>amplify init</code> and follow the menu choices</li>
 </ul>
-<div class="highlight"><pre><code class="language-" data-lang="">⇒  amplify init
+<pre><code>⇒  amplify init
 Note: It is recommended to run this command from the root of your app directory
 ? Choose your default editor: None
 ? Choose the type of app that you're building: javascript
@@ -273,51 +232,39 @@ Using default provider awscloudformation
 Initializing project in the cloud...
 ..snip..
 Your project has been successfully initialized and connected to the cloud!
-</code></pre></div>
+</code></pre>
 <ul>
 <li>Choose a category (feature) you want to add (<code>amplify --help</code>), and select it: eg. <code>amplify function add</code></li>
 </ul>
-<div class="highlight"><pre><code class="language-" data-lang="">⇒  amplify function add
+<pre><code>⇒  amplify function add
 Using service: Lambda, provided by: awscloudformation
 ? Provide a friendly name for your resource to be used as a label for this category in the project: HelloWorld
 ? Provide the AWS Lambda function name: HelloWorld
 ? Choose the function template that you want to use: Serverless express function (Integration with Amazon API Gateway)
 ? Do you want to edit the local lambda function now? false
 Successfully added resource HelloWorld locally.
-</code></pre></div>
-<p>At this point you should be able to see the generated files in <code>./amplify/backend/function/HelloWorld</code>. Of particular note is the generated CloudFormation JSON (<code>HelloWorld-cloudformation-template.json</code>). While it is nice that it is automatically generated, using the JSON form, and not appearing to leverage SAM means that it ends up being quite a verbose file to cognitively reason about. I believe the intention is that you don&#39;t modify this directly (and I read somewhere that even if you do it may be overwritten?). If nothing else, it serves as a decent reference implementation for this kind of feature, that you could then translate back to your preferred method (eg. SAM/CDK).</p>
-
+</code></pre>
+<p>At this point you should be able to see the generated files in <code>./amplify/backend/function/HelloWorld</code>. Of particular note is the generated CloudFormation JSON (<code>HelloWorld-cloudformation-template.json</code>). While it is nice that it is automatically generated, using the JSON form, and not appearing to leverage SAM means that it ends up being quite a verbose file to cognitively reason about. I believe the intention is that you don't modify this directly (and I read somewhere that even if you do it may be overwritten?). If nothing else, it serves as a decent reference implementation for this kind of feature, that you could then translate back to your preferred method (eg. SAM/CDK).</p>
 <p>Digging into the source, it appears these templates are located within the <a href="amplify-category-function">specific subpackage</a> of the CLI, in the <a href="https://github.com/aws-amplify/amplify-cli/tree/master/packages/amplify-category-function/provider-utils/awscloudformation">cloudformation provider</a> (eg. <a href="https://github.com/aws-amplify/amplify-cli/blob/master/packages/amplify-category-function/provider-utils/awscloudformation/cloudformation-templates/lambda-cloudformation-template.json.ejs">the function template used above</a>).</p>
-
-<p>While currently there only appears to be a single &#39;provider&#39; (<a href="https://github.com/aws-amplify/amplify-cli/tree/master/packages/amplify-provider-awscloudformation"><code>amplify-provider-awscloudformation</code></a>), language around the websites/repos implies that in future they would like to support additional providers, so it <a href="https://github.com/aws-amplify/amplify-cli/issues/171">may be possible to implement CDK</a> and/or SAM into this flow, for a &#39;best of all worlds&#39; situation.</p>
-
-<p>Implementing the most basic use case (<code>function</code>) as we did above isn&#39;t really where Amplify shines. For example, you can add an <a href="https://aws-amplify.github.io/amplify-js/media/authentication_guide">authentication system</a> (<a href="https://aws-amplify.github.io/amplify-js/api/classes/authclass.html">JS Ref</a>) to your backend with just <code>amplify auth add</code>, or a new <a href="https://aws-amplify.github.io/amplify-js/media/api_guide">GraphQL/REST api</a> with <code>amplify api add</code>, and similar simplicity for other common features and patterns.</p>
-
+<p>While currently there only appears to be a single 'provider' (<a href="https://github.com/aws-amplify/amplify-cli/tree/master/packages/amplify-provider-awscloudformation"><code>amplify-provider-awscloudformation</code></a>), language around the websites/repos implies that in future they would like to support additional providers, so it <a href="https://github.com/aws-amplify/amplify-cli/issues/171">may be possible to implement CDK</a> and/or SAM into this flow, for a 'best of all worlds' situation.</p>
+<p>Implementing the most basic use case (<code>function</code>) as we did above isn't really where Amplify shines. For example, you can add an <a href="https://aws-amplify.github.io/amplify-js/media/authentication_guide">authentication system</a> (<a href="https://aws-amplify.github.io/amplify-js/api/classes/authclass.html">JS Ref</a>) to your backend with just <code>amplify auth add</code>, or a new <a href="https://aws-amplify.github.io/amplify-js/media/api_guide">GraphQL/REST api</a> with <code>amplify api add</code>, and similar simplicity for other common features and patterns.</p>
 <p>Moving from the backend infrastructure, Amplify also features libraries and UI components to consume these features in your application. For example, getting up and running with React (<a href="https://aws-amplify.github.io/amplify-js/media/react_guide">1</a>, <a href="https://aws-amplify.github.io/amplify-js/media/quick_start?platform=react">2</a>) can be as simple as:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">create-react-app my-app
+<pre><code>create-react-app my-app
 cd my-app
 npm install --save aws-amplify
 npm install --save aws-amplify-react
 
 amplify init
-</code></pre></div>
+</code></pre>
 <p>And then a <a href="https://aws-amplify.github.io/amplify-js/media/quick_start#step-4-set-up-your-backend">few little code changes</a> to wire things into place.</p>
-
 <p>As part of all of this, you get access to the <a href="https://aws-amplify.github.io/amplify-js/media/ui_guide">UI Components</a>, which should dramatically reduce the amount of boilerplate wiring up required to make use of these common application patterns.</p>
-
-<p>I feel like I haven&#39;t even begun to dive deep enough into the <a href="https://aws-amplify.github.io/amplify-js/api/">frontend JS</a>/<a href="https://aws-amplify.github.io/amplify-js/media/ui_guide">UI component libraries</a> to do them justice, so I will leave that as an excerise to the reader (or a future blog post).</p>
-
-<p>As mentioned in previous sections, this is also quite a new project (<a href="https://aws.amazon.com/blogs/mobile/announcing-aws-amplify-and-the-aws-mobile-cli/">Amplify (Nov 2017)</a>, <a href="https://aws.amazon.com/blogs/mobile/announcing-the-aws-amplify-cli-toolchain/">CLI (Aug 2018)</a>), so I&#39;m sure things are going to get much better as time goes on.</p>
-
+<p>I feel like I haven't even begun to dive deep enough into the <a href="https://aws-amplify.github.io/amplify-js/api/">frontend JS</a>/<a href="https://aws-amplify.github.io/amplify-js/media/ui_guide">UI component libraries</a> to do them justice, so I will leave that as an excerise to the reader (or a future blog post).</p>
+<p>As mentioned in previous sections, this is also quite a new project (<a href="https://aws.amazon.com/blogs/mobile/announcing-aws-amplify-and-the-aws-mobile-cli/">Amplify (Nov 2017)</a>, <a href="https://aws.amazon.com/blogs/mobile/announcing-the-aws-amplify-cli-toolchain/">CLI (Aug 2018)</a>), so I'm sure things are going to get much better as time goes on.</p>
 <h2><a name="conclusion"></a>Conclusion</h2>
-
-<p>We explored a number of different AWS serverless friendly projects and options, and how they may be able to be leveraged together synergistically, or to do similar things as each other. This is still an area I am actively exploring, and a lot of the projects are still quite young, so I&#39;m excited to see what improvements and new efficient patterns come out of this! Maybe I will write a more specific follow up blog at some point detailing how I actually end up using some of these technologies in practice.</p>
-
+<p>We explored a number of different AWS serverless friendly projects and options, and how they may be able to be leveraged together synergistically, or to do similar things as each other. This is still an area I am actively exploring, and a lot of the projects are still quite young, so I'm excited to see what improvements and new efficient patterns come out of this! Maybe I will write a more specific follow up blog at some point detailing how I actually end up using some of these technologies in practice.</p>
 <h2><a name="where-next"></a>Where Next?</h2>
-
 <p>You could <a href="https://aws.amazon.com/serverless/">learn more about serverless</a> and <a href="https://aws.amazon.com/serverless/build-a-web-app/">build a web app</a>, put together a modern frontend with <a href="https://github.com/facebook/create-react-app">Create React App</a> + <a href="https://redux.js.org/introduction">Redux</a> + <a href="https://redux-saga.js.org/">Redux-Saga</a>, design a serverless Golang backend with <a href="https://aws.amazon.com/sdk-for-go/">AWS SDK for Golang</a> + <a href="https://github.com/gorilla/mux">Gorilla Mux</a> + <a href="https://github.com/awslabs/aws-lambda-go-api-proxy#other-frameworks">AWS Lambda Go Api Proxy</a>, read more about Authentication with <a href="https://aws.amazon.com/cognito/">AWS Cognito</a>, learn about <a href="https://graphql.org/">GraphQL</a>.. so many interesting things out there to learn about and play with!</p>
-
-<p>What are you planning to build? Have any tips or suggestions? A story of how this helped (or hindered) you on a project? I&#39;d love to hear about it in the comments below!</p>
+<p>What are you planning to build? Have any tips or suggestions? A story of how this helped (or hindered) you on a project? I'd love to hear about it in the comments below!</p>
 
 	  ]]></description>
 	</item>
@@ -330,66 +277,56 @@ amplify init
 	  <guid>/devalias/2016/08/24/starting-a-new-web-application-1-an-exploration-of-options/</guid>
 	  <description><![CDATA[
 	     <p>Finding myself with some free time (and looking into starting a new project), I thought I might catch myself up on the state of web technologies, and what might be a good stack to work with.</p>
-
-<p>The details collected here are most certainly not a complete layout of the entire landscape, and there will no doubt be leanings toward my personal tastes (<a href="http://www.reactivemanifesto.org/">reactive</a>, api-driven, etc). You should use this more as a starter into your own deeper research than as a source of ultimate truth. With that out of the way, let&#39;s get into it!</p>
-
+<p>The details collected here are most certainly not a complete layout of the entire landscape, and there will no doubt be leanings toward my personal tastes (<a href="http://www.reactivemanifesto.org/">reactive</a>, api-driven, etc). You should use this more as a starter into your own deeper research than as a source of ultimate truth. With that out of the way, let's get into it!</p>
 <p><strong>Quicklinks</strong></p>
-
 <ul>
 <li><a href="#frontend">Frontend</a>
-
 <ul>
 <li><a href="#frontend-frameworks">Frameworks</a></li>
 <li><a href="#frontend-ui">UI</a></li>
 <li><a href="#frontend-scripting">Scripting</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="#backend">Backend</a></li>
 <li><a href="#tooling">Tooling</a></li>
 <li><a href="#conclusions">Conclusions</a></li>
 <li><a href="#updates">Updates</a></li>
 </ul>
-
 <h2><a name="frontend"></a>Frontend</h2>
-
-<p>The frontend is the pretty, interactive, main part that people will be seeing. You can have the most amazingly streamlined and perfect backend code, but noone&#39;s going to notice and love it without a strong frontend to back it up.</p>
-
+<p>The frontend is the pretty, interactive, main part that people will be seeing. You can have the most amazingly streamlined and perfect backend code, but noone's going to notice and love it without a strong frontend to back it up.</p>
 <p><strong><a name="frontend-frameworks"></a>Frameworks</strong></p>
-
-<p>The days of raw JavaScript and jQuery selectors is long gone. We&#39;re looking for a nice, modern framework to help put together our frontend. Here&#39;s a little selection of some of our options:</p>
-
+<p>The days of raw JavaScript and jQuery selectors is long gone. We're looking for a nice, modern framework to help put together our frontend. Here's a little selection of some of our options:</p>
 <ul>
 <li><a href="https://facebook.github.io/react/">React</a> (<a href="https://github.com/reactjs">GitHub</a>) (most likely with a flavour of <a href="https://facebook.github.io/flux/">Flux</a> (<a href="https://github.com/facebook/flux">GitHub</a>))
-
 <ul>
-<li>A frontend framework from Facebook that is taking the web by storm. Probably my personal favourite from what I&#39;ve seen so far.</li>
-<li>It even let&#39;s you <a href="https://facebook.github.io/react-native/">build for native devices</a>!</li>
-</ul></li>
+<li>A frontend framework from Facebook that is taking the web by storm. Probably my personal favourite from what I've seen so far.</li>
+<li>It even let's you <a href="https://facebook.github.io/react-native/">build for native devices</a>!</li>
+</ul>
+</li>
 <li><a href="https://angular.io/">Angular (v2)</a> (or if you like outdated for some reason <a href="https://angularjs.org/">AngularJS (v1)</a>)
-
 <ul>
 <li>Also <a href="https://mobile.angular.io/">available for native devices</a></li>
-<li>I was a big fan of AngularJS (v1), and I want to like v2, but I don&#39;t think it will be my main choice.</li>
-</ul></li>
-<li>There are a TON of other frontend frameworks, of varying popularity and support. I won&#39;t delve into them much, but there&#39;s heaps of info out there
-
+<li>I was a big fan of AngularJS (v1), and I want to like v2, but I don't think it will be my main choice.</li>
+</ul>
+</li>
+<li>There are a TON of other frontend frameworks, of varying popularity and support. I won't delve into them much, but there's heaps of info out there
 <ul>
 <li><a href="http://emberjs.com/">Ember</a></li>
 <li><a href="https://vuejs.org/">Vue.js</a>
-
 <ul>
-<li>From reading around the web, there&#39;s a decent amount of good stuff talking about Vue. In the end I decided against it since it&#39;s not supported by a big backer, and the skills aren&#39;t as useful on a resume. That said, for a personal project it could be a great fit!</li>
+<li>From reading around the web, there's a decent amount of good stuff talking about Vue. In the end I decided against it since it's not supported by a big backer, and the skills aren't as useful on a resume. That said, for a personal project it could be a great fit!</li>
 <li><a href="https://vuejs.org/guide/comparison.html">https://vuejs.org/guide/comparison.html</a></li>
 <li><a href="http://blog.evanyou.me/2015/10/25/vuejs-re-introduction/">http://blog.evanyou.me/2015/10/25/vuejs-re-introduction/</a></li>
 <li><a href="http://vuejs.org/2016/04/27/announcing-2.0/">http://vuejs.org/2016/04/27/announcing-2.0/</a></li>
 <li><a href="https://github.com/vuejs/vue">vue</a>, <a href="https://github.com/vuejs/vue-rx">vue-rx</a>, <a href="https://github.com/vuejs/vue-resource">vue-resource</a>, <a href="https://github.com/vuejs/vue-router">vue-router</a>, <a href="https://github.com/vuejs/vuex">vuex</a>, <a href="https://github.com/revue/revue">revuew</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="http://aurelia.io/">Aurelia</a></li>
 <li><a href="http://riotjs.com/">Riot</a> (<a href="https://muut.com/blog/technology/riot-2.0/">v2</a>)</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <p>As with most things, every man and his dog has their own opinion, so here are a few comparisons I found useful:</p>
-
 <ul>
 <li><a href="https://www.ociweb.com/resources/publications/sett/comparison-of-angular-2-and-react/">&quot;Comparison of Angular 2 and React&quot; by Mark Volkmann and Lance Finney</a></li>
 <li><a href="http://blog.backand.com/angular-2-vs-react/">&quot;Angular 2 vs. React&quot; by Itay Herskovits</a></li>
@@ -397,212 +334,191 @@ amplify init
 <li><a href="https://rlafranchi.github.io/2016/05/03/vue-vs-react/">&quot;Vue.js vs React.js&quot; by Richard LaFranchi</a></li>
 <li><a href="https://forums.meteor.com/t/why-doesnt-mdg-just-adopt-vue-js-and-forget-about-react-vs-blaze/13926/6">&quot;Why doesn’t MDG just adopt Vue.js and forget about React vs Blaze?&quot;</a></li>
 </ul>
-
 <p><strong><a name="frontend-ui"></a>UI</strong></p>
-
-<p>Even if you like to go oldschool and code your site by hand in notepad/vi, you can&#39;t deny the ease/benefits of using a frontend UI framework.</p>
-
+<p>Even if you like to go oldschool and code your site by hand in notepad/vi, you can't deny the ease/benefits of using a frontend UI framework.</p>
 <ul>
 <li><a href="https://getbootstrap.com/">Bootstrap</a> (<a href="https://blog.getbootstrap.com/2015/08/19/bootstrap-4-alpha/">v4</a>)
-
 <ul>
 <li>Released by Twitter, and arguably one of the most used frontend UI frameworks out there.</li>
 <li><a href="https://react-bootstrap.github.io/">React-Bootstrap</a> (<a href="https://github.com/react-bootstrap/react-bootstrap">GitHub</a>)</li>
 <li><a href="https://ng-bootstrap.github.io/#/home">ng-bootstrap</a> by the angular-ui team (<a href="https://github.com/ng-bootstrap/ng-bootstrap">GitHub</a>)</li>
 <li><a href="https://valor-software.com/ng2-bootstrap/">ng2-bootstrap</a> by valor-software (<a href="https://github.com/valor-software/ng2-bootstrap">GitHub</a>)</li>
-</ul></li>
+</ul>
+</li>
 <li><a href="http://foundation.zurb.com/">Foundation</a>
-
 <ul>
 <li>While not as well known as the other two mentioned here, those that make use of foundation swear by it.</li>
 <li><a href="https://react.foundation/">React-Foundation</a> (<a href="https://github.com/nordsoftware/react-foundation">GitHub</a>)</li>
 <li><a href="https://aruberto.github.io/react-foundation-components/">React-Foundation-Components</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="https://material.google.com/">Material Design</a>
-
 <ul>
 <li>Following a set of design principals from Google, this lays out a slick, consistent look and feel.</li>
 <li><a href="https://getmdl.io/">Material Design Lite</a></li>
 <li><a href="http://www.material-ui.com/">For React</a> (<a href="https://github.com/callemall/material-ui">GitHub</a>)</li>
 <li><a href="https://material.angular.io/">For Angular (v2)</a> (<a href="https://github.com/angular/material2">GitHub</a>)</li>
 <li><a href="https://material.angularjs.io/">For AngularJS (v1)</a> (<a href="https://github.com/angular/material">GitHub</a>)</li>
-</ul></li>
 </ul>
-
-<p>Can&#39;t decide? Try some comparisons:</p>
-
+</li>
+</ul>
+<p>Can't decide? Try some comparisons:</p>
 <ul>
 <li><a href="http://blog.teamtreehouse.com/the-rundown-bootstrap-vs-google-mdl-vs-foundation">&quot;The Rundown: Bootstrap vs. Google MDL vs. Foundation&quot; by treehouse</a></li>
 <li><a href="https://dannyherran.com/2016/03/state-of-affairs-bootstrap-4-vs-foundation-6/">&quot;State of affairs: Bootstrap 4 vs Foundation 6.2&quot; by Danny Herran</a></li>
 </ul>
-
 <p><strong><a name="frontend-scripting"></a>Scripting</strong></p>
-
-<p>Modern web apps live by the functionality they enable in the browser, and to do this, we need a JS-esque language. Your chosen frontend framework may sway your choice (eg. Angular (v2) has a strong preference for TypeScript), but ultimately, it&#39;s up to what you/your team feel comfortable with. With <a href="https://github.com/jashkenas/coffeescript/wiki/list-of-languages-that-compile-to-js">so many options</a> out there, it&#39;s hard to pick.. And of course, you could always stick to plain JavaScript.. and with the new features coming in <a href="http://es6-features.org/">ES6</a> (eg. <a href="http://www.html5rocks.com/en/tutorials/es6/promises/">promises</a>) and beyond, it might be a good choice.</p>
-
+<p>Modern web apps live by the functionality they enable in the browser, and to do this, we need a JS-esque language. Your chosen frontend framework may sway your choice (eg. Angular (v2) has a strong preference for TypeScript), but ultimately, it's up to what you/your team feel comfortable with. With <a href="https://github.com/jashkenas/coffeescript/wiki/list-of-languages-that-compile-to-js">so many options</a> out there, it's hard to pick.. And of course, you could always stick to plain JavaScript.. and with the new features coming in <a href="http://es6-features.org/">ES6</a> (eg. <a href="http://www.html5rocks.com/en/tutorials/es6/promises/">promises</a>) and beyond, it might be a good choice.</p>
 <ul>
 <li><a href="https://babeljs.io/">Babel</a>
-
 <ul>
 <li>A transpiler that lets you play with all the fun features of JavaScript ES6 and beyond, while maintaining compatibility with all of the older browsers.</li>
-</ul></li>
+</ul>
+</li>
 <li><a href="https://www.typescriptlang.org/">TypeScript</a> (<a href="https://github.com/Microsoft/TypeScript">GitHub</a>)
-
 <ul>
 <li>&quot;TypeScript is a typed superset of JavaScript that compiles to plain JavaScript&quot;</li>
-<li>If you&#39;re using Angular (v2) and like sticking to convention, this is the one for you.</li>
-</ul></li>
+<li>If you're using Angular (v2) and like sticking to convention, this is the one for you.</li>
+</ul>
+</li>
 <li><a href="http://coffeescript.org/">CoffeeScript</a> (or maybe <a href="https://github.com/michaelficarra/CoffeeScriptRedux">v2</a>)
-
 <ul>
-<li>This used to be my choice, but looking at the other options available now, I think i&#39;ll be moving on.</li>
+<li>This used to be my choice, but looking at the other options available now, I think i'll be moving on.</li>
 <li>As always, there are a bunch of arguments for and against..
-
 <ul>
 <li><a href="https://robots.thoughtbot.com/replace-coffeescript-with-es6">&quot;Replace CoffeeScript with ES6&quot; by Blake Williams</a></li>
 <li><a href="http://tech.noredink.com/post/111583727108/dont-replace-coffeescript-with-es6-transpilers">&quot;Don’t Replace CoffeeScript with ES6 Transpilers&quot; by Richard Feldman</a></li>
 <li>etc</li>
-</ul></li>
-<li>If you&#39;re looking for a way out, why not <a href="https://github.com/decaffeinate/decaffeinate">decaffeinate</a>?</li>
-</ul></li>
-<li><a href="https://flowtype.org/">Flow</a> (<a href="https://github.com/facebook/flow">GitHub</a>)
-
-<ul>
-<li>While it&#39;s not a language unto itself, it does allow you the benefits of typed JavaScript without having to dive into something like TypeScript.</li>
-</ul></li>
-<li><a href="https://www.scala-js.org/">Scala.js</a>
-
-<ul>
-<li>A little left field, this transpiles Scala code into JavaScript. While I probably wouldn&#39;t see myself using this as a main choice, it could make for some interesting reusability between front and backend.</li>
-</ul></li>
 </ul>
-
+</li>
+<li>If you're looking for a way out, why not <a href="https://github.com/decaffeinate/decaffeinate">decaffeinate</a>?</li>
+</ul>
+</li>
+<li><a href="https://flowtype.org/">Flow</a> (<a href="https://github.com/facebook/flow">GitHub</a>)
+<ul>
+<li>While it's not a language unto itself, it does allow you the benefits of typed JavaScript without having to dive into something like TypeScript.</li>
+</ul>
+</li>
+<li><a href="https://www.scala-js.org/">Scala.js</a>
+<ul>
+<li>A little left field, this transpiles Scala code into JavaScript. While I probably wouldn't see myself using this as a main choice, it could make for some interesting reusability between front and backend.</li>
+</ul>
+</li>
+</ul>
 <h2><a name="backend"></a>Backend</h2>
-
 <p>My preferences for backend tech stacks lean heavily towards <a href="http://www.scala-lang.org/">Scala</a> and the <a href="https://www.lightbend.com/platform">Lightbend Reactive Platform</a> these days, but I will make quick mention of some of the other options available.</p>
-
 <ul>
 <li><a href="http://doc.akka.io/docs/akka-http/current/scala.html">Akka-HTTP</a>
-
 <ul>
 <li>Taking the power of asynchronous, message based actors, and applying them to HTTP. Definite win.</li>
 <li><a href="https://softwaremill.github.io/bootzooka/">Bootzooka</a> (<a href="https://github.com/softwaremill/bootzooka">GitHub</a>)
-
 <ul>
 <li>&quot;Bootzooka is a simple application scaffolding project to allow quick start of development for modern, web based applications.&quot;</li>
-<li>While not perfect, it&#39;s a decent implementation of a starter app, tying together some useful technologies.</li>
-</ul></li>
-</ul></li>
+<li>While not perfect, it's a decent implementation of a starter app, tying together some useful technologies.</li>
+</ul>
+</li>
+</ul>
+</li>
 <li><a href="https://www.playframework.com/">Play Framework</a>
-
 <ul>
 <li>&quot;Play is a high-productivity Java and Scala web application framework that integrates the components and APIs you need for modern web application development.&quot;</li>
-</ul></li>
+</ul>
+</li>
 <li><a href="http://scalatra.org/">Scalatra</a>
-
 <ul>
 <li>&quot;Scalatra is a simple, accessible and free web micro-framework. It combines the power of the JVM with the beauty and brevity of Scala, helping you quickly build high-performance web sites and APIs.&quot;</li>
-</ul></li>
+</ul>
+</li>
 <li><a href="https://liftweb.net/">Lift</a> (<a href="https://github.com/lift/framework">GitHub</a>)
-
 <ul>
 <li>&quot;Lift is the most powerful, most secure web framework available today. There are Seven Things that distinguish Lift from other web frameworks.&quot;</li>
-</ul></li>
+</ul>
+</li>
 <li><a href="http://http4s.org/">http4s</a> (<a href="https://github.com/http4s/http4s">GitHub</a>)
-
 <ul>
 <li>&quot;A typeful, purely functional, streaming library for HTTP clients and servers in Scala.&quot;</li>
-</ul></li>
+</ul>
+</li>
 <li><a href="https://twitter.github.io/finatra/">Finatra</a>
-
 <ul>
 <li>&quot;Fast, testable, Scala services built on TwitterServer and Finagle.&quot;</li>
-</ul></li>
+</ul>
+</li>
 <li><a href="https://github.com/airbnb/hypernova">Hypernova</a>
-
 <ul>
 <li>&quot;A service for server-side rendering your JavaScript views&quot;</li>
 <li>While not a choice unto itself, this should help speed things up and keep your site nice and search engine friendly.</li>
-</ul></li>
+</ul>
+</li>
 <li>There will be a number of opinions spread throughout the net, including:
-
 <ul>
 <li><a href="https://scala.libhunt.com/categories/585-web-frameworks">https://scala.libhunt.com/categories/585-web-frameworks</a></li>
 <li><a href="https://www.reddit.com/r/scala/comments/3kaael/which_framework_to_use_for_development_of_a_rest/">https://www.reddit.com/r/scala/comments/3kaael/which_framework_to_use_for_development_of_a_rest/</a></li>
 <li><a href="https://www.quora.com/Is-Play-the-best-web-framework-written-in-Scala">https://www.quora.com/Is-Play-the-best-web-framework-written-in-Scala</a></li>
-</ul></li>
+</ul>
+</li>
 <li>You also have all of your other typical options
-
 <ul>
 <li><a href="https://www.ruby-lang.org/en/">Ruby</a>
-
 <ul>
 <li><a href="http://rubyonrails.org/">Ruby on Rails</a></li>
 <li><a href="http://www.sinatrarb.com/">Sinatra</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="https://nodejs.org/en/">Node</a>
-
 <ul>
 <li><a href="http://expressjs.com/">Express</a>: &quot;Fast, unopinionated, minimalist web framework for Node.js&quot;</li>
 <li><a href="https://www.meteor.com/">Meteor</a>: &quot;Meteor is an open source platform for web, mobile, and desktop.&quot;</li>
-<li><a href="http://noeticforce.com/best-nodejs-frameworks-for-web-and-app-development">&quot;Node.js Frameworks: The 10 Best for Web and Apps Development&quot; by noeticsunil</a>
+<li><a href="http://noeticforce.com/best-nodejs-frameworks-for-web-and-app-development">&quot;Node.js Frameworks: The 10 Best for Web and Apps Development&quot; by noeticsunil</a><br />
 mobile, and desktop.&quot;</li>
-</ul></li>
+</ul>
+</li>
 <li><a href="https://www.python.org/">Python</a>
-
 <ul>
 <li><a href="https://www.djangoproject.com/">Django</a></li>
 <li><a href="https://wiki.python.org/moin/WebFrameworks">Web Frameworks for Python</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="https://secure.php.net/">PHP</a>
-
 <ul>
 <li><a href="https://octobercms.com/">October</a>: &quot;October is a free, open-source, self-hosted CMS platform based on the Laravel PHP Framework. A simple and modular CMS that grows with you, with a precise and beautiful interface that comes as second nature.&quot;</li>
 <li><a href="https://laravel.com/">Laravel</a></li>
-</ul></li>
-<li>etc</li>
-</ul></li>
 </ul>
-
+</li>
+<li>etc</li>
+</ul>
+</li>
+</ul>
 <h2><a name="tooling"></a>Tooling</h2>
-
 <p>With the crazy mix of technologies and steps involved in modern web app development, it makes a ton of sense to tie it all together with some automation.</p>
-
 <ul>
 <li><a href="https://webpack.github.io/">Webpack</a> (<a href="https://github.com/webpack/webpack">GitHub</a>)
-
 <ul>
 <li>&quot;Webpack is a bundler for modules. The main purpose is to bundle JavaScript files for usage in a browser, yet it is also capable of transforming, bundling, or packaging just about any resource or asset.&quot;</li>
 <li><a href="http://blog.andrewray.me/webpack-when-to-use-and-why/">&quot;Webpack: When To Use And Why&quot; by Andrew Ray</a></li>
 <li><a href="https://github.com/webpack/less-loader">https://github.com/webpack/less-loader</a></li>
 <li><a href="https://github.com/shakacode/bootstrap-loader">https://github.com/shakacode/bootstrap-loader</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="http://gulpjs.com/">Gulp</a> (<a href="https://github.com/gulpjs/gulp">GitHub</a>
-
 <ul>
 <li>Gulp is a streaming javascript task runner that lets you automate tasks.</li>
-</ul></li>
+</ul>
+</li>
 <li><a href="http://gruntjs.com/">Grunt</a> (<a href="https://github.com/gruntjs/">GitHub</a>)
-
 <ul>
 <li>Grunt is basically the older, less streaming, less awesome version of Gulp.</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <p>While a little different in purpose to the things mentioned above, getting everything nicely tested and deployed is always good:</p>
-
 <ul>
 <li><a href="https://bitbucket.org/product/features/pipelines">Bitbucket Pipelines</a>: &quot;Build, test and deploy from Bitbucket&quot;</li>
 </ul>
-
 <h2><a name="conclusions"></a>Conclusions</h2>
-
-<p>Hopefully this has given you a decent starting point for figuring out what combination of technologies is going to work best for your next project. If you want to see the direction I&#39;ve decided to go, make sure you read on in <a href="#TODO">Part 2</a>.</p>
-
+<p>Hopefully this has given you a decent starting point for figuring out what combination of technologies is going to work best for your next project. If you want to see the direction I've decided to go, make sure you read on in <a href="#TODO">Part 2</a>.</p>
 <p>Have I missed something important? Not given love to your favourite stack? Got a cool pointer? Or just want to say hi? Let me know in the comments!</p>
-
 <h2><a name="updates"></a>Updates</h2>
-
 <ul>
 <li>2017-04-11 Added some more backend web frameworks, updated akka-http link, fixed some formatting</li>
 </ul>

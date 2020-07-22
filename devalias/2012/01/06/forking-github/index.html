@@ -14,9 +14,9 @@
 
   <link type="application/atom+xml" rel="alternate" href="https://www.devalias.net/feed.xml" title="/dev/alias – Hack. Dev. Transcend." />
 
-  <!-- Begin Jekyll SEO tag v2.4.0 -->
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
 <title>Forking Github!! (or how to contribute to a project) | /dev/alias – Hack. Dev. Transcend.</title>
-<meta name="generator" content="Jekyll v3.8.0" />
+<meta name="generator" content="Jekyll v4.1.1" />
 <meta property="og:title" content="Forking Github!! (or how to contribute to a project)" />
 <meta name="author" content="Glenn 'devalias' Grant" />
 <meta property="og:locale" content="en_GB" />
@@ -29,10 +29,12 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2012-01-06T13:36:18+11:00" />
 <meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://www.devalias.net/assets/images/cover4.jpg" />
+<meta property="twitter:title" content="Forking Github!! (or how to contribute to a project)" />
 <meta name="twitter:site" content="@_devalias" />
 <meta name="twitter:creator" content="@_devalias" />
 <script type="application/ld+json">
-{"description":"I&#39;ve been following the GitHub craze for a little while now, and finally coming to a stage where I would like to start contributing to some of the projects I follow. Having looked closely at the examples for one in particular, I noticed something simple, but beneficial that I could add, so I set out to become an active member of the internet!","author":{"@type":"Person","name":"Glenn 'devalias' Grant"},"@type":"BlogPosting","url":"https://www.devalias.net/devalias/2012/01/06/forking-github/","image":"https://www.devalias.net/assets/images/cover4.jpg","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://www.devalias.net/assets/images/cover4.jpg"},"name":"Glenn 'devalias' Grant"},"headline":"Forking Github!! (or how to contribute to a project)","dateModified":"2012-01-06T13:36:18+11:00","datePublished":"2012-01-06T13:36:18+11:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.devalias.net/devalias/2012/01/06/forking-github/"},"@context":"http://schema.org"}</script>
+{"image":"https://www.devalias.net/assets/images/cover4.jpg","author":{"@type":"Person","name":"Glenn 'devalias' Grant"},"headline":"Forking Github!! (or how to contribute to a project)","dateModified":"2012-01-06T13:36:18+11:00","datePublished":"2012-01-06T13:36:18+11:00","url":"https://www.devalias.net/devalias/2012/01/06/forking-github/","description":"I&#39;ve been following the GitHub craze for a little while now, and finally coming to a stage where I would like to start contributing to some of the projects I follow. Having looked closely at the examples for one in particular, I noticed something simple, but beneficial that I could add, so I set out to become an active member of the internet!","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://www.devalias.net/assets/images/cover4.jpg"},"name":"Glenn 'devalias' Grant"},"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.devalias.net/devalias/2012/01/06/forking-github/"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -198,24 +200,18 @@
         </header>
 
         <section class="post-content">
-            <p>I&#39;ve been following the GitHub craze for a little while now, and finally coming to a stage where I would like to start contributing to some of the projects I follow. Having looked closely at the examples for one in particular, I noticed something simple, but beneficial that I could add, so I set out to become an active member of the internet!</p>
-
+            <p>I've been following the GitHub craze for a little while now, and finally coming to a stage where I would like to start contributing to some of the projects I follow. Having looked closely at the examples for one in particular, I noticed something simple, but beneficial that I could add, so I set out to become an active member of the internet!</p>
 <p>I forked the repository, synced it down to my computer, made the changes, created a pull request, and got it merged with the main code. Win!!</p>
-
-<p>It wasn&#39;t until a week or two later that I was reading an article that mentioned creating pull requests from your main repos wasn&#39;t really the best idea. Woops. So, to remind myself, and hopefully help some others out in the process, I&#39;m documenting what is the &#39;proper&#39; (if such a thing exists) process for forking.</p>
-
+<p>It wasn't until a week or two later that I was reading an article that mentioned creating pull requests from your main repos wasn't really the best idea. Woops. So, to remind myself, and hopefully help some others out in the process, I'm documenting what is the 'proper' (if such a thing exists) process for forking.</p>
 <ol>
 <li><strong>Fork/clone the project reposistory</strong> - Every story needs a place to start, and ours starts at the repos we want to contribute to. Fork/clone the repository to somewhere you can play around with it.</li>
-<li><strong>Create a new branch on your fork/clone</strong> - Now here is where I went wrong. Create a new branch (<code>git branch [blah]</code>) on your fork/clone and check it out (<code>git checkout [blah]</code>) before making any changes to the code. This way the changes you make will be isolated in your branch and won&#39;t mess up the master branch (that you pulled down from the original repository)</li>
+<li><strong>Create a new branch on your fork/clone</strong> - Now here is where I went wrong. Create a new branch (<code>git branch [blah]</code>) on your fork/clone and check it out (<code>git checkout [blah]</code>) before making any changes to the code. This way the changes you make will be isolated in your branch and won't mess up the master branch (that you pulled down from the original repository)</li>
 <li><strong>Make your changes</strong> - Make whatever changes you want/need/feel the desire to make. The world is your oyster. Remember that the original code is sitting in the master branch in case you need to wipe everything out and start again.</li>
-<li><strong>Commit your changes</strong> - Make sure to commit the changes you make to your branch, otherwise they aren&#39;t going to go anywhere! Also, make sure you push your local branch back up to GitHub.</li>
+<li><strong>Commit your changes</strong> - Make sure to commit the changes you make to your branch, otherwise they aren't going to go anywhere! Also, make sure you push your local branch back up to GitHub.</li>
 <li><strong>Create a pull request</strong> - Go to GitHub and create a pull request from your branch for the original project to incorporate your changes.</li>
 </ol>
-
 <p>Hopefully theres enough info here to at least set you on the right track to contributing if (when! do it, you know you want to..) you start contributing to open source projects.</p>
-
 <h2>Sources</h2>
-
 <ul>
 <li><a href="https://github.com/primalmotion/Archipel/wiki/Developer%3A-Contributing">https://github.com/primalmotion/Archipel/wiki/Developer%3A-Contributing</a></li>
 </ul>
@@ -404,7 +400,7 @@
             </section>
             <section class="poweredby">
                 <div>
-                    <strong>Build:</strong> 9b128d3c0
+                    <strong>Build:</strong> 618e30db6
                     <a href="https://github.com/0xdevalias/devalias.net/tree/master/_posts/2012-01-06-forking-github.md" target="_blank">
                         <i class="fas fa-edit"></i>
                         Edit on GitHub

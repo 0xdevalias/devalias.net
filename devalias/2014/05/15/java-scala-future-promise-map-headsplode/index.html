@@ -14,9 +14,9 @@
 
   <link type="application/atom+xml" rel="alternate" href="https://www.devalias.net/feed.xml" title="/dev/alias – Hack. Dev. Transcend." />
 
-  <!-- Begin Jekyll SEO tag v2.4.0 -->
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
 <title>Java/Scala Future/Promise Map headsplode | /dev/alias – Hack. Dev. Transcend.</title>
-<meta name="generator" content="Jekyll v3.8.0" />
+<meta name="generator" content="Jekyll v4.1.1" />
 <meta property="og:title" content="Java/Scala Future/Promise Map headsplode" />
 <meta name="author" content="Glenn 'devalias' Grant" />
 <meta property="og:locale" content="en_GB" />
@@ -29,10 +29,12 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2014-05-15T08:55:00+10:00" />
 <meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://www.devalias.net/assets/images/cover4.jpg" />
+<meta property="twitter:title" content="Java/Scala Future/Promise Map headsplode" />
 <meta name="twitter:site" content="@_devalias" />
 <meta name="twitter:creator" content="@_devalias" />
 <script type="application/ld+json">
-{"description":"A side by side comparison (now that I finally got it figured out!) of Play Framework v2.2.x promise unwrapping in Java and Scala. Hopefully this will be able to save some of you a bunch of mind numbing ponderings and failures.","author":{"@type":"Person","name":"Glenn 'devalias' Grant"},"@type":"BlogPosting","url":"https://www.devalias.net/devalias/2014/05/15/java-scala-future-promise-map-headsplode/","image":"https://www.devalias.net/assets/images/cover4.jpg","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://www.devalias.net/assets/images/cover4.jpg"},"name":"Glenn 'devalias' Grant"},"headline":"Java/Scala Future/Promise Map headsplode","dateModified":"2014-05-15T08:55:00+10:00","datePublished":"2014-05-15T08:55:00+10:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.devalias.net/devalias/2014/05/15/java-scala-future-promise-map-headsplode/"},"@context":"http://schema.org"}</script>
+{"image":"https://www.devalias.net/assets/images/cover4.jpg","author":{"@type":"Person","name":"Glenn 'devalias' Grant"},"headline":"Java/Scala Future/Promise Map headsplode","dateModified":"2014-05-15T08:55:00+10:00","datePublished":"2014-05-15T08:55:00+10:00","url":"https://www.devalias.net/devalias/2014/05/15/java-scala-future-promise-map-headsplode/","description":"A side by side comparison (now that I finally got it figured out!) of Play Framework v2.2.x promise unwrapping in Java and Scala. Hopefully this will be able to save some of you a bunch of mind numbing ponderings and failures.","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://www.devalias.net/assets/images/cover4.jpg"},"name":"Glenn 'devalias' Grant"},"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.devalias.net/devalias/2014/05/15/java-scala-future-promise-map-headsplode/"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -173,7 +175,7 @@
     <time class="post-date" datetime="2014-05-15">15 May 2014</time>
     |
     
-        Less than 1 minute
+        1 minute
     
     to read
     <!-- [[tags prefix=" on "]] -->
@@ -207,11 +209,71 @@
 
         <section class="post-content">
             <p>A side by side comparison (now that I finally got it figured out!) of <a href="https://www.playframework.com/">Play Framework</a> v2.2.x promise unwrapping in <a href="https://www.java.com/en/">Java</a> and <a href="http://www.scala-lang.org/">Scala</a>. Hopefully this will be able to save some of you a bunch of mind numbing ponderings and failures.</p>
-
 <p>&lt;3 /dev/alias</p>
+<p><a href="https://gist.github.com/0xdevalias/1d3b44312d8a68ddbaa5">https://gist.github.com/0xdevalias/1d3b44312d8a68ddbaa5</a></p>
+<p><noscript><pre># Java/Scala Future/Promise Map</p>
+<p>A side by side comparison (now that I finally got it figured out!) of Play Framework v2.2.x promise unwrapping in Java and Scala.</p>
+<h2>Java</h2>
+<pre lang="java"><code>  public Promise&amp;lt;ObjectNode&amp;gt; getEmployees(final Optional&amp;lt;String&amp;gt; filterEmail)
+	{
+		// Call the webservice
+		Promise&amp;lt;Response&amp;gt; promiseOfEmployees = this.xero.getEmployees(filterEmail);
+		
+		// Map into an ObjectNode
+		Promise&amp;lt;ObjectNode&amp;gt; promiseJson = promiseOfEmployees.map(new F.Function&amp;lt;WS.Response, ObjectNode&amp;gt;()
+		{
+			@Override
+			public ObjectNode apply(final Response response) throws Throwable
+			{
+				JsonNode responseJson = response.asJson();
 
-<p><noscript><pre>404: Not Found
-</pre></noscript><script src="https://gist.github.com/alias1/1d3b44312d8a68ddbaa5.js"> </script></p>
+				ObjectNode json = Json.newObject();
+
+				json.put(&amp;quot;foo&amp;quot;, &amp;quot;bar&amp;quot;);
+
+				return json;
+			}
+		});
+
+		// Return
+		return promiseJson;
+	}
+</code></pre>
+<h2>Scala</h2>
+<pre lang="scala"><code>def getEmployees(filterEmail: Optional[String]): Promise[ObjectNode] = {
+    // Call the webservice
+    val promiseOfEmployees: Promise[Response] = this.xero.getEmployees(filterEmail)
+    
+    // Map into an ObjectNode
+    val promiseJson: Future[ObjectNode] = promiseOfEmployees.wrapped().map { response =&amp;gt;
+      val jsonResponse: JsonNode = response.asJson();
+      val json: ObjectNode = Json.newObject()
+      json.put(&amp;quot;foo&amp;quot;, &amp;quot;bar&amp;quot;);
+      json // Return
+    }
+
+    // Return
+    return Promise.wrap(promiseJson)
+  }
+</code></pre>
+<h2>Scala (Implicit)</h2>
+<pre lang="scala"><code>  def getEmployees(filterEmail: Optional[String]): Promise[ObjectNode] = {
+    // Call the webservice
+    val promiseOfEmployees = this.xero.getEmployees(filterEmail)
+
+    // Map into an ObjectNode
+    val promiseJson = promiseOfEmployees.wrapped().map { response =&amp;gt;
+      val jsonResponse = response.asJson();
+      val json = Json.newObject()
+      json.put(&amp;quot;foo&amp;quot;, &amp;quot;bar&amp;quot;);
+      json // Return
+    }
+
+    // Return
+    return Promise.wrap(promiseJson)
+  }
+</code></pre>
+<p>&lt;3 Glenn / devalias</pre></noscript><script src="https://gist.github.com/1d3b44312d8a68ddbaa5.js"> </script></p>
 
         </section>
 
@@ -396,7 +458,7 @@
             </section>
             <section class="poweredby">
                 <div>
-                    <strong>Build:</strong> 9b128d3c0
+                    <strong>Build:</strong> 618e30db6
                     <a href="https://github.com/0xdevalias/devalias.net/tree/master/_posts/2014-05-15-java-scala-future-promise-map-headsplode.md" target="_blank">
                         <i class="fas fa-edit"></i>
                         Edit on GitHub

@@ -14,9 +14,9 @@
 
   <link type="application/atom+xml" rel="alternate" href="https://www.devalias.net/feed.xml" title="/dev/alias – Hack. Dev. Transcend." />
 
-  <!-- Begin Jekyll SEO tag v2.4.0 -->
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
 <title>Squiz Matrix: Multiple vulnerabilities | /dev/alias – Hack. Dev. Transcend.</title>
-<meta name="generator" content="Jekyll v3.8.0" />
+<meta name="generator" content="Jekyll v4.1.1" />
 <meta property="og:title" content="Squiz Matrix: Multiple vulnerabilities" />
 <meta name="author" content="Glenn 'devalias' Grant" />
 <meta property="og:locale" content="en_GB" />
@@ -29,10 +29,12 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2017-09-07T00:00:00+10:00" />
 <meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://www.devalias.net/assets/images/cover4.jpg" />
+<meta property="twitter:title" content="Squiz Matrix: Multiple vulnerabilities" />
 <meta name="twitter:site" content="@_devalias" />
 <meta name="twitter:creator" content="@_devalias" />
 <script type="application/ld+json">
-{"description":"Earlier this year I had an opportunity to spend some time looking at Squiz Matrix, a Content Management System (CMS) used across a number of sectors including higher eduction, media and publishing, goverment, finance, health, and utilities. With a huge number of features, a massive PHP codebase, and a numbr of high profile sectors as clients, I set out to see if I could find any interesting little bugs hidden away.","author":{"@type":"Person","name":"Glenn 'devalias' Grant"},"@type":"BlogPosting","url":"https://www.devalias.net/devalias/2017/09/07/squiz-matrix-multiple-vulnerabilities/","image":"https://www.devalias.net/assets/images/cover4.jpg","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://www.devalias.net/assets/images/cover4.jpg"},"name":"Glenn 'devalias' Grant"},"headline":"Squiz Matrix: Multiple vulnerabilities","dateModified":"2017-09-07T00:00:00+10:00","datePublished":"2017-09-07T00:00:00+10:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.devalias.net/devalias/2017/09/07/squiz-matrix-multiple-vulnerabilities/"},"@context":"http://schema.org"}</script>
+{"image":"https://www.devalias.net/assets/images/cover4.jpg","author":{"@type":"Person","name":"Glenn 'devalias' Grant"},"headline":"Squiz Matrix: Multiple vulnerabilities","dateModified":"2017-09-07T00:00:00+10:00","datePublished":"2017-09-07T00:00:00+10:00","url":"https://www.devalias.net/devalias/2017/09/07/squiz-matrix-multiple-vulnerabilities/","description":"Earlier this year I had an opportunity to spend some time looking at Squiz Matrix, a Content Management System (CMS) used across a number of sectors including higher eduction, media and publishing, goverment, finance, health, and utilities. With a huge number of features, a massive PHP codebase, and a numbr of high profile sectors as clients, I set out to see if I could find any interesting little bugs hidden away.","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://www.devalias.net/assets/images/cover4.jpg"},"name":"Glenn 'devalias' Grant"},"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.devalias.net/devalias/2017/09/07/squiz-matrix-multiple-vulnerabilities/"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -204,43 +206,27 @@
 
         <section class="post-content">
             <p>Earlier this year I had an opportunity to spend some time looking at <a href="https://www.squiz.net/technology/cms">Squiz Matrix</a>, a Content Management System (CMS) used across a number of sectors including higher eduction, media and publishing, goverment, finance, health, and utilities. With a huge number of features, a massive PHP codebase, and a numbr of high profile sectors as clients, I set out to see if I could find any interesting little bugs hidden away.</p>
-
-<p>While I won&#39;t get into the nitty gritty of most of the assessment process, I did find some things, and 3 CVE&#39;s were assigned (detailed below). One was interesting enough that I will probably write up the process in more detail at some point.</p>
-
-<p>Given the rich functionality and plugins in the Matrix product, it could be interesting to dedicate more research time to explore the areas I didn&#39;t get to cover this time around. Who knows, perhaps Squiz would even be open to setting up a Bug Bounty program through someone like <a href="https://www.bugcrowd.com/">Bugcrowd</a> in the future too. That would be cool!</p>
-
+<p>While I won't get into the nitty gritty of most of the assessment process, I did find some things, and 3 CVE's were assigned (detailed below). One was interesting enough that I will probably write up the process in more detail at some point.</p>
+<p>Given the rich functionality and plugins in the Matrix product, it could be interesting to dedicate more research time to explore the areas I didn't get to cover this time around. Who knows, perhaps Squiz would even be open to setting up a Bug Bounty program through someone like <a href="https://www.bugcrowd.com/">Bugcrowd</a> in the future too. That would be cool!</p>
 <p>If you want to try it out, or play around yourself, there is a <a href="https://matrix.squiz.net/releases/vm">downloadable demo VM</a> available on the Squiz website.</p>
-
-<h2>The CVE&#39;s</h2>
-
+<h2>The CVE's</h2>
 <ul>
-<li><strong><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-14196">CVE-2017-14196</a></strong>: An information disclosure caused by a Path Traversal issue in the &#39;File Bridge&#39; plugin allowed the existence of files outside of the bridged path to be confirmed.</li>
-<li><strong><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-14197">CVE-2017-14197</a></strong>: Multiple reflected Cross-Site Scripting (XSS) issues in Matrix &#39;WYSIWYG&#39; plugins.</li>
+<li><strong><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-14196">CVE-2017-14196</a></strong>: An information disclosure caused by a Path Traversal issue in the 'File Bridge' plugin allowed the existence of files outside of the bridged path to be confirmed.</li>
+<li><strong><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-14197">CVE-2017-14197</a></strong>: Multiple reflected Cross-Site Scripting (XSS) issues in Matrix 'WYSIWYG' plugins.</li>
 <li><strong><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-14198">CVE-2017-14198</a></strong>: Authenticated users with permissions to edit design assets can cause Remote Code Execution (RCE) via a maliciously crafted <code>time_format</code> tag.</li>
 </ul>
-
 <h2>Remediation</h2>
-
 <p>These issues were fixed in version <code>5.4.1.3</code>. Update to this version or newer to be protected. See the CVE advisory details for more information.</p>
-
 <h2>CVE-2017-14198: A Walkthrough</h2>
-
 <p>TODO: Write up how this was identified, and the core issue that lead to it.</p>
-
 <h2>Acknowledgements</h2>
-
 <p>These issues were identified by <a href="http://devalias.net">myself</a> and the team at <a href="https://dtss.com.au">TSS</a>:</p>
-
 <ul>
-<li>Glenn &#39;devalias&#39; Grant (<a href="http://devalias.net">http://devalias.net</a>) of TSS (<a href="https://dtss.com.au">https://dtss.com.au</a>)</li>
+<li>Glenn 'devalias' Grant (<a href="http://devalias.net">http://devalias.net</a>) of TSS (<a href="https://dtss.com.au">https://dtss.com.au</a>)</li>
 </ul>
-
 <p>Special thanks to Micky at Squiz for being an amazing resource throughout the disclosure process, and keeping us informed as patching and rollout progressed.</p>
-
 <h2>Conclusion</h2>
-
 <p>It seems the core issues here were a few bugs popping up in legacy code, and passing user-controlled values into sensitive areas without proper checks/sanitisation. Easy mistakes to make when managing such a large codebase that has evolved over the years.</p>
-
 <p>Have you had a similar experience? Manage a large codebase and legacy code? Got good tips for how best to identify and avoid these sorts of issues? Would love to hear your ideas in the comments!</p>
 
         </section>
@@ -427,7 +413,7 @@
             </section>
             <section class="poweredby">
                 <div>
-                    <strong>Build:</strong> 9b128d3c0
+                    <strong>Build:</strong> 618e30db6
                     <a href="https://github.com/0xdevalias/devalias.net/tree/master/_posts/2017-09-07-squiz-matrix-multiple-vulnerabilities.md" target="_blank">
                         <i class="fas fa-edit"></i>
                         Edit on GitHub

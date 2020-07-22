@@ -19,38 +19,29 @@
 	  <guid>/devalias/2013/07/11/fixing-windows-productivity-issues-osx-style/</guid>
 	  <description><![CDATA[
 	     <p>As much as past me would hate me for saying this, these days I am quite the fan of a number of Apple products. My MacBook Pro is a dream to use thanks to multitouch and some of the well thought out and designed features of OSX.</p>
-
-<p>Unfortunately, coming back to my desktop PC I very quickly realise just how much I have come to rely on a few simple features of OSX that are sorely lacking in Windows (don&#39;t worry Microsoft fans, there are a few features of Windows that OSX lacks that annoy the crap out of me too!)</p>
-
+<p>Unfortunately, coming back to my desktop PC I very quickly realise just how much I have come to rely on a few simple features of OSX that are sorely lacking in Windows (don't worry Microsoft fans, there are a few features of Windows that OSX lacks that annoy the crap out of me too!)</p>
 <p>Among these there are 2 common ones (now provided by the same feature), and one less obvious thing, that together increase my productivity immensely:</p>
-
 <ul>
-<li><a href="https://en.wikipedia.org/wiki/Mission_Control_(OS_X)">Mission Control</a> 
-
+<li><a href="https://en.wikipedia.org/wiki/Mission_Control_(OS_X)">Mission Control</a>
 <ul>
 <li><a href="https://support.apple.com/kb/PH11158?locale=en_US">Spaces</a> (formerly) – Allows you to create and work within multiple desktops, switching between them.</li>
 <li><a href="https://support.apple.com/kb/VI22?locale=en_US">Exposé</a> (formerly) – Allows you to tile all open windows, hide application windows offscreen to show the desktop, etc</li>
-</ul></li>
-<li>The ability to scroll the window under the mouse cursor when it&#39;s not the currently focussed window</li>
 </ul>
-
+</li>
+<li>The ability to scroll the window under the mouse cursor when it's not the currently focussed window</li>
+</ul>
 <h2>Mission Control/Spaces/Exposé (for Windows)</h2>
-
 <ul>
-<li><a href="http://www.betterdesktoptool.com/">Better Desktop Tool</a> (Vista SP2+, Win7 SP1+, Win8) – This is what I use on my main PC at home. It let&#39;s you do the tiling/hiding application windows features of exposé as well as the multiple desktops of spaces. To quote some Apple exec somewhere, it just works! Very much recommend this!</li>
-<li><a href="https://sites.google.com/site/emceesoftware1/">Emcee</a> (Win7, Win8) – I personally haven&#39;t tried this at all, but some sources on the net seem to think it&#39;s pretty cool, so.. might be worth checking out?</li>
-<li><a href="http://virtuawin.sourceforge.net/">VirtuaWin</a> (Win9x/ME/NT/Win2K/XP/Win2003/Vista/Win7) – Nowhere near as pretty or fancy looking as the other two, but if you&#39;re on an older OS then you may have to compromise. VirtuaWin has been around forever, and provides (as the name implies) virtual desktops (aka spaces) for WIndows. Supports plugins, but no decent exposé functionality to my knowledge.</li>
+<li><a href="http://www.betterdesktoptool.com/">Better Desktop Tool</a> (Vista SP2+, Win7 SP1+, Win8) – This is what I use on my main PC at home. It let's you do the tiling/hiding application windows features of exposé as well as the multiple desktops of spaces. To quote some Apple exec somewhere, it just works! Very much recommend this!</li>
+<li><a href="https://sites.google.com/site/emceesoftware1/">Emcee</a> (Win7, Win8) – I personally haven't tried this at all, but some sources on the net seem to think it's pretty cool, so.. might be worth checking out?</li>
+<li><a href="http://virtuawin.sourceforge.net/">VirtuaWin</a> (Win9x/ME/NT/Win2K/XP/Win2003/Vista/Win7) – Nowhere near as pretty or fancy looking as the other two, but if you're on an older OS then you may have to compromise. VirtuaWin has been around forever, and provides (as the name implies) virtual desktops (aka spaces) for WIndows. Supports plugins, but no decent exposé functionality to my knowledge.</li>
 </ul>
-
 <h2>Scrolling in unfocussed windows</h2>
-
 <ul>
 <li><a href="http://ehiti.de/katmouse/">KatMouse</a> – A simple tool with a single purpose, allowing you to scroll unfocussed windows. Thank F for that!</li>
 </ul>
-
 <h2>Anything Else?</h2>
-
-<p>Know of anything else that&#39;s cool/noteworthy/makes working in Windows less painful for OSX users? <a href="http://devalias.tumblr.com/ask">Let me know via ask!!!</a></p>
+<p>Know of anything else that's cool/noteworthy/makes working in Windows less painful for OSX users? <a href="http://devalias.tumblr.com/ask">Let me know via ask!!!</a></p>
 
 	  ]]></description>
 	</item>
@@ -62,15 +53,11 @@
 	  <pubDate>2011-09-16T13:02:00+10:00</pubDate>
 	  <guid>/devalias/2011/09/16/the-dark-side-macbook-pro/</guid>
 	  <description><![CDATA[
-	     <p>I am a firm believer in the &#39;build it yourself&#39; aspect of computing, and with that comes an inherent dislike for the overpriced, simplistic, bright coloured devilspawn known as Apple. With that being said, there was a time that I walked among the darkness, though it was many many ages ago. Over recent years I have been drawing ever slowly back in that direction though, each shiny new device they release bringing me that much closer. It seems now that I have finally stepped over that threshold, into the darkness once more.</p>
-
-<p>Last saturday I purchased a Macbook Pro. <em>shudders</em> I swore to myself I wouldn&#39;t ever buy an overpriced, mainstream, &#39;cool&#39;, bright coloured apple computer. In my defense, the new Macbook Pro is very very shiny, decked out with a 15&quot; screen, 2.2ghz cpu, 8gb ram, 1gb graphics, 500gb 7200rpm hdd and packaged in a &#39;unibody&#39; slab of metal for the case.</p>
-
+	     <p>I am a firm believer in the 'build it yourself' aspect of computing, and with that comes an inherent dislike for the overpriced, simplistic, bright coloured devilspawn known as Apple. With that being said, there was a time that I walked among the darkness, though it was many many ages ago. Over recent years I have been drawing ever slowly back in that direction though, each shiny new device they release bringing me that much closer. It seems now that I have finally stepped over that threshold, into the darkness once more.</p>
+<p>Last saturday I purchased a Macbook Pro. <em>shudders</em> I swore to myself I wouldn't ever buy an overpriced, mainstream, 'cool', bright coloured apple computer. In my defense, the new Macbook Pro is very very shiny, decked out with a 15&quot; screen, 2.2ghz cpu, 8gb ram, 1gb graphics, 500gb 7200rpm hdd and packaged in a 'unibody' slab of metal for the case.</p>
 <p>Now the case is somewhat shiny, though it could do with some harder lines/edges and a much darker shade to give it that look that I like in my hardware. As the plan currently stands, a few vinyl stickers should give it that darker and more interesting look. Probably a black background, biohazard around the apple in bright green, a BackTrack dragon, maybe a few other things, and a carbon fibre look around the keyboard.</p>
-
 <p>All in all pretty happy with my purchase. Should be powerful enough to satisfy my portable computing needs, as well as running BackTrack in Parallels for pentesting, as well as having a full coding environment set up for writing iPhone software.</p>
-
-<p>I&#39;ll post again once I have it set up, hopefully with some pictures and thoughts about the setup process.</p>
+<p>I'll post again once I have it set up, hopefully with some pictures and thoughts about the setup process.</p>
 
 	  ]]></description>
 	</item>

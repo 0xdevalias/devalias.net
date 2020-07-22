@@ -18,13 +18,10 @@
 	  <pubDate>2016-05-22T00:00:00+10:00</pubDate>
 	  <guid>/devalias/2016/05/22/v3-now-with-more-hyde/</guid>
 	  <description><![CDATA[
-	     <p>Time for another rebirth! As you may have noticed, I haven&#39;t really written much over the last year or two. While I&#39;ve been busy, distracted and occasionally just lazy, I&#39;ve mostly found that Tumblr&#39;s interface is just far too much effort to write in. And if something is needlessly too much effort, it&#39;s not going to get done.</p>
-
-<p>Enter <a href="https://jekyllrb.com/">Jekyll</a>, the static website builder. I&#39;ve been intending to put something together on this platform forever.. The first iteration started in <a href="http://octopress.org/">Octopress</a> a year or more back, but never really went anywhere since the default theme was kind of ugly. Decided to take another stab at things this year while I was between jobs (free time == productivity!), found a theme that I liked and started hacking away. With a few months of scattered hacking and procrastination, it&#39;s finally actually on the internet, yay!</p>
-
-<p>Being a static site, I&#39;m taking advantage of <a href="https://pages.github.com/">GitHub Pages</a>. While it gives me free hosting, it also means I&#39;m now living my <a href="/devalias/2012/01/04/resolutions-for-11111011100-2012/">previous mantra</a> of &#39;open source everything&#39;. You can access the <a href="https://github.com/alias1/devalias.net">files used to generate the site</a> and <a href="https://github.com/alias1/devalias.net/issues">create an issue</a>/pull request to fix up any typos/errors you might find along the way :)</p>
-
-<p>Given it&#39;s now only mildly more effort for me to write a post here as it is to save my notes in random text files on my computer, I&#39;ll hopefully put more online.. We shall see.</p>
+	     <p>Time for another rebirth! As you may have noticed, I haven't really written much over the last year or two. While I've been busy, distracted and occasionally just lazy, I've mostly found that Tumblr's interface is just far too much effort to write in. And if something is needlessly too much effort, it's not going to get done.</p>
+<p>Enter <a href="https://jekyllrb.com/">Jekyll</a>, the static website builder. I've been intending to put something together on this platform forever.. The first iteration started in <a href="http://octopress.org/">Octopress</a> a year or more back, but never really went anywhere since the default theme was kind of ugly. Decided to take another stab at things this year while I was between jobs (free time == productivity!), found a theme that I liked and started hacking away. With a few months of scattered hacking and procrastination, it's finally actually on the internet, yay!</p>
+<p>Being a static site, I'm taking advantage of <a href="https://pages.github.com/">GitHub Pages</a>. While it gives me free hosting, it also means I'm now living my <a href="/devalias/2012/01/04/resolutions-for-11111011100-2012/">previous mantra</a> of 'open source everything'. You can access the <a href="https://github.com/alias1/devalias.net">files used to generate the site</a> and <a href="https://github.com/alias1/devalias.net/issues">create an issue</a>/pull request to fix up any typos/errors you might find along the way :)</p>
+<p>Given it's now only mildly more effort for me to write a post here as it is to save my notes in random text files on my computer, I'll hopefully put more online.. We shall see.</p>
 
 	  ]]></description>
 	</item>
@@ -37,75 +34,73 @@
 	  <guid>/devalias/2014/07/24/mdwiki-and-how-to-get-started/</guid>
 	  <description><![CDATA[
 	     <p>(Note: Original gist can be found <a href="https://gist.github.com/alias1/a8c3c2fd7bf2f50ff666">here</a>)</p>
-
-<p>If you haven&#39;t already heard about it, <a href="https://dynalon.github.io/mdwiki/#!index.md">MDwiki</a> is a cool little CMS/Wiki that runs entirely clientside (HTML5/Javascript) and uses <a href="https://en.wikipedia.org/wiki/Markdown">Markdown</a></p>
-
-<p>Since it&#39;s all clientside, we can do really cool things like track our changes in git and then host it all on <a href="https://pages.github.com/">GitHub Pages</a>. That means super simple forking, contributing and sharing. Yay for open source!</p>
-
+<p>If you haven't already heard about it, <a href="https://dynalon.github.io/mdwiki/#!index.md">MDwiki</a> is a cool little CMS/Wiki that runs entirely clientside (HTML5/Javascript) and uses <a href="https://en.wikipedia.org/wiki/Markdown">Markdown</a></p>
+<p>Since it's all clientside, we can do really cool things like track our changes in git and then host it all on <a href="https://pages.github.com/">GitHub Pages</a>. That means super simple forking, contributing and sharing. Yay for open source!</p>
 <h2>Setting up MDwiki with GitHub</h2>
-
-<p>There is an <a href="https://dynalon.github.io/mdwiki/#!tutorials/github.md">official guide</a> available on the MDwiki site, but I kind of like to do things my own way, so below is how I go about setting up a new site. (I&#39;ll assume you&#39;re already setup on GitHub and know vaguely how to use it, if not, maybe checkout the guide above)</p>
-
+<p>There is an <a href="https://dynalon.github.io/mdwiki/#!tutorials/github.md">official guide</a> available on the MDwiki site, but I kind of like to do things my own way, so below is how I go about setting up a new site. (I'll assume you're already setup on GitHub and know vaguely how to use it, if not, maybe checkout the guide above)</p>
 <ul>
 <li>On GitHub
-
 <ul>
 <li><a href="https://github.com/new">Create a new repository</a> and name it what you want (eg. <code>my-mdwiki</code>)</li>
-</ul></li>
+</ul>
+</li>
 <li>Setup initial MDwiki bits
-
 <ul>
 <li><a href="https://github.com/Dynalon/mdwiki/releases">Download the latest MDwiki release</a></li>
 <li>Extract it to a folder (eg. <code>my-mdwiki</code>)</li>
-<li>Here you have a choice:</li>
-<li><code>mdwiki.html</code> will give you MDwiki and all of it&#39;s libraries packaged as a single file</li>
-<li><code>mdwiki-slim.html</code> (my preference) will give you MDwiki, but load it&#39;s libraries from a CDN (content delivery network)</li>
-<li>Choose the option you want to use and rename it to <code>index.html</code></li>
-<li>Next we&#39;ll need to create a <code>config.json</code> file. You can <a href="https://dynalon.github.io/mdwiki/#!customizing.md">read about how this works</a> or just use something similar to mine:</li>
-</ul></li>
+<li>Here you have a choice:
+<ul>
+<li><code>mdwiki.html</code> will give you MDwiki and all of it's libraries packaged as a single file</li>
+<li><code>mdwiki-slim.html</code> (my preference) will give you MDwiki, but load it's libraries from a CDN (content delivery network)</li>
 </ul>
-<div class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span><span class="w">
-</span><span class="s2">"lineBreaks"</span><span class="p">:</span><span class="w"> </span><span class="s2">"gfm"</span><span class="p">,</span><span class="w">
-</span><span class="s2">"additionalFooterText"</span><span class="p">:</span><span class="w"> </span><span class="s2">"By &lt;a href='http://www.devalias.net/'&gt;Glenn '/dev/alias' Grant&lt;/a&gt;&lt;br /&gt;"</span><span class="p">,</span><span class="w">
-</span><span class="s2">"anchorCharacter"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&amp;para;"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
+</li>
+<li>Choose the option you want to use and rename it to <code>index.html</code></li>
+<li>Next we'll need to create a <code>config.json</code> file. You can <a href="https://dynalon.github.io/mdwiki/#!customizing.md">read about how this works</a> or just use something similar to mine:</li>
+</ul>
+</li>
+</ul>
+<pre lang="json"><code>{
+&quot;lineBreaks&quot;: &quot;gfm&quot;,
+&quot;additionalFooterText&quot;: &quot;By &lt;a href='http://www.devalias.net/'&gt;Glenn '/dev/alias' Grant&lt;/a&gt;&lt;br /&gt;&quot;,
+&quot;anchorCharacter&quot;: &quot;&amp;para;&quot;
+}
+</code></pre>
 <ul>
 <li>Almost there, create a quick <code>navigation.md</code> (<a href="https://dynalon.github.io/mdwiki/#!quickstart.md">docs</a>) that looks something like</li>
 </ul>
-<div class="highlight"><pre><code class="language-" data-lang=""># Your wiki name
+<pre><code># Your wiki name
 
 [Home](index.md)
 [About](about.md)
 [Download](download.md)
-</code></pre></div>
-<p>And create your first page (i&#39;ll only show you one, but the process is the same). Create a file called <code>index.md</code> (as specified in your navigation)</p>
-<div class="highlight"><pre><code class="language-" data-lang=""># Hello World!
+</code></pre>
+<p>And create your first page (i'll only show you one, but the process is the same). Create a file called <code>index.md</code> (as specified in your navigation)</p>
+<pre><code># Hello World!
 
 This is my first page!
-</code></pre></div>
+</code></pre>
 <ul>
-<li>That&#39;s it for the basic site setup!</li>
+<li>That's it for the basic site setup!</li>
 <li>As a little bonus, I like to add a script to run a <code>python SimpleHTTPServer</code> for local testing called <code>run-pyserver.sh</code> (and make sure to make it executable with <code>chmod +x run-pyserver.sh</code>)</li>
 </ul>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c">#!/bin/bash</span>
+<pre lang="bash"><code>#!/bin/bash
 
 open http://localhost:8000
-python <span class="nt">-m</span> SimpleHTTPServer 8000
-</code></pre></div>
+python -m SimpleHTTPServer 8000
+</code></pre>
 <ul>
-<li>Now we&#39;ll setup our git repo:
-
+<li>Now we'll setup our git repo:
 <ul>
 <li>Open a terminal window, and navigate to the folder you just created (eg. <code>cd ~/my-mdwiki</code>)</li>
 <li>Initialise the git repo: <code>git init</code></li>
 <li>Here we use some <a href="http://www.retrologic.com/jargon/M/magic.html">magic</a> (from <a href="http://git.661346.n2.nabble.com/how-to-start-with-non-master-branch-tt3284326.html#a3284821">Sean Estabrooks</a>) to tell git to call the initial branch <code>gh-pages</code> instead of <code>master</code>: <code>git symbolic-ref HEAD refs/heads/gh-pages</code></li>
-<li>Add all the files we&#39;ve created so far: <code>git add .</code></li>
+<li>Add all the files we've created so far: <code>git add .</code></li>
 <li>Commit them: <code>git commit -m &quot;Initial Commit&quot;</code></li>
 <li>Add your GitHub repo as a remote (making sure to replace <code>YOURUSERNAME</code> with your actual username, and <code>my-mdwiki</code> with the name of the repository you created earlier): <code>git remote add origin git@github.com:YOURUSERNAME/my-mdwiki.git</code></li>
 <li>Then push it to github: <code>git push -u origin gh-pages</code></li>
-</ul></li>
-<li>That&#39;s pretty much it! After a short delay, your site should be available at <a href="http://YOURUSERNAME.github.io/my-mdwiki">http://YOURUSERNAME.github.io/my-mdwiki</a></li>
+</ul>
+</li>
+<li>That's pretty much it! After a short delay, your site should be available at <a href="http://YOURUSERNAME.github.io/my-mdwiki">http://YOURUSERNAME.github.io/my-mdwiki</a></li>
 </ul>
 
 	  ]]></description>
@@ -119,23 +114,17 @@ python <span class="nt">-m</span> SimpleHTTPServer 8000
 	  <guid>/devalias/2013/08/08/new-window-with-tabs-to-right-chrome-extension/</guid>
 	  <description><![CDATA[
 	     <p>(tl;dr I wrote a chrome extension, <a href="https://chrome.google.com/webstore/detail/new-window-with-tabs-to-r/ldahcfljppchbfgdokomobmfdfplaman">get it in the web store</a> or <a href="https://github.com/alias1/chrome-NewWindowWithTabsToRight">check it out on GitHub</a>)</p>
-
 <p>So I decided I would re-dip my feet into the wonderful world that is chrome extensions. I had a little look a while back, but never really got to making anything relevant.</p>
-
 <p>This time around I decided to start off simple, and something that I would find useful, so without further ado building up drumroll here is the copypasta of the description I wrote for the chrome web store (there are SO many extra little hoops you have to jump through to go from working code to published in the web store.. Maybe a potential future topic?):</p>
-
 <blockquote>
-<p>This is a simple little extension (my first proper one!) that I wanted to make my life a little easier.
-It lets you create a new window with the tabs to the right (optionally including the current tab)
-My main reason for wanting this was to more effectively make use of the &#39;Sesh&#39; extension by Yuji Kosugi when I forgot to open a new window before opening a ton of tabs.
-If you have any comments, criticisms, praise, hatred, marriage proposals, fluffy bunnies, or transdimensional gateway blueprints, feel free to send them through to me at <a href="mailto:feedback@devalias.net">feedback@devalias.net</a> (Make sure to mention the extension name in the subject so I know what you&#39;re talking about!)</p>
+<p>This is a simple little extension (my first proper one!) that I wanted to make my life a little easier.<br />
+It lets you create a new window with the tabs to the right (optionally including the current tab)<br />
+My main reason for wanting this was to more effectively make use of the 'Sesh' extension by Yuji Kosugi when I forgot to open a new window before opening a ton of tabs.<br />
+If you have any comments, criticisms, praise, hatred, marriage proposals, fluffy bunnies, or transdimensional gateway blueprints, feel free to send them through to me at <a href="mailto:feedback@devalias.net">feedback@devalias.net</a> (Make sure to mention the extension name in the subject so I know what you're talking about!)</p>
 </blockquote>
-
-<p>Since that&#39;s a blockquote and I can&#39;t link in it, here is a link to <a href="https://chrome.google.com/webstore/detail/sesh/emclpejnhkiogdlimfgipbdfpdcnhhoj">Sesh</a> by <a href="https://about.me/yujily">Yuji Kosugi</a> (highly recommended if you&#39;re a tab junkie like myself!)</p>
-
-<p>So yeah, that&#39;s it! Check it out in the <a href="https://chrome.google.com/webstore/detail/new-window-with-tabs-to-r/ldahcfljppchbfgdokomobmfdfplaman">Chrome Web Store</a> and let me know what you think!!</p>
-
-<p>Oh, by the way, since I love you guys and open source software, it&#39;s released under the MIT Licence and you can go and <a href="https://github.com/alias1/chrome-NewWindowWithTabsToRight">check it out over at GitHub</a>! &lt;3</p>
+<p>Since that's a blockquote and I can't link in it, here is a link to <a href="https://chrome.google.com/webstore/detail/sesh/emclpejnhkiogdlimfgipbdfpdcnhhoj">Sesh</a> by <a href="https://about.me/yujily">Yuji Kosugi</a> (highly recommended if you're a tab junkie like myself!)</p>
+<p>So yeah, that's it! Check it out in the <a href="https://chrome.google.com/webstore/detail/new-window-with-tabs-to-r/ldahcfljppchbfgdokomobmfdfplaman">Chrome Web Store</a> and let me know what you think!!</p>
+<p>Oh, by the way, since I love you guys and open source software, it's released under the MIT Licence and you can go and <a href="https://github.com/alias1/chrome-NewWindowWithTabsToRight">check it out over at GitHub</a>! &lt;3</p>
 
 	  ]]></description>
 	</item>
@@ -147,17 +136,16 @@ If you have any comments, criticisms, praise, hatred, marriage proposals, fluffy
 	  <pubDate>2013-06-17T05:00:00+10:00</pubDate>
 	  <guid>/devalias/2013/06/17/gists-on-tumblr/</guid>
 	  <description><![CDATA[
-	     <p>So I figured it might be useful to be able to post gists here. Turns out it&#39;s actually pretty easy thanks to soemarko</p>
-
-<p><noscript><pre>&lt;!-- Add the following lines to theme&#39;s html code right before &lt;/head&gt; --&gt;
-&lt;script src=&quot;<a href="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js&quot;&gt;&lt;/script">http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js&amp;quot;&amp;gt;&amp;lt;/script</a>&gt;
-&lt;script src=&quot;<a href="http://static.tumblr.com/fpifyru/VCxlv9xwi/writecapture.js&quot;&gt;&lt;/script">http://static.tumblr.com/fpifyru/VCxlv9xwi/writecapture.js&amp;quot;&amp;gt;&amp;lt;/script</a>&gt;
-&lt;script src=&quot;<a href="http://static.tumblr.com/fpifyru/AKFlv9zdu/embedgist.js&quot;&gt;&lt;/script">http://static.tumblr.com/fpifyru/AKFlv9zdu/embedgist.js&amp;quot;&amp;gt;&amp;lt;/script</a>&gt;</p>
-
-<p>&lt;!--
-  Usage: just add &lt;div class=&quot;gist&quot;&gt;[gist URL]&lt;/div&gt;
-  Example: &lt;div class=&quot;gist&quot;&gt;<a href="https://gist.github.com/1395926&lt;/div">https://gist.github.com/1395926&amp;lt;/div</a>&gt;
---&gt;</pre></noscript><script src="https://gist.github.com/soemarko/1395926.js"> </script></p>
+	     <p>So I figured it might be useful to be able to post gists here. Turns out it's actually pretty easy thanks to soemarko</p>
+<p><a href="https://gist.github.com/soemarko/1395926">https://gist.github.com/soemarko/1395926</a></p>
+<p><noscript><pre>&lt;!-- Add the following lines to theme's html code right before &lt;/head&gt; --&gt;<br />
+&lt;script src=&quot;<a href="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js&amp;quot;&amp;gt;&amp;lt;/script">http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js&amp;quot;&amp;gt;&amp;lt;/script</a>&gt;<br />
+&lt;script src=&quot;<a href="http://static.tumblr.com/fpifyru/VCxlv9xwi/writecapture.js&amp;quot;&amp;gt;&amp;lt;/script">http://static.tumblr.com/fpifyru/VCxlv9xwi/writecapture.js&amp;quot;&amp;gt;&amp;lt;/script</a>&gt;<br />
+&lt;script src=&quot;<a href="http://static.tumblr.com/fpifyru/AKFlv9zdu/embedgist.js&amp;quot;&amp;gt;&amp;lt;/script">http://static.tumblr.com/fpifyru/AKFlv9zdu/embedgist.js&amp;quot;&amp;gt;&amp;lt;/script</a>&gt;</p>
+<p>&lt;!--<br />
+Usage: just add &lt;div class=&quot;gist&quot;&gt;[gist URL]&lt;/div&gt;<br />
+Example: &lt;div class=&quot;gist&quot;&gt;<a href="https://gist.github.com/1395926&amp;lt;/div">https://gist.github.com/1395926&amp;lt;/div</a>&gt;<br />
+--&gt;</pre></noscript><script src="https://gist.github.com/1395926.js"> </script></p>
 
 	  ]]></description>
 	</item>
@@ -169,24 +157,18 @@ If you have any comments, criticisms, praise, hatred, marriage proposals, fluffy
 	  <pubDate>2012-01-06T13:36:18+11:00</pubDate>
 	  <guid>/devalias/2012/01/06/forking-github/</guid>
 	  <description><![CDATA[
-	     <p>I&#39;ve been following the GitHub craze for a little while now, and finally coming to a stage where I would like to start contributing to some of the projects I follow. Having looked closely at the examples for one in particular, I noticed something simple, but beneficial that I could add, so I set out to become an active member of the internet!</p>
-
+	     <p>I've been following the GitHub craze for a little while now, and finally coming to a stage where I would like to start contributing to some of the projects I follow. Having looked closely at the examples for one in particular, I noticed something simple, but beneficial that I could add, so I set out to become an active member of the internet!</p>
 <p>I forked the repository, synced it down to my computer, made the changes, created a pull request, and got it merged with the main code. Win!!</p>
-
-<p>It wasn&#39;t until a week or two later that I was reading an article that mentioned creating pull requests from your main repos wasn&#39;t really the best idea. Woops. So, to remind myself, and hopefully help some others out in the process, I&#39;m documenting what is the &#39;proper&#39; (if such a thing exists) process for forking.</p>
-
+<p>It wasn't until a week or two later that I was reading an article that mentioned creating pull requests from your main repos wasn't really the best idea. Woops. So, to remind myself, and hopefully help some others out in the process, I'm documenting what is the 'proper' (if such a thing exists) process for forking.</p>
 <ol>
 <li><strong>Fork/clone the project reposistory</strong> - Every story needs a place to start, and ours starts at the repos we want to contribute to. Fork/clone the repository to somewhere you can play around with it.</li>
-<li><strong>Create a new branch on your fork/clone</strong> - Now here is where I went wrong. Create a new branch (<code>git branch [blah]</code>) on your fork/clone and check it out (<code>git checkout [blah]</code>) before making any changes to the code. This way the changes you make will be isolated in your branch and won&#39;t mess up the master branch (that you pulled down from the original repository)</li>
+<li><strong>Create a new branch on your fork/clone</strong> - Now here is where I went wrong. Create a new branch (<code>git branch [blah]</code>) on your fork/clone and check it out (<code>git checkout [blah]</code>) before making any changes to the code. This way the changes you make will be isolated in your branch and won't mess up the master branch (that you pulled down from the original repository)</li>
 <li><strong>Make your changes</strong> - Make whatever changes you want/need/feel the desire to make. The world is your oyster. Remember that the original code is sitting in the master branch in case you need to wipe everything out and start again.</li>
-<li><strong>Commit your changes</strong> - Make sure to commit the changes you make to your branch, otherwise they aren&#39;t going to go anywhere! Also, make sure you push your local branch back up to GitHub.</li>
+<li><strong>Commit your changes</strong> - Make sure to commit the changes you make to your branch, otherwise they aren't going to go anywhere! Also, make sure you push your local branch back up to GitHub.</li>
 <li><strong>Create a pull request</strong> - Go to GitHub and create a pull request from your branch for the original project to incorporate your changes.</li>
 </ol>
-
 <p>Hopefully theres enough info here to at least set you on the right track to contributing if (when! do it, you know you want to..) you start contributing to open source projects.</p>
-
 <h2>Sources</h2>
-
 <ul>
 <li><a href="https://github.com/primalmotion/Archipel/wiki/Developer%3A-Contributing">https://github.com/primalmotion/Archipel/wiki/Developer%3A-Contributing</a></li>
 </ul>

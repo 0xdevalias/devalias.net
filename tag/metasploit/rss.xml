@@ -18,16 +18,11 @@
 	  <pubDate>2017-07-14T00:00:00+10:00</pubDate>
 	  <guid>/devalias/2017/07/14/link-dump-clearing-out-my-todo-list/</guid>
 	  <description><![CDATA[
-	     <p>I tend to stumble across a lot of interesting things as I travel across the web, and one of my productivity methods is to save the things I don&#39;t have time to check out immediately to <a href="https://todoist.com/">Todoist</a>. Unfortunately, time can be short, and life busy, so those &#39;thats an interesting article&#39;, &#39;i could use that tech thing&#39; and &#39;that would be cool to blog about&#39; things tend to just build up, and clutter my todo lists in an ever less efficient manner. So today lets clear some of that out!</p>
-
+	     <p>I tend to stumble across a lot of interesting things as I travel across the web, and one of my productivity methods is to save the things I don't have time to check out immediately to <a href="https://todoist.com/">Todoist</a>. Unfortunately, time can be short, and life busy, so those 'thats an interesting article', 'i could use that tech thing' and 'that would be cool to blog about' things tend to just build up, and clutter my todo lists in an ever less efficient manner. So today lets clear some of that out!</p>
 <p>This post will be a vaguely categorised link dump, and depending on if I remember why I saved it, maybe some notes too.</p>
-
 <p>Looking over everything, there seem to be trends around development, security, privacy, blog/website, docker, tech, automation, branding and general performance/efficiency. Not really surprising when I think about the things that tend to interest me :)</p>
-
 <p>Hope you find something interesting!</p>
-
 <h2>Development</h2>
-
 <ul>
 <li><a href="https://www.jetbrains.com/research/devecosystem-2017/">The State of Developer Ecosystem 2017 - Infographic | JetBrains</a></li>
 <li><a href="https://insights.stackoverflow.com/survey/2017">Developer Survey Results 2017 - Stackoverflow</a></li>
@@ -35,45 +30,42 @@
 <li><a href="https://hackernoon.com/how-it-feels-to-learn-javascript-in-2016-d3a717dd577f">How it feels to learn JavaScript in 2016 – Hacker Noon</a></li>
 <li><a href="https://mightysignal.com/top-ios-sdks">Most Used SDKs in Top 200 Free iOS Apps | MightySignal - Mobile App &amp; SDK Intelligence for iOS / Android</a></li>
 <li>Frontend Package Managers
-
 <ul>
 <li><a href="https://yarnpkg.com/en/">Yarn</a>: Package Manager</li>
 <li><a href="https://code.facebook.com/posts/1840075619545360">Yarn: A new package manager for JavaScript</a></li>
 <li><a href="https://github.com/yarnpkg/yarn">yarnpkg/yarn</a>: Fast, reliable, and secure dependency management.</li>
 <li><a href="https://bower.io/blog/2016/using-bower-with-yarn/">Using Bower with Yarn</a>: bower support dropped for now</li>
-<li><a href="https://www.slant.co/versus/17851/5094/%7Eyarn_vs_bower">Yarn vs Bower detailed comparison as of 2017 - Slant</a></li>
-<li><a href="https://www.slant.co/topics/1488/%7Efront-end-package-managers">13 Best front-end package managers as of 2017 - Slant</a></li>
-</ul></li>
-<li>Frontend JS Languages 
-
+<li><a href="https://www.slant.co/versus/17851/5094/~yarn_vs_bower">Yarn vs Bower detailed comparison as of 2017 - Slant</a></li>
+<li><a href="https://www.slant.co/topics/1488/~front-end-package-managers">13 Best front-end package managers as of 2017 - Slant</a></li>
+</ul>
+</li>
+<li>Frontend JS Languages
 <ul>
 <li><a href="https://medium.com/front-end-hacking/es2015-vs-elm-vs-typescript-a88dbc5d14d9">ES2015 JavaScript vs. Elm vs. TypeScript – Frontend Weekly – Medium</a></li>
 <li><a href="http://mutanatum.com/posts/2017-01-12-Browser-FP-Head-to-Head.html">Selecting a platform - JavaScript vs Elm vs PureScript vs GHCjs vs Scalajs | MutanatuM</a></li>
-</ul></li>
+</ul>
+</li>
 <li>Code Review
-
 <ul>
 <li><a href="https://codacy.com/">Automated code reviews &amp; code analytics | Codacy</a>: Check code style, security, duplication, complexity and coverage on every change while tracking code quality throughout your sprints.</li>
 <li><a href="https://codeclimate.com/">Code Climate</a>: Get automated code review for test coverage, complexity, duplication, security, style, and more, and merge with confidence.</li>
-</ul></li>
+</ul>
+</li>
 <li><a href="http://www.foundweekends.org/conscript/">Conscript — Conscript</a>: Distribution mechanism for Scala apps using Github and Maven repositories as the infrastructure. You can use it to install and update apps similar to APT or Home Brew.</li>
 <li><a href="http://www.foundweekends.org/giter8/">Giter8 — Giter8</a>: Command line tool to generate files and directories from templates published on Github or any other git repository</li>
 <li><a href="https://github.com/lightbend/paradox">lightbend/paradox</a>: Paradox is a markdown documentation tool for software projects.</li>
 <li><a href="https://github.com/sirthias/pegdown/">sirthias/pegdown</a>: A pure-Java Markdown processor based on a parboiled PEG parser supporting a number of extensions</li>
 <li><a href="https://ace.c9.io/">Ace - The High Performance Code Editor for the Web</a>
-
 <ul>
 <li><a href="https://github.com/ajaxorg/ace">ajaxorg/ace</a>: Ace (Ajax.org Cloud9 Editor)</li>
 <li><a href="https://github.com/lyrasoft/ace-markdown-editor">lyrasoft/ace-markdown-editor</a>: A Markdown editor for Joomla CMS</li>
 <li><a href="https://ace.c9.io/kitchen-sink.html?doc=Markdown">Ace Kitchen Sink</a></li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <h2>Security</h2>
-
 <ul>
 <li>CTF
-
 <ul>
 <li><a href="http://www.learn2hack.com.au/">Experience IT - Cyber Security | learn2hack | TAFE</a>: Hands on training for high school students run by industry experts with pathways to tertiary qualifications. This course provides an introduction to defensive and offensive security strategies and tactics and is suitable for high school students aged 15-18.</li>
 <li><a href="https://ctf.0ops.net/">0CTF 2017</a></li>
@@ -85,26 +77,26 @@
 <li><a href="https://github.com/legitbs/quals-2014">legitbs/quals-2014</a></li>
 <li><a href="https://github.com/legitbs/finals-2013">legitbs/finals-2013</a>: Source for many challenges from DEF CON 21 CTF Finals</li>
 <li><a href="https://github.com/legitbs/quals-2013">legitbs/quals-2013</a>: Source for many challenges from DEF CON 21 CTF Qualifier</li>
-<li><a href="http://flaws.cloud/">flaws.cloud</a>: Through a series of levels you&#39;ll learn about common mistakes and gotchas when using Amazon Web Services (AWS).</li>
+<li><a href="http://flaws.cloud/">flaws.cloud</a>: Through a series of levels you'll learn about common mistakes and gotchas when using Amazon Web Services (AWS).</li>
 <li><a href="https://dook.biz/2017/03/crikeyconctf-2017-koala-gallery-writeup/">CrikeyConCTF 2017 – Koala Gallery Writeup</a></li>
-</ul></li>
+</ul>
+</li>
 <li>BSides 2017
-
 <ul>
 <li><a href="http://buffered.io/posts/bsidescbr-ctf-round-up/">BSidesCBR CTF Round Up | OJ</a></li>
 <li><a href="https://github.com/OJ/bsides-2017-ctf-docker">OJ/bsides-2017-ctf-docker</a>: BSidesCBR CTF docker compose files</li>
 <li><a href="https://www.rootusers.com/bsides-canberra-2017-ctf-rekt-exfil-write/">BSides Canberra 2017 CTF - Rekt Exfil Write-up - RootUsers</a></li>
-</ul></li>
+</ul>
+</li>
 <li>Reverse Engineering, etc
-
 <ul>
 <li><a href="https://binary.ninja/">binary.ninja</a>: A reverse engineering platform</li>
 <li><a href="http://kaitai.io/">Kaitai Struct: declarative binary format parsing language</a> A new way to develop parsers for binary structures.</li>
 <li><a href="http://www.hopperapp.com/">Hopper</a>: The macOS and Linux Disassembler</li>
 <li><a href="http://cerbero.io/profiler/">Cerbero - Profiler</a>: Cerbero Profiler is a tool designed primarily for malware and forensic analysis.</li>
-</ul></li>
+</ul>
+</li>
 <li>Recon, DNS, etc
-
 <ul>
 <li>find IP ranges, reverse IP lookups, etc</li>
 <li>seclists subdomain section</li>
@@ -119,38 +111,39 @@
 <li><a href="https://bitbucket.org/LaNMaSteR53/recon-ng">LaNMaSteR53 / Recon-ng — Bitbucket</a>: Recon-ng is a full-featured Web Reconnaissance framework written in Python.</li>
 <li><a href="http://tools.kali.org/information-gathering/dnsenum">dnsenum | Penetration Testing Tools</a></li>
 <li><a href="https://github.com/ChrisTruncer/EyeWitness">ChrisTruncer/EyeWitness</a>: EyeWitness is designed to take screenshots of websites, provide some server header info, and identify default credentials if possible.</li>
-</ul></li>
+</ul>
+</li>
 <li>Dockerised
-
 <ul>
 <li><a href="https://zeltser.com/metasploit-framework-docker-container/">Run Metasploit Framework as a Docker Container Without Installation Pains</a></li>
 <li><a href="https://hub.docker.com/r/k0st/alpine-nikto/">k0st/alpine-nikto | DockerHub</a>: Dockerized nikto</li>
 <li>docker run --rm -it activeshadow/nikto /bin/bash</li>
 <li><a href="https://github.com/kost/docker-webscan">kost/docker-webscan</a>: Dockerized versions of various web security scanning tools and utilities</li>
-</ul></li>
+</ul>
+</li>
 <li>Frameworks, automation, etc
-
 <ul>
 <li><a href="https://github.com/trustedsec/ptf">trustedsec/ptf</a>: The Penetration Testers Framework (PTF) is a way for modular support for up-to-date tools.</li>
 <li><a href="http://www.golismero.com/">Golismero Project. The web knife.</a>
-
 <ul>
-<li>GoLismero is a free software framework for security testing. It&#39;s currently geared towards web security, but it can easily be expanded to other kinds of scans. It can run their own security tests and manage a lot of well known security tools (OpenVas, Wfuzz, SQLMap, DNS recon, robot analyzer...) take their results, feedback to the rest of tools and merge all of results. And all of this automatically.</li>
+<li>GoLismero is a free software framework for security testing. It's currently geared towards web security, but it can easily be expanded to other kinds of scans. It can run their own security tests and manage a lot of well known security tools (OpenVas, Wfuzz, SQLMap, DNS recon, robot analyzer...) take their results, feedback to the rest of tools and merge all of results. And all of this automatically.</li>
 <li><a href="https://github.com/golismero/golismero">golismero/golismero</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="http://www.spiderfoot.net/">SpiderFoot – Open Source Intelligence Automation</a>
-
 <ul>
-<li><a href="https://github.com/smicallef/spiderfoot">smicallef/spiderfoot</a>: SpiderFoot, the open source footprinting and intelligence-gathering tool. </li>
-</ul></li>
-</ul></li>
+<li><a href="https://github.com/smicallef/spiderfoot">smicallef/spiderfoot</a>: SpiderFoot, the open source footprinting and intelligence-gathering tool.</li>
+</ul>
+</li>
+</ul>
+</li>
 <li><a href="https://bugcrowd.com/vulnerability-rating-taxonomy">Vulnerability Rating Taxonomy | Bugcrowd</a>
-
 <ul>
 <li>Bugcrowd’s VRT is a resource outlining Bugcrowd’s baseline priority rating, including certain edge cases, for vulnerabilities that we often see.</li>
 <li><a href="https://github.com/bugcrowd/vulnerability-rating-taxonomy">bugcrowd/vulnerability-rating-taxonomy</a></li>
-</ul></li>
-<li><a href="https://www.pastemonitor.com/">PasteMonitor</a>: PasteMonitor watches for keywords you&#39;re interested in on Pastebin.</li>
+</ul>
+</li>
+<li><a href="https://www.pastemonitor.com/">PasteMonitor</a>: PasteMonitor watches for keywords you're interested in on Pastebin.</li>
 <li><a href="https://requestb.in/">RequestBin — Collect, inspect and debug HTTP requests and webhooks</a></li>
 <li><a href="https://github.com/Runscope/requestbin">Runscope/requestbin</a>: Inspect HTTP requests. Debug webhooks.</li>
 <li><a href="https://github.com/maurosoria/dirsearch">maurosoria/dirsearch</a>: Web path scanner</li>
@@ -161,15 +154,13 @@
 <li><a href="https://medium.com/on-docker/secrets-and-lie-abilities-the-state-of-modern-secret-management-2017-c82ec9136a3d">Secrets and LIE-abilities: The State of Modern Secret Management [2017]</a></li>
 <li><a href="https://www.cert.gov.au/vulnerability-disclosures">Vulnerability Disclosures | CERT Australia</a></li>
 <li>Where are BURP setttings saved?
-
 <ul>
 <li>On OSX it is stored in the com.apple.java.util.prefs.plist under ~/Library/Preferences.</li>
 <li>Also, you need to make sure you use the burp-&gt;exit to quit and not the Burp.StartBurp-&gt;Quit (Command-Q) to exit. Otherwise, it will not save the settings.</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <h2>Privacy</h2>
-
 <ul>
 <li><a href="http://www.shellntel.com/blog/2016/3/30/vpn-over-dns-1">VPN over DNS</a></li>
 <li><a href="https://www.whonix.org/wiki/Main_Page">Whonix</a>: Whonix is a free desktop operating system (OS) that is specifically designed for advanced security and privacy. Based on Tor, Debian GNU/Linux and the principle of security by isolation, it realistically addresses common attack vectors while maintaining usability.</li>
@@ -178,68 +169,65 @@
 <li><a href="https://blog.jessfraz.com/post/running-a-tor-relay-with-docker/">2: Running a Tor relay with Docker</a></li>
 <li><a href="https://blog.jessfraz.com/post/tor-socks-proxy-and-privoxy-containers/">3: Tor Socks Proxy and Privoxy Containers</a></li>
 <li>Advanced Privacy and Anonymity Using VMs, VPN’s, Tor
-
 <ul>
 <li><a href="https://www.ivpn.net/privacy-guides/advanced-privacy-and-anonymity-part-1">Part 1 - Introduction to Series</a></li>
-<li><a href="https://www.ivpn.net/privacy-guides/advanced-privacy-and-anonymity-part-2">Part 2 - Basic Setup Using VM&#39;s, VPNs and TOR</a></li>
+<li><a href="https://www.ivpn.net/privacy-guides/advanced-privacy-and-anonymity-part-2">Part 2 - Basic Setup Using VM's, VPNs and TOR</a></li>
 <li><a href="https://www.ivpn.net/privacy-guides/advanced-privacy-and-anonymity-part-3">Part 3 - Planning Advanced VM and VPN Setup</a></li>
 <li><a href="https://www.ivpn.net/privacy-guides/advanced-privacy-and-anonymity-part-4">Part 4 - Setting Up Secure Host Machines</a></li>
 <li><a href="https://www.ivpn.net/privacy-guides/advanced-privacy-and-anonymity-part-5">Part 5 - Installing VirtualBox and Creating Linux VMs</a></li>
 <li><a href="https://www.ivpn.net/privacy-guides/advanced-privacy-and-anonymity-part-6">Part 6 - Creating pfSense 2.2.6 VMs as VPN Clients</a></li>
 <li><a href="https://www.ivpn.net/privacy-guides/advanced-privacy-and-anonymity-part-7">Part 7 - Paying Anonymously with Cash and Bitcoins</a></li>
 <li><a href="https://www.ivpn.net/privacy-guides/advanced-privacy-and-anonymity-part-8">Part 8 - Creating Nested Chains of VPNs and Tor</a></li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <h2>Blog / Website / Social</h2>
-
 <ul>
 <li><a href="https://www.ohow.co/removing-google-analytics-spam/">Ultimate Guide to Blocking and Cleaning Google Analytics Spam and Other Junk Traffic</a></li>
 <li><a href="https://later.com/blog/ultimate-guide-to-using-instagram-hashtags/">The Ultimate Guide to Instagram Hashtags in 2017</a></li>
 <li><a href="https://staticman.net/docs/">Staticman</a>: I bring user-generated content to static sites</li>
 <li>Blog Inspiration
-
 <ul>
 <li><a href="http://rhiaro.co.uk/">Amy/Rhiaro | tampering with arrangements</a>: Lots of social web/lifelogging type stuff, seems cool</li>
 <li><a href="http://www.savespendsplurge.com/tag/what-i-bought/">What I bought | Save. Spend. Splurge.</a>: Lifelogging type stuff</li>
 <li><a href="https://github.com/aarongustafson/aarongustafson.github.io/tree/source">aarongustafson/aarongustafson.github.io</a> (<a href="https://www.aaron-gustafson.com/">web</a>): Web standards &amp; accessibility advocate at Microsoft</li>
-</ul></li>
+</ul>
+</li>
 <li>Jekyll
-
 <ul>
 <li><a href="https://mademistakes.com/articles/using-jekyll-2016/">How I’m Using Jekyll in 2016</a></li>
 <li><a href="https://jekyllrb.com/docs/collections/">Jekyll Collections</a>: For writings/etc?</li>
-</ul></li>
+</ul>
+</li>
 <li>Jekyll Plugins
-
 <ul>
 <li><a href="https://github.com/pattex/jekyll-tagging/issues/43#issuecomment-289595438">Generate a /tag/index.html · Issue #43 · pattex/jekyll-tagging</a>: TODO: Implement tag_cloud for my blog</li>
 <li><a href="https://github.com/jekyll/jekyll-archives">jekyll/jekyll-archives</a>: Archive pages for your Jekyll tags and categories</li>
 <li><a href="https://github.com/pattex/jekyll-tagging">pattex/jekyll-tagging</a>: Jekyll plugin to automatically generate a tag cloud and tag pages.</li>
 <li><a href="https://github.com/toshimaru/jekyll-tagging-related_posts">toshimaru/jekyll-tagging-related_posts</a>: Jekyll related_posts function based on tags (works on Jekyll3)</li>
-<li><a href="https://github.com/octopress/paginate/">octopress/paginate</a>: A simple paginator for Jekyll sites. </li>
+<li><a href="https://github.com/octopress/paginate/">octopress/paginate</a>: A simple paginator for Jekyll sites.</li>
 <li><a href="https://github.com/jekyll/jekyll-assets">jekyll/jekyll-assets</a>: Asset pipelines for Jekyll.</li>
 <li><a href="https://github.com/robwierzbowski/jekyll-picture-tag">robwierzbowski/jekyll-picture-tag</a>: Easy responsive images for Jekyll.</li>
 <li>Jekyll wiki plugin?</li>
-</ul></li>
+</ul>
+</li>
 <li>GitHub Issues
-
 <ul>
 <li><a href="https://github.com/indirect/jekyll-postfiles/issues/6">Make this a ruby gem · Issue #6 · indirect/jekyll-postfiles</a></li>
 <li><a href="https://github.com/aarongustafson/jekyll-webmention_io/issues/11">Give rake task the ability to detect and notify pingback endpoints · Issue #11 · aarongustafson/jekyll-webmention_io</a></li>
 <li><a href="https://github.com/aarongustafson/jekyll-webmention_io/issues/12">Rake task will download entire file looking for webmention endpoint · Issue #12 · aarongustafson/jekyll-webmention_io</a></li>
-</ul></li>
+</ul>
+</li>
 <li>Discoverability, etc
-
 <ul>
 <li><a href="http://oembed.com/">oEmbed</a>:oEmbed is a format for allowing an embedded representation of a URL on third party sites.</li>
 <li><a href="http://pingomatic.com/">Ping-o-Matic!</a>: Ping-O-Matic is a service to update different search engines that your blog has updated.</li>
 <li><a href="https://developer.mozilla.org/en-US/docs/Web/RSS/Getting_Started/Syndicating">Syndicating content with RSS</a></li>
-</ul></li>
+</ul>
+</li>
 <li>Indieweb, etc
-
 <ul>
-<li><a href="http://indiewebify.me/">IndieWebify.Me - a guide to getting you on the IndieWeb</a>: We should all own the content we&#39;re creating, rather than just posting to third-party content silos.Publish on your own domain, and syndicate out to silos. This is the basis of the &quot;Indie Web&quot; movement.</li>
+<li><a href="http://indiewebify.me/">IndieWebify.Me - a guide to getting you on the IndieWeb</a>: We should all own the content we're creating, rather than just posting to third-party content silos.Publish on your own domain, and syndicate out to silos. This is the basis of the &quot;Indie Web&quot; movement.</li>
 <li><a href="http://activitystrea.ms">Activity Streams</a>: JSON Activity Streams Spec</li>
 <li><a href="http://indiewebcamp.com/backfeed">backfeed - IndieWeb</a>: Backfeed is the process of syndicating interactions on your POSSE copies back (AKA reverse syndicating) to your original posts.</li>
 <li><a href="http://indiewebcamp.com/Bridgy">Bridgy - IndieWeb</a>: Bridgy is an open source project and proxy that implements backfeed and POSSE as a service. Bridgy sends webmentions for comments, likes, etc. on Facebook, Twitter, Google+, Instagram, and Flickr.</li>
@@ -248,71 +236,62 @@
 <li><a href="https://checkmention.appspot.com/">Checkmention</a>: This site lets you test your webmention implementation on your indieweb site, and whether it robustly detects certain types of XSS attacks.</li>
 <li><a href="https://github.com/indieweb/mention-client-ruby">indieweb/mention-client-ruby</a>: A Ruby gem for sending webmention (and pingback) notifications</li>
 <li><a href="https://www.w3.org/wiki/Socialwg">W3C social working group</a></li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <h2>Docker</h2>
-
 <ul>
 <li><a href="https://github.com/Perlence/docker-multi-build">Perlence/docker-multi-build</a>: Concurrent multi-stage Docker builds
-
 <ul>
 <li>This is outdated now, it exists in docker core</li>
-</ul></li>
+</ul>
+</li>
 <li><a href="https://www.iron.io/how-to-cross-compile-go-programs-using-docker/">How to Cross Compile Go Programs using Docker | Iron.io</a></li>
 <li><a href="https://hub.docker.com/_/golang/">golang | DockerHub</a></li>
 </ul>
-
 <h2>Automation, Scraping, etc</h2>
-
 <ul>
 <li><a href="https://hackernoon.com/guide-to-web-automation-889557804453">Guide to Web Automation | Hackernoon</a>
-
 <ul>
 <li><a href="https://github.com/peterdemin/web-automation-2017">peterdemin/web-automation-2017</a>: An attempt to cover state of web automation in 2017
-
 <ul>
 <li>This GitHub should have a bunch of other projects detailed in some of the (probably closed) issues</li>
-</ul></li>
-</ul></li>
-<li><a href="https://scrapy.org/">Scrapy</a>: An open source and collaborative framework for extracting the data you need from websites.
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="https://scrapy.org/">Scrapy</a>: An open source and collaborative framework for extracting the data you need from websites.<br />
 In a fast, simple, yet extensible way.</li>
 <li><a href="https://github.com/scrapinghub/portia/">scrapinghub/portia</a>: Visual scraping for Scrapy</li>
 <li><a href="https://github.com/Netflix/Scumblr">Netflix/Scumblr</a>: Web framework that allows performing periodic syncs of data sources and performing analysis on the identified results</li>
 <li><a href="https://home-assistant.io/">Home Assistant</a>: Home Assistant is an open-source home automation platform running on Python 3.</li>
 </ul>
-
 <h2>Tech</h2>
-
 <ul>
 <li>Tmux
-
 <ul>
 <li><a href="https://github.com/jimeh/tmuxifier">jimeh/tmuxifier</a>: Tmuxify your Tmux. Powerful session, window &amp; pane management for Tmux.</li>
 <li><a href="https://github.com/tmuxinator/tmuxinator">tmuxinator/tmuxinator</a>: Manage complex tmux sessions easily</li>
-</ul></li>
+</ul>
+</li>
 <li><a href="https://github.com/dundalek/markmap">dundalek/markmap</a>: Visualize markdown documents as mindmaps
-
 <ul>
 <li>Can we use this to make nice markdown mindmap summaries?</li>
-</ul></li>
+</ul>
+</li>
 <li><a href="https://github.com/donnemartin/haxor-news">donnemartin/haxor-news</a>: Browse Hacker News like a haxor: A Hacker News command line interface (CLI).</li>
 <li><a href="https://apple.stackexchange.com/questions/237136/where-does-launchpad-store-folder-information-database-etc">Where does launchpad store folder information? (database, etc?)</a></li>
 <li><a href="https://dcos.io/">The Definitive Platform for Modern Apps | DC/OS</a>: DC/OS (the datacenter operating system) is an open-source, distributed operating system based on the Apache Mesos distributed systems kernel.</li>
 <li><a href="https://snapcraft.io/">snapcraft - Snaps are universal Linux packages</a>: package linux apps for every linux/server/cloud/device</li>
 </ul>
-
 <h2>Branding</h2>
-
 <ul>
 <li><a href="https://library.gv.com/the-three-hour-brand-sprint-3ccabf4b768a#.h7s3gqfx8">The Three-Hour Brand Sprint – GV Library</a></li>
 <li><a href="https://blog.docker.com/2013/06/announcing-new-docker-style/">Announcing a New Logo and Style for Docker - Docker Blog</a></li>
 <li><a href="https://99designs.com.au/logo-design">Logo Design - Get A Custom Logo Design from Professional Logo Designers | 99designs</a></li>
 <li><a href="https://99designs.com.au/logo-design/contests/create-cool-open-source-project-logo-219415">Docker - Create cool open-source project logo. | Logo design contest</a></li>
 </ul>
-
 <h2>Alfred-esque</h2>
-
 <ul>
 <li><a href="http://www.packal.org/workflow/homebrew-and-cask-alfred">Homebrew and Cask for Alfred</a></li>
 <li><a href="https://github.com/danielbayerlein/alfred-workflows/tree/master/homebrew">Alfred Workflow for Homebrew (danielbayerlein/alfred-workflows)</a></li>
@@ -321,25 +300,19 @@ In a fast, simple, yet extensible way.</li>
 <li><a href="https://github.com/laconalabs/lacona-cli">laconalabs/lacona-cli</a></li>
 <li>Automator services ~/Library/Services</li>
 </ul>
-
 <h2>Windows</h2>
-
 <ul>
 <li><a href="http://boxstarter.org/">Boxstarter</a>: Repeatable, reboot resilient windows environment installations made easy using Chocolatey packages</li>
 <li><a href="https://chocolatey.org/">Chocolatey - The package manager for Windows</a></li>
 <li><a href="https://www.nuget.org/">NuGet Gallery | Home</a></li>
 </ul>
-
 <h2>MacOS (OSX) on Windows</h2>
-
 <ul>
 <li><a href="http://www.apple.com/au/shop/product/MJ2R2ZA/A/magic-trackpad-2">Apple Magic Magic Trackpad 2</a></li>
 <li><a href="http://extramagic.forbootcamp.org/">ExtraMagic</a>: OSX-Trackpad Multitouch on Windows</li>
 <li><a href="https://sourceforge.net/projects/ccseer/">Seer</a>: OSX-like Spacebar Preview on Windows</li>
 </ul>
-
 <h2>GitHub</h2>
-
 <ul>
 <li><a href="https://github.com/Homebrew/homebrew-bundle/issues/147"><code>brew bundle check</code> should list whats missing · Issue #147 · Homebrew/homebrew-bundle</a>: brew bundle check/dryrun</li>
 <li><a href="https://github.com/erocarrera/pefile/issues/123">Broken links in readme · Issue #123 · erocarrera/pefile</a></li>
@@ -347,32 +320,25 @@ In a fast, simple, yet extensible way.</li>
 <li><a href="https://github.com/erocarrera/pefile/issues/125">Flag to skip parsing on PE object instantiation · Issue #125 · erocarrera/pefile</a></li>
 <li><a href="https://github.com/jgm/gitit/issues/580">Github Flavoured Markdown · Issue #580 · jgm/gitit</a></li>
 </ul>
-
 <h2>Quantified Self</h2>
-
 <ul>
 <li><a href="https://hello.is/">Sense</a>: Sleep tracker</li>
 </ul>
-
 <h2>Performance, nootropics, etc</h2>
-
 <ul>
 <li><a href="https://www.hongstarr.com/">Hong</a>: Bulletproof Coach in Melbourne, written up on Living Bulletproof, etc</li>
 <li><a href="https://www.gethapi.com.au/products/flow">Hapi | Flow</a></li>
 <li><a href="https://www.totalnootropics.com.au/collections/all-products">Total Nootropics</a></li>
 <li><a href="https://nootroplus.com/">Nootroplus - Premium Nootropics</a></li>
 </ul>
-
 <h2>Interests, activities, etc</h2>
-
 <ul>
 <li>Climbing
-
 <ul>
 <li><a href="http://climbingschool.com.au/courses/">Courses - Blue Mountains Climbing School</a></li>
-</ul></li>
+</ul>
+</li>
 <li>Archery
-
 <ul>
 <li><a href="https://www.canberraarchery.club/come-and-try">Canberra Archery - Come and Try</a></li>
 <li><a href="http://home.tuggeranongarchery.com/index.php/activities/come-and-try">Tuggeranong Archery - Come and Try</a></li>
@@ -380,33 +346,30 @@ In a fast, simple, yet extensible way.</li>
 <li><a href="http://capitalfieldarchers.com.au/">Capital Field Archers</a></li>
 <li><a href="https://www.bowhunters.org.au/index.php/author-login/branch-f-southern-nsw-act">Branch F - Southern NSW &amp; ACT</a></li>
 <li><a href="https://www.bowhunters.org.au/">BowHunters</a></li>
-</ul></li>
+</ul>
+</li>
 <li>Shooting
-
 <ul>
 <li><a href="http://ssaa.org.au/act/ssaa-act-inc.html">SSAA ACT Inc</a></li>
 <li><a href="http://actsmallborerifleclub.com/">ACT Smallbore Rifle Club Inc</a></li>
 <li><a href="http://www.canberrarifleclub.org.au/wordpress/?page_id=110">Canberra Rifle Club</a>: Preliminary Information for Interested Persons</li>
-</ul></li>
+</ul>
+</li>
 <li>Medieval
-
 <ul>
 <li><a href="https://www.facebook.com/AncientArtsFellowship/">Ancient Arts Fellowship</a></li>
 <li><a href="http://www.aaf.org.au/fighting/">Ancient Arts Fellowship - Fighting</a></li>
 <li><a href="https://www.facebook.com/TheHundredSwords">The Hundred Swords</a></li>
 <li><a href="http://politarchopolis.lochac.sca.org/">The Barony of Politarchopolis</a></li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <h2>Gaming</h2>
-
 <ul>
 <li><a href="http://raptr.com/">Raptr</a>: Raptr makes PC gaming fast, beautiful, and hassle-free.</li>
 <li><a href="http://www.gameplay-time-tracker.info/en/download.aspx">Gameplay Time Tracker</a></li>
 </ul>
-
 <h2>Unsorted</h2>
-
 <ul>
 <li><a href="https://www.gitbook.com/">GitBook · Documentation made easy</a></li>
 <li><a href="https://www.blinkist.com/en/pricing.html">Blinkist: Serving curious minds</a></li>
@@ -423,113 +386,75 @@ In a fast, simple, yet extensible way.</li>
 	  <pubDate>2013-02-27T13:45:00+11:00</pubDate>
 	  <guid>/devalias/2013/02/27/ipen-hacking-with-the-idevice/</guid>
 	  <description><![CDATA[
-	     <p>Today I finally got around to the task i&#39;ve been looking forward to for the last week or so. We got an iPad to play around with at work, mostly so we can try and break the mobile apps before they go public. Not a huge amount you can do on it in it&#39;s default state, so I got to jailbreak it!</p>
-
-<p>I won&#39;t go into the specifics of that now though (keep an eye out for another post soon) </p>
-
+	     <p>Today I finally got around to the task i've been looking forward to for the last week or so. We got an iPad to play around with at work, mostly so we can try and break the mobile apps before they go public. Not a huge amount you can do on it in it's default state, so I got to jailbreak it!</p>
+<p>I won't go into the specifics of that now though (keep an eye out for another post soon) </p>
 <p>In googling around for information on what the best tools/setup for pentesting with an iDevice were I came across a hackaday article titled <a href="http://hackaday.com/2010/08/18/make-iphone-a-penetration-testing-tool/">Make iPhone a penetration testing tool</a>. Perfect! Well.. almost. It turns out it just makes reference to a different article written a few years ago by Nicholas M. Petty. Unfortunately his old domain is now happily serving up some advertising type spam. Even though the information is a little dated, I (after tracking it down myself) decided to make it easier for everyone else to find.</p>
-
 <p>The following is the original article text, as written by Nicholas M. Petty back in 2010</p>
-
 <blockquote>
 <h3>Introduction</h3>
-
 <p>(now featured on hackaday.com, thanks guys!)</p>
-
 <p>There are many articles and presentations about the concept of using an iPhone or iPod Touch as a penetration tool. So as I read up about it, I realized that I have yet to see an actual tutorial or &quot;how-to&quot; on putting a suite of tools on an iDevice. So this article/how-to/whatever is just that. A document of my experiences turning my iPod Touch into a all-in-one hacking/penetration-testing platform.</p>
-
 <h3>Before you jailbreak</h3>
-
-<p>So of course, your iDevice should be jailbroken. BUT WAIT!! There are a few very crucial things you MUST know about it being jailbroken. This comes from personal experience and me having to start from scratch. When jailbreaking your iDevice, you MUST make your root partition much bigger then default. My iPod is a 8gb, and since I plan on using it mostly for penetration testing, I set my root partition to 4gb. This leaves enough room for a bit of music while I&#39;m out and about, as well as for a few of those time saving apps. The reason we must do this, is because once you start downloading all of these tools and their dependencies, it starts filling up that ~350MB partition pretty quickly. Most of our tools are going to be command-line based and will be installed on this partition.</p>
-
+<p>So of course, your iDevice should be jailbroken. BUT WAIT!! There are a few very crucial things you MUST know about it being jailbroken. This comes from personal experience and me having to start from scratch. When jailbreaking your iDevice, you MUST make your root partition much bigger then default. My iPod is a 8gb, and since I plan on using it mostly for penetration testing, I set my root partition to 4gb. This leaves enough room for a bit of music while I'm out and about, as well as for a few of those time saving apps. The reason we must do this, is because once you start downloading all of these tools and their dependencies, it starts filling up that ~350MB partition pretty quickly. Most of our tools are going to be command-line based and will be installed on this partition.</p>
 <h3>How to jailbreak properly</h3>
-
-<p>So you are probably wondering how to do this, right? Well, I went through all of the pain to find out how. My iPod had 4.0.1 installed. I went to jailbreakme.com on the device, swiped and now its jailbroken. But thats not it, in order to change the root partition, you must jailbreak it again! Though this time with sn0wbreeze (all links below). Start up sn0wbreeze and select the ipod/phone 4.0 firmware(download below). Be sure to select Expert mode when starting sn0wbreeze, so that you can change your root partition.  Once you get to that screen set it to AT LEAST 2gb.  Just remember though, once this is set, you can&#39;t change it again without restoring from scratch.   Once you have the ipws created, open up iTunes, connect your iDevice, and in the iPod/Phone menu click on restore while holding down the SHIFT key.  This will allow you to browse for your custom firmware ipws.  Pick your sn0wbreeze one, should be in the same folder as sn0wbreeze, or could be on the Desktop.  Your iDevice should begin to restore.  Now here is where I ran into another problem.</p>
-
-<p>EDIT: BigBubbaX, from the comments below, has posted a link to a guide for jailbreaking MC model iPod Touch&#39;s.  Please refer to it if your iPod Touch is an MC model.  Check this by going to Settings -&gt; General -&gt; About, and looking at &#39;Model&#39;. <a href="http://www.geekword.net/jailbreak-ios-4-ipod-touch-2g-mc-sn0wbreeze-1.7/">http://www.geekword.net/jailbreak-ios-4-ipod-touch-2g-mc-sn0wbreeze-1.7/</a></p>
-
+<p>So you are probably wondering how to do this, right? Well, I went through all of the pain to find out how. My iPod had 4.0.1 installed. I went to jailbreakme.com on the device, swiped and now its jailbroken. But thats not it, in order to change the root partition, you must jailbreak it again! Though this time with sn0wbreeze (all links below). Start up sn0wbreeze and select the ipod/phone 4.0 firmware(download below). Be sure to select Expert mode when starting sn0wbreeze, so that you can change your root partition.  Once you get to that screen set it to AT LEAST 2gb.  Just remember though, once this is set, you can't change it again without restoring from scratch.   Once you have the ipws created, open up iTunes, connect your iDevice, and in the iPod/Phone menu click on restore while holding down the SHIFT key.  This will allow you to browse for your custom firmware ipws.  Pick your sn0wbreeze one, should be in the same folder as sn0wbreeze, or could be on the Desktop.  Your iDevice should begin to restore.  Now here is where I ran into another problem.</p>
+<p>EDIT: BigBubbaX, from the comments below, has posted a link to a guide for jailbreaking MC model iPod Touch's.  Please refer to it if your iPod Touch is an MC model.  Check this by going to Settings -&gt; General -&gt; About, and looking at 'Model'. <a href="http://www.geekword.net/jailbreak-ios-4-ipod-touch-2g-mc-sn0wbreeze-1.7/">http://www.geekword.net/jailbreak-ios-4-ipod-touch-2g-mc-sn0wbreeze-1.7/</a></p>
 <h3>Possible errors</h3>
-
 <p>Error 3194:</p>
-
-<p>You may get an error 3194 in iTunes.  This is because iTunes is attempting to match the signature of the selected firmware to Apples servers.  It won&#39;t match because we&#39;ve made a custom one.  To get around this problem, navigate to volume:\Windows\System32\drivers\etc\ and open up the host file with notepad.  You&#39;ll then want to add the following line: 74.208.10.249 gs.apple.com .  This will point iTunes to saurik&#39;s signature server.  Who is the creator of Cydia.</p>
-
+<p>You may get an error 3194 in iTunes.  This is because iTunes is attempting to match the signature of the selected firmware to Apples servers.  It won't match because we've made a custom one.  To get around this problem, navigate to volume:\Windows\System32\drivers\etc\ and open up the host file with notepad.  You'll then want to add the following line: 74.208.10.249 gs.apple.com .  This will point iTunes to saurik's signature server.  Who is the creator of Cydia.</p>
 <p>Error 1604:</p>
-
 <p>This is simply because your iDevice is not yet jailbroken.  Jailbreak with jailbreakme.com, or with the latest version of redsn0w.</p>
-
-<h3>First thing&#39;s first</h3>
-
-<p>Now that we have a successfully jailbroken iDevice with a large root partition, (if not, comment below and I&#39;ll get ya taken care of!  we need to get a few essentials installed.  Most of these can be found in the Cydia app store, so long as you select &#39;Developer Mode&#39; at the start of Cydia.  If you didn&#39;t, thats okay, just go to Manage, then click on settings in the top left corner, and select it there.  If you don&#39;t, you won&#39;t see any of the command line tools we need.</p>
-
+<h3>First thing's first</h3>
+<p>Now that we have a successfully jailbroken iDevice with a large root partition, (if not, comment below and I'll get ya taken care of!  we need to get a few essentials installed.  Most of these can be found in the Cydia app store, so long as you select 'Developer Mode' at the start of Cydia.  If you didn't, thats okay, just go to Manage, then click on settings in the top left corner, and select it there.  If you don't, you won't see any of the command line tools we need.</p>
 <h3>OpenSSH</h3>
-
-<p>So now go to search and look for OpenSSH.  Something I don&#39;t like about Cydia is it&#39;s search standards.  In order to find OpenSSH quicker, you need to type in &#39;SS&#39;, then search.  If you type in SSH, you won&#39;t find anything.  So now that you have that installed, you can SSH into your device and execute commands that way.  Trust me, it gets tiring doing everything on that tiny keyboard.  One thing you need to know about connecting via SSH is you must turn Auto-lock off on your iDevice.  If the screen goes dim, wifi turns off.  I can&#39;t say the same for edge or 3g though, since I&#39;m not using an iPhone.  Once you have OpenSSH installed, you need to log in via your favorite ssh client.  I&#39;m using PuTTy.  I also find it easier to log in as &quot;root@yourinternalip&quot;  then use your default password &quot;alpine.&quot;  Change this immediately, there are people out there who will try to break in to your iDevice.  Change it using the command, <code>passwd &lt;newpass&gt;</code>.</p>
-
+<p>So now go to search and look for OpenSSH.  Something I don't like about Cydia is it's search standards.  In order to find OpenSSH quicker, you need to type in 'SS', then search.  If you type in SSH, you won't find anything.  So now that you have that installed, you can SSH into your device and execute commands that way.  Trust me, it gets tiring doing everything on that tiny keyboard.  One thing you need to know about connecting via SSH is you must turn Auto-lock off on your iDevice.  If the screen goes dim, wifi turns off.  I can't say the same for edge or 3g though, since I'm not using an iPhone.  Once you have OpenSSH installed, you need to log in via your favorite ssh client.  I'm using PuTTy.  I also find it easier to log in as &quot;root@yourinternalip&quot;  then use your default password &quot;alpine.&quot;  Change this immediately, there are people out there who will try to break in to your iDevice.  Change it using the command, <code>passwd &lt;newpass&gt;</code>.</p>
 <h3>Mobile Terminal</h3>
-
-<p>As of this current date (08/18/2010), the Mobile Terminal app in Cydia will not work on 4.0.  So I found one else where online and uploaded it my server.  So first you need to make sure you have cURL installed.  Do this by going to Cydia -&gt; Manage -&gt; Packages and look for it.  If it is not already installed, search cydia for &#39;curl&#39;, and install.  This will allow us to download files via terminal.  Now, in your SSH session, type <code>curl -O http://repo.nickmpetty.com/MobileTerminal-crnt.deb</code>.  Once it has finished downloading, you need to make Cydia install it.  Do this be making sure you have the AutoInstall folder.  It should be located in /var/root/Media/Cydia/AutoInstall.  If it is not there, create it using the mkdir command(all case sensitive).  Next move your MobileTerminal-crnt.deb from the directory you downloaded it in(this should be /var/root/ if you did it over ssh).  So you would type <code>mv /var/root/MobileTerminal-crnt.deb /var/root/Media/Cydia/AutoInstall</code>.  Now close Cydia, if it was open, and re-open it.  This will load the new package.  If you still don&#39;t see it on SpringBoard(where all of your apps are), respring with winterboard, or download a respring app in Cydia and run it.  Now you have a working Mobile terminal, and it will be updated by Cydia as new versions come out.  This should work with any .deb file that has been said to work on an iDevice.</p>
-
+<p>As of this current date (08/18/2010), the Mobile Terminal app in Cydia will not work on 4.0.  So I found one else where online and uploaded it my server.  So first you need to make sure you have cURL installed.  Do this by going to Cydia -&gt; Manage -&gt; Packages and look for it.  If it is not already installed, search cydia for 'curl', and install.  This will allow us to download files via terminal.  Now, in your SSH session, type <code>curl -O http://repo.nickmpetty.com/MobileTerminal-crnt.deb</code>.  Once it has finished downloading, you need to make Cydia install it.  Do this be making sure you have the AutoInstall folder.  It should be located in /var/root/Media/Cydia/AutoInstall.  If it is not there, create it using the mkdir command(all case sensitive).  Next move your MobileTerminal-crnt.deb from the directory you downloaded it in(this should be /var/root/ if you did it over ssh).  So you would type <code>mv /var/root/MobileTerminal-crnt.deb /var/root/Media/Cydia/AutoInstall</code>.  Now close Cydia, if it was open, and re-open it.  This will load the new package.  If you still don't see it on SpringBoard(where all of your apps are), respring with winterboard, or download a respring app in Cydia and run it.  Now you have a working Mobile terminal, and it will be updated by Cydia as new versions come out.  This should work with any .deb file that has been said to work on an iDevice.</p>
 <p>EDIT: Alex, from the comments below, has informed me that you can add <code>http://podzombie.com/repository</code> to Cydia to download a working version of MobileTerminal.</p>
-
 <h3>Lets build a shell…</h3>
-
-<p>Now we need to install some base tools and packages that are normally included on a normal linux computer.  Most of these can all be found in Cydia without any problems.  Install &quot;unzip, adv-cmds, aptitiude, apt 0.6 transitional, inetutils, iPhone/Python, make, subversion, wget, iDNS, stunnel, tcpdump, setup tools, ruby, OpenSSH, OpenSSL, MetaSploit&quot;  Some of these packages we&#39;ve installed already, and may already be installed with other packages.  So just be sure you have all of those tools at least.</p>
-
+<p>Now we need to install some base tools and packages that are normally included on a normal linux computer.  Most of these can all be found in Cydia without any problems.  Install &quot;unzip, adv-cmds, aptitiude, apt 0.6 transitional, inetutils, iPhone/Python, make, subversion, wget, iDNS, stunnel, tcpdump, setup tools, ruby, OpenSSH, OpenSSL, MetaSploit&quot;  Some of these packages we've installed already, and may already be installed with other packages.  So just be sure you have all of those tools at least.</p>
 <h3>Perl</h3>
-
-<p>In order to install Perl, we have to go back in via ssh or terminal.  If you use mobile terminal, be sure to login as root with the <code>su</code> command.  You may be able to find it in Cydia, or via <code>apt-get install perl</code>.  If not, do it this way.  Execute <code>curl -O http://coredev.nl/cydia/coredev.pub</code>.  Then run <code>apt-key add coredev.pub</code>.  If you get an error, it&#39;s all cool, just move on.  Now type, <code>echo &#39;deb http://coredev.nl/cydia iphone main&#39; &gt; /etc/apt/sources.list.d/coredev.nl.list</code>.  Then, <code>apt-get update</code>, and <code>apt-get install perl</code>.  Thats it.  You can now delete that coredev.pub file.</p>
-
+<p>In order to install Perl, we have to go back in via ssh or terminal.  If you use mobile terminal, be sure to login as root with the <code>su</code> command.  You may be able to find it in Cydia, or via <code>apt-get install perl</code>.  If not, do it this way.  Execute <code>curl -O http://coredev.nl/cydia/coredev.pub</code>.  Then run <code>apt-key add coredev.pub</code>.  If you get an error, it's all cool, just move on.  Now type, <code>echo 'deb http://coredev.nl/cydia iphone main' &gt; /etc/apt/sources.list.d/coredev.nl.list</code>.  Then, <code>apt-get update</code>, and <code>apt-get install perl</code>.  Thats it.  You can now delete that coredev.pub file.</p>
 <h3>Now for the fun part</h3>
-
-<p>First we are going to create a folder to hold all of our non-install command-line tools.  I created a folder called <code>pentest</code> in the <code>/var/root/</code> directory.  you can create this anywhere you&#39;d like though.</p>
-
+<p>First we are going to create a folder to hold all of our non-install command-line tools.  I created a folder called <code>pentest</code> in the <code>/var/root/</code> directory.  you can create this anywhere you'd like though.</p>
 <p>We can now begin installing the tools that we will be using for our penetration needs.</p>
-
 <h3>Ettercap-ng</h3>
-
-<p>First is ettercap-ng.  As always, try searching Cydia for it.  If you can&#39;t find it there, do this.  Add this source to Cydia, (edit: 08/22/2010)<code>http://cydia.theworm.tw/cydia</code>. The search for ettercap.  Also install libnet if it is not already installed.  There have been reports of ettercap not forwarding packets correctly, but the problem is being resolved, if it hasn&#39;t been already.</p>
-
+<p>First is ettercap-ng.  As always, try searching Cydia for it.  If you can't find it there, do this.  Add this source to Cydia, (edit: 08/22/2010)<code>http://cydia.theworm.tw/cydia</code>. The search for ettercap.  Also install libnet if it is not already installed.  There have been reports of ettercap not forwarding packets correctly, but the problem is being resolved, if it hasn't been already.</p>
 <h3>aircrack-ng</h3>
-
-<p>Next is aircrack-ng.  If you can&#39;t find it in Cydia,  very simply execute, <code>curl -O http://repo.nickmpetty.com/touchair.zip</code>, then <code>uzip touchair.zip</code>.  Now move the extracted to folder to <code>pentest</code> if its not there already.  To use, navigate to your aircrack folder and execute commands as normal.</p>
-
-<p>EDIT: to get aircrack, add the following source to Cydia, <code>http://cydia.xsellize.com</code>.  Once you&#39;ve  installed it, an icon will appear on SpringBoard, don&#39;t bother with it.  It is only to tell you to run aircrack from the terminal.  Navigate to <code>/var/aircrack/</code> to use.  You can also move the aircrack folder to your pentest folder if you&#39;d like.</p>
-
+<p>Next is aircrack-ng.  If you can't find it in Cydia,  very simply execute, <code>curl -O http://repo.nickmpetty.com/touchair.zip</code>, then <code>uzip touchair.zip</code>.  Now move the extracted to folder to <code>pentest</code> if its not there already.  To use, navigate to your aircrack folder and execute commands as normal.</p>
+<p>EDIT: to get aircrack, add the following source to Cydia, <code>http://cydia.xsellize.com</code>.  Once you've  installed it, an icon will appear on SpringBoard, don't bother with it.  It is only to tell you to run aircrack from the terminal.  Navigate to <code>/var/aircrack/</code> to use.  You can also move the aircrack folder to your pentest folder if you'd like.</p>
 <h3>Nikto2</h3>
-
-<p>To get nikto2 we can use the svn command.  Make sure you&#39;ve install Subversion and execute, <code>svn co http://svn2.assembla.com/svn/Nikto_2</code>.  It will then download the folder, move it to pentest and then navigate to the nikto2 folder, and the next folder then execute as normal.</p>
-
+<p>To get nikto2 we can use the svn command.  Make sure you've install Subversion and execute, <code>svn co http://svn2.assembla.com/svn/Nikto_2</code>.  It will then download the folder, move it to pentest and then navigate to the nikto2 folder, and the next folder then execute as normal.</p>
 <h3>SET (Social Engineering Toolkit)</h3>
-
-<p>SET is one of my favorite tools, so to install it, use svn again, <code>svn co http://svn.thepentest.com/social_engineering_toolkit/ SET/</code>.  And again, move it to your pentest folder, then SET, and go as normal once again.  A problem I&#39;ve discovered with this though is that it wont run completely without the python ssl module.  I&#39;ve found one, and tried compiling on the iPod, but it won&#39;t go without a gcc compiler.  I&#39;m working on a work around for it but keep running into errors.  If anyone knows anything about this, please let me know and together we can get this working correctly.</p>
-
+<p>SET is one of my favorite tools, so to install it, use svn again, <code>svn co http://svn.thepentest.com/social_engineering_toolkit/ SET/</code>.  And again, move it to your pentest folder, then SET, and go as normal once again.  A problem I've discovered with this though is that it wont run completely without the python ssl module.  I've found one, and tried compiling on the iPod, but it won't go without a gcc compiler.  I'm working on a work around for it but keep running into errors.  If anyone knows anything about this, please let me know and together we can get this working correctly.</p>
 <p>Tools can be found directly in Cydia as well.  Just explore the sections and download what you want.  One more you defentily need is nmap, search Cydia for it.</p>
-
-<p>These are only a few of the things you can do with your iDevice for penetration testing.  If you can&#39;t find a tool in Cydia, just search google, or comment below and I&#39;ll work on getting it to work for your iDevice.  This article serves as a reference, how-to, and documentation of turning your iDevice into a complete penetration testing device.  I&#39;ll update this as I install more tools.  So keep checking back.</p>
-
+<p>These are only a few of the things you can do with your iDevice for penetration testing.  If you can't find a tool in Cydia, just search google, or comment below and I'll work on getting it to work for your iDevice.  This article serves as a reference, how-to, and documentation of turning your iDevice into a complete penetration testing device.  I'll update this as I install more tools.  So keep checking back.</p>
 <h3>Sources:</h3>
-
 <ul>
-<li><p><a href="http://www.offensive-security.com/metasploit-unleashed/Social-Engineering-Toolkit">http://www.offensive-security.com/metasploit-unleashed/Social-Engineering-Toolkit</a></p></li>
-<li><p><a href="http://thireus.dareyourmind.net/index.php/iphone-notes/111-iphone-perl-framework">http://thireus.dareyourmind.net/index.php/iphone-notes/111-iphone-perl-framework</a></p></li>
-<li><p><a href="http://www.chiark.greenend.org.uk/%7Esgtatham/putty/">http://www.chiark.greenend.org.uk/~sgtatham/putty/</a></p></li>
-<li><p><a href="http://www.assembla.com/spaces/Nikto_2/trac_subversion_tool">http://www.assembla.com/spaces/Nikto_2/trac_subversion_tool</a></p></li>
-<li><p><a href="http://www.eweek.com/c/a/Security/iPhone-Turned-into-PocketSized-Hacking-Platform/">http://www.eweek.com/c/a/Security/iPhone-Turned-into-PocketSized-Hacking-Platform/</a></p></li>
+<li>
+<p><a href="http://www.offensive-security.com/metasploit-unleashed/Social-Engineering-Toolkit">http://www.offensive-security.com/metasploit-unleashed/Social-Engineering-Toolkit</a></p>
+</li>
+<li>
+<p><a href="http://thireus.dareyourmind.net/index.php/iphone-notes/111-iphone-perl-framework">http://thireus.dareyourmind.net/index.php/iphone-notes/111-iphone-perl-framework</a></p>
+</li>
+<li>
+<p><a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/">http://www.chiark.greenend.org.uk/~sgtatham/putty/</a></p>
+</li>
+<li>
+<p><a href="http://www.assembla.com/spaces/Nikto_2/trac_subversion_tool">http://www.assembla.com/spaces/Nikto_2/trac_subversion_tool</a></p>
+</li>
+<li>
+<p><a href="http://www.eweek.com/c/a/Security/iPhone-Turned-into-PocketSized-Hacking-Platform/">http://www.eweek.com/c/a/Security/iPhone-Turned-into-PocketSized-Hacking-Platform/</a></p>
+</li>
 </ul>
-
 <p>Written by Nicholas M. Petty</p>
 </blockquote>
-
 <h2>Sources/Links</h2>
-
 <ul>
 <li><a href="http://web.archive.org/web/20100824080407/http://blog.nickmpetty.com/?p=252">Original Article on The Wayback Machine</a></li>
 <li><a href="http://hackaday.com/2010/08/18/make-iphone-a-penetration-testing-tool/">Hackaday Article</a></li>
 </ul>
-
 <h2>Other Useful/Interesting Sites</h2>
-
 <ul>
 <li><a href="http://ihackmyi.com/topic/82651-how-to-install-set-on-iphone/">http://ihackmyi.com/topic/82651-how-to-install-set-on-iphone/</a></li>
 <li><a href="http://www.eccouncil.org/CAST-Installing-Metaspoilt-and-SET-on-your-Apple-iDevice.pdf">http://www.eccouncil.org/CAST-Installing-Metaspoilt-and-SET-on-your-Apple-iDevice.pdf</a></li>

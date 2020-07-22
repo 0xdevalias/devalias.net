@@ -19,9 +19,7 @@
 	  <guid>/devalias/2013/07/02/default-programs-editor/</guid>
 	  <description><![CDATA[
 	     <p>Due to some.. ahem interesting implementation choices at work, I found myself unable to make <a href="https://www.sublimetext.com/2">Sublime Text 2</a> the default program used to handle .txt files.</p>
-
 <p>A quick google lead me to <a href="http://defaultprogramseditor.com/">Default Programs Editor</a> which provided a simple, elegant solution to my issue. Bonus points awarded for the pretty <a href="https://getbootstrap.com/2.3.2/">Bootstrap</a> site and useable interface to boot!</p>
-
 <p>+1 internettes to you @factormystic</p>
 
 	  ]]></description>

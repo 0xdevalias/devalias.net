@@ -19,29 +19,27 @@
 	  <guid>/devalias/2014/04/17/using-lombok-with-play-framework-22x/</guid>
 	  <description><![CDATA[
 	     <p><a href="https://projectlombok.org/">Lombok</a> is a project that removes some of the tediousness of Java by letting you use annotations to replace the verbosity of Getters/Setters (and heaps of other cool things!)</p>
-
 <ul>
 <li>This is mostly a note for me to help save a TON of time screwing around again.</li>
-<li>Play 2.2.x works &#39;out of the box&#39; just by including lombok in your dependencies</li>
+<li>Play 2.2.x works 'out of the box' just by including lombok in your dependencies</li>
 </ul>
-<div class="highlight"><pre><code class="language-" data-lang="">libraryDependencies ++= Seq(
+<pre><code>libraryDependencies ++= Seq(
   foo,
   bar,
   baz,
-  "org.projectlombok" % "lombok" % "1.12.6"
+  &quot;org.projectlombok&quot; % &quot;lombok&quot; % &quot;1.12.6&quot;
 )
-</code></pre></div>
+</code></pre>
 <ul>
-<li>Where you run into issues is that play eclipse won&#39;t add the correct stuff for lombok to work correctly.</li>
+<li>Where you run into issues is that play eclipse won't add the correct stuff for lombok to work correctly.</li>
 <li>After a lot of messing around, I just went back to the method suggested on the site
-
 <ul>
 <li>Download from <a href="http://projectlombok.org/download.html">http://projectlombok.org/download.html</a></li>
 <li>Run the installer and let it configure Eclipse</li>
 <li>Done</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <p>&lt;3</p>
 
 	  ]]></description>

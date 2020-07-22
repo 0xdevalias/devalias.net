@@ -25,4 +25,6 @@ Over the last few days I've been mentoring web dev at [HS.HACT.IO](http://hact.i
 
 A little while (and far too long typing out pixel art as code) later, and we have nyaan hacks! You can clear a section of the screen with a solid block of colour, or better yet, stamp out some pixel art nyaan cat across the page!
 
-{% gist alias1/e8bb28726a37854606ad %}
+https://gist.github.com/0xdevalias/e8bb28726a37854606ad
+
+{% gist 0xdevalias/e8bb28726a37854606ad %}

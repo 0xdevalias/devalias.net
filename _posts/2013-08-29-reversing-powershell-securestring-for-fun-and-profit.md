@@ -24,4 +24,6 @@ Something that I needed to do in an engagement recently and thought it might be 
 
 Just goes to show that no matter how secure a technology you create, in the end it all comes down to the underpaid, overworked IT staff that have to implement it, and the *managerial guidelines* that they need to work within.
 
-{% gist alias1/6101928 %}
+https://gist.github.com/0xdevalias/6101928
+
+{% gist 0xdevalias/6101928 %}

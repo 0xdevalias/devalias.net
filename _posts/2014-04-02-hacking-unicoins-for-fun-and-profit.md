@@ -27,4 +27,6 @@ I've put together a little automagical javascript to prevent you all getting RSI
 
 Enjoy your unicoins! <3 /dev/alias
 
-{% gist alias1/9905949 %}
+https://gist.github.com/0xdevalias/9905949
+
+{% gist 0xdevalias/9905949 %}

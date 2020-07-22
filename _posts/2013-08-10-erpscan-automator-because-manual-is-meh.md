@@ -22,4 +22,6 @@ Another quick little tool for you guys today that I hacked together to save myse
 
 At time of writing, configuration is all done inside the script, with no support for command line parameters (might add them in the future)
 
-{% gist alias1/6118709 %}
+https://gist.github.com/0xdevalias/6118709
+
+{% gist 0xdevalias/6118709 %}

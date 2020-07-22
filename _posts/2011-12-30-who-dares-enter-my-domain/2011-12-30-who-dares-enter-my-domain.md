@@ -15,7 +15,7 @@ disqus: true
 webmention: true
 crosspost_to_medium: false
 ---
-![who dares enter my domain]({% postfile cat.jpg %})
+![who dares enter my domain](cat.jpg)
 
 Just a short one today to point out that I finally got around to configuring the domain (read: defeated the dns dragon) to work properly with tumblr!
 

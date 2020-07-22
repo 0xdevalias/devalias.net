@@ -24,7 +24,7 @@ disqus: true
 webmention: true
 crosspost_to_medium: false
 ---
-![Kali Linux Y U No Update]({% postfile yunoupdatekali.jpg %})
+![Kali Linux Y U No Update](yunoupdatekali.jpg)
 
 Not too long ago I was setting up a new pentest machine with Kali. Fairly straightforward a task, though slightly inconvenienced by the fact that the net was down at the time. No matter I thought, continue offline and all should be fine.. apparently not.
 

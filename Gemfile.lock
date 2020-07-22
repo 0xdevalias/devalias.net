@@ -52,6 +52,8 @@ GEM
       jekyll (>= 3.4, < 5.0)
       octokit (~> 4.0, != 4.4.0)
     jekyll-paginate (1.1.0)
+    jekyll-postfiles (3.1.0)
+      jekyll (>= 3.8.6, < 5)
     jekyll-redirect-from (0.16.0)
       jekyll (>= 3.3, < 5.0)
     jekyll-sass-converter (2.1.0)
@@ -117,6 +119,7 @@ DEPENDENCIES
   jekyll-gist
   jekyll-github-metadata
   jekyll-paginate
+  jekyll-postfiles
   jekyll-redirect-from
   jekyll-seo-tag
   jekyll-sitemap

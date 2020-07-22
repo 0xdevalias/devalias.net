@@ -20,6 +20,6 @@ I suppose it was inevitable given the lack of support over the past months, but 
 
 [rockmelt](http://blog.rockmelt.com/post/55124002701/rockmelt-browser-retirement-july-31-2013):
 
-> ![Rockmelt Browser Retiring]({% postfile rockmelt-retiring.jpg %})
+> ![Rockmelt Browser Retiring](rockmelt-retiring.jpg)
 >
 > We promised to notify you when we retire the Rockmelt Browser. The date has been set for July 31st at 10am PT. After that point in time, you will no longer be able to log into the Rockmelt Browser. Please take a moment to migrate your App Edge into the new Rockmelt experience by clicking [here](http://rockmelt.com/?import=true)

@@ -1,5 +1,6 @@
+# Ref: https://github.com/indirect/jekyll-postfiles/blob/master/_plugins/postfiles.rb
 module Jekyll
-  
+
   # StaticFile subclass that properly translates paths
   class PostFile < StaticFile
     def path
@@ -23,9 +24,9 @@ module Jekyll
         postfile_id = post.id.gsub(/[\s\w\/%]*(\d{4})\/(\d\d)\/(\d\d)\/(.*)/, '\1-\2-\3-\4')
         # Get the directory that files from this post would be in
         postfile_dir = File.join(site.config['source'], '_postfiles', postfile_id)
-        
+
         # Add a static file entry for each postfile, if any
-        Dir[File.join(postfile_dir, '/*')].each do |pf| 
+        Dir[File.join(postfile_dir, '/*')].each do |pf|
           site.static_files << PostFile.new(site, postfile_dir, CGI.unescape(post.url), File.basename(pf))
         end
       end

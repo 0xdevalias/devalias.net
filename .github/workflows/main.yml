@@ -8,9 +8,10 @@ on:
   push:
     branches:
       - master
+      - jekyll-build-deploy-workflow
     paths-ignore:
       - .cache/**
-      - .github/**
+      # - .github/**
       - _drafts/**
       - _draftsOldTumblr/**
       - _writing/**

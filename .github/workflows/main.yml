@@ -40,7 +40,7 @@ jobs:
 #           format_output: true
           custom_opts: '--lsi --profile'
         env:
-          JEKYLL_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          JEKYLL_GITHUB_TOKEN: ${{ secrets.JEKYLL_GITHUB_TOKEN_PAT }}
 
 #       - name: 🚀 deploy
 #         uses: peaceiris/actions-gh-pages@v3.6.4

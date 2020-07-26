@@ -38,7 +38,7 @@ jobs:
         with:
           enable_cache: true
 #           format_output: true
-          custom_opts: '--profile'
+          custom_opts: '--lsi --profile'
 
 #       - name: 🚀 deploy
 #         uses: peaceiris/actions-gh-pages@v3.6.4

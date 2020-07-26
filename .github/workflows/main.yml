@@ -33,6 +33,13 @@ jobs:
       - name: 🔨 install system dependencies
         run: sudo apt-get install libgsl-dev
 
+      - id: currentdate
+        name: 📅 get current date and time
+        run: echo "::set-output name=date_str::$(date)"
+
+      - name: 📅 check if date output was set correctly
+        run: echo ${{steps.currentdate.outputs.date_str}}
+
       - name: 🔨 install dependencies & build site
         uses: limjh16/jekyll-action-ts@v2
         with:

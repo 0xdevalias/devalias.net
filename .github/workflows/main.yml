@@ -33,13 +33,6 @@ jobs:
       - name: 🔨 install system dependencies
         run: sudo apt-get install libgsl-dev
 
-      - id: currentdate
-        name: 📅 get current date and time
-        run: echo "::set-output name=date_str::$(date)"
-
-      - name: 📅 check if date output was set correctly
-        run: echo ${{steps.currentdate.outputs.date_str}}
-
       - name: 🔨 install dependencies & build site
         uses: limjh16/jekyll-action-ts@v2
         with:
@@ -49,11 +42,14 @@ jobs:
         env:
           JEKYLL_GITHUB_TOKEN: ${{ secrets.JEKYLL_GITHUB_TOKEN_PAT }}
 
+      - id: currentdate
+        name: 📅 get current date and time
+        run: echo "::set-output name=date_str::$(date)"
+
       - name: 🚀 deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./_site
           publish_branch: jekyll-build-deploy-workflow-gh-pages
-          # commit_message: ${{ github.event.head_commit.message }}
-          # full_commit_message: ${{ github.event.head_commit.message }}
+          commit_message: ${{ steps.currentdate.outputs.date_str }}

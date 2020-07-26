@@ -11,7 +11,7 @@ gem 'jekyll','~>4.1.0'
 #   https://github.com/0xdevalias/devalias.net/issues/83
 #   https://github.com/jekyll/classifier-reborn/issues/192
 #   https://github.com/SciRuby/rb-gsl/issues/63
-gem 'nmatrix'
+#gem 'nmatrix'
 gem 'gsl' # Note: you need to install a compatible version (eg. 2.1) of gsl first: brew install gsl@2.1
 gem 'classifier-reborn'
 

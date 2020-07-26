@@ -30,6 +30,9 @@ jobs:
         with:
           ruby-version: .ruby-version
 
+      - name: 🔨 install system dependencies
+        run: sudo apt-get install libgsl-dev
+
       - name: 🔨 install dependencies & build site
         uses: limjh16/jekyll-action-ts@v2
         with:

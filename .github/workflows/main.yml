@@ -52,4 +52,4 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./_site
           publish_branch: jekyll-build-deploy-workflow-gh-pages
-          commit_message: ${{ steps.currentdate.outputs.date_str }}
+          commit_message: "Update site: ${{ steps.currentdate.outputs.date_str }}"

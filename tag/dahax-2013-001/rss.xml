@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+   
+      <title>devalias.net</title>
+   
+   <link>https://www.devalias.net</link>
+   <description>Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.</description>
+   <language>en_GB</language>
+   <managingEditor> </managingEditor>
+   <atom:link href="rss" rel="self" type="application/rss+xml" />
+   
+	<item>
+	  <title>[DAHAX-2013-001] Cloudflare XSS Vulnerability</title>
+	  <link>/devalias/2013/08/15/dahax-2013-001-cloudflare-xss-vulnerability/</link>
+	  <author>devalias</author>
+	  <pubDate>2013-08-15T08:00:00+10:00</pubDate>
+	  <guid>/devalias/2013/08/15/dahax-2013-001-cloudflare-xss-vulnerability/</guid>
+	  <description><![CDATA[
+	     <p><strong>Reference Number:</strong> DAHAX-2013-001 (/dev/alias/hacks 2013-001)</p>
+<h3>Notification Timeline</h3>
+<ul>
+<li>10/07/2013, Request# 38713 (<a href="https://support.cloudflare.com/anonymous_requests/new">https://support.cloudflare.com/anonymous_requests/new</a>)</li>
+<li>10/07/2013, Vendor looking into issue</li>
+<li>16/07/2013, Updated vendor with new details (Length: 101 instead of 72)</li>
+<li>16/07/2013, Vendor requested that I test again</li>
+<li>No response from vendor</li>
+<li>01/08/2013, Tested again, vulnerability fixed</li>
+<li>22/08/2013, Posted details to full-disclosure</li>
+<li>22/08/2013, Vendor confirmed issue has been fixed</li>
+<li>31/08/2017, <a href="https://hackerone.com/devalias">Submitted and retroactively recognised on HackerOne</a> bug bounty program with swag</li>
+</ul>
+<p><strong>Details Published:</strong> 14/08/2013 (<a href="http://blog.devalias.net">http://blog.devalias.net</a>)</p>
+<h2>What?</h2>
+<ul>
+<li>Reflected XSS (cross site scripting) attack</li>
+</ul>
+<h2>Where's Affected?</h2>
+<ul>
+<li>Theoretically it seems that any page that uses cloudflare will be affected.
+<ul>
+<li>Eg: <a href="https://www.cloudflare.com/">http://www.cloudflare.com/</a></li>
+</ul>
+</li>
+</ul>
+<h2>How?</h2>
+<ul>
+<li><strong>To bring up the vulnerable page</strong>
+<ul>
+<li>Set your X-Forwarded-For header to 101+ characters</li>
+<li>Eg:</li>
+</ul>
+</li>
+</ul>
+<pre><code>X-Forwarded-For: AAAAAAAAAABBBBBBBBBBCCCCCCCCCCDDDDDDDDDDEEEEEEEEEEFFFFFFFFFFGGGGGGGGGGHHHHHHHHHHIIIIIIIIIIJJJJJJJJJJK
+</code></pre>
+<ul>
+<li>Load a site using cloudflare</li>
+<li>You should end up on &quot;DNS Points to Prohibited IP&quot; page
+<ul>
+<li><strong>To trigger the XSS</strong></li>
+</ul>
+</li>
+<li>Set your User-Agent string to the XSS attack
+<ul>
+<li>Eg:</li>
+</ul>
+</li>
+</ul>
+<pre><code>User-Agent: USER-AGENT being tested for XSS..&lt;script&gt;alert(''Vulnerable to XSS via USER-AGENT header [Found by devalias.net]'')&lt;/script&gt;
+</code></pre>
+<ul>
+<li><strong>The whole attack</strong>
+<ul>
+<li>Ensure your X-Forwarded-For and User-Agent headers are configured as above</li>
+<li>Navigate to a page using cloudflare</li>
+<li>???</li>
+<li>Profit!</li>
+</ul>
+</li>
+</ul>
+<h2>Who?</h2>
+<p>Discovered by <a href="http://www.devalias.net/">Glenn 'devalias' Grant</a> (<a href="mailto:glenn@devalias.net">glenn@devalias.net</a>)</p>
+<h2>Responsible Disclosure Notice</h2>
+<ul>
+<li>Following in the footsteps of Google's vulnerability disclosure timeline, unless otherwise agreed to beforehand, I reserve the right to publicly announce the details of any discovered vulnerabilities 7 days post notification.
+<ul>
+<li><strong>Google's Rationale:</strong> &quot;Seven days is an aggressive timeline and may be too short for some vendors to update their products, but it should be enough time to publish advice about possible mitigations, such as temporarily disabling a service, restricting access, or contacting the vendor for more information. As a result, after 7 days have elapsed without a patch or advisory, we will support researchers making details available so that users can take steps to protect themselves. By holding ourselves to the same standard, we hope to improve both the state of web security and the coordination of vulnerability management.&quot; - <a href="https://googleonlinesecurity.blogspot.com.au/2013/05/disclosure-timeline-for-vulnerabilities.html">Google</a></li>
+</ul>
+</li>
+</ul>
+
+	  ]]></description>
+	</item>
+
+
+</channel>
+</rss>

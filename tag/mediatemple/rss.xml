@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+   
+      <title>devalias.net</title>
+   
+   <link>https://www.devalias.net</link>
+   <description>Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.</description>
+   <language>en_GB</language>
+   <managingEditor> </managingEditor>
+   <atom:link href="rss" rel="self" type="application/rss+xml" />
+   
+	<item>
+	  <title>Yum'my turtles breaking Plesk</title>
+	  <link>/devalias/2012/03/29/yummy-turtles-breaking-plesk/</link>
+	  <author>devalias</author>
+	  <pubDate>2012-03-29T04:30:00+11:00</pubDate>
+	  <guid>/devalias/2012/03/29/yummy-turtles-breaking-plesk/</guid>
+	  <description><![CDATA[
+	     <p>After some recent downtime due to an overzealous upgrade cycle (aka &quot;Oh I won't need to backup first..&quot;) I feel it warranted to put a quick post about how I went about fixing things.</p>
+<h2>How the problem started</h2>
+<p>It started off with me deciding to add a 3rd party repos by Atomic Rocket Turtle to yum (without really doing much research into things) I proceeded to upgrade my packages, and go on with life as normal (or so I thought)</p>
+<p>A few days later I decided I should probably also upgrade Plesk to the latest version as well. Most of the upgrade process went through, but then ended up crashing out near the end.</p>
+<p>Adding to the reasons why I love Plesk, it created some log files for me as in the process of dying:</p>
+<ul>
+<li>/tmp/plesk_10.4.4_installation.log</li>
+<li>/tmp/plesk_10.4.4_installation_problems.log</li>
+</ul>
+<p>Taking a look at the <code>intallation_problems.log</code>, I got my first glimpse into what went wrong:</p>
+<pre><code>START Bootstrapper 10.13.4 post-install for BASE AT Sun Mar 25 12:05:38 EST 2012
+*****  problem report *****
+ERROR while trying to establish test connection to APS database via ODBC
+Check the error reason(see log file: /tmp/plesk_10.4.4_installation.log), fix and try again
+STOP Bootstrapper 10.13.4 post-install for BASE AT Sun Mar 25 12:05:46 EST 2012: PROBLEMS FOUND
+START Bootstrapper 10.13.4 repair AT Sun Mar 25 12:14:15 EST 2012
+*****  problem report *****
+ERROR while trying to establish test connection to APS database via ODBC
+Check the error reason(see log file: /tmp/plesk_10.4.4_installation.log), fix and try again
+STOP Bootstrapper 10.13.4 repair AT Sun Mar 25 12:14:29 EST 2012: PROBLEMS FOUND
+</code></pre>
+<p>A little cryptic, but after googling around for a while I discovered that it was likely due to an incompatible version of MySQL.</p>
+<h2>So to fix it..</h2>
+<p>We will just back out the upgrades we did the other day, all good! Well, it took some time, a hell of a lot of reading/research and some blind faith, but I did get there in the end.</p>
+<h2>Prerequisite?</h2>
+<p>I'm not actually sure if it's used or not in this process, but I should note that I had yum-allowdowngrade installed prior to this process</p>
+<p><code>yum install yum-allowdowngrade</code></p>
+<h1>tl;dr</h1>
+<ol>
+<li>Install/configure yum-priorities</li>
+<li>Set up a few more yum repositories (EPEL, Remi)</li>
+<li>Remove and reinstall the packages (yum shell)</li>
+<li>Finish the Plesk upgrade (bootstrap.sh)</li>
+</ol>
+<h2>1. Install/configure yum-priorities (<a href="https://wiki.centos.org/PackageManagement/Yum/Priorities">Webpage</a>, <a href="http://dev.antoinesolutions.com/yum-priorities">Reference</a>)</h2>
+<p>The yum-priorities plugin enforces ordered protection of repositories (aka help prevent screwups) Here's a quick rundown (more info at the reference/webpage links)<br />
+It's pretty easy to install</p>
+<p><code>yum install yum-priorities</code></p>
+<p>Ensure the following lines exist in the yum-priorities configuration file (<code>/etc/yum/pluginconf.d/priorities.conf</code>)</p>
+<pre><code>[main]
+enabled=1
+</code></pre>
+<p>Open the CentOS base repository configuration file (<code>/etc/yum.repos.d/CentOS-Base.repo</code>)</p>
+<p>Add the following text to the end of the Base, Updates, Addons, and Extras repository entries</p>
+<pre><code>priority=1
+</code></pre>
+<p>Add the following text to the end of the CentOSPlus repository entry</p>
+<pre><code>priority=2
+</code></pre>
+<h2>2. Set up additional yum repositories (<a href="https://fedoraproject.org/wiki/EPEL/FAQ#What_is_EPEL.3F">EPEL Website</a>, <a href="http://mirror.sfo12.us.leaseweb.net/epel/">EPEL Download</a>, <a href="http://dev.antoinesolutions.com/epel-repository">EPEL Reference</a>, <a href="http://blog.famillecollet.com/pages/Config-en">Remi Website</a>, <a href="http://dev.antoinesolutions.com/remi-repository">Remi Reference</a>)</h2>
+<p>Next I needed to add a few extra repositories (EPEL and Remi) to yum so it could find the packages it needed (you may need to run this as root)</p>
+<pre><code>rpm -Uvh http://mirror.iprimus.com.au/epel//5/i386/epel-release-5-4.noarch.rpm
+rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-5.rpm
+</code></pre>
+<h2>3. Remove/reinstall the updated packages</h2>
+<p>This perplexed me a little bit at first, as when I tried to remove a package it wanted to uninstall everything else. Then I realised yum has a shell/batch mode.</p>
+<p><code>yum shell</code></p>
+<p>Once in the yum shell, I disabled the Atomic repository</p>
+<p><code>repo disable atomic</code></p>
+<p>And then queued up the packages to be changed. With the Atomic repos disabled the install pulled the packages from the correct (aka base) repositories.</p>
+<pre><code>erase atomic-release.noarch libedit.x86_64 libsepol.i386 libsepol.x86_64 libsepol-devel.x86_64
+install atomic-release.noarch libedit.x86_64 libsepol.i386 libsepol.x86_64 libsepol-devel.x86_64
+erase php-cli.x86_64 php-common.x86_64 php-devel.x86_64 php-gd.x86_64 php-imap.x86_64 php-ldap.x86_64 php-mbstring.x86_64 php-mcrypt.x86_64 php-mysql.x86_64 php-odbc.x86_64 php-pdo.x86_64 php-snmp.x86_64 php-xml.x86_64 php-xmlrpc.x86_64
+install php-cli.x86_64 php-common.x86_64 php-devel.x86_64 php-gd.x86_64 php-imap.x86_64 php-ldap.x86_64 php-mbstring.x86_64 php-mcrypt.x86_64 php-mysql.x86_64 php-odbc.x86_64 php-pdo.x86_64 php-snmp.x86_64 php-xml.x86_64 php-xmlrpc.x86_64
+erase mysql.x86_64 mysql-bench.x86_64 mysql-devel.x86_64 mysql-libs.x86_64 mysql-server.x86_64 mysqlclient15.x86_64
+install mysql.x86_64 mysql-bench.x86_64 mysql-devel.x86_64 mysql-libs.x86_64 mysql-server.x86_64 mysqlclient15.x86_64
+</code></pre>
+<p>There were also a few packages that I didn't end up reverting, but I will list them here in case I decide I need to later on.</p>
+<pre><code>erase perl-Archive-Tar.noarch perl-Email-Date-Format.noarch perl-Error.noarch perl-IO-Socket-INET6.noarch perl-MIME-Lite.noarch perl-MIME-Types.noarch
+install perl-Archive-Tar.noarch perl-Email-Date-Format.noarch perl-Error.noarch perl-IO-Socket-INET6.noarch perl-MIME-Lite.noarch perl-MIME-Types.noarch
+erase psa-atmail.noarch psa-proftpd.x86_64 spamassassin.x86_64 sqlite.i386 sqlite.x86_64 sqlite-devel.x86_64 t1lib.x86_64
+install psa-atmail.noarch psa-proftpd.x86_64 spamassassin.x86_64 sqlite.i386 sqlite.x86_64 sqlite-devel.x86_64 t1lib.x86_64
+</code></pre>
+<h2>4. Finish the Plesk upgrade</h2>
+<p>At this point I figured it was safe to try and finish the Plesk upgrade. Thanks to <a href="https://mediatemple.net/community/products/dv/204645040/how-do-i-upgrade-plesk">some info</a> I found, I knew that I was going to need to run the bootstrapper.sh script. </p>
+<p><code>cd /usr/local/psa/bootstrapper</code></p>
+<p>Depending on what version you were installing, this next location may be different, but for me it was</p>
+<p><code>cd pp10.13.4-bootstrapper</code></p>
+<p>Then run the shell script, and hope it works out!</p>
+<p><code>bootstrapper.sh</code></p>
+<h2>Done!</h2>
+<p>At this point we can just forget about that little issue, and pretend nothing ever happened..</p>
+
+	  ]]></description>
+	</item>
+
+
+</channel>
+</rss>

@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+   
+      <title>devalias.net</title>
+   
+   <link>https://www.devalias.net</link>
+   <description>Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.</description>
+   <language>en_GB</language>
+   <managingEditor> </managingEditor>
+   <atom:link href="rss" rel="self" type="application/rss+xml" />
+   
+	<item>
+	  <title>Kiwicon 8 (2014) - Some quick notes</title>
+	  <link>/devalias/2014/12/16/kiwicon-8-2014-some-quick-notes/</link>
+	  <author>devalias</author>
+	  <pubDate>2014-12-16T08:08:04+11:00</pubDate>
+	  <guid>/devalias/2014/12/16/kiwicon-8-2014-some-quick-notes/</guid>
+	  <description><![CDATA[
+	     <ul>
+<li><a href="https://kiwicon.org/">Kiwicon</a>
+<ul>
+<li><a href="http://2014.kiwicon.org/">2014</a>
+<ul>
+<li><a href="http://2014.kiwicon.org/the-con/schedule/">Schedule</a></li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/">Talks</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+<p>This was most definitely one of the most interesting, exciting, and downright awesome 'con experiences i've ever had! In the past i've pretty much kept to myself, watched the talks and headed home, but hung out/chatted/discussed with a lot of people over the course of the week, and it was epic! So so so definitely worthwhile!!</p>
+<p>Not sure of the best way to go about this, so will just list out the different presentations and anything of interest/note from them.</p>
+<p>I assume slides/etc should be up later on, so if something looks interesting, keep an eye out for that.</p>
+<h2><a href="http://2014.kiwicon.org/the-con/schedule/#Thursday11December">Thursday</a></h2>
+<ul>
+<li><a href="https://kiwicon.org/the-con/talks/#e146">Eve, Mallory, Ocean's 11, and Jack Bauer: Adversaries Real and Imagined</a>
+<ul>
+<li>Nice overview of the different kinds of attackers, what they tend to be after, etc</li>
+<li>Basically highlighted that you need to know what they are after and what it is worth, and balance security accordingly</li>
+</ul>
+</li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e149">Breaking Bricks and Plumbing Pipes: Cisco ASA a Super Mario Adventure</a>
+<ul>
+<li>Interesting talk about a plethora of security flaws found in Cisco firewall to gain a pivot point into the network</li>
+</ul>
+</li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e150">Asymmetric Defense, and your buyers guide to Threat Intelligence</a>
+<ul>
+<li>Essentially talked about how a lot of 'threat intelligence' out there is crap, and treated as 'more is better' rather than ''better is better'</li>
+<li>Talked about how there needs to be standardises formats for digitally sharing/consuming threat intelligence</li>
+</ul>
+</li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e151">Seeing Blu</a>
+<ul>
+<li>Step by step walkthrough and thought process of how he hacked his BluRay player to enable multi region support so he could watch his copy of Hackers.</li>
+</ul>
+</li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e152">OneRNG - a verifiable and Open Hardware Random Number Generator from NZ</a>
+<ul>
+<li>Small open source/hardware device to generate truly random entropy, to be fed back into a random number generator</li>
+<li>Recently released on kickstarter: <a href="https://www.kickstarter.com/projects/moonbaseotago/onerng-an-open-source-entropy-generator">https://www.kickstarter.com/projects/moonbaseotago/onerng-an-open-source-entropy-generator</a></li>
+</ul>
+</li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e147">Eradicating the Human Problem</a>
+<ul>
+<li>Really excellent talk by @lady_nerd talking about social engineering and humans as the weak point in security</li>
+<li>Talked about how we need a better way to assess and track the human element of security, rather than treating it as too hard/unobtainable</li>
+<li>Briefly discussed a tool in development designed to assist with mapping out the social interactions of a company in a way that allows assessing potential risk/etc, and determining the flow of an attack through the social elements of a company</li>
+<li>Slides: <a href="https://twitter.com/lady_nerd/status/544230404170194945">https://twitter.com/lady_nerd/status/544230404170194945</a></li>
+</ul>
+</li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e142">Security the Etsy way: Effective security in a continuous deployment culture</a>
+<ul>
+<li>Excellent talk by @iodboi about mixing in security people with the general developers, not blocking progress/saying no while still maintaining security, making security liked/approachable, etc.</li>
+<li>So many awesome points and discussions, not to mention showing just how epic a place Etsy is to work.</li>
+<li>Caught up with him a decent bit after his talk and had some awesome chats, a really cool and down to earth guy</li>
+<li>Etsy are a great example of continuous deployment, with upwards of 50 pushes into production every day</li>
+<li>One of the big points: Don't hire assholes (they will ruin all of the work you put in to enhance security/etcs image and drag everyone down) <a href="https://twitter.com/hypatiadotca/status/542870405514801152">https://twitter.com/hypatiadotca/status/542870405514801152</a></li>
+</ul>
+</li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e153">COMSEC - Beyond Encryption</a>
+<ul>
+<li>Discussion on maintaining communication security, tools that are good/bad, etc</li>
+<li>Almost surprisingly, Apple factime rates pretty highly on the list.</li>
+<li>Pond considered THE thing to use <a href="https://pond.imperialviolet.org/">https://pond.imperialviolet.org/</a></li>
+</ul>
+</li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e154">MitMing GSM with criminal intent</a>
+<ul>
+<li>Discussed the analysis and thinking, and eventual pwning of a GSM enabled home detention ankle monitor</li>
+<li>Made front page of the newspaper for the talk: <a href="http://www.nzherald.co.nz/nz/news/article.cfm?c_id=1&amp;objectid=11373524">http://www.nzherald.co.nz/nz/news/article.cfm?c_id=1&amp;objectid=11373524</a></li>
+<li>Same guy who broke the NZ transport card system last year</li>
+</ul>
+</li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e143">Building a hipster catapult, or how2own your skateboard</a>
+<ul>
+<li>Amusing talk about taking over control of a bluetooth controlled electric skateboard, including demonstration</li>
+</ul>
+</li>
+</ul>
+<h2><a href="http://2014.kiwicon.org/the-con/schedule/#Friday12December">Friday</a></h2>
+<ul>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e167">R00t Causes: complex systems failures and security incident response</a>
+<ul>
+<li>Analysis of a bridge collapse and how similar events map into security</li>
+<li>Some key points: compartmentalise/isolate</li>
+</ul>
+</li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e156">ThruGlassXfer: The TV people? Do you see them?</a>
+<ul>
+<li>Interesting proof of concept and discussion on using the pixels on a screen and a video camera, combined with a programmable keyboard to initiate an ''air gapped' bidirectional communications channel.</li>
+<li>Proves that if you can see it on the screen, and type into it, then you can basically bypass any other security in your way</li>
+<li><a href="http://thruglassxfer.com">http://thruglassxfer.com</a></li>
+</ul>
+</li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e144">Cyberwar before there was Cyber: Hacking WWII Electronic Bomb Fuses</a>
+<ul>
+<li>Research/analyse on various types of german bomb fuses, and the evolution of design/defuser used to outsmart each other</li>
+</ul>
+</li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e157">BeEF for Vegetarians (Hooked Browser Meshed-Networks with WebRTC)</a>
+<ul>
+<li>Pretty cool talk by @xntrik (co-author of browser hackers handbook) about creating mesh networks from exploited browsers to minimize detection/etc from communication with the command server</li>
+<li>Useful for circumventing/stealthing internal lateral exploration through a network</li>
+</ul>
+</li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e158">An Image is Worth 1000 Frauds – Detecting Fake Images and Videos</a>
+<ul>
+<li>Interesting high level runthrough of some methods you can use to detect manipulated images/video</li>
+<li>Linked to <a href="https://github.com/ebemunk/phoenix">https://github.com/ebemunk/phoenix</a> a lot</li>
+</ul>
+</li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e159">Manipulating Human Minds: The Psychological Side of Social Engineering</a>
+<ul>
+<li>Interesting talk by @0xkitty that takes a high level look at some of things involved in social engineering and manipulating the human element of security</li>
+</ul>
+</li>
+<li>Lightning talks (shorter)
+<ul>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e160">Recap of the aftermath of last year's bus hacking</a>
+<ul>
+<li>Decent recap of what happened/how the incident was handled (eg. poorly)</li>
+</ul>
+</li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e161">The National Cyber Security Strategy and the Connect Smart Partnership</a>
+<ul>
+<li>Some goverment guy that wasn't very engaging</li>
+</ul>
+</li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e162">I know what you did last Wednesday: exploitation of the humble apartment video intercom</a>
+<ul>
+<li>Hacked his embedded linux apartment intercomm system to find exploits that enabled stealth monitoring of EVERY apartment in his building (100's)</li>
+</ul>
+</li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e163">Voltron: Defender of the Universe</a>
+<ul>
+<li>Terminal based 'GUI' for GDB debugging</li>
+<li><a href="https://github.com/snare/voltron">https://github.com/snare/voltron</a></li>
+</ul>
+</li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e145">Random() Adventures in Minecrosoftcraft</a>
+<ul>
+<li>A practical example of using analyses to defeat insecure 'random' implementations in the context of minecraft</li>
+</ul>
+</li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e164">Legal loopholes</a>
+<ul>
+<li>Some talk about grey areas of the law/etc</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e165">Breaking AV software</a>
+<ul>
+<li>Really interesting talk about just how insecure/terrible antivirus/security products in general can be (hint: VERY)</li>
+<li>Showed how a large number of the top AV engines can actually end up making your system less secure due to the way they are implemented.</li>
+</ul>
+</li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e166">Hackers and Hacks, or: How I Learned to Stop Worrying and Love the MSM</a>
+<ul>
+<li>An enlightening talk by the reporters who engaged with ''rawshark' and the process/pitfalls they went through to in securely communicating to release the information.</li>
+<li>Made some good points about security being hard for the ''average' person, and how so very major stories (eg. Snowden) were almost missed out on because reporters don't understand how to security well enough</li>
+</ul>
+</li>
+</ul>
+<h2><a href="http://2014.kiwicon.org/the-con/schedule/#Saturday13December">Saturday</a></h2>
+<ul>
+<li><a href="http://2014.kiwicon.org/the-con/events/#e148">Kiwicon SPIT ROAST</a>
+<ul>
+<li>We ate lots of meat, in a fortress!!</li>
+</ul>
+</li>
+</ul>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>Hacking Unicoins for Fun and Profit (Stackoverflow.com April Fools 2014)</title>
+	  <link>/devalias/2014/04/02/hacking-unicoins-for-fun-and-profit/</link>
+	  <author>devalias</author>
+	  <pubDate>2014-04-02T06:38:02+11:00</pubDate>
+	  <guid>/devalias/2014/04/02/hacking-unicoins-for-fun-and-profit/</guid>
+	  <description><![CDATA[
+	     <p><a href="https://stackoverflow.com/">Stackoverflow</a> introduced an amusing little April Fools feature called 'Unicoins'. Essentially, this currency (that you can earn by mining rocks, since all of the (rather amusing) payment options are currently unavailable') allows you to by silly upgrades for the website. From 'Colorful comments' and 'Guaranteed Answer' through to 'Voting animations' which gives you 'happy unicorn animations everytime you vote'.</p>
+<p>Anyways, long story short, I saw a system and wondered how to beat it. Turns out each rock is simply an AJAX request to /unicoin/rock to get a rock ID, and when you sucessfully mine it, you POST back a static fkey (bound to each user I assume?) and the rockId to /unicoin/mine?rock=theRockId</p>
+<p>I've put together a little automagical javascript to prevent you all getting RSI. It's for health reasons.. honestly.</p>
+<p>Enjoy your unicoins! &lt;3 /dev/alias</p>
+<p><a href="https://gist.github.com/0xdevalias/9905949">https://gist.github.com/0xdevalias/9905949</a></p>
+<p><noscript><pre>First, go to stackoverflow.com then define this in your Javascript console:</p>
+<pre><code>var hackMeSomeUnicoins = function(myFkey) {
+  console.log(&amp;quot;Ok, let&amp;#39;s hack you some shiny unicoins! &amp;lt;3 /dev/alias (www.devalias.net)&amp;quot;)
+  console.log(&amp;quot;The powers that be say you can only mine a rock every 10sec, so we do it every 11sec to be sure.&amp;quot;)
+  window.setInterval(function(){
+    $.get( &amp;quot;http://stackoverflow.com/unicoin/rock&amp;quot;, function( data ) {
+      var rockId = data.rock;
+      $.post( &amp;quot;http://stackoverflow.com/unicoin/mine?rock=&amp;quot; + rockId, { fkey: myFkey })
+      .done(function( data ) {
+        console.log(data);
+      });
+    });
+  }, 11000);
+};
+</code></pre>
+<p>Once you have done that, just call this from the console:</p>
+<pre><code>hackMeSomeUnicoins(StackExchange.options.user.fkey);
+</code></pre>
+<p>(Thanks to @ouranos for the fkey options string)</p>
+<p><del>You can get your fkey by inspecting the POST made when you successfully (manually) mine a rock. (It's also stored in a data-fkey type value somewhere, but haven't been bothered to find it and automagically pull it out (feel free to contribute some JS to do it)</del></p>
+<p>Pimping this:</p>
+<ul>
+<li><a href="http://blog.devalias.net/post/81346968483/hacking-unicoins-for-fun-and-profit-stackoverflow-com">http://blog.devalias.net/post/81346968483/hacking-unicoins-for-fun-and-profit-stackoverflow-com</a>
+<ul>
+<li><a href="https://twitter.com/_devalias/status/450809279784955904">https://twitter.com/_devalias/status/450809279784955904</a></pre></noscript><script src="https://gist.github.com/9905949.js"> </script></li>
+</ul>
+</li>
+</ul>
+
+	  ]]></description>
+	</item>
+
+
+</channel>
+</rss>

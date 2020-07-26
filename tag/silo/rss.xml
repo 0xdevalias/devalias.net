@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+   
+      <title>devalias.net</title>
+   
+   <link>https://www.devalias.net</link>
+   <description>Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.</description>
+   <language>en_GB</language>
+   <managingEditor> </managingEditor>
+   <atom:link href="rss" rel="self" type="application/rss+xml" />
+   
+	<item>
+	  <title>Musings on breaking down silos</title>
+	  <link>/devalias/2014/06/12/rather-than-trying-to-make-everybody-everywhere/</link>
+	  <author>devalias</author>
+	  <pubDate>2014-06-12T03:11:37+10:00</pubDate>
+	  <guid>/devalias/2014/06/12/rather-than-trying-to-make-everybody-everywhere/</guid>
+	  <description><![CDATA[
+	     <p>Rather than trying to make everybody everywhere adapt their systems to try and handle everything that could possibly ever exist (a monumental task), have a 'new' thing that is flexible enough to be able to interface with everything else.</p>
+<p>Thinking about it now, it's the exact same way as I look at the transition from legacy silo's to 'the future' of personal clouds/etc. Sure, the ideal is that everything is free and open and interacts perfectly, but the reality is that that's not where we are at today, and there is a very real need for these 'bridging technologies' to ease that transition as we move forward, and give us the wins of the future technology, without having to wait for the lag of general industry to catch up.</p>
+<p>—Glenn 'devalias' Grant</p>
+
+	  ]]></description>
+	</item>
+
+
+</channel>
+</rss>

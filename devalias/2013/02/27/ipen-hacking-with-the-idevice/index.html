@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="shortcut icon" href="/assets/images/authors/devalias.png" >
+
+  <meta name="referrer" content="origin" />
+  <meta name="generator" content="Jekyll 3.x" />
+
+  <link type="application/atom+xml" rel="alternate" href="https://www.devalias.net/feed.xml" title="/dev/alias – Hack. Dev. Transcend." />
+
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>iPen: Hacking with the iDevice (Setting up your iPhone as a Penetration Tester) | /dev/alias – Hack. Dev. Transcend.</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="iPen: Hacking with the iDevice (Setting up your iPhone as a Penetration Tester)" />
+<meta name="author" content="Glenn 'devalias' Grant" />
+<meta property="og:locale" content="en_GB" />
+<meta name="description" content="Today I finally got around to the task i&#39;ve been looking forward to for the last week or so. We got an iPad to play around with at work, mostly so we can try and break the mobile apps before they go public. Not a huge amount you can do on it in it&#39;s default state, so I got to jailbreak it!" />
+<meta property="og:description" content="Today I finally got around to the task i&#39;ve been looking forward to for the last week or so. We got an iPad to play around with at work, mostly so we can try and break the mobile apps before they go public. Not a huge amount you can do on it in it&#39;s default state, so I got to jailbreak it!" />
+<link rel="canonical" href="https://www.devalias.net/devalias/2013/02/27/ipen-hacking-with-the-idevice/" />
+<meta property="og:url" content="https://www.devalias.net/devalias/2013/02/27/ipen-hacking-with-the-idevice/" />
+<meta property="og:site_name" content="/dev/alias – Hack. Dev. Transcend." />
+<meta property="og:image" content="https://www.devalias.net/assets/images/cover4.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2013-02-27T13:45:00+11:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://www.devalias.net/assets/images/cover4.jpg" />
+<meta property="twitter:title" content="iPen: Hacking with the iDevice (Setting up your iPhone as a Penetration Tester)" />
+<meta name="twitter:site" content="@_devalias" />
+<meta name="twitter:creator" content="@_devalias" />
+<script type="application/ld+json">
+{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://www.devalias.net/assets/images/cover4.jpg"},"name":"Glenn 'devalias' Grant"},"@type":"BlogPosting","url":"https://www.devalias.net/devalias/2013/02/27/ipen-hacking-with-the-idevice/","image":"https://www.devalias.net/assets/images/cover4.jpg","headline":"iPen: Hacking with the iDevice (Setting up your iPhone as a Penetration Tester)","dateModified":"2013-02-27T13:45:00+11:00","datePublished":"2013-02-27T13:45:00+11:00","author":{"@type":"Person","name":"Glenn 'devalias' Grant"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.devalias.net/devalias/2013/02/27/ipen-hacking-with-the-idevice/"},"description":"Today I finally got around to the task i&#39;ve been looking forward to for the last week or so. We got an iPad to play around with at work, mostly so we can try and break the mobile apps before they go public. Not a huge amount you can do on it in it&#39;s default state, so I got to jailbreak it!","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  <!-- old tags, still needed? -->
+  <meta name="twitter:title" content="/dev/alias – Hack. Dev. Transcend." />
+  <meta name="twitter:description" content="Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more." />
+  <!-- <meta name="twitter:image" content="/assets/images/cover4.jpg" /> -->
+  <!-- /end tags -->
+
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
+
+  <link rel="stylesheet" type="text/css" href="/assets/css/screen.css" />
+  <link rel="stylesheet" type="text/css" href="/assets/css/syntax.css" />
+
+  <link rel="stylesheet" type="text/css" href="/assets/css/custom.css" />
+
+  <!-- Font Awesome -->
+<script defer src="https://use.fontawesome.com/releases/v5.0.1/js/all.js"></script>
+
+
+  
+
+  <!-- https://indieauth.com/ -->
+<link href="https://github.com/0xdevalias" rel="me">
+<link href="https://twitter.com/_devalias" rel="me">
+<link href="https://www.instagram.com/_devalias/" rel="me">
+<link href="https://www.linkedin.com/in/glenn-devalias-grant/" rel="me">
+
+</head>
+
+
+<body class="post-template nav-closed">
+
+    <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+        
+            <li class="nav-home " role="presentation">
+                <a href="/">Home</a>
+            </li>
+        
+            <li class="nav-now " role="presentation">
+                <a href="/now">Now</a>
+            </li>
+        
+            <li class="nav-about " role="presentation">
+                <a href="/about">About</a>
+            </li>
+        
+            <li class="nav-speaker " role="presentation">
+                <a href="/speaker">Speaker</a>
+            </li>
+        
+            <li class="nav-sec " role="presentation">
+                <a href="/sec">Security</a>
+            </li>
+        
+            <li class="nav-dev " role="presentation">
+                <a href="/dev">Development</a>
+            </li>
+        
+            <li class="nav-writing " role="presentation">
+                <a href="/writing">Writing</a>
+            </li>
+        
+            <li class="nav-coaching " role="presentation">
+                <a href="/coaching">Coaching</a>
+            </li>
+        
+            <li class="nav-personal " role="presentation">
+                <a href="/personal">Personal</a>
+            </li>
+        
+            <li class="nav-go-deeper " role="presentation">
+                <a href="/go-deeper">Go Deeper...</a>
+            </li>
+        
+    </ul>
+    <a class="subscribe-button" href="/feed.xml"><i class="fas fa-rss-square"></i> Subscribe</a>
+</div>
+<span class="nav-cover"></span>
+
+
+    <div class="site-wrapper">
+        <!-- [[! Everything else gets inserted here ]] -->
+        <!-- Layout: Post -->
+<!-- Template: header -->
+
+
+
+
+<header class="main-header
+               
+                    " style="background-image: url(/assets/images/cover4.jpg)
+                ">
+    <nav class="main-nav overlay clearfix">
+        
+          <a class="blog-logo" href="/"><img src="/assets/images/devalias-prompt.png" alt="Blog Logo" /></a>
+        
+        
+            <a class="menu-button" href="#"><i class="fas fa-bars"></i> <span class="word">Menu</span></a>
+        
+    </nav>
+
+    
+        
+            <div class="vertical">
+                <div class="main-header-content inner">
+                    
+                        <h1 class="page-title">iPen: Hacking with the iDevice (Setting up your iPhone as a Penetration Tester)</h1>
+                    
+                    
+                </div>
+            </div>
+        
+    
+
+    
+</header>
+<!-- /Template: header -->
+
+
+<main id="content" class="content" role="main">
+    <article class="post ">
+        <header class="post-header">
+            <!-- <h1 class="post-title">iPen: Hacking with the iDevice (Setting up your iPhone as a Penetration Tester)</h1> -->
+            <section class="post-meta">
+    
+        <img class="author-thumb" src="/assets/images/authors/devalias.png" alt="Author image" nopin="nopin" />
+    
+    
+        <a href='/author/devalias'>Glenn 'devalias' Grant</a>
+    
+    |
+    <time class="post-date" datetime="2013-02-27">27 Feb 2013</time>
+    |
+    
+        11 minutes
+    
+    to read
+    <!-- [[tags prefix=" on "]] -->
+    
+        |
+        
+            <a href='/tag/blog.nickmpetty.com'>#blog.nickmpetty.com</a>,
+        
+            <a href='/tag/@nickmpetty'>#@nickmpetty</a>,
+        
+            <a href='/tag/nicholas-petty'>#nicholas-petty</a>,
+        
+            <a href='/tag/iOS'>#iOS</a>,
+        
+            <a href='/tag/iPhone'>#iPhone</a>,
+        
+            <a href='/tag/jailbreak'>#jailbreak</a>,
+        
+            <a href='/tag/pentest'>#pentest</a>,
+        
+            <a href='/tag/hack'>#hack</a>,
+        
+            <a href='/tag/metasploit'>#metasploit</a>,
+        
+            <a href='/tag/nikto2'>#nikto2</a>,
+        
+            <a href='/tag/nmap'>#nmap</a>,
+        
+            <a href='/tag/social-engineering-toolkit'>#social-engineering-toolkit</a>,
+        
+            <a href='/tag/ettercap'>#ettercap</a>,
+        
+            <a href='/tag/aircrack'>#aircrack</a>
+        
+    
+    
+        |
+        <a href="http://devalias.tumblr.com/post/44051421215/ipen-hacking-with-the-idevice" title="Imported from original post on Tumblr" target="_blank"><i class="fab fa-tumblr-square"></i></a>
+    
+</section>
+
+        </header>
+
+        <section class="post-content">
+            <p>Today I finally got around to the task i've been looking forward to for the last week or so. We got an iPad to play around with at work, mostly so we can try and break the mobile apps before they go public. Not a huge amount you can do on it in it's default state, so I got to jailbreak it!</p>
+<p>I won't go into the specifics of that now though (keep an eye out for another post soon) </p>
+<p>In googling around for information on what the best tools/setup for pentesting with an iDevice were I came across a hackaday article titled <a href="http://hackaday.com/2010/08/18/make-iphone-a-penetration-testing-tool/">Make iPhone a penetration testing tool</a>. Perfect! Well.. almost. It turns out it just makes reference to a different article written a few years ago by Nicholas M. Petty. Unfortunately his old domain is now happily serving up some advertising type spam. Even though the information is a little dated, I (after tracking it down myself) decided to make it easier for everyone else to find.</p>
+<p>The following is the original article text, as written by Nicholas M. Petty back in 2010</p>
+<blockquote>
+<h3>Introduction</h3>
+<p>(now featured on hackaday.com, thanks guys!)</p>
+<p>There are many articles and presentations about the concept of using an iPhone or iPod Touch as a penetration tool. So as I read up about it, I realized that I have yet to see an actual tutorial or &quot;how-to&quot; on putting a suite of tools on an iDevice. So this article/how-to/whatever is just that. A document of my experiences turning my iPod Touch into a all-in-one hacking/penetration-testing platform.</p>
+<h3>Before you jailbreak</h3>
+<p>So of course, your iDevice should be jailbroken. BUT WAIT!! There are a few very crucial things you MUST know about it being jailbroken. This comes from personal experience and me having to start from scratch. When jailbreaking your iDevice, you MUST make your root partition much bigger then default. My iPod is a 8gb, and since I plan on using it mostly for penetration testing, I set my root partition to 4gb. This leaves enough room for a bit of music while I'm out and about, as well as for a few of those time saving apps. The reason we must do this, is because once you start downloading all of these tools and their dependencies, it starts filling up that ~350MB partition pretty quickly. Most of our tools are going to be command-line based and will be installed on this partition.</p>
+<h3>How to jailbreak properly</h3>
+<p>So you are probably wondering how to do this, right? Well, I went through all of the pain to find out how. My iPod had 4.0.1 installed. I went to jailbreakme.com on the device, swiped and now its jailbroken. But thats not it, in order to change the root partition, you must jailbreak it again! Though this time with sn0wbreeze (all links below). Start up sn0wbreeze and select the ipod/phone 4.0 firmware(download below). Be sure to select Expert mode when starting sn0wbreeze, so that you can change your root partition.  Once you get to that screen set it to AT LEAST 2gb.  Just remember though, once this is set, you can't change it again without restoring from scratch.   Once you have the ipws created, open up iTunes, connect your iDevice, and in the iPod/Phone menu click on restore while holding down the SHIFT key.  This will allow you to browse for your custom firmware ipws.  Pick your sn0wbreeze one, should be in the same folder as sn0wbreeze, or could be on the Desktop.  Your iDevice should begin to restore.  Now here is where I ran into another problem.</p>
+<p>EDIT: BigBubbaX, from the comments below, has posted a link to a guide for jailbreaking MC model iPod Touch's.  Please refer to it if your iPod Touch is an MC model.  Check this by going to Settings -&gt; General -&gt; About, and looking at 'Model'. <a href="http://www.geekword.net/jailbreak-ios-4-ipod-touch-2g-mc-sn0wbreeze-1.7/">http://www.geekword.net/jailbreak-ios-4-ipod-touch-2g-mc-sn0wbreeze-1.7/</a></p>
+<h3>Possible errors</h3>
+<p>Error 3194:</p>
+<p>You may get an error 3194 in iTunes.  This is because iTunes is attempting to match the signature of the selected firmware to Apples servers.  It won't match because we've made a custom one.  To get around this problem, navigate to volume:\Windows\System32\drivers\etc\ and open up the host file with notepad.  You'll then want to add the following line: 74.208.10.249 gs.apple.com .  This will point iTunes to saurik's signature server.  Who is the creator of Cydia.</p>
+<p>Error 1604:</p>
+<p>This is simply because your iDevice is not yet jailbroken.  Jailbreak with jailbreakme.com, or with the latest version of redsn0w.</p>
+<h3>First thing's first</h3>
+<p>Now that we have a successfully jailbroken iDevice with a large root partition, (if not, comment below and I'll get ya taken care of!  we need to get a few essentials installed.  Most of these can be found in the Cydia app store, so long as you select 'Developer Mode' at the start of Cydia.  If you didn't, thats okay, just go to Manage, then click on settings in the top left corner, and select it there.  If you don't, you won't see any of the command line tools we need.</p>
+<h3>OpenSSH</h3>
+<p>So now go to search and look for OpenSSH.  Something I don't like about Cydia is it's search standards.  In order to find OpenSSH quicker, you need to type in 'SS', then search.  If you type in SSH, you won't find anything.  So now that you have that installed, you can SSH into your device and execute commands that way.  Trust me, it gets tiring doing everything on that tiny keyboard.  One thing you need to know about connecting via SSH is you must turn Auto-lock off on your iDevice.  If the screen goes dim, wifi turns off.  I can't say the same for edge or 3g though, since I'm not using an iPhone.  Once you have OpenSSH installed, you need to log in via your favorite ssh client.  I'm using PuTTy.  I also find it easier to log in as &quot;root@yourinternalip&quot;  then use your default password &quot;alpine.&quot;  Change this immediately, there are people out there who will try to break in to your iDevice.  Change it using the command, <code>passwd &lt;newpass&gt;</code>.</p>
+<h3>Mobile Terminal</h3>
+<p>As of this current date (08/18/2010), the Mobile Terminal app in Cydia will not work on 4.0.  So I found one else where online and uploaded it my server.  So first you need to make sure you have cURL installed.  Do this by going to Cydia -&gt; Manage -&gt; Packages and look for it.  If it is not already installed, search cydia for 'curl', and install.  This will allow us to download files via terminal.  Now, in your SSH session, type <code>curl -O http://repo.nickmpetty.com/MobileTerminal-crnt.deb</code>.  Once it has finished downloading, you need to make Cydia install it.  Do this be making sure you have the AutoInstall folder.  It should be located in /var/root/Media/Cydia/AutoInstall.  If it is not there, create it using the mkdir command(all case sensitive).  Next move your MobileTerminal-crnt.deb from the directory you downloaded it in(this should be /var/root/ if you did it over ssh).  So you would type <code>mv /var/root/MobileTerminal-crnt.deb /var/root/Media/Cydia/AutoInstall</code>.  Now close Cydia, if it was open, and re-open it.  This will load the new package.  If you still don't see it on SpringBoard(where all of your apps are), respring with winterboard, or download a respring app in Cydia and run it.  Now you have a working Mobile terminal, and it will be updated by Cydia as new versions come out.  This should work with any .deb file that has been said to work on an iDevice.</p>
+<p>EDIT: Alex, from the comments below, has informed me that you can add <code>http://podzombie.com/repository</code> to Cydia to download a working version of MobileTerminal.</p>
+<h3>Lets build a shell…</h3>
+<p>Now we need to install some base tools and packages that are normally included on a normal linux computer.  Most of these can all be found in Cydia without any problems.  Install &quot;unzip, adv-cmds, aptitiude, apt 0.6 transitional, inetutils, iPhone/Python, make, subversion, wget, iDNS, stunnel, tcpdump, setup tools, ruby, OpenSSH, OpenSSL, MetaSploit&quot;  Some of these packages we've installed already, and may already be installed with other packages.  So just be sure you have all of those tools at least.</p>
+<h3>Perl</h3>
+<p>In order to install Perl, we have to go back in via ssh or terminal.  If you use mobile terminal, be sure to login as root with the <code>su</code> command.  You may be able to find it in Cydia, or via <code>apt-get install perl</code>.  If not, do it this way.  Execute <code>curl -O http://coredev.nl/cydia/coredev.pub</code>.  Then run <code>apt-key add coredev.pub</code>.  If you get an error, it's all cool, just move on.  Now type, <code>echo 'deb http://coredev.nl/cydia iphone main' &gt; /etc/apt/sources.list.d/coredev.nl.list</code>.  Then, <code>apt-get update</code>, and <code>apt-get install perl</code>.  Thats it.  You can now delete that coredev.pub file.</p>
+<h3>Now for the fun part</h3>
+<p>First we are going to create a folder to hold all of our non-install command-line tools.  I created a folder called <code>pentest</code> in the <code>/var/root/</code> directory.  you can create this anywhere you'd like though.</p>
+<p>We can now begin installing the tools that we will be using for our penetration needs.</p>
+<h3>Ettercap-ng</h3>
+<p>First is ettercap-ng.  As always, try searching Cydia for it.  If you can't find it there, do this.  Add this source to Cydia, (edit: 08/22/2010)<code>http://cydia.theworm.tw/cydia</code>. The search for ettercap.  Also install libnet if it is not already installed.  There have been reports of ettercap not forwarding packets correctly, but the problem is being resolved, if it hasn't been already.</p>
+<h3>aircrack-ng</h3>
+<p>Next is aircrack-ng.  If you can't find it in Cydia,  very simply execute, <code>curl -O http://repo.nickmpetty.com/touchair.zip</code>, then <code>uzip touchair.zip</code>.  Now move the extracted to folder to <code>pentest</code> if its not there already.  To use, navigate to your aircrack folder and execute commands as normal.</p>
+<p>EDIT: to get aircrack, add the following source to Cydia, <code>http://cydia.xsellize.com</code>.  Once you've  installed it, an icon will appear on SpringBoard, don't bother with it.  It is only to tell you to run aircrack from the terminal.  Navigate to <code>/var/aircrack/</code> to use.  You can also move the aircrack folder to your pentest folder if you'd like.</p>
+<h3>Nikto2</h3>
+<p>To get nikto2 we can use the svn command.  Make sure you've install Subversion and execute, <code>svn co http://svn2.assembla.com/svn/Nikto_2</code>.  It will then download the folder, move it to pentest and then navigate to the nikto2 folder, and the next folder then execute as normal.</p>
+<h3>SET (Social Engineering Toolkit)</h3>
+<p>SET is one of my favorite tools, so to install it, use svn again, <code>svn co http://svn.thepentest.com/social_engineering_toolkit/ SET/</code>.  And again, move it to your pentest folder, then SET, and go as normal once again.  A problem I've discovered with this though is that it wont run completely without the python ssl module.  I've found one, and tried compiling on the iPod, but it won't go without a gcc compiler.  I'm working on a work around for it but keep running into errors.  If anyone knows anything about this, please let me know and together we can get this working correctly.</p>
+<p>Tools can be found directly in Cydia as well.  Just explore the sections and download what you want.  One more you defentily need is nmap, search Cydia for it.</p>
+<p>These are only a few of the things you can do with your iDevice for penetration testing.  If you can't find a tool in Cydia, just search google, or comment below and I'll work on getting it to work for your iDevice.  This article serves as a reference, how-to, and documentation of turning your iDevice into a complete penetration testing device.  I'll update this as I install more tools.  So keep checking back.</p>
+<h3>Sources:</h3>
+<ul>
+<li>
+<p><a href="http://www.offensive-security.com/metasploit-unleashed/Social-Engineering-Toolkit">http://www.offensive-security.com/metasploit-unleashed/Social-Engineering-Toolkit</a></p>
+</li>
+<li>
+<p><a href="http://thireus.dareyourmind.net/index.php/iphone-notes/111-iphone-perl-framework">http://thireus.dareyourmind.net/index.php/iphone-notes/111-iphone-perl-framework</a></p>
+</li>
+<li>
+<p><a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/">http://www.chiark.greenend.org.uk/~sgtatham/putty/</a></p>
+</li>
+<li>
+<p><a href="http://www.assembla.com/spaces/Nikto_2/trac_subversion_tool">http://www.assembla.com/spaces/Nikto_2/trac_subversion_tool</a></p>
+</li>
+<li>
+<p><a href="http://www.eweek.com/c/a/Security/iPhone-Turned-into-PocketSized-Hacking-Platform/">http://www.eweek.com/c/a/Security/iPhone-Turned-into-PocketSized-Hacking-Platform/</a></p>
+</li>
+</ul>
+<p>Written by Nicholas M. Petty</p>
+</blockquote>
+<h2>Sources/Links</h2>
+<ul>
+<li><a href="http://web.archive.org/web/20100824080407/http://blog.nickmpetty.com/?p=252">Original Article on The Wayback Machine</a></li>
+<li><a href="http://hackaday.com/2010/08/18/make-iphone-a-penetration-testing-tool/">Hackaday Article</a></li>
+</ul>
+<h2>Other Useful/Interesting Sites</h2>
+<ul>
+<li><a href="http://ihackmyi.com/topic/82651-how-to-install-set-on-iphone/">http://ihackmyi.com/topic/82651-how-to-install-set-on-iphone/</a></li>
+<li><a href="http://www.eccouncil.org/CAST-Installing-Metaspoilt-and-SET-on-your-Apple-iDevice.pdf">http://www.eccouncil.org/CAST-Installing-Metaspoilt-and-SET-on-your-Apple-iDevice.pdf</a></li>
+<li><a href="http://www.offensive-security.com/metasploit-unleashed-training/metasploit-3-4-and-set-on-iphone-4/">http://www.offensive-security.com/metasploit-unleashed-training/metasploit-3-4-and-set-on-iphone-4/</a></li>
+<li><a href="http://www.offensive-security.com/offsec/metasploit-4-on-iphone-4s-and-ipad-2/">http://www.offensive-security.com/offsec/metasploit-4-on-iphone-4s-and-ipad-2/</a></li>
+<li><a href="http://seckev.blog.com/2012/07/16/installation-metasploit-4-2-on-new-ipad-ios-5-1-1-after-jailbreak/">http://seckev.blog.com/2012/07/16/installation-metasploit-4-2-on-new-ipad-ios-5-1-1-after-jailbreak/</a></li>
+<li><a href="http://hakin9.org/installing-metasploit-and-set-social-engineer-toolkit-on-your-apple-idevice/">http://hakin9.org/installing-metasploit-and-set-social-engineer-toolkit-on-your-apple-idevice/</a> [Subscription Required]</li>
+<li><a href="http://blog.thireus.com/thireus-repository-new-cydia-security-oriented-repository">http://blog.thireus.com/thireus-repository-new-cydia-security-oriented-repository</a></li>
+<li><a href="http://blog.thireus.com/how-to-install-ios-perl-framework-on-iphone-ipod-touch-or-ipad">http://blog.thireus.com/how-to-install-ios-perl-framework-on-iphone-ipod-touch-or-ipad</a></li>
+<li><a href="https://appsec-labs.com/system/files/Attacking%20iPhone%20Applications.pdf">https://appsec-labs.com/system/files/Attacking%20iPhone%20Applications.pdf</a></li>
+<li><a href="https://appsec-labs.com/Cydia_explained">https://appsec-labs.com/Cydia_explained</a></li>
+<li><a href="https://appsec-labs.com/iNalyzer">https://appsec-labs.com/iNalyzer</a></li>
+<li><a href="http://www.securitylearn.net/tag/iphone-pentesting/">http://www.securitylearn.net/tag/iphone-pentesting/</a></li>
+<li><a href="http://www.mayhemiclabs.com/node/15">http://www.mayhemiclabs.com/node/15</a></li>
+<li><a href="http://resources.infosecinstitute.com/pentesting-iphone-applications/">http://resources.infosecinstitute.com/pentesting-iphone-applications/</a></li>
+<li><a href="http://defcon.org/images/defcon-17/dc-17-presentations/defcon-17-thomas_wilhelm-hacking_ipod_touch.pdf">http://defcon.org/images/defcon-17/dc-17-presentations/defcon-17-thomas_wilhelm-hacking_ipod_touch.pdf</a></li>
+<li><a href="http://www.toolswatch.org/2012/08/blackhat-arsenal-2012-releases-sira-semi-automated-ios-rapid-assessment-released-at-arsenal/">http://www.toolswatch.org/2012/08/blackhat-arsenal-2012-releases-sira-semi-automated-ios-rapid-assessment-released-at-arsenal/</a></li>
+<li><a href="http://www.siratool.com">http://www.siratool.com</a></li>
+<li><a href="http://www.toolswatch.org/2011/06/owasp-igoat-the-learning-tool-for-ios-developers-v1-0-released/">http://www.toolswatch.org/2011/06/owasp-igoat-the-learning-tool-for-ios-developers-v1-0-released/</a></li>
+<li><a href="http://code.google.com/p/owasp-igoat/">http://code.google.com/p/owasp-igoat/</a></li>
+</ul>
+
+        </section>
+
+        <footer class="post-footer">
+
+            <!-- #author-->
+
+            
+	<figure class="author-image">
+	    <a class="img" href="/author/devalias" style="background-image: url(/assets/images/authors/devalias.png)"><span class="hidden">devalias's Picture</span></a>
+	</figure>
+
+
+            <section class="author">
+                <h4>
+                    
+                        <a href="/author/devalias">Glenn 'devalias' Grant</a>
+                    
+                </h4>
+
+                
+                    <p> Glenn is a full-stack, polyglot developer with an acute interest in the offensive side of security; as well as technology, efficiency, biohacking, health, personal growth and a whole lot more.</p>
+                
+                <div class="author-meta">
+    
+        <span class="author-location">
+            <i class="fas fa-location-arrow"></i>
+            Australia
+        </span>
+    
+    
+        <span class="author-link">
+            <a href="http://www.devalias.net/">
+                <i class="fas fa-external-link-alt"></i>
+                devalias.net
+            </a>
+        </span>
+    
+    
+</div>
+
+                <div class="author-social">
+    <a href="/author/devalias/rss.xml" title="RSS Feed"><i class="fas fa-rss-square fa-1x"></i></a>
+    
+        <a href="https://keybase.io/devalias" title="Keybase" target="_blank"><i class="fas fa-key fa-1x"></i></a>
+    
+    
+        <a href="https://www.linkedin.com/in/glenn-devalias-grant" title="LinkedIn" target="_blank"><i class="fab fa-linkedin fa-1x"></i></a>
+    
+    
+        <a href="https://twitter.com/_devalias" title="Twitter" target="_blank"><i class="fab fa-twitter-square fa-1x"></i></a>
+    
+    
+        <a href="https://instagram.com/_devalias" title="Instagram" target="_blank"><i class="fab fa-instagram fa-1x"></i></a>
+    
+    
+        <a href="https://medium.com/@devalias" title="Medium" target="_blank"><i class="fab fa-medium fa-1x"></i></a>
+    
+    
+        <a href="https://github.com/0xdevalias" title="Github" target="_blank"><i class="fab fa-github-square fa-1x"></i></a>
+    
+    
+    
+    
+        <a href="https://speakerdeck.com/0xdevalias" title="SpeakerDeck" target="_blank">
+            <!-- TODO: Correctly handle size differences -->
+            <!-- SVG Source: https://github.com/FortAwesome/Font-Awesome/issues/1688#issuecomment-266479369 -->
+            
+                <!-- Includes hacky resizing to make it work for this size.. -->
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="15" height="20" viewBox="5 -7 16.875 35">
+                    <path d="M25.6 3.8c-1-1-2.199-1.5-3.6-1.5h-16.9c-1.4 0-2.6 0.5-3.6 1.5s-1.5 2.2-1.5 3.6v17.2c0 1.4 0.5 2.5 1.5 3.5s2.2 1.5 3.6 1.5h16.8c1.398 0 2.6-0.5 3.6-1.5s1.5-2.2 1.5-3.6v-17.1c0-1.4-0.4-2.6-1.4-3.6zM22.286 20.188c0 1.313-1.063 2.375-2.375 2.375h-12.437c-1.311 0-2.375-1.063-2.375-2.375v-8.375c0-1.312 1.063-2.375 2.375-2.375h12.437c1.311 0 2.375 1.063 2.375 2.375v8.375z"></path>
+                    <path d="M12.75 18.49v-4.977l-4.277 2.487z"></path>
+                    <path d="M14.684 18.516l4.228-2.516-4.228-2.514z"></path>
+                </svg>
+            
+        </a>
+    
+    
+        <a href="https://www.slideshare.net/GlenndevaliasGrant" title="SlideShare" target="_blank"><i class="fab fa-slideshare fa-1x"></i></a>
+    
+    
+        <a href="https://www.reddit.com/user/_devalias" title="Reddit" target="_blank"><i class="fab fa-reddit-square fa-1x"></i></a>
+    
+    
+        <a href="https://news.ycombinator.com/user?id=alias1" title="Hacker News" target="_blank"><i class="fab fa-hacker-news-square fa-1x"></i></a>
+    
+    
+        <a href="https://stackoverflow.com/users/1137085/devalias" title="StackOverflow" target="_blank"><i class="fab fa-stack-overflow fa-1x"></i></a>
+    
+    
+        <a href="https://stackexchange.com/users/1156663/devalias" title="StackExchange" target="_blank"><i class="fab fa-stack-exchange fa-1x"></i></a>
+    
+</div>
+
+            </section>
+
+            <!-- /author  -->
+
+            
+
+
+
+
+
+<section class="share">
+    <h4>Share this post</h4>
+
+    
+    <a href="http://twitter.com/share?text=iPen%3A+Hacking+with+the+iDevice+%28Setting+up+your+iPhone+as+a+Penetration+Tester%29&amp;url=https%3A%2F%2Fwww.devalias.net%2Fdevalias%2F2013%2F02%2F27%2Fipen-hacking-with-the-idevice%2F&amp;via=_devalias" title="Share on Twitter" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"><i class="fab fa-twitter-square fa-2x"></i></a>
+
+    
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Fwww.devalias.net%2Fdevalias%2F2013%2F02%2F27%2Fipen-hacking-with-the-idevice%2F&amp;title=iPen%3A+Hacking+with+the+iDevice+%28Setting+up+your+iPhone+as+a+Penetration+Tester%29&amp;&source=https%3A%2F%2Fwww.linkedin.com%2Fin%2Fglenn-devalias-grant%2F" title="Share on LinkedIn" onclick="window.open(this.href, 'linkedin-share', 'width=520,height=570');return false;"><i class="fab fa-linkedin fa-2x"></i></a>
+
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.devalias.net%2Fdevalias%2F2013%2F02%2F27%2Fipen-hacking-with-the-idevice%2F" title="Share on Facebook" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;"><i class="fab fa-facebook-square fa-2x"></i></a>
+
+    <a href="https://plus.google.com/share?url=https%3A%2F%2Fwww.devalias.net%2Fdevalias%2F2013%2F02%2F27%2Fipen-hacking-with-the-idevice%2F"  title="Share on Google+" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;"><i class="fab fa-google-plus-square fa-2x"></i></a>
+</section>
+
+
+            
+                
+                    <!-- Add Disqus Comments -->
+                    <div id="disqus_thread"></div>
+<script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'devalias'; // required: replace example with your forum shortname
+        var disqus_identifier = '/devalias/2013/02/27/ipen-hacking-with-the-idevice/';
+        var disqus_url = 'https://www.devalias.net/devalias/2013/02/27/ipen-hacking-with-the-idevice/';
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="https://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>
+
+                
+            
+
+            
+
+        </footer>
+
+    </article>
+
+</main>
+
+<aside class="read-next">
+
+    <!-- [[! next_post ]] -->
+    
+        <a class="read-next-story no-cover" href="/devalias/2013/03/07/how-to-ssh-to-iphone-via-usb/">
+            <section class="post">
+                <h2>How to SSH to iPhone/iPad/iDevice via USB</h2>
+                <p>So in order to run the iPad through a debug proxy (Burp Suite), and still be able to forward on the traffic to the net,...</p>
+            </section>
+        </a>
+    
+    <!-- [[! /next_post ]] -->
+    <!-- [[! prev_post ]] -->
+    
+        <a class="read-next-story prev no-cover" href="/devalias/2012/03/29/yummy-turtles-breaking-plesk/">
+            <section class="post">
+                <h2>Yum'my turtles breaking Plesk</h2>
+                <p>After some recent downtime due to an overzealous upgrade cycle (aka &quot;Oh I won't need to backup first..&quot;) I feel it warranted to put a...</p>
+            </section>
+        </a>
+    
+    <!-- [[! /prev_post ]] -->
+</aside>
+
+<!-- /Layout: Post -->
+
+
+        <footer class="site-footer clearfix">
+            <section class="copyright">
+                <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">devalias.net</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://www.devalias.net/" property="cc:attributionName" rel="cc:attributionURL">Glenn 'devalias' Grant</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+            </section>
+            <section class="poweredby">
+                <div>
+                    <strong>Build:</strong> 41e8aad
+                    <a href="https://github.com/0xdevalias/devalias.net/tree/master/_posts/2013-02-27-ipen-hacking-with-the-idevice.md" target="_blank">
+                        <i class="fas fa-edit"></i>
+                        Edit on GitHub
+                    </a>
+                </div>
+                Proudly published with
+                <a href="https://jekyllrb.com/" target="_blank">Jekyll</a>
+                using
+                <a href="https://github.com/biomadeira/jasper" target="_blank">Jasper</a>
+                to
+                <a href="https://github.com/" target="_blank">GitHub</a>
+            </section>
+        </footer>
+    </div>
+    <!-- [[! Ghost outputs important scripts and data with this tag ]] -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <!-- [[! The main JavaScript file for Casper ]] -->
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="/assets/js/index.js"></script>
+
+        <!-- Google Analytics Tracking code -->
+     <script>
+	    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	    ga('create', 'UA-27970144-1', 'auto');
+	    ga('send', 'pageview');
+     </script>
+    
+    
+</body>
+</html>

@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+   
+      <title>devalias.net</title>
+   
+   <link>https://www.devalias.net</link>
+   <description>Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.</description>
+   <language>en_GB</language>
+   <managingEditor> </managingEditor>
+   <atom:link href="rss" rel="self" type="application/rss+xml" />
+   
+	<item>
+	  <title>Starting a New Web Application (Part 1): An Exploration of Options</title>
+	  <link>/devalias/2016/08/24/starting-a-new-web-application-1-an-exploration-of-options/</link>
+	  <author>devalias</author>
+	  <pubDate>2016-08-24T00:00:00+10:00</pubDate>
+	  <guid>/devalias/2016/08/24/starting-a-new-web-application-1-an-exploration-of-options/</guid>
+	  <description><![CDATA[
+	     <p>Finding myself with some free time (and looking into starting a new project), I thought I might catch myself up on the state of web technologies, and what might be a good stack to work with.</p>
+<p>The details collected here are most certainly not a complete layout of the entire landscape, and there will no doubt be leanings toward my personal tastes (<a href="http://www.reactivemanifesto.org/">reactive</a>, api-driven, etc). You should use this more as a starter into your own deeper research than as a source of ultimate truth. With that out of the way, let's get into it!</p>
+<p><strong>Quicklinks</strong></p>
+<ul>
+<li><a href="#frontend">Frontend</a>
+<ul>
+<li><a href="#frontend-frameworks">Frameworks</a></li>
+<li><a href="#frontend-ui">UI</a></li>
+<li><a href="#frontend-scripting">Scripting</a></li>
+</ul>
+</li>
+<li><a href="#backend">Backend</a></li>
+<li><a href="#tooling">Tooling</a></li>
+<li><a href="#conclusions">Conclusions</a></li>
+<li><a href="#updates">Updates</a></li>
+</ul>
+<h2><a name="frontend"></a>Frontend</h2>
+<p>The frontend is the pretty, interactive, main part that people will be seeing. You can have the most amazingly streamlined and perfect backend code, but noone's going to notice and love it without a strong frontend to back it up.</p>
+<p><strong><a name="frontend-frameworks"></a>Frameworks</strong></p>
+<p>The days of raw JavaScript and jQuery selectors is long gone. We're looking for a nice, modern framework to help put together our frontend. Here's a little selection of some of our options:</p>
+<ul>
+<li><a href="https://facebook.github.io/react/">React</a> (<a href="https://github.com/reactjs">GitHub</a>) (most likely with a flavour of <a href="https://facebook.github.io/flux/">Flux</a> (<a href="https://github.com/facebook/flux">GitHub</a>))
+<ul>
+<li>A frontend framework from Facebook that is taking the web by storm. Probably my personal favourite from what I've seen so far.</li>
+<li>It even let's you <a href="https://facebook.github.io/react-native/">build for native devices</a>!</li>
+</ul>
+</li>
+<li><a href="https://angular.io/">Angular (v2)</a> (or if you like outdated for some reason <a href="https://angularjs.org/">AngularJS (v1)</a>)
+<ul>
+<li>Also <a href="https://mobile.angular.io/">available for native devices</a></li>
+<li>I was a big fan of AngularJS (v1), and I want to like v2, but I don't think it will be my main choice.</li>
+</ul>
+</li>
+<li>There are a TON of other frontend frameworks, of varying popularity and support. I won't delve into them much, but there's heaps of info out there
+<ul>
+<li><a href="http://emberjs.com/">Ember</a></li>
+<li><a href="https://vuejs.org/">Vue.js</a>
+<ul>
+<li>From reading around the web, there's a decent amount of good stuff talking about Vue. In the end I decided against it since it's not supported by a big backer, and the skills aren't as useful on a resume. That said, for a personal project it could be a great fit!</li>
+<li><a href="https://vuejs.org/guide/comparison.html">https://vuejs.org/guide/comparison.html</a></li>
+<li><a href="http://blog.evanyou.me/2015/10/25/vuejs-re-introduction/">http://blog.evanyou.me/2015/10/25/vuejs-re-introduction/</a></li>
+<li><a href="http://vuejs.org/2016/04/27/announcing-2.0/">http://vuejs.org/2016/04/27/announcing-2.0/</a></li>
+<li><a href="https://github.com/vuejs/vue">vue</a>, <a href="https://github.com/vuejs/vue-rx">vue-rx</a>, <a href="https://github.com/vuejs/vue-resource">vue-resource</a>, <a href="https://github.com/vuejs/vue-router">vue-router</a>, <a href="https://github.com/vuejs/vuex">vuex</a>, <a href="https://github.com/revue/revue">revuew</a></li>
+</ul>
+</li>
+<li><a href="http://aurelia.io/">Aurelia</a></li>
+<li><a href="http://riotjs.com/">Riot</a> (<a href="https://muut.com/blog/technology/riot-2.0/">v2</a>)</li>
+</ul>
+</li>
+</ul>
+<p>As with most things, every man and his dog has their own opinion, so here are a few comparisons I found useful:</p>
+<ul>
+<li><a href="https://www.ociweb.com/resources/publications/sett/comparison-of-angular-2-and-react/">&quot;Comparison of Angular 2 and React&quot; by Mark Volkmann and Lance Finney</a></li>
+<li><a href="http://blog.backand.com/angular-2-vs-react/">&quot;Angular 2 vs. React&quot; by Itay Herskovits</a></li>
+<li><a href="https://medium.freecodecamp.com/angular-2-versus-react-there-will-be-blood-66595faafd51">&quot;Angular 2 versus React: There Will Be Blood&quot; by Cory House</a></li>
+<li><a href="https://rlafranchi.github.io/2016/05/03/vue-vs-react/">&quot;Vue.js vs React.js&quot; by Richard LaFranchi</a></li>
+<li><a href="https://forums.meteor.com/t/why-doesnt-mdg-just-adopt-vue-js-and-forget-about-react-vs-blaze/13926/6">&quot;Why doesn’t MDG just adopt Vue.js and forget about React vs Blaze?&quot;</a></li>
+</ul>
+<p><strong><a name="frontend-ui"></a>UI</strong></p>
+<p>Even if you like to go oldschool and code your site by hand in notepad/vi, you can't deny the ease/benefits of using a frontend UI framework.</p>
+<ul>
+<li><a href="https://getbootstrap.com/">Bootstrap</a> (<a href="https://blog.getbootstrap.com/2015/08/19/bootstrap-4-alpha/">v4</a>)
+<ul>
+<li>Released by Twitter, and arguably one of the most used frontend UI frameworks out there.</li>
+<li><a href="https://react-bootstrap.github.io/">React-Bootstrap</a> (<a href="https://github.com/react-bootstrap/react-bootstrap">GitHub</a>)</li>
+<li><a href="https://ng-bootstrap.github.io/#/home">ng-bootstrap</a> by the angular-ui team (<a href="https://github.com/ng-bootstrap/ng-bootstrap">GitHub</a>)</li>
+<li><a href="https://valor-software.com/ng2-bootstrap/">ng2-bootstrap</a> by valor-software (<a href="https://github.com/valor-software/ng2-bootstrap">GitHub</a>)</li>
+</ul>
+</li>
+<li><a href="http://foundation.zurb.com/">Foundation</a>
+<ul>
+<li>While not as well known as the other two mentioned here, those that make use of foundation swear by it.</li>
+<li><a href="https://react.foundation/">React-Foundation</a> (<a href="https://github.com/nordsoftware/react-foundation">GitHub</a>)</li>
+<li><a href="https://aruberto.github.io/react-foundation-components/">React-Foundation-Components</a></li>
+</ul>
+</li>
+<li><a href="https://material.google.com/">Material Design</a>
+<ul>
+<li>Following a set of design principals from Google, this lays out a slick, consistent look and feel.</li>
+<li><a href="https://getmdl.io/">Material Design Lite</a></li>
+<li><a href="http://www.material-ui.com/">For React</a> (<a href="https://github.com/callemall/material-ui">GitHub</a>)</li>
+<li><a href="https://material.angular.io/">For Angular (v2)</a> (<a href="https://github.com/angular/material2">GitHub</a>)</li>
+<li><a href="https://material.angularjs.io/">For AngularJS (v1)</a> (<a href="https://github.com/angular/material">GitHub</a>)</li>
+</ul>
+</li>
+</ul>
+<p>Can't decide? Try some comparisons:</p>
+<ul>
+<li><a href="http://blog.teamtreehouse.com/the-rundown-bootstrap-vs-google-mdl-vs-foundation">&quot;The Rundown: Bootstrap vs. Google MDL vs. Foundation&quot; by treehouse</a></li>
+<li><a href="https://dannyherran.com/2016/03/state-of-affairs-bootstrap-4-vs-foundation-6/">&quot;State of affairs: Bootstrap 4 vs Foundation 6.2&quot; by Danny Herran</a></li>
+</ul>
+<p><strong><a name="frontend-scripting"></a>Scripting</strong></p>
+<p>Modern web apps live by the functionality they enable in the browser, and to do this, we need a JS-esque language. Your chosen frontend framework may sway your choice (eg. Angular (v2) has a strong preference for TypeScript), but ultimately, it's up to what you/your team feel comfortable with. With <a href="https://github.com/jashkenas/coffeescript/wiki/list-of-languages-that-compile-to-js">so many options</a> out there, it's hard to pick.. And of course, you could always stick to plain JavaScript.. and with the new features coming in <a href="http://es6-features.org/">ES6</a> (eg. <a href="http://www.html5rocks.com/en/tutorials/es6/promises/">promises</a>) and beyond, it might be a good choice.</p>
+<ul>
+<li><a href="https://babeljs.io/">Babel</a>
+<ul>
+<li>A transpiler that lets you play with all the fun features of JavaScript ES6 and beyond, while maintaining compatibility with all of the older browsers.</li>
+</ul>
+</li>
+<li><a href="https://www.typescriptlang.org/">TypeScript</a> (<a href="https://github.com/Microsoft/TypeScript">GitHub</a>)
+<ul>
+<li>&quot;TypeScript is a typed superset of JavaScript that compiles to plain JavaScript&quot;</li>
+<li>If you're using Angular (v2) and like sticking to convention, this is the one for you.</li>
+</ul>
+</li>
+<li><a href="http://coffeescript.org/">CoffeeScript</a> (or maybe <a href="https://github.com/michaelficarra/CoffeeScriptRedux">v2</a>)
+<ul>
+<li>This used to be my choice, but looking at the other options available now, I think i'll be moving on.</li>
+<li>As always, there are a bunch of arguments for and against..
+<ul>
+<li><a href="https://robots.thoughtbot.com/replace-coffeescript-with-es6">&quot;Replace CoffeeScript with ES6&quot; by Blake Williams</a></li>
+<li><a href="http://tech.noredink.com/post/111583727108/dont-replace-coffeescript-with-es6-transpilers">&quot;Don’t Replace CoffeeScript with ES6 Transpilers&quot; by Richard Feldman</a></li>
+<li>etc</li>
+</ul>
+</li>
+<li>If you're looking for a way out, why not <a href="https://github.com/decaffeinate/decaffeinate">decaffeinate</a>?</li>
+</ul>
+</li>
+<li><a href="https://flowtype.org/">Flow</a> (<a href="https://github.com/facebook/flow">GitHub</a>)
+<ul>
+<li>While it's not a language unto itself, it does allow you the benefits of typed JavaScript without having to dive into something like TypeScript.</li>
+</ul>
+</li>
+<li><a href="https://www.scala-js.org/">Scala.js</a>
+<ul>
+<li>A little left field, this transpiles Scala code into JavaScript. While I probably wouldn't see myself using this as a main choice, it could make for some interesting reusability between front and backend.</li>
+</ul>
+</li>
+</ul>
+<h2><a name="backend"></a>Backend</h2>
+<p>My preferences for backend tech stacks lean heavily towards <a href="http://www.scala-lang.org/">Scala</a> and the <a href="https://www.lightbend.com/platform">Lightbend Reactive Platform</a> these days, but I will make quick mention of some of the other options available.</p>
+<ul>
+<li><a href="http://doc.akka.io/docs/akka-http/current/scala.html">Akka-HTTP</a>
+<ul>
+<li>Taking the power of asynchronous, message based actors, and applying them to HTTP. Definite win.</li>
+<li><a href="https://softwaremill.github.io/bootzooka/">Bootzooka</a> (<a href="https://github.com/softwaremill/bootzooka">GitHub</a>)
+<ul>
+<li>&quot;Bootzooka is a simple application scaffolding project to allow quick start of development for modern, web based applications.&quot;</li>
+<li>While not perfect, it's a decent implementation of a starter app, tying together some useful technologies.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="https://www.playframework.com/">Play Framework</a>
+<ul>
+<li>&quot;Play is a high-productivity Java and Scala web application framework that integrates the components and APIs you need for modern web application development.&quot;</li>
+</ul>
+</li>
+<li><a href="http://scalatra.org/">Scalatra</a>
+<ul>
+<li>&quot;Scalatra is a simple, accessible and free web micro-framework. It combines the power of the JVM with the beauty and brevity of Scala, helping you quickly build high-performance web sites and APIs.&quot;</li>
+</ul>
+</li>
+<li><a href="https://liftweb.net/">Lift</a> (<a href="https://github.com/lift/framework">GitHub</a>)
+<ul>
+<li>&quot;Lift is the most powerful, most secure web framework available today. There are Seven Things that distinguish Lift from other web frameworks.&quot;</li>
+</ul>
+</li>
+<li><a href="http://http4s.org/">http4s</a> (<a href="https://github.com/http4s/http4s">GitHub</a>)
+<ul>
+<li>&quot;A typeful, purely functional, streaming library for HTTP clients and servers in Scala.&quot;</li>
+</ul>
+</li>
+<li><a href="https://twitter.github.io/finatra/">Finatra</a>
+<ul>
+<li>&quot;Fast, testable, Scala services built on TwitterServer and Finagle.&quot;</li>
+</ul>
+</li>
+<li><a href="https://github.com/airbnb/hypernova">Hypernova</a>
+<ul>
+<li>&quot;A service for server-side rendering your JavaScript views&quot;</li>
+<li>While not a choice unto itself, this should help speed things up and keep your site nice and search engine friendly.</li>
+</ul>
+</li>
+<li>There will be a number of opinions spread throughout the net, including:
+<ul>
+<li><a href="https://scala.libhunt.com/categories/585-web-frameworks">https://scala.libhunt.com/categories/585-web-frameworks</a></li>
+<li><a href="https://www.reddit.com/r/scala/comments/3kaael/which_framework_to_use_for_development_of_a_rest/">https://www.reddit.com/r/scala/comments/3kaael/which_framework_to_use_for_development_of_a_rest/</a></li>
+<li><a href="https://www.quora.com/Is-Play-the-best-web-framework-written-in-Scala">https://www.quora.com/Is-Play-the-best-web-framework-written-in-Scala</a></li>
+</ul>
+</li>
+<li>You also have all of your other typical options
+<ul>
+<li><a href="https://www.ruby-lang.org/en/">Ruby</a>
+<ul>
+<li><a href="http://rubyonrails.org/">Ruby on Rails</a></li>
+<li><a href="http://www.sinatrarb.com/">Sinatra</a></li>
+</ul>
+</li>
+<li><a href="https://nodejs.org/en/">Node</a>
+<ul>
+<li><a href="http://expressjs.com/">Express</a>: &quot;Fast, unopinionated, minimalist web framework for Node.js&quot;</li>
+<li><a href="https://www.meteor.com/">Meteor</a>: &quot;Meteor is an open source platform for web, mobile, and desktop.&quot;</li>
+<li><a href="http://noeticforce.com/best-nodejs-frameworks-for-web-and-app-development">&quot;Node.js Frameworks: The 10 Best for Web and Apps Development&quot; by noeticsunil</a><br />
+mobile, and desktop.&quot;</li>
+</ul>
+</li>
+<li><a href="https://www.python.org/">Python</a>
+<ul>
+<li><a href="https://www.djangoproject.com/">Django</a></li>
+<li><a href="https://wiki.python.org/moin/WebFrameworks">Web Frameworks for Python</a></li>
+</ul>
+</li>
+<li><a href="https://secure.php.net/">PHP</a>
+<ul>
+<li><a href="https://octobercms.com/">October</a>: &quot;October is a free, open-source, self-hosted CMS platform based on the Laravel PHP Framework. A simple and modular CMS that grows with you, with a precise and beautiful interface that comes as second nature.&quot;</li>
+<li><a href="https://laravel.com/">Laravel</a></li>
+</ul>
+</li>
+<li>etc</li>
+</ul>
+</li>
+</ul>
+<h2><a name="tooling"></a>Tooling</h2>
+<p>With the crazy mix of technologies and steps involved in modern web app development, it makes a ton of sense to tie it all together with some automation.</p>
+<ul>
+<li><a href="https://webpack.github.io/">Webpack</a> (<a href="https://github.com/webpack/webpack">GitHub</a>)
+<ul>
+<li>&quot;Webpack is a bundler for modules. The main purpose is to bundle JavaScript files for usage in a browser, yet it is also capable of transforming, bundling, or packaging just about any resource or asset.&quot;</li>
+<li><a href="http://blog.andrewray.me/webpack-when-to-use-and-why/">&quot;Webpack: When To Use And Why&quot; by Andrew Ray</a></li>
+<li><a href="https://github.com/webpack/less-loader">https://github.com/webpack/less-loader</a></li>
+<li><a href="https://github.com/shakacode/bootstrap-loader">https://github.com/shakacode/bootstrap-loader</a></li>
+</ul>
+</li>
+<li><a href="http://gulpjs.com/">Gulp</a> (<a href="https://github.com/gulpjs/gulp">GitHub</a>
+<ul>
+<li>Gulp is a streaming javascript task runner that lets you automate tasks.</li>
+</ul>
+</li>
+<li><a href="http://gruntjs.com/">Grunt</a> (<a href="https://github.com/gruntjs/">GitHub</a>)
+<ul>
+<li>Grunt is basically the older, less streaming, less awesome version of Gulp.</li>
+</ul>
+</li>
+</ul>
+<p>While a little different in purpose to the things mentioned above, getting everything nicely tested and deployed is always good:</p>
+<ul>
+<li><a href="https://bitbucket.org/product/features/pipelines">Bitbucket Pipelines</a>: &quot;Build, test and deploy from Bitbucket&quot;</li>
+</ul>
+<h2><a name="conclusions"></a>Conclusions</h2>
+<p>Hopefully this has given you a decent starting point for figuring out what combination of technologies is going to work best for your next project. If you want to see the direction I've decided to go, make sure you read on in <a href="#TODO">Part 2</a>.</p>
+<p>Have I missed something important? Not given love to your favourite stack? Got a cool pointer? Or just want to say hi? Let me know in the comments!</p>
+<h2><a name="updates"></a>Updates</h2>
+<ul>
+<li>2017-04-11 Added some more backend web frameworks, updated akka-http link, fixed some formatting</li>
+</ul>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>Rails, OmniAuth and [stealthmode].. Oh my!</title>
+	  <link>/devalias/2013/08/01/rails-omniauth-and-stealthmode-oh-my/</link>
+	  <author>devalias</author>
+	  <pubDate>2013-08-01T08:00:50+10:00</pubDate>
+	  <guid>/devalias/2013/08/01/rails-omniauth-and-stealthmode-oh-my/</guid>
+	  <description><![CDATA[
+	     <p>(<strong>tl;dr</strong>: <a href="http://rubyonrails.org/">Rails</a> is awesome, <a href="https://github.com/intridea/omniauth">OmniAuth</a> is super useful, check out my new website [currently in stealthmode])</p>
+<p>Last Friday (N.B When I started writing this article it was last friday.. it's been sitting here half finished for a while now.. :S my bad..) while sitting at work hacking out whatever I was working on at the time, I had an idea for a simple little website I wanted to put together. I quickly jotted down some notes, then left it till later on that evening.</p>
+<p>I was originally thinking of hacking it together in <a href="https://secure.php.net/">PHP</a> (since that's what i have the most backend experience with), but decided that I would use this as an excuse to play with something I've wanted to learn for a while: <a href="http://rubyonrails.org/">Ruby on Rails</a>.</p>
+<p>Needless to say, like any good little geeky hacker type, I had heard a LOT of good things about Rails (and I suppose it helps that it originated at one of my favourite tech companies <a href="http://37signals.com/opensource">37signals</a>), though never quite had the project or motivation to give it a proper try.. until now..</p>
+<h2>Rails</h2>
+<p>Who? What? How? Where? Why?</p>
+<ul>
+<li>Ruby on Rails (often just called Rails) is a Ruby framework for building websites/applications.</li>
+<li>It establishes conventions/tools for easier setup, collaboration and maintenance. Including:
+<ul>
+<li><a href="http://api.rubyonrails.org/">Rails API</a> – The official Rails API. Treat this like your bible.</li>
+<li><a href="http://guides.rubyonrails.org/command_line.html#rails-new">Rails New</a> – Creates a new rails application (including setting out the folder structure, base files, etc (saves SO much time, and gives a pretty good basis for getting a running start on new projects)</li>
+<li><a href="http://guides.rubyonrails.org/command_line.html#rails-server">Rails Server</a> – Who needs a seperate <a href="https://en.wikipedia.org/wiki/LAMP_(software_bundle)">LAMP</a> when you can have everything you need to get started already!</li>
+<li><a href="http://guides.rubyonrails.org/command_line.html#rails-generate">Rails Generate</a> – Makes use of templates to generate a whole pile of things, and generally make your life much easier. You may also be interested in taking a look at <a href="https://github.com/RailsApps/rails-composer">Rails Composer</a> for added life-ease benefits.</li>
+<li>And many more <a href="http://guides.rubyonrails.org/command_line.html">cool things..</a></li>
+</ul>
+</li>
+<li>Rails has a vast and active community.</li>
+<li>Many libraries (Called gems, <a href="https://rubygems.org/">see RubyGems</a>) exist and are being constantly created/updated that simplify the achievement of complex tasks.</li>
+</ul>
+<p>If you want to read something a bit more detailed, perhaps one of these can tickle your fancy:</p>
+<ul>
+<li><a href="https://railsapps.github.io/what-is-ruby-rails.html">What is Ruby on Rails?</a> by Daniel Kehoe.</li>
+<li><a href="http://railscasts.com/">RailsCasts</a> - TONS of cool tutorials/walkthroughs/information.</li>
+</ul>
+<h2>OmniAuth</h2>
+<p>Since there's probably noone better to explain what <a href="https://github.com/intridea/omniauth">OmniAuth</a> is than the developers themselves, i'll let them describe it:</p>
+<blockquote>
+<p>OmniAuth is a Ruby authentication framework aimed to abstract away the difficulties of working with various types of authentication providers. It is meant to be hooked up to just about any system, from social networks to enterprise systems to simple username and password authentication.</p>
+</blockquote>
+<p>As with everything else to do with Rails and Ruby in general so far, OmniAuth is designed to make our lives as developers all that much easier. One of my biggest issues in getting started with something is having to deal with the monotonous grind that is boilerplate code, and implementing the same thing again and again for each new project (especially authentication).</p>
+<p>Authentication for different systems is broken up into modular strategies, which handle the intricacies and plug back into the main OmniAuth ecosystem. This allows you to very quickly (and very flexibly) add authentication for a whole plethora of cool things such as:</p>
+<ul>
+<li><a href="https://github.com/mkdynamic/omniauth-facebook">Facebook</a></li>
+<li><a href="https://github.com/arunagw/omniauth-twitter">Twitter</a></li>
+<li><a href="https://github.com/intridea/omniauth-github">Github</a></li>
+<li><a href="https://github.com/intridea/omniauth/wiki/List-of-Strategies">and so many, many more..</a> (143 as I was writing this)</li>
+</ul>
+<p>Admittedly, getting myself up and running took a little work (which was mostly due to me learning Rails at the same time, probably not enough sleep, aaaaaand probably only slightly because I was following the tutorials out of order.. whoops..), but it was still WORLDS less than what I would have had to do to implement a comparable (or even half as good system) by myself.</p>
+<p>Definitely check it out and give it a try in your next project, might save you a few hours that could be better spent hacking on something else!</p>
+<p>As far as tutorials/resources, <a href="https://www.youtube.com/watch?v=ftQ6A3DKKeg">Google is Your Friend™</a>, but here are some starters:</p>
+<ul>
+<li><a href="https://github.com/intridea/omniauth">OmniAuth@GitHub</a></li>
+<li><a href="https://github.com/intridea/omniauth/wiki">OmniAuth Wiki@GitHub</a></li>
+<li><a href="https://github.com/intridea/omniauth/wiki/List-of-Strategies">Community maintained list of strategies</a></li>
+<li><a href="http://railscasts.com/">RailsCasts</a>
+<ul>
+<li><a href="http://railscasts.com/episodes/235-omniauth-part-1">#235 OmniAuth Part 1</a></li>
+<li><a href="http://railscasts.com/episodes/236-omniauth-part-2">#236 OmniAuth Part 2</a></li>
+<li><a href="http://railscasts.com/episodes/241-simple-omniauth">#241 Simple OmniAuth</a></li>
+<li><a href="http://railscasts.com/episodes/304-omniauth-identity">#304 OmniAuth Identity</a></li>
+</ul>
+</li>
+</ul>
+<h2>[stealthmode]</h2>
+<p>So this section was going to be all about the website/webapp, why I decided to make it, what it does/will do, a link to it, etc. I was holding off on publishing this post till it went live, but due to some recent developments/talks about the projects possible futures I've decided to hold back on this section for the time being. Will update/link to a new post in the future!</p>
+<p>Sooo.. for now, enjoy my new website that exists only on my devbox.. in stealthmode!! <a href="http://localhost:5000">http://localhost:5000</a> (Unnecessary note: That link isn't going to work for you guys.. :p)</p>
+<h2>Oh My!</h2>
+<p>I don't actually really have anything new or interesting to say here.. aside from that with this subtitle I have now completed the pun set out by this post's title. Winnar!</p>
+
+	  ]]></description>
+	</item>
+
+
+</channel>
+</rss>

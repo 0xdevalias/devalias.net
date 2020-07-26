@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+   
+      <title>devalias.net</title>
+   
+   <link>https://www.devalias.net</link>
+   <description>Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.</description>
+   <language>en_GB</language>
+   <managingEditor> </managingEditor>
+   <atom:link href="rss" rel="self" type="application/rss+xml" />
+   
+	<item>
+	  <title>New Window With Tabs To Right - Chrome Extension</title>
+	  <link>/devalias/2013/08/08/new-window-with-tabs-to-right-chrome-extension/</link>
+	  <author>devalias</author>
+	  <pubDate>2013-08-08T08:00:50+10:00</pubDate>
+	  <guid>/devalias/2013/08/08/new-window-with-tabs-to-right-chrome-extension/</guid>
+	  <description><![CDATA[
+	     <p>(tl;dr I wrote a chrome extension, <a href="https://chrome.google.com/webstore/detail/new-window-with-tabs-to-r/ldahcfljppchbfgdokomobmfdfplaman">get it in the web store</a> or <a href="https://github.com/alias1/chrome-NewWindowWithTabsToRight">check it out on GitHub</a>)</p>
+<p>So I decided I would re-dip my feet into the wonderful world that is chrome extensions. I had a little look a while back, but never really got to making anything relevant.</p>
+<p>This time around I decided to start off simple, and something that I would find useful, so without further ado building up drumroll here is the copypasta of the description I wrote for the chrome web store (there are SO many extra little hoops you have to jump through to go from working code to published in the web store.. Maybe a potential future topic?):</p>
+<blockquote>
+<p>This is a simple little extension (my first proper one!) that I wanted to make my life a little easier.<br />
+It lets you create a new window with the tabs to the right (optionally including the current tab)<br />
+My main reason for wanting this was to more effectively make use of the 'Sesh' extension by Yuji Kosugi when I forgot to open a new window before opening a ton of tabs.<br />
+If you have any comments, criticisms, praise, hatred, marriage proposals, fluffy bunnies, or transdimensional gateway blueprints, feel free to send them through to me at <a href="mailto:feedback@devalias.net">feedback@devalias.net</a> (Make sure to mention the extension name in the subject so I know what you're talking about!)</p>
+</blockquote>
+<p>Since that's a blockquote and I can't link in it, here is a link to <a href="https://chrome.google.com/webstore/detail/sesh/emclpejnhkiogdlimfgipbdfpdcnhhoj">Sesh</a> by <a href="https://about.me/yujily">Yuji Kosugi</a> (highly recommended if you're a tab junkie like myself!)</p>
+<p>So yeah, that's it! Check it out in the <a href="https://chrome.google.com/webstore/detail/new-window-with-tabs-to-r/ldahcfljppchbfgdokomobmfdfplaman">Chrome Web Store</a> and let me know what you think!!</p>
+<p>Oh, by the way, since I love you guys and open source software, it's released under the MIT Licence and you can go and <a href="https://github.com/alias1/chrome-NewWindowWithTabsToRight">check it out over at GitHub</a>! &lt;3</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>Rails, OmniAuth and [stealthmode].. Oh my!</title>
+	  <link>/devalias/2013/08/01/rails-omniauth-and-stealthmode-oh-my/</link>
+	  <author>devalias</author>
+	  <pubDate>2013-08-01T08:00:50+10:00</pubDate>
+	  <guid>/devalias/2013/08/01/rails-omniauth-and-stealthmode-oh-my/</guid>
+	  <description><![CDATA[
+	     <p>(<strong>tl;dr</strong>: <a href="http://rubyonrails.org/">Rails</a> is awesome, <a href="https://github.com/intridea/omniauth">OmniAuth</a> is super useful, check out my new website [currently in stealthmode])</p>
+<p>Last Friday (N.B When I started writing this article it was last friday.. it's been sitting here half finished for a while now.. :S my bad..) while sitting at work hacking out whatever I was working on at the time, I had an idea for a simple little website I wanted to put together. I quickly jotted down some notes, then left it till later on that evening.</p>
+<p>I was originally thinking of hacking it together in <a href="https://secure.php.net/">PHP</a> (since that's what i have the most backend experience with), but decided that I would use this as an excuse to play with something I've wanted to learn for a while: <a href="http://rubyonrails.org/">Ruby on Rails</a>.</p>
+<p>Needless to say, like any good little geeky hacker type, I had heard a LOT of good things about Rails (and I suppose it helps that it originated at one of my favourite tech companies <a href="http://37signals.com/opensource">37signals</a>), though never quite had the project or motivation to give it a proper try.. until now..</p>
+<h2>Rails</h2>
+<p>Who? What? How? Where? Why?</p>
+<ul>
+<li>Ruby on Rails (often just called Rails) is a Ruby framework for building websites/applications.</li>
+<li>It establishes conventions/tools for easier setup, collaboration and maintenance. Including:
+<ul>
+<li><a href="http://api.rubyonrails.org/">Rails API</a> – The official Rails API. Treat this like your bible.</li>
+<li><a href="http://guides.rubyonrails.org/command_line.html#rails-new">Rails New</a> – Creates a new rails application (including setting out the folder structure, base files, etc (saves SO much time, and gives a pretty good basis for getting a running start on new projects)</li>
+<li><a href="http://guides.rubyonrails.org/command_line.html#rails-server">Rails Server</a> – Who needs a seperate <a href="https://en.wikipedia.org/wiki/LAMP_(software_bundle)">LAMP</a> when you can have everything you need to get started already!</li>
+<li><a href="http://guides.rubyonrails.org/command_line.html#rails-generate">Rails Generate</a> – Makes use of templates to generate a whole pile of things, and generally make your life much easier. You may also be interested in taking a look at <a href="https://github.com/RailsApps/rails-composer">Rails Composer</a> for added life-ease benefits.</li>
+<li>And many more <a href="http://guides.rubyonrails.org/command_line.html">cool things..</a></li>
+</ul>
+</li>
+<li>Rails has a vast and active community.</li>
+<li>Many libraries (Called gems, <a href="https://rubygems.org/">see RubyGems</a>) exist and are being constantly created/updated that simplify the achievement of complex tasks.</li>
+</ul>
+<p>If you want to read something a bit more detailed, perhaps one of these can tickle your fancy:</p>
+<ul>
+<li><a href="https://railsapps.github.io/what-is-ruby-rails.html">What is Ruby on Rails?</a> by Daniel Kehoe.</li>
+<li><a href="http://railscasts.com/">RailsCasts</a> - TONS of cool tutorials/walkthroughs/information.</li>
+</ul>
+<h2>OmniAuth</h2>
+<p>Since there's probably noone better to explain what <a href="https://github.com/intridea/omniauth">OmniAuth</a> is than the developers themselves, i'll let them describe it:</p>
+<blockquote>
+<p>OmniAuth is a Ruby authentication framework aimed to abstract away the difficulties of working with various types of authentication providers. It is meant to be hooked up to just about any system, from social networks to enterprise systems to simple username and password authentication.</p>
+</blockquote>
+<p>As with everything else to do with Rails and Ruby in general so far, OmniAuth is designed to make our lives as developers all that much easier. One of my biggest issues in getting started with something is having to deal with the monotonous grind that is boilerplate code, and implementing the same thing again and again for each new project (especially authentication).</p>
+<p>Authentication for different systems is broken up into modular strategies, which handle the intricacies and plug back into the main OmniAuth ecosystem. This allows you to very quickly (and very flexibly) add authentication for a whole plethora of cool things such as:</p>
+<ul>
+<li><a href="https://github.com/mkdynamic/omniauth-facebook">Facebook</a></li>
+<li><a href="https://github.com/arunagw/omniauth-twitter">Twitter</a></li>
+<li><a href="https://github.com/intridea/omniauth-github">Github</a></li>
+<li><a href="https://github.com/intridea/omniauth/wiki/List-of-Strategies">and so many, many more..</a> (143 as I was writing this)</li>
+</ul>
+<p>Admittedly, getting myself up and running took a little work (which was mostly due to me learning Rails at the same time, probably not enough sleep, aaaaaand probably only slightly because I was following the tutorials out of order.. whoops..), but it was still WORLDS less than what I would have had to do to implement a comparable (or even half as good system) by myself.</p>
+<p>Definitely check it out and give it a try in your next project, might save you a few hours that could be better spent hacking on something else!</p>
+<p>As far as tutorials/resources, <a href="https://www.youtube.com/watch?v=ftQ6A3DKKeg">Google is Your Friend™</a>, but here are some starters:</p>
+<ul>
+<li><a href="https://github.com/intridea/omniauth">OmniAuth@GitHub</a></li>
+<li><a href="https://github.com/intridea/omniauth/wiki">OmniAuth Wiki@GitHub</a></li>
+<li><a href="https://github.com/intridea/omniauth/wiki/List-of-Strategies">Community maintained list of strategies</a></li>
+<li><a href="http://railscasts.com/">RailsCasts</a>
+<ul>
+<li><a href="http://railscasts.com/episodes/235-omniauth-part-1">#235 OmniAuth Part 1</a></li>
+<li><a href="http://railscasts.com/episodes/236-omniauth-part-2">#236 OmniAuth Part 2</a></li>
+<li><a href="http://railscasts.com/episodes/241-simple-omniauth">#241 Simple OmniAuth</a></li>
+<li><a href="http://railscasts.com/episodes/304-omniauth-identity">#304 OmniAuth Identity</a></li>
+</ul>
+</li>
+</ul>
+<h2>[stealthmode]</h2>
+<p>So this section was going to be all about the website/webapp, why I decided to make it, what it does/will do, a link to it, etc. I was holding off on publishing this post till it went live, but due to some recent developments/talks about the projects possible futures I've decided to hold back on this section for the time being. Will update/link to a new post in the future!</p>
+<p>Sooo.. for now, enjoy my new website that exists only on my devbox.. in stealthmode!! <a href="http://localhost:5000">http://localhost:5000</a> (Unnecessary note: That link isn't going to work for you guys.. :p)</p>
+<h2>Oh My!</h2>
+<p>I don't actually really have anything new or interesting to say here.. aside from that with this subtitle I have now completed the pun set out by this post's title. Winnar!</p>
+
+	  ]]></description>
+	</item>
+
+
+</channel>
+</rss>

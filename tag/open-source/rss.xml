@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+   
+      <title>devalias.net</title>
+   
+   <link>https://www.devalias.net</link>
+   <description>Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.</description>
+   <language>en_GB</language>
+   <managingEditor> </managingEditor>
+   <atom:link href="rss" rel="self" type="application/rss+xml" />
+   
+	<item>
+	  <title>Imagine a world..</title>
+	  <link>/devalias/2018/04/20/imagine-a-world/</link>
+	  <author>devalias</author>
+	  <pubDate>2018-04-20T00:00:00+10:00</pubDate>
+	  <guid>/devalias/2018/04/20/imagine-a-world/</guid>
+	  <description><![CDATA[
+	     <p>Imagine a world driven by the strive for progress, improvement and innovation, rather than fuelled by corporate greed. Ideas and breakthroughs are shared freely and openly. Where instead of multiple separate entities having to expend the same effort to unlock the same benefits time and time again, locking them away inside their own corporate silos to ration out to the masses at overly inflated costs; we co-create that benefit, shared freely, and greatly accelerate the pace of innovation for everyone.</p>
+<p>Imagine a world where instead of relying on these isolated silos of knowledge, portioned out by 'experts' (and never knowing just how up to date/valid that ‘expert’ information actually is), those same experts are plugged into the latest and greatest, and become the interface that guides and helps integrate that global wealth of knowledge. Where the ego and closed minded attitudes stemming from ‘having studied this content and dedicated a large portion of their life to it' melt away, in favour of the best possible information, actions, and outcomes.</p>
+<p>Imagine a world where new breakthrough technologies and therapies are widely available, because they aren’t limited by copyright or proprietary knowledge. How quickly those things could spread, and how many more people would have access to them. Not just those that can afford the current greed-subsidised availability, but anyone, regardless of their situation or wealth.</p>
+<p>In a world so rich with data, yet so poor in signal buried away among the endless noise. Imagine a world where you're able to filter all of that irrelevance away. Focussing only on what truly matters for you, in that moment, but knowing you can trust in the systems enough that you won’t be missing something relevant or important. Systems that enhance our interactions and experiences, rather than vying to control and capture our attention so it can be monetised.</p>
+<p>This is the world I strive for. This is my future. I may be just one small cog in this global societal machine, but each step we take towards this future enables it’s momentum to grow. Empowering new builders, thinkers and makers with the tools and knowledge to step just a little further, reach a little higher.</p>
+<p>What are your gifts? Your passions? How can you leverage these to move things forward? What can you share? Let’s build this future together.</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>v3.0 -  Now with more Hyde</title>
+	  <link>/devalias/2016/05/22/v3-now-with-more-hyde/</link>
+	  <author>devalias</author>
+	  <pubDate>2016-05-22T00:00:00+10:00</pubDate>
+	  <guid>/devalias/2016/05/22/v3-now-with-more-hyde/</guid>
+	  <description><![CDATA[
+	     <p>Time for another rebirth! As you may have noticed, I haven't really written much over the last year or two. While I've been busy, distracted and occasionally just lazy, I've mostly found that Tumblr's interface is just far too much effort to write in. And if something is needlessly too much effort, it's not going to get done.</p>
+<p>Enter <a href="https://jekyllrb.com/">Jekyll</a>, the static website builder. I've been intending to put something together on this platform forever.. The first iteration started in <a href="http://octopress.org/">Octopress</a> a year or more back, but never really went anywhere since the default theme was kind of ugly. Decided to take another stab at things this year while I was between jobs (free time == productivity!), found a theme that I liked and started hacking away. With a few months of scattered hacking and procrastination, it's finally actually on the internet, yay!</p>
+<p>Being a static site, I'm taking advantage of <a href="https://pages.github.com/">GitHub Pages</a>. While it gives me free hosting, it also means I'm now living my <a href="/devalias/2012/01/04/resolutions-for-11111011100-2012/">previous mantra</a> of 'open source everything'. You can access the <a href="https://github.com/alias1/devalias.net">files used to generate the site</a> and <a href="https://github.com/alias1/devalias.net/issues">create an issue</a>/pull request to fix up any typos/errors you might find along the way :)</p>
+<p>Given it's now only mildly more effort for me to write a post here as it is to save my notes in random text files on my computer, I'll hopefully put more online.. We shall see.</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>New Window With Tabs To Right - Chrome Extension</title>
+	  <link>/devalias/2013/08/08/new-window-with-tabs-to-right-chrome-extension/</link>
+	  <author>devalias</author>
+	  <pubDate>2013-08-08T08:00:50+10:00</pubDate>
+	  <guid>/devalias/2013/08/08/new-window-with-tabs-to-right-chrome-extension/</guid>
+	  <description><![CDATA[
+	     <p>(tl;dr I wrote a chrome extension, <a href="https://chrome.google.com/webstore/detail/new-window-with-tabs-to-r/ldahcfljppchbfgdokomobmfdfplaman">get it in the web store</a> or <a href="https://github.com/alias1/chrome-NewWindowWithTabsToRight">check it out on GitHub</a>)</p>
+<p>So I decided I would re-dip my feet into the wonderful world that is chrome extensions. I had a little look a while back, but never really got to making anything relevant.</p>
+<p>This time around I decided to start off simple, and something that I would find useful, so without further ado building up drumroll here is the copypasta of the description I wrote for the chrome web store (there are SO many extra little hoops you have to jump through to go from working code to published in the web store.. Maybe a potential future topic?):</p>
+<blockquote>
+<p>This is a simple little extension (my first proper one!) that I wanted to make my life a little easier.<br />
+It lets you create a new window with the tabs to the right (optionally including the current tab)<br />
+My main reason for wanting this was to more effectively make use of the 'Sesh' extension by Yuji Kosugi when I forgot to open a new window before opening a ton of tabs.<br />
+If you have any comments, criticisms, praise, hatred, marriage proposals, fluffy bunnies, or transdimensional gateway blueprints, feel free to send them through to me at <a href="mailto:feedback@devalias.net">feedback@devalias.net</a> (Make sure to mention the extension name in the subject so I know what you're talking about!)</p>
+</blockquote>
+<p>Since that's a blockquote and I can't link in it, here is a link to <a href="https://chrome.google.com/webstore/detail/sesh/emclpejnhkiogdlimfgipbdfpdcnhhoj">Sesh</a> by <a href="https://about.me/yujily">Yuji Kosugi</a> (highly recommended if you're a tab junkie like myself!)</p>
+<p>So yeah, that's it! Check it out in the <a href="https://chrome.google.com/webstore/detail/new-window-with-tabs-to-r/ldahcfljppchbfgdokomobmfdfplaman">Chrome Web Store</a> and let me know what you think!!</p>
+<p>Oh, by the way, since I love you guys and open source software, it's released under the MIT Licence and you can go and <a href="https://github.com/alias1/chrome-NewWindowWithTabsToRight">check it out over at GitHub</a>! &lt;3</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>Resolutions for 11111011100 [2012]</title>
+	  <link>/devalias/2012/01/04/resolutions-for-11111011100-2012/</link>
+	  <author>devalias</author>
+	  <pubDate>2012-01-04T10:31:00+11:00</pubDate>
+	  <guid>/devalias/2012/01/04/resolutions-for-11111011100-2012/</guid>
+	  <description><![CDATA[
+	     <p>So here comes the obligatory post about my resolutions for 2012. In no particular order or level of detail:</p>
+<ul>
+<li>Spend more time hanging out and chatting with friends. Those who are physically close as well as those far away; in person, on the phone and online; those who I am close to and those I should be closer with.</li>
+<li>Put more time into coding/web design/development tasks with the aim of getting at least 1 app out this year.</li>
+<li>Open source anything and everything I do that isn't a 'trade secret' (More on this to come later). Who knows what people will be able to find a use for. Also contribute back anything I can to open source projects I use.</li>
+<li>Continue to read, learn and grow; be it in technical skill, learning about myself, or the world; and share what I learn with everyone and anyone who is interested. (Essentially open source whatever knowledge I gain)</li>
+<li>Be more forward and take (calculated) risks even when they seem scary. (Talking to someone new/interesting/cute, giving that project a go, etc)</li>
+</ul>
+<p>This one isn't a resolution so much as a goal but a notable thing to do in any case:</p>
+<ul>
+<li>Ensure all of my hard drives utilise full disk encryption, using a strong password. ''The man' thinks he is too good these days, so why not stick it to him in a simple, fun, and secure way. (See the article on EFF.org)</li>
+</ul>
+
+	  ]]></description>
+	</item>
+
+
+</channel>
+</rss>

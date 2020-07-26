@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+   
+      <title>devalias.net</title>
+   
+   <link>https://www.devalias.net</link>
+   <description>Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.</description>
+   <language>en_GB</language>
+   <managingEditor> </managingEditor>
+   <atom:link href="rss" rel="self" type="application/rss+xml" />
+   
+	<item>
+	  <title>Plesk - Adding programs to a chrooted SSH</title>
+	  <link>/devalias/2012/01/10/plesk-adding-programs-to-a-chrooted-ssh/</link>
+	  <author>devalias</author>
+	  <pubDate>2012-01-10T05:29:00+11:00</pubDate>
+	  <guid>/devalias/2012/01/10/plesk-adding-programs-to-a-chrooted-ssh/</guid>
+	  <description><![CDATA[
+	     <p>Just a few notes today about making programs (in this case git) available to a chrooted SSH account in Plesk. I'm assuming the account is already setup for ssh, etc so I will just be covering where to copy the files to.</p>
+<p><strong>Note:</strong> If you are here about getting an <code>execv(&quot;/bin/bash&quot;)</code> failed error, check Appendix B</p>
+<h2>Location</h2>
+<ul>
+<li><code>/usr/local/bin</code> - The git bin files we will be copying.</li>
+<li><code>/usr/local/share/git-core</code> - The shared git-core files.</li>
+<li><code>/var/www/vhosts/chroot</code> - The base directory for chroot accessible programs.</li>
+</ul>
+<h2>Copying Git</h2>
+<p>Firstly you will want to locate the git files. The easiest way to do this is by typing:</p>
+<pre><code>which git
+</code></pre>
+<p>This should tell you the path to git (in my case /usr/local/bin) Next we want to copy the files over to the equivalent path in the chroot directory (/path/to/chroot/usr/local/bin)</p>
+<pre><code>cp -R /usr/local/bin/git* /var/www/vhosts/chroot/usr/local/bin
+</code></pre>
+<p>In the case of git, we also want to copy over some other files</p>
+<pre><code>cp -R /usr/local/share/git-core /var/www/vhosts/chroot/usr/local/share/git-core
+cp -R /usr/local/libexec /var/www/vhosts/chroot/usr/local/libexec/git-core
+</code></pre>
+<p><strong>Note:</strong> The libexec files are quite large (100's of mb) so you may want to consider doing this in a better way.</p>
+<h2>Updating chroot'd directories</h2>
+<p>The final (rather simple) step involves updating any chrooted directories that have already been created. This can be done by running the <code>recreate_chroot_env.sh</code> script (downloadable from <a href="http://kb.parallels.com/818">http://kb.parallels.com/818</a>)</p>
+<p>This can also be done without the script:</p>
+<pre><code>/usr/local/psa/admin/sbin/chrootmng --remove --source=/var/www/vhosts/chroot --target=/var/www/vhosts/&lt;domain name&gt;
+/usr/local/psa/admin/sbin/chrootmng --create --source=/var/www/vhosts/chroot --target=/var/www/vhosts/&lt;domain name&gt;
+</code></pre>
+<p><strong>Thats it!!</strong></p>
+<p>Now when you login to your chrooted account you should be able to use git. I might add the required files for some more programs as I find the need to add them.</p>
+<h2>Appendix A: Files required for ftp</h2>
+<ul>
+<li><code>/usr/bin/ftp</code> -&gt; <code>chroot/bin</code></li>
+<li><code>/usr/lib64/libreadline.so.5</code> -&gt; <code>chroot/lib/libreadline.so.5</code></li>
+<li><code>/usr/lib64/libncurses.so.5</code> -&gt; <code>chroot/lib/libncurses.so.5</code></li>
+<li><code>/etc/services</code> -&gt; <code>chroot/etc/services</code></li>
+</ul>
+<h2>Appendix B: execv(&quot;/bin/bash&quot;) failed</h2>
+<p>One cause of this occuring is due to the bin files for a chrooted directory not exisiting/being properly setup. This can be fixed by following the instructions in Updating chroot'd directories above.. or if you're too lazy to scroll (like me)</p>
+<pre><code>/usr/local/psa/admin/sbin/chrootmng --remove --source=/var/www/vhosts/chroot --target=/var/www/vhosts/&lt;domain name&gt;
+/usr/local/psa/admin/sbin/chrootmng --create --source=/var/www/vhosts/chroot --target=/var/www/vhosts/&lt;domain name&gt;
+</code></pre>
+
+	  ]]></description>
+	</item>
+
+
+</channel>
+</rss>

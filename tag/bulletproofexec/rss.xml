@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+   
+      <title>devalias.net</title>
+   
+   <link>https://www.devalias.net</link>
+   <description>Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.</description>
+   <language>en_GB</language>
+   <managingEditor> </managingEditor>
+   <atom:link href="rss" rel="self" type="application/rss+xml" />
+   
+	<item>
+	  <title>8 Reasons Why Better Nutrition Makes You a Better Developer</title>
+	  <link>/devalias/2013/07/18/8-reasons-why-better-nutrition-makes-you-a-better-developer/</link>
+	  <author>devalias</author>
+	  <pubDate>2013-07-18T11:03:03+10:00</pubDate>
+	  <guid>/devalias/2013/07/18/8-reasons-why-better-nutrition-makes-you-a-better-developer/</guid>
+	  <description><![CDATA[
+	     <p>Ref: <a href="https://thecodebarbarian.wordpress.com/2013/06/21/8-reasons-why-better-nutrition-makes-you-a-better-developer/">8 Reasons Why Better Nutrition Makes You a Better Developer</a></p>
+<p>So this one isn't from me, but I thought it was worth giving some love to on here. Definitely worth the few minutes to read through and stuff that I very much agree with. Many thanks to <a href="https://thecodebarbarian.wordpress.com/about/">Valeri Karpov</a> over at <a href="https://thecodebarbarian.wordpress.com/">The Code Barbarian</a> for putting together such an epic piece!</p>
+<p>As you may (or may not) already know, I've been doing the paleo thing for about a year now, following the <a href="https://www.bulletproofexec.com/the-complete-illustrated-one-page-bulletproof-diet/">Bulletproof diet</a> by Dave Asprey, and thanks to it i'm pretty much feeling the best I have in as long as I can remember.</p>
+<p><a href="https://thecodebarbarian.wordpress.com/2013/06/21/8-reasons-why-better-nutrition-makes-you-a-better-developer/">Read the full article</a> at the link.</p>
+<blockquote>
+<p>Software developers are not known for having the best nutrition. When it comes to development work, the stereotypical late night Red Bull-fueled coding binge is often not too far from the truth. It...</p>
+</blockquote>
+
+	  ]]></description>
+	</item>
+
+
+</channel>
+</rss>

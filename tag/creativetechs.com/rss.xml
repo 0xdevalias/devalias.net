@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+   
+      <title>devalias.net</title>
+   
+   <link>https://www.devalias.net</link>
+   <description>Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.</description>
+   <language>en_GB</language>
+   <managingEditor> </managingEditor>
+   <atom:link href="rss" rel="self" type="application/rss+xml" />
+   
+	<item>
+	  <title>Accessing Files from other Time Machine backups</title>
+	  <link>/devalias/2016/07/07/access-files-from-other-time-machine-backups/</link>
+	  <author>devalias</author>
+	  <pubDate>2016-07-07T00:00:00+10:00</pubDate>
+	  <guid>/devalias/2016/07/07/access-files-from-other-time-machine-backups/</guid>
+	  <description><![CDATA[
+	     <p>There are two main methods for accessing files from other Time Machine backups:</p>
+<ol>
+<li>Using Time Machine</li>
+<li>Accessing the backup file directly</li>
+</ol>
+<p>Before we get started, if you're using Time Capsule or a network volume for backup, you first need to navigate to the backup location and double click to mount the <code>.sparsebundle</code>. (it may ask you for a password if the backup is encrypted) Once that's done, continue as normal below.</p>
+<h2>Using Time Machine</h2>
+<ul>
+<li>Hold alt/option</li>
+<li>Click on the Time Maching (backup) icon in the menu bar</li>
+<li>Select &quot;Browse Other Backup Disks...&quot;</li>
+<li>Select the backup you want to browse.</li>
+</ul>
+<h2>Accessing the backup file directly</h2>
+<p>Unfortunately while trying to access my old machine's backup file, the above method didn't want to work for me. Luckily, we can get access to the files the good old fashioned manual way!</p>
+<ul>
+<li>Locate and mount the <code>.sparsebundle</code></li>
+<li>Navigate to the <code>Backups.backupdb/yourmachinename/Latest</code> folder</li>
+<li>Enjoy!</li>
+</ul>
+<h2>References</h2>
+<ul>
+<li><a href="http://www.creativetechs.com/tipsblog/access-files-from-other-time-machine-backups/">http://www.creativetechs.com/tipsblog/access-files-from-other-time-machine-backups/</a></li>
+<li><a href="https://apple.stackexchange.com/questions/158645/recover-certain-files-from-time-machine-from-previous-mac">https://apple.stackexchange.com/questions/158645/recover-certain-files-from-time-machine-from-previous-mac</a></li>
+</ul>
+
+	  ]]></description>
+	</item>
+
+
+</channel>
+</rss>

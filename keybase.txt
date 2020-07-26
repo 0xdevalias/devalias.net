@@ -1,0 +1,70 @@
+==================================================================
+https://keybase.io/devalias
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://devalias.net
+  * I am devalias (https://keybase.io/devalias) on keybase.
+  * I have a public key with fingerprint 4064 5864 7390 BD36 E415  7974 482E 543A 4FE7 484B
+
+To claim this, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "fingerprint": "406458647390bd36e4157974482e543a4fe7484b",
+            "host": "keybase.io",
+            "key_id": "482e543a4fe7484b",
+            "uid": "bce450642a38f6c0faeafb4920854400",
+            "username": "devalias"
+        },
+        "service": {
+            "hostname": "devalias.net",
+            "protocol": "http:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1403574083,
+    "expire_in": 157680000,
+    "prev": "9c9b324706b543c4643b45c80aaa22ce38c4b192932e66f9989e59e1b6ce6499",
+    "seqno": 13,
+    "tag": "signature"
+}
+
+with the aforementioned key, yielding the PGP signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v0.1.22
+Comment: https://keybase.io/crypto
+
+yML4AnicZZF9TBNnHMcLKhld6Fg2cQ1M8JgDpZbr3XNvHSREUBluMESSVd3au+tT
+OCx39XqUl4ZgYnFxOMB0yth0RAXi9odFN9EUw5y8xE0ZRuIb84U5OzBLDOEtG8jm
+lWz/bM8/l/s9n+/nmye//phlGm1ErnG7uWA8d2vE1UtTFZqiU7ezvQgn2asRsxfZ
+DZc+DkEsgbJLFkQFMSMAJQFBk4DCGZSz4yQEJoJiKABoDBIAZ4EDUoAGHGJASiV3
+OKFqONYNjYKkztQfq2APe/7PVyxdcDwEhFqCsTjtIHnUwULWwQEGQ2kCABQNg24o
+i2w5VGk79LBOgXUjtQZEnXoEXp16l6r/QxhFqKhZlywpEi851ZtSRXGZw0Gl2hUm
+KyFn/cdh5QTRrr5bDXig7BYkETGbVJJXhLDUBFCcoABK4wYEVrkEGVqFMEFQJI2q
+J1wDPaqS4RkOxwCFkpz6WB6QAOcAwdMoy7IYxkOc5gFnYjAGxyBJOhiGZiDBQBNH
+8pAEDKP2u+EeUVLdapXClqhOt1AiskqFDJHay9/vWq6J0GqiVkSGV6fRRsf+u9CP
+M2M1R767GLry0jHJf6emfPa8waGdF5PzfjlYxx2Xg/stjRe/CkzGHGh1hT6KKauO
+7775d01GxJdrFTp1SHd9x8yiaKymq/QyQcQ/2Td04syqmsaOV+aH0lKpwtRg1rYk
+/62BtbqCVG2cbnDLHD7c1nb8Av5JwsuezPXvxE/B91OC6/bmo4afe8bvudjDUmXC
+W5X+rlMvWJ7dP7YKq3W82Mrdzil79p7W9lp+WpWtsK41trir41DbxM4+eZZs6p4f
+TyF/jOz0j3/7ruXxos3fOMDOlVI5xGUqBVvz4XAoPfqDbivXe+luhfd0orO+/7Nz
+Z0MZnT+tbuCjNyeVmKUDV6qmzmQHdwXOF+nP3WjWmyfapyuzHj5y9q8b+0Z2Nqdf
+e/v3wxe+XtRHUZ8K12wze2ldU+njgjey7uedTkrCtHfLp15vubep4a/greyohY4W
+7+fJ1MqJrr6Tc/Wvrs7ERwzF6GTccHvZwqHps6PidKBua7B+cjCPPuLZPRG5s+/p
+/pn8DbnrQ8nEqN24bKZB78eLdFd9TKDe5+zY6Gv/YV/nQMzRlcsXJhXHmw+K7/Sc
+jHoy0pC46cHTh9v+bHp043rzH726EyOF+Xs0DQfHujO2bBzcnvabb4NRlzHKWTKP
+Gi3ppjgD9WvLbHswcQ2TkNPjuRnoXbF5bMe0jRJqmiRfcXLeF88Bli+LPg==
+=htrh
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/devalias
+
+==================================================================

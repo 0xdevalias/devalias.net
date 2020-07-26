@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="shortcut icon" href="/assets/images/authors/devalias.png" >
+
+  <meta name="referrer" content="origin" />
+  <meta name="generator" content="Jekyll 3.x" />
+
+  <link type="application/atom+xml" rel="alternate" href="https://www.devalias.net/feed.xml" title="/dev/alias – Hack. Dev. Transcend." />
+
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Forking Github!! (or how to contribute to a project) | /dev/alias – Hack. Dev. Transcend.</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Forking Github!! (or how to contribute to a project)" />
+<meta name="author" content="Glenn 'devalias' Grant" />
+<meta property="og:locale" content="en_GB" />
+<meta name="description" content="I&#39;ve been following the GitHub craze for a little while now, and finally coming to a stage where I would like to start contributing to some of the projects I follow. Having looked closely at the examples for one in particular, I noticed something simple, but beneficial that I could add, so I set out to become an active member of the internet!" />
+<meta property="og:description" content="I&#39;ve been following the GitHub craze for a little while now, and finally coming to a stage where I would like to start contributing to some of the projects I follow. Having looked closely at the examples for one in particular, I noticed something simple, but beneficial that I could add, so I set out to become an active member of the internet!" />
+<link rel="canonical" href="https://www.devalias.net/devalias/2012/01/06/forking-github/" />
+<meta property="og:url" content="https://www.devalias.net/devalias/2012/01/06/forking-github/" />
+<meta property="og:site_name" content="/dev/alias – Hack. Dev. Transcend." />
+<meta property="og:image" content="https://www.devalias.net/assets/images/cover4.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2012-01-06T13:36:18+11:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://www.devalias.net/assets/images/cover4.jpg" />
+<meta property="twitter:title" content="Forking Github!! (or how to contribute to a project)" />
+<meta name="twitter:site" content="@_devalias" />
+<meta name="twitter:creator" content="@_devalias" />
+<script type="application/ld+json">
+{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://www.devalias.net/assets/images/cover4.jpg"},"name":"Glenn 'devalias' Grant"},"@type":"BlogPosting","url":"https://www.devalias.net/devalias/2012/01/06/forking-github/","image":"https://www.devalias.net/assets/images/cover4.jpg","headline":"Forking Github!! (or how to contribute to a project)","dateModified":"2012-01-06T13:36:18+11:00","datePublished":"2012-01-06T13:36:18+11:00","author":{"@type":"Person","name":"Glenn 'devalias' Grant"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.devalias.net/devalias/2012/01/06/forking-github/"},"description":"I&#39;ve been following the GitHub craze for a little while now, and finally coming to a stage where I would like to start contributing to some of the projects I follow. Having looked closely at the examples for one in particular, I noticed something simple, but beneficial that I could add, so I set out to become an active member of the internet!","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  <!-- old tags, still needed? -->
+  <meta name="twitter:title" content="/dev/alias – Hack. Dev. Transcend." />
+  <meta name="twitter:description" content="Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more." />
+  <!-- <meta name="twitter:image" content="/assets/images/cover4.jpg" /> -->
+  <!-- /end tags -->
+
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
+
+  <link rel="stylesheet" type="text/css" href="/assets/css/screen.css" />
+  <link rel="stylesheet" type="text/css" href="/assets/css/syntax.css" />
+
+  <link rel="stylesheet" type="text/css" href="/assets/css/custom.css" />
+
+  <!-- Font Awesome -->
+<script defer src="https://use.fontawesome.com/releases/v5.0.1/js/all.js"></script>
+
+
+  
+
+  <!-- https://indieauth.com/ -->
+<link href="https://github.com/0xdevalias" rel="me">
+<link href="https://twitter.com/_devalias" rel="me">
+<link href="https://www.instagram.com/_devalias/" rel="me">
+<link href="https://www.linkedin.com/in/glenn-devalias-grant/" rel="me">
+
+</head>
+
+
+<body class="post-template nav-closed">
+
+    <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+        
+            <li class="nav-home " role="presentation">
+                <a href="/">Home</a>
+            </li>
+        
+            <li class="nav-now " role="presentation">
+                <a href="/now">Now</a>
+            </li>
+        
+            <li class="nav-about " role="presentation">
+                <a href="/about">About</a>
+            </li>
+        
+            <li class="nav-speaker " role="presentation">
+                <a href="/speaker">Speaker</a>
+            </li>
+        
+            <li class="nav-sec " role="presentation">
+                <a href="/sec">Security</a>
+            </li>
+        
+            <li class="nav-dev " role="presentation">
+                <a href="/dev">Development</a>
+            </li>
+        
+            <li class="nav-writing " role="presentation">
+                <a href="/writing">Writing</a>
+            </li>
+        
+            <li class="nav-coaching " role="presentation">
+                <a href="/coaching">Coaching</a>
+            </li>
+        
+            <li class="nav-personal " role="presentation">
+                <a href="/personal">Personal</a>
+            </li>
+        
+            <li class="nav-go-deeper " role="presentation">
+                <a href="/go-deeper">Go Deeper...</a>
+            </li>
+        
+    </ul>
+    <a class="subscribe-button" href="/feed.xml"><i class="fas fa-rss-square"></i> Subscribe</a>
+</div>
+<span class="nav-cover"></span>
+
+
+    <div class="site-wrapper">
+        <!-- [[! Everything else gets inserted here ]] -->
+        <!-- Layout: Post -->
+<!-- Template: header -->
+
+
+
+
+<header class="main-header
+               
+                    " style="background-image: url(/assets/images/cover4.jpg)
+                ">
+    <nav class="main-nav overlay clearfix">
+        
+          <a class="blog-logo" href="/"><img src="/assets/images/devalias-prompt.png" alt="Blog Logo" /></a>
+        
+        
+            <a class="menu-button" href="#"><i class="fas fa-bars"></i> <span class="word">Menu</span></a>
+        
+    </nav>
+
+    
+        
+            <div class="vertical">
+                <div class="main-header-content inner">
+                    
+                        <h1 class="page-title">Forking Github!! (or how to contribute to a project)</h1>
+                    
+                    
+                </div>
+            </div>
+        
+    
+
+    
+</header>
+<!-- /Template: header -->
+
+
+<main id="content" class="content" role="main">
+    <article class="post ">
+        <header class="post-header">
+            <!-- <h1 class="post-title">Forking Github!! (or how to contribute to a project)</h1> -->
+            <section class="post-meta">
+    
+        <img class="author-thumb" src="/assets/images/authors/devalias.png" alt="Author image" nopin="nopin" />
+    
+    
+        <a href='/author/devalias'>Glenn 'devalias' Grant</a>
+    
+    |
+    <time class="post-date" datetime="2012-01-06">06 Jan 2012</time>
+    |
+    
+        2 minutes
+    
+    to read
+    <!-- [[tags prefix=" on "]] -->
+    
+        |
+        
+            <a href='/tag/git'>#git</a>,
+        
+            <a href='/tag/github'>#github</a>,
+        
+            <a href='/tag/clone'>#clone</a>,
+        
+            <a href='/tag/fork'>#fork</a>
+        
+    
+    
+        |
+        <a href="http://devalias.tumblr.com/post/15337594635/forking-github-or-how-to-contribute-to-a" title="Imported from original post on Tumblr" target="_blank"><i class="fab fa-tumblr-square"></i></a>
+    
+</section>
+
+        </header>
+
+        <section class="post-content">
+            <p>I've been following the GitHub craze for a little while now, and finally coming to a stage where I would like to start contributing to some of the projects I follow. Having looked closely at the examples for one in particular, I noticed something simple, but beneficial that I could add, so I set out to become an active member of the internet!</p>
+<p>I forked the repository, synced it down to my computer, made the changes, created a pull request, and got it merged with the main code. Win!!</p>
+<p>It wasn't until a week or two later that I was reading an article that mentioned creating pull requests from your main repos wasn't really the best idea. Woops. So, to remind myself, and hopefully help some others out in the process, I'm documenting what is the 'proper' (if such a thing exists) process for forking.</p>
+<ol>
+<li><strong>Fork/clone the project reposistory</strong> - Every story needs a place to start, and ours starts at the repos we want to contribute to. Fork/clone the repository to somewhere you can play around with it.</li>
+<li><strong>Create a new branch on your fork/clone</strong> - Now here is where I went wrong. Create a new branch (<code>git branch [blah]</code>) on your fork/clone and check it out (<code>git checkout [blah]</code>) before making any changes to the code. This way the changes you make will be isolated in your branch and won't mess up the master branch (that you pulled down from the original repository)</li>
+<li><strong>Make your changes</strong> - Make whatever changes you want/need/feel the desire to make. The world is your oyster. Remember that the original code is sitting in the master branch in case you need to wipe everything out and start again.</li>
+<li><strong>Commit your changes</strong> - Make sure to commit the changes you make to your branch, otherwise they aren't going to go anywhere! Also, make sure you push your local branch back up to GitHub.</li>
+<li><strong>Create a pull request</strong> - Go to GitHub and create a pull request from your branch for the original project to incorporate your changes.</li>
+</ol>
+<p>Hopefully theres enough info here to at least set you on the right track to contributing if (when! do it, you know you want to..) you start contributing to open source projects.</p>
+<h2>Sources</h2>
+<ul>
+<li><a href="https://github.com/primalmotion/Archipel/wiki/Developer%3A-Contributing">https://github.com/primalmotion/Archipel/wiki/Developer%3A-Contributing</a></li>
+</ul>
+
+        </section>
+
+        <footer class="post-footer">
+
+            <!-- #author-->
+
+            
+	<figure class="author-image">
+	    <a class="img" href="/author/devalias" style="background-image: url(/assets/images/authors/devalias.png)"><span class="hidden">devalias's Picture</span></a>
+	</figure>
+
+
+            <section class="author">
+                <h4>
+                    
+                        <a href="/author/devalias">Glenn 'devalias' Grant</a>
+                    
+                </h4>
+
+                
+                    <p> Glenn is a full-stack, polyglot developer with an acute interest in the offensive side of security; as well as technology, efficiency, biohacking, health, personal growth and a whole lot more.</p>
+                
+                <div class="author-meta">
+    
+        <span class="author-location">
+            <i class="fas fa-location-arrow"></i>
+            Australia
+        </span>
+    
+    
+        <span class="author-link">
+            <a href="http://www.devalias.net/">
+                <i class="fas fa-external-link-alt"></i>
+                devalias.net
+            </a>
+        </span>
+    
+    
+</div>
+
+                <div class="author-social">
+    <a href="/author/devalias/rss.xml" title="RSS Feed"><i class="fas fa-rss-square fa-1x"></i></a>
+    
+        <a href="https://keybase.io/devalias" title="Keybase" target="_blank"><i class="fas fa-key fa-1x"></i></a>
+    
+    
+        <a href="https://www.linkedin.com/in/glenn-devalias-grant" title="LinkedIn" target="_blank"><i class="fab fa-linkedin fa-1x"></i></a>
+    
+    
+        <a href="https://twitter.com/_devalias" title="Twitter" target="_blank"><i class="fab fa-twitter-square fa-1x"></i></a>
+    
+    
+        <a href="https://instagram.com/_devalias" title="Instagram" target="_blank"><i class="fab fa-instagram fa-1x"></i></a>
+    
+    
+        <a href="https://medium.com/@devalias" title="Medium" target="_blank"><i class="fab fa-medium fa-1x"></i></a>
+    
+    
+        <a href="https://github.com/0xdevalias" title="Github" target="_blank"><i class="fab fa-github-square fa-1x"></i></a>
+    
+    
+    
+    
+        <a href="https://speakerdeck.com/0xdevalias" title="SpeakerDeck" target="_blank">
+            <!-- TODO: Correctly handle size differences -->
+            <!-- SVG Source: https://github.com/FortAwesome/Font-Awesome/issues/1688#issuecomment-266479369 -->
+            
+                <!-- Includes hacky resizing to make it work for this size.. -->
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="15" height="20" viewBox="5 -7 16.875 35">
+                    <path d="M25.6 3.8c-1-1-2.199-1.5-3.6-1.5h-16.9c-1.4 0-2.6 0.5-3.6 1.5s-1.5 2.2-1.5 3.6v17.2c0 1.4 0.5 2.5 1.5 3.5s2.2 1.5 3.6 1.5h16.8c1.398 0 2.6-0.5 3.6-1.5s1.5-2.2 1.5-3.6v-17.1c0-1.4-0.4-2.6-1.4-3.6zM22.286 20.188c0 1.313-1.063 2.375-2.375 2.375h-12.437c-1.311 0-2.375-1.063-2.375-2.375v-8.375c0-1.312 1.063-2.375 2.375-2.375h12.437c1.311 0 2.375 1.063 2.375 2.375v8.375z"></path>
+                    <path d="M12.75 18.49v-4.977l-4.277 2.487z"></path>
+                    <path d="M14.684 18.516l4.228-2.516-4.228-2.514z"></path>
+                </svg>
+            
+        </a>
+    
+    
+        <a href="https://www.slideshare.net/GlenndevaliasGrant" title="SlideShare" target="_blank"><i class="fab fa-slideshare fa-1x"></i></a>
+    
+    
+        <a href="https://www.reddit.com/user/_devalias" title="Reddit" target="_blank"><i class="fab fa-reddit-square fa-1x"></i></a>
+    
+    
+        <a href="https://news.ycombinator.com/user?id=alias1" title="Hacker News" target="_blank"><i class="fab fa-hacker-news-square fa-1x"></i></a>
+    
+    
+        <a href="https://stackoverflow.com/users/1137085/devalias" title="StackOverflow" target="_blank"><i class="fab fa-stack-overflow fa-1x"></i></a>
+    
+    
+        <a href="https://stackexchange.com/users/1156663/devalias" title="StackExchange" target="_blank"><i class="fab fa-stack-exchange fa-1x"></i></a>
+    
+</div>
+
+            </section>
+
+            <!-- /author  -->
+
+            
+
+
+
+
+
+<section class="share">
+    <h4>Share this post</h4>
+
+    
+    <a href="http://twitter.com/share?text=Forking+Github%21%21+%28or+how+to+contribute+to+a+project%29&amp;url=https%3A%2F%2Fwww.devalias.net%2Fdevalias%2F2012%2F01%2F06%2Fforking-github%2F&amp;via=_devalias" title="Share on Twitter" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"><i class="fab fa-twitter-square fa-2x"></i></a>
+
+    
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Fwww.devalias.net%2Fdevalias%2F2012%2F01%2F06%2Fforking-github%2F&amp;title=Forking+Github%21%21+%28or+how+to+contribute+to+a+project%29&amp;&source=https%3A%2F%2Fwww.linkedin.com%2Fin%2Fglenn-devalias-grant%2F" title="Share on LinkedIn" onclick="window.open(this.href, 'linkedin-share', 'width=520,height=570');return false;"><i class="fab fa-linkedin fa-2x"></i></a>
+
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.devalias.net%2Fdevalias%2F2012%2F01%2F06%2Fforking-github%2F" title="Share on Facebook" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;"><i class="fab fa-facebook-square fa-2x"></i></a>
+
+    <a href="https://plus.google.com/share?url=https%3A%2F%2Fwww.devalias.net%2Fdevalias%2F2012%2F01%2F06%2Fforking-github%2F"  title="Share on Google+" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;"><i class="fab fa-google-plus-square fa-2x"></i></a>
+</section>
+
+
+            
+                
+                    <!-- Add Disqus Comments -->
+                    <div id="disqus_thread"></div>
+<script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'devalias'; // required: replace example with your forum shortname
+        var disqus_identifier = '/devalias/2012/01/06/forking-github/';
+        var disqus_url = 'https://www.devalias.net/devalias/2012/01/06/forking-github/';
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="https://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>
+
+                
+            
+
+            
+
+        </footer>
+
+    </article>
+
+</main>
+
+<aside class="read-next">
+
+    <!-- [[! next_post ]] -->
+    
+        <a class="read-next-story no-cover" href="/devalias/2012/01/10/plesk-adding-programs-to-a-chrooted-ssh/">
+            <section class="post">
+                <h2>Plesk - Adding programs to a chrooted SSH</h2>
+                <p>Just a few notes today about making programs (in this case git) available to a chrooted SSH account in Plesk. I'm assuming the account is...</p>
+            </section>
+        </a>
+    
+    <!-- [[! /next_post ]] -->
+    <!-- [[! prev_post ]] -->
+    
+        <a class="read-next-story prev no-cover" href="/devalias/2012/01/04/resolutions-for-11111011100-2012/">
+            <section class="post">
+                <h2>Resolutions for 11111011100 [2012]</h2>
+                <p>So here comes the obligatory post about my resolutions for 2012. In no particular order or level of detail:
+</p>
+            </section>
+        </a>
+    
+    <!-- [[! /prev_post ]] -->
+</aside>
+
+<!-- /Layout: Post -->
+
+
+        <footer class="site-footer clearfix">
+            <section class="copyright">
+                <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">devalias.net</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://www.devalias.net/" property="cc:attributionName" rel="cc:attributionURL">Glenn 'devalias' Grant</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+            </section>
+            <section class="poweredby">
+                <div>
+                    <strong>Build:</strong> 41e8aad
+                    <a href="https://github.com/0xdevalias/devalias.net/tree/master/_posts/2012-01-06-forking-github.md" target="_blank">
+                        <i class="fas fa-edit"></i>
+                        Edit on GitHub
+                    </a>
+                </div>
+                Proudly published with
+                <a href="https://jekyllrb.com/" target="_blank">Jekyll</a>
+                using
+                <a href="https://github.com/biomadeira/jasper" target="_blank">Jasper</a>
+                to
+                <a href="https://github.com/" target="_blank">GitHub</a>
+            </section>
+        </footer>
+    </div>
+    <!-- [[! Ghost outputs important scripts and data with this tag ]] -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <!-- [[! The main JavaScript file for Casper ]] -->
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="/assets/js/index.js"></script>
+
+        <!-- Google Analytics Tracking code -->
+     <script>
+	    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	    ga('create', 'UA-27970144-1', 'auto');
+	    ga('send', 'pageview');
+     </script>
+    
+    
+</body>
+</html>

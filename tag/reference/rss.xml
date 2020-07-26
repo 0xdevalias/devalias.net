@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+   
+      <title>devalias.net</title>
+   
+   <link>https://www.devalias.net</link>
+   <description>Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.</description>
+   <language>en_GB</language>
+   <managingEditor> </managingEditor>
+   <atom:link href="rss" rel="self" type="application/rss+xml" />
+   
+	<item>
+	  <title>Why you Should Bury Your Sign Up Button - Bokardo</title>
+	  <link>/devalias/2011/10/23/why-you-should-bury-your-sign-up-button-bokardo/</link>
+	  <author>devalias</author>
+	  <pubDate>2011-10-23T12:35:39+11:00</pubDate>
+	  <guid>/devalias/2011/10/23/why-you-should-bury-your-sign-up-button-bokardo/</guid>
+	  <description><![CDATA[
+	     <p>Ref: <a href="http://bokardo.com/archives/why-you-should-bury-your-sign-up-button/">http://bokardo.com/archives/why-you-should-bury-your-sign-up-button/</a></p>
+<blockquote>
+<p>Once I accepted that the redesign still wasn't working, I created the opportunity to find out why not. See that interesting little trick I pulled there? Failure is an opportunity to problem solve!</p>
+</blockquote>
+
+	  ]]></description>
+	</item>
+
+
+</channel>
+</rss>

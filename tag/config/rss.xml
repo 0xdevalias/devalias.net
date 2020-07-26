@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+   
+      <title>devalias.net</title>
+   
+   <link>https://www.devalias.net</link>
+   <description>Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.</description>
+   <language>en_GB</language>
+   <managingEditor> </managingEditor>
+   <atom:link href="rss" rel="self" type="application/rss+xml" />
+   
+	<item>
+	  <title>Bye Bye Russian Spam</title>
+	  <link>/devalias/2011/11/07/bye-bye-russian-spam/</link>
+	  <author>devalias</author>
+	  <pubDate>2011-11-07T18:15:00+11:00</pubDate>
+	  <guid>/devalias/2011/11/07/bye-bye-russian-spam/</guid>
+	  <description><![CDATA[
+	     <p>I've been getting hit pretty heavily lately with a pile of Russian spam, so I decided to look into adding language based spam filtering to my mailserver. This post serves as a reminder of what I did, and hopefully also helps some others in a similar situation.</p>
+<h2>Location</h2>
+<ul>
+<li>/etc/mail/spamassassin - Global</li>
+<li>/usr/share/spamassassin - User</li>
+</ul>
+<h2>SpamAssassin Config File (local.cf)</h2>
+<p>Add the following line to your config file, ensuring any other ok_locale lines are commented (#) to increase the score for all mail that isn't English or Japanese</p>
+<p><code>ok_locale en ja</code></p>
+<h2>SpamAssassin TextCat Plugin (v310.pre)</h2>
+<p>For versions greater than 3.1, you will also need to enable TextCat. Make sure the loadplugin line is uncommented in the v310.pre file.</p>
+<pre><code># TextCat - language guessor
+loadplugin Mail::SpamAssassin::Plugin::TextCat
+</code></pre>
+<h2>Restart</h2>
+<p>Now all thats left to do is restart your mailserver/spamassassin and you should be good to go!</p>
+<h2>References</h2>
+<ul>
+<li><a href="http://spamassassin.apache.org/full/3.1.x/doc/Mail_SpamAssassin_Conf.html#language_options">http://spamassassin.apache.org/full/3.1.x/doc/Mail_SpamAssassin_Conf.html#language_options</a></li>
+<li><a href="http://skullboxx.net/kb/node/77">http://skullboxx.net/kb/node/77</a></li>
+</ul>
+
+	  ]]></description>
+	</item>
+
+
+</channel>
+</rss>

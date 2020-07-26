@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+   
+      <title>devalias.net</title>
+   
+   <link>https://www.devalias.net</link>
+   <description>Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.</description>
+   <language>en_GB</language>
+   <managingEditor> </managingEditor>
+   <atom:link href="rss" rel="self" type="application/rss+xml" />
+   
+	<item>
+	  <title>How to SSH to iPhone/iPad/iDevice via USB</title>
+	  <link>/devalias/2013/03/07/how-to-ssh-to-iphone-via-usb/</link>
+	  <author>devalias</author>
+	  <pubDate>2013-03-07T08:38:49+11:00</pubDate>
+	  <guid>/devalias/2013/03/07/how-to-ssh-to-iphone-via-usb/</guid>
+	  <description><![CDATA[
+	     <p>So in order to run the iPad through a debug proxy (Burp Suite), and still be able to forward on the traffic to the net, I needed to be able to talk to it over USB. (yay limited tech to work with!)</p>
+<p>This wasn't actually too hard to get going thanks to a little tool called usbmuxd.</p>
+<h2>Process</h2>
+<ol>
+<li>Install usbmuxd (i did this through homebrew: brew install libmuxd)</li>
+<li>Startup the included iproxy tool (<code>iproxy LOCAL_PORT DEVICE_PORT)iproxy 2222 22</code>)</li>
+<li>Plug in your iDevice (I assume you already have SSH setup on it and enabled)<br />
+SSH to localhost:LOCAL_PORT, making sure to specify the account you want to logon as <code>ssh root@127.0.0.1 -p 2222</code></li>
+<li>???</li>
+<li>Profit!</li>
+</ol>
+<p>Yay for things just working how they should!</p>
+
+	  ]]></description>
+	</item>
+
+
+</channel>
+</rss>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+   
+      <title>devalias.net</title>
+   
+   <link>https://www.devalias.net</link>
+   <description>Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.</description>
+   <language>en_GB</language>
+   <managingEditor> </managingEditor>
+   <atom:link href="rss" rel="self" type="application/rss+xml" />
+   
+	<item>
+	  <title>ERPScan Automator - Because Manual is Meh</title>
+	  <link>/devalias/2013/08/10/erpscan-automator-because-manual-is-meh/</link>
+	  <author>devalias</author>
+	  <pubDate>2013-08-10T08:00:50+10:00</pubDate>
+	  <guid>/devalias/2013/08/10/erpscan-automator-because-manual-is-meh/</guid>
+	  <description><![CDATA[
+	     <p>Another quick little tool for you guys today that I hacked together to save myself some time. This one automates running through a number of tests using the <a href="https://erpscan.com/research/free-pentesting-tools-for-sap-and-oracle/">ERPScan SAP Pentesting Tool</a></p>
+<p>At time of writing, configuration is all done inside the script, with no support for command line parameters (might add them in the future)</p>
+<p><a href="https://gist.github.com/0xdevalias/6118709">https://gist.github.com/0xdevalias/6118709</a></p>
+<p><noscript><pre>@echo off<br />
+@rem ----------------<br />
+@rem Config - Banner<br />
+@rem ----------------<br />
+set BAT_VER=0.1 (20130703)<br />
+set BANNER_DASH=--------------------------------<br />
+set BANNER_NAMEVER=Erpscan Automator v%BAT_VER%<br />
+set BANNER_BY=Created By: Glenn 'devalias' Grant (<a href="http://devalias.net">http://devalias.net</a>)<br />
+set BANNER_UPDATES=Updates at: <a href="https://gist.github.com/alias1/6118709">https://gist.github.com/alias1/6118709</a><br />
+set BANNER_LICENSE=License: The MIT License (MIT) - Copyright (c) 2013 Glenn 'devalias' Grant (see <a href="http://choosealicense.com/licenses/mit/">http://choosealicense.com/licenses/mit/</a> for full license text)</p>
+<p>@rem ----------------<br />
+@rem Parms<br />
+@rem ----------------<br />
+set OUT_NAME=CHANGEME_TO_YOUR_OUTFILE_NAME<br />
+set SITE=<a href="http://example.com:1234/changeme/to/your/url">http://example.com:1234/changeme/to/your/url</a><br />
+set USER=CHANGEME_TOYOUR_TESTUSER<br />
+set PASS=CHANGEME_TOYOUR_TESTPASS<br />
+set MODULES=1 2 3 4 5 9 10 11 15 16 17 18 19</p>
+<p>@rem ----------------<br />
+@rem Config<br />
+@rem ----------------<br />
+set ERPSCAN_PATH=&quot;X:\CHANGEME\H4x0rTools\Erpscan&quot;<br />
+set ERPSCAN_FILENAME=black.pl<br />
+set SITE_OPT=-s<br />
+set USER_OPT=-u<br />
+set PASS_OPT=-p<br />
+set MODULE_OPT=-m<br />
+set BAT_FILENAME=%~nx0<br />
+set BAT_PATH=%~dp0<br />
+set OUT_EXT=.txt<br />
+set OUT_FILE=&quot;%BAT_PATH%/%OUT_NAME%%OUT_EXT%&quot;</p>
+<p>@rem ----------------<br />
+@rem Main Program<br />
+@rem ----------------<br />
+title %BANNER_NAMEVER%</p>
+<p>echo %BANNER_DASH%<br />
+echo %BANNER_NAMEVER%<br />
+echo %BANNER_BY%<br />
+echo %BANNER_UPDATES%<br />
+echo %BANNER_LICENSE%<br />
+echo %BANNER_DASH%</p>
+<p>echo %BANNER_DASH% &gt;&gt; %OUT_FILE%<br />
+echo Generated with %BANNER_NAMEVER% &gt;&gt; %OUT_FILE%<br />
+echo %BANNER_BY% &gt;&gt; %OUT_FILE<br />
+%echo %BANNER_UPDATES% &gt;&gt; %OUT_FILE<br />
+echo %BANNER_LICENSE% &gt;&gt; %OUT_FILE%<br />
+echo %BANNER_DASH% &gt;&gt; %OUT_FILE%</p>
+<p>echo.<br />
+echo Site:    %SITE%<br />
+echo User:    %USER%<br />
+echo Pass:    hidden<br />
+echo Modules: %MODULES%</p>
+<p>echo. &gt;&gt; %OUT_FILE%<br />
+echo Site:   %SITE% &gt;&gt; %OUT_FILE%<br />
+echo User:   %USER% &gt;&gt; %OUT_FILE%<br />
+echo Pass:   hidden &gt;&gt; %OUT_FILE%<br />
+echo Modules: %MODULES% &gt;&gt; %OUT_FILE%</p>
+<p>cd /D %ERPSCAN_PATH%</p>
+<p>SETLOCAL ENABLEDELAYEDEXPANSION<br />
+for %%x in (%MODULES%) do (<br />
+set MODULE=%%x</p>
+<p>echo.<br />
+echo --------------------------------<br />
+echo Running module !MODULE!..<br />
+echo --------------------------------</p>
+<p>echo. &gt;&gt; %OUT_FILE%<br />
+echo -------------------------------- &gt;&gt; %OUT_FILE%<br />
+echo Running module !MODULE!.. &gt;&gt; %OUT_FILE%<br />
+echo -------------------------------- &gt;&gt; %OUT_FILE%</p>
+<p>perl %ERPSCAN_FILENAME% %SITE_OPT% %SITE% %USER_OPT% %USER% %PASS_OPT% %PASS% %MODULE_OPT% !MODULE! &gt;&gt; %OUT_FILE%<br />
+)</p>
+<p>echo.<br />
+echo Done</p>
+<p>pause<br />
+</pre></noscript><script src="https://gist.github.com/6118709.js"> </script></p>
+
+	  ]]></description>
+	</item>
+
+
+</channel>
+</rss>

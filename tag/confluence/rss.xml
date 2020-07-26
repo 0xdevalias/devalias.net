@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+   
+      <title>devalias.net</title>
+   
+   <link>https://www.devalias.net</link>
+   <description>Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.</description>
+   <language>en_GB</language>
+   <managingEditor> </managingEditor>
+   <atom:link href="rss" rel="self" type="application/rss+xml" />
+   
+	<item>
+	  <title>Atlassian Confluence: Cross-Site Scripting (XSS) (CVE-2017-16856)</title>
+	  <link>/devalias/2017/12/05/atlassian-confluence-cross-site-scripting-xss/</link>
+	  <author>devalias</author>
+	  <pubDate>2017-12-05T00:00:00+11:00</pubDate>
+	  <guid>/devalias/2017/12/05/atlassian-confluence-cross-site-scripting-xss/</guid>
+	  <description><![CDATA[
+	     <p>Earlier this year I spent some time delving into <a href="https://www.atlassian.com/software/confluence">Atlassian Confluence</a> to see if I could dig up any bugs that had slipped through the cracks. I wasn't really expecting to turn up much, but I was super excited and surprised when I managed to find an issue within the RSS feed plugin leading to Cross-Site Scripting (XSS) (Twitter: <a href="https://twitter.com/_devalias/status/922234470274498560">1</a>, <a href="https://twitter.com/_devalias/status/938271825414455298">2</a>; LinkedIn: <a href="https://www.linkedin.com/feed/update/urn:li:activity:6328008786355331072/">1</a>, <a href="https://www.linkedin.com/feed/update/urn:li:activity:6344043067401732096">2</a>; BugCrowd: <a href="https://bugcrowd.com/devalias">1</a>, <a href="https://bugcrowd.com/atlassian/hall-of-fame">2</a>).</p>
+<p>Thanks to <a href="https://www.atlassian.com/trust/security">Atlassian</a> and <a href="https://www.bugcrowd.com/">BugCrowd</a> for running an awesome bug bounty program and giving researchers the opportunity to hack things, make the internet safer, AND get rewarded while doing so!</p>
+<h2>The CVE</h2>
+<ul>
+<li><strong><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-16856">CVE-2017-16856</a></strong>: The RSS Feed macro in Atlassian Confluence before version 6.5.2 allows remote attackers to inject arbitrary HTML or JavaScript via cross site scripting (XSS) vulnerabilities in various rss properties which were used as links without restriction on their scheme.
+<ul>
+<li><a href="https://jira.atlassian.com/browse/CONFSERVER-54395">Confluece Bug Report (CONFSERVER-54395)</a></li>
+<li><a href="https://confluence.atlassian.com/doc/issues-resolved-in-6-5-2-940701301.html">Confluence - Issues resolved in 6.5.2</a></li>
+<li><a href="http://www.securityfocus.com/bid/102094">SecurityFocus</a></li>
+</ul>
+</li>
+</ul>
+<h2>Remediation</h2>
+<p>This issue was fixed in Confluence <code>6.5.2</code>. Update to this version or newer to be protected. See the CVE advisory details for more information.</p>
+<h2>Chaining bugs, social engineering and platform features</h2>
+<p>As part of my PoC, I put together some fun little phishing code using the Confluence web plugin API's. If there is interest (and I'm allowed), I might share it (and some of the useful features/places to look to build similar) sometime.</p>
+<p>Once XSS is achieved, if the current user isn't already an 'elevated' administrator, the code provides error messages using standard Confluence GUI elements to convince the user to elevate their privileges with 'websudo'. Once they do that, you can basically abuse their full privileges to create new administrators, or (my favourite) install a small malicious plugin to provide Remote Code Execution (RCE) on the server.</p>
+<p>While these aren't security issues in themselves, it does show how you can leverage social engineering techniques and other platform features to chain smaller issues into something more powerful and damaging.</p>
+<h2>Acknowledgements</h2>
+<p>These issues were identified by <a href="http://devalias.net">myself</a> and the team at <a href="https://dtss.com.au">TSS</a>:</p>
+<ul>
+<li>Glenn 'devalias' Grant (<a href="http://devalias.net">http://devalias.net</a>) of TSS (<a href="https://dtss.com.au">https://dtss.com.au</a>)</li>
+</ul>
+<h2>Conclusion</h2>
+<p>It pays to look in places less travelled. If there are older features in products, or things that may not be as popular/used as often, try looking in there. Who knows what may have been overlooked.</p>
+<p>Have you ever looked into some popular software and found issues you never expected to find? Got a cool story to share about it? Maybe you've chained some bugs in an interesting way, or just want to hear more about my PoC? I'd love to hear from you in the comments below!</p>
+
+	  ]]></description>
+	</item>
+
+
+</channel>
+</rss>

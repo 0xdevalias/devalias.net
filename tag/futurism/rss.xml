@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+   
+      <title>devalias.net</title>
+   
+   <link>https://www.devalias.net</link>
+   <description>Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.</description>
+   <language>en_GB</language>
+   <managingEditor> </managingEditor>
+   <atom:link href="rss" rel="self" type="application/rss+xml" />
+   
+	<item>
+	  <title>Imagine a world..</title>
+	  <link>/devalias/2018/04/20/imagine-a-world/</link>
+	  <author>devalias</author>
+	  <pubDate>2018-04-20T00:00:00+10:00</pubDate>
+	  <guid>/devalias/2018/04/20/imagine-a-world/</guid>
+	  <description><![CDATA[
+	     <p>Imagine a world driven by the strive for progress, improvement and innovation, rather than fuelled by corporate greed. Ideas and breakthroughs are shared freely and openly. Where instead of multiple separate entities having to expend the same effort to unlock the same benefits time and time again, locking them away inside their own corporate silos to ration out to the masses at overly inflated costs; we co-create that benefit, shared freely, and greatly accelerate the pace of innovation for everyone.</p>
+<p>Imagine a world where instead of relying on these isolated silos of knowledge, portioned out by 'experts' (and never knowing just how up to date/valid that ‘expert’ information actually is), those same experts are plugged into the latest and greatest, and become the interface that guides and helps integrate that global wealth of knowledge. Where the ego and closed minded attitudes stemming from ‘having studied this content and dedicated a large portion of their life to it' melt away, in favour of the best possible information, actions, and outcomes.</p>
+<p>Imagine a world where new breakthrough technologies and therapies are widely available, because they aren’t limited by copyright or proprietary knowledge. How quickly those things could spread, and how many more people would have access to them. Not just those that can afford the current greed-subsidised availability, but anyone, regardless of their situation or wealth.</p>
+<p>In a world so rich with data, yet so poor in signal buried away among the endless noise. Imagine a world where you're able to filter all of that irrelevance away. Focussing only on what truly matters for you, in that moment, but knowing you can trust in the systems enough that you won’t be missing something relevant or important. Systems that enhance our interactions and experiences, rather than vying to control and capture our attention so it can be monetised.</p>
+<p>This is the world I strive for. This is my future. I may be just one small cog in this global societal machine, but each step we take towards this future enables it’s momentum to grow. Empowering new builders, thinkers and makers with the tools and knowledge to step just a little further, reach a little higher.</p>
+<p>What are your gifts? Your passions? How can you leverage these to move things forward? What can you share? Let’s build this future together.</p>
+
+	  ]]></description>
+	</item>
+
+
+</channel>
+</rss>

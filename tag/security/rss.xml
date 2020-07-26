@@ -1,0 +1,2306 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+   
+      <title>devalias.net</title>
+   
+   <link>https://www.devalias.net</link>
+   <description>Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.</description>
+   <language>en_GB</language>
+   <managingEditor> </managingEditor>
+   <atom:link href="rss" rel="self" type="application/rss+xml" />
+   
+	<item>
+	  <title>Presenting at DEF CON 26 - Bug Bounty Hunting on Steroids</title>
+	  <link>/devalias/2018/08/19/presenting-at-def-con-26-bug-bounty-hunting-on-steroids/</link>
+	  <author>devalias</author>
+	  <pubDate>2018-08-19T00:00:00+10:00</pubDate>
+	  <guid>/devalias/2018/08/19/presenting-at-def-con-26-bug-bounty-hunting-on-steroids/</guid>
+	  <description><![CDATA[
+	     <p>(Update: The <a href="https://www.youtube.com/watch?v=7WYjSDZxFYc">talk recording is now up on YouTube</a>, latest links to related content in <a href="https://twitter.com/_devalias/status/1063897184695767040">this tweet</a>)</p>
+<p>Wow, what a trip! I just had the opportunity to not only live out a childhood dream of attending <a href="https://www.defcon.org/">DEF CON</a>, but I even had the privilege to be able to present at the <a href="http://reconvillage.org/talks-2018/#bug-bounty-hunting-on-steroids---anshuman-bhartiya-and-glenn-devalias-grant">DEF CON Recon Village</a>! Talk about achievement unlocked!</p>
+<p>If you've been <a href="https://twitter.com/i/moments/1030953718177394688">following along on twitter</a>, you might be aware that I've been working on a security automation framework with regards to bug bounty hunting; to increase our agility, automate the boring bits, and let us JustHackThings. It's something that our team (<a href="https://twitter.com/anshuman_bh">@anshuman_bh</a>, <a href="https://twitter.com/mhmdiaa">@mhmdiaa</a>, and <a href="https://twitter.com/_devalias">myself</a>) have been calling BountyMachine.</p>
+<p>It's no secret in the security/pentest/bug bounty world that there are a lot of boring bits when it comes to assessments. The recon, finding good targets, and all those things that eventually lead to being able to do all of the sweet hacks. There are a lot of people thinking about and working in this space to try and make things better, both publicly/open source, as well as privately with their own methods and frameworks.</p>
+<p><a href="https://twitter.com/anshuman_bh">@anshuman_bh</a> has been working on improving this space over a number of years, with various open source projects and explorations (such as <a href="https://github.com/anshumanbh/brutesubs">brutesubs</a>, <a href="https://github.com/anshumanbh/FASTSAM">FASTSAM</a>, <a href="https://github.com/anshumanbh/hodor">hodor</a>, <a href="https://github.com/anshumanbh/kubebot">kubebot</a>, etc) eventually leading us to where we are now. It was actually after I referenced some of his projects in my talk <a href="/devalias/2017/11/19/presenting-all-the-things-bsides-wellington-csides-sectalks/">&quot;Gophers, whales and.. clouds? Oh my!&quot;</a> (<a href="https://github.com/0xdevalias/gopherblazer">GitHub</a>) at BSides Wellington last year that he reached out about this current project. Not to mention <a href="https://twitter.com/mhmdiaa">@mhmdiaa</a>'s <a href="https://www.youtube.com/watch?v=3Q-QyGlc_Xk">&quot;Automation For Bug Hunters&quot; presentation on Bug Bounty World</a> (<a href="https://speakerdeck.com/mhmdiaa/automation-for-bug-hunters">slides</a>) and other work in this space. With our views and efforts so closely aligned we decided to join forces and work on this latest rendition, a v3 of sorts, BountyMachine.</p>
+<p>So coming back to our talk at DEF CON this year, &quot;Bug Bounty Hunting on Steroids&quot; was an opportunity to share what we have been working on, along with some of the process, patterns, ideas and lessons we have learned along the way; with the ultimate goal of inspiring others to think outside the current box, and reinvent the way we all approach our security research.</p>
+<p>I put together a little <a href="https://medium.com/tsscyber/def-con-2018-6ff9542451b8#906b">overview post for our work blog at TSS</a> (we had a few of us speaking this year!), so instead of repeating all of the talk specifics you can check that out. I will reshare the <a href="http://reconvillage.org/talks-2018/#bug-bounty-hunting-on-steroids---anshuman-bhartiya-and-glenn-devalias-grant">talk overview</a> here though, for posterity:</p>
+<blockquote>
+<p>Bug bounty programs are a hot topic these days. More and more companies are realizing the benefits of running a program, and researchers are jumping at the opportunity to grab some swag and make some extra cash from the bugs they find. Reporting security issues has never been as easy, open, and risk-free as it is right now. Everybody wins!</p>
+<p>Though that doesn’t mean we should stop there. As researchers, we spend a lot of time doing the same menial tasks for each program: monitoring for new targets, checking for common issues, remembering just which flags you needed to pass to that tool (or even which tool is best for that job). We build new tools, hack together shell scripts, and generally make small incremental changes to our process. But surely there’s a better approach?</p>
+<p>Are you sick of repeating the same tedious tasks over and over? Wouldn’t it be nice to have your own bug hunting machine? One that -</p>
+<ul>
+<li>Is always watching</li>
+<li>Reacts as soon as a new target becomes available</li>
+<li>Takes care of those tedious repetitive steps for you</li>
+<li>Makes life easy when you want to integrate a new tool/workflow</li>
+<li>Doesn’t cost the world to run, and trivially scales</li>
+<li>Leverages lessons and technologies battle tested in the dev world to improve your offensive capacity, capability and productivity</li>
+<li>Monitors your own infrastructure and reacts before hackers can (while saving you the cost of those Bug Bounty payouts in the meantime)</li>
+</ul>
+<p>We call this approach Bug Bounty Hunting on Steroids. We will discuss our research and approach to building such a machine, sharing some of the lessons we learned along the way.</p>
+</blockquote>
+<p>Now if you didn't manage to catch us at DEF CON (and I don't blame you, there was SO much happening ALL THE TIME.. it's such a non-stop week..) don't fret! Our <a href="https://speakerdeck.com/bountymachine/bug-bounty-hunting-on-steroids">slides are online</a>, we put together a bit of a <a href="https://medium.com/@bountymachine/introducing-bountymachine-234cad93b5d2">blog post covering a bunch of the areas we were talking about</a>, and <a href="https://www.youtube.com/watch?v=7WYjSDZxFYc">the talk was also recorded</a>, so you can catch up on that at your leisure. Or if Twitter is more your style, go along and <a href="https://twitter.com/_devalias/status/1030946732069142528">retweet this one</a> (and make sure to follow the team for more BountyMachine updates!).</p>
+<p>The response to our talk has been awesome: we packed out the presentation room, had a lot of really interesting questions after the talk; and have had a constant stream of feedback, questions and support on twitter and elsewhere since.</p>
+<p>I truly believe that this is the space we need to be thinking and working in right now:</p>
+<ul>
+<li>encoding and automating our processes</li>
+<li>improving our tooling</li>
+<li>accelerating our agility</li>
+<li>collaboratively working to improve the entire security space</li>
+</ul>
+<p>Does this resonate with you? Are you sick of the same repetitive manual processes again and again? Want to automate it? Want to save your precious time for actually doing the interesting hacks? Me too! Let's talk! You can find me here in the comments, <a href="https://twitter.com/_devalias">twitter</a>, or idling around the various slack channels (user: devalias) and otherwise across the internet. How can we work together to improve the entire state of things?</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>Atlassian Confluence: Cross-Site Scripting (XSS) (CVE-2017-16856)</title>
+	  <link>/devalias/2017/12/05/atlassian-confluence-cross-site-scripting-xss/</link>
+	  <author>devalias</author>
+	  <pubDate>2017-12-05T00:00:00+11:00</pubDate>
+	  <guid>/devalias/2017/12/05/atlassian-confluence-cross-site-scripting-xss/</guid>
+	  <description><![CDATA[
+	     <p>Earlier this year I spent some time delving into <a href="https://www.atlassian.com/software/confluence">Atlassian Confluence</a> to see if I could dig up any bugs that had slipped through the cracks. I wasn't really expecting to turn up much, but I was super excited and surprised when I managed to find an issue within the RSS feed plugin leading to Cross-Site Scripting (XSS) (Twitter: <a href="https://twitter.com/_devalias/status/922234470274498560">1</a>, <a href="https://twitter.com/_devalias/status/938271825414455298">2</a>; LinkedIn: <a href="https://www.linkedin.com/feed/update/urn:li:activity:6328008786355331072/">1</a>, <a href="https://www.linkedin.com/feed/update/urn:li:activity:6344043067401732096">2</a>; BugCrowd: <a href="https://bugcrowd.com/devalias">1</a>, <a href="https://bugcrowd.com/atlassian/hall-of-fame">2</a>).</p>
+<p>Thanks to <a href="https://www.atlassian.com/trust/security">Atlassian</a> and <a href="https://www.bugcrowd.com/">BugCrowd</a> for running an awesome bug bounty program and giving researchers the opportunity to hack things, make the internet safer, AND get rewarded while doing so!</p>
+<h2>The CVE</h2>
+<ul>
+<li><strong><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-16856">CVE-2017-16856</a></strong>: The RSS Feed macro in Atlassian Confluence before version 6.5.2 allows remote attackers to inject arbitrary HTML or JavaScript via cross site scripting (XSS) vulnerabilities in various rss properties which were used as links without restriction on their scheme.
+<ul>
+<li><a href="https://jira.atlassian.com/browse/CONFSERVER-54395">Confluece Bug Report (CONFSERVER-54395)</a></li>
+<li><a href="https://confluence.atlassian.com/doc/issues-resolved-in-6-5-2-940701301.html">Confluence - Issues resolved in 6.5.2</a></li>
+<li><a href="http://www.securityfocus.com/bid/102094">SecurityFocus</a></li>
+</ul>
+</li>
+</ul>
+<h2>Remediation</h2>
+<p>This issue was fixed in Confluence <code>6.5.2</code>. Update to this version or newer to be protected. See the CVE advisory details for more information.</p>
+<h2>Chaining bugs, social engineering and platform features</h2>
+<p>As part of my PoC, I put together some fun little phishing code using the Confluence web plugin API's. If there is interest (and I'm allowed), I might share it (and some of the useful features/places to look to build similar) sometime.</p>
+<p>Once XSS is achieved, if the current user isn't already an 'elevated' administrator, the code provides error messages using standard Confluence GUI elements to convince the user to elevate their privileges with 'websudo'. Once they do that, you can basically abuse their full privileges to create new administrators, or (my favourite) install a small malicious plugin to provide Remote Code Execution (RCE) on the server.</p>
+<p>While these aren't security issues in themselves, it does show how you can leverage social engineering techniques and other platform features to chain smaller issues into something more powerful and damaging.</p>
+<h2>Acknowledgements</h2>
+<p>These issues were identified by <a href="http://devalias.net">myself</a> and the team at <a href="https://dtss.com.au">TSS</a>:</p>
+<ul>
+<li>Glenn 'devalias' Grant (<a href="http://devalias.net">http://devalias.net</a>) of TSS (<a href="https://dtss.com.au">https://dtss.com.au</a>)</li>
+</ul>
+<h2>Conclusion</h2>
+<p>It pays to look in places less travelled. If there are older features in products, or things that may not be as popular/used as often, try looking in there. Who knows what may have been overlooked.</p>
+<p>Have you ever looked into some popular software and found issues you never expected to find? Got a cool story to share about it? Maybe you've chained some bugs in an interesting way, or just want to hear more about my PoC? I'd love to hear from you in the comments below!</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>Presenting all the things! (BSides Wellington, CSides Canberra, SecTalks Canberra)</title>
+	  <link>/devalias/2017/11/19/presenting-all-the-things-bsides-wellington-csides-sectalks/</link>
+	  <author>devalias</author>
+	  <pubDate>2017-11-19T00:00:00+11:00</pubDate>
+	  <guid>/devalias/2017/11/19/presenting-all-the-things-bsides-wellington-csides-sectalks/</guid>
+	  <description><![CDATA[
+	     <p>Recently I had the opportunity to present at a few local security meetups, and one international security conference.</p>
+<p>At the start of 2017, I set a loose goal in the back of my mind that I would like to &quot;get out there more&quot; and &quot;speak about the things I do&quot;. Little did I know at the time that this would actually eventuate; leading to me having a pile of great experiences, and meeting some really cool and talented people!</p>
+<h2>TL;DR</h2>
+<ul>
+<li><a href="http://www.sectalks.org/canberra/">SecTalks Canberra</a> (<a href="https://www.meetup.com/SecTalks-Canberra/events/241579721/">November 14th, 2017; Canberra, Australia</a>)
+<ul>
+<li>&quot;Hack FaaSter: Leveraging Docker and OpenFaaS for fun and offensive (security) profit.&quot;</li>
+<li>Slides, workshop, etc: <a href="https://github.com/0xdevalias/hack-FaaSter">GitHub</a> <a href="https://github.com/0xdevalias/hack-FaaSter/blob/master/20171114%20-%20Hack%20FaaSter%20-%20SecTalks%20Canberra.pdf">PDF</a>, <a href="https://speakerdeck.com/0xdevalias/hack-faaster-leveraging-docker-and-openfaas-for-fun-and-offensive-security-profit">SpeakerDeck</a>, <a href="https://www.slideshare.net/GlenndevaliasGrant/hack-faaster-sectalks-canberra-20171114">SlideShare</a></li>
+</ul>
+</li>
+<li><a href="http://www.bsidesau.com.au/csides.html">CSides Canberra</a> (November 17th, 2017; Canberra, Australia)
+<ul>
+<li>&quot;Gophers, whales and.. clouds? Oh my!&quot; <code>v0.2-prewlg-alpha</code></li>
+</ul>
+</li>
+<li><a href="https://www.bsides.nz/">BSides Wellington 2017</a> (November 23-24th, 2017; Wellington, New Zealand)
+<ul>
+<li><a href="https://bsideswellington2017.sched.com/speaker/glenndevaliasgrant">Speaker: Glenn 'devalias' Grant</a></li>
+<li><a href="https://bsideswellington2017.sched.com/event/CTpF/gophers-whales-and-clouds-oh-my">&quot;Gophers, whales and.. clouds? Oh my!&quot;</a></li>
+<li>Slides, etc: <a href="https://github.com/0xdevalias/gopherblazer">GitHub</a>, <a href="https://github.com/0xdevalias/gopherblazer/blob/master/slides/20171123-Gopherblazer-BSidesWellington.pdf">PDF</a>, <a href="https://speakerdeck.com/0xdevalias/gophers-whales-and-dot-clouds-oh-my">SpeakerDeck</a>, <a href="https://www.slideshare.net/GlenndevaliasGrant/gophers-whales-and-clouds-oh-my">SlideShare</a></li>
+</ul>
+</li>
+</ul>
+<h2>SecTalks Canberra</h2>
+<p><a href="http://www.sectalks.org/canberra/">SecTalks Canberra</a> is a monthly security meetup with more of a focus on participation and learning from others, rather than the traditional 'super awesome technical talk but how do I do it' style of things.</p>
+<p>I had the opportunity to run a little workshop on how to use <a href="https://www.docker.com/">Docker</a> and <a href="https://www.openfaas.com/">OpenFaaS</a> to improve offensive capabilities.</p>
+<blockquote>
+<p>Hack FaaSter: Leveraging Docker and OpenFaaS for fun and offensive (security) profit.</p>
+</blockquote>
+<p>Slides, workshop files and more details are available from the 'TL;DR' section above.</p>
+<p>Description:</p>
+<blockquote>
+<p>Join us this month for Hack FaaSter - leveraging <a href="https://www.docker.com/">Docker</a> and <a href="https://www.openfaas.com/">OpenFaaS</a> to improve offensive tooling, with the glorious <a href="https://twitter.com/_devalias">@_devalias</a> (<a href="https://github.com/0xdevalias">Github</a> // <a href="https://www.linkedin.com/in/glenn-devalias-grant/">LinkedIn</a>)</p>
+</blockquote>
+<h2>CSides Canberra</h2>
+<p><a href="http://www.bsidesau.com.au/csides.html">CSides Canberra</a> is a monthly security meetup run by the organisers of <a href="http://www.bsidesau.com.au/">BSides Canberra</a>.</p>
+<p>I had the opportunity to present a <code>v0.2-prewlg-alpha</code> version of my BSides Wellington talk, and get some practice and feedback in before the big thing.</p>
+<blockquote>
+<p>Gophers, whales and.. clouds? Oh my! (v0.2-prewlg-alpha)</p>
+</blockquote>
+<p>Slides and more details are available from the 'TL;DR' section above, as well as the BSides Wellington section below.</p>
+<h2>BSides Wellington</h2>
+<p><a href="https://www.bsides.nz/">BSides Wellington</a> (<a href="https://twitter.com/bsideswlg">Twitter</a>) is an annual security conference (based in Wellington, New Zealand) that ran it's first event in 2017. Popping up to fill the void left by <a href="https://www.kiwicon.org/">Kiwicon</a> (<a href="https://twitter.com/kiwicon">Twitter</a>), they had a strong first event, and hopefully will continue that trend into the future!</p>
+<p>I had the opportunity to present my talk on leveraging DevOps trends and tools (<a href="https://www.docker.com/">Docker</a>, <a href="https://en.wikipedia.org/wiki/Serverless_computing">Serverless</a>, <a href="https://en.wikipedia.org/wiki/Function_as_a_service">FaaS</a>, <a href="https://golang.org/">Golang</a>, etc), to increase my efficiency and effectiveness on the offensive side.</p>
+<blockquote>
+<p>Gophers, whales and.. clouds? Oh my!</p>
+</blockquote>
+<p>Slides and more details are available from the 'TL;DR' section above.</p>
+<p>You can read the <a href="https://bsideswellington2017.sched.com/event/CTpF/gophers-whales-and-clouds-oh-my">official brief of my talk</a>:</p>
+<blockquote>
+<p>Go, Docker and Microservices; some great technologies and buzzwords that we hear so much about on the development side of the fence, but how can we leverage these technologies to improve our offensive capacity? Armed with a passion for new tech, a vague theory, and an ‘nsa-o-matic’ approved project name; gopherblazer was born.</p>
+<p>Whether through dockerising and improving existing tooling, leveraging Function-as-a-Service (FaaS) offerings, or just distributing offensive capabilities; I’ll share what I learned on my journey into improving my offensive capacity and productivity (while having an excuse to play with shiny technologies along the way!).</p>
+</blockquote>
+<p>And I can even now say that I have a <a href="https://bsideswellington2017.sched.com/speaker/glenndevaliasgrant">professional speaker bio</a>:</p>
+<blockquote>
+<p>Glenn ‘devalias’ Grant is a full-stack, polyglot developer with an acute interest in the offensive side of security. Whether building something new or finding the cracks to break in, there is always a solution to be found; even if it requires learning something entirely new. If you can improve/automate something, do it, and if you’ve put the effort in to do so, open-source it and share it with everyone else.</p>
+<p>When not hacking and coding, Glenn can be found snowboarding the peaks of Japan, falling out of the sky, floating around underwater, or just finding the most efficient path between A and B (even if that’s over walls). Life is short. Do the things you love, embrace the unknown, live your dreams, and share your passion.</p>
+</blockquote>
+<p>Overall, the conference was amazing. As expected, there were a number of deeply interesting technical talks, but as a bit of a twist from traditional security conferences, there were quite a few talks that focussed on mental health, impostor syndrome, and other 'culture based' topics that so often go unmentioned in the infosec industry. Very much appreciated and would love to see this sort of thing happen at more conferences in future.</p>
+<p>If you missed the talks, or want to go back and re-watch them, videos should be posted online at some point (once the organisers recover from running the conference). A lot of the presenters also seem to be pushing their slides/content out online. Here's a selection of the few I've stumbled across so far (in no particular order):</p>
+<ul>
+<li><a href="https://github.com/0xdevalias/gopherblazer#talks">Glenn 'devalias' Grant, &quot;Gophers, whales and.. clouds? Oh my!&quot;</a> (<a href="https://twitter.com/_devalias/status/937104594974289920">Twitter</a>)</li>
+<li><a href="https://speakerdeck.com/barnbarn/layer-2-person-spoofing-and-impostor-syndrome">Ben Hughes, &quot;Layer 2 person spoofing and impostor syndrome&quot;</a> (<a href="https://twitter.com/benjammingh/status/933484211977166848">Twitter</a>)</li>
+<li><a href="https://speakerdeck.com/heisenburger/design-for-security-bsides-wellington-2017">Serena Chen, &quot;Design for Security — BSides Wellington 2017&quot;</a> (<a href="https://twitter.com/Sereeena/status/935208350207356930">Twitter</a>)</li>
+<li><a href="https://mango.pdf.zone/operation-luigi-how-i-hacked-my-friend-without-her-noticing">&quot;Alex&quot;, &quot;Operation Luigi: How I hacked my friend without her noticing&quot;</a> (<a href="https://twitter.com/mangopdf/status/934897549554491394">Twitter</a>)</li>
+<li><a href="https://github.com/jenofdoom/give-your-users-better-feedback-about-rubbish-passwords">@jenofdoom, &quot;Give your users better feedback about rubbish passwords with zxcvbn&quot;</a></li>
+<li><a href="https://zxsecurity.co.nz/presentations/201711_BSidesWLG-ZXSecurity_MeatPuppets.pdf">Simon 'bogan' Howard, &quot;Influencing Meat<br />
+Puppets Through<br />
+Memes&quot;</a> (<a href="https://twitter.com/bogan/status/934896629135556608">Twitter</a>)</li>
+</ul>
+<p>It looks like there are also some good summaries, notes and writeups of the conference popping up around the net. Some places to start looking:</p>
+<ul>
+<li><a href="https://rodger.donaldson.gen.nz/archives/2017/11/b-sides-wellington-day-1/">B-Sides Wellington - Day 1 (Notes)</a> (<a href="https://twitter.com/hroethgar/status/933620066129625090">Twitter</a>)
+<ul>
+<li>My Talk: <a href="https://rodger.donaldson.gen.nz/archives/2017/11/b-sides-wellington-day-1/#gophers-whales-and-clouds-oh-my">Gophers, whales, and clouds? Oh my.</a></li>
+</ul>
+</li>
+<li><a href="https://rodger.donaldson.gen.nz/archives/2017/11/b-sides-wellington-day-2/">B-Sides Wellington - Day 2 (Notes)</a></li>
+<li><a href="https://www.asinine.nz/2017-11-25/bsides-badge-part1/">BSides Wellington Badge Challenge</a> (<a href="https://twitter.com/asinine_net_nz/status/934592555253039104">Twitter</a>)</li>
+</ul>
+<p>And of course, Twitter is always full of content when it comes to the security industry, with 3 hashtags mainly being used throughout the conference:</p>
+<ul>
+<li><a href="https://twitter.com/search?q=%23bsideswlg&amp;src=typd">#bsideswlg</a></li>
+<li><a href="https://twitter.com/search?q=%23bsideswlg2017&amp;src=typd">#bsideswlg2017</a></li>
+<li><a href="https://twitter.com/search?q=%23bsidesnz&amp;src=typd">#bsidesnz</a></li>
+</ul>
+<h2>Conclusion</h2>
+<p>While at times I was definitely feeling the stress and pressure of having a few looming deadlines, and at times possibly not allocating enough time/energy/focus to working on them as I would have liked, it has been a great experience, and left a smouldering flame of passion to speak at more events in the future.</p>
+<p>Know of any other writeups, slides or tools; or got a cool story to share from BSides Wellington? Would love to hear from you in the comments!</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>Squiz Matrix: Multiple vulnerabilities</title>
+	  <link>/devalias/2017/09/07/squiz-matrix-multiple-vulnerabilities/</link>
+	  <author>devalias</author>
+	  <pubDate>2017-09-07T00:00:00+10:00</pubDate>
+	  <guid>/devalias/2017/09/07/squiz-matrix-multiple-vulnerabilities/</guid>
+	  <description><![CDATA[
+	     <p>Earlier this year I had an opportunity to spend some time looking at <a href="https://www.squiz.net/technology/cms">Squiz Matrix</a>, a Content Management System (CMS) used across a number of sectors including higher eduction, media and publishing, goverment, finance, health, and utilities. With a huge number of features, a massive PHP codebase, and a numbr of high profile sectors as clients, I set out to see if I could find any interesting little bugs hidden away.</p>
+<p>While I won't get into the nitty gritty of most of the assessment process, I did find some things, and 3 CVE's were assigned (detailed below). One was interesting enough that I will probably write up the process in more detail at some point.</p>
+<p>Given the rich functionality and plugins in the Matrix product, it could be interesting to dedicate more research time to explore the areas I didn't get to cover this time around. Who knows, perhaps Squiz would even be open to setting up a Bug Bounty program through someone like <a href="https://www.bugcrowd.com/">Bugcrowd</a> in the future too. That would be cool!</p>
+<p>If you want to try it out, or play around yourself, there is a <a href="https://matrix.squiz.net/releases/vm">downloadable demo VM</a> available on the Squiz website.</p>
+<h2>The CVE's</h2>
+<ul>
+<li><strong><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-14196">CVE-2017-14196</a></strong>: An information disclosure caused by a Path Traversal issue in the 'File Bridge' plugin allowed the existence of files outside of the bridged path to be confirmed.</li>
+<li><strong><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-14197">CVE-2017-14197</a></strong>: Multiple reflected Cross-Site Scripting (XSS) issues in Matrix 'WYSIWYG' plugins.</li>
+<li><strong><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-14198">CVE-2017-14198</a></strong>: Authenticated users with permissions to edit design assets can cause Remote Code Execution (RCE) via a maliciously crafted <code>time_format</code> tag.</li>
+</ul>
+<h2>Remediation</h2>
+<p>These issues were fixed in version <code>5.4.1.3</code>. Update to this version or newer to be protected. See the CVE advisory details for more information.</p>
+<h2>CVE-2017-14198: A Walkthrough</h2>
+<p>TODO: Write up how this was identified, and the core issue that lead to it.</p>
+<h2>Acknowledgements</h2>
+<p>These issues were identified by <a href="http://devalias.net">myself</a> and the team at <a href="https://dtss.com.au">TSS</a>:</p>
+<ul>
+<li>Glenn 'devalias' Grant (<a href="http://devalias.net">http://devalias.net</a>) of TSS (<a href="https://dtss.com.au">https://dtss.com.au</a>)</li>
+</ul>
+<p>Special thanks to Micky at Squiz for being an amazing resource throughout the disclosure process, and keeping us informed as patching and rollout progressed.</p>
+<h2>Conclusion</h2>
+<p>It seems the core issues here were a few bugs popping up in legacy code, and passing user-controlled values into sensitive areas without proper checks/sanitisation. Easy mistakes to make when managing such a large codebase that has evolved over the years.</p>
+<p>Have you had a similar experience? Manage a large codebase and legacy code? Got good tips for how best to identify and avoid these sorts of issues? Would love to hear your ideas in the comments!</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>An unexpected journey with webpack and RequireJS</title>
+	  <link>/devalias/2017/08/05/unexpected-journey-webpack-requirejs/</link>
+	  <author>devalias</author>
+	  <pubDate>2017-08-05T00:00:00+10:00</pubDate>
+	  <guid>/devalias/2017/08/05/unexpected-journey-webpack-requirejs/</guid>
+	  <description><![CDATA[
+	     <p>So the other day I <a href="https://github.com/blueclosure/BCDetect/issues/27">ran into what seemed like a bug</a> in some software I was using during a test. Narrowing things down in the codebase, it looked as though the error may have been related to a <a href="https://github.com/auth0/idtoken-verifier">library in use by the application</a> I was testing.</p>
+<p>I needed an easy way to isolate the code that seemed to be causing the error from the rest of the application, which took me down a rabbit hole to learn a little bit more about a few different technologies.</p>
+<h2>The Situation</h2>
+<p>So I had a <a href="https://github.com/auth0/idtoken-verifier">JavaScript project</a> that I wanted to build and include in a little test webpage. A few things in the repo stood out:</p>
+<ul>
+<li><a href="https://github.com/auth0/idtoken-verifier/blob/master/package.json">package.json</a> - So it's using <a href="https://nodejs.org/">node.js</a> in some measure.
+<ul>
+<li>This also had a number of entries under the <code>scripts</code> section, including some that made use of <code>gulp</code> (another build tool)</li>
+</ul>
+</li>
+<li><a href="https://github.com/auth0/idtoken-verifier/blob/master/gulpfile.js">gulpfile.js</a> - Another strong indicator that <a href="https://gulpjs.com/">gulp</a> was in use. Didn't need to dig too deeply into this side of things, though it did indicate that <code>webpack</code> was in use.</li>
+<li><a href="https://github.com/auth0/idtoken-verifier/blob/master/webpack.config.js">webpack.config.js</a> / <a href="https://github.com/auth0/idtoken-verifier/blob/master/webpack.prod.config.js">webpack.prod.config.js</a> - The <a href="https://webpack.github.io/">webpack</a> configuration files.</li>
+</ul>
+<p>So now I had a fair idea of what we had to work with, time to try and build it.</p>
+<h2>Building with npm and gulp</h2>
+<p>This part was actually extremely straightforward, so I won't spend too long here. After cloning the repo, all I had to do was:</p>
+<ul>
+<li><code>npm install</code></li>
+<li><code>npm build</code> (which is just a <a href="https://github.com/auth0/idtoken-verifier/blob/master/package.json#L8">script</a> that runs <code>gulp build</code>)</li>
+</ul>
+<p>After a bunch of downloads and a few warnings, I had 3 new files sitting in my <code>./build</code> folder. So easy!</p>
+<ul>
+<li><code>idtoken-verifier.js</code></li>
+<li><code>idtoken-verifier.min.js</code></li>
+<li><code>idtoken-verifier.min.js.map</code></li>
+</ul>
+<p>For the purposes of my standalone test website, I should only need the main file.</p>
+<h2>So I built it, but how do I use it?</h2>
+<p>Now that I had the library built, I just had to include the script in a little test webpage, call the functionality I needed, and I'd be done. But looking at the start of the built script.. it didn't look as straightforward as I expected.</p>
+<pre lang="javascript"><code>(function webpackUniversalModuleDefinition(root, factory) {
+    if(typeof exports === 'object' &amp;&amp; typeof module === 'object')
+        module.exports = factory();
+    else if(typeof define === 'function' &amp;&amp; define.amd)
+        define(&quot;idtoken-verifier&quot;, [], factory);
+    else if(typeof exports === 'object')
+        exports[&quot;idtoken-verifier&quot;] = factory();
+    else
+        root[&quot;idtoken-verifier&quot;] = factory();
+})(this, function() {
+</code></pre>
+<p>Looks like <code>webpack</code> plays a part here.. and something called a 'universal module definition'.</p>
+<h2>Webpack</h2>
+<p>I started off by doing a little reading about webpack config, and in particular this <code>umd</code> thing:</p>
+<ul>
+<li><a href="https://webpack.github.io/docs/library-and-externals.html#configuration-options">https://webpack.github.io/docs/library-and-externals.html#configuration-options</a></li>
+<li><a href="https://webpack.github.io/docs/configuration.html#output-librarytarget">https://webpack.github.io/docs/configuration.html#output-librarytarget</a></li>
+</ul>
+<p>So it seems that <code>webpack</code> allows you to export 'wrapped' modules in a number of formats, and <code>umd</code> is a combination of <code>amd</code>, <code>commonjs2</code> and/or a property in the root.</p>
+<p>Sure enough, looking at the <code>output</code> section of the <a href="https://github.com/auth0/idtoken-verifier/blob/master/webpack.prod.config.js#L15-L21">webpack config</a> I came across some references to <code>umd</code>:</p>
+<pre><code>output: {
+  path: path.join(__dirname, '../build'),
+  filename: '[name].min.js',
+  library: 'idtoken-verifier',
+  libraryTarget: 'umd',
+  umdNamedDefine: true
+},
+</code></pre>
+<p>At this point I decided to learn how to use an <code>amd</code> module, and after some quick googling I was lead to RequireJS.</p>
+<h2>RequireJS</h2>
+<p><a href="http://requirejs.org/">RequireJS</a> is a JavaScript module loader, and <a href="http://requirejs.org/docs/whyamd.html">supports AMD</a> (or 'Asynchronous Module Definition') modules. Since I just wanted to get this code working, I went back to Google to find a quick example of how to use RequireJS, finding myself on the following page:</p>
+<ul>
+<li><a href="https://coderwall.com/p/u8xgvq/requirejs-basic-introduction">https://coderwall.com/p/u8xgvq/requirejs-basic-introduction</a></li>
+</ul>
+<p>So it sounds like RequireJS handles a lot of the module injection/ordering that I would have otherwise had to think about myself. I decided to make life easy for myself and use <a href="https://cdnjs.com/libraries/require.js/">a CDN hosted version</a>, so all I had to do was stick the following code in the <code>head</code> section of my test page:</p>
+<pre lang="html"><code>&lt;script data-main=&quot;main&quot; src=&quot;https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p>This loaded RequireJS and told it to inject the <code>main.js</code> file, which looks like:</p>
+<pre lang="javascript"><code>require(['idtoken-verifier'], function(IdTokenVerifier){
+    var verifier = new IdTokenVerifier({});
+    // Do interesting things here..
+});
+</code></pre>
+<p>Sticking to the 'easy and obvious' pattern that I'd seen so far, this would inject the <code>idtoken-verifier.js</code> file, and then make the library accessible inside this <code>require</code> block. Nice!</p>
+<h2>Bringing it all together with Plunker</h2>
+<p>I wanted to keep all of the files together in an easily accessible format so others could test and play with it. After a little looking around I ended up using <a href="http://plnkr.co/">Plunker</a> since it let me have multiple files (unlike <a href="https://jsfiddle.net/">JSFiddle</a>):</p>
+<ul>
+<li><a href="http://plnkr.co/edit/4BMgtaSt03R9tMY5Hcki">http://plnkr.co/edit/4BMgtaSt03R9tMY5Hcki</a></li>
+</ul>
+<h2>Success?</h2>
+<p>I found that trying to test the Plunker hosted version complicated things a bit, so I ended up downloading the zipped files and hosting them locally with Python while I tested things:</p>
+<pre lang="bash"><code>python -m SimpleHTTPServer
+</code></pre>
+<p>Running it through the tool.. everything worked as expected, no bugs. <em>sadface</em> I could have spent more time digging into the specifics and trying to unearth what actually lead to the bug in the first place, but given I had other things I needed to test I decided to leave that as a possible future endeavour, if I run into it again.</p>
+<h2>Conclusion</h2>
+<p>So an unexpected rabbit hole lead me to understand a little more about Webpack, RequireJS and how to use packaged JavaScript applications. Not a bad little lesson :)</p>
+<p>Had a similar experience or got any interesting tips to share about any of these technologies? Would love to hear from you in the comments!</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>Bugcrowd LevelUp 2017</title>
+	  <link>/devalias/2017/07/16/bugcrowd-levelup-2017/</link>
+	  <author>devalias</author>
+	  <pubDate>2017-07-16T00:00:00+10:00</pubDate>
+	  <guid>/devalias/2017/07/16/bugcrowd-levelup-2017/</guid>
+	  <description><![CDATA[
+	     <p>Today was <a href="https://pages.bugcrowd.com/level-up-virtual-hacking-conference">LevelUp, Bugcrowd's first Virtual Hacking Conference</a>. With 2 seperate streams over 8 hours, the <a href="https://docs.google.com/spreadsheets/d/1nKnwk3qVtoQlHs32atwwTIWjOHZ9kjnbwpPTJVfvKeo/pubhtml?gid=0&amp;single=true">schedule was jammed packed</a> with interesting talks and knowledge drops across topics including web, mobile, IoT and even car hacking.</p>
+<p>Waking up at 1:30am (AEST) to get some Bulletproof coffee in before it started, I think I briefly moved once from the couch in the whole session. The rest was solid and intent focus on the topics, trying to keep up with all of the amazing content, while also taking notes (~1200 lines worth!), and <a href="https://twitter.com/search?l=&amp;q=%23ItTakesACrowd%20from%3A_devalias&amp;src=typd&amp;lang=en">dropping out tweets</a> at the same time. I don't think i've been as engaged or intently focussed on something for such a long period in a long time. Testament to the quality of the conference!</p>
+<p>One of the common themes of the conference today (besides all the tech knowledge) was that of community and sharing. This is something that speaks to my core, and one of the things that I love about the security industry. How people can be so open, be willing to share their knowledge, and humbly learn in return. Such a great way to bring everyone up across the board, and super grateful for it.</p>
+<p>There are a few places you can get connected with bug bounty hunters / security researchers that I wanted to list here:</p>
+<ul>
+<li>Twitter!
+<ul>
+<li>This sort of goes without saying given how active the security community is here. But with regards to this conference and related things, check out Bugcrowd's hashtag: <a href="https://twitter.com/search?q=%23ItTakesACrowd">#ItTakesACrowd</a></li>
+<li>Also make sure to follow <a href="https://twitter.com/Bugcrowd">@Bugcrowd</a>, and if you'd like to see more from me (when I rarely but occasionally tweet) you can find me at <a href="https://twitter.com/_devalias">@_devalias</a> (always feel free to say hi!)</li>
+</ul>
+</li>
+<li><a href="http://bugbountyworld.com/">Bug Bounty World</a>
+<ul>
+<li>A community for bug-bounty enthusiasts, open to all.</li>
+<li>Twitter: <a href="https://twitter.com/bugbounty_world">@bugbounty_world</a> (<a href="https://twitter.com/search?q=%23bugbountyworld">#bugbountyworld</a>)</li>
+</ul>
+</li>
+<li><a href="https://bugbountyforum.com/">Bug Bounty Forum</a>
+<ul>
+<li>A community of bug bounty researchers, including slack channel and more!</li>
+<li>Twitter: <a href="https://twitter.com/bugbountyforum">@bugbountyforum</a></li>
+<li>GitHub: <a href="https://github.com/bugbountyforum/">bugbountyforum</a></li>
+</ul>
+</li>
+<li><a href="https://forum.bugcrowd.com/">Bugcrowd Forum</a>
+<ul>
+<li>Make sure to also check out the discussions over at the Bugcrowd forum.</li>
+</ul>
+</li>
+</ul>
+<p>In light of that theme, I wanted to share what I have from today, not only so I remember what I saw, but so that everyone else has the opportunity to see some of the great stuff that was presented today. This post will be largely my raw and unedited notes, with any future posts likely to be more structured/refined.</p>
+<p>It's also worth noting that every talk from both streams was recorded, and will be published to YouTube within the next week or so, so keep an eye out for that! I'll probably update this page when they're released, and I intend to write some more thorough blog posts based on each session when I have a chance to go back through it all at a slower pace, so keep an eye out for those!</p>
+<p>Do you have any awesome resources, comments, or things to add? I'd love for you to share in the comments below!</p>
+<h2>Overview of this post</h2>
+<ul>
+<li><a href="#videos">Videos</a></li>
+<li><a href="#schedule">Schedule</a>
+<ul>
+<li>Stream 1</li>
+<li>Stream 2</li>
+</ul>
+</li>
+<li><a href="#raw-notes">Raw Notes</a>
+<ul>
+<li>Welcome + Kickoff (Sam Houston)</li>
+<li>How to Hack Web v2 (Jason Haddix)</li>
+<li>How to Fail at Bug Bounty (Caleb Kinney)</li>
+<li>Giving Back to the Community (ZSeano)</li>
+<li>Doing Recon Like a Boss (Ben Sadeghipour)</li>
+<li>Hidden in Plain Site: Disclosing Information via Your APIs (Peter Yaworski)</li>
+<li>Targeting for Bug Bounty Research (Matthew Conway)</li>
+<li>How does unicode affect our Security? (Christopher Bleckmann-Dreher, @schniggie)</li>
+<li>Hacking Internet of Things for Bug Bounties (Aditya Gupta)</li>
+<li>Intro to Car Hacking (Alan Mond)</li>
+</ul>
+</li>
+<li><a href="#thanks">Thanks!</a></li>
+</ul>
+<h2><a name="videos"></a>Videos</h2>
+<ul>
+<li>YouTube
+<ul>
+<li><a href="https://www.youtube.com/channel/UCo1NHk_bgbAbDBc4JinrXww">Bugcrowd</a></li>
+<li><a href="https://www.youtube.com/playlist?list=PLIK9nm3mu-S5InvR-myOS7hnae8w4EPFV">Levelup 2017 - Full Playlist of all sessions</a></li>
+<li><a href="https://www.youtube.com/watch?v=IiMDDaZPx7k">LevelUp 2017 - Stream 1 (raw)</a></li>
+</ul>
+</li>
+<li>Facebook
+<ul>
+<li><a href="https://www.facebook.com/Bugcrowd/videos/1515474031828959/">LevelUp 2017 - Stream 2 (Part 1, raw)</a></li>
+<li><a href="https://www.facebook.com/Bugcrowd/videos/1515710201805342/">LevelUp 2017 - Stream 2 (Part 2, raw)</a>
+<ul>
+<li>Starts a little bit before &quot;Do you like fuzzing? Why I built fuzzapi to fuzz REST APIs for profit.&quot; by Abhijeth Dugginapeddi</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2><a name="schedule"></a>Schedule</h2>
+<p>Just in case <a href="https://docs.google.com/spreadsheets/d/1nKnwk3qVtoQlHs32atwwTIWjOHZ9kjnbwpPTJVfvKeo/pubhtml?gid=0&amp;single=true">the schedule</a> goes offline sometime in the future, here are the main bits for posterity:</p>
+<h3>Stream 1</h3>
+<ul>
+<li>Welcome
+<ul>
+<li>Welcome + Kickoff, Sam Houston (20min)</li>
+<li>Welcome, State of Bug Bounty &amp; The Future of Crowdsourced Securit, Casey Ellis (60min)</li>
+<li>How to Hack Web v2, Jason Haddix (50min)</li>
+</ul>
+</li>
+<li>General Bug bounty and Web Hacking
+<ul>
+<li>How to Fail at Bug Bounty, Caleb Kinney (25min)</li>
+<li>Giving Back to the Community, ZSeano (45min)</li>
+<li>Doing Recon Like a Boss, Ben Sadeghipour (25min)</li>
+</ul>
+</li>
+<li>Web Hacking
+<ul>
+<li>Hidden in Plain Site: Disclosing Information via Your APIs, Peter Yaworski (25min)</li>
+<li>Targeting for Bug Bounty Research, Matthew Conway (25min)</li>
+<li>How does unicode affect our Security?, Christopher Bleckmann-Dreher @schniggie (45min)</li>
+</ul>
+</li>
+<li>Hardware Hacking
+<ul>
+<li>Hacking Internet of Things for Bug Bounties, Aditya Gupta (45min)</li>
+<li>Intro to Car Hacking, Alan Mond (25min)</li>
+<li>MarkDoom: How I Hacked Every Major IDE in 2 Weeks, Matt Austin (45min)</li>
+</ul>
+</li>
+<li>Ending Ceremony
+<ul>
+<li>Final Words, JHaddix w/intro from Sam (30min)</li>
+</ul>
+</li>
+</ul>
+<h3>Stream 2</h3>
+<ul>
+<li>Web Hacking and Mobile Hacking
+<ul>
+<li>OWASP iGoat – A Self Learning Tool for iOS App Pentesting and Security, Swaroop Yermalkar (25min)</li>
+<li>Esoteric sub-domain enumeration techniques, Bharath (45min)</li>
+<li>Finding Hidden Gems in Old Programs, Yappare (25min)</li>
+</ul>
+</li>
+<li>Mobile Hacking and API Hacking
+<ul>
+<li>Breaking Mobile App Protection Mechanisms, Ben Actis (45min)</li>
+<li>Reverse Engineering Mobile Apps, Emily Walls (25min)</li>
+<li>Identifying and Evading Android Protections, Tim Strazzere (45min)</li>
+<li>Do you like fuzzing? Why I built fuzzapi to fuzz REST APIs for profit, Abhijeth Dugginapeddi (25min)</li>
+<li>Advanced Android Bug Bounty skills, Ben Actis (45min)</li>
+</ul>
+</li>
+<li>Browser Hacking
+<ul>
+<li>Browser Exploitation for Fun and Profit, Dhiraj Mishra (25min)</li>
+</ul>
+</li>
+</ul>
+<h2><a name="raw-notes"></a>Raw Notes</h2>
+<p>The following are my raw notes from todays session. Apologies in advance for the format..</p>
+<h3>Welcome + Kickoff  (Sam Houston)</h3>
+<pre>
+http://twitter.com/samhouston
+
+Stream 1, mostly web, switches to hardware later
+Stream 2, mostly mobile hacking
+
+Tweet with #ItTakesACrowd and @BugCrowd
+
+http://www.bugbountyworld.com, new slack, bugcrowd channel
+
+## Welcome, State of Bug Bounty & The Future of Crowdsourced Security (Casey Ellis)
+
+Casey Ellis, Founder/CEO of Bugcrowd
+
+https://twitter.com/caseyjohnellis
+
+casey@bugcrowd.com
+
+@caseyjohnellis #ItTakesACrowd
+</pre>
+<h3>How to Hack Web v2 (Jason Haddix)</h3>
+<pre>
+Head of Trust and Security at Bugcrowd
+
+https://twitter.com/jhaddix
+https://securityaegis.com
+https://blog.bugcrowd.com/author/jason-haddix
+
+The Bug Hunters Methodology (Def Con 23)
+    distilling a lot of learnings over the years
+  google it for the video
+
+The Bug Hunters Methodology v2
+  XXS, SSTI, SSRF, code/command injection, fuzzing, tooling
+  API testing, object deserialisation, XXE in v2.5
+
+Light reading:
+  Web Application Hackers Handbook
+  OWASP Testing Guide
+  Web Hacking 101
+  Breaking into information security
+  Mastering modern web penetration esting
+
+Discovery
+  Enumall (recon-ng, alt-dns wrapper, etc)
+
+Sub scraping
+  https://github.com/aboul3la/Sublist3r
+    scrapes search engines/etc for mentions of domains
+    sources are different from enumall
+
+  anshumanbh/brutesubs
+    set of docker images that include multiple tools
+      inc enumall and sublister
+      along with gobuster and altdns
+      run against a domain you want
+      need to modify config/docker scripts to add custom bits
+      disable bruteforce for enumall
+    did a presentation about this topic recently (TODO)
+
+  mandatoryprogrammer/cloudflare_enum
+  anshumanbh/censys.py
+
+Subdomain bruteforcing
+  Like: subbrute, gobuster, massdns, dns-parallel-prober, blacksheepwall
+  gobuster (21m) and massdns (1.5m) are quick
+  massdns found more quicker, but more false positives
+  could feed massdns stuff into gobuster to reduce?
+
+  blechschmidt/massdns
+
+  all.txt: https://gist.github.com/jhaddix/86A06C5DC309D085/80A018C66354A056
+           https://gist.github.com/jhaddix/86a06c5dc309d08580a018c66354a056
+    list of all the dns brute lists in one
+
+Acquisitions
+  crunchbase
+    protected by distil bot protection
+    can write a tool to beat that
+
+Port scanning
+  nmap is great, but don't try and scan 65536 hosts with the default port list
+  massscan
+    doesn't provide a default port list
+    use nmaps (giant list of ports)
+      https://twitter.com/_devalias/status/886280729327312896
+
+Visual identification
+  https://github.com/ChrisTruncer/EyeWitness
+    checks HTTP(S), RDP and a couple of other protocols too
+  https://github.com/breenmachine/httpscreenshot
+    another tool
+
+Platform identification and CVE searching
+  retire.js, wappalyzer, builtwith
+
+  https://vulners.com/
+    combine a lot of CVE/etc sources
+
+  https://github.com/vulnersCom/burp-vulners-scanner
+    search in scope domains
+    find versions/etc
+    link to vulns for lower than that version
+    get list of CVE's that might be related
+
+Content discovery/directory bruting
+  TBHMv1
+    wordlists: seclists, raft, digger_wordlists
+    patator
+    wpscan
+    cmsmap
+  
+  https://github.com/maurosoria/dirsearch
+
+  
+   https://github.com/OJ/gobuster
+    super fast
+
+  burp content discovery
+    in burp pro
+    pretty good, but sort of bogs down java
+
+  danielmiessler/RobotsDisallowed
+
+Parameter bruting?
+  https://github.com/maK-/parameth
+    This tool can be used to brute discover GET and POST parameters
+
+PortSwigger/backslash-powered-scanner
+  /resources/params
+    good wordlist
+
+XSS
+  TBHMv1
+    polyglot strings, seclists, flash reversing, common input vectors
+  TBHMv2
+    blind XSS
+      sleepy puppy (python)
+      xss hunter (python)
+      ground control (ruby, small)
+    polyglots
+    xss mindmap
+
+  Blind XSS
+    input may eventually end up on some backend app and executes somewhere
+    use a payload that loads JS
+    need a framework to catch it
+
+    XSSHunter
+      payload gathers a lot of really useful data
+
+Polyglots
+  injection string that executes in multuple contexts
+  may bypass multiple filters
+  starting to integrate in lots of scanners
+  0xS0bky/HackVault
+    unleashing an ultimate xss polyglot
+
+Jackmasa's XSS Mindmap
+  breaks down attacks based on context
+  PoC's
+  ideas for all sorts of things
+  used to just be in Japanese
+  ported recently to english
+  huge image file (svg)
+    https://github.com/jackmasa
+      seems to have a bunch of projects worth looking at
+    https://github.com/jackmasa/XSS.png/tree/master
+
+Server Side Template Injection (SSTI)
+
+  engine identification
+    wappalyzer, builtwith, vulners scanner
+    test fuzzing
+    tooling
+    tplmap + burp extension
+    backslash powered scanner?
+
+  tl;dr: send some template payload and check for result
+    {{2*3}}
+
+  epinna/tplmap
+    code/server side template injection detection/exploitation
+
+  other SSTI resources
+    lots of links
+
+Server Side Request Forgery (SSRF)
+  look for any paths/urls referenced
+  wilded/psychoPATH
+  will release a tool with his Def Con talk in a week
+  can bypass filtering blacklists using alternate IP encoding
+  SSRF bible: https://www.reddit.com/r/netsec/comments/2tpfz7/ssrf_bible_cheatsheet_by_onsec/
+    protocol/schema mappings
+    exploit examples
+    update coming soon, BlackHat US-17?
+  SSRF resources
+    many links
+    including BishopFox link: burp, collaborate and listen
+
+Code Inject, Command Injection, Future of Fuzzing
+  SQLi
+    polyglot, seclists, swlmap, params, tooling, resources
+
+  https://github.com/commixproject/commix
+    CMDi
+      supports PHP code injection
+      custo modules
+      powershell and python shells
+
+Burp backslash powered scanner
+  generic payloads
+  multi-tiered
+  checks responses
+  basically gives you an idea of where it might be useful to look
+    supports testers rather than replacing them!
+  watch the video THEN read the paper
+    see link
+
+Infrastructure and coding
+  subdomain takeover
+    register, control traffic that goes there
+    lists a bunch of services most often vuln
+    github
+      autoSubTakeover
+      HostileSubBruteforcer
+      tko-subs
+
+  Article: Deep dive into AWS S3..
+  yasinS/sandcastle
+  michernriksen
+  gitrob
+  dxa4481/truffleHog
+  
+Domain Discovery at Def Con
+DefCon hunt tool
+
+jhaddix/tbhm
+  The Bug Hunters Methodology
+
+jhaddix@bugcrowd.com
+</pre>
+<h3>How to Fail at Bug Bounty (Caleb Kinney)</h3>
+<pre>
+Twitter: @aphire
+Blog: http://bountyhuntersguild.com
+GitHub: calebkinney OrOneEqualsOne
+
+Lessons learned during bug bounties
+
+Conferences: rushing to see talks, not networking
+
+Failed to read the bug bounty program brief
+  rules of engagement
+  scope
+  focus areas
+  out of scope
+  excluded vuln types
+  rewards/incentives
+  disclosure rules
+
+Failed to show impact
+  used to submit every bug, priority often wasn't in thought process
+  understand vulnerability prioritisation and explain it to program owners
+    P1 - Critical
+    P2 - Severe
+    P3 - Moderate
+    P4 - Low
+    P5 - Informational / Won't Fix
+  can you combine a self-XSS with CSRF to up the priority?
+
+Failed to understant criticality
+  submitting a won't fix will hurt your average vuln score
+  utilize the Bugcrowd Vulnerability Rating Taxonomy
+
+Failed to understand the application
+  eg. 'vuln' that is a feature of the application
+  research the application and ask questions
+  cross-reference functions between different platforms (eg mobile/web)
+
+Failed to plan for private programs
+  Don't ignore the start time, may make you hit many duplicates
+  Schedule time to work on the program as soon as it's published
+
+Failed to plan for blacklisting
+  have a way to get a new IP address
+  or use a VPN/proxy
+
+Bug Bounty != Penetration Test
+
+Part time hunt tips
+  wide scopes
+    acquisitions/mergers
+  assume automated scanning
+  recon, recon, recon
+    subdomain bruteforcing, port-scanning, google dorking
+    censys.io
+    shodan.io
+  burp extensions
+    reflected parameters
+    https://github.com/allfro/BurpKit
+      used Webkit to better render responses in burp
+      JS
+    Co2
+  payload lists
+    polyglots!
+  community
+    read, give back, collaborate
+
+Hunting makes me a better tester
+  understand whats important
+  attuned to emergent security trends
+  challenge for more technical exploits
+  etc..
+
+Personal mobile recon setup
+  iPhone with Blink Shell
+    doesn't require jailbreak
+  DietPi with MOSH (jump mox)
+  Port Fowarding
+  personal recon script
+    Sublist3r, domain, knock, eyewitness
+    wraps a bunch of things and combines
+    https://github.com/OrOneEqualsOne/Recon
+    next gen will be a webapp to help 
+
+Bug Bounty Resources
+  https://twitter.com/_devalias/status/886295129807396865
+</pre>
+<h3>Giving Back to the Community (ZSeano)</h3>
+<pre>
+https://twitter.com/zseano
+http://zseano.com
+  tutorials, blog posts, etc
+full time bug bounty, ranked #2 on bugcrowd
+25 years old
+
+Overview
+  Finding first bug, chaining to higher priority
+  Recon: what are you missing
+  Big bounties for a living, and staying sane
+
+Open URL Redirects
+  easy to find
+  aboutads.info, run burp whilst opting out
+  google dorking
+    inurl:refirect inurl:&
+  bypasses
+    will release a lit of bypasses later
+  making them more useful
+    chain to account takeover via misconfigured oauth
+      check their facebook app
+        mobile app logs in via FB with app_token
+    make sure to url encode the redirect_url
+  Stored XSS + Oauth
+    redirect user to stored XSS page, JS executes, grab oauth token and login to users account
+  key things people miss
+    bypassing filters
+      generally use some form of regex
+      fuzz as much as possible
+      plan to update zseano.com with section on bypasses
+    not checking for oauth systems in place
+    try vulnerable parameter on as many endpoints as possible
+      eg. one param on one program used througout the web application
+      burp intruder against all endpoints, etc
+    check their mobile app
+      sometimes use oauth, FB login
+      google logins tend to be more secure
+    redirect oauth to stored XSS
+
+In future, want to do more talks on more topics
+
+Recon: go back in time
+  waybackmachine
+    search for old files like robots.txt
+    https://gist.github.com/mhmdiaa
+      waybackurls
+      waybackrobots
+    tool idea
+      scraping website from years back for URLs/links/etc
+      eg. burp-wayback-spider
+  .js files are your friends
+    way things work, paths
+    discovery of new endpoints
+    hardcoded app secrets
+    sometimes user information
+  built a couple of tool
+    Burp
+      copy selected URLs
+      copy links in selected items
+    zScanner
+      burp spider to discover endpoints
+      copy ites found, import to inputscanner
+      visits each url, extracts all input names + ids and links to js files
+      outputs to burp intruder format
+        mass test XSS/sql/etc
+      outputs 3 files, ready for burp intruder
+        getoutput.txt
+        postoutput.txt
+        posthostoutput.txt
+    use output from zScanner with JS-Scan
+      visit each .js file, extract URLs using regex
+      displays results on page
+      easier to see whats in files without manually reading
+    didn't plan on releasing these until recently
+
+Finding bugs full time
+  remain calm, take a step back
+  see if someone has found something similar
+  don't be afraid to ask people  
+  be professional, waiting to be paid can be annoying
+  be smart, learn where to spend your time
+  test programs before diving in
+  look at disclosed reports
+  bugcrowd are managed programs
+  managed programs on hackerone/synack can be good too
+  you don't need an update every week, unless its a P1
+  chain bugs to achieve the highest possible impact
+    usually leads to bigger payout
+  collaborate
+  You WILL have bad days. Take time to relax, collect your thoughts, then keep going.
+  re-test endpoints, re-visit certain areas of a site
+    can either report on the old bug, or open a new report
+    depends how much time you put in
+  Find a program you love that treats you fair and give it your all
+  Sharing is caring! If the program allows for it, share your bugs!  
+
+People need to fuzz more
+
+Store all vulnerable paramets found in a text file
+
+Include your bug bounty name/how to contact/etc in your user agent
+
+Have a few blog posts in the works
+</pre>
+<h3>Doing Recon Like a Boss (Ben Sadeghipour)</h3>
+<pre>
+https://twitter.com/Nahamsec
+
+Agenda
+  Overview
+  Traditional way (brute forcing)
+  AWS
+  Abusing Github
+  Asset identification
+
+Why
+  bigger attack surface
+  more bugs
+  more bounties
+  more problems
+
+Bruteforcing
+  tools
+    sublist3r, enumall, massdns, altdns, brutesubs, dns-parallel-prober, dnscan, knockpy, tko-subs, HostileSubBruteforce
+  find a patterns
+    .dev, .corp, .stage
+  brute force again
+    different permutations/environment
+
+Amazon Web Services
+  look for S3 buckets
+    site:s3.amazonaws.com + ...
+  use google for patterns
+  GitHub
+  automate your work
+
+Automation
+  create a list of subdomains
+  create a list of environments
+  automate
+  catch them all
+  new tool: Amazon S3 Bucket finder
+    other tools: sandcastle, bucket_finder
+    hopefully will release on github sometime next week
+
+AWS Recon, what could go wrong
+  S3 bucket not owned by company
+  may be out of scope
+  S3 bucket without sensitive info
+  3rd party apps
+
+Github Recon
+  environments (dev, stage, prod)
+  secret keys (API_key, AWS_Secret, etc)
+  internal credentials
+  API endpoints
+  Domain patterns
+  example
+    "foo.com" "dev"
+    "dev.foo.com"
+    "bar.com" API_key
+    "bar.com" password
+    "api.bar.com"
+    google dork
+      site:"github.com" "org"
+  tools
+    gitrob
+    git-all-secrets
+    truffleHog
+    git-secrets
+    repo-supervisor
+    do it manually..
+
+Asset identifcation
+  censys.io
+    look for SSL certificates
+    "company" + internal
+
+  shodan.io
+    search by hostname
+    filter for
+      ports 8443, 8080, 8180, etc
+      title: "dashboard [jenkins]"
+      product:Tomcat
+      hostname:corp.levelup.com
+      etc
+    buy book by shodan creator for $5
+
+  archive.org
+    review source
+    find old endpoints/functionality
+    look for JS files
+    exploit them!
+
+  .js files
+    endpoints
+    credentials/tokens
+    subdomains (inc internal)
+    new tool being released next week
+
+All tools included in this talk will be on the bugbountyforum website
+Personal tools will be released next week
+
+Burp 'should' be able to do JS parsing stuff
+  in reality, seems to not work as well as it should
+  can be easier to make external tools, do them your own way, etc
+  hope someone takes this tool (when released) and create a burp plugin for it
+  another tool (might get released)
+    crawl website, download all JS files locally
+</pre>
+<h3>Hidden in Plain Site: Disclosing Information via Your APIs (Peter Yaworski)</h3>
+<pre>
+https://twitter.com/yaworsk
+
+Application Security Engineer at Shopify
+Wrote Web Hacking 101
+  Hopefully Real World Web Hacking via No starch press
+
+Overview
+  What we're talking about
+  Why we care
+  Why it happens
+  How you find it
+  Examples
+
+What we're talking about
+  API's that reveal personal info or app sensitive info
+  Focus on API's that render info to page source, parsed by react/angular/etc
+
+Why we care
+  Easy
+  Impacts range from benign to critical
+  Sometimes they can be chained together
+
+Why it happens
+  automation of repetitive tasks
+  code abstraction
+  easy to make mistakes, incur technical debt
+
+Automation
+  eg. rails is great at automating repetitive tasks, generate scaffold
+  Will generate HTML view, but also .json endpoint for API
+  You could remove those from the HTML view, won't see the information
+  But can still get the full data from the API endpoint
+  May not realise you need to edit the json file as well
+
+Code abstraction
+  eg. merging all json fields
+  add new secret field
+  manually, haven't updated json file, so fine
+  but using json merge, the new param will be exposed
+
+How do you find it
+  initial recon
+    identify software on site
+      wappalyzer
+        look for rails, angular, react
+      eg rails sites follow certain patterns
+  watch your proxy history
+    look for gian json blobs in page sources
+    watch for API calls
+  mobile apps
+
+http://www.leanpub.com/web-hacking-101
+http://www.shopify.com/careers
+</pre>
+<h3>Targeting for Bug Bounty Research (Matthew Conway)</h3>
+<pre>
+Lead product security engineer: Heroku, Salesforce
+
+https://twitter.com/mattreduce
+
+Focuses
+  Efficient, repeatable discovery
+  Judge targets on measurable criteria
+  Keep flexible/portable records
+  Put it into use
+
+Reconnaissance Stage
+
+When to enumerate
+    start first, return to
+
+Why spend time on info gathering?
+  don't miss a target/vuln
+  better coverage for program owner
+  deep understanding yields great findings
+
+Enumeration methods
+  Before you find problems, you need to find all the places they live 
+  need to cast the net wide
+
+Enumerating hosts
+  information sources
+    dns
+      for info, but also vulns
+      eg. subdomain takeovers, exfil data, command&control
+    github
+      may identify api's/etc
+    rapid7 project sonar
+      scans the whole public internet, seeing what's vulnerable
+    google search
+      hosts
+      software running
+      secret pages
+    google certificate transparency report
+      can find hosts through subdomains company registered certs for
+    beta access
+      if a company with bug bounty program has beta program, try it
+      test new features
+      follow them on twitter, other social media, be aware of what they put out there
+    other open sites
+      dnsdumpster
+      threatcrowd
+      thratminer
+      https everywhere atlas
+      look for opportunities to repurpose tools online
+
+  techniques
+    google queries
+      site:foo.com
+      find results from subdomains not on list yet
+    brute forcing
+      try common subdomains
+      bonus points for expanding with own wordlist from crawling own targets
+    own scripts
+      automate this + anything else you can
+    dns tools
+      dig, host
+      dnsrecon
+      dnsenum
+      dnsmap
+    recon-ng
+      more framework than a script, like metasploit for recon
+    altdns (shubs)
+      read shubs blog: high frequency bug hunting
+    https://github.com/jhaddix/domain
+      Setup script for Regon-ng/altdns
+
+Recording results
+  CSV file, SQL database
+  get creative
+  choose what to catalog
+    domain
+    type
+    think about what you'd like to know when choosing the next target you want to work on
+  Find, Fix, Finish, Exploit, Analyze (F3EA) cycle
+  https://github.com/infosec-au/assetnote-poc
+    push notifications for passive DNS data
+  cleaning up data
+    write some scripts to run against hosts
+    screenshots
+   validating possible targets
+    SSL certificates used by that host
+    common cookie names across hosts
+    distinctive HTTP headers, fragments, etc
+    logo images
+    copyright lines
+    privacy policy links
+    contact information
+    google analytics tracking codes
+
+Using target data
+  understanding ownership
+    some sites give subdomains out to customers
+    just because it's on a subdomain of that company, may not be an app they control
+      eg company.github.io
+    subdomains that point to external services
+      eg. blog.company.com
+    find out who owns the host before you hack it
+  consider scope
+    may be explicitly in/out of scope
+    sometimes may be implicitly in scope based on rules of engagement
+  what now
+    enumerate services
+    look for vulnerabilities
+
+Summary
+  find out everything you can, keep good notes
+  Respect program scope, remember pitfalls
+  Automate as much as you can
+</pre>
+<h3>How does unicode affect our Security? (Christopher Bleckmann-Dreher, @schniggie)</h3>
+<pre>
+https://twitter.com/schniggie?lang=en
+Pentester, german car manufacturer
+Retired bughunter
+
+ASCII
+  7-bit, 128 characters
+
+ISO-8859-?
+  ASCII compatible
+  8-bit, 256 characters
+  Multiple standards
+
+Unicode
+  multibyte character set
+  fully ASCII/ISO-8859 compatible
+  Different encodings (UTF-8, UTF-16, UTF-32, UTF-EBCDIC, ..)
+  more like a database, links between copoint to character + some attributes
+  Basic Multilingual Plan 65k chars
+  Astral plans 1mil+ characters
+
+Unicode Encodings
+  different encodings use different bytes to store characters
+
+Security implications - Length
+  Length of UTF-8 string vs size of the string
+  When allocating memory, etc
+
+Security implications - JavaScript compare
+  comparing 2 strings that look the same to the eye
+  'ma\xF1ana' == 'man\u0303ana' -> false
+  length of strings differ
+
+Security implications - JavaScript regex
+  /foo.bar/.test('fooPOOEMOJIbar')
+  regex . should match 1 character
+  \s\S matches whitespace, not whole of astral symbols
+  multi-byte emoji
+  current JS in most browsers is ECMScript5
+    had trouble with chars in astral planes
+    not completely supported by default
+    some workarounds for it
+  http://scriptular.com
+    regex javascript application
+    can test it
+
+Security implications - MySQL vs UTF-8
+  create table, charset set to utf8
+  update table fooPOObar
+    shows a warning, incorrect string value
+  selecting back the entry, column name is only the prefix before poo emoji
+  solution: set database to utf8mb4
+
+Security implications - Internationalised Domain Names
+  Stored as ascii strings using punycode
+  eg. email spoofing using special characters
+  UTF8 symbols that look identical
+  Use punycode converter
+  Register the converted domain
+  real world attack scenarios
+    an attack released earlier this year to spoof apple.com/etc
+    not meant to be able to mix character sets in domain registrations
+      google registrar seemed to allow it
+    browsers realised that displaying UTF8 in the domain is bad
+      now show the punycode instead
+
+Unicode character - Right to left overide
+  can rename the file using ruby File.rename \xe2\x80
+  able to rename exe file to a file that looks like it has the extension .ppt
+  old attack, known since Windows 98 or so, still works today..
+
+Crashing every iOS and OSX device
+  2013, vulnerable to an arabic string
+  https://arstechnica.com/apple/2013/08/rendering-bug-crashes-os-x-and-ios-apps-with-string-of-arabic-characters/
+
+Backend != Backend
+  Frontend may allow UTF8
+  Backend may not be expecting it
+  exception from backend
+
+Spotify account hijacking
+  Allowed unicode usernames
+  Register an account with a superscript word of an existing account user
+  Trigger forget password function
+  Password reset canonical'ises the username
+  Sent him the password reset link
+  Using that, used the canonicalised name again
+  Was the victim user
+  Reset password on that user
+
+Phabricator bypass
+  Facebook, like github
+  Error, email at that domain not allowed
+  MySQL
+  add foo@attacker.comPOO@fb.com
+  POO is the new %00  
+
+Summary
+  for developer
+    verify methods, functions, frameworks handle unicode
+    input validation should handle unicode
+    verify all system and interconnection can handle unicode
+
+POO is the new %00
+</pre>
+<h3>Hacking Internet of Things for Bug Bounties (Aditya Gupta)</h3>
+<pre>
+https://twitter.com/adi1391
+
+https://twitter.com/_devalias/status/886339682958680064
+  Run attify, pentesting IoT devices
+  Author: "Learning Pentesting for Andorid Devices"
+  Book: IoT hackers handbook, this month
+  IoT pentesting guide to be released after this talk
+
+Why
+  if not, missing great stuff
+  best to do in 2017
+  easy targets
+  higher barrier of entry
+  enormous growth soon
+  be prepared
+  Examples
+    IoT fridge that sends spam email
+    Smart home compromised
+    Hardcoded password in a medical device
+    Shodan for scada things
+    Controlling mining trucks
+
+What
+  what to look for during IoT big bounties
+
+  When you look at a device
+    figure out possible attack vectors
+    look closely
+    pentesting mindset
+      components
+      entrypoints
+      communication
+      protocols
+      exposed ports
+
+  Once you have a target
+    compromise the whole target
+    don't just look at one small part, whole thing
+      micro and macro
+    where would be most vulnerable?
+      start there
+
+How
+  how to find vulns that companies will pay for
+  "Hacking IoT is not a 'black magic' It can be learnt. Too less resources."
+
+  How to start IoT bug bounty hunting
+    attack surface mapping
+    hacking the embedded device
+    hacking firmware
+      may not be available, but can dump from device
+    hacking mobile/web/cloud components
+    hacking radio communications
+
+  Attack Surface Mapping - Step 1
+    https://twitter.com/_devalias/status/886341534450307072
+    Recon
+      understanding device
+      visible ports
+      components
+      communication mediums
+    Available info
+      google
+      datasheets
+      support groups
+      community center
+      social engineering
+      FCC ID
+
+    Attack Surface Mapping - Step 2
+      https://twitter.com/_devalias/status/886341954404929536
+      map attack surface (architecture diagram)
+      entrypoints
+      commuications
+      additional web endpoints
+      protocol/standard
+      specifications
+
+      Creating an architecture diagram
+
+      Looking at a device
+        FCC ID mentioned on the back of the device
+          required for any radio communication device sold in US
+        https://fccid.io/
+          eg. EW780-8913-00
+            https://fccid.io/EW780-8913-00
+          gives you frequencies, internal/external pictures, etc
+          can look for JTAG/etc ports
+
+    What next?
+      perform exploits
+      be systematic
+      often one component leads to another
+      device -> dump firmware
+
+    How to approach
+      embedded -> firmware/web/mobile -> communication
+
+    Hack the embedded device
+      open device
+      physical tamper protections, special screws, etc
+        get a good screwdriver kit
+      look at chipsets
+        USB microscope
+        phone flashlight
+      identify things, label them
+      dig deep
+        look for exposed ports
+
+    UART are easy to find/export
+        multimeter to test Tx, Rx, GND
+        connect to attify badg or USB-TTL
+        identify baudrate
+        run minicom for shell access
+      screen can be used to connect to a TTY
+        sudo screen /dev/ttyUSB0 ..
+
+    JTAG
+      can be harder than UART
+      can be scattered across board
+      JTAGulator or arduino nano flashed with JTAGEnum
+      easily identify pinouts for JTAG
+      https://twitter.com/_devalias/status/886344370944786432
+        Hacking Embedded Devices - Debug JTAG
+
+    Dump Flash
+      look for flash chips
+      read compoent sheet/datasheet
+      may need to solder to adapter, pins are tiny
+      then can dump flash
+
+    NAND glitching
+      generate fault scenario, have it behave in unexpected way
+      drops to bootloader shell
+      can set bootloader flags, eg single user mode
+
+    Other attacks too
+
+Firmware Hacking
+  Easy to find basic vulns
+  Good at RE -> lots of stuff to find
+  Learn ARM and MIPS RE
+  Sensitive hardcoded values, API keys, encryption mechanisms, etc
+
+Firmware methodology
+  binwalk
+    extracts filesystem
+  firmwalker
+    identifies interesting things to look at
+  Firmware-Mod-Kit
+    allows filesystem modifications, then flash back to device
+  Detect if device allows firmware modifications, security checks, etc
+
+Encryption?
+  XOR with empty space will give you the key itself
+
+Hardcoded sensitive values
+  eg. creds to ftp update server, etc
+  Can find all sorts of things
+    api keys, backdoors, SSL certs, staging URLs, etc
+  Quick binary analysis in IDA
+    can see harcoded creds
+    command injection vulns
+    ROP
+    etc
+
+Analysing mobile apps
+  native libraries can store secrets
+    file, readelf
+    IDA demo version can dissass ARM binaries
+    look at functions, eg. encryption
+  understand the app code
+
+Hacking communication
+  look at mobile app -> device communication
+  MQTT? CoAP?
+  view resources unauthed?
+  publish messages/subscribe topics?
+
+  MQTT
+    works on pub/sub topic
+    might be able to subscribe to *
+
+Hacking radio
+  radio analysis/exploitation needs special hardware
+  depends on protocol
+  BLE/ZigBee most common
+
+  Hacking Zigbee
+    attify killerbee
+      zbstumbler
+      zbdump
+      zbreplay
+      etc
+
+  Hacking BLE
+    ubertooth, BLE sniffer
+    sniff traggic
+    see what handles being written
+    rewrite handles using gatttool
+
+Pentest methodology
+  focus on 'attacker simulated exploitation' rather than pentest
+  look at macro and micro
+  95% success rate, critical vulns, devices compromised
+  follow the guide
+
+https://www.iotpentestingguide.com/
+  https://twitter.com/_devalias/status/886350210724646912
+
+https://twitter.com/_devalias/status/886350674266537984
+
+https://twitter.com/_devalias/status/886350817741094912
+</pre>
+<h3>Intro to Car Hacking (Alan Mond)</h3>
+<pre>
+https://twitter.com/mondalan?lang=en
+https://twitter.com/carloopio?lang=en
+  Car hacking tool
+
+Car Hacking 101
+  How to get started
+  vehicle networking basics
+  demo
+  build your own testing buck
+
+What are the different attack surfaces?
+  Tire pressure monitoring sensor
+    sensor in each tire, connects to car, measures pressure
+    communicates via low frequency radio signal
+    can intercept that signal
+  Bluetooth/wifi
+    hotspot may be open
+  ODBII port
+    underneath steering wheel
+    main entry point for access, but already inside car
+  Infotainment system
+    USB, root access possible, etc
+
+How to get started
+  Book: The Car Hacker's Handbook, Craig Smith
+  Free download http://ebook-dl.com/book/5277
+  Tools, protocols, references
+
+What you'll need
+  access to the OBD-II port
+    mandated to be on 'CAN' since 2008
+  CAN hardware tool
+    USB2CAN
+    microcontroller with CAN controller on it
+  OBD-II to serial (RS-232) cable
+  linux machine
+    rasberry pi, virtual machine on osx
+  OR
+    Carloop basic ($55)
+    open source
+    wireless
+  why not cheap ODB2 dongles from amazon?
+    could.. just a lot of work to use them
+    integrated circuit, converts raw CAN messages to values
+    not getting raw messages
+
+Most comprehensive list
+  github.com/jaredthecoder/awesome-vehicle-security
+  https://twitter.com/_devalias/status/886354216968609792
+
+Vehicle networking basics
+  CAN bus
+    connects all modules through 2 wires
+    dashboard, engine, control modules, infotainment system
+    Controller Area Network (CAN)
+    2 wires, high and low
+    more than 1 CAN bus on vehicle
+
+  Why focus on CAN?
+    mandated since 2008
+    well supported in linux
+    more than just diagnostics..
+    currently not encrypted at all..
+    signals go from high to low
+
+  Anatomy of a CAN message
+    arbitration ID
+    IDE: 0 (always for CAN)
+    Data length: 1 byte
+    Data: payload
+    ID and data most important
+
+Demo
+  intall can-utils
+  provision CarLoop with can-utils, flash over the air
+    https://www.carloop.io/apps/app-scoketcan
+  cansniffer
+  identify by ID, see what changes in the data
+    see what changes when you do something on the car
+    no documentation out there
+    manufacturers don't want you seeing it
+    straightforward when you start to see it happen though
+
+Build your own testing buck
+  can build a test bench for less than $100
+  Power supply
+  engine control module
+  CAN device
+  adding more modules, can get more interesting data
+  car-part.com
+
+tools and resources on
+  http://illmatics.com/carhacking.html
+  https://community.rapid7.com/community/transpo-security/blog/2017/07/11/building-a-car-hacking-development-workbench-part-1
+
+How to access proprietary parameter ID's?
+  harder to decode
+  query/response structure
+  specific to ODB-II
+  need to send specific PID to get it back
+  most people use a scan tool for that brand, use a y-splitter
+  then can capture the request/response
+
+Replay of keyfobs from HackRF/similar devices?
+  don't know much about it
+
+Difference between tools mentioned and those dropped with jeep hacking research?
+  that paper is a really good read
+  goes through process of decoding each CAN message
+  has some PID's you can look at (for same brand of car)
+  each manufacturer has different 'data dictionaries' for these PIDS
+  all tools very similar, can bus/receiver
+  simple toolchain
+
+bugcrowd running car hacking CTF, prize is a truck
+  https://www.carhackingvillage.com/
+
+https://store.carloop.io/
+</pre>
+<h2><a name="thanks"></a>Thanks!</h2>
+<p>Thanks for reading! Hope you found something useful.</p>
+<p>Do you have any awesome resources, comments, or things to add? I'd love for you to share in the comments below! &lt;3</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>Link Dump: Clearing Out My Todo List</title>
+	  <link>/devalias/2017/07/14/link-dump-clearing-out-my-todo-list/</link>
+	  <author>devalias</author>
+	  <pubDate>2017-07-14T00:00:00+10:00</pubDate>
+	  <guid>/devalias/2017/07/14/link-dump-clearing-out-my-todo-list/</guid>
+	  <description><![CDATA[
+	     <p>I tend to stumble across a lot of interesting things as I travel across the web, and one of my productivity methods is to save the things I don't have time to check out immediately to <a href="https://todoist.com/">Todoist</a>. Unfortunately, time can be short, and life busy, so those 'thats an interesting article', 'i could use that tech thing' and 'that would be cool to blog about' things tend to just build up, and clutter my todo lists in an ever less efficient manner. So today lets clear some of that out!</p>
+<p>This post will be a vaguely categorised link dump, and depending on if I remember why I saved it, maybe some notes too.</p>
+<p>Looking over everything, there seem to be trends around development, security, privacy, blog/website, docker, tech, automation, branding and general performance/efficiency. Not really surprising when I think about the things that tend to interest me :)</p>
+<p>Hope you find something interesting!</p>
+<h2>Development</h2>
+<ul>
+<li><a href="https://www.jetbrains.com/research/devecosystem-2017/">The State of Developer Ecosystem 2017 - Infographic | JetBrains</a></li>
+<li><a href="https://insights.stackoverflow.com/survey/2017">Developer Survey Results 2017 - Stackoverflow</a></li>
+<li><a href="https://medium.freecodecamp.com/a-roadmap-to-becoming-a-web-developer-in-2017-b6ac3dddd0cf">A roadmap to becoming a web developer in 2017 – freeCodeCamp</a></li>
+<li><a href="https://hackernoon.com/how-it-feels-to-learn-javascript-in-2016-d3a717dd577f">How it feels to learn JavaScript in 2016 – Hacker Noon</a></li>
+<li><a href="https://mightysignal.com/top-ios-sdks">Most Used SDKs in Top 200 Free iOS Apps | MightySignal - Mobile App &amp; SDK Intelligence for iOS / Android</a></li>
+<li>Frontend Package Managers
+<ul>
+<li><a href="https://yarnpkg.com/en/">Yarn</a>: Package Manager</li>
+<li><a href="https://code.facebook.com/posts/1840075619545360">Yarn: A new package manager for JavaScript</a></li>
+<li><a href="https://github.com/yarnpkg/yarn">yarnpkg/yarn</a>: Fast, reliable, and secure dependency management.</li>
+<li><a href="https://bower.io/blog/2016/using-bower-with-yarn/">Using Bower with Yarn</a>: bower support dropped for now</li>
+<li><a href="https://www.slant.co/versus/17851/5094/~yarn_vs_bower">Yarn vs Bower detailed comparison as of 2017 - Slant</a></li>
+<li><a href="https://www.slant.co/topics/1488/~front-end-package-managers">13 Best front-end package managers as of 2017 - Slant</a></li>
+</ul>
+</li>
+<li>Frontend JS Languages
+<ul>
+<li><a href="https://medium.com/front-end-hacking/es2015-vs-elm-vs-typescript-a88dbc5d14d9">ES2015 JavaScript vs. Elm vs. TypeScript – Frontend Weekly – Medium</a></li>
+<li><a href="http://mutanatum.com/posts/2017-01-12-Browser-FP-Head-to-Head.html">Selecting a platform - JavaScript vs Elm vs PureScript vs GHCjs vs Scalajs | MutanatuM</a></li>
+</ul>
+</li>
+<li>Code Review
+<ul>
+<li><a href="https://codacy.com/">Automated code reviews &amp; code analytics | Codacy</a>: Check code style, security, duplication, complexity and coverage on every change while tracking code quality throughout your sprints.</li>
+<li><a href="https://codeclimate.com/">Code Climate</a>: Get automated code review for test coverage, complexity, duplication, security, style, and more, and merge with confidence.</li>
+</ul>
+</li>
+<li><a href="http://www.foundweekends.org/conscript/">Conscript — Conscript</a>: Distribution mechanism for Scala apps using Github and Maven repositories as the infrastructure. You can use it to install and update apps similar to APT or Home Brew.</li>
+<li><a href="http://www.foundweekends.org/giter8/">Giter8 — Giter8</a>: Command line tool to generate files and directories from templates published on Github or any other git repository</li>
+<li><a href="https://github.com/lightbend/paradox">lightbend/paradox</a>: Paradox is a markdown documentation tool for software projects.</li>
+<li><a href="https://github.com/sirthias/pegdown/">sirthias/pegdown</a>: A pure-Java Markdown processor based on a parboiled PEG parser supporting a number of extensions</li>
+<li><a href="https://ace.c9.io/">Ace - The High Performance Code Editor for the Web</a>
+<ul>
+<li><a href="https://github.com/ajaxorg/ace">ajaxorg/ace</a>: Ace (Ajax.org Cloud9 Editor)</li>
+<li><a href="https://github.com/lyrasoft/ace-markdown-editor">lyrasoft/ace-markdown-editor</a>: A Markdown editor for Joomla CMS</li>
+<li><a href="https://ace.c9.io/kitchen-sink.html?doc=Markdown">Ace Kitchen Sink</a></li>
+</ul>
+</li>
+</ul>
+<h2>Security</h2>
+<ul>
+<li>CTF
+<ul>
+<li><a href="http://www.learn2hack.com.au/">Experience IT - Cyber Security | learn2hack | TAFE</a>: Hands on training for high school students run by industry experts with pathways to tertiary qualifications. This course provides an introduction to defensive and offensive security strategies and tactics and is suitable for high school students aged 15-18.</li>
+<li><a href="https://ctf.0ops.net/">0CTF 2017</a></li>
+<li><a href="https://legitbs.net/">DEF CON CTF 2017</a></li>
+<li><a href="https://github.com/legitbs/quals-2017">legitbs/quals-2017</a></li>
+<li><a href="https://github.com/legitbs/quals-2016">legitbs/quals-2016</a>: 2016 DEF CON Qualifier Challenges</li>
+<li><a href="https://github.com/legitbs/quals-2015">legitbs/quals-2015</a></li>
+<li><a href="https://github.com/legitbs/finals-2014">legitbs/finals-2014</a></li>
+<li><a href="https://github.com/legitbs/quals-2014">legitbs/quals-2014</a></li>
+<li><a href="https://github.com/legitbs/finals-2013">legitbs/finals-2013</a>: Source for many challenges from DEF CON 21 CTF Finals</li>
+<li><a href="https://github.com/legitbs/quals-2013">legitbs/quals-2013</a>: Source for many challenges from DEF CON 21 CTF Qualifier</li>
+<li><a href="http://flaws.cloud/">flaws.cloud</a>: Through a series of levels you'll learn about common mistakes and gotchas when using Amazon Web Services (AWS).</li>
+<li><a href="https://dook.biz/2017/03/crikeyconctf-2017-koala-gallery-writeup/">CrikeyConCTF 2017 – Koala Gallery Writeup</a></li>
+</ul>
+</li>
+<li>BSides 2017
+<ul>
+<li><a href="http://buffered.io/posts/bsidescbr-ctf-round-up/">BSidesCBR CTF Round Up | OJ</a></li>
+<li><a href="https://github.com/OJ/bsides-2017-ctf-docker">OJ/bsides-2017-ctf-docker</a>: BSidesCBR CTF docker compose files</li>
+<li><a href="https://www.rootusers.com/bsides-canberra-2017-ctf-rekt-exfil-write/">BSides Canberra 2017 CTF - Rekt Exfil Write-up - RootUsers</a></li>
+</ul>
+</li>
+<li>Reverse Engineering, etc
+<ul>
+<li><a href="https://binary.ninja/">binary.ninja</a>: A reverse engineering platform</li>
+<li><a href="http://kaitai.io/">Kaitai Struct: declarative binary format parsing language</a> A new way to develop parsers for binary structures.</li>
+<li><a href="http://www.hopperapp.com/">Hopper</a>: The macOS and Linux Disassembler</li>
+<li><a href="http://cerbero.io/profiler/">Cerbero - Profiler</a>: Cerbero Profiler is a tool designed primarily for malware and forensic analysis.</li>
+</ul>
+</li>
+<li>Recon, DNS, etc
+<ul>
+<li>find IP ranges, reverse IP lookups, etc</li>
+<li>seclists subdomain section</li>
+<li><a href="https://abhartiya.wordpress.com/2016/09/20/brutesubs-an-automation-framework-for-running-multiple-subdomain-bruteforcing-tools-in-parallel-via-docker/">Brutesubs – An automation framework for running multiple subdomain bruteforcing tools in parallel via Docker</a></li>
+<li><a href="https://github.com/anshumanbh/brutesubs">anshumanbh/brutesubs</a>: An automation framework for running multiple open sourced subdomain bruteforcing tools (in parallel) using your own wordlists via Docker Compose</li>
+<li><a href="https://github.com/TheRook/subbrute">TheRook/subbrute</a>: A DNS meta-query spider that enumerates DNS records, and subdomains.</li>
+<li><a href="https://github.com/infosec-au/altdns">infosec-au/altdns</a>: Generates permutations, alterations and mutations of subdomains and then resolves them</li>
+<li><a href="https://github.com/OJ/gobuster">OJ/gobuster</a>: Directory/file &amp; DNS busting tool written in Go</li>
+<li><a href="https://www.apnic.net/manage-ip/using-whois/bulk-access/">Bulk access to whois data – APNIC</a>: apnic offline database</li>
+<li><a href="https://github.com/Microsoft/WhoisParsers">Microsoft/WhoisParsers</a>: Download and parse Whois records from bulk whois database dumps of IANA organizations (ARIN, AFRINIC, APNIC, LACNIC, RIPE ). Crawl and parse RWhois records from RFC 2167 ARIN Referral Whois Servers</li>
+<li><a href="https://github.com/jhaddix/domain/blob/master/enumall.py">jhaddix/domain enumall</a>: enumall is a refactor of enumall.sh providing a script to identify subdomains using several techniques and tools.</li>
+<li><a href="https://bitbucket.org/LaNMaSteR53/recon-ng">LaNMaSteR53 / Recon-ng — Bitbucket</a>: Recon-ng is a full-featured Web Reconnaissance framework written in Python.</li>
+<li><a href="http://tools.kali.org/information-gathering/dnsenum">dnsenum | Penetration Testing Tools</a></li>
+<li><a href="https://github.com/ChrisTruncer/EyeWitness">ChrisTruncer/EyeWitness</a>: EyeWitness is designed to take screenshots of websites, provide some server header info, and identify default credentials if possible.</li>
+</ul>
+</li>
+<li>Dockerised
+<ul>
+<li><a href="https://zeltser.com/metasploit-framework-docker-container/">Run Metasploit Framework as a Docker Container Without Installation Pains</a></li>
+<li><a href="https://hub.docker.com/r/k0st/alpine-nikto/">k0st/alpine-nikto | DockerHub</a>: Dockerized nikto</li>
+<li>docker run --rm -it activeshadow/nikto /bin/bash</li>
+<li><a href="https://github.com/kost/docker-webscan">kost/docker-webscan</a>: Dockerized versions of various web security scanning tools and utilities</li>
+</ul>
+</li>
+<li>Frameworks, automation, etc
+<ul>
+<li><a href="https://github.com/trustedsec/ptf">trustedsec/ptf</a>: The Penetration Testers Framework (PTF) is a way for modular support for up-to-date tools.</li>
+<li><a href="http://www.golismero.com/">Golismero Project. The web knife.</a>
+<ul>
+<li>GoLismero is a free software framework for security testing. It's currently geared towards web security, but it can easily be expanded to other kinds of scans. It can run their own security tests and manage a lot of well known security tools (OpenVas, Wfuzz, SQLMap, DNS recon, robot analyzer...) take their results, feedback to the rest of tools and merge all of results. And all of this automatically.</li>
+<li><a href="https://github.com/golismero/golismero">golismero/golismero</a></li>
+</ul>
+</li>
+<li><a href="http://www.spiderfoot.net/">SpiderFoot – Open Source Intelligence Automation</a>
+<ul>
+<li><a href="https://github.com/smicallef/spiderfoot">smicallef/spiderfoot</a>: SpiderFoot, the open source footprinting and intelligence-gathering tool.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="https://bugcrowd.com/vulnerability-rating-taxonomy">Vulnerability Rating Taxonomy | Bugcrowd</a>
+<ul>
+<li>Bugcrowd’s VRT is a resource outlining Bugcrowd’s baseline priority rating, including certain edge cases, for vulnerabilities that we often see.</li>
+<li><a href="https://github.com/bugcrowd/vulnerability-rating-taxonomy">bugcrowd/vulnerability-rating-taxonomy</a></li>
+</ul>
+</li>
+<li><a href="https://www.pastemonitor.com/">PasteMonitor</a>: PasteMonitor watches for keywords you're interested in on Pastebin.</li>
+<li><a href="https://requestb.in/">RequestBin — Collect, inspect and debug HTTP requests and webhooks</a></li>
+<li><a href="https://github.com/Runscope/requestbin">Runscope/requestbin</a>: Inspect HTTP requests. Debug webhooks.</li>
+<li><a href="https://github.com/maurosoria/dirsearch">maurosoria/dirsearch</a>: Web path scanner</li>
+<li><a href="https://github.com/ImageTragick/PoCs">ImageTragick/PoCs</a>: Proof of Concepts for CVE-2016–3714 <a href="https://imagetragick.com">https://imagetragick.com</a></li>
+<li><a href="https://github.com/malfunkt/hyperfox">malfunkt/hyperfox</a> (<a href="https://hyperfox.org/">web</a>): HTTP/HTTPs MITM proxy and traffic recorder with on-the-fly TLS cert generation</li>
+<li><a href="https://github.com/reverse-shell/routersploit">reverse-shell/routersploit</a>: The Router Exploitation Framework</li>
+<li><a href="https://breakdev.org/evilginx-advanced-phishing-with-two-factor-authentication-bypass/">Evilginx - Advanced Phishing with Two-factor Authentication Bypass</a></li>
+<li><a href="https://medium.com/on-docker/secrets-and-lie-abilities-the-state-of-modern-secret-management-2017-c82ec9136a3d">Secrets and LIE-abilities: The State of Modern Secret Management [2017]</a></li>
+<li><a href="https://www.cert.gov.au/vulnerability-disclosures">Vulnerability Disclosures | CERT Australia</a></li>
+<li>Where are BURP setttings saved?
+<ul>
+<li>On OSX it is stored in the com.apple.java.util.prefs.plist under ~/Library/Preferences.</li>
+<li>Also, you need to make sure you use the burp-&gt;exit to quit and not the Burp.StartBurp-&gt;Quit (Command-Q) to exit. Otherwise, it will not save the settings.</li>
+</ul>
+</li>
+</ul>
+<h2>Privacy</h2>
+<ul>
+<li><a href="http://www.shellntel.com/blog/2016/3/30/vpn-over-dns-1">VPN over DNS</a></li>
+<li><a href="https://www.whonix.org/wiki/Main_Page">Whonix</a>: Whonix is a free desktop operating system (OS) that is specifically designed for advanced security and privacy. Based on Tor, Debian GNU/Linux and the principle of security by isolation, it realistically addresses common attack vectors while maintaining usability.</li>
+<li><a href="https://medium.com/@rdsubhas/docker-image-with-tor-privoxy-and-a-process-manager-under-15-mb-c9e344111b61#.csolccvds">Docker image with Tor, Privoxy and a process manager under 15 MB</a></li>
+<li><a href="https://blog.jessfraz.com/post/routing-traffic-through-tor-docker-container/">1: How to Route Traffic through a Tor Docker Container</a></li>
+<li><a href="https://blog.jessfraz.com/post/running-a-tor-relay-with-docker/">2: Running a Tor relay with Docker</a></li>
+<li><a href="https://blog.jessfraz.com/post/tor-socks-proxy-and-privoxy-containers/">3: Tor Socks Proxy and Privoxy Containers</a></li>
+<li>Advanced Privacy and Anonymity Using VMs, VPN’s, Tor
+<ul>
+<li><a href="https://www.ivpn.net/privacy-guides/advanced-privacy-and-anonymity-part-1">Part 1 - Introduction to Series</a></li>
+<li><a href="https://www.ivpn.net/privacy-guides/advanced-privacy-and-anonymity-part-2">Part 2 - Basic Setup Using VM's, VPNs and TOR</a></li>
+<li><a href="https://www.ivpn.net/privacy-guides/advanced-privacy-and-anonymity-part-3">Part 3 - Planning Advanced VM and VPN Setup</a></li>
+<li><a href="https://www.ivpn.net/privacy-guides/advanced-privacy-and-anonymity-part-4">Part 4 - Setting Up Secure Host Machines</a></li>
+<li><a href="https://www.ivpn.net/privacy-guides/advanced-privacy-and-anonymity-part-5">Part 5 - Installing VirtualBox and Creating Linux VMs</a></li>
+<li><a href="https://www.ivpn.net/privacy-guides/advanced-privacy-and-anonymity-part-6">Part 6 - Creating pfSense 2.2.6 VMs as VPN Clients</a></li>
+<li><a href="https://www.ivpn.net/privacy-guides/advanced-privacy-and-anonymity-part-7">Part 7 - Paying Anonymously with Cash and Bitcoins</a></li>
+<li><a href="https://www.ivpn.net/privacy-guides/advanced-privacy-and-anonymity-part-8">Part 8 - Creating Nested Chains of VPNs and Tor</a></li>
+</ul>
+</li>
+</ul>
+<h2>Blog / Website / Social</h2>
+<ul>
+<li><a href="https://www.ohow.co/removing-google-analytics-spam/">Ultimate Guide to Blocking and Cleaning Google Analytics Spam and Other Junk Traffic</a></li>
+<li><a href="https://later.com/blog/ultimate-guide-to-using-instagram-hashtags/">The Ultimate Guide to Instagram Hashtags in 2017</a></li>
+<li><a href="https://staticman.net/docs/">Staticman</a>: I bring user-generated content to static sites</li>
+<li>Blog Inspiration
+<ul>
+<li><a href="http://rhiaro.co.uk/">Amy/Rhiaro | tampering with arrangements</a>: Lots of social web/lifelogging type stuff, seems cool</li>
+<li><a href="http://www.savespendsplurge.com/tag/what-i-bought/">What I bought | Save. Spend. Splurge.</a>: Lifelogging type stuff</li>
+<li><a href="https://github.com/aarongustafson/aarongustafson.github.io/tree/source">aarongustafson/aarongustafson.github.io</a> (<a href="https://www.aaron-gustafson.com/">web</a>): Web standards &amp; accessibility advocate at Microsoft</li>
+</ul>
+</li>
+<li>Jekyll
+<ul>
+<li><a href="https://mademistakes.com/articles/using-jekyll-2016/">How I’m Using Jekyll in 2016</a></li>
+<li><a href="https://jekyllrb.com/docs/collections/">Jekyll Collections</a>: For writings/etc?</li>
+</ul>
+</li>
+<li>Jekyll Plugins
+<ul>
+<li><a href="https://github.com/pattex/jekyll-tagging/issues/43#issuecomment-289595438">Generate a /tag/index.html · Issue #43 · pattex/jekyll-tagging</a>: TODO: Implement tag_cloud for my blog</li>
+<li><a href="https://github.com/jekyll/jekyll-archives">jekyll/jekyll-archives</a>: Archive pages for your Jekyll tags and categories</li>
+<li><a href="https://github.com/pattex/jekyll-tagging">pattex/jekyll-tagging</a>: Jekyll plugin to automatically generate a tag cloud and tag pages.</li>
+<li><a href="https://github.com/toshimaru/jekyll-tagging-related_posts">toshimaru/jekyll-tagging-related_posts</a>: Jekyll related_posts function based on tags (works on Jekyll3)</li>
+<li><a href="https://github.com/octopress/paginate/">octopress/paginate</a>: A simple paginator for Jekyll sites.</li>
+<li><a href="https://github.com/jekyll/jekyll-assets">jekyll/jekyll-assets</a>: Asset pipelines for Jekyll.</li>
+<li><a href="https://github.com/robwierzbowski/jekyll-picture-tag">robwierzbowski/jekyll-picture-tag</a>: Easy responsive images for Jekyll.</li>
+<li>Jekyll wiki plugin?</li>
+</ul>
+</li>
+<li>GitHub Issues
+<ul>
+<li><a href="https://github.com/indirect/jekyll-postfiles/issues/6">Make this a ruby gem · Issue #6 · indirect/jekyll-postfiles</a></li>
+<li><a href="https://github.com/aarongustafson/jekyll-webmention_io/issues/11">Give rake task the ability to detect and notify pingback endpoints · Issue #11 · aarongustafson/jekyll-webmention_io</a></li>
+<li><a href="https://github.com/aarongustafson/jekyll-webmention_io/issues/12">Rake task will download entire file looking for webmention endpoint · Issue #12 · aarongustafson/jekyll-webmention_io</a></li>
+</ul>
+</li>
+<li>Discoverability, etc
+<ul>
+<li><a href="http://oembed.com/">oEmbed</a>:oEmbed is a format for allowing an embedded representation of a URL on third party sites.</li>
+<li><a href="http://pingomatic.com/">Ping-o-Matic!</a>: Ping-O-Matic is a service to update different search engines that your blog has updated.</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/RSS/Getting_Started/Syndicating">Syndicating content with RSS</a></li>
+</ul>
+</li>
+<li>Indieweb, etc
+<ul>
+<li><a href="http://indiewebify.me/">IndieWebify.Me - a guide to getting you on the IndieWeb</a>: We should all own the content we're creating, rather than just posting to third-party content silos.Publish on your own domain, and syndicate out to silos. This is the basis of the &quot;Indie Web&quot; movement.</li>
+<li><a href="http://activitystrea.ms">Activity Streams</a>: JSON Activity Streams Spec</li>
+<li><a href="http://indiewebcamp.com/backfeed">backfeed - IndieWeb</a>: Backfeed is the process of syndicating interactions on your POSSE copies back (AKA reverse syndicating) to your original posts.</li>
+<li><a href="http://indiewebcamp.com/Bridgy">Bridgy - IndieWeb</a>: Bridgy is an open source project and proxy that implements backfeed and POSSE as a service. Bridgy sends webmentions for comments, likes, etc. on Facebook, Twitter, Google+, Instagram, and Flickr.</li>
+<li><a href="https://github.com/snarfed/bridgy">snarfed/bridgy</a>: Bridgy pulls comments and likes from social networks back to your web site. You can also use it to publish your posts to those networks.</li>
+<li><a href="http://indiewebcamp.com/webmention#Services">Webmention - IndieWeb</a>: Services you can use with Webmention to send copies of your posts to social meda sites (silos), and receive silo-specific interactions as Webmentions on your site!</li>
+<li><a href="https://checkmention.appspot.com/">Checkmention</a>: This site lets you test your webmention implementation on your indieweb site, and whether it robustly detects certain types of XSS attacks.</li>
+<li><a href="https://github.com/indieweb/mention-client-ruby">indieweb/mention-client-ruby</a>: A Ruby gem for sending webmention (and pingback) notifications</li>
+<li><a href="https://www.w3.org/wiki/Socialwg">W3C social working group</a></li>
+</ul>
+</li>
+</ul>
+<h2>Docker</h2>
+<ul>
+<li><a href="https://github.com/Perlence/docker-multi-build">Perlence/docker-multi-build</a>: Concurrent multi-stage Docker builds
+<ul>
+<li>This is outdated now, it exists in docker core</li>
+</ul>
+</li>
+<li><a href="https://www.iron.io/how-to-cross-compile-go-programs-using-docker/">How to Cross Compile Go Programs using Docker | Iron.io</a></li>
+<li><a href="https://hub.docker.com/_/golang/">golang | DockerHub</a></li>
+</ul>
+<h2>Automation, Scraping, etc</h2>
+<ul>
+<li><a href="https://hackernoon.com/guide-to-web-automation-889557804453">Guide to Web Automation | Hackernoon</a>
+<ul>
+<li><a href="https://github.com/peterdemin/web-automation-2017">peterdemin/web-automation-2017</a>: An attempt to cover state of web automation in 2017
+<ul>
+<li>This GitHub should have a bunch of other projects detailed in some of the (probably closed) issues</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="https://scrapy.org/">Scrapy</a>: An open source and collaborative framework for extracting the data you need from websites.<br />
+In a fast, simple, yet extensible way.</li>
+<li><a href="https://github.com/scrapinghub/portia/">scrapinghub/portia</a>: Visual scraping for Scrapy</li>
+<li><a href="https://github.com/Netflix/Scumblr">Netflix/Scumblr</a>: Web framework that allows performing periodic syncs of data sources and performing analysis on the identified results</li>
+<li><a href="https://home-assistant.io/">Home Assistant</a>: Home Assistant is an open-source home automation platform running on Python 3.</li>
+</ul>
+<h2>Tech</h2>
+<ul>
+<li>Tmux
+<ul>
+<li><a href="https://github.com/jimeh/tmuxifier">jimeh/tmuxifier</a>: Tmuxify your Tmux. Powerful session, window &amp; pane management for Tmux.</li>
+<li><a href="https://github.com/tmuxinator/tmuxinator">tmuxinator/tmuxinator</a>: Manage complex tmux sessions easily</li>
+</ul>
+</li>
+<li><a href="https://github.com/dundalek/markmap">dundalek/markmap</a>: Visualize markdown documents as mindmaps
+<ul>
+<li>Can we use this to make nice markdown mindmap summaries?</li>
+</ul>
+</li>
+<li><a href="https://github.com/donnemartin/haxor-news">donnemartin/haxor-news</a>: Browse Hacker News like a haxor: A Hacker News command line interface (CLI).</li>
+<li><a href="https://apple.stackexchange.com/questions/237136/where-does-launchpad-store-folder-information-database-etc">Where does launchpad store folder information? (database, etc?)</a></li>
+<li><a href="https://dcos.io/">The Definitive Platform for Modern Apps | DC/OS</a>: DC/OS (the datacenter operating system) is an open-source, distributed operating system based on the Apache Mesos distributed systems kernel.</li>
+<li><a href="https://snapcraft.io/">snapcraft - Snaps are universal Linux packages</a>: package linux apps for every linux/server/cloud/device</li>
+</ul>
+<h2>Branding</h2>
+<ul>
+<li><a href="https://library.gv.com/the-three-hour-brand-sprint-3ccabf4b768a#.h7s3gqfx8">The Three-Hour Brand Sprint – GV Library</a></li>
+<li><a href="https://blog.docker.com/2013/06/announcing-new-docker-style/">Announcing a New Logo and Style for Docker - Docker Blog</a></li>
+<li><a href="https://99designs.com.au/logo-design">Logo Design - Get A Custom Logo Design from Professional Logo Designers | 99designs</a></li>
+<li><a href="https://99designs.com.au/logo-design/contests/create-cool-open-source-project-logo-219415">Docker - Create cool open-source project logo. | Logo design contest</a></li>
+</ul>
+<h2>Alfred-esque</h2>
+<ul>
+<li><a href="http://www.packal.org/workflow/homebrew-and-cask-alfred">Homebrew and Cask for Alfred</a></li>
+<li><a href="https://github.com/danielbayerlein/alfred-workflows/tree/master/homebrew">Alfred Workflow for Homebrew (danielbayerlein/alfred-workflows)</a></li>
+<li><a href="https://github.com/idpaterson/alfred-wunderlist-workflow">idpaterson/alfred-wunderlist-workflow</a>: Unbelievably fast task entry in Wunderlist with due dates, reminders, and recurrence</li>
+<li><a href="https://www.lacona.io/">Lacona</a>: Blazingly fast, blissfully simple, incredibly powerful keyboard-driven commands for your Mac</li>
+<li><a href="https://github.com/laconalabs/lacona-cli">laconalabs/lacona-cli</a></li>
+<li>Automator services ~/Library/Services</li>
+</ul>
+<h2>Windows</h2>
+<ul>
+<li><a href="http://boxstarter.org/">Boxstarter</a>: Repeatable, reboot resilient windows environment installations made easy using Chocolatey packages</li>
+<li><a href="https://chocolatey.org/">Chocolatey - The package manager for Windows</a></li>
+<li><a href="https://www.nuget.org/">NuGet Gallery | Home</a></li>
+</ul>
+<h2>MacOS (OSX) on Windows</h2>
+<ul>
+<li><a href="http://www.apple.com/au/shop/product/MJ2R2ZA/A/magic-trackpad-2">Apple Magic Magic Trackpad 2</a></li>
+<li><a href="http://extramagic.forbootcamp.org/">ExtraMagic</a>: OSX-Trackpad Multitouch on Windows</li>
+<li><a href="https://sourceforge.net/projects/ccseer/">Seer</a>: OSX-like Spacebar Preview on Windows</li>
+</ul>
+<h2>GitHub</h2>
+<ul>
+<li><a href="https://github.com/Homebrew/homebrew-bundle/issues/147"><code>brew bundle check</code> should list whats missing · Issue #147 · Homebrew/homebrew-bundle</a>: brew bundle check/dryrun</li>
+<li><a href="https://github.com/erocarrera/pefile/issues/123">Broken links in readme · Issue #123 · erocarrera/pefile</a></li>
+<li><a href="https://github.com/erocarrera/pefile/issues/124">Better modularisation · Issue #124 · erocarrera/pefile</a></li>
+<li><a href="https://github.com/erocarrera/pefile/issues/125">Flag to skip parsing on PE object instantiation · Issue #125 · erocarrera/pefile</a></li>
+<li><a href="https://github.com/jgm/gitit/issues/580">Github Flavoured Markdown · Issue #580 · jgm/gitit</a></li>
+</ul>
+<h2>Quantified Self</h2>
+<ul>
+<li><a href="https://hello.is/">Sense</a>: Sleep tracker</li>
+</ul>
+<h2>Performance, nootropics, etc</h2>
+<ul>
+<li><a href="https://www.hongstarr.com/">Hong</a>: Bulletproof Coach in Melbourne, written up on Living Bulletproof, etc</li>
+<li><a href="https://www.gethapi.com.au/products/flow">Hapi | Flow</a></li>
+<li><a href="https://www.totalnootropics.com.au/collections/all-products">Total Nootropics</a></li>
+<li><a href="https://nootroplus.com/">Nootroplus - Premium Nootropics</a></li>
+</ul>
+<h2>Interests, activities, etc</h2>
+<ul>
+<li>Climbing
+<ul>
+<li><a href="http://climbingschool.com.au/courses/">Courses - Blue Mountains Climbing School</a></li>
+</ul>
+</li>
+<li>Archery
+<ul>
+<li><a href="https://www.canberraarchery.club/come-and-try">Canberra Archery - Come and Try</a></li>
+<li><a href="http://home.tuggeranongarchery.com/index.php/activities/come-and-try">Tuggeranong Archery - Come and Try</a></li>
+<li><a href="http://www.wvac.asn.au/beginners.html">Weston Valley Archery Club - Come and Try</a></li>
+<li><a href="http://capitalfieldarchers.com.au/">Capital Field Archers</a></li>
+<li><a href="https://www.bowhunters.org.au/index.php/author-login/branch-f-southern-nsw-act">Branch F - Southern NSW &amp; ACT</a></li>
+<li><a href="https://www.bowhunters.org.au/">BowHunters</a></li>
+</ul>
+</li>
+<li>Shooting
+<ul>
+<li><a href="http://ssaa.org.au/act/ssaa-act-inc.html">SSAA ACT Inc</a></li>
+<li><a href="http://actsmallborerifleclub.com/">ACT Smallbore Rifle Club Inc</a></li>
+<li><a href="http://www.canberrarifleclub.org.au/wordpress/?page_id=110">Canberra Rifle Club</a>: Preliminary Information for Interested Persons</li>
+</ul>
+</li>
+<li>Medieval
+<ul>
+<li><a href="https://www.facebook.com/AncientArtsFellowship/">Ancient Arts Fellowship</a></li>
+<li><a href="http://www.aaf.org.au/fighting/">Ancient Arts Fellowship - Fighting</a></li>
+<li><a href="https://www.facebook.com/TheHundredSwords">The Hundred Swords</a></li>
+<li><a href="http://politarchopolis.lochac.sca.org/">The Barony of Politarchopolis</a></li>
+</ul>
+</li>
+</ul>
+<h2>Gaming</h2>
+<ul>
+<li><a href="http://raptr.com/">Raptr</a>: Raptr makes PC gaming fast, beautiful, and hassle-free.</li>
+<li><a href="http://www.gameplay-time-tracker.info/en/download.aspx">Gameplay Time Tracker</a></li>
+</ul>
+<h2>Unsorted</h2>
+<ul>
+<li><a href="https://www.gitbook.com/">GitBook · Documentation made easy</a></li>
+<li><a href="https://www.blinkist.com/en/pricing.html">Blinkist: Serving curious minds</a></li>
+<li><a href="http://isite2020.com.au/">iSite 20/20 - Take control of your vision</a></li>
+</ul>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>Kiwicon 8 (2014) - Some quick notes</title>
+	  <link>/devalias/2014/12/16/kiwicon-8-2014-some-quick-notes/</link>
+	  <author>devalias</author>
+	  <pubDate>2014-12-16T08:08:04+11:00</pubDate>
+	  <guid>/devalias/2014/12/16/kiwicon-8-2014-some-quick-notes/</guid>
+	  <description><![CDATA[
+	     <ul>
+<li><a href="https://kiwicon.org/">Kiwicon</a>
+<ul>
+<li><a href="http://2014.kiwicon.org/">2014</a>
+<ul>
+<li><a href="http://2014.kiwicon.org/the-con/schedule/">Schedule</a></li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/">Talks</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+<p>This was most definitely one of the most interesting, exciting, and downright awesome 'con experiences i've ever had! In the past i've pretty much kept to myself, watched the talks and headed home, but hung out/chatted/discussed with a lot of people over the course of the week, and it was epic! So so so definitely worthwhile!!</p>
+<p>Not sure of the best way to go about this, so will just list out the different presentations and anything of interest/note from them.</p>
+<p>I assume slides/etc should be up later on, so if something looks interesting, keep an eye out for that.</p>
+<h2><a href="http://2014.kiwicon.org/the-con/schedule/#Thursday11December">Thursday</a></h2>
+<ul>
+<li><a href="https://kiwicon.org/the-con/talks/#e146">Eve, Mallory, Ocean's 11, and Jack Bauer: Adversaries Real and Imagined</a>
+<ul>
+<li>Nice overview of the different kinds of attackers, what they tend to be after, etc</li>
+<li>Basically highlighted that you need to know what they are after and what it is worth, and balance security accordingly</li>
+</ul>
+</li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e149">Breaking Bricks and Plumbing Pipes: Cisco ASA a Super Mario Adventure</a>
+<ul>
+<li>Interesting talk about a plethora of security flaws found in Cisco firewall to gain a pivot point into the network</li>
+</ul>
+</li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e150">Asymmetric Defense, and your buyers guide to Threat Intelligence</a>
+<ul>
+<li>Essentially talked about how a lot of 'threat intelligence' out there is crap, and treated as 'more is better' rather than ''better is better'</li>
+<li>Talked about how there needs to be standardises formats for digitally sharing/consuming threat intelligence</li>
+</ul>
+</li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e151">Seeing Blu</a>
+<ul>
+<li>Step by step walkthrough and thought process of how he hacked his BluRay player to enable multi region support so he could watch his copy of Hackers.</li>
+</ul>
+</li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e152">OneRNG - a verifiable and Open Hardware Random Number Generator from NZ</a>
+<ul>
+<li>Small open source/hardware device to generate truly random entropy, to be fed back into a random number generator</li>
+<li>Recently released on kickstarter: <a href="https://www.kickstarter.com/projects/moonbaseotago/onerng-an-open-source-entropy-generator">https://www.kickstarter.com/projects/moonbaseotago/onerng-an-open-source-entropy-generator</a></li>
+</ul>
+</li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e147">Eradicating the Human Problem</a>
+<ul>
+<li>Really excellent talk by @lady_nerd talking about social engineering and humans as the weak point in security</li>
+<li>Talked about how we need a better way to assess and track the human element of security, rather than treating it as too hard/unobtainable</li>
+<li>Briefly discussed a tool in development designed to assist with mapping out the social interactions of a company in a way that allows assessing potential risk/etc, and determining the flow of an attack through the social elements of a company</li>
+<li>Slides: <a href="https://twitter.com/lady_nerd/status/544230404170194945">https://twitter.com/lady_nerd/status/544230404170194945</a></li>
+</ul>
+</li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e142">Security the Etsy way: Effective security in a continuous deployment culture</a>
+<ul>
+<li>Excellent talk by @iodboi about mixing in security people with the general developers, not blocking progress/saying no while still maintaining security, making security liked/approachable, etc.</li>
+<li>So many awesome points and discussions, not to mention showing just how epic a place Etsy is to work.</li>
+<li>Caught up with him a decent bit after his talk and had some awesome chats, a really cool and down to earth guy</li>
+<li>Etsy are a great example of continuous deployment, with upwards of 50 pushes into production every day</li>
+<li>One of the big points: Don't hire assholes (they will ruin all of the work you put in to enhance security/etcs image and drag everyone down) <a href="https://twitter.com/hypatiadotca/status/542870405514801152">https://twitter.com/hypatiadotca/status/542870405514801152</a></li>
+</ul>
+</li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e153">COMSEC - Beyond Encryption</a>
+<ul>
+<li>Discussion on maintaining communication security, tools that are good/bad, etc</li>
+<li>Almost surprisingly, Apple factime rates pretty highly on the list.</li>
+<li>Pond considered THE thing to use <a href="https://pond.imperialviolet.org/">https://pond.imperialviolet.org/</a></li>
+</ul>
+</li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e154">MitMing GSM with criminal intent</a>
+<ul>
+<li>Discussed the analysis and thinking, and eventual pwning of a GSM enabled home detention ankle monitor</li>
+<li>Made front page of the newspaper for the talk: <a href="http://www.nzherald.co.nz/nz/news/article.cfm?c_id=1&amp;objectid=11373524">http://www.nzherald.co.nz/nz/news/article.cfm?c_id=1&amp;objectid=11373524</a></li>
+<li>Same guy who broke the NZ transport card system last year</li>
+</ul>
+</li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e143">Building a hipster catapult, or how2own your skateboard</a>
+<ul>
+<li>Amusing talk about taking over control of a bluetooth controlled electric skateboard, including demonstration</li>
+</ul>
+</li>
+</ul>
+<h2><a href="http://2014.kiwicon.org/the-con/schedule/#Friday12December">Friday</a></h2>
+<ul>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e167">R00t Causes: complex systems failures and security incident response</a>
+<ul>
+<li>Analysis of a bridge collapse and how similar events map into security</li>
+<li>Some key points: compartmentalise/isolate</li>
+</ul>
+</li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e156">ThruGlassXfer: The TV people? Do you see them?</a>
+<ul>
+<li>Interesting proof of concept and discussion on using the pixels on a screen and a video camera, combined with a programmable keyboard to initiate an ''air gapped' bidirectional communications channel.</li>
+<li>Proves that if you can see it on the screen, and type into it, then you can basically bypass any other security in your way</li>
+<li><a href="http://thruglassxfer.com">http://thruglassxfer.com</a></li>
+</ul>
+</li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e144">Cyberwar before there was Cyber: Hacking WWII Electronic Bomb Fuses</a>
+<ul>
+<li>Research/analyse on various types of german bomb fuses, and the evolution of design/defuser used to outsmart each other</li>
+</ul>
+</li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e157">BeEF for Vegetarians (Hooked Browser Meshed-Networks with WebRTC)</a>
+<ul>
+<li>Pretty cool talk by @xntrik (co-author of browser hackers handbook) about creating mesh networks from exploited browsers to minimize detection/etc from communication with the command server</li>
+<li>Useful for circumventing/stealthing internal lateral exploration through a network</li>
+</ul>
+</li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e158">An Image is Worth 1000 Frauds – Detecting Fake Images and Videos</a>
+<ul>
+<li>Interesting high level runthrough of some methods you can use to detect manipulated images/video</li>
+<li>Linked to <a href="https://github.com/ebemunk/phoenix">https://github.com/ebemunk/phoenix</a> a lot</li>
+</ul>
+</li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e159">Manipulating Human Minds: The Psychological Side of Social Engineering</a>
+<ul>
+<li>Interesting talk by @0xkitty that takes a high level look at some of things involved in social engineering and manipulating the human element of security</li>
+</ul>
+</li>
+<li>Lightning talks (shorter)
+<ul>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e160">Recap of the aftermath of last year's bus hacking</a>
+<ul>
+<li>Decent recap of what happened/how the incident was handled (eg. poorly)</li>
+</ul>
+</li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e161">The National Cyber Security Strategy and the Connect Smart Partnership</a>
+<ul>
+<li>Some goverment guy that wasn't very engaging</li>
+</ul>
+</li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e162">I know what you did last Wednesday: exploitation of the humble apartment video intercom</a>
+<ul>
+<li>Hacked his embedded linux apartment intercomm system to find exploits that enabled stealth monitoring of EVERY apartment in his building (100's)</li>
+</ul>
+</li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e163">Voltron: Defender of the Universe</a>
+<ul>
+<li>Terminal based 'GUI' for GDB debugging</li>
+<li><a href="https://github.com/snare/voltron">https://github.com/snare/voltron</a></li>
+</ul>
+</li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e145">Random() Adventures in Minecrosoftcraft</a>
+<ul>
+<li>A practical example of using analyses to defeat insecure 'random' implementations in the context of minecraft</li>
+</ul>
+</li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e164">Legal loopholes</a>
+<ul>
+<li>Some talk about grey areas of the law/etc</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e165">Breaking AV software</a>
+<ul>
+<li>Really interesting talk about just how insecure/terrible antivirus/security products in general can be (hint: VERY)</li>
+<li>Showed how a large number of the top AV engines can actually end up making your system less secure due to the way they are implemented.</li>
+</ul>
+</li>
+<li><a href="http://2014.kiwicon.org/the-con/talks/#e166">Hackers and Hacks, or: How I Learned to Stop Worrying and Love the MSM</a>
+<ul>
+<li>An enlightening talk by the reporters who engaged with ''rawshark' and the process/pitfalls they went through to in securely communicating to release the information.</li>
+<li>Made some good points about security being hard for the ''average' person, and how so very major stories (eg. Snowden) were almost missed out on because reporters don't understand how to security well enough</li>
+</ul>
+</li>
+</ul>
+<h2><a href="http://2014.kiwicon.org/the-con/schedule/#Saturday13December">Saturday</a></h2>
+<ul>
+<li><a href="http://2014.kiwicon.org/the-con/events/#e148">Kiwicon SPIT ROAST</a>
+<ul>
+<li>We ate lots of meat, in a fortress!!</li>
+</ul>
+</li>
+</ul>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>Symantec Web Gateway: Cross-Site Scripting (XSS) (CVE-2013-4670)</title>
+	  <link>/devalias/2013/09/05/symantec-web-gateway-cross-site-scripting-xss/</link>
+	  <author>devalias</author>
+	  <pubDate>2013-09-05T00:00:00+10:00</pubDate>
+	  <guid>/devalias/2013/09/05/symantec-web-gateway-cross-site-scripting-xss/</guid>
+	  <description><![CDATA[
+	     <p>I found a Cross-Site Scripting (XSS) vulnerability within the Symantec Web Gateway.</p>
+<h2>The CVE</h2>
+<ul>
+<li><strong><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4670">CVE-2013-4670</a></strong>: Multiple cross-site scripting (XSS) vulnerabilities in the management console on the Symantec Web Gateway (SWG) appliance before 5.1.1 allow remote attackers to inject arbitrary web script or HTML via unspecified vectors.
+<ul>
+<li><a href="https://www.symantec.com/security_response/securityupdates/detail.jsp?fid=security_advisory&amp;pvid=security_advisory&amp;year=&amp;suid=20130725_00">Security Advisories Relating to Symantec Products - Symantec Web Gateway Security Issues (SYM13-008)</a></li>
+</ul>
+</li>
+</ul>
+<h2>Acknowledgements</h2>
+<p>This issue was identified by <a href="http://devalias.net">myself</a>, as well as independently by another security researcher:</p>
+<ul>
+<li>Glenn 'devalias' Grant (<a href="http://devalias.net">http://devalias.net</a>)</li>
+</ul>
+<blockquote>
+<p>Symantec thanks Glenn 'devalias' Grant, <a href="http://devalias.net">http://devalias.net</a>, for also reporting CVE-2013-4670 and working with us as we addressed them.</p>
+</blockquote>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>[DAHAX-2013-001] Cloudflare XSS Vulnerability</title>
+	  <link>/devalias/2013/08/15/dahax-2013-001-cloudflare-xss-vulnerability/</link>
+	  <author>devalias</author>
+	  <pubDate>2013-08-15T08:00:00+10:00</pubDate>
+	  <guid>/devalias/2013/08/15/dahax-2013-001-cloudflare-xss-vulnerability/</guid>
+	  <description><![CDATA[
+	     <p><strong>Reference Number:</strong> DAHAX-2013-001 (/dev/alias/hacks 2013-001)</p>
+<h3>Notification Timeline</h3>
+<ul>
+<li>10/07/2013, Request# 38713 (<a href="https://support.cloudflare.com/anonymous_requests/new">https://support.cloudflare.com/anonymous_requests/new</a>)</li>
+<li>10/07/2013, Vendor looking into issue</li>
+<li>16/07/2013, Updated vendor with new details (Length: 101 instead of 72)</li>
+<li>16/07/2013, Vendor requested that I test again</li>
+<li>No response from vendor</li>
+<li>01/08/2013, Tested again, vulnerability fixed</li>
+<li>22/08/2013, Posted details to full-disclosure</li>
+<li>22/08/2013, Vendor confirmed issue has been fixed</li>
+<li>31/08/2017, <a href="https://hackerone.com/devalias">Submitted and retroactively recognised on HackerOne</a> bug bounty program with swag</li>
+</ul>
+<p><strong>Details Published:</strong> 14/08/2013 (<a href="http://blog.devalias.net">http://blog.devalias.net</a>)</p>
+<h2>What?</h2>
+<ul>
+<li>Reflected XSS (cross site scripting) attack</li>
+</ul>
+<h2>Where's Affected?</h2>
+<ul>
+<li>Theoretically it seems that any page that uses cloudflare will be affected.
+<ul>
+<li>Eg: <a href="https://www.cloudflare.com/">http://www.cloudflare.com/</a></li>
+</ul>
+</li>
+</ul>
+<h2>How?</h2>
+<ul>
+<li><strong>To bring up the vulnerable page</strong>
+<ul>
+<li>Set your X-Forwarded-For header to 101+ characters</li>
+<li>Eg:</li>
+</ul>
+</li>
+</ul>
+<pre><code>X-Forwarded-For: AAAAAAAAAABBBBBBBBBBCCCCCCCCCCDDDDDDDDDDEEEEEEEEEEFFFFFFFFFFGGGGGGGGGGHHHHHHHHHHIIIIIIIIIIJJJJJJJJJJK
+</code></pre>
+<ul>
+<li>Load a site using cloudflare</li>
+<li>You should end up on &quot;DNS Points to Prohibited IP&quot; page
+<ul>
+<li><strong>To trigger the XSS</strong></li>
+</ul>
+</li>
+<li>Set your User-Agent string to the XSS attack
+<ul>
+<li>Eg:</li>
+</ul>
+</li>
+</ul>
+<pre><code>User-Agent: USER-AGENT being tested for XSS..&lt;script&gt;alert(''Vulnerable to XSS via USER-AGENT header [Found by devalias.net]'')&lt;/script&gt;
+</code></pre>
+<ul>
+<li><strong>The whole attack</strong>
+<ul>
+<li>Ensure your X-Forwarded-For and User-Agent headers are configured as above</li>
+<li>Navigate to a page using cloudflare</li>
+<li>???</li>
+<li>Profit!</li>
+</ul>
+</li>
+</ul>
+<h2>Who?</h2>
+<p>Discovered by <a href="http://www.devalias.net/">Glenn 'devalias' Grant</a> (<a href="mailto:glenn@devalias.net">glenn@devalias.net</a>)</p>
+<h2>Responsible Disclosure Notice</h2>
+<ul>
+<li>Following in the footsteps of Google's vulnerability disclosure timeline, unless otherwise agreed to beforehand, I reserve the right to publicly announce the details of any discovered vulnerabilities 7 days post notification.
+<ul>
+<li><strong>Google's Rationale:</strong> &quot;Seven days is an aggressive timeline and may be too short for some vendors to update their products, but it should be enough time to publish advice about possible mitigations, such as temporarily disabling a service, restricting access, or contacting the vendor for more information. As a result, after 7 days have elapsed without a patch or advisory, we will support researchers making details available so that users can take steps to protect themselves. By holding ourselves to the same standard, we hope to improve both the state of web security and the coordination of vulnerability management.&quot; - <a href="https://googleonlinesecurity.blogspot.com.au/2013/05/disclosure-timeline-for-vulnerabilities.html">Google</a></li>
+</ul>
+</li>
+</ul>
+
+	  ]]></description>
+	</item>
+
+
+</channel>
+</rss>

@@ -1,0 +1,1304 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+   
+      <title>devalias.net</title>
+   
+   <link>https://www.devalias.net</link>
+   <description>Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.</description>
+   <language>en_GB</language>
+   <managingEditor> devalias</managingEditor>
+   <atom:link href="rss" rel="self" type="application/rss+xml" />
+   
+	<item>
+	  <title>Forming Serverless Clouds with AWS: CloudFormation, SAM, CDK, Amplify</title>
+	  <link>/devalias/2018/09/15/forming-serverless-clouds-aws-cloudformation-sam-cdk-amplify/</link>
+	  <author>devalias</author>
+	  <pubDate>2018-09-15T00:00:00+10:00</pubDate>
+	  <guid>/devalias/2018/09/15/forming-serverless-clouds-aws-cloudformation-sam-cdk-amplify/</guid>
+	  <description><![CDATA[
+	     <p>Recently I have been playing around with a few little side projects, and trying out different ways of getting them IntoTheCloud(tm). If you know me, you know that I'm pretty big on increasing efficiency, reducing boilerplate/time to start, automation, infrastructure as code (IaC), and similar fun things.</p>
+<p>With these explorations I have been looking to see how I can go from 'cool project idea' to having a PoC <a href="https://aws.amazon.com/serverless/">serverless</a> application running InTheCloud(tm) with as little time, effort, boilerplate, and ongoing cost required; with the hope that if it is quick/easy enough, and the patterns simple enough, I will actually get around to hacking on more of my side projects (or it will be quicker and cheaper to get clients projects up and running).</p>
+<h2><a name="aws"></a>AWS</h2>
+<p>For this particular exploration I have been playing around a lot in <a href="https://aws.amazon.com/">AWS</a> (Amazon's Cloud), with a particular focus on <a href="https://aws.amazon.com/serverless/">serverless</a> patterns. As you probably know, AWS is huge, basically runs a good chunk of the internet, and seemingly <a href="https://aws.amazon.com/products/">has a product line for every possible thing you could dream of</a>.</p>
+<p>Since I was looking to speed up my 'new project boilerplate', I decided to focus in on the following projects/services:</p>
+<ul>
+<li><a href="https://aws.amazon.com/cloudformation/">AWS CloudFormation</a> (<a href="#cloudformation">see below</a>)</li>
+<li><a href="https://github.com/awslabs/serverless-application-model">AWS Serverless Application Model (SAM)</a> (<a href="#sam">see below</a>)</li>
+<li><a href="https://github.com/awslabs/aws-cdk">AWS Cloud Development Kit (CDK)</a> (<a href="#cdk">see below</a>)</li>
+<li><a href="https://aws-amplify.github.io/">AWS Amplify</a> (<a href="#amplify">see below</a>)</li>
+</ul>
+<p>I'll go into a bit more detail on each of these below, but since I saw so much potential crossover/overlap between them, I opened a few issues on their respective repositories. You might find more interesting tips, tricks, and aspects in those threads too:</p>
+<ul>
+<li><a href="https://github.com/awslabs/aws-sam-cli/issues/663">awslabs/aws-sam-cli#663</a></li>
+<li><a href="https://github.com/awslabs/aws-cdk/issues/703">awslabs/aws-cdk#703</a></li>
+<li><a href="https://github.com/aws-amplify/amplify-cli/issues/160">aws-amplify/amplify-cli#160</a></li>
+</ul>
+<h2><a name="cloudformation"></a>AWS CloudFormation</h2>
+<blockquote>
+<p><a href="https://aws.amazon.com/cloudformation/">AWS CloudFormation</a> provides a common language for you to describe and provision all the infrastructure resources in your cloud environment. CloudFormation allows you to use a simple text file to model and provision, in an automated and secure manner, all the resources needed for your applications across all regions and accounts. This file serves as the single source of truth for your cloud environment.</p>
+</blockquote>
+<p>Basically, <a href="https://aws.amazon.com/cloudformation/">CloudFormation</a> is a bunch of JSON or YAML that defines all of the AWS resources/projects you want to use, how to configure them, and how to tie it all together. Then you can just push it ToTheCloud(tm), some kind of magic happens while you go make coffee, and you're done. It's AWS's basic Infrastructure as Code (IaC) service.</p>
+<p>In reality, CloudFormation templates can VERY quickly get massively out of hand, huge, confusing, and pretty hard to cognitively reason about. It's great as an underlying technology layer.. but it isn't really optimised for human consumption (particularly the JSON format). Thankfully some of the other projects I will talk about a little later aim to solve that human interface problem.</p>
+<p>Within CloudFormation there are a few high level concepts that it's good to be aware of:</p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacks.html">Stack</a>: This ties together all of your resources in an <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html">AWS Region</a> into a single unit.</li>
+<li><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html">Nested Stack</a>: A stack created within another stack. Allows you to seperate common patterns into their own templates and tie them all together.</li>
+<li><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.html">StackSet</a>: This ties together multiple Stacks, and allows you to manage them across multiple regions and accounts.</li>
+</ul>
+<p>Since Stacks by themselves are single region, you can run into some weird problems depending on the services you want to use. For example, when I want to deploy my application in <code>ap-southeast-2</code>, but want to use <a href="https://aws.amazon.com/cloudfront/">AWS CloudFront</a> (<a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cnames-and-https-requirements.html#https-requirements-aws-region">which runs in <code>us-east-1</code></a>) with a HTTPS certificate issued through <a href="https://aws.amazon.com/certificate-manager/">AWS Certificate Manager</a>, I can't natively do this within a single stack.</p>
+<p>There are workarounds such as <a href="https://github.com/awslabs/serverless-application-model/issues/565#issuecomment-419129580">using custom resources</a> to manage the deployment, or <a href="https://github.com/awslabs/serverless-application-model/issues/565#issuecomment-419608229">using a StackSet</a> with <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/outputs-section-structure.html">exported outputs</a> and <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-importvalue.html"><code>Fn::ImportValue</code></a> to deploy the related components across different regions; but sometimes it can take a little digging to figure out the best way to do it.</p>
+<p>If you're interested in trying the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-custom-resources.html">Custom Resource</a> approach, the following was how one person explained their implementation to me:</p>
+<blockquote>
+<p>It's a bit complicated due to specifics of ACM certificate issuance. The general way it works is:</p>
+<ul>
+<li>
+<p>CloudFormation creates a custom resource that has the same &quot;signature&quot; as an ACM certificate. It takes the same parameters and has the same return values (Ref and attribute values).</p>
+</li>
+<li>
+<p>The custom resource invokes a Lambda function in the account. This function requests a new certificate from ACM in us-east-1.</p>
+</li>
+<li>
+<p>The Lambda function then sends a message to an SQS queue in the account. This queue is subscribed by the same Lambda function. The queue is effectively a &quot;while&quot; loop to reinvoke the function every 30 seconds to check whether the certificate has been issued.</p>
+</li>
+<li>
+<p>Every time the Lambda function is invoked by the queued message:</p>
+<ul>
+<li>If the certificate has been issued, the function responds with a success back to CloudFormation with the appropriate return values. The function returns successfully, which removes the message from the SQS queue.</li>
+<li>If the certificate issuance failed, the function responds with a failure back to CloudFormation with an appropriate message. The function returns successfully, which removes the message from the SQS queue.</li>
+<li>If the certificate is still awaiting verification, the function does nothing and throws an error. The error causes SQS to keep the message in the queue and retry 30 seconds later.</li>
+</ul>
+</li>
+<li>
+<p>Meanwhile, the ACM certificate verification occurs (a human approves it via an email sent to the domain owner, or a DNS record is added to the domain to verify the certificate).</p>
+</li>
+</ul>
+</blockquote>
+<p>While it is pretty convoluted setup for a single project, I expect that if designed well this could be wrapped up into a simple open source/deployable component that everyone could make use of rather easily. Perhaps something for the <a href="https://aws.amazon.com/serverless/serverlessrepo/">AWS Serverless Application Repository</a> or as a <a href="https://aws.amazon.com/blogs/devops/construct-your-own-launch-stack-url/">Launch Stack Button</a>?</p>
+<h2><a name="sam"></a>AWS Severless Application Model (SAM)</h2>
+<blockquote>
+<p>The <a href="https://docs.aws.amazon.com/lambda/latest/dg/serverless_app.html">AWS Serverless Application Model (AWS SAM)</a> is a model to define serverless applications. AWS SAM is natively supported by AWS CloudFormation and defines simplified syntax for expressing serverless resources. The specification currently covers APIs, Lambda functions and Amazon DynamoDB tables.</p>
+</blockquote>
+<p>AWS SAM (<a href="https://github.com/awslabs/serverless-application-model">GitHub</a>, <a href="https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md">Spec/Usage</a>, <a href="https://github.com/awslabs/serverless-application-model/tree/master/examples">Examples</a>, <a href="https://awslabs.github.io/serverless-application-model/">Site</a>, <a href="https://github.com/awslabs/aws-sam-cli">CLI</a>, <a href="https://github.com/awslabs/aws-sam-cli/tree/master/samcli/local/init/templates">Templates</a>) seems to have come about because using CloudFormation directly was just too verbose and time consuming for some of the more common serverless usecases. By wrapping these cases up in a simplified/abstracted way makes it easier to get started, and therefore more likely for people to use the serverless resources AWS provides. It similarly follows the CloudFormation model of defining your resources in YAML, and uses a <a href="https://pypi.org/project/aws-sam-translator/">translator</a> (<a href="https://github.com/awslabs/serverless-application-model/tree/master/samtranslator">GitHub</a>) to build the raw underlying CloudFormation template.</p>
+<p>While AWS SAM seems great for these common usecases, there are definitely areas where you will need to fall back to using native CloudFormation (which you can thankfully use directly within a SAM template). There are also a number of areas where limitations in what SAM allows you to configure means <a href="https://github.com/awslabs/serverless-application-model/issues/566#issuecomment-419311289">you may not be able to use it's simplified abstractions</a>. These are likely to improve over time as <a href="https://github.com/awslabs/serverless-application-model/issues">people run into the issues</a>, and the maintainer team implements/improves features.</p>
+<p>What is really nice is just how simple it is to get a new project off the ground:</p>
+<ul>
+<li>Have a look at <a href="https://github.com/awslabs/aws-sam-cli#get-started">Get Started</a> and <a href="https://github.com/awslabs/aws-sam-cli/blob/develop/docs/installation.rst#using-pip">install/upgrade the CLI</a>: <code>pip install --upgrade aws-sam-cli</code></li>
+<li><a href="https://github.com/awslabs/aws-sam-cli/blob/develop/docs/usage.rst">Init your new application</a>: <code>sam init --runtime nodejs8.10 --name foo-app</code>
+<ul>
+<li>There are MANY supported runtimes (<code>sam init --help</code>).. so choose your favourite: <code>[python3.6|python2.7|python|nodejs6.10|nodejs8.10|nodejs4.3|nodejs|dotnetcore2.0|dotnetcore1.0|dotnetcore|dotnet|go1.x|go|java8|java]</code></li>
+</ul>
+</li>
+<li>Pull down your app dependencies: <code>cd foo-app/hello_world &amp;&amp; npm install</code></li>
+<li>Run your API locally (<code>sam local --help</code>): <code>cd ../ &amp;&amp; sam local start-api</code></li>
+<li>View your application in all of it's glory: <a href="http://127.0.0.1:3000/hello">http://127.0.0.1:3000/hello</a></li>
+</ul>
+<p><a name="sam-example"></a>If you have a look at the generated SAM template (<code>template.yaml</code>), you'll see that the entire stack is only ~45 lines (including newlines and comments), with the main function code only taking up ~15 lines. Not bad to get a PoC application running:</p>
+<pre lang="yaml"><code>HelloWorldFunction:
+  Type: AWS::Serverless::Function
+  Properties:
+    CodeUri: hello_world/
+    Handler: app.lambdaHandler
+    Runtime: nodejs8.10
+    Environment:
+      Variables:
+        PARAM1: VALUE
+    Events:
+      HelloWorld:
+        Type: Api
+        Properties:
+          Path: /hello
+          Method: get
+</code></pre>
+<p>Once we're ready to <a href="https://github.com/awslabs/aws-sam-cli/blob/develop/docs/deploying_serverless_applications.rst">deploy this to the cloud</a>, we have just a couple more commands to run:</p>
+<ul>
+<li>Make sure our template is valid: <code>sam validate</code></li>
+<li>Package any external code and upload to S3 (bucket must already exist): <code>sam package --template-file ./template.yaml --output-template-file ./packaged.yaml --s3-bucket FOO-PKGS-BUCKET</code></li>
+<li>Deploy our stack: <code>sam deploy --template-file ./packaged.yaml --stack-name Foo-App --capabilities CAPABILITY_IAM</code></li>
+</ul>
+<p>Now if you're like me and enjoy writing your backend in <a href="https://golang.org/">Golang</a>, then you may find the default template (<code>sam init --runtime go1.x --name foo-app</code>) a little lacking (eg. no <a href="https://github.com/golang/dep"><code>dep</code></a>, basic Makefile, etc). Thankfully we have the ability to pass a <code>--location</code> flag to tell it to use a different template project.</p>
+<p>But how do we know what the template project should look like? Digging into the code we find the <a href="https://github.com/awslabs/aws-sam-cli/blob/6164d6d2e7351a849ad3d79973ac18b8d3d1d371/samcli/local/init/__init__.py#L35"><code>generate_project</code></a> function, which accepts the <code>location</code> parameter. <a href="https://github.com/awslabs/aws-sam-cli/blob/6164d6d2e7351a849ad3d79973ac18b8d3d1d371/samcli/local/init/__init__.py#L68">If the parameter is defined it will be used</a>, otherwise it is looked up in the <a href="https://github.com/awslabs/aws-sam-cli/blob/6164d6d2e7351a849ad3d79973ac18b8d3d1d371/samcli/local/init/__init__.py#L16-L32"><code>RUNTIME_TEMPLATE_MAPPING</code></a>, which links the runtime you specified (eg. <code>go1.x</code>) to the template project to use (eg. <a href="https://github.com/awslabs/aws-sam-cli/blob/6164d6d2e7351a849ad3d79973ac18b8d3d1d371/samcli/local/init/__init__.py#L28"><code>cookiecutter-aws-sam-hello-golang</code></a>). These templates are looked up in the <a href="https://github.com/awslabs/aws-sam-cli/blob/6164d6d2e7351a849ad3d79973ac18b8d3d1d371/samcli/local/init/__init__.py#L13-L14"><code>_templates</code> variable path</a>, which after some digging I managed to <a href="https://github.com/awslabs/aws-sam-cli/tree/6164d6d2e7351a849ad3d79973ac18b8d3d1d371/samcli/local/init/templates">locate in the repo at <code>aws-sam-cli/samcli/local/init/templates/</code></a>. There also appear to be a few more templates on the <a href="https://github.com/aws-samples?utf8=%E2%9C%93&amp;q=cookiecutter&amp;type=&amp;language=">aws-samples GitHub</a>.</p>
+<p>Having a look at the <a href="https://github.com/awslabs/aws-sam-cli/tree/6164d6d2e7351a849ad3d79973ac18b8d3d1d371/samcli/local/init/templates/cookiecutter-aws-sam-hello-golang">Golang template project</a>, it appears that these are <a href="https://github.com/audreyr/cookiecutter">Cookiecutter</a> (<a href="https://cookiecutter.readthedocs.io/en/latest/">docs</a>) templates. So to make our own customised SAM Golang starter template, after <a href="https://cookiecutter.readthedocs.io/en/latest/installation.html#install-cookiecutter">installing Cookiecutter</a> (<code>pip install --upgrade cookiecutter</code>), we can copy the <a href="https://github.com/awslabs/aws-sam-cli/tree/master/samcli/local/init/templates/cookiecutter-aws-sam-hello-golang">existing template</a>, <a href="https://cookiecutter.readthedocs.io/en/latest/usage.html#make-your-changes">make our desired changes</a>, and save it somewhere useful for future use (such as GitHub). Then when we want to use it in a new project:</p>
+<ul>
+<li><code>sam init --runtime go1.x --location gh:0xdevalias/TODO-cookiecutter-aws-sam-golang --name foo-app</code></li>
+</ul>
+<p>While I haven't abstracted out my patterns into a custom starter template yet, this may be something I end up doing in future, so make sure to <a href="https://github.com/0xdevalias?utf8=%E2%9C%93&amp;tab=repositories&amp;q=cookiecutter-&amp;type=&amp;language=">keep an eye on my GitHub</a>.</p>
+<h2><a name="cdk"></a>AWS Cloud Development Kit (CDK)</h2>
+<blockquote>
+<p>The <a href="https://github.com/awslabs/aws-cdk">AWS Cloud Development Kit (AWS CDK)</a> is an open-source software development framework to define cloud infrastructure in code and provision it through AWS CloudFormation. The CDK integrates fully with AWS services and offers a higher level object-oriented abstraction to define AWS resources imperatively. Using the CDK’s library of infrastructure constructs, you can easily encapsulate AWS best practices in your infrastructure definition and share it without worrying about boilerplate logic. The CDK improves the end-to-end development experience because you get to use the power of modern programming languages to define your AWS infrastructure in a predictable and efficient manner. The CDK is currently available for Java, JavaScript, and TypeScript.</p>
+</blockquote>
+<p>AWS CDK (<a href="https://github.com/awslabs/aws-cdk">GitHub</a>, <a href="https://github.com/awslabs/aws-cdk/blob/master/CHANGELOG.md">Changelog</a>, <a href="https://awslabs.github.io/aws-cdk/">Site</a>, <a href="https://awslabs.github.io/aws-cdk/reference.html">Reference</a>, Examples: <a href="https://awslabs.github.io/aws-cdk/examples.html">1</a>, <a href="https://github.com/awslabs/aws-cdk/tree/master/examples">2</a>) moves away from directly constructing raw YAML/JSON by hand, and takes more of a 'generator code' approach, providing a development kit of libraries that you can use to describe how your cloud infrastructure should look, connect, and interact. Once it's all defined in code, you can use it to generate the CloudFormation / <a href="https://awslabs.github.io/aws-cdk/refs/_aws-cdk_aws-sam.html">AWS SAM</a> YAML, deploy it to the cloud, and everything else you would come to expect from these sorts of tools.</p>
+<p>The CDK is divided up into a number of libraries, with <a href="https://awslabs.github.io/aws-cdk/reference.html">each representing an AWS service</a>. Each of these libraries is broken up into two different levels of <a href="https://awslabs.github.io/aws-cdk/constructs.html">Constructs</a>:</p>
+<ul>
+<li><a href="https://awslabs.github.io/aws-cdk/cloudformation.html">CloudFormation Resource</a>: low-level constructs that provide a direct, one-to-one, mapping to an AWS CloudFormation resource, as listed in the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">AWS CloudFormation Resource Types Reference</a>.</li>
+<li><a href="https://awslabs.github.io/aws-cdk/aws-construct-lib.html">AWS Construct Library</a>: handwritten by AWS and come with convenient defaults and additional knowledge about the inner workings of the AWS resources they represent. In general, you will be able to express your intent without worrying about the details too much, and the correct resources will automatically be defined for you.</li>
+</ul>
+<p>Where possible you should be able to use the higher level constructs to get things done (and these will only get better over time), but it's nice to know that we have an easy way to drop down to the lower-level functionality when we need to. There also appears to be the ability to create new Construct libs (<code>cdk init --list</code>, <a href="https://github.com/awslabs/aws-cdk/tree/master/packages/aws-cdk/lib/init-templates/lib">template</a>), so it's possible you could build your own custom construct abstractions with this. Another area for future exploration.</p>
+<p>As is pretty standard by now, you define a <a href="https://awslabs.github.io/aws-cdk/stacks.html">stack</a> which contains all of the features and services you want to use, then configure the <a href="https://awslabs.github.io/aws-cdk/environments.html#environments">environment</a> to define where it should be deployed. You can define multiple stacks within your <a href="https://awslabs.github.io/aws-cdk/apps.html">CDK App</a>, which means we have a nice way to handle cross-region deployments. There is built in support for uploading <a href="https://awslabs.github.io/aws-cdk/assets.html">assets</a> (<a href="https://awslabs.github.io/aws-cdk/refs/_aws-cdk_assets.html#id2">ref</a>) that your application may require (eg. lambda code, etc), as well as <a href="https://awslabs.github.io/aws-cdk/applets.html">applets</a> for running custom code as part of your build (eg. compiling code/assets).</p>
+<p><a href="https://awslabs.github.io/aws-cdk/getting-started.html">Getting started</a> with a new project is pretty simple (note: if you don't have default creds configured, make sure to use <code>AWS_PROFILE</code>/<code>--profile</code> <a href="https://github.com/awslabs/aws-cdk/issues/130#issuecomment-421508274">or things will hang</a>):</p>
+<ul>
+<li><a href="https://awslabs.github.io/aws-cdk/getting-started.html#install-the-command-line-toolkit">Install the CDK CLI</a>: <code>npm install -g aws-cdk</code></li>
+<li>Check what templates/languages are available: <code>cdk init --list</code></li>
+<li>Init a new app: <code>mkdir foo &amp;&amp; cd foo &amp;&amp; cdk init app --language=typescript</code></li>
+<li><a href="https://awslabs.github.io/aws-cdk/getting-started.html#compile-the-code">Compile CDK App Typescript</a>: <code>npm run build</code> (or <code>npm run watch</code> in another terminal)</li>
+<li><a href="https://awslabs.github.io/aws-cdk/getting-started.html#list-the-stacks-in-the-app">List the stacks</a>: <code>cdk ls --long</code></li>
+<li><a href="https://awslabs.github.io/aws-cdk/getting-started.html#synthesize-an-cfn-template">Synthesize the code to CloudFormation YAML</a>: <code>cdk synth</code> or <code>cdk synth FooStack</code></li>
+</ul>
+<p>When you're happy and think you're ready to deploy:</p>
+<ul>
+<li><a href="https://awslabs.github.io/aws-cdk/getting-started.html#preparing-for-deployment">Diff to see changes</a> (and make sure you're still happy): <code>cdk diff</code></li>
+<li><a href="https://awslabs.github.io/aws-cdk/getting-started.html#deploying-the-stack">Deploy</a>: <code>cdk deploy</code></li>
+</ul>
+<p>Following along from our previous <a href="#sam-example">AWS SAM example</a>, we can create an equivalent <a href="https://github.com/awslabs/aws-cdk/issues/716">example SAM function</a> (<a href="https://awslabs.github.io/aws-cdk/refs/_aws-cdk_aws-sam.html">ref</a>) in <code>./bin/foo.ts</code> with code such as the following:</p>
+<pre lang="typescript"><code>import sam = require('@aws-cdk/aws-serverless');
+import lambda = require('@aws-cdk/aws-lambda');
+</code></pre>
+<pre lang="typescript"><code>const helloWorld = new sam.cloudformation.FunctionResource(this, &quot;HelloWorldFunction&quot;, {
+  codeUri: &quot;hello_world/&quot;,
+  handler: &quot;app.lambdaHandler&quot;,
+  runtime: lambda.Runtime.NodeJS810.name,
+  environment: {
+    variables: {
+      PARAM1: &quot;VALUE&quot;
+    }
+  },
+  events: {
+    HelloWorld: {
+      type: &quot;Api&quot;,
+      properties: {
+        path: &quot;/hello&quot;,
+        method: &quot;get&quot;,
+      }
+    }
+  }
+});
+</code></pre>
+<p>Remember you will need to <code>npm install</code> any additional packages you need before you can use them:</p>
+<pre><code>npm i @aws-cdk/aws-serverless @aws-cdk/aws-lambda
+</code></pre>
+<p>Once we compile (<code>npm run build</code>) and synthesize (<code>cdk synth</code>), we can see we end up with equivalent YAML to our <a href="#sam-example">previous SAM example</a>:</p>
+<pre lang="yaml"><code>HelloWorldFunction:
+  Type: 'AWS::Serverless::Function'
+  Properties:
+    CodeUri: hello_world/
+    Handler: app.lambdaHandler
+    Runtime: nodejs8.10
+    Environment:
+      Variables:
+        PARAM1: VALUE
+    Events:
+      HelloWorld:
+        Properties:
+          Method: get
+          Path: /hello
+        Type: Api
+</code></pre>
+<p>While CDK is <a href="https://aws.amazon.com/blogs/developer/aws-cdk-developer-preview/">quite a new project (Aug 2018)</a>, we can already see that it is quite powerful to work with.</p>
+<h2><a name="amplify"></a>Amplify</h2>
+<blockquote>
+<p><a href="https://aws-amplify.github.io/">Amplify</a> is an open source project which is focused on mobile and web developers building applications. This consists of a library, UI components, and a CLI toolchain. The design follows a category based model allowing developers to perform advanced use cases with declarative client APIs so that they can focus on their application code (e.g. Auth.signIn() or API.graphql()). This allows developers to focus on their business use cases and less time on re-implementing the most common use cases around mobile or web app development (Auth flows, Storage and API interaction, Analytics, etc.) (<a href="https://github.com/aws-amplify/amplify-cli/issues/160#issuecomment-421100213">Source</a>)</p>
+</blockquote>
+<p><a href="https://aws-amplify.github.io/">AWS Amplify</a> (<a href="https://github.com/aws-amplify">GitHub</a>) combines a number of different complementary aspects to simplify modern mobile and web development:</p>
+<ul>
+<li><a href="https://github.com/aws-amplify/amplify-cli">CLI</a>: uses AWS CloudFormation and nested stacks to define and provision commonly required backend services and features</li>
+<li>Library / <a href="https://aws-amplify.github.io/media/ui_library">UI Components</a>: These appear to be broken down based on platform
+<ul>
+<li><a href="https://aws-amplify.github.io/amplify-js/media/quick_start?platform=react">Web / JavaScript / React Native</a> (<a href="https://github.com/aws-amplify/amplify-js">GitHub</a>)</li>
+<li><a href="https://docs.aws.amazon.com/aws-mobile/latest/developerguide/getting-started.html#ios-swift">iOS</a></li>
+<li><a href="https://docs.aws.amazon.com/aws-mobile/latest/developerguide/getting-started.html#android-java">Android</a></li>
+</ul>
+</li>
+</ul>
+<p>Of all of the projects I have explored today, this is the one I have the least experience with, so I may not have fully come to understand/appreciate the depth of it yet. In a bit of a difference from the previous projects, this seems to take more of a 'full-stack' approach to solving common application needs.</p>
+<p>One of the nice things about the <a href="https://github.com/aws-amplify/amplify-cli">Amplify CLI</a> is how it aims to provide simple menu-driven options for getting everything going:</p>
+<ul>
+<li><a href="https://github.com/aws-amplify/amplify-cli#install-the-cli">Install the CLI</a>: <code>npm install -g @aws-amplify/cli</code></li>
+<li>Init a new project: <code>amplify init</code> and follow the menu choices</li>
+</ul>
+<pre><code>⇒  amplify init
+Note: It is recommended to run this command from the root of your app directory
+? Choose your default editor: None
+? Choose the type of app that you're building: javascript
+Please tell us about your project
+? What javascript framework are you using: react
+? Source Directory Path:  src
+? Distribution Directory Path: build
+? Build Command:  npm run-script build
+? Start Command: npm run-script start
+
+Using default provider awscloudformation
+
+Initializing project in the cloud...
+..snip..
+Your project has been successfully initialized and connected to the cloud!
+</code></pre>
+<ul>
+<li>Choose a category (feature) you want to add (<code>amplify --help</code>), and select it: eg. <code>amplify function add</code></li>
+</ul>
+<pre><code>⇒  amplify function add
+Using service: Lambda, provided by: awscloudformation
+? Provide a friendly name for your resource to be used as a label for this category in the project: HelloWorld
+? Provide the AWS Lambda function name: HelloWorld
+? Choose the function template that you want to use: Serverless express function (Integration with Amazon API Gateway)
+? Do you want to edit the local lambda function now? false
+Successfully added resource HelloWorld locally.
+</code></pre>
+<p>At this point you should be able to see the generated files in <code>./amplify/backend/function/HelloWorld</code>. Of particular note is the generated CloudFormation JSON (<code>HelloWorld-cloudformation-template.json</code>). While it is nice that it is automatically generated, using the JSON form, and not appearing to leverage SAM means that it ends up being quite a verbose file to cognitively reason about. I believe the intention is that you don't modify this directly (and I read somewhere that even if you do it may be overwritten?). If nothing else, it serves as a decent reference implementation for this kind of feature, that you could then translate back to your preferred method (eg. SAM/CDK).</p>
+<p>Digging into the source, it appears these templates are located within the <a href="amplify-category-function">specific subpackage</a> of the CLI, in the <a href="https://github.com/aws-amplify/amplify-cli/tree/master/packages/amplify-category-function/provider-utils/awscloudformation">cloudformation provider</a> (eg. <a href="https://github.com/aws-amplify/amplify-cli/blob/master/packages/amplify-category-function/provider-utils/awscloudformation/cloudformation-templates/lambda-cloudformation-template.json.ejs">the function template used above</a>).</p>
+<p>While currently there only appears to be a single 'provider' (<a href="https://github.com/aws-amplify/amplify-cli/tree/master/packages/amplify-provider-awscloudformation"><code>amplify-provider-awscloudformation</code></a>), language around the websites/repos implies that in future they would like to support additional providers, so it <a href="https://github.com/aws-amplify/amplify-cli/issues/171">may be possible to implement CDK</a> and/or SAM into this flow, for a 'best of all worlds' situation.</p>
+<p>Implementing the most basic use case (<code>function</code>) as we did above isn't really where Amplify shines. For example, you can add an <a href="https://aws-amplify.github.io/amplify-js/media/authentication_guide">authentication system</a> (<a href="https://aws-amplify.github.io/amplify-js/api/classes/authclass.html">JS Ref</a>) to your backend with just <code>amplify auth add</code>, or a new <a href="https://aws-amplify.github.io/amplify-js/media/api_guide">GraphQL/REST api</a> with <code>amplify api add</code>, and similar simplicity for other common features and patterns.</p>
+<p>Moving from the backend infrastructure, Amplify also features libraries and UI components to consume these features in your application. For example, getting up and running with React (<a href="https://aws-amplify.github.io/amplify-js/media/react_guide">1</a>, <a href="https://aws-amplify.github.io/amplify-js/media/quick_start?platform=react">2</a>) can be as simple as:</p>
+<pre><code>create-react-app my-app
+cd my-app
+npm install --save aws-amplify
+npm install --save aws-amplify-react
+
+amplify init
+</code></pre>
+<p>And then a <a href="https://aws-amplify.github.io/amplify-js/media/quick_start#step-4-set-up-your-backend">few little code changes</a> to wire things into place.</p>
+<p>As part of all of this, you get access to the <a href="https://aws-amplify.github.io/amplify-js/media/ui_guide">UI Components</a>, which should dramatically reduce the amount of boilerplate wiring up required to make use of these common application patterns.</p>
+<p>I feel like I haven't even begun to dive deep enough into the <a href="https://aws-amplify.github.io/amplify-js/api/">frontend JS</a>/<a href="https://aws-amplify.github.io/amplify-js/media/ui_guide">UI component libraries</a> to do them justice, so I will leave that as an excerise to the reader (or a future blog post).</p>
+<p>As mentioned in previous sections, this is also quite a new project (<a href="https://aws.amazon.com/blogs/mobile/announcing-aws-amplify-and-the-aws-mobile-cli/">Amplify (Nov 2017)</a>, <a href="https://aws.amazon.com/blogs/mobile/announcing-the-aws-amplify-cli-toolchain/">CLI (Aug 2018)</a>), so I'm sure things are going to get much better as time goes on.</p>
+<h2><a name="conclusion"></a>Conclusion</h2>
+<p>We explored a number of different AWS serverless friendly projects and options, and how they may be able to be leveraged together synergistically, or to do similar things as each other. This is still an area I am actively exploring, and a lot of the projects are still quite young, so I'm excited to see what improvements and new efficient patterns come out of this! Maybe I will write a more specific follow up blog at some point detailing how I actually end up using some of these technologies in practice.</p>
+<h2><a name="where-next"></a>Where Next?</h2>
+<p>You could <a href="https://aws.amazon.com/serverless/">learn more about serverless</a> and <a href="https://aws.amazon.com/serverless/build-a-web-app/">build a web app</a>, put together a modern frontend with <a href="https://github.com/facebook/create-react-app">Create React App</a> + <a href="https://redux.js.org/introduction">Redux</a> + <a href="https://redux-saga.js.org/">Redux-Saga</a>, design a serverless Golang backend with <a href="https://aws.amazon.com/sdk-for-go/">AWS SDK for Golang</a> + <a href="https://github.com/gorilla/mux">Gorilla Mux</a> + <a href="https://github.com/awslabs/aws-lambda-go-api-proxy#other-frameworks">AWS Lambda Go Api Proxy</a>, read more about Authentication with <a href="https://aws.amazon.com/cognito/">AWS Cognito</a>, learn about <a href="https://graphql.org/">GraphQL</a>.. so many interesting things out there to learn about and play with!</p>
+<p>What are you planning to build? Have any tips or suggestions? A story of how this helped (or hindered) you on a project? I'd love to hear about it in the comments below!</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>Presenting at DEF CON 26 - Bug Bounty Hunting on Steroids</title>
+	  <link>/devalias/2018/08/19/presenting-at-def-con-26-bug-bounty-hunting-on-steroids/</link>
+	  <author>devalias</author>
+	  <pubDate>2018-08-19T00:00:00+10:00</pubDate>
+	  <guid>/devalias/2018/08/19/presenting-at-def-con-26-bug-bounty-hunting-on-steroids/</guid>
+	  <description><![CDATA[
+	     <p>(Update: The <a href="https://www.youtube.com/watch?v=7WYjSDZxFYc">talk recording is now up on YouTube</a>, latest links to related content in <a href="https://twitter.com/_devalias/status/1063897184695767040">this tweet</a>)</p>
+<p>Wow, what a trip! I just had the opportunity to not only live out a childhood dream of attending <a href="https://www.defcon.org/">DEF CON</a>, but I even had the privilege to be able to present at the <a href="http://reconvillage.org/talks-2018/#bug-bounty-hunting-on-steroids---anshuman-bhartiya-and-glenn-devalias-grant">DEF CON Recon Village</a>! Talk about achievement unlocked!</p>
+<p>If you've been <a href="https://twitter.com/i/moments/1030953718177394688">following along on twitter</a>, you might be aware that I've been working on a security automation framework with regards to bug bounty hunting; to increase our agility, automate the boring bits, and let us JustHackThings. It's something that our team (<a href="https://twitter.com/anshuman_bh">@anshuman_bh</a>, <a href="https://twitter.com/mhmdiaa">@mhmdiaa</a>, and <a href="https://twitter.com/_devalias">myself</a>) have been calling BountyMachine.</p>
+<p>It's no secret in the security/pentest/bug bounty world that there are a lot of boring bits when it comes to assessments. The recon, finding good targets, and all those things that eventually lead to being able to do all of the sweet hacks. There are a lot of people thinking about and working in this space to try and make things better, both publicly/open source, as well as privately with their own methods and frameworks.</p>
+<p><a href="https://twitter.com/anshuman_bh">@anshuman_bh</a> has been working on improving this space over a number of years, with various open source projects and explorations (such as <a href="https://github.com/anshumanbh/brutesubs">brutesubs</a>, <a href="https://github.com/anshumanbh/FASTSAM">FASTSAM</a>, <a href="https://github.com/anshumanbh/hodor">hodor</a>, <a href="https://github.com/anshumanbh/kubebot">kubebot</a>, etc) eventually leading us to where we are now. It was actually after I referenced some of his projects in my talk <a href="/devalias/2017/11/19/presenting-all-the-things-bsides-wellington-csides-sectalks/">&quot;Gophers, whales and.. clouds? Oh my!&quot;</a> (<a href="https://github.com/0xdevalias/gopherblazer">GitHub</a>) at BSides Wellington last year that he reached out about this current project. Not to mention <a href="https://twitter.com/mhmdiaa">@mhmdiaa</a>'s <a href="https://www.youtube.com/watch?v=3Q-QyGlc_Xk">&quot;Automation For Bug Hunters&quot; presentation on Bug Bounty World</a> (<a href="https://speakerdeck.com/mhmdiaa/automation-for-bug-hunters">slides</a>) and other work in this space. With our views and efforts so closely aligned we decided to join forces and work on this latest rendition, a v3 of sorts, BountyMachine.</p>
+<p>So coming back to our talk at DEF CON this year, &quot;Bug Bounty Hunting on Steroids&quot; was an opportunity to share what we have been working on, along with some of the process, patterns, ideas and lessons we have learned along the way; with the ultimate goal of inspiring others to think outside the current box, and reinvent the way we all approach our security research.</p>
+<p>I put together a little <a href="https://medium.com/tsscyber/def-con-2018-6ff9542451b8#906b">overview post for our work blog at TSS</a> (we had a few of us speaking this year!), so instead of repeating all of the talk specifics you can check that out. I will reshare the <a href="http://reconvillage.org/talks-2018/#bug-bounty-hunting-on-steroids---anshuman-bhartiya-and-glenn-devalias-grant">talk overview</a> here though, for posterity:</p>
+<blockquote>
+<p>Bug bounty programs are a hot topic these days. More and more companies are realizing the benefits of running a program, and researchers are jumping at the opportunity to grab some swag and make some extra cash from the bugs they find. Reporting security issues has never been as easy, open, and risk-free as it is right now. Everybody wins!</p>
+<p>Though that doesn’t mean we should stop there. As researchers, we spend a lot of time doing the same menial tasks for each program: monitoring for new targets, checking for common issues, remembering just which flags you needed to pass to that tool (or even which tool is best for that job). We build new tools, hack together shell scripts, and generally make small incremental changes to our process. But surely there’s a better approach?</p>
+<p>Are you sick of repeating the same tedious tasks over and over? Wouldn’t it be nice to have your own bug hunting machine? One that -</p>
+<ul>
+<li>Is always watching</li>
+<li>Reacts as soon as a new target becomes available</li>
+<li>Takes care of those tedious repetitive steps for you</li>
+<li>Makes life easy when you want to integrate a new tool/workflow</li>
+<li>Doesn’t cost the world to run, and trivially scales</li>
+<li>Leverages lessons and technologies battle tested in the dev world to improve your offensive capacity, capability and productivity</li>
+<li>Monitors your own infrastructure and reacts before hackers can (while saving you the cost of those Bug Bounty payouts in the meantime)</li>
+</ul>
+<p>We call this approach Bug Bounty Hunting on Steroids. We will discuss our research and approach to building such a machine, sharing some of the lessons we learned along the way.</p>
+</blockquote>
+<p>Now if you didn't manage to catch us at DEF CON (and I don't blame you, there was SO much happening ALL THE TIME.. it's such a non-stop week..) don't fret! Our <a href="https://speakerdeck.com/bountymachine/bug-bounty-hunting-on-steroids">slides are online</a>, we put together a bit of a <a href="https://medium.com/@bountymachine/introducing-bountymachine-234cad93b5d2">blog post covering a bunch of the areas we were talking about</a>, and <a href="https://www.youtube.com/watch?v=7WYjSDZxFYc">the talk was also recorded</a>, so you can catch up on that at your leisure. Or if Twitter is more your style, go along and <a href="https://twitter.com/_devalias/status/1030946732069142528">retweet this one</a> (and make sure to follow the team for more BountyMachine updates!).</p>
+<p>The response to our talk has been awesome: we packed out the presentation room, had a lot of really interesting questions after the talk; and have had a constant stream of feedback, questions and support on twitter and elsewhere since.</p>
+<p>I truly believe that this is the space we need to be thinking and working in right now:</p>
+<ul>
+<li>encoding and automating our processes</li>
+<li>improving our tooling</li>
+<li>accelerating our agility</li>
+<li>collaboratively working to improve the entire security space</li>
+</ul>
+<p>Does this resonate with you? Are you sick of the same repetitive manual processes again and again? Want to automate it? Want to save your precious time for actually doing the interesting hacks? Me too! Let's talk! You can find me here in the comments, <a href="https://twitter.com/_devalias">twitter</a>, or idling around the various slack channels (user: devalias) and otherwise across the internet. How can we work together to improve the entire state of things?</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>USB Reverse Engineering: Down the rabbit hole</title>
+	  <link>/devalias/2018/05/13/usb-reverse-engineering-down-the-rabbit-hole/</link>
+	  <author>devalias</author>
+	  <pubDate>2018-05-13T00:00:00+10:00</pubDate>
+	  <guid>/devalias/2018/05/13/usb-reverse-engineering-down-the-rabbit-hole/</guid>
+	  <description><![CDATA[
+	     <blockquote>
+<p>Thanks <a href="https://hackaday.com/2018/05/25/usb-reverse-engineering-a-universal-guide">for the featured writeup Hackaday</a>! Make sure to check out the <a href="https://hackaday.com/2018/05/25/usb-reverse-engineering-a-universal-guide/#comments">comments</a> over there as well.</p>
+<p>Looks like <a href="https://hackernoon.com/usb-reverse-engineering-down-the-rabbit-hole-c4809a5b55c4">Hackernoon picked it up</a> as well, make sure to check in with the comments there too.</p>
+<p>It would be great if you could also <a href="https://news.ycombinator.com/item?id=17164700">head over to Hacker News</a>, give an upvote, and join in the comments there. Let's get this information out there!</p>
+</blockquote>
+<p>I tend to dive down rabbit holes a lot, and given the cost of context switching and memory deteriorating over time, sometimes the state I build up in my mind gets lost between the chances I get to dive in. These 'linkdump' posts are an attempt to collate at least some of that state in a way that I can hopefully restore to my brain at a later point.</p>
+<p>This time around I was inspired to look into USB reverse engineering, protocol analyis, hardware hacking, and what would be involved in implementing custom drivers for arbitrary hardware. Or put another way: <strong>how do I hack all of the USBs?!??</strong></p>
+<p>It seems the deeper I went, the more interesting I found the content, and this post grew and grew. Hopefully it will help to shortcut your own journey down this path, and enlighten you to a whole new area of interesting things to hack!</p>
+<h2>Overview</h2>
+<ul>
+<li><a href="#tldr">tl;dr</a></li>
+<li><a href="#intro-to-usb">Intro to USB</a></li>
+<li><a href="#usb-re-intro">USB Reverse Engineering: An Introduction</a></li>
+<li><a href="#usb-re-further-reading">USB Reverse Engineering: Further Reading</a></li>
+<li><a href="#software">Software: Wireshark, usbmon, USBPcap, VirtualBox, etc</a></li>
+<li><a href="#hardware-tldr">Hardware: tl;dr</a></li>
+<li><a href="#hardware-usbsniffer">Hardware: BeagleBoard-XM / USBSniffer (~2010-2013, ~$149+)</a></li>
+<li><a href="#hardware-openvizsla">Hardware: OpenVizsla (~2010-2014)</a></li>
+<li><a href="#hardware-serialusb">Hardware: SerialUSB / GIMX USB Adapter (~2015, ~US$5-35)</a></li>
+<li><a href="#hardware-goodfet">Hardware: GoodFET (~2009-2018+, ~US$50)</a></li>
+<li><a href="#hardware-facedancer">Hardware: Facedancer, Beagledancer, Raspdancer (~2012-2018+, ~US$85-???)</a></li>
+<li><a href="#hardware-usbproxy">Hardware: Beaglebone Black + USBProxy (~2013?)</a></li>
+<li><a href="#hardware-daisho">Hardware: Daisho (~2013-?2018+?)</a></li>
+<li><a href="#hardware-greatfet">Hardware: GreatFET (~2015-2018+)</a></li>
+<li><a href="#hardware-facedancer-2">Hardware: Facedancer 2.0 (~2017-2018+)</a></li>
+<li><a href="#hardware-commercial-beagleusb">Commercial Hardware: TotalPhase BeagleUSB</a></li>
+<li><a href="#further-reading-presentations">Further Reading/Presentations</a></li>
+<li><a href="#people-to-watch">People to Watch</a></li>
+<li><a href="#code-drivers-etc">Code/Drivers/etc</a></li>
+<li><a href="#where-next">Where next? Device Emulation, USB over IP, etc</a></li>
+<li><a href="#iot-hardware-hacking-fuzzing-etc">IoT, Hardware Hacking, Fuzzing, etc</a></li>
+<li><a href="#link-dump">Link Dump</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ul>
+<h2><a name="tldr"></a>tl;dr</h2>
+<p>This is long, has many sections, and time is precious:</p>
+<ul>
+<li><strong>Walkthrough:</strong> Read the <a href="#adafruit">Adafruit one</a></li>
+<li><strong>Software:</strong> <a href="#software">Wireshark + usbpcap/usbmon</a></li>
+<li><strong>Hardware:</strong> <a href="#hardware-greatfet">GreatFET</a>, <a href="#hardware-facedancer-2">Facedancer 2.0</a>, <a href="#hardware-daisho">Daisho</a></li>
+<li><strong>Commercial Hardware:</strong> <a href="#hardware-commercial-beagleusb">BeagleUSB</a></li>
+<li><strong>Interfacing/Drivers:</strong> <a href="#libusb-pyusb">libusb/pyUSB</a></li>
+</ul>
+<h2><a name="intro-to-usb"></a>Intro to USB</h2>
+<p>USB (universal serial bus) is an industry standard covering cables, connectors and protocols; and is pretty ubiquitous among tech products these days. I won't get deep on describing all of the facts, since that's what Wikipedia is good at:</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/USB">https://en.wikipedia.org/wiki/USB</a></li>
+</ul>
+<p>That said, it will be useful to understand some of the aspects of how USB devices and protocols are laid out, and some of the terminology used.</p>
+<p>A <a href="https://en.wikipedia.org/wiki/USB#System_design">USB system</a> (<a href="https://www.linuxvoice.com/drive-it-yourself-usb-car-6/">see also</a>) has:</p>
+<ul>
+<li>A <strong>host</strong>, with one or more downstream ports, and multiple peripherals</li>
+<li><strong>Hubs</strong> may be included, allowing up to 5 tiers</li>
+<li>A host may have multiple controllers, each with one or more ports</li>
+<li>Up to 127 devices can be connected to a single host controller</li>
+<li>A <strong>device</strong> may have several logical sub-devices, referred to as <strong>'device functions'</strong></li>
+<li>A <strong>composite device</strong> may provide multiple functions (eg. webcam + microphone)</li>
+<li>A <strong>compound device</strong> connects logical devices to a built in hub</li>
+</ul>
+<p>Digging into the protocol/communication side of things:</p>
+<ul>
+<li>Communication is based on <strong>pipes</strong> (logical channels), between the host and an endpoint (logical entity) on a device</li>
+<li>A device can have <strong>up to 32 endpoints</strong> (16 IN, 16 OUT)</li>
+<li><strong>Endpoints</strong> are defined and numbered during initialization, so tend to remain fairly permanent, whereas a pipe may be opened/closed</li>
+<li>Two types of pipe: <strong>stream</strong> and <strong>message</strong></li>
+<li><strong>Message pipes</strong> are bi-directional, used for control transfers short, simple commands + status response</li>
+<li><strong>Stream pipes</strong> are uni-directional, transfers data in isochronous, interrupt or bulk transfer</li>
+<li>A set of endpoints with associated metadata is also known as an <strong>interface</strong>, each is associated with a single device function</li>
+<li>All USB <strong>devices have at least one endpoint</strong> (0), default, used for control transfers. Descriptors sent on default pipe can describe other endpoints.</li>
+<li><strong>Descriptors</strong> form a hierarchy that you can view with tools like <code>lsusb</code>.</li>
+<li><strong>Device descriptor</strong>: contains information like device Vendor ID (VID) and Product ID (PID)</li>
+</ul>
+<p>There are different transport types that can be used:</p>
+<ul>
+<li><strong>Interrupt transfers</strong> are for short periodic real-time data exchanges.</li>
+<li><strong>Isochronous transfers</strong> are somewhat similar but less strict; they allow for larger data blocks and are used by web cameras and similar devices, where delays or even losses of a single frame are not crucial.</li>
+<li><strong>Bulk transfers</strong> are for large amounts of data.</li>
+<li><strong>Control transfer type</strong> is the only one that has a standardised request (and response) format, and is used to manage devices</li>
+</ul>
+<p><strong>Further reading:</strong></p>
+<ul>
+<li><a href="http://www.beyondlogic.org/usbnutshell">http://www.beyondlogic.org/usbnutshell</a></li>
+<li><a href="https://www.linuxvoice.com/drive-it-yourself-usb-car-6/">https://www.linuxvoice.com/drive-it-yourself-usb-car-6/</a></li>
+<li><a href="http://janaxelson.com/">Jan Axelson's USB Complete books</a></li>
+</ul>
+<h2><a name="usb-re-intro"></a>USB Reverse Engineering: An Introduction</h2>
+<p>Now, I could probably go through and write a whole blog post on this.. but, other people have done it for me! The following walks through an introduction to interfacing with, reverse engineering, understanding, and ultimately implementing software to drive a USB remote control car.</p>
+<ul>
+<li><a href="https://www.linuxvoice.com/drive-it-yourself-usb-car-6/">https://www.linuxvoice.com/drive-it-yourself-usb-car-6/</a> (2015)</li>
+<li><a href="https://github.com/vsinitsyn/usbcar.py">https://github.com/vsinitsyn/usbcar.py</a></li>
+</ul>
+<p>I found it quite easy to consume, and doesn't really assume much in the way of prior knowledge.</p>
+<p>One of the tools used above was <a href="https://linux.die.net/man/8/lsusb"><code>lsusb</code></a>: &quot;a utility for displaying information about USB buses in the system and the devices connected to them&quot;. Among other things, this allows the <strong>vendor and product ID</strong> of the device to be identified. Once identified, this tag can be used to query further information about the device, eg. <code>lsusb -vd 0a81:0702</code>.</p>
+<p><strong>Other relevant tools/concepts used include:</strong></p>
+<ul>
+<li><code>usbmon</code>: a facility in kernel which is<br />
+used to collect traces of I/O on the USB bus</li>
+<li><a href="https://wiki.wireshark.org/CaptureSetup/USB">Wireshark USB Capture</a></li>
+<li><a href="https://github.com/pyusb/pyusb">PyUSB</a> : USB access for Python</li>
+<li><a href="https://github.com/libusb/libusb">libusb</a> : A cross-platform library to access USB devices</li>
+</ul>
+<h2><a name="usb-re-further-reading"></a>USB Reverse Engineering: Further Reading</h2>
+<p>The following are some additional relatively short reads on how others have approached reverse engineering some devices, including tools they used, and basic methodologies.</p>
+<p><a name="adafruit"></a>I would definitely suggest checking this one out first:</p>
+<ul>
+<li><a href="https://learn.adafruit.com/hacking-the-kinect">https://learn.adafruit.com/hacking-the-kinect</a> (2012, 2015?)</li>
+</ul>
+<p>By this stage you're probably not going to pick up masses of new information, but here are the rest for completeness, just in case:</p>
+<ul>
+<li><a href="https://github.com/openrazer/openrazer/wiki/Reverse-Engineering-USB-Protocol">https://github.com/openrazer/openrazer/wiki/Reverse-Engineering-USB-Protocol</a> (2017)</li>
+<li><a href="https://www.linuxvoice.com/drive-it-yourself-usb-car-6/">https://www.linuxvoice.com/drive-it-yourself-usb-car-6/</a> (2015)</li>
+<li><a href="https://www.mattcutts.com/blog/reverse-engineering-a-windows-usb-driver/">https://www.mattcutts.com/blog/reverse-engineering-a-windows-usb-driver/</a> (2013)</li>
+<li><a href="https://hackaday.com/2009/08/20/reverse-engineering-usb-drivers/">https://hackaday.com/2009/08/20/reverse-engineering-usb-drivers/</a> (2009)
+<ul>
+<li><a href="http://www.jespersaur.com/drupal/book/export/html/21">http://www.jespersaur.com/drupal/book/export/html/21</a></li>
+<li><a href="http://devdriven.com/2008/12/luxeed-led-keyboard-driver-for-linux/">http://devdriven.com/2008/12/luxeed-led-keyboard-driver-for-linux/</a></li>
+<li><a href="https://github.com/kstephens/luxeed">https://github.com/kstephens/luxeed</a></li>
+</ul>
+</li>
+</ul>
+<p><strong>Some common tools/methods used in the above articles include:</strong></p>
+<ul>
+<li>Explore / Capture
+<ul>
+<li><code>lsusb -vv</code> (*nix) (<a href="https://linux.die.net/man/8/lsusb">ref</a>) / <code>system_profiler SPUSBDataType</code> (macOS) / <a href="http://www.nirsoft.net/utils/usb_devices_view.html">USBDeview</a> (Windows)</li>
+<li><code>usbmon</code> / USBsnoop / SnoopyPro</li>
+<li><a href="#hardware-commercial-beagleusb">Beagle480 / Beagle Data Center Software</a></li>
+<li>Virtualbox / KVM / QEMU</li>
+<li><a href="https://wiki.wireshark.org/CaptureSetup/USB">Wireshark</a></li>
+</ul>
+</li>
+<li>Interact
+<ul>
+<li><a href="https://github.com/libusb/libusb">libusb</a> / libusb-win32</li>
+<li><a href="https://github.com/pyusb/pyusb">PyUSB</a></li>
+</ul>
+</li>
+</ul>
+<p>The basic process seems to be:</p>
+<ul>
+<li>Setup to capture the device</li>
+<li>Identify the Vendor ID and Product ID</li>
+<li>Determine the device descriptors / endpoints</li>
+<li>Capture USB traffic / attempt to decode commands</li>
+<li>Make a driver / program to interact</li>
+<li>Potentially fuzz for other commands (generally safer to do read only)</li>
+</ul>
+<p>Another method of reverse engineering could be to reverse the device driver itself, and understand the functionality/features from that. This takes a more 'traditional' software reverse engineering approach to solving the problem.</p>
+<p>If you want to be completely thorough, a hybrid approach may make the most sense (eg. analyse the traffic on from the device itself, then use the existing driver to help understand the data being sent back/forth and/or confirm you have captured all of the features)</p>
+<h2><a name="software"></a>Software: Wireshark, usbmon, USBPcap, VirtualBox, etc</h2>
+<p>So as we learned in the above articles, there are a number of 'software only' methods we can use to capture/inspect USB traffic, with the main modern methods being:</p>
+<ul>
+<li><a href="https://wiki.wireshark.org/CaptureSetup/USB">WireShark</a></li>
+<li><a href="http://desowin.org/usbpcap/">USBpcap</a> (<a href="https://github.com/desowin/usbpcap">GitHub</a>)</li>
+<li><a href="https://www.kernel.org/doc/Documentation/usb/usbmon.txt">usbmon</a></li>
+</ul>
+<p>It is also possible to 'pass through' USB devices with your favourite virtual machine software (VMware, Parallels, Virtualbox, KVM, QEMU, etc) to assist in capturing data, though I will leave that as an exercise to the reader to look up the specifics (some references are in the above walkthroughs).</p>
+<p>There are also some older programs and methods that might still work but probably aren't ideal anymore, including:</p>
+<ul>
+<li><a href="https://github.com/wcooley/usbrevue">USBREVue</a>: USBREVue is a suite of tools for reverse-engineering USB devices.</li>
+<li><a href="https://github.com/scanlime/vusb-analyzer">Virtual USB Analyzer</a> (<a href="http://vusb-analyzer.sourceforge.net/">old site</a>)</li>
+<li><a href="http://web.archive.org/web/20010429043148/http://www.jps.net/koma/">USB Snoopy</a></li>
+<li>usbsnoop (<a href="http://benoit.papillault.free.fr/usbsnoop/doc.en.php">1</a>, <a href="https://linuxtv.org/wiki/index.php/Usbsnoop">2</a>, <a href="https://sourceforge.net/projects/usbsnoop/">3</a>)</li>
+<li><a href="https://linuxtv.org/wiki/index.php/Usbreplay">usbreplay</a></li>
+<li><a href="https://web.archive.org/web/20151218000528/http://www.pcausa.com/Utilities/UsbSnoop/default.htm">SniffUSB</a></li>
+<li><a href="https://www.hhdsoftware.com/usb-monitor">USB Monitor</a> (Windows)</li>
+</ul>
+<h2><a name="hardware-tldr"></a>Hardware: tl;dr</h2>
+<p>Too many choices? Don't want to read through them all? A good bet is probably:</p>
+<ul>
+<li><strong>Hardware:</strong> <a href="#hardware-greatfet">GreatFET</a>, <a href="#hardware-facedancer-2">Facedancer 2.0</a>, <a href="#hardware-daisho">Daisho</a></li>
+<li><strong>Commercial Hardware:</strong> <a href="#hardware-commercial-beagleusb">BeagleUSB</a></li>
+</ul>
+<h2><a name="hardware-usbsniffer"></a>Hardware: BeagleBoard-XM / USBSniffer (~2010-2013, ~$149+)</h2>
+<p>Based on a <a href="https://www.elinux.org/BeagleBoard/GSoC/2010_Projects/USBSniffer">2010 GSoC BeagleBoard USB Sniffer</a>, this is an updated version of a <a href="http://beagleboard.org/beagleboard-xm">BeagleBoard-XM</a> based USB sniffer. It acts as a man-in-the-middle hardware proxy allowing USB traffic to be captured, and later viewed in Wireshark or similar.</p>
+<ul>
+<li><a href="https://blog.gimx.fr/a-beagleboard-xm-based-usb-sniffer/">https://blog.gimx.fr/a-beagleboard-xm-based-usb-sniffer/</a></li>
+<li><a href="https://github.com/matlo/bb_usb_sniffer">https://github.com/matlo/bb_usb_sniffer</a></li>
+<li><a href="https://www.elinux.org/BeagleBoard/GSoC/2010_Projects/USBSniffer">https://www.elinux.org/BeagleBoard/GSoC/2010_Projects/USBSniffer</a></li>
+<li><a href="https://hackaday.com/2013/07/02/usb-sniffing-with-the-beagleboard-xm/">https://hackaday.com/2013/07/02/usb-sniffing-with-the-beagleboard-xm/</a></li>
+</ul>
+<h2><a name="hardware-openvizsla"></a>Hardware: OpenVizsla (~2010-2014)</h2>
+<p>(You probably just want to look at <a href="hardware-daisho">daisho</a> below)</p>
+<blockquote>
+<p>OpenVizsla is a Open Hardware FPGA-based USB analyzer. Unlike other similar devices on the market, hardware design files are available as well as full source code for the firmware and client software of the device.</p>
+</blockquote>
+<p>This was a <a href="https://www.kickstarter.com/projects/bushing/openvizsla-open-source-usb-protocol-analyzer">Kickstarter Project</a> to create an &quot;Open Hardware FPGA-based USB analyzer&quot; targeting <strong>USB 2.0 High-Speed</strong>. There seems to be a lot of mixed opinions/views about this project on the internet/forums calling scam and similar. It sounds like there were a lot of delays and other issues.</p>
+<p>According to <a href="http://debugmo.de/2014/05/ov3-hardware/">this blog post</a>, it sounds like they eventually got something working (years later) under the moniker 'OV3'. There seem to be a number of related posts on this blog <a href="http://debugmo.de/tags/OpenVizsla/">under the tag 'OpenVizsla'</a>:</p>
+<ul>
+<li><a href="http://debugmo.de/2014/05/ov3-hardware/">http://debugmo.de/2014/05/ov3-hardware/</a></li>
+<li><a href="http://debugmo.de/2014/08/ov3-fpga-design/">http://debugmo.de/2014/08/ov3-fpga-design/</a></li>
+<li><a href="http://debugmo.de/2014/09/ov3-fpga-helloworld/">http://debugmo.de/2014/09/ov3-fpga-helloworld/</a></li>
+</ul>
+<p>You should be able to find the latest news and code on the following website/GitHub pages:</p>
+<ul>
+<li><a href="http://openvizsla.org/">http://openvizsla.org/</a></li>
+<li><a href="https://github.com/openvizsla/ov_ftdi">https://github.com/openvizsla/ov_ftdi</a></li>
+<li><a href="https://twitter.com/openvizsla">https://twitter.com/openvizsla</a> (no tweets)</li>
+<li><a href="https://twitter.com/hashtag/openvizsla">https://twitter.com/hashtag/openvizsla</a> (no activity since 2010)</li>
+<li><a href="https://www.kickstarter.com/projects/bushing/openvizsla-open-source-usb-protocol-analyzer/updates">https://www.kickstarter.com/projects/bushing/openvizsla-open-source-usb-protocol-analyzer/updates</a></li>
+</ul>
+<h2><a name="hardware-serialusb"></a>Hardware: SerialUSB / GIMX USB Adapter (~2015, ~US$5-35)</h2>
+<blockquote>
+<p>A cheap USB proxy for input devices.</p>
+</blockquote>
+<p>SerialUSB is at the low end of hardware capture devices, designed to be a low cost solution to assist in adding support for USB gaming peripheral protocols to the <a href="http://blog.gimx.fr/">GIMX</a> project.</p>
+<ul>
+<li><a href="http://blog.gimx.fr/serialusb/">http://blog.gimx.fr/serialusb/</a></li>
+<li><a href="https://github.com/matlo/serialusb">https://github.com/matlo/serialusb</a> (~US$5)</li>
+<li><a href="https://blog.gimx.fr/product/gimx-adapter/">https://blog.gimx.fr/product/gimx-adapter/</a> (~US$35)</li>
+<li><a href="http://gimx.fr/wiki/index.php?title=DIY_USB_adapter">http://gimx.fr/wiki/index.php?title=DIY_USB_adapter</a></li>
+<li><a href="https://hackaday.com/2015/12/23/usb-proxy-rats-out-your-devices-secrets/">https://hackaday.com/2015/12/23/usb-proxy-rats-out-your-devices-secrets/</a></li>
+</ul>
+<p>For most purposes we probably won't need hardware for things at this level.. the software-based capture devices are likely good enough. But who knows.. maybe there are other uses for super cheap hardware capture..</p>
+<h2><a name="hardware-goodfet"></a>Hardware: GoodFET (~2009-2018+, ~US$50)</h2>
+<p>(Before I dive in too deeply.. if you want the latest/greatest in this space, check out the <a href="#hardware-greatfet">GreatFET</a>.)</p>
+<blockquote>
+<p>The GoodFET is an open-source JTAG adapter, loosely based upon the TI MSP430 FET UIF and EZ430U boards, as described in their documentation. In addition to JTAG, the GoodFET has been <strong>inspired by HackADay's Bus Pirate to become a universal serial bus interface.</strong></p>
+</blockquote>
+<p>It &quot;is a nifty little tool for quickly exposing embedded system buses to userland Python code.&quot;. Based on the bits and pieces I can pull together, I believe this will allow us to do our typical hardware based sniffing/dumping/etc, but I would have to find a better walkthrough/try it myself before being able to say that for certain.</p>
+<p>Now one thing about this project that tends to confuse me is the versions/revision naming.. for example here are a number of the older revisions and their names:</p>
+<ul>
+<li><a href="http://goodfet.sourceforge.net/hardware/goodfet10/">http://goodfet.sourceforge.net/hardware/goodfet10/</a> (rev 1, retired)</li>
+<li><a href="http://goodfet.sourceforge.net/hardware/goodfet11/">http://goodfet.sourceforge.net/hardware/goodfet11/</a> (rev 2, retired)</li>
+<li><a href="http://goodfet.sourceforge.net/hardware/goodfet20/">http://goodfet.sourceforge.net/hardware/goodfet20/</a> (rev 3, retired)</li>
+<li><a href="http://goodfet.sourceforge.net/hardware/badfet20/">http://goodfet.sourceforge.net/hardware/badfet20/</a> (rev 4, retired)</li>
+<li><a href="http://goodfet.sourceforge.net/hardware/goodfet30/">http://goodfet.sourceforge.net/hardware/goodfet30/</a> (rev 5, retired)</li>
+<li><a href="http://goodfet.sourceforge.net/hardware/goodfet21/">http://goodfet.sourceforge.net/hardware/goodfet21/</a> (rev 6, retired)</li>
+<li><a href="http://goodfet.sourceforge.net/hardware/goodfet31/">http://goodfet.sourceforge.net/hardware/goodfet31/</a> (rev 8, retired)</li>
+<li><a href="http://goodfet.sourceforge.net/hardware/goodfet40/">http://goodfet.sourceforge.net/hardware/goodfet40/</a> (rev 12, retired)</li>
+<li><a href="http://goodfet.sourceforge.net/hardware/goodfet41/">http://goodfet.sourceforge.net/hardware/goodfet41/</a> (rev 13, retired)</li>
+</ul>
+<p>As best I can tell.. there seem to be multiple parallel hardware versions at certain times.. based on different chipsets. And those versions may fork/merge at later times. Attempting to follow that logic.. the two most current (non-retired) revisions seem to be:</p>
+<ul>
+<li><a href="http://goodfet.sourceforge.net/hardware/goodfet42/">http://goodfet.sourceforge.net/hardware/goodfet42/</a> (rev 22)</li>
+<li><a href="http://goodfet.sourceforge.net/hardware/goodfet32/">http://goodfet.sourceforge.net/hardware/goodfet32/</a> (rev 25)</li>
+</ul>
+<p>You should probably just spend time browsing around this site in general.. there are so many interesting sounding open-hardware designs.</p>
+<ul>
+<li><a href="http://goodfet.sourceforge.net/">http://goodfet.sourceforge.net/</a></li>
+<li><a href="https://github.com/travisgoodspeed/goodfet">https://github.com/travisgoodspeed/goodfet</a></li>
+<li><a href="https://github.com/travisgoodspeed/goodfet/tree/master/contrib">https://github.com/travisgoodspeed/goodfet/tree/master/contrib</a></li>
+</ul>
+<p>You can order the boards (or request a free one!) from:</p>
+<ul>
+<li><a href="http://goodfet.sourceforge.net/orders/">http://goodfet.sourceforge.net/orders/</a></li>
+<li><a href="https://www.adafruit.com/product/1279">https://www.adafruit.com/product/1279</a> (~US$50)</li>
+<li><a href="http://www.riverloopsecurity.com/projects/goodfet/">http://www.riverloopsecurity.com/projects/goodfet/</a></li>
+</ul>
+<p>Further reading:</p>
+<ul>
+<li><a href="https://exfil.co/2016/02/11/goodfet-on-os-x/">https://exfil.co/2016/02/11/goodfet-on-os-x/</a></li>
+<li><a href="https://hackaday.com/tag/goodfet/">https://hackaday.com/tag/goodfet/</a></li>
+</ul>
+<h2><a name="hardware-facedancer"></a>Hardware: Facedancer, Beagledancer, Raspdancer (~2012-2018+, ~US$85-???)</h2>
+<p>(Make sure to look at the <a href="hardware-facedancer-2">facedancer 2.0</a> below as well)</p>
+<blockquote>
+<p>The Facedancer21 is the twenty-fourth hardware revision of the GoodFET, owing its heritage to the GoodFET41 and Facedancer20. Unlike the general-purpose GoodFET boards, <strong>the only purpose of this board is to allow USB devices to be written in host-side Python</strong>, so that one workstation can fuzz-test the USB device drivers of another host.</p>
+</blockquote>
+<p>The facedancer is less about capturing data, and more about emulating a USB device with software (python to be exact!). One reason for wanting to do this might be to fuzz the devices drivers on a host system, though I'm sure there could be a number of other creative uses too.. Maybe you want to allow one hardware device to masquerade as another and talk to it's drivers..</p>
+<p>The following articles are a good read:</p>
+<ul>
+<li><a href="http://travisgoodspeed.blogspot.com.au/2012/07/emulating-usb-devices-with-python.html">http://travisgoodspeed.blogspot.com.au/2012/07/emulating-usb-devices-with-python.html</a></li>
+<li><a href="http://travisgoodspeed.blogspot.com.au/2012/10/emulating-usb-dfu-to-capture-firmware.html">http://travisgoodspeed.blogspot.com.au/2012/10/emulating-usb-dfu-to-capture-firmware.html</a></li>
+<li><a href="http://rmspeers.com/archives/252">Scapy Support for USB Protocol on Facedancer Boards, MAX2420, etc</a></li>
+</ul>
+<blockquote>
+<p>The Facedancer hardware extends the GoodFET framework to allow for fast prototyping and fuzzing of USB device drivers. Software connect/disconnect allows the enumeration process to be repeated, and Ryan's fork allows for clean coding of the various data structures with Scapy.</p>
+</blockquote>
+<p>You can find out more about the facedancer boards at:</p>
+<ul>
+<li><a href="http://goodfet.sourceforge.net/hardware/facedancer21">http://goodfet.sourceforge.net/hardware/facedancer21</a></li>
+<li>YouTube: <a href="https://www.youtube.com/watch?v=x-7ezoFju6I">SEC-T 2012 - Trashing USB layers using the Facedancer Board - Travis Goodspeed</a> (2013)</li>
+<li><a href="http://rmspeers.com/archives/252">http://rmspeers.com/archives/252</a></li>
+</ul>
+<p>You can order the board (or request a free one!) from:</p>
+<ul>
+<li><a href="http://goodfet.sourceforge.net/orders/">http://goodfet.sourceforge.net/orders/</a></li>
+<li><a href="https://int3.cc/products/facedancer21">https://int3.cc/products/facedancer21</a> (~US$85)</li>
+</ul>
+<p>Other hardware projects that connect with the facedancer:</p>
+<ul>
+<li><a href="https://github.com/dominicgs/BeagleDancer">https://github.com/dominicgs/BeagleDancer</a> : A Facedancer21 expansion board for the BeagleBone</li>
+<li><a href="http://wiki.yobi.be/wiki/Raspdancer">http://wiki.yobi.be/wiki/Raspdancer</a> : Merging Facedancer11 and Facedancer21 with Raspberry Pi</li>
+<li><a href="https://speakerdeck.com/doegox/raspdancer">https://speakerdeck.com/doegox/raspdancer</a></li>
+<li><a href="https://github.com/travisgoodspeed/goodfet/tree/master/contrib/facedancer/raspdancer">https://github.com/travisgoodspeed/goodfet/tree/master/contrib/facedancer/raspdancer</a></li>
+</ul>
+<h2><a name="hardware-usbproxy"></a>Hardware: Beaglebone Black + USBProxy (~2013?)</h2>
+<p>(This has been superceded by the <a href="hardware-facedancer-2">facedancer 2.0</a> below)</p>
+<blockquote>
+<p>A proxy for USB devices, libUSB and gadgetFS. A USB man in the middle device using embedded Linux devices with on the go controllers.</p>
+</blockquote>
+<ul>
+<li><a href="https://github.com/dominicgs/USBProxy">https://github.com/dominicgs/USBProxy</a></li>
+</ul>
+<p>Presentations/etc:</p>
+<ul>
+<li>YouTube: <a href="https://www.youtube.com/watch?v=uDPxa5tcdnI">NSA Playset: USB Tools [ShmooCon 2015]</a> (2015) (<a href="https://shmoo.gitbooks.io/2015-shmoocon-proceedings/content/build/01_nsa_playset_usb_tools.html">Overview</a>, <a href="https://github.com/dominicgs/dominicgs.github.io/blob/master/presentations/2015/NSA%20Playset-USB%20Tools-ShmooCon.pdf">Slides</a>)</li>
+<li>YouTube: <a href="https://www.youtube.com/watch?v=rcfYgU-Be08">BG - USB Write Blocking with USBProxy - Dominic Spill<br />
+</a> (2014) (<a href="https://github.com/dominicgs/dominicgs.github.io/blob/master/presentations/2014/Spill_BSidesLV_USBProxy_slides.pdf">Slides</a>)</li>
+<li>Youtube (<a href="https://www.youtube.com/watch?v=5JnAeakUBnU">1</a>, <a href="https://www.youtube.com/watch?v=l9wnu97785s">2</a>): ShmooCon 2014: An Open and Affordable USB Man in the Middle Device (2014) (<a href="https://github.com/dominicgs/dominicgs.github.io/blob/master/presentations/2014/Spill_USBProxy_ShmooCon_Slides.pdf">Slides</a>, <a href="https://github.com/dominicgs/dominicgs.github.io/blob/master/presentations/2014/Spill_USBProxy_ShmooCon_paper.pdf">Whitepaper</a>, <a href="https://github.com/dominicgs/dominicgs.github.io/blob/master/presentations/2014/Spill_USBProxy_ShmooCon_cfp.txt">CFP</a>)</li>
+<li>CFP: <a href="https://github.com/dominicgs/dominicgs.github.io/blob/master/presentations/2014/Spill_USBProxy_Haxpo_cfp.txt">Haxpo - Protecting USB devices with USBProxy</a></li>
+</ul>
+<h2><a name="hardware-daisho"></a>Hardware: Daisho (~2013-?2018+?)</h2>
+<blockquote>
+<p>SuperSpeed USB 3.0 FPGA platform</p>
+</blockquote>
+<p>This is a project designed for monitoring a number of high speed communication technologies at the physical layer, including USB 3.0, Gigabit ethernet, HDMI, etc. You can read more about it in the introduction blog:</p>
+<ul>
+<li><a href="http://ossmann.blogspot.com.au/2013/05/introducing-daisho.html">http://ossmann.blogspot.com.au/2013/05/introducing-daisho.html</a> (tag: <a href="http://ossmann.blogspot.com.au/search/label/daisho">daisho</a>)</li>
+</ul>
+<p>You can find more about the project at the following sites:</p>
+<ul>
+<li><a href="https://greatscottgadgets.com/daisho/">https://greatscottgadgets.com/daisho/</a></li>
+<li><a href="https://github.com/mossmann/daisho">https://github.com/mossmann/daisho</a></li>
+<li><a href="https://github.com/mossmann/daisho/wiki">https://github.com/mossmann/daisho/wiki</a></li>
+<li><a href="https://github.com/enjoy-digital/daisho_usb3ipcore_test">https://github.com/enjoy-digital/daisho_usb3ipcore_test</a></li>
+</ul>
+<p>Presentations/etc:</p>
+<ul>
+<li>YouTube: <a href="https://www.youtube.com/watch?v=uDPxa5tcdnI">NSA Playset: USB Tools [ShmooCon 2015]</a> (2015) (<a href="https://shmoo.gitbooks.io/2015-shmoocon-proceedings/content/build/01_nsa_playset_usb_tools.html">Overview</a>, <a href="https://github.com/dominicgs/dominicgs.github.io/blob/master/presentations/2015/NSA%20Playset-USB%20Tools-ShmooCon.pdf">Slides</a>)</li>
+<li>YouTube: <a href="https://www.youtube.com/watch?v=b2DsU1O6Lhg">Black Hat USA 2013 - What's on the Wire? Physical Layer Tapping with Project Daisho<br />
+</a> (2013) (<a href="https://media.blackhat.com/us-13/US-13-Spill-Whats-on-the-Wire-Slides.pdf">Slides</a>, <a href="https://media.blackhat.com/us-13/US-13-Spill-Whats-on-the-Wire-WP.pdf">Whitepaper</a>)</li>
+</ul>
+<h2><a name="hardware-greatfet"></a>Hardware: GreatFET (~2015-2018+)</h2>
+<blockquote>
+<p>GreatFET is a next generation GoodFET intended to serve as your custom Hi-Speed USB peripheral through the addition of expansion boards called &quot;neighbors&quot;.</p>
+</blockquote>
+<p>Better GoodFET hardware, cheaper. Sounds great to me. According to the main site this is still at a 'functional prototype' stage though:</p>
+<blockquote>
+<p>Functional prototype hardware has been produced. Firmware is in progress.</p>
+</blockquote>
+<p>That said.. looking around twitter and other places.. it sounds like it's pretty functional. Here are your main resources:</p>
+<ul>
+<li><a href="http://greatscottgadgets.com/greatfet/">http://greatscottgadgets.com/greatfet/</a></li>
+<li><a href="https://github.com/greatscottgadgets/greatfet">https://github.com/greatscottgadgets/greatfet</a></li>
+<li><a href="https://github.com/greatscottgadgets/greatfet-hardware">https://github.com/greatscottgadgets/greatfet-hardware</a></li>
+<li><a href="https://github.com/greatscottgadgets/greatfet/wiki">https://github.com/greatscottgadgets/greatfet/wiki</a></li>
+<li><a href="https://github.com/greatscottgadgets/greatfet/wiki/GreatFET-One">https://github.com/greatscottgadgets/greatfet/wiki/GreatFET-One</a></li>
+</ul>
+<p>I couldn't find many resources about how to buy these.. but here is what I got:</p>
+<ul>
+<li><a href="https://oshpark.com/shared_projects/qZFKUiwj">https://oshpark.com/shared_projects/qZFKUiwj</a></li>
+</ul>
+<p>Presentations/etc:</p>
+<ul>
+<li>YouTube: <a href="https://www.youtube.com/watch?v=h3VWvZ162QE">TR18 - Reverse Engineering Black Box Systems with GreatFET</a> (2018) (<a href="https://download.ernw-insight.de/troopers/tr18/slides/TR18_AR_RE-Black-Box-Systems-GreatFET-Facedancer.pdf">Slides</a>, <a href="https://www.troopers.de/troopers18/agenda/bcgyzl/">Agenda</a>)</li>
+<li>YouTube: <a href="https://www.youtube.com/watch?v=4Ra9XNjNS3M">TR17 - Rusting up your GREATFET - Richo Healey, Dominic Spill</a> (2017) (<a href="https://speakerdeck.com/richo/rust-greatfet">Slides</a>)</li>
+<li>YouTube: <a href="https://www.youtube.com/watch?v=4NIoAnsuFOQ">GreatFET: Making GoodFET Great Again</a> (2016) (<a href="https://www.blackhat.com/docs/us-16/materials/us-16-Ossmann-GreatFET-Making-GoodFET-Great-Again-wp.pdf">Slides</a>)</li>
+</ul>
+<p>Further reading:</p>
+<ul>
+<li><a href="https://hackaday.com/tag/greatfet/">https://hackaday.com/tag/greatfet/</a></li>
+<li><a href="https://twitter.com/search?q=%23GreatFET&amp;lang=en">https://twitter.com/search?q=%23GreatFET&amp;lang=en</a></li>
+</ul>
+<h2><a name="hardware-facedancer-2"></a>Hardware: Facedancer 2.0 (~2017-2018+)</h2>
+<blockquote>
+<p>This repository houses the next generation of FaceDancer software. Descended from the original GoodFET-based FaceDancer, this repository provides a python module that provides expanded FaceDancer support-- including support for multiple boards and some pretty significant new features.</p>
+</blockquote>
+<p>This is the v2.x of the facedancer, designed to be better/greater. I won't go too deeply into things, but the following are useful resources:</p>
+<ul>
+<li><a href="https://github.com/ktemkin/facedancer">https://github.com/ktemkin/facedancer</a></li>
+<li><a href="https://github.com/ktemkin/facedancer#usbproxy-nouveau-and-protocol-analysis">https://github.com/ktemkin/facedancer#usbproxy-nouveau-and-protocol-analysis</a>
+<ul>
+<li>Replaces <a href="#hardware-usbproxy">USBProxy</a></li>
+</ul>
+</li>
+</ul>
+<p>Presentations/Training/etc:</p>
+<ul>
+<li>YouTube: <a href="https://www.youtube.com/watch?v=L3Ug9591Vag&amp;list=PLnOI9rJWBVjE_xz7uGH4QKLiU5X0A7fjv&amp;index=143">FaceDancer 2.0 (SHA2017)</a> (2017) (<a href="http://dominicspill.com/presentations/2017/Temkin_Spill_FaceDancer2_slides.pdf">Slides</a>, <a href="https://github.com/dominicgs/dominicgs.github.io/blob/master/presentations/2017/Temkin_Spill_FaceDancer2_slides.pdf">Slides2</a>, <a href="https://twitter.com/dominicgs/status/895341394730123265">Twitter</a>)</li>
+<li>YouTube: <a href="https://www.youtube.com/watch?v=HV9WfDRjJCg">ToorCon 19 - Spill &amp; Temkin - Facedancer 2.0 Next Generation USB Hacking</a> (2017) (jump to <a href="https://youtu.be/HV9WfDRjJCg?t=2116">35:16</a>)</li>
+<li><a href="https://www.troopers.de/troopers18/trainings/jmpsxq/">Troopers Training: Hacking the USB World with FaceDancer</a> (<a href="https://hm-ts.de/pdf/TR18_HM_Hack_Facedancer.pdf">PDF</a>, 2018)</li>
+</ul>
+<h2><a name="hardware-commercial-beagleusb"></a>Commercial Hardware: TotalPhase BeagleUSB</h2>
+<p><a href="https://www.totalphase.com/">TotalPhase</a> are a company that provide a number of commercial hardware protocol analysers, <a href="https://www.totalphase.com/protocols/usb/">including USB</a>. I found that a number of the walkthroughs I would come across would at least mention these products in passing.</p>
+<p>As I understand it, <strong>they are only good for passively reading/inspecting/logging the traffic, so no good if you want to do injection or other nefarious things.</strong></p>
+<p>They have a number of different products ranging from the relatively cheap (for low speed), up to the rather expensive (for USB 3.0):</p>
+<ul>
+<li><a href="https://www.totalphase.com/products/beagle-usb12/">Beagle USB 12 Protocol Analyzer</a>: Low/Full Speed USB 2, ~US$475 (<a href="https://www.totalphase.com/support/articles/200800983-Beagle-USB-12-Protocol-Analyzer-Quick-Start-Guide">Guide</a>, <a href="https://www.adafruit.com/product/708">Adafruit</a>)</li>
+<li><a href="https://www.totalphase.com/products/beagle-usb480/">Beagle USB 480 Protocol Analyzer</a>: Low/Full/High Speed USB 2, ~US$1400</li>
+<li><a href="https://www.totalphase.com/products/beagle-usb5000-v2-standard/">Beagle USB 5000 v2 SuperSpeed Protocol Analyzer - Standard Edition</a>: USB 3.0, ~US$3600</li>
+<li><a href="https://www.totalphase.com/products/beagle-usb5000-v2-ultimate/">Beagle USB 5000 v2 SuperSpeed Protocol Analyzer - Ultimate Edition</a>: USB 2/3.0, ~US$6000</li>
+</ul>
+<h2><a name="further-reading-presentations"></a>Further Reading/Presentations</h2>
+<p>I figured I'd add this section for some other interesting presentations/resources that just didn't seem to fit nicely into the categories above. Some of them go a little beyond just USB hardware hacking, and into more general/specific hardware hacking tools:</p>
+<ul>
+<li>YouTube: <a href="https://www.youtube.com/watch?v=7HnQnpJwr-c">DEF CON 22 - Jesse Michael and Mickey Shkatov - USB for all!!</a> (2014) (<a href="https://www.defcon.org/images/defcon-22/dc-22-presentations/Michael-Shkatov/DEFCON-22-Jesse-Michael-Mickey-Shkatov-USB-for-All!!-UPDATED.pdf">Slides</a>)</li>
+<li>YouTube: <a href="https://www.youtube.com/watch?v=PYeYxQqBTLo">Tools of the Hardware Hacking Trade - Duo Tech Talk<br />
+</a> (2014) (<a href="https://www.blackhat.com/docs/webcast/04232014-tools-of-the-hardware-hacking-trade.pdf">Slides</a>)</li>
+</ul>
+<h2><a name="people-to-watch"></a>People to Watch</h2>
+<p>While I was doing this research there were a few names that just kept popping up time and time again, and seem to be working on really cool things in this space. To make it easier to follow them on their relevent platforms, I wanted to collect them together here for you (in no particular order):</p>
+<ul>
+<li>Travis Goodspeed (travisgoodspeed, <a href="https://twitter.com/travisgoodspeed">Twitter</a>, <a href="https://github.com/travisgoodspeed">GitHub</a>)</li>
+<li>Dominic Spill (dominicgs, <a href="https://twitter.com/dominicgs/">Twitter</a>, <a href="https://github.com/dominicgs/">GitHub</a>, <a href="https://dominicspill.com/">Website</a>)</li>
+<li>Kate Temkin (ktemkin, <a href="https://twitter.com/ktemkin/">Twitter</a>, <a href="https://github.com/ktemkin/">GitHub</a>, <a href="https://www.ktemkin.com/">Website</a>)</li>
+<li>Michael Ossmann (mossmann, <a href="https://twitter.com/michaelossmann">Twitter</a>, <a href="https://github.com/mossmann">GitHub</a>, <a href="http://www.ossmann.com/">Website</a>)</li>
+<li>Great Scott Gadgets (<a href="https://twitter.com/GSGLabs">Twitter</a>, <a href="https://github.com/greatscottgadgets">GitHub</a>, <a href="http://greatscottgadgets.com/">Website</a>)</li>
+</ul>
+<p>If I've missed anyone that you feel deserves to be here too, please let me know!</p>
+<h2><a name="code-drivers-etc"></a>Code/Drivers/etc</h2>
+<p>So we know how to capture traffic from our devices, proxy it with hardware, break the protocols down and understand them. But we also want to be able to talk back to them, control them, and truly interact. This is where code and drivers comes in. Now we've sort of skimmed over these topics in a few of the above sections, but for the sake of clarity I wanted to group them all here as well.</p>
+<p><a name="libusb-pyusb"></a>When I first thought about writing this section I thought we were going to be getting deep into kernel drivers, and fighting with arcane systems, but it seems we actually have a much nicer alternative before all of that, thanks to <strong>libusb, pyusb, and friends</strong>:</p>
+<ul>
+<li><a href="http://libusb.info/">http://libusb.info/</a> (<a href="https://github.com/libusb/libusb">GitHub</a>) : A cross-platform library to access USB devices</li>
+<li><a href="https://github.com/pyusb/pyusb">https://github.com/pyusb/pyusb</a> : USB access for Python</li>
+<li><a href="https://github.com/LibUsbDotNet/LibUsbDotNet">https://github.com/LibUsbDotNet/LibUsbDotNet</a> : Library for cross-platform USB device control using Mono/.NET</li>
+</ul>
+<p>You can see examples of using libusb/pyUSB in some of the walkthroughs mentioned earlier.</p>
+<p>Now while these libraries give us a whole lot of power and makes it pretty easy to write our software, there may be times where they just don't quite cover what we need. That's when we can go deeper into the weird and wonderful world of driver development. I won't cover this too in-depth at the moment as it could be a whole blog series on it's own, but a few resources to get you started:</p>
+<ul>
+<li><a href="https://github.com/daynix/UsbDk">https://github.com/daynix/UsbDk</a> : Usb Drivers Development Kit for Windows</li>
+<li><a href="http://www.fourwalledcubicle.com/LUFA.php">LUFA (Lightweight USB Framework for AVRs)</a> (<a href="https://github.com/abcminiuser/lufa">GitHub</a>)</li>
+<li><a href="https://docs.microsoft.com/en-us/windows-hardware/drivers/ddi/content/index">Windows Driver Kit (WDK)</a></li>
+<li><a href="https://github.com/pravic/winapi-kmd-rs">https://github.com/pravic/winapi-kmd-rs</a> : Windows Kernel-Mode Drivers written in Rust</li>
+<li><a href="http://www.linuxvoice.com/be-a-kernel-hacker/">http://www.linuxvoice.com/be-a-kernel-hacker/</a></li>
+</ul>
+<h2><a name="where-next"></a>Where next? Device Emulation, USB over IP, etc</h2>
+<p>Now that you've figured out all of the intricacies of the device, understand it's protocol and wrote some software (or even a driver) to interface with it.. what about the other side of things?</p>
+<ul>
+<li>Can we emulate the device in software (for testing, or other purposes)</li>
+<li>Can we take the information from that device and stream it somewhere remotely?</li>
+<li>Can we make a new hardware device that 'presents itself' as the device we just looked at? (eg. to interface with existing drivers/software)</li>
+</ul>
+<p>This is where device emulation and USB over IP can come to the party. I haven't dug too deeply into this topic, but a well placed Google search or two (<code>github usb over ip</code>, <code>github usb emulation</code>) turned up some interesting looking resources (and I'm sure there are far more out there..):</p>
+<ul>
+<li><a href="https://github.com/forensix/libusbip">forensix/libusbip</a> : USB over IP</li>
+<li><a href="https://github.com/vavrusa/libusbnet">vavrusa/libusbnet</a> :<br />
+libusb wrapper to enable communication with USB devices over TCP/IP</li>
+<li><a href="https://github.com/Frazew/PythonUSBIP">Frazew/PythonUSBIP</a> : USBIP protocol fully implemented in python + Full wiimote support using cwiid</li>
+<li><a href="https://github.com/lcgamboa/USBIP-Virtual-USB-Device">lcgamboa/USBIP-Virtual-USB-Device</a> :<br />
+Emulates USB Devices using USBIP in Python or c</li>
+<li><a href="https://github.com/Microsoft/UDE">Microsoft/UDE</a> : USB Device Emulation Samples</li>
+<li><a href="https://github.com/EngineerTony/Arduino_USBKeyboard_Hacker">EngineerTony/Arduino_USBKeyboard_Hacker</a> : Uses the Arduino Uno microcontroller to emulate a USB keyboard and insert random text into the computer at random intervals</li>
+<li><a href="https://github.com/ViGEm/ViGEmBus">ViGEm/ViGEmBus</a> : Windows kernel-mode driver emulating well-known USB game controllers</li>
+</ul>
+<p>Also, don't forget those hardware devices mentioned above that are designed for emulation..</p>
+<p>Definitely an area that could be interesting to explore deeper, maybe in a future project/post.</p>
+<h2><a name="iot-hardware-hacking-fuzzing-etc"></a>IoT, Hardware Hacking, Fuzzing, etc</h2>
+<p>Once we understand the language these devices speak, how to listen to it, how to emulate it.. what's next? One idea is to apply the concept of fuzzing used in the software world (random/crafted data used to look for crashes in software), and turn it to hardware. And with the prevalence of IoT devices out there now (often with woeful security).. this could be another interesting rabbithole to explore (google: <code>usb hardware fuzzing</code>):</p>
+<ul>
+<li><a href="https://blog.quarkslab.com/usb-fuzzing-basics-from-fuzzing-to-bug-reporting.html">https://blog.quarkslab.com/usb-fuzzing-basics-from-fuzzing-to-bug-reporting.html</a> (2014)</li>
+<li><a href="https://github.com/nccgroup/umap">https://github.com/nccgroup/umap</a> : The USB host security assessment tool (~2013)</li>
+<li><a href="https://github.com/nccgroup/FrisbeeLite">nccgroup/FrisbeeLite</a> : A GUI-based USB device fuzzer
+<ul>
+<li><a href="https://www.nccgroup.trust/au/our-research/fuzzing-usb-devices-using-frisbee-lite/">https://www.nccgroup.trust/au/our-research/fuzzing-usb-devices-using-frisbee-lite/</a> (2013)</li>
+</ul>
+</li>
+<li><a href="https://github.com/ollseg/usb-device-fuzzing">ollseg/usb-device-fuzzing</a> :<br />
+Some tools for testing USB devices (2012)</li>
+<li><a href="https://labs.mwrinfosecurity.com/blog/usb-fuzzing-for-the-masses/">https://labs.mwrinfosecurity.com/blog/usb-fuzzing-for-the-masses/</a> (2011)</li>
+<li><a href="https://wikileaks.org/hbgary-emails//fileid/64995/17596">https://wikileaks.org/hbgary-emails//fileid/64995/17596</a> : USB Protocol Fuzzer Options (2009)</li>
+<li><a href="https://www.beyondsecurity.com/bestorm.html">https://www.beyondsecurity.com/bestorm.html</a> (commercial)
+<ul>
+<li><a href="https://www.beyondsecurity.com/bestorm_usb_case_study.html">https://www.beyondsecurity.com/bestorm_usb_case_study.html</a></li>
+</ul>
+</li>
+</ul>
+<h2><a name="link-dump"></a>Link Dump</h2>
+<p>After all of that.. there is only one little link left in my linkdump, and from memory, I think it was the one that started this cascading flow of rabbitholes. Not really anything to see here that we haven't already covered, but for posterity:</p>
+<ul>
+<li><a href="https://electronics.stackexchange.com/questions/4180/reverse-engineering-usb-signals">https://electronics.stackexchange.com/questions/4180/reverse-engineering-usb-signals</a></li>
+</ul>
+<h2><a name="conclusion"></a>Conclusion</h2>
+<p>Well.. that got longer than I expected! What originally started out as me wanting to dump a few links I was collecting as I read into this subject, <strong>we seem to have ended up with a rough reference guide to getting started on AllTheThings(tm) relating to USB reverse engineering and associated hardware hacking.</strong></p>
+<p>While this post by itself isn't going to give you all the answers, hopefully it's given you enough of a base that you can branch out and dig deeper into the aspects that interest you. And when you do, let me know what you build/break/discover!</p>
+<p>Was there something I missed? A new shiny piece of hardware? An amazing program? Maybe you have some awesome techniques to share? Or just a story about what you've been able to do with this newfound knowledge? I'd love to hear from you in the comments below!</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>Imagine a world..</title>
+	  <link>/devalias/2018/04/20/imagine-a-world/</link>
+	  <author>devalias</author>
+	  <pubDate>2018-04-20T00:00:00+10:00</pubDate>
+	  <guid>/devalias/2018/04/20/imagine-a-world/</guid>
+	  <description><![CDATA[
+	     <p>Imagine a world driven by the strive for progress, improvement and innovation, rather than fuelled by corporate greed. Ideas and breakthroughs are shared freely and openly. Where instead of multiple separate entities having to expend the same effort to unlock the same benefits time and time again, locking them away inside their own corporate silos to ration out to the masses at overly inflated costs; we co-create that benefit, shared freely, and greatly accelerate the pace of innovation for everyone.</p>
+<p>Imagine a world where instead of relying on these isolated silos of knowledge, portioned out by 'experts' (and never knowing just how up to date/valid that ‘expert’ information actually is), those same experts are plugged into the latest and greatest, and become the interface that guides and helps integrate that global wealth of knowledge. Where the ego and closed minded attitudes stemming from ‘having studied this content and dedicated a large portion of their life to it' melt away, in favour of the best possible information, actions, and outcomes.</p>
+<p>Imagine a world where new breakthrough technologies and therapies are widely available, because they aren’t limited by copyright or proprietary knowledge. How quickly those things could spread, and how many more people would have access to them. Not just those that can afford the current greed-subsidised availability, but anyone, regardless of their situation or wealth.</p>
+<p>In a world so rich with data, yet so poor in signal buried away among the endless noise. Imagine a world where you're able to filter all of that irrelevance away. Focussing only on what truly matters for you, in that moment, but knowing you can trust in the systems enough that you won’t be missing something relevant or important. Systems that enhance our interactions and experiences, rather than vying to control and capture our attention so it can be monetised.</p>
+<p>This is the world I strive for. This is my future. I may be just one small cog in this global societal machine, but each step we take towards this future enables it’s momentum to grow. Empowering new builders, thinkers and makers with the tools and knowledge to step just a little further, reach a little higher.</p>
+<p>What are your gifts? Your passions? How can you leverage these to move things forward? What can you share? Let’s build this future together.</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>DIY Light Therapy (Red/Near Infrared, Cold/Low Level Laser, Blue/UV, etc)</title>
+	  <link>/devalias/2018/04/07/diy-light-therapy-red-infrared-cold-laser-lllt-blue-uv/</link>
+	  <author>devalias</author>
+	  <pubDate>2018-04-07T00:00:00+10:00</pubDate>
+	  <guid>/devalias/2018/04/07/diy-light-therapy-red-infrared-cold-laser-lllt-blue-uv/</guid>
+	  <description><![CDATA[
+	     <p>I tend to dive down rabbit holes a lot, and given the cost of context switching and memory deteriorating over time, sometimes the state I build up in my mind gets lost between the chances I get to dive in. These 'linkdump' posts are an attempt to collate at least some of that state in a way that I can hopefully restore to my brain at a later point.</p>
+<p>This time around I was inspired to look into Red/Infrared light therapy, originally motivated by some Bulletproof blog posts/talk (<a href="https://blog.bulletproof.com/health-benefits-red-light-therapy/">1</a>, <a href="https://blog.bulletproof.com/light-hacking-for-better-energy-mood-and-performance/">2</a>, <a href="https://blog.bulletproof.com/tag/light-hacking/">etc</a>), and the cost of the <a href="https://joovv.com/products/joovv-light?variant=39356431502">Joovv</a> light panels. Let's dig in!</p>
+<h2>Joovv</h2>
+<p><a href="https://joovv.com/">Joovv</a> is one of those hip health/wellness brands making red/infrared light therapy devices. They tout all of the good buzzwords like low/free of EMF, etc, and they're working in an emerging space (light therapy) that at least at a cursory level of skimming the research sounds like it could have some really cool benefits. The downside? Popular brands and fancy marketing costs money, businesses need money to survive, and so for the <a href="https://joovv.com/products/joovv-light?variant=39356431502">Joovv Mini</a> we're looking at about ~US$600. Too expensive for my tastes, particularly for what appears to just be an array of LEDs.</p>
+<p>Now, being a builder/breaker type, with a growing interest in the hardware/maker side.. I decided to look into it a little and figure if I could build my own. For reasons, for science!</p>
+<p>So looking at the <a href="https://joovv.com/products/joovv-light?variant=39356431502">Joovv Mini</a>, we can infer the following:</p>
+<ul>
+<li>There are 2 grids of LEDs, each consisting of a 6x5 array of LEDs, for a total of 30 LEDs per grid, or 60 in the entire Joov Mini</li>
+<li>If you get the mixed Red/Infra Red panels, you end up with: 14 red (660nm), 16 near infrared (850nm) per grid (28 red, 32 near infrared total)</li>
+<li>Power consumption is 120w, so divided by the total LEDs (60), they seem to be 2w LEDs</li>
+<li>There are 2 cooling fans, so that is probably 1 per grid</li>
+<li>Total dimensions are: 15&quot; x 8.25&quot; x 3&quot;</li>
+<li>Irradiance/treatment area are listed as: &gt;100+mw/cm^2, 25&quot; x 18&quot; (these will vary based on wavelength, distance used, etc)</li>
+</ul>
+<p>The other models just appear to use different counts of the 'LED grid', and include:</p>
+<ul>
+<li><a href="https://joovv.com/products/joovv-light?variant=39356431502">Joovv Mini</a>: 2 grids, 60 LEDs, 2 fans, 120w, ~US$595 (or ~US$9.91/LED)</li>
+<li><a href="https://joovv.com/products/joovv-light?variant=39356431694">Joovv Original</a>: 5 grids, 150 LEDs, 5 fans, 300w, ~US$995 (or ~US$6.6/LED)</li>
+<li><a href="https://joovv.com/products/joovv-light?variant=39356431886">Joovv Max</a>: 16 grids, 480 LEDs, 16 fans, 960w, ~US$2695 (or ~US$5.6/LED)</li>
+</ul>
+<p>So this gives us some pretty good starting parameters from a 'best of breed' product, to use as a basis when we go digging around elsewhere. It also goes to show that there is probably a decent bit of margin between hardware costs and final product (as there always is), so DIY savings abound! We want:</p>
+<ul>
+<li>A bunch of 2w (or higher) red (660nm)/NIR (850nm) LEDs</li>
+<li>Some fans</li>
+<li>Power</li>
+<li>Casing, etc</li>
+</ul>
+<h2>Other Commercial Products</h2>
+<p>So there are a number of other products in this space too.. just a couple off the top of my head:</p>
+<ul>
+<li><a href="https://catalyticcolor.com/redjuvenator-light-therapy/">REDjuvenator</a>
+<ul>
+<li>15 x 15 array of LEDs (225 total), 1 foot square panel</li>
+<li>Formula #1: Looks like all red LEDs</li>
+<li>Formula #2: Looks like red/near infrared</li>
+<li>Formula #3: Claims the benefits of #1 + #2</li>
+<li>Formula #4: 'Bacteria buster', looks like red + UV LEDs</li>
+</ul>
+</li>
+<li>Bulletproof Labs <a href="http://bulletprooflabs.com/body/">REDcharger</a> (which is a rebranding of another device.. but I forget the name at the moment..): 630nm/880nm. I think there were like 40,000 LEDs in this.. I feel like there was some small amount of blue/UV in there as well from memory..</li>
+</ul>
+<h2>Sourcing LEDs</h2>
+<p>Now I haven't done a whole lot in this hardware building space before.. but I do know that <a href="https://www.aliexpress.com/">AliExpress</a> tends to have AllTheThings(tm).. I won't directly link as you may find better deals, but a few searches included:</p>
+<ul>
+<li>660nm led</li>
+<li>850nm led</li>
+</ul>
+<p>Now.. I could go for the 2w spec like Joovv uses.. but maybe there are more interesting/cheaper combinations. Looking through the search results the following seemed common: 1w, 3w, 5w. Maybe we could change up the parameters for our build? For example, <a href="https://www.aliexpress.com/item/10pcs-1W-3W-High-Power-LED-Full-Spectrum-White-Warm-white-Green-Blue-Deep-Red-660nm/32859370682.html">one supplier</a> listed the following (may not be the best price, or the best supplier, just one example):</p>
+<ul>
+<li>1w, deep red (660nm): ~US$3.10/10pc == US$0.31/ea</li>
+<li>3w, deep red (660nm): ~US$3.50/10pc == US$0.35/ea</li>
+<li>1w, infrared (850nm): ~US$6.90/10pc == US$0.69/ea</li>
+<li>3w, infrared (850nm): ~US$7.90/10pc == US$0.79/ea</li>
+</ul>
+<p>So from a completely naive back of napkin cost calculation using the 3w LEDs:</p>
+<ul>
+<li>Mini: 28 red (~US$9.80), 32 NIR (~US$25.28), <strong>Total:</strong> ~US$35.08</li>
+<li>Original: 70 red (~US$24.50), 80 NIR (~US$63.20), <strong>Total:</strong> ~US$87.70</li>
+<li>Max: 224 red (~US$78.40), 256 NIR (~US$202.24), <strong>Total:</strong> ~US$280.64</li>
+</ul>
+<p>Obviously there will be additional costs for the power supply, fans, casing, construction, etc.. but those costs seem far nicer to me.</p>
+<p>There were also some <a href="https://www.aliexpress.com/item/High-Power-LED-Chip-Deep-Red-LED-660nm-Plant-Grow-Light-1W-3W-5W-10W-20W/32633843531.html">other providers</a> that had some interesting looking LED arrays, with powers such as: 1w, 3w, 5w, 10w, 20w, 30w, 50w, 100w. So we could go super powerful if we wanted (though maybe wouldn't get as good coverage..). Also.. is there a sweet spot for the power/brightness? Need to dig into the research more for that.. It sounds like there is.</p>
+<p>In doing some reading, it seems that a lot of the 'grow lights' actually operate in the same spectrums (good for plants, good for us!), so that may be another path worth looking into.</p>
+<h2>But what about EMFs?</h2>
+<p>So one of the claims among a number of these products is that they're 'low/free from EMFs', and a cursory skim of some of the research sounds plausible that EMFs could be a thing worth caring about (search terms: EMF voltage regulated calcium channels, etc). Now this isn't an area I've really looked much into, but if we assume they are bad.. what can we do about it? Off the top of my head, and completely unsubstantiated, I would imagine some form of <a href="https://en.wikipedia.org/wiki/Faraday_cage">faraday cage</a> type device would do the trick, given it's an &quot;enclosure used to block electromagnetic fields&quot;. So maybe that's an area to read more into..</p>
+<h2>But what about blue light?</h2>
+<p>So.. seems we can use blue/UV light for things too.. more related to inhibiting bad stuff it seems. Could definitely be an interesting rabbit hole to dive deeper down:</p>
+<ul>
+<li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5626244/">Blue light treatment of Pseudomonas aeruginosa: Strong bactericidal activity, synergism with antibiotics and inactivation of virulence factors</a>
+<ul>
+<li>One of the more common infection types in Cystic Fibrosis.. interesting..</li>
+</ul>
+</li>
+</ul>
+<p>There also seems to be some stuff in the space of using blue (technically violet, 360-400nm) light for myopia/similar:</p>
+<ul>
+<li><a href="https://blog.bulletproof.com/violet-light-eye-health/">https://blog.bulletproof.com/violet-light-eye-health/</a></li>
+<li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5233810/">PubMed: Violet Light Exposure Can Be a Preventive Strategy Against Myopia Progression</a></li>
+</ul>
+<h2>Lasers!</h2>
+<p>So, moving a bit away from the LED side of things.. a lot of the 'Low Level Laser Therapy' or 'Cold Laser' treatments out there are using laser diodes instead. They can penetrate deeper, tend to be higher power, more focussed, etc. I've heard about these sorts of things being used to aid in healing of injured joints and more, enough to catch my interest. But once again, these things are expensive (a treatment might cost you $50/session).. and hard to come buy for the biohacker type who isn't a medical professional. For example:</p>
+<ul>
+<li><a href="https://www.thorlaser.com/products/">THOR Laser</a>
+<ul>
+<li>~US$14,000-24,000</li>
+<li>Various LED/laser probe options (810nm IR laser, 660nm laser, etc)</li>
+<li>These ones sound quite low powered too: 30mW, 75mW, 200mW, etc</li>
+</ul>
+</li>
+<li><a href="http://multiradiance.com.au/products/mr4-super-pulsed-laser">MR4 Super Pulsed Laser</a>:
+<ul>
+<li>~AU$10,000</li>
+<li>Infrared (860-960nm)</li>
+<li>Red (600-740nm)</li>
+<li>Laser (25w, pulsed)</li>
+</ul>
+</li>
+</ul>
+<p>So looking deeper into the wavelengths, power levels, and options, we find:</p>
+<ul>
+<li><a href="https://www.coldlasers.org/therapy/wavelength/">https://www.coldlasers.org/therapy/wavelength/</a></li>
+</ul>
+<p>Skimming through some of this stuff.. it sounds like we want to look into pulsed/super pulsed laser diodes.. but what are they?</p>
+<ul>
+<li><a href="https://www.pulselaserrelief.com.au/super-pulsed-low-level-laser-therapy">https://www.pulselaserrelief.com.au/super-pulsed-low-level-laser-therapy</a></li>
+</ul>
+<p><strong>tl;dr:</strong> high power, low heat, deeper penetration, 904-905nm Gallium Arsenide (GaAS) diode</p>
+<p>And if we turn to our trusty component dealer <a href="https://www.aliexpress.com/">AliExpress</a>, we turn up a few interesting search results:</p>
+<ul>
+<li>pulsed laser diode 25w</li>
+</ul>
+<p>Now remember.. lasers are dangerous, you can and will destroy your eyes if you do bad things with them. Always wear proper laser eye safety when doing anything like this. Also, if you're in a country like Australia, they may just actually not let you import these full stop.. yay for draconian laws! There might be a way around it for 'legit reasons' (rather than annoying cats with red dots), but it's not an area I've deeply looked into yet.</p>
+<p>Now that that's out of the way.. maybe like ~US$25 for a laser diode.. and then need to power it, probably cool it, etc. Better than $25k!</p>
+<h2>Link Dump</h2>
+<p>Now that we've got all of that out of the way, how about that link dump:</p>
+<ul>
+<li><a href="https://www.redlighttherapy.com.au/">https://www.redlighttherapy.com.au/</a></li>
+<li><a href="https://draxe.com/red-light-therapy/">https://draxe.com/red-light-therapy/</a></li>
+<li><a href="https://redlightman.com/blog/complete-guide-light-therapy-dosing/">https://redlightman.com/blog/complete-guide-light-therapy-dosing/</a></li>
+<li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3288797/">PubMed: The Nuts and Bolts of Low-level Laser (Light) Therapy</a>
+<ul>
+<li>&quot;The wavelengths of light used for LLLT fall into an “optical window” at red and NIR wavelengths (600–1070 nm) (Fig. 1d). Effective tissue penetration is maximized in this range, as the principal tissue chromophores (hemoglobin and melanin) have high absorption bands at wavelengths shorter than 600 nm. Wavelengths in the range 600–700 nm are used to treat superficial tissue, and longer wavelengths in the range 780–950 nm, which penetrate further, are used to treat deeper-seated tissues. Wavelengths in the range 700–770 nm have been found to have limited biochemical activity and are therefore not used.&quot;</li>
+</ul>
+</li>
+<li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4126803/">PubMed: Low-level laser (light) therapy (LLLT) in skin: stimulating, healing, restoring</a></li>
+</ul>
+<p>And if we want to try sensing/reading different wavelengths (maybe for testing, or reverse engineering things, or just for fun!):</p>
+<ul>
+<li><a href="http://forum.arduino.cc/index.php?topic=17429.0">Arduino Forum: Sensing wavelength of lights</a></li>
+<li><a href="https://hackaday.com/2014/07/31/diy-usb-spectrometer-actually-works/">https://hackaday.com/2014/07/31/diy-usb-spectrometer-actually-works/</a></li>
+<li><a href="https://www.photonicsonline.com/doc/wavelength-sensor-and-circuit-pss-ws-756-pcb-0001">https://www.photonicsonline.com/doc/wavelength-sensor-and-circuit-pss-ws-756-pcb-0001</a></li>
+<li><a href="https://www.first-sensor.com/en/products/optical-sensors/detectors/wavelength-sensitive-diodes-ws/">https://www.first-sensor.com/en/products/optical-sensors/detectors/wavelength-sensitive-diodes-ws/</a></li>
+</ul>
+<p>Full spectrum bulbs:</p>
+<ul>
+<li><a href="http://www.viva-lite.com.au/">http://www.viva-lite.com.au/</a></li>
+</ul>
+<p>Power supplies that are probably actually safe enough to plug into 240v:</p>
+<ul>
+<li><a href="https://www.meanwell-led-drivers.com.au/">https://www.meanwell-led-drivers.com.au/</a></li>
+</ul>
+<h2>Conclusion</h2>
+<p>So now we have a wide variety of interesting starting points, and some key words/aspects to dig deeper into this area of research/DIY building. We learned that a lot of these products, while very cool and useful, also tend to be WAY overpriced. Maybe we can build our own, open source the designs/components/learnings from it, and move everyone forward together (rather than only those who have the big $$ to benefit).</p>
+<p>Was this useful? Have you built your own DIY light hacking devices? Got a cool story to share? Some new research? I'd love to hear what you're doing in this space in the comments below!</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>Biohacked Box #6 (Spring, March 2018)</title>
+	  <link>/devalias/2018/03/05/biohacked-box-6-spring/</link>
+	  <author>devalias</author>
+	  <pubDate>2018-03-05T00:00:00+11:00</pubDate>
+	  <guid>/devalias/2018/03/05/biohacked-box-6-spring/</guid>
+	  <description><![CDATA[
+	     <p>Time for another Bulletproof <a href="http://biohacked.com/">Biohacked.com</a> quarterly box.</p>
+<h2>Contents</h2>
+<p>If you want to follow along with the official unboxing video, head on over and <a href="https://biohacked.com/BBQ118/">watch with me</a> (<a href="https://www.youtube.com/watch?v=T9i8h_Edh_4">YouTube</a>).</p>
+<ul>
+<li>0:00 Intro
+<ul>
+<li>~US$174 value</li>
+</ul>
+</li>
+<li>1:15 Box overview booklet, discount codes, etc</li>
+<li>1:34 <a href="https://knockknockstuff.com/product/affirmators-50-affirmation-cards-help-help-without-self-helpy-ness/">KnockKnock Affirmators Cards</a> (~US$12)
+<ul>
+<li>20% off any purchase: BIOHACKING20 (till 01/06/2018)</li>
+</ul>
+</li>
+<li>3:43 <a href="https://www.defendershield.com/headphones">DefenderShield EMF Free Air Tube Headphones</a> (~US$65)
+<ul>
+<li>Not noise cancelling</li>
+<li>Block EMF from getting into ear canal, speaker positioned distance away from earbuds</li>
+<li>EMF's affect voltage gated calcium channels in mitochondria, cause inflammation over time</li>
+<li>15% off: BIOHACK18 (till 30/09/2018)</li>
+</ul>
+</li>
+<li>5:40 <a href="https://performancenutbutter.com/">Performance Nut Butter Samples</a>
+<ul>
+<li>Macadamia, coconut, cashews, sea salt</li>
+<li>20% off: BULLETPROOF</li>
+</ul>
+</li>
+<li>6:25 <a href="https://branchbasics.com/shop/kit-travel/">Branch Basics Travel Kit</a> (~US$20)
+<ul>
+<li>Safe/clean household/etc cleansers, concentrated, travel kit</li>
+<li>15% off: BIOHACKED</li>
+</ul>
+</li>
+<li>8:08 <a href="https://thefidgetcube.co/">Fidget Cube</a> (~US$20)</li>
+<li>9:22 <a href="https://www.cosmeceuticalslab.com/sunshield">Pure Mineral SunShield</a> (~US$65)
+<ul>
+<li>SPF 50</li>
+<li>Active ingredients: titanium dioxide (22%), zinc oxide (22%)</li>
+<li>30% off: BHSS</li>
+</ul>
+</li>
+<li>11:53 Golden Ticket: <a href="https://vitaclaychef.com/collections/slow-cooker/products/high-fired-vitaclay-smart-organic-multicooker">VitaClay Slow Cooker</a> (~US$120-140)
+<ul>
+<li>Zisha clay, traditionally used in china</li>
+<li>Can go down to low temperatures (eg. yoghurt making)</li>
+<li>$10 off: GIFT10</li>
+</ul>
+</li>
+<li>14:59 Wrap up</li>
+</ul>
+<h2>Previous Boxes</h2>
+<p>Want to see what the previous boxes have been like? Check out my other posts:</p>
+<ul>
+<li><a href="/devalias/2017/12/10/biohacked-box-5-winter/">Biohacked Box #5</a> (Winter, December 2017)</li>
+<li><a href="/devalias/2017/09/05/biohacked-box-4-autumn/">Biohacked Box #4</a> (Autumn, September 2017)</li>
+<li><a href="/devalias/2017/06/04/biohacked-box-3/">Biohacked Box #3</a> (June 2017)</li>
+<li><a href="/devalias/2017/03/01/biohacked-box-2/">Biohacked Box #2</a> (March 2017)</li>
+<li><a href="/devalias/2016/12/20/biohacked-box-1-bulletproof-biohacking-box-9/">Biohacked Box #1</a> (December 2016)</li>
+<li><a href="/devalias/2016/10/13/bulletproof-biohacking-box-8/">Quarterly Biohacking Box #8</a></li>
+<li><a href="/devalias/2016/07/21/bulletproof-quarterly-biohacking-box-7/">Quarterly Biohacking Box #7</a>
+<ul>
+<li>This has a quick summary of boxes 1-6 as well</li>
+</ul>
+</li>
+</ul>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>Biohacked Box #5 (Winter, December 2017)</title>
+	  <link>/devalias/2017/12/10/biohacked-box-5-winter/</link>
+	  <author>devalias</author>
+	  <pubDate>2017-12-10T00:00:00+11:00</pubDate>
+	  <guid>/devalias/2017/12/10/biohacked-box-5-winter/</guid>
+	  <description><![CDATA[
+	     <p>Time for another Bulletproof <a href="http://biohacked.com/">Biohacked.com</a> quarterly box.</p>
+<h2>Contents</h2>
+<p>If you want to follow along with the official unboxing video, head on over and <a href="https://biohacked.com/BBQ417/">watch with me</a> (<a href="https://www.youtube.com/watch?v=DGgxn0rXnF0">YouTube</a>).</p>
+<ul>
+<li>0:00 Intro</li>
+<li>0:31 Box overview booklet, discount codes, etc</li>
+<li>0:53 <a href="https://markbellslingshot.com/products/hip-circle">Mark Bell SlingShot Hip Circle</a> (~US$25)
+<ul>
+<li>Activates hip/butt muscles, warm up for exercise</li>
+<li>Fixes posture, offsets quad dominance, undoes sitting damage</li>
+<li>10% off entire order: BIOHACKED</li>
+</ul>
+</li>
+<li>3:07 <a href="http://www.yogabody.com/awesometoes-global/">Yoga Body Awesome Toes</a> (~US$25)
+<ul>
+<li>Silicone, spreads toes out</li>
+<li>Reduces foot pain, realigning toe bones</li>
+<li>Relieve stress/tension, can walk or sleep in them</li>
+</ul>
+</li>
+<li>5:15 <a href="http://www.prohands.net/products/gripmaster.php">Pro Hands GripMaster</a> (~US$15)
+<ul>
+<li>Grip/hand/finger strengthening</li>
+<li>20% off: BIOHACKED</li>
+</ul>
+</li>
+<li>7:05 <a href="https://biohacked.com/product/biohacked-tens-unit/">Biohacked TENS Unit</a> (~US$85)
+<ul>
+<li>Runs small pulsed current across nerves</li>
+<li>Reduces perception of pain, releases endorphins</li>
+</ul>
+</li>
+<li>9:20 <a href="https://earthbasedbody.com/product/grounding-gellee/">Earth Based Body Grounding Gelee</a> (~US$49)
+<ul>
+<li>Puts layer of ionic silver on feet, increase conductivity with earth</li>
+<li>25% off: BHGG25 (till 31/01/2018)</li>
+</ul>
+</li>
+<li>11:00 <a href="https://manflowyoga.com/shop/guyoga/">ManFlow Yoga - Guyoga</a> (~US$35)
+<ul>
+<li><a href="http://manflowyoga.com/biohacker">Access</a>, DaveSentMe</li>
+</ul>
+</li>
+<li>13:20 Golden Ticket: <a href="http://hyperice.com/hypersphere">Hyperice Sphere / Roller</a> (~US$149)
+<ul>
+<li>Vibrates, rechargable</li>
+<li>Releases trigger points/knots quickly</li>
+<li>30% off any product: BULLETPROOF30</li>
+</ul>
+</li>
+<li>15:26 Golden Ticket: <a href="https://joovv.com/products/joovv-light?variant=39356431502">Joov Combo Mini</a> (~$600)
+<ul>
+<li>Photobiomodulation, red light therapy</li>
+<li>Red light contributes electrons to the electron transport chain</li>
+<li>IR changes the structure of water in your body</li>
+<li>660nm and 850nm, good for 50,000 hours of use</li>
+<li>Can use on head for brain/hair loss</li>
+<li>$25 off: BIOHACKED</li>
+<li>(Sidenote: You could probably build your own equivalent to the mini for ~US$100 in parts from aliexpress, save yourself ~US$500)</li>
+</ul>
+</li>
+</ul>
+<h2>Previous Boxes</h2>
+<p>Want to see what the previous boxes have been like? Check out my other posts:</p>
+<ul>
+<li><a href="/devalias/2017/09/05/biohacked-box-4-autumn/">Biohacked Box #4</a> (Autumn, September 2017)</li>
+<li><a href="/devalias/2017/06/04/biohacked-box-3/">Biohacked Box #3</a> (June 2017)</li>
+<li><a href="/devalias/2017/03/01/biohacked-box-2/">Biohacked Box #2</a> (March 2017)</li>
+<li><a href="/devalias/2016/12/20/biohacked-box-1-bulletproof-biohacking-box-9/">Biohacked Box #1</a> (December 2016)</li>
+<li><a href="/devalias/2016/10/13/bulletproof-biohacking-box-8/">Quarterly Biohacking Box #8</a></li>
+<li><a href="/devalias/2016/07/21/bulletproof-quarterly-biohacking-box-7/">Quarterly Biohacking Box #7</a>
+<ul>
+<li>This has a quick summary of boxes 1-6 as well</li>
+</ul>
+</li>
+</ul>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>Atlassian Confluence: Cross-Site Scripting (XSS) (CVE-2017-16856)</title>
+	  <link>/devalias/2017/12/05/atlassian-confluence-cross-site-scripting-xss/</link>
+	  <author>devalias</author>
+	  <pubDate>2017-12-05T00:00:00+11:00</pubDate>
+	  <guid>/devalias/2017/12/05/atlassian-confluence-cross-site-scripting-xss/</guid>
+	  <description><![CDATA[
+	     <p>Earlier this year I spent some time delving into <a href="https://www.atlassian.com/software/confluence">Atlassian Confluence</a> to see if I could dig up any bugs that had slipped through the cracks. I wasn't really expecting to turn up much, but I was super excited and surprised when I managed to find an issue within the RSS feed plugin leading to Cross-Site Scripting (XSS) (Twitter: <a href="https://twitter.com/_devalias/status/922234470274498560">1</a>, <a href="https://twitter.com/_devalias/status/938271825414455298">2</a>; LinkedIn: <a href="https://www.linkedin.com/feed/update/urn:li:activity:6328008786355331072/">1</a>, <a href="https://www.linkedin.com/feed/update/urn:li:activity:6344043067401732096">2</a>; BugCrowd: <a href="https://bugcrowd.com/devalias">1</a>, <a href="https://bugcrowd.com/atlassian/hall-of-fame">2</a>).</p>
+<p>Thanks to <a href="https://www.atlassian.com/trust/security">Atlassian</a> and <a href="https://www.bugcrowd.com/">BugCrowd</a> for running an awesome bug bounty program and giving researchers the opportunity to hack things, make the internet safer, AND get rewarded while doing so!</p>
+<h2>The CVE</h2>
+<ul>
+<li><strong><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-16856">CVE-2017-16856</a></strong>: The RSS Feed macro in Atlassian Confluence before version 6.5.2 allows remote attackers to inject arbitrary HTML or JavaScript via cross site scripting (XSS) vulnerabilities in various rss properties which were used as links without restriction on their scheme.
+<ul>
+<li><a href="https://jira.atlassian.com/browse/CONFSERVER-54395">Confluece Bug Report (CONFSERVER-54395)</a></li>
+<li><a href="https://confluence.atlassian.com/doc/issues-resolved-in-6-5-2-940701301.html">Confluence - Issues resolved in 6.5.2</a></li>
+<li><a href="http://www.securityfocus.com/bid/102094">SecurityFocus</a></li>
+</ul>
+</li>
+</ul>
+<h2>Remediation</h2>
+<p>This issue was fixed in Confluence <code>6.5.2</code>. Update to this version or newer to be protected. See the CVE advisory details for more information.</p>
+<h2>Chaining bugs, social engineering and platform features</h2>
+<p>As part of my PoC, I put together some fun little phishing code using the Confluence web plugin API's. If there is interest (and I'm allowed), I might share it (and some of the useful features/places to look to build similar) sometime.</p>
+<p>Once XSS is achieved, if the current user isn't already an 'elevated' administrator, the code provides error messages using standard Confluence GUI elements to convince the user to elevate their privileges with 'websudo'. Once they do that, you can basically abuse their full privileges to create new administrators, or (my favourite) install a small malicious plugin to provide Remote Code Execution (RCE) on the server.</p>
+<p>While these aren't security issues in themselves, it does show how you can leverage social engineering techniques and other platform features to chain smaller issues into something more powerful and damaging.</p>
+<h2>Acknowledgements</h2>
+<p>These issues were identified by <a href="http://devalias.net">myself</a> and the team at <a href="https://dtss.com.au">TSS</a>:</p>
+<ul>
+<li>Glenn 'devalias' Grant (<a href="http://devalias.net">http://devalias.net</a>) of TSS (<a href="https://dtss.com.au">https://dtss.com.au</a>)</li>
+</ul>
+<h2>Conclusion</h2>
+<p>It pays to look in places less travelled. If there are older features in products, or things that may not be as popular/used as often, try looking in there. Who knows what may have been overlooked.</p>
+<p>Have you ever looked into some popular software and found issues you never expected to find? Got a cool story to share about it? Maybe you've chained some bugs in an interesting way, or just want to hear more about my PoC? I'd love to hear from you in the comments below!</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>Presenting all the things! (BSides Wellington, CSides Canberra, SecTalks Canberra)</title>
+	  <link>/devalias/2017/11/19/presenting-all-the-things-bsides-wellington-csides-sectalks/</link>
+	  <author>devalias</author>
+	  <pubDate>2017-11-19T00:00:00+11:00</pubDate>
+	  <guid>/devalias/2017/11/19/presenting-all-the-things-bsides-wellington-csides-sectalks/</guid>
+	  <description><![CDATA[
+	     <p>Recently I had the opportunity to present at a few local security meetups, and one international security conference.</p>
+<p>At the start of 2017, I set a loose goal in the back of my mind that I would like to &quot;get out there more&quot; and &quot;speak about the things I do&quot;. Little did I know at the time that this would actually eventuate; leading to me having a pile of great experiences, and meeting some really cool and talented people!</p>
+<h2>TL;DR</h2>
+<ul>
+<li><a href="http://www.sectalks.org/canberra/">SecTalks Canberra</a> (<a href="https://www.meetup.com/SecTalks-Canberra/events/241579721/">November 14th, 2017; Canberra, Australia</a>)
+<ul>
+<li>&quot;Hack FaaSter: Leveraging Docker and OpenFaaS for fun and offensive (security) profit.&quot;</li>
+<li>Slides, workshop, etc: <a href="https://github.com/0xdevalias/hack-FaaSter">GitHub</a> <a href="https://github.com/0xdevalias/hack-FaaSter/blob/master/20171114%20-%20Hack%20FaaSter%20-%20SecTalks%20Canberra.pdf">PDF</a>, <a href="https://speakerdeck.com/0xdevalias/hack-faaster-leveraging-docker-and-openfaas-for-fun-and-offensive-security-profit">SpeakerDeck</a>, <a href="https://www.slideshare.net/GlenndevaliasGrant/hack-faaster-sectalks-canberra-20171114">SlideShare</a></li>
+</ul>
+</li>
+<li><a href="http://www.bsidesau.com.au/csides.html">CSides Canberra</a> (November 17th, 2017; Canberra, Australia)
+<ul>
+<li>&quot;Gophers, whales and.. clouds? Oh my!&quot; <code>v0.2-prewlg-alpha</code></li>
+</ul>
+</li>
+<li><a href="https://www.bsides.nz/">BSides Wellington 2017</a> (November 23-24th, 2017; Wellington, New Zealand)
+<ul>
+<li><a href="https://bsideswellington2017.sched.com/speaker/glenndevaliasgrant">Speaker: Glenn 'devalias' Grant</a></li>
+<li><a href="https://bsideswellington2017.sched.com/event/CTpF/gophers-whales-and-clouds-oh-my">&quot;Gophers, whales and.. clouds? Oh my!&quot;</a></li>
+<li>Slides, etc: <a href="https://github.com/0xdevalias/gopherblazer">GitHub</a>, <a href="https://github.com/0xdevalias/gopherblazer/blob/master/slides/20171123-Gopherblazer-BSidesWellington.pdf">PDF</a>, <a href="https://speakerdeck.com/0xdevalias/gophers-whales-and-dot-clouds-oh-my">SpeakerDeck</a>, <a href="https://www.slideshare.net/GlenndevaliasGrant/gophers-whales-and-clouds-oh-my">SlideShare</a></li>
+</ul>
+</li>
+</ul>
+<h2>SecTalks Canberra</h2>
+<p><a href="http://www.sectalks.org/canberra/">SecTalks Canberra</a> is a monthly security meetup with more of a focus on participation and learning from others, rather than the traditional 'super awesome technical talk but how do I do it' style of things.</p>
+<p>I had the opportunity to run a little workshop on how to use <a href="https://www.docker.com/">Docker</a> and <a href="https://www.openfaas.com/">OpenFaaS</a> to improve offensive capabilities.</p>
+<blockquote>
+<p>Hack FaaSter: Leveraging Docker and OpenFaaS for fun and offensive (security) profit.</p>
+</blockquote>
+<p>Slides, workshop files and more details are available from the 'TL;DR' section above.</p>
+<p>Description:</p>
+<blockquote>
+<p>Join us this month for Hack FaaSter - leveraging <a href="https://www.docker.com/">Docker</a> and <a href="https://www.openfaas.com/">OpenFaaS</a> to improve offensive tooling, with the glorious <a href="https://twitter.com/_devalias">@_devalias</a> (<a href="https://github.com/0xdevalias">Github</a> // <a href="https://www.linkedin.com/in/glenn-devalias-grant/">LinkedIn</a>)</p>
+</blockquote>
+<h2>CSides Canberra</h2>
+<p><a href="http://www.bsidesau.com.au/csides.html">CSides Canberra</a> is a monthly security meetup run by the organisers of <a href="http://www.bsidesau.com.au/">BSides Canberra</a>.</p>
+<p>I had the opportunity to present a <code>v0.2-prewlg-alpha</code> version of my BSides Wellington talk, and get some practice and feedback in before the big thing.</p>
+<blockquote>
+<p>Gophers, whales and.. clouds? Oh my! (v0.2-prewlg-alpha)</p>
+</blockquote>
+<p>Slides and more details are available from the 'TL;DR' section above, as well as the BSides Wellington section below.</p>
+<h2>BSides Wellington</h2>
+<p><a href="https://www.bsides.nz/">BSides Wellington</a> (<a href="https://twitter.com/bsideswlg">Twitter</a>) is an annual security conference (based in Wellington, New Zealand) that ran it's first event in 2017. Popping up to fill the void left by <a href="https://www.kiwicon.org/">Kiwicon</a> (<a href="https://twitter.com/kiwicon">Twitter</a>), they had a strong first event, and hopefully will continue that trend into the future!</p>
+<p>I had the opportunity to present my talk on leveraging DevOps trends and tools (<a href="https://www.docker.com/">Docker</a>, <a href="https://en.wikipedia.org/wiki/Serverless_computing">Serverless</a>, <a href="https://en.wikipedia.org/wiki/Function_as_a_service">FaaS</a>, <a href="https://golang.org/">Golang</a>, etc), to increase my efficiency and effectiveness on the offensive side.</p>
+<blockquote>
+<p>Gophers, whales and.. clouds? Oh my!</p>
+</blockquote>
+<p>Slides and more details are available from the 'TL;DR' section above.</p>
+<p>You can read the <a href="https://bsideswellington2017.sched.com/event/CTpF/gophers-whales-and-clouds-oh-my">official brief of my talk</a>:</p>
+<blockquote>
+<p>Go, Docker and Microservices; some great technologies and buzzwords that we hear so much about on the development side of the fence, but how can we leverage these technologies to improve our offensive capacity? Armed with a passion for new tech, a vague theory, and an ‘nsa-o-matic’ approved project name; gopherblazer was born.</p>
+<p>Whether through dockerising and improving existing tooling, leveraging Function-as-a-Service (FaaS) offerings, or just distributing offensive capabilities; I’ll share what I learned on my journey into improving my offensive capacity and productivity (while having an excuse to play with shiny technologies along the way!).</p>
+</blockquote>
+<p>And I can even now say that I have a <a href="https://bsideswellington2017.sched.com/speaker/glenndevaliasgrant">professional speaker bio</a>:</p>
+<blockquote>
+<p>Glenn ‘devalias’ Grant is a full-stack, polyglot developer with an acute interest in the offensive side of security. Whether building something new or finding the cracks to break in, there is always a solution to be found; even if it requires learning something entirely new. If you can improve/automate something, do it, and if you’ve put the effort in to do so, open-source it and share it with everyone else.</p>
+<p>When not hacking and coding, Glenn can be found snowboarding the peaks of Japan, falling out of the sky, floating around underwater, or just finding the most efficient path between A and B (even if that’s over walls). Life is short. Do the things you love, embrace the unknown, live your dreams, and share your passion.</p>
+</blockquote>
+<p>Overall, the conference was amazing. As expected, there were a number of deeply interesting technical talks, but as a bit of a twist from traditional security conferences, there were quite a few talks that focussed on mental health, impostor syndrome, and other 'culture based' topics that so often go unmentioned in the infosec industry. Very much appreciated and would love to see this sort of thing happen at more conferences in future.</p>
+<p>If you missed the talks, or want to go back and re-watch them, videos should be posted online at some point (once the organisers recover from running the conference). A lot of the presenters also seem to be pushing their slides/content out online. Here's a selection of the few I've stumbled across so far (in no particular order):</p>
+<ul>
+<li><a href="https://github.com/0xdevalias/gopherblazer#talks">Glenn 'devalias' Grant, &quot;Gophers, whales and.. clouds? Oh my!&quot;</a> (<a href="https://twitter.com/_devalias/status/937104594974289920">Twitter</a>)</li>
+<li><a href="https://speakerdeck.com/barnbarn/layer-2-person-spoofing-and-impostor-syndrome">Ben Hughes, &quot;Layer 2 person spoofing and impostor syndrome&quot;</a> (<a href="https://twitter.com/benjammingh/status/933484211977166848">Twitter</a>)</li>
+<li><a href="https://speakerdeck.com/heisenburger/design-for-security-bsides-wellington-2017">Serena Chen, &quot;Design for Security — BSides Wellington 2017&quot;</a> (<a href="https://twitter.com/Sereeena/status/935208350207356930">Twitter</a>)</li>
+<li><a href="https://mango.pdf.zone/operation-luigi-how-i-hacked-my-friend-without-her-noticing">&quot;Alex&quot;, &quot;Operation Luigi: How I hacked my friend without her noticing&quot;</a> (<a href="https://twitter.com/mangopdf/status/934897549554491394">Twitter</a>)</li>
+<li><a href="https://github.com/jenofdoom/give-your-users-better-feedback-about-rubbish-passwords">@jenofdoom, &quot;Give your users better feedback about rubbish passwords with zxcvbn&quot;</a></li>
+<li><a href="https://zxsecurity.co.nz/presentations/201711_BSidesWLG-ZXSecurity_MeatPuppets.pdf">Simon 'bogan' Howard, &quot;Influencing Meat<br />
+Puppets Through<br />
+Memes&quot;</a> (<a href="https://twitter.com/bogan/status/934896629135556608">Twitter</a>)</li>
+</ul>
+<p>It looks like there are also some good summaries, notes and writeups of the conference popping up around the net. Some places to start looking:</p>
+<ul>
+<li><a href="https://rodger.donaldson.gen.nz/archives/2017/11/b-sides-wellington-day-1/">B-Sides Wellington - Day 1 (Notes)</a> (<a href="https://twitter.com/hroethgar/status/933620066129625090">Twitter</a>)
+<ul>
+<li>My Talk: <a href="https://rodger.donaldson.gen.nz/archives/2017/11/b-sides-wellington-day-1/#gophers-whales-and-clouds-oh-my">Gophers, whales, and clouds? Oh my.</a></li>
+</ul>
+</li>
+<li><a href="https://rodger.donaldson.gen.nz/archives/2017/11/b-sides-wellington-day-2/">B-Sides Wellington - Day 2 (Notes)</a></li>
+<li><a href="https://www.asinine.nz/2017-11-25/bsides-badge-part1/">BSides Wellington Badge Challenge</a> (<a href="https://twitter.com/asinine_net_nz/status/934592555253039104">Twitter</a>)</li>
+</ul>
+<p>And of course, Twitter is always full of content when it comes to the security industry, with 3 hashtags mainly being used throughout the conference:</p>
+<ul>
+<li><a href="https://twitter.com/search?q=%23bsideswlg&amp;src=typd">#bsideswlg</a></li>
+<li><a href="https://twitter.com/search?q=%23bsideswlg2017&amp;src=typd">#bsideswlg2017</a></li>
+<li><a href="https://twitter.com/search?q=%23bsidesnz&amp;src=typd">#bsidesnz</a></li>
+</ul>
+<h2>Conclusion</h2>
+<p>While at times I was definitely feeling the stress and pressure of having a few looming deadlines, and at times possibly not allocating enough time/energy/focus to working on them as I would have liked, it has been a great experience, and left a smouldering flame of passion to speak at more events in the future.</p>
+<p>Know of any other writeups, slides or tools; or got a cool story to share from BSides Wellington? Would love to hear from you in the comments!</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>Squiz Matrix: Multiple vulnerabilities</title>
+	  <link>/devalias/2017/09/07/squiz-matrix-multiple-vulnerabilities/</link>
+	  <author>devalias</author>
+	  <pubDate>2017-09-07T00:00:00+10:00</pubDate>
+	  <guid>/devalias/2017/09/07/squiz-matrix-multiple-vulnerabilities/</guid>
+	  <description><![CDATA[
+	     <p>Earlier this year I had an opportunity to spend some time looking at <a href="https://www.squiz.net/technology/cms">Squiz Matrix</a>, a Content Management System (CMS) used across a number of sectors including higher eduction, media and publishing, goverment, finance, health, and utilities. With a huge number of features, a massive PHP codebase, and a numbr of high profile sectors as clients, I set out to see if I could find any interesting little bugs hidden away.</p>
+<p>While I won't get into the nitty gritty of most of the assessment process, I did find some things, and 3 CVE's were assigned (detailed below). One was interesting enough that I will probably write up the process in more detail at some point.</p>
+<p>Given the rich functionality and plugins in the Matrix product, it could be interesting to dedicate more research time to explore the areas I didn't get to cover this time around. Who knows, perhaps Squiz would even be open to setting up a Bug Bounty program through someone like <a href="https://www.bugcrowd.com/">Bugcrowd</a> in the future too. That would be cool!</p>
+<p>If you want to try it out, or play around yourself, there is a <a href="https://matrix.squiz.net/releases/vm">downloadable demo VM</a> available on the Squiz website.</p>
+<h2>The CVE's</h2>
+<ul>
+<li><strong><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-14196">CVE-2017-14196</a></strong>: An information disclosure caused by a Path Traversal issue in the 'File Bridge' plugin allowed the existence of files outside of the bridged path to be confirmed.</li>
+<li><strong><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-14197">CVE-2017-14197</a></strong>: Multiple reflected Cross-Site Scripting (XSS) issues in Matrix 'WYSIWYG' plugins.</li>
+<li><strong><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-14198">CVE-2017-14198</a></strong>: Authenticated users with permissions to edit design assets can cause Remote Code Execution (RCE) via a maliciously crafted <code>time_format</code> tag.</li>
+</ul>
+<h2>Remediation</h2>
+<p>These issues were fixed in version <code>5.4.1.3</code>. Update to this version or newer to be protected. See the CVE advisory details for more information.</p>
+<h2>CVE-2017-14198: A Walkthrough</h2>
+<p>TODO: Write up how this was identified, and the core issue that lead to it.</p>
+<h2>Acknowledgements</h2>
+<p>These issues were identified by <a href="http://devalias.net">myself</a> and the team at <a href="https://dtss.com.au">TSS</a>:</p>
+<ul>
+<li>Glenn 'devalias' Grant (<a href="http://devalias.net">http://devalias.net</a>) of TSS (<a href="https://dtss.com.au">https://dtss.com.au</a>)</li>
+</ul>
+<p>Special thanks to Micky at Squiz for being an amazing resource throughout the disclosure process, and keeping us informed as patching and rollout progressed.</p>
+<h2>Conclusion</h2>
+<p>It seems the core issues here were a few bugs popping up in legacy code, and passing user-controlled values into sensitive areas without proper checks/sanitisation. Easy mistakes to make when managing such a large codebase that has evolved over the years.</p>
+<p>Have you had a similar experience? Manage a large codebase and legacy code? Got good tips for how best to identify and avoid these sorts of issues? Would love to hear your ideas in the comments!</p>
+
+	  ]]></description>
+	</item>
+
+
+</channel>
+</rss>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+   
+      <title>devalias.net</title>
+   
+   <link>https://www.devalias.net</link>
+   <description>Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.</description>
+   <language>en_GB</language>
+   <managingEditor> </managingEditor>
+   <atom:link href="rss" rel="self" type="application/rss+xml" />
+   
+	<item>
+	  <title>vFeed - Wrapper/Helper Scripts For Speed and Efficiency</title>
+	  <link>/devalias/2013/11/21/vfeed-wrapper-helper-scripts-for-speed-and-efficiency/</link>
+	  <author>devalias</author>
+	  <pubDate>2013-11-21T09:00:54+11:00</pubDate>
+	  <guid>/devalias/2013/11/21/vfeed-wrapper-helper-scripts-for-speed-and-efficiency/</guid>
+	  <description><![CDATA[
+	     <p>Just wanted to share some quick little bash scripts I threw together to make vFeed a little quicker/more efficient for my use.</p>
+<p>If you don't know it already, <a href="https://github.com/toolswatch/vfeed">vFeed</a> is an Open Source Cross Linked and Aggregated Local Vulnerability Database put together by the fine folks over at <a href="http://www.toolswatch.org/vfeed/">ToolsWatch</a>. You can query it for a whole bunch of information and details that may aid you in your pentests, all from the convenience of a local database.</p>
+<p>To make life easier, I throw these scripts in my vFeed directory and symlink them from bin.</p>
+<pre><code>cd /path/to/bin
+ln -s /path/to/vFeed/bin/vfeed.sh vfeed
+ln -s /path/to/vFeed/bin/vfeedcli.sh vfeedcli
+ln -s /path/to/vFeed/bin/vfeed_update.sh vfeed_update
+</code></pre>
+<p>Enjoy!</p>
+<p><a href="https://gist.github.com/0xdevalias/7554985">https://gist.github.com/0xdevalias/7554985</a></p>
+<p><noscript><pre># vfeed.sh - README</p>
+<ul>
+<li>Version: 0.2 (20131126)</li>
+<li>Created By: Glenn 'devalias' Grant (<a href="http://devalias.net">http://devalias.net</a>)</li>
+<li>License: The MIT License (MIT) - Copyright (c) 2013 Glenn 'devalias' Grant (see <a href="http://choosealicense.com/licenses/mit/">http://choosealicense.com/licenses/mit/</a> for full license text)</li>
+<li>vFeed URL: <a href="https://github.com/toolswatch/vfeed">https://github.com/toolswatch/vfeed</a></li>
+<li>vFeed.sh announcement/info: <a href="http://blog.devalias.net/post/67532513020/vfeed-wrapper-helper-scripts-for-speed-and-efficiency">http://blog.devalias.net/post/67532513020/vfeed-wrapper-helper-scripts-for-speed-and-efficiency</a></li>
+</ul>
+<h2>Version 0.2 (20131126)</h2>
+<ul>
+<li>Updated to support vFeed Beta v0.4.6
+<ul>
+<li>Added Defense::get_suricata command support</li>
+<li>Added Patches::get_vmware command support</li>
+</ul>
+</li>
+<li>Update vfeed_update.sh to pull the latest version from git</li>
+</ul>
+<h2>Version 0.1 (20131120)</h2>
+<ul>
+<li>Initial version. Supports vFeed Beta v0.4.5<br />
+</pre></noscript><script src="https://gist.github.com/7554985.js"> </script></li>
+</ul>
+
+	  ]]></description>
+	</item>
+
+
+</channel>
+</rss>

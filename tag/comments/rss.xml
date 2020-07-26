@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+   
+      <title>devalias.net</title>
+   
+   <link>https://www.devalias.net</link>
+   <description>Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.</description>
+   <language>en_GB</language>
+   <managingEditor> </managingEditor>
+   <atom:link href="rss" rel="self" type="application/rss+xml" />
+   
+	<item>
+	  <title>Find your voice and disqus!</title>
+	  <link>/devalias/2013/11/27/find-your-voice-and-disqus/</link>
+	  <author>devalias</author>
+	  <pubDate>2013-11-27T13:04:58+11:00</pubDate>
+	  <guid>/devalias/2013/11/27/find-your-voice-and-disqus/</guid>
+	  <description><![CDATA[
+	     <p>Just a little note to say that i've now enabled the Disqus commenting (wasn't aware that it wasn't working before), so you now have a voice to interact back with me through the site!</p>
+
+	  ]]></description>
+	</item>
+
+
+</channel>
+</rss>

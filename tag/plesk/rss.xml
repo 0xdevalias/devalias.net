@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+   
+      <title>devalias.net</title>
+   
+   <link>https://www.devalias.net</link>
+   <description>Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.</description>
+   <language>en_GB</language>
+   <managingEditor> </managingEditor>
+   <atom:link href="rss" rel="self" type="application/rss+xml" />
+   
+	<item>
+	  <title>Plesk - Adding wget/tar/gzip/chmod/php/curl/clear to a chrooted SSH</title>
+	  <link>/devalias/2013/09/19/plesk-adding-wget-tar-gzip-chmod-php-curl-clear-to-a-chr/</link>
+	  <author>devalias</author>
+	  <pubDate>2013-09-19T08:00:00+10:00</pubDate>
+	  <guid>/devalias/2013/09/19/plesk-adding-wget-tar-gzip-chmod-php-curl-clear-to-a-chr/</guid>
+	  <description><![CDATA[
+	     <p>(<strong>tl;dr</strong> How to setup wget, tar, gzip, chmod, php and curl in a chrooted environment for Plesk.)</p>
+<p>So those of you that have been around for a while (or read back through the archive) will know that a while ago I posted <a href="/post/15535429513/plesk-adding-programs-to-a-chrooted-ssh">Plesk - Adding programs to a chrooted SSH</a>, giving a few hints and tips about configuring a chrooted environment in Plesk.</p>
+<p>Today I bring you a few more little tidbits to help you out with adding <em>wget, tar, gzip and chmod</em> to your Plesk chroot'd environment. I followed these steps recently in helping a client get their new site up and running.</p>
+<p><strong>Edit:</strong> So it turns out Parallels has an <a href="http://kb.odin.com/en/115842">updated script called chroot_update.sh</a> which makes this even easier again (yay for easy!) So I will show you how do use that for PHP and curl (at the bottom).</p>
+<h2>Using chroot_update.sh</h2>
+<p>Adding programs to chroot is made MUCH easier now with the <a href="http://kb.odin.com/en/115842">chroot_update.sh</a> script from Parallels.</p>
+<p>To setup/update the initial chroot environment</p>
+<pre><code>./chroot_update.sh --update
+</code></pre>
+<p>To add a new program (and it's dependent shared libraries)</p>
+<pre><code>./chroot_update.sh --add /path/to/programname
+</code></pre>
+<p>or</p>
+<pre><code>./chroot_update.sh --add `which programname`
+</code></pre>
+<p>Then to update each sites individual chroot folder</p>
+<pre><code>./chroot_update.sh --apply all
+</code></pre>
+<p>If you find there are some missing shared objects, figure out which ones are missing using ldd and copy them in to the chroot folder</p>
+<pre><code>ldd /path/to/programname
+cp /path/to/missingobject chroot/path/to/missingobject
+./chroot_update.sh --apply all
+</code></pre>
+<h2>Wget</h2>
+<p><a href="https://www.gnu.org/software/wget/">Wget</a> is an awesome little program for downloading files off the net. For anyone who has ever setup an install of some 3rd party program and had to individually upload each and every file, this is a lifesaver!</p>
+<p>To find out where the wget executable is</p>
+<pre><code>which wget
+</code></pre>
+<p>To check if it has any dependancies</p>
+<pre><code>ldd `which wget`
+</code></pre>
+<p>This will probably give you a whole list of things, but it seems the only one we really need to worry about (at least that I did) was <em>libssl.so.6</em>. So we copy both it and the executable to the chroot template folder</p>
+<pre><code>cp `which wget` /var/www/vhosts/chroot/bin
+cp /lib64/libssl.so.6 /var/www/vhosts/chroot/lib64
+</code></pre>
+<p>And it's done! To update any sites already generated, checkout the <a href="/post/15535429513/plesk-adding-programs-to-a-chrooted-ssh">original article</a></p>
+<h2>Tar</h2>
+<p><a href="https://www.gnu.org/software/tar/">Tar</a> is the defacto standard for archiving/unarchiving files on *nix, so.. it's pretty useful.</p>
+<p>To find out where the tar executable is</p>
+<pre><code>which tar
+</code></pre>
+<p>To check if it has any dependancies</p>
+<pre><code>ldd `which tar`
+</code></pre>
+<p>In my case, nothing needed here, so let's just copy the executable</p>
+<pre><code>cp `which tar` /var/www/vhosts/chroot/bin
+</code></pre>
+<p>Done! Same as before, to update any sites already generated, checkout the <a href="/post/15535429513/plesk-adding-programs-to-a-chrooted-ssh">original article</a></p>
+<h2>Gzip</h2>
+<p><a href="http://www.gzip.org/">Gzip</a> let's you open gzip compressed files (funnily enough) It's also what <code>tar</code> calls when you tell it to extract a <code>.tar.gz</code> file.</p>
+<p>To find out where the gzip executable is</p>
+<pre><code>which gzip
+</code></pre>
+<p>To check if it has any dependancies</p>
+<pre><code>ldd `which gzip`
+</code></pre>
+<p>In my case, nothing needed here, so let's just copy the executable</p>
+<pre><code>cp `which gzip` /var/www/vhosts/chroot/bin
+</code></pre>
+<p>Done! Same as before, to update any sites already generated, checkout the <a href="/post/15535429513/plesk-adding-programs-to-a-chrooted-ssh">original article</a></p>
+<h2>Chmod</h2>
+<p><a href="https://en.wikipedia.org/wiki/Chmod">Chmod</a> let's you change permissions on files, kinda useful to be able to do.</p>
+<p>To find out where the chmod executable is</p>
+<pre><code>which chmod
+</code></pre>
+<p>To check if it has any dependancies</p>
+<pre><code>ldd `which chmod`
+</code></pre>
+<p>In my case, nothing needed here, so let's just copy the executable</p>
+<pre><code>cp `which chmod` /var/www/vhosts/chroot/bin
+</code></pre>
+<p>Done! Same as before, to update any sites already generated, checkout the <a href="/post/15535429513/plesk-adding-programs-to-a-chrooted-ssh">original article</a></p>
+<h2>PHP</h2>
+<p>Sticking to the <code>chroot_update.sh</code> method, installing php is easier than it would otherwise be, but there are still quite a few manual steps due to the dependencies of some of the shared libraries.</p>
+<pre><code>./chroot_update.sh --add `which php`
+cp -R /usr/lib64/php chroot/usr/lib64
+./chroot_update.sh --add /usr/lib64/php/modules/gd.so
+./chroot_update.sh --add /usr/lib64/php/modules/imap.so
+./chroot_update.sh --add /usr/lib64/php/modules/mysql.so
+./chroot_update.sh --add /usr/lib64/php/modules/pdo_mysql.so
+./chroot_update.sh --add /usr/lib64/php/modules/pdo_sqlite.so
+./chroot_update.sh --add /usr/lib64/php/modules/xsl.so
+cp -R /usr/lib64/mysql/ chroot/usr/lib64
+cp -R /etc/php.d chroot/etc
+cp /etc/localtime chroot/etc/
+cp -R /usr/share/zoneinfo chroot/usr/share/
+./chroot_update.sh --apply all
+</code></pre>
+<p>Your mileage my vary depending on what modules you have installed, but the method is the same as above for other files. You may need to play around with some php.ini type settings to get things working, but it should be relatively straightforward.</p>
+<h2>Curl</h2>
+<p>Sticking to the <code>chroot_update.sh</code> method, installing curl is really simple</p>
+<pre><code>./chroot_update.sh --add `which curl`
+./chroot_update.sh --apply all
+</code></pre>
+<h2>Clear</h2>
+<p>Sticking to the <code>chroot_update.sh</code> method, installing clear is really simple</p>
+<pre><code>./chroot_update.sh --add `which clear`
+./chroot_update.sh --apply all
+</code></pre>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>Yum'my turtles breaking Plesk</title>
+	  <link>/devalias/2012/03/29/yummy-turtles-breaking-plesk/</link>
+	  <author>devalias</author>
+	  <pubDate>2012-03-29T04:30:00+11:00</pubDate>
+	  <guid>/devalias/2012/03/29/yummy-turtles-breaking-plesk/</guid>
+	  <description><![CDATA[
+	     <p>After some recent downtime due to an overzealous upgrade cycle (aka &quot;Oh I won't need to backup first..&quot;) I feel it warranted to put a quick post about how I went about fixing things.</p>
+<h2>How the problem started</h2>
+<p>It started off with me deciding to add a 3rd party repos by Atomic Rocket Turtle to yum (without really doing much research into things) I proceeded to upgrade my packages, and go on with life as normal (or so I thought)</p>
+<p>A few days later I decided I should probably also upgrade Plesk to the latest version as well. Most of the upgrade process went through, but then ended up crashing out near the end.</p>
+<p>Adding to the reasons why I love Plesk, it created some log files for me as in the process of dying:</p>
+<ul>
+<li>/tmp/plesk_10.4.4_installation.log</li>
+<li>/tmp/plesk_10.4.4_installation_problems.log</li>
+</ul>
+<p>Taking a look at the <code>intallation_problems.log</code>, I got my first glimpse into what went wrong:</p>
+<pre><code>START Bootstrapper 10.13.4 post-install for BASE AT Sun Mar 25 12:05:38 EST 2012
+*****  problem report *****
+ERROR while trying to establish test connection to APS database via ODBC
+Check the error reason(see log file: /tmp/plesk_10.4.4_installation.log), fix and try again
+STOP Bootstrapper 10.13.4 post-install for BASE AT Sun Mar 25 12:05:46 EST 2012: PROBLEMS FOUND
+START Bootstrapper 10.13.4 repair AT Sun Mar 25 12:14:15 EST 2012
+*****  problem report *****
+ERROR while trying to establish test connection to APS database via ODBC
+Check the error reason(see log file: /tmp/plesk_10.4.4_installation.log), fix and try again
+STOP Bootstrapper 10.13.4 repair AT Sun Mar 25 12:14:29 EST 2012: PROBLEMS FOUND
+</code></pre>
+<p>A little cryptic, but after googling around for a while I discovered that it was likely due to an incompatible version of MySQL.</p>
+<h2>So to fix it..</h2>
+<p>We will just back out the upgrades we did the other day, all good! Well, it took some time, a hell of a lot of reading/research and some blind faith, but I did get there in the end.</p>
+<h2>Prerequisite?</h2>
+<p>I'm not actually sure if it's used or not in this process, but I should note that I had yum-allowdowngrade installed prior to this process</p>
+<p><code>yum install yum-allowdowngrade</code></p>
+<h1>tl;dr</h1>
+<ol>
+<li>Install/configure yum-priorities</li>
+<li>Set up a few more yum repositories (EPEL, Remi)</li>
+<li>Remove and reinstall the packages (yum shell)</li>
+<li>Finish the Plesk upgrade (bootstrap.sh)</li>
+</ol>
+<h2>1. Install/configure yum-priorities (<a href="https://wiki.centos.org/PackageManagement/Yum/Priorities">Webpage</a>, <a href="http://dev.antoinesolutions.com/yum-priorities">Reference</a>)</h2>
+<p>The yum-priorities plugin enforces ordered protection of repositories (aka help prevent screwups) Here's a quick rundown (more info at the reference/webpage links)<br />
+It's pretty easy to install</p>
+<p><code>yum install yum-priorities</code></p>
+<p>Ensure the following lines exist in the yum-priorities configuration file (<code>/etc/yum/pluginconf.d/priorities.conf</code>)</p>
+<pre><code>[main]
+enabled=1
+</code></pre>
+<p>Open the CentOS base repository configuration file (<code>/etc/yum.repos.d/CentOS-Base.repo</code>)</p>
+<p>Add the following text to the end of the Base, Updates, Addons, and Extras repository entries</p>
+<pre><code>priority=1
+</code></pre>
+<p>Add the following text to the end of the CentOSPlus repository entry</p>
+<pre><code>priority=2
+</code></pre>
+<h2>2. Set up additional yum repositories (<a href="https://fedoraproject.org/wiki/EPEL/FAQ#What_is_EPEL.3F">EPEL Website</a>, <a href="http://mirror.sfo12.us.leaseweb.net/epel/">EPEL Download</a>, <a href="http://dev.antoinesolutions.com/epel-repository">EPEL Reference</a>, <a href="http://blog.famillecollet.com/pages/Config-en">Remi Website</a>, <a href="http://dev.antoinesolutions.com/remi-repository">Remi Reference</a>)</h2>
+<p>Next I needed to add a few extra repositories (EPEL and Remi) to yum so it could find the packages it needed (you may need to run this as root)</p>
+<pre><code>rpm -Uvh http://mirror.iprimus.com.au/epel//5/i386/epel-release-5-4.noarch.rpm
+rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-5.rpm
+</code></pre>
+<h2>3. Remove/reinstall the updated packages</h2>
+<p>This perplexed me a little bit at first, as when I tried to remove a package it wanted to uninstall everything else. Then I realised yum has a shell/batch mode.</p>
+<p><code>yum shell</code></p>
+<p>Once in the yum shell, I disabled the Atomic repository</p>
+<p><code>repo disable atomic</code></p>
+<p>And then queued up the packages to be changed. With the Atomic repos disabled the install pulled the packages from the correct (aka base) repositories.</p>
+<pre><code>erase atomic-release.noarch libedit.x86_64 libsepol.i386 libsepol.x86_64 libsepol-devel.x86_64
+install atomic-release.noarch libedit.x86_64 libsepol.i386 libsepol.x86_64 libsepol-devel.x86_64
+erase php-cli.x86_64 php-common.x86_64 php-devel.x86_64 php-gd.x86_64 php-imap.x86_64 php-ldap.x86_64 php-mbstring.x86_64 php-mcrypt.x86_64 php-mysql.x86_64 php-odbc.x86_64 php-pdo.x86_64 php-snmp.x86_64 php-xml.x86_64 php-xmlrpc.x86_64
+install php-cli.x86_64 php-common.x86_64 php-devel.x86_64 php-gd.x86_64 php-imap.x86_64 php-ldap.x86_64 php-mbstring.x86_64 php-mcrypt.x86_64 php-mysql.x86_64 php-odbc.x86_64 php-pdo.x86_64 php-snmp.x86_64 php-xml.x86_64 php-xmlrpc.x86_64
+erase mysql.x86_64 mysql-bench.x86_64 mysql-devel.x86_64 mysql-libs.x86_64 mysql-server.x86_64 mysqlclient15.x86_64
+install mysql.x86_64 mysql-bench.x86_64 mysql-devel.x86_64 mysql-libs.x86_64 mysql-server.x86_64 mysqlclient15.x86_64
+</code></pre>
+<p>There were also a few packages that I didn't end up reverting, but I will list them here in case I decide I need to later on.</p>
+<pre><code>erase perl-Archive-Tar.noarch perl-Email-Date-Format.noarch perl-Error.noarch perl-IO-Socket-INET6.noarch perl-MIME-Lite.noarch perl-MIME-Types.noarch
+install perl-Archive-Tar.noarch perl-Email-Date-Format.noarch perl-Error.noarch perl-IO-Socket-INET6.noarch perl-MIME-Lite.noarch perl-MIME-Types.noarch
+erase psa-atmail.noarch psa-proftpd.x86_64 spamassassin.x86_64 sqlite.i386 sqlite.x86_64 sqlite-devel.x86_64 t1lib.x86_64
+install psa-atmail.noarch psa-proftpd.x86_64 spamassassin.x86_64 sqlite.i386 sqlite.x86_64 sqlite-devel.x86_64 t1lib.x86_64
+</code></pre>
+<h2>4. Finish the Plesk upgrade</h2>
+<p>At this point I figured it was safe to try and finish the Plesk upgrade. Thanks to <a href="https://mediatemple.net/community/products/dv/204645040/how-do-i-upgrade-plesk">some info</a> I found, I knew that I was going to need to run the bootstrapper.sh script. </p>
+<p><code>cd /usr/local/psa/bootstrapper</code></p>
+<p>Depending on what version you were installing, this next location may be different, but for me it was</p>
+<p><code>cd pp10.13.4-bootstrapper</code></p>
+<p>Then run the shell script, and hope it works out!</p>
+<p><code>bootstrapper.sh</code></p>
+<h2>Done!</h2>
+<p>At this point we can just forget about that little issue, and pretend nothing ever happened..</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>Nameserver? Whichserver?</title>
+	  <link>/devalias/2012/02/28/nameserver-whichserver/</link>
+	  <author>devalias</author>
+	  <pubDate>2012-02-28T23:46:00+11:00</pubDate>
+	  <guid>/devalias/2012/02/28/nameserver-whichserver/</guid>
+	  <description><![CDATA[
+	     <p><strong>Note:</strong> This had been sitting in my queue half written for a month or two now.. Woops. - alias</p>
+<p>I've been having some issues getting subdomains working correctly. Put a little bit of time/effort into it here and there, but never really sat down to figure it out until tonight. Figured it out, and then promptly smacked my head on the desk at how simple the solution was.</p>
+<p>I've changed the actual domains, but the process is the same.</p>
+<h2>The Problem</h2>
+<p>I recently purchased a new domain (let's call it newsite.com), which I configured to use the nameservers at ns1.hostingprovider.com and ns2.hostingprovider.com. So far so good, or so I thought. I then proceeded to configure newsite.com in Plesk on the VPS (virtual private server) that I rent from hostingprovider.com, which is setup on myvps.net.</p>
+<p>So far so good. I then created a subdomain in Plesk (foo.newsite.com), uploaded some test content and tried to access it. No good. Maybe it just needed to propagate? I put it aside and promptly forget about the new site for a week. Coming back to it I realised that it still wasn't working (even though the DNS had well and truly propagated by now)</p>
+<h2>The Solution</h2>
+<p>..was so simple I can't believe it took me as long as it did to figure it out. Let's go back to what i said a little earlier..</p>
+<blockquote>
+<p>which I configured to use the nameservers at ns1.hostingprovider.com and ns2.hostingprovider.com</p>
+</blockquote>
+<p>Which isn't the same as the nameserver running on my VPS (myvps.net)</p>
+<p>To cut what was a long story short, I turned off the nameserver on the VPS (wasn't using it, so why waste the resources) and manually created the subdomain in my hosting providers configuration. Save here. Wait there. Load the website. Oh look, it works now. Funny how updating the correct config makes things work.</p>
+<p><em>headdesk</em></p>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>Plesk - Adding programs to a chrooted SSH</title>
+	  <link>/devalias/2012/01/10/plesk-adding-programs-to-a-chrooted-ssh/</link>
+	  <author>devalias</author>
+	  <pubDate>2012-01-10T05:29:00+11:00</pubDate>
+	  <guid>/devalias/2012/01/10/plesk-adding-programs-to-a-chrooted-ssh/</guid>
+	  <description><![CDATA[
+	     <p>Just a few notes today about making programs (in this case git) available to a chrooted SSH account in Plesk. I'm assuming the account is already setup for ssh, etc so I will just be covering where to copy the files to.</p>
+<p><strong>Note:</strong> If you are here about getting an <code>execv(&quot;/bin/bash&quot;)</code> failed error, check Appendix B</p>
+<h2>Location</h2>
+<ul>
+<li><code>/usr/local/bin</code> - The git bin files we will be copying.</li>
+<li><code>/usr/local/share/git-core</code> - The shared git-core files.</li>
+<li><code>/var/www/vhosts/chroot</code> - The base directory for chroot accessible programs.</li>
+</ul>
+<h2>Copying Git</h2>
+<p>Firstly you will want to locate the git files. The easiest way to do this is by typing:</p>
+<pre><code>which git
+</code></pre>
+<p>This should tell you the path to git (in my case /usr/local/bin) Next we want to copy the files over to the equivalent path in the chroot directory (/path/to/chroot/usr/local/bin)</p>
+<pre><code>cp -R /usr/local/bin/git* /var/www/vhosts/chroot/usr/local/bin
+</code></pre>
+<p>In the case of git, we also want to copy over some other files</p>
+<pre><code>cp -R /usr/local/share/git-core /var/www/vhosts/chroot/usr/local/share/git-core
+cp -R /usr/local/libexec /var/www/vhosts/chroot/usr/local/libexec/git-core
+</code></pre>
+<p><strong>Note:</strong> The libexec files are quite large (100's of mb) so you may want to consider doing this in a better way.</p>
+<h2>Updating chroot'd directories</h2>
+<p>The final (rather simple) step involves updating any chrooted directories that have already been created. This can be done by running the <code>recreate_chroot_env.sh</code> script (downloadable from <a href="http://kb.parallels.com/818">http://kb.parallels.com/818</a>)</p>
+<p>This can also be done without the script:</p>
+<pre><code>/usr/local/psa/admin/sbin/chrootmng --remove --source=/var/www/vhosts/chroot --target=/var/www/vhosts/&lt;domain name&gt;
+/usr/local/psa/admin/sbin/chrootmng --create --source=/var/www/vhosts/chroot --target=/var/www/vhosts/&lt;domain name&gt;
+</code></pre>
+<p><strong>Thats it!!</strong></p>
+<p>Now when you login to your chrooted account you should be able to use git. I might add the required files for some more programs as I find the need to add them.</p>
+<h2>Appendix A: Files required for ftp</h2>
+<ul>
+<li><code>/usr/bin/ftp</code> -&gt; <code>chroot/bin</code></li>
+<li><code>/usr/lib64/libreadline.so.5</code> -&gt; <code>chroot/lib/libreadline.so.5</code></li>
+<li><code>/usr/lib64/libncurses.so.5</code> -&gt; <code>chroot/lib/libncurses.so.5</code></li>
+<li><code>/etc/services</code> -&gt; <code>chroot/etc/services</code></li>
+</ul>
+<h2>Appendix B: execv(&quot;/bin/bash&quot;) failed</h2>
+<p>One cause of this occuring is due to the bin files for a chrooted directory not exisiting/being properly setup. This can be fixed by following the instructions in Updating chroot'd directories above.. or if you're too lazy to scroll (like me)</p>
+<pre><code>/usr/local/psa/admin/sbin/chrootmng --remove --source=/var/www/vhosts/chroot --target=/var/www/vhosts/&lt;domain name&gt;
+/usr/local/psa/admin/sbin/chrootmng --create --source=/var/www/vhosts/chroot --target=/var/www/vhosts/&lt;domain name&gt;
+</code></pre>
+
+	  ]]></description>
+	</item>
+
+
+</channel>
+</rss>

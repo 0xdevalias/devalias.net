@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+   
+      <title>devalias.net</title>
+   
+   <link>https://www.devalias.net</link>
+   <description>Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.</description>
+   <language>en_GB</language>
+   <managingEditor> </managingEditor>
+   <atom:link href="rss" rel="self" type="application/rss+xml" />
+   
+	<item>
+	  <title>Atlassian Confluence: Cross-Site Scripting (XSS) (CVE-2017-16856)</title>
+	  <link>/devalias/2017/12/05/atlassian-confluence-cross-site-scripting-xss/</link>
+	  <author>devalias</author>
+	  <pubDate>2017-12-05T00:00:00+11:00</pubDate>
+	  <guid>/devalias/2017/12/05/atlassian-confluence-cross-site-scripting-xss/</guid>
+	  <description><![CDATA[
+	     <p>Earlier this year I spent some time delving into <a href="https://www.atlassian.com/software/confluence">Atlassian Confluence</a> to see if I could dig up any bugs that had slipped through the cracks. I wasn't really expecting to turn up much, but I was super excited and surprised when I managed to find an issue within the RSS feed plugin leading to Cross-Site Scripting (XSS) (Twitter: <a href="https://twitter.com/_devalias/status/922234470274498560">1</a>, <a href="https://twitter.com/_devalias/status/938271825414455298">2</a>; LinkedIn: <a href="https://www.linkedin.com/feed/update/urn:li:activity:6328008786355331072/">1</a>, <a href="https://www.linkedin.com/feed/update/urn:li:activity:6344043067401732096">2</a>; BugCrowd: <a href="https://bugcrowd.com/devalias">1</a>, <a href="https://bugcrowd.com/atlassian/hall-of-fame">2</a>).</p>
+<p>Thanks to <a href="https://www.atlassian.com/trust/security">Atlassian</a> and <a href="https://www.bugcrowd.com/">BugCrowd</a> for running an awesome bug bounty program and giving researchers the opportunity to hack things, make the internet safer, AND get rewarded while doing so!</p>
+<h2>The CVE</h2>
+<ul>
+<li><strong><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-16856">CVE-2017-16856</a></strong>: The RSS Feed macro in Atlassian Confluence before version 6.5.2 allows remote attackers to inject arbitrary HTML or JavaScript via cross site scripting (XSS) vulnerabilities in various rss properties which were used as links without restriction on their scheme.
+<ul>
+<li><a href="https://jira.atlassian.com/browse/CONFSERVER-54395">Confluece Bug Report (CONFSERVER-54395)</a></li>
+<li><a href="https://confluence.atlassian.com/doc/issues-resolved-in-6-5-2-940701301.html">Confluence - Issues resolved in 6.5.2</a></li>
+<li><a href="http://www.securityfocus.com/bid/102094">SecurityFocus</a></li>
+</ul>
+</li>
+</ul>
+<h2>Remediation</h2>
+<p>This issue was fixed in Confluence <code>6.5.2</code>. Update to this version or newer to be protected. See the CVE advisory details for more information.</p>
+<h2>Chaining bugs, social engineering and platform features</h2>
+<p>As part of my PoC, I put together some fun little phishing code using the Confluence web plugin API's. If there is interest (and I'm allowed), I might share it (and some of the useful features/places to look to build similar) sometime.</p>
+<p>Once XSS is achieved, if the current user isn't already an 'elevated' administrator, the code provides error messages using standard Confluence GUI elements to convince the user to elevate their privileges with 'websudo'. Once they do that, you can basically abuse their full privileges to create new administrators, or (my favourite) install a small malicious plugin to provide Remote Code Execution (RCE) on the server.</p>
+<p>While these aren't security issues in themselves, it does show how you can leverage social engineering techniques and other platform features to chain smaller issues into something more powerful and damaging.</p>
+<h2>Acknowledgements</h2>
+<p>These issues were identified by <a href="http://devalias.net">myself</a> and the team at <a href="https://dtss.com.au">TSS</a>:</p>
+<ul>
+<li>Glenn 'devalias' Grant (<a href="http://devalias.net">http://devalias.net</a>) of TSS (<a href="https://dtss.com.au">https://dtss.com.au</a>)</li>
+</ul>
+<h2>Conclusion</h2>
+<p>It pays to look in places less travelled. If there are older features in products, or things that may not be as popular/used as often, try looking in there. Who knows what may have been overlooked.</p>
+<p>Have you ever looked into some popular software and found issues you never expected to find? Got a cool story to share about it? Maybe you've chained some bugs in an interesting way, or just want to hear more about my PoC? I'd love to hear from you in the comments below!</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>Squiz Matrix: Multiple vulnerabilities</title>
+	  <link>/devalias/2017/09/07/squiz-matrix-multiple-vulnerabilities/</link>
+	  <author>devalias</author>
+	  <pubDate>2017-09-07T00:00:00+10:00</pubDate>
+	  <guid>/devalias/2017/09/07/squiz-matrix-multiple-vulnerabilities/</guid>
+	  <description><![CDATA[
+	     <p>Earlier this year I had an opportunity to spend some time looking at <a href="https://www.squiz.net/technology/cms">Squiz Matrix</a>, a Content Management System (CMS) used across a number of sectors including higher eduction, media and publishing, goverment, finance, health, and utilities. With a huge number of features, a massive PHP codebase, and a numbr of high profile sectors as clients, I set out to see if I could find any interesting little bugs hidden away.</p>
+<p>While I won't get into the nitty gritty of most of the assessment process, I did find some things, and 3 CVE's were assigned (detailed below). One was interesting enough that I will probably write up the process in more detail at some point.</p>
+<p>Given the rich functionality and plugins in the Matrix product, it could be interesting to dedicate more research time to explore the areas I didn't get to cover this time around. Who knows, perhaps Squiz would even be open to setting up a Bug Bounty program through someone like <a href="https://www.bugcrowd.com/">Bugcrowd</a> in the future too. That would be cool!</p>
+<p>If you want to try it out, or play around yourself, there is a <a href="https://matrix.squiz.net/releases/vm">downloadable demo VM</a> available on the Squiz website.</p>
+<h2>The CVE's</h2>
+<ul>
+<li><strong><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-14196">CVE-2017-14196</a></strong>: An information disclosure caused by a Path Traversal issue in the 'File Bridge' plugin allowed the existence of files outside of the bridged path to be confirmed.</li>
+<li><strong><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-14197">CVE-2017-14197</a></strong>: Multiple reflected Cross-Site Scripting (XSS) issues in Matrix 'WYSIWYG' plugins.</li>
+<li><strong><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-14198">CVE-2017-14198</a></strong>: Authenticated users with permissions to edit design assets can cause Remote Code Execution (RCE) via a maliciously crafted <code>time_format</code> tag.</li>
+</ul>
+<h2>Remediation</h2>
+<p>These issues were fixed in version <code>5.4.1.3</code>. Update to this version or newer to be protected. See the CVE advisory details for more information.</p>
+<h2>CVE-2017-14198: A Walkthrough</h2>
+<p>TODO: Write up how this was identified, and the core issue that lead to it.</p>
+<h2>Acknowledgements</h2>
+<p>These issues were identified by <a href="http://devalias.net">myself</a> and the team at <a href="https://dtss.com.au">TSS</a>:</p>
+<ul>
+<li>Glenn 'devalias' Grant (<a href="http://devalias.net">http://devalias.net</a>) of TSS (<a href="https://dtss.com.au">https://dtss.com.au</a>)</li>
+</ul>
+<p>Special thanks to Micky at Squiz for being an amazing resource throughout the disclosure process, and keeping us informed as patching and rollout progressed.</p>
+<h2>Conclusion</h2>
+<p>It seems the core issues here were a few bugs popping up in legacy code, and passing user-controlled values into sensitive areas without proper checks/sanitisation. Easy mistakes to make when managing such a large codebase that has evolved over the years.</p>
+<p>Have you had a similar experience? Manage a large codebase and legacy code? Got good tips for how best to identify and avoid these sorts of issues? Would love to hear your ideas in the comments!</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>[DAHAX-2013-001] Cloudflare XSS Vulnerability</title>
+	  <link>/devalias/2013/08/15/dahax-2013-001-cloudflare-xss-vulnerability/</link>
+	  <author>devalias</author>
+	  <pubDate>2013-08-15T08:00:00+10:00</pubDate>
+	  <guid>/devalias/2013/08/15/dahax-2013-001-cloudflare-xss-vulnerability/</guid>
+	  <description><![CDATA[
+	     <p><strong>Reference Number:</strong> DAHAX-2013-001 (/dev/alias/hacks 2013-001)</p>
+<h3>Notification Timeline</h3>
+<ul>
+<li>10/07/2013, Request# 38713 (<a href="https://support.cloudflare.com/anonymous_requests/new">https://support.cloudflare.com/anonymous_requests/new</a>)</li>
+<li>10/07/2013, Vendor looking into issue</li>
+<li>16/07/2013, Updated vendor with new details (Length: 101 instead of 72)</li>
+<li>16/07/2013, Vendor requested that I test again</li>
+<li>No response from vendor</li>
+<li>01/08/2013, Tested again, vulnerability fixed</li>
+<li>22/08/2013, Posted details to full-disclosure</li>
+<li>22/08/2013, Vendor confirmed issue has been fixed</li>
+<li>31/08/2017, <a href="https://hackerone.com/devalias">Submitted and retroactively recognised on HackerOne</a> bug bounty program with swag</li>
+</ul>
+<p><strong>Details Published:</strong> 14/08/2013 (<a href="http://blog.devalias.net">http://blog.devalias.net</a>)</p>
+<h2>What?</h2>
+<ul>
+<li>Reflected XSS (cross site scripting) attack</li>
+</ul>
+<h2>Where's Affected?</h2>
+<ul>
+<li>Theoretically it seems that any page that uses cloudflare will be affected.
+<ul>
+<li>Eg: <a href="https://www.cloudflare.com/">http://www.cloudflare.com/</a></li>
+</ul>
+</li>
+</ul>
+<h2>How?</h2>
+<ul>
+<li><strong>To bring up the vulnerable page</strong>
+<ul>
+<li>Set your X-Forwarded-For header to 101+ characters</li>
+<li>Eg:</li>
+</ul>
+</li>
+</ul>
+<pre><code>X-Forwarded-For: AAAAAAAAAABBBBBBBBBBCCCCCCCCCCDDDDDDDDDDEEEEEEEEEEFFFFFFFFFFGGGGGGGGGGHHHHHHHHHHIIIIIIIIIIJJJJJJJJJJK
+</code></pre>
+<ul>
+<li>Load a site using cloudflare</li>
+<li>You should end up on &quot;DNS Points to Prohibited IP&quot; page
+<ul>
+<li><strong>To trigger the XSS</strong></li>
+</ul>
+</li>
+<li>Set your User-Agent string to the XSS attack
+<ul>
+<li>Eg:</li>
+</ul>
+</li>
+</ul>
+<pre><code>User-Agent: USER-AGENT being tested for XSS..&lt;script&gt;alert(''Vulnerable to XSS via USER-AGENT header [Found by devalias.net]'')&lt;/script&gt;
+</code></pre>
+<ul>
+<li><strong>The whole attack</strong>
+<ul>
+<li>Ensure your X-Forwarded-For and User-Agent headers are configured as above</li>
+<li>Navigate to a page using cloudflare</li>
+<li>???</li>
+<li>Profit!</li>
+</ul>
+</li>
+</ul>
+<h2>Who?</h2>
+<p>Discovered by <a href="http://www.devalias.net/">Glenn 'devalias' Grant</a> (<a href="mailto:glenn@devalias.net">glenn@devalias.net</a>)</p>
+<h2>Responsible Disclosure Notice</h2>
+<ul>
+<li>Following in the footsteps of Google's vulnerability disclosure timeline, unless otherwise agreed to beforehand, I reserve the right to publicly announce the details of any discovered vulnerabilities 7 days post notification.
+<ul>
+<li><strong>Google's Rationale:</strong> &quot;Seven days is an aggressive timeline and may be too short for some vendors to update their products, but it should be enough time to publish advice about possible mitigations, such as temporarily disabling a service, restricting access, or contacting the vendor for more information. As a result, after 7 days have elapsed without a patch or advisory, we will support researchers making details available so that users can take steps to protect themselves. By holding ourselves to the same standard, we hope to improve both the state of web security and the coordination of vulnerability management.&quot; - <a href="https://googleonlinesecurity.blogspot.com.au/2013/05/disclosure-timeline-for-vulnerabilities.html">Google</a></li>
+</ul>
+</li>
+</ul>
+
+	  ]]></description>
+	</item>
+
+
+</channel>
+</rss>

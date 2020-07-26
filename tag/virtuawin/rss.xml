@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+   
+      <title>devalias.net</title>
+   
+   <link>https://www.devalias.net</link>
+   <description>Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.</description>
+   <language>en_GB</language>
+   <managingEditor> </managingEditor>
+   <atom:link href="rss" rel="self" type="application/rss+xml" />
+   
+	<item>
+	  <title>Fixing Windows Productivity Issues OSX Style</title>
+	  <link>/devalias/2013/07/11/fixing-windows-productivity-issues-osx-style/</link>
+	  <author>devalias</author>
+	  <pubDate>2013-07-11T08:00:28+10:00</pubDate>
+	  <guid>/devalias/2013/07/11/fixing-windows-productivity-issues-osx-style/</guid>
+	  <description><![CDATA[
+	     <p>As much as past me would hate me for saying this, these days I am quite the fan of a number of Apple products. My MacBook Pro is a dream to use thanks to multitouch and some of the well thought out and designed features of OSX.</p>
+<p>Unfortunately, coming back to my desktop PC I very quickly realise just how much I have come to rely on a few simple features of OSX that are sorely lacking in Windows (don't worry Microsoft fans, there are a few features of Windows that OSX lacks that annoy the crap out of me too!)</p>
+<p>Among these there are 2 common ones (now provided by the same feature), and one less obvious thing, that together increase my productivity immensely:</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Mission_Control_(OS_X)">Mission Control</a>
+<ul>
+<li><a href="https://support.apple.com/kb/PH11158?locale=en_US">Spaces</a> (formerly) – Allows you to create and work within multiple desktops, switching between them.</li>
+<li><a href="https://support.apple.com/kb/VI22?locale=en_US">Exposé</a> (formerly) – Allows you to tile all open windows, hide application windows offscreen to show the desktop, etc</li>
+</ul>
+</li>
+<li>The ability to scroll the window under the mouse cursor when it's not the currently focussed window</li>
+</ul>
+<h2>Mission Control/Spaces/Exposé (for Windows)</h2>
+<ul>
+<li><a href="http://www.betterdesktoptool.com/">Better Desktop Tool</a> (Vista SP2+, Win7 SP1+, Win8) – This is what I use on my main PC at home. It let's you do the tiling/hiding application windows features of exposé as well as the multiple desktops of spaces. To quote some Apple exec somewhere, it just works! Very much recommend this!</li>
+<li><a href="https://sites.google.com/site/emceesoftware1/">Emcee</a> (Win7, Win8) – I personally haven't tried this at all, but some sources on the net seem to think it's pretty cool, so.. might be worth checking out?</li>
+<li><a href="http://virtuawin.sourceforge.net/">VirtuaWin</a> (Win9x/ME/NT/Win2K/XP/Win2003/Vista/Win7) – Nowhere near as pretty or fancy looking as the other two, but if you're on an older OS then you may have to compromise. VirtuaWin has been around forever, and provides (as the name implies) virtual desktops (aka spaces) for WIndows. Supports plugins, but no decent exposé functionality to my knowledge.</li>
+</ul>
+<h2>Scrolling in unfocussed windows</h2>
+<ul>
+<li><a href="http://ehiti.de/katmouse/">KatMouse</a> – A simple tool with a single purpose, allowing you to scroll unfocussed windows. Thank F for that!</li>
+</ul>
+<h2>Anything Else?</h2>
+<p>Know of anything else that's cool/noteworthy/makes working in Windows less painful for OSX users? <a href="http://devalias.tumblr.com/ask">Let me know via ask!!!</a></p>
+
+	  ]]></description>
+	</item>
+
+
+</channel>
+</rss>

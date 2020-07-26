@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+   
+      <title>devalias.net</title>
+   
+   <link>https://www.devalias.net</link>
+   <description>Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.</description>
+   <language>en_GB</language>
+   <managingEditor> </managingEditor>
+   <atom:link href="rss" rel="self" type="application/rss+xml" />
+   
+	<item>
+	  <title>What I Use - OSX</title>
+	  <link>/devalias/2013/06/20/what-i-use-osx/</link>
+	  <author>devalias</author>
+	  <pubDate>2013-06-20T10:00:00+10:00</pubDate>
+	  <guid>/devalias/2013/06/20/what-i-use-osx/</guid>
+	  <description><![CDATA[
+	     <p>I've been meaning to write this post for a while now, but never quite got around to it. Oftentimes when a friend or colleague gets a new mac they ask me what programs I would recommend. I tend to stumble at being asked on the spot, and rattle off the couple that jump straight to mind.</p>
+<p>To save myself the embarassment, serve as a memory jog, and hopefully help some people out along the way, here is my list of programs I use/love on OSX (see after the break)</p>
+<p><strong>Note:</strong> This isn't necessarily a definitive list, but it should be the main ones, and I will try to keep it updated as I find new cool things that I love.</p>
+<h2>General/System</h2>
+<ul>
+<li><a href="http://brew.sh/">HomeBrew</a> - Think apt-get, but for mac. Awesome way to find/install commandline tools/etc for your mac.</li>
+<li><a href="https://bahoom.com/hyperdock/">HyperDock</a> - Show previews of docked program windows when you hover over them. Just like Windows 7!</li>
+<li><a href="http://totalfinder.binaryage.com/">TotalFinder</a> - Tabs and other such win for the finder!</li>
+<li><a href="http://totalterminal.binaryage.com/">TotalTerminal</a> - A systemwide terminal that hides offscreen when you're not using it. Combine the hotkey with BetterTouchTool for epic win!</li>
+<li><a href="https://www.boastr.net/">BetterTouchTool</a> - Let's you setup more touch gestures to control various things on your mac.</li>
+<li><a href="http://www.axoniclabs.com/DeepSleep/">DeepSleep</a> - Forces the system to do a full hibernate poweroff. No more losing battery while in your bag!</li>
+<li><a href="https://github.com/integralpro/nosleep">NoSleep</a> - Prevents the system from sleeping when you close the screen.</li>
+<li><a href="http://www.appzapper.com/">AppZapper</a> - The uninstall feature that's missing from so many mac programs.</li>
+</ul>
+<h2>Internet/Download/Etc</h2>
+<ul>
+<li><a href="https://www.google.com/chrome/">Google Chrome</a> - What can I say, I am very much a fan of Google, and Chrome has won my heart &lt;3</li>
+<li><a href="http://ll.www.utorrent.com/intl/en/">uTorrent</a> - For those times when a distributed download is a better source than direct.</li>
+</ul>
+<h2>Chat/Communication/Etc</h2>
+<ul>
+<li><a href="https://www.skype.com/en/">Skype</a> - I don't even need to explain this one..</li>
+<li><a href="http://www.kandasoft.com/home/kanda-apps/callnote-skype-call-recorder">Callnote for Skype</a> - Skype recording + Evernote. Because why remember details when you can just listen to them again!</li>
+</ul>
+<h2>Music/Media/Etc</h2>
+<ul>
+<li><a href="https://www.apple.com/au/itunes/">iTunes</a> - Apple, music, duh!</li>
+<li><a href="https://www.spotify.com/us/">Spotify</a> - I don't use this a lot yet, but it's pretty good when you don't want to specifically decide what you want to listen to.</li>
+<li><a href="https://www.videolan.org/vlc/index.html">VLC</a> - The only media player you'll ever need for video (or when you don't want to clutter iTunes with random stuff yet)</li>
+</ul>
+<h2>Games</h2>
+<ul>
+<li><a href="http://store.steampowered.com/about/">Steam</a> - The only game platform you should ever need.</li>
+</ul>
+<h2>Notes/Syncing/Cloud/Etc</h2>
+<ul>
+<li><a href="https://www.dropbox.com/">Dropbox</a> - Keeps my files synced/accessible from wherever I need them.</li>
+<li><a href="https://evernote.com/">Evernote</a> - Think dropbox, but more aimed at notes/etc. Available anywhere I need access to them.</li>
+<li><a href="https://www.xmind.net/">XMind</a> - Not that this fits into the cloud/syncing category by itself (dropbox!), but a good little tool for making mindmaps.</li>
+</ul>
+<h2>Coding/Development/Etc</h2>
+<ul>
+<li><a href="https://developer.apple.com/xcode/">XCode</a> - Kind of goes without saying. Apple's de-facto fully integrated coding environment.</li>
+<li><a href="https://www.sublimetext.com/2">Sublime Text 2</a> (<a href="https://www.sublimetext.com/3">Sublime Text 3</a> is currently in beta) - Tried a few others, but eventually settled on this. A REALLY nice text/code editor with tons of awesome plugins. I use the Solarized dark colour scheme.</li>
+<li><a href="https://git-scm.com/">Git</a> - A free an open source distributed version control system that is made of amazing and win.</li>
+<li><a href="http://www.git-legit.org/">Le-git</a> - A complementary command-line interface for Git that makes some of the more obscure things much easier.</li>
+<li><a href="https://www.git-tower.com/">Tower</a>/* <a href="http://gitboxapp.com/">Gitbox</a>/* <a href="https://www.sourcetreeapp.com/">Sourcetree</a>/* <a href="https://desktop.github.com/">Github for Mac</a> - Haven't really decided which one is best yet, but a selection of git frontends for the (rare) times when you want a change from the command line.</li>
+<li><a href="http://rubyonrails.org/">Ruby on Rails</a> - Only recently started playing with this, but a very nice little web app development framework/environment.</li>
+<li><a href="https://toolbelt.heroku.com/">Heroku Toolbelt</a> - Set of command line tools for working with/deploying to Heroku.</li>
+</ul>
+<h2>Virtualisation/Etc</h2>
+<ul>
+<li><a href="https://www.parallels.com/products/desktop/">Parallels Desktop</a> - IMO The better virtualisation platform for mac.</li>
+<li><a href="https://www.vmware.com/products/fusion/">VMWare Fusion</a> - For things that just don't want to work in Parallels, or just for funsies.</li>
+</ul>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>RockMelt - Beta 2 Announced</title>
+	  <link>/devalias/2011/09/16/rockmelt-beta-2-announced/</link>
+	  <author>devalias</author>
+	  <pubDate>2011-09-16T13:53:00+10:00</pubDate>
+	  <guid>/devalias/2011/09/16/rockmelt-beta-2-announced/</guid>
+	  <description><![CDATA[
+	     <p>So in followup to my previous post on RockMelt, they have just put up news that beta 2 will be out soon with all sorts of sexy improvements! Chat had been redesigned to make chatting to multiple people easier, they have included a View Later app (think Instapaper or ReadItLater), a new Twitter app, and it now all runs on Chromium 10! I can't wait till it's available for download.</p>
+<p>rockmelt:</p>
+<blockquote>
+<p>We're excited to introduce RockMelt Beta 2! While we've shipped 20 updates since November, RockMelt Beta 2 represents our most significant revision so far. One thing we're really proud of is how much people actually use RockMelt. People use RockMelt for more than 6 hours each day to share links...</p>
+</blockquote>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>The Dark Side - Macbook Pro</title>
+	  <link>/devalias/2011/09/16/the-dark-side-macbook-pro/</link>
+	  <author>devalias</author>
+	  <pubDate>2011-09-16T13:02:00+10:00</pubDate>
+	  <guid>/devalias/2011/09/16/the-dark-side-macbook-pro/</guid>
+	  <description><![CDATA[
+	     <p>I am a firm believer in the 'build it yourself' aspect of computing, and with that comes an inherent dislike for the overpriced, simplistic, bright coloured devilspawn known as Apple. With that being said, there was a time that I walked among the darkness, though it was many many ages ago. Over recent years I have been drawing ever slowly back in that direction though, each shiny new device they release bringing me that much closer. It seems now that I have finally stepped over that threshold, into the darkness once more.</p>
+<p>Last saturday I purchased a Macbook Pro. <em>shudders</em> I swore to myself I wouldn't ever buy an overpriced, mainstream, 'cool', bright coloured apple computer. In my defense, the new Macbook Pro is very very shiny, decked out with a 15&quot; screen, 2.2ghz cpu, 8gb ram, 1gb graphics, 500gb 7200rpm hdd and packaged in a 'unibody' slab of metal for the case.</p>
+<p>Now the case is somewhat shiny, though it could do with some harder lines/edges and a much darker shade to give it that look that I like in my hardware. As the plan currently stands, a few vinyl stickers should give it that darker and more interesting look. Probably a black background, biohazard around the apple in bright green, a BackTrack dragon, maybe a few other things, and a carbon fibre look around the keyboard.</p>
+<p>All in all pretty happy with my purchase. Should be powerful enough to satisfy my portable computing needs, as well as running BackTrack in Parallels for pentesting, as well as having a full coding environment set up for writing iPhone software.</p>
+<p>I'll post again once I have it set up, hopefully with some pictures and thoughts about the setup process.</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>RockMelt - Your Browser. Re-Imagined.</title>
+	  <link>/devalias/2011/09/16/rockmelt-your-browser-re-imagined/</link>
+	  <author>devalias</author>
+	  <pubDate>2011-09-16T12:59:00+10:00</pubDate>
+	  <guid>/devalias/2011/09/16/rockmelt-your-browser-re-imagined/</guid>
+	  <description><![CDATA[
+	     <p>So I have been using this browser for a few weeks now, and I must say, I am VERY impressed. I was looking for something to streamline my vast (and ever increasing) presence on the social web, something that would let me keep up to date with everything, without the need to constantly F5.</p>
+<p>Rockmelt is built off the Google Chromium browser. It integrates with Facebook, Twitter, Tumblr, RSS, etc via a number of features including it's 'Edges' (side bars that contain apps/feeds).</p>
+<p>While Rockmelt is still in beta (and only a few days ago moved from closed to public beta) I find it a rather usable browser. With that being said there are still a few things that are needed to make it an even better experience. Namely</p>
+<ul>
+<li>More integration with other social sites (this feature is being worked on)</li>
+<li>The ability to scroll the 'edges', or to group RSS feeds/etc so as to be able to fit more things on each edge.</li>
+<li>Not a feature with the browser as such, but better transparency with what the Rockmelt team are working on. It would be nice to have a roadmap of planned features, and/or a changelog so that we can see what was modified in each update.</li>
+<li>While it still has a ways to go, I feel that RockMelt is well on it's way to making itself a #1 choice for socially integrating browser.</li>
+</ul>
+
+	  ]]></description>
+	</item>
+
+
+</channel>
+</rss>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+   
+      <title>devalias.net</title>
+   
+   <link>https://www.devalias.net</link>
+   <description>Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more.</description>
+   <language>en_GB</language>
+   <managingEditor> </managingEditor>
+   <atom:link href="rss" rel="self" type="application/rss+xml" />
+   
+	<item>
+	  <title>Default Programs Editor</title>
+	  <link>/devalias/2013/07/02/default-programs-editor/</link>
+	  <author>devalias</author>
+	  <pubDate>2013-07-02T04:27:00+10:00</pubDate>
+	  <guid>/devalias/2013/07/02/default-programs-editor/</guid>
+	  <description><![CDATA[
+	     <p>Due to some.. ahem interesting implementation choices at work, I found myself unable to make <a href="https://www.sublimetext.com/2">Sublime Text 2</a> the default program used to handle .txt files.</p>
+<p>A quick google lead me to <a href="http://defaultprogramseditor.com/">Default Programs Editor</a> which provided a simple, elegant solution to my issue. Bonus points awarded for the pretty <a href="https://getbootstrap.com/2.3.2/">Bootstrap</a> site and useable interface to boot!</p>
+<p>+1 internettes to you @factormystic</p>
+
+	  ]]></description>
+	</item>
+
+
+</channel>
+</rss>

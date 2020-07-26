@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="shortcut icon" href="/assets/images/authors/devalias.png" >
+
+  <meta name="referrer" content="origin" />
+  <meta name="generator" content="Jekyll 3.x" />
+
+  <link type="application/atom+xml" rel="alternate" href="https://www.devalias.net/feed.xml" title="/dev/alias – Hack. Dev. Transcend." />
+
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Forming Serverless Clouds with AWS: CloudFormation, SAM, CDK, Amplify | /dev/alias – Hack. Dev. Transcend.</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Forming Serverless Clouds with AWS: CloudFormation, SAM, CDK, Amplify" />
+<meta name="author" content="Glenn 'devalias' Grant" />
+<meta property="og:locale" content="en_GB" />
+<meta name="description" content="Recently I have been playing around with a few little side projects, and trying out different ways of getting them IntoTheCloud(tm). If you know me, you know that I&#39;m pretty big on increasing efficiency, reducing boilerplate/time to start, automation, infrastructure as code (IaC), and similar fun things." />
+<meta property="og:description" content="Recently I have been playing around with a few little side projects, and trying out different ways of getting them IntoTheCloud(tm). If you know me, you know that I&#39;m pretty big on increasing efficiency, reducing boilerplate/time to start, automation, infrastructure as code (IaC), and similar fun things." />
+<link rel="canonical" href="https://www.devalias.net/devalias/2018/09/15/forming-serverless-clouds-aws-cloudformation-sam-cdk-amplify/" />
+<meta property="og:url" content="https://www.devalias.net/devalias/2018/09/15/forming-serverless-clouds-aws-cloudformation-sam-cdk-amplify/" />
+<meta property="og:site_name" content="/dev/alias – Hack. Dev. Transcend." />
+<meta property="og:image" content="https://www.devalias.net/assets/images/cover4.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-09-15T00:00:00+10:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://www.devalias.net/assets/images/cover4.jpg" />
+<meta property="twitter:title" content="Forming Serverless Clouds with AWS: CloudFormation, SAM, CDK, Amplify" />
+<meta name="twitter:site" content="@_devalias" />
+<meta name="twitter:creator" content="@_devalias" />
+<script type="application/ld+json">
+{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://www.devalias.net/assets/images/cover4.jpg"},"name":"Glenn 'devalias' Grant"},"@type":"BlogPosting","url":"https://www.devalias.net/devalias/2018/09/15/forming-serverless-clouds-aws-cloudformation-sam-cdk-amplify/","image":"https://www.devalias.net/assets/images/cover4.jpg","headline":"Forming Serverless Clouds with AWS: CloudFormation, SAM, CDK, Amplify","dateModified":"2018-09-15T00:00:00+10:00","datePublished":"2018-09-15T00:00:00+10:00","author":{"@type":"Person","name":"Glenn 'devalias' Grant"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.devalias.net/devalias/2018/09/15/forming-serverless-clouds-aws-cloudformation-sam-cdk-amplify/"},"description":"Recently I have been playing around with a few little side projects, and trying out different ways of getting them IntoTheCloud(tm). If you know me, you know that I&#39;m pretty big on increasing efficiency, reducing boilerplate/time to start, automation, infrastructure as code (IaC), and similar fun things.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  <!-- old tags, still needed? -->
+  <meta name="twitter:title" content="/dev/alias – Hack. Dev. Transcend." />
+  <meta name="twitter:description" content="Follow me into the rabbit hole that is my mind and learn about topics including.. security, technology, efficiency, biohacking, health, personal growth and probably a whole lot more." />
+  <!-- <meta name="twitter:image" content="/assets/images/cover4.jpg" /> -->
+  <!-- /end tags -->
+
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
+
+  <link rel="stylesheet" type="text/css" href="/assets/css/screen.css" />
+  <link rel="stylesheet" type="text/css" href="/assets/css/syntax.css" />
+
+  <link rel="stylesheet" type="text/css" href="/assets/css/custom.css" />
+
+  <!-- Font Awesome -->
+<script defer src="https://use.fontawesome.com/releases/v5.0.1/js/all.js"></script>
+
+
+  
+
+  <!-- https://indieauth.com/ -->
+<link href="https://github.com/0xdevalias" rel="me">
+<link href="https://twitter.com/_devalias" rel="me">
+<link href="https://www.instagram.com/_devalias/" rel="me">
+<link href="https://www.linkedin.com/in/glenn-devalias-grant/" rel="me">
+
+</head>
+
+
+<body class="post-template nav-closed">
+
+    <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+        
+            <li class="nav-home " role="presentation">
+                <a href="/">Home</a>
+            </li>
+        
+            <li class="nav-now " role="presentation">
+                <a href="/now">Now</a>
+            </li>
+        
+            <li class="nav-about " role="presentation">
+                <a href="/about">About</a>
+            </li>
+        
+            <li class="nav-speaker " role="presentation">
+                <a href="/speaker">Speaker</a>
+            </li>
+        
+            <li class="nav-sec " role="presentation">
+                <a href="/sec">Security</a>
+            </li>
+        
+            <li class="nav-dev " role="presentation">
+                <a href="/dev">Development</a>
+            </li>
+        
+            <li class="nav-writing " role="presentation">
+                <a href="/writing">Writing</a>
+            </li>
+        
+            <li class="nav-coaching " role="presentation">
+                <a href="/coaching">Coaching</a>
+            </li>
+        
+            <li class="nav-personal " role="presentation">
+                <a href="/personal">Personal</a>
+            </li>
+        
+            <li class="nav-go-deeper " role="presentation">
+                <a href="/go-deeper">Go Deeper...</a>
+            </li>
+        
+    </ul>
+    <a class="subscribe-button" href="/feed.xml"><i class="fas fa-rss-square"></i> Subscribe</a>
+</div>
+<span class="nav-cover"></span>
+
+
+    <div class="site-wrapper">
+        <!-- [[! Everything else gets inserted here ]] -->
+        <!-- Layout: Post -->
+<!-- Template: header -->
+
+
+
+
+<header class="main-header
+               
+                    " style="background-image: url(/assets/images/cover4.jpg)
+                ">
+    <nav class="main-nav overlay clearfix">
+        
+          <a class="blog-logo" href="/"><img src="/assets/images/devalias-prompt.png" alt="Blog Logo" /></a>
+        
+        
+            <a class="menu-button" href="#"><i class="fas fa-bars"></i> <span class="word">Menu</span></a>
+        
+    </nav>
+
+    
+        
+            <div class="vertical">
+                <div class="main-header-content inner">
+                    
+                        <h1 class="page-title">Forming Serverless Clouds with AWS: CloudFormation, SAM, CDK, Amplify</h1>
+                    
+                    
+                </div>
+            </div>
+        
+    
+
+    
+</header>
+<!-- /Template: header -->
+
+
+<main id="content" class="content" role="main">
+    <article class="post ">
+        <header class="post-header">
+            <!-- <h1 class="post-title">Forming Serverless Clouds with AWS: CloudFormation, SAM, CDK, Amplify</h1> -->
+            <section class="post-meta">
+    
+        <img class="author-thumb" src="/assets/images/authors/devalias.png" alt="Author image" nopin="nopin" />
+    
+    
+        <a href='/author/devalias'>Glenn 'devalias' Grant</a>
+    
+    |
+    <time class="post-date" datetime="2018-09-15">15 Sep 2018</time>
+    |
+    
+        19 minutes
+    
+    to read
+    <!-- [[tags prefix=" on "]] -->
+    
+        |
+        
+            <a href='/tag/dev'>#dev</a>,
+        
+            <a href='/tag/infrastructure'>#infrastructure</a>,
+        
+            <a href='/tag/automation'>#automation</a>,
+        
+            <a href='/tag/serverless'>#serverless</a>,
+        
+            <a href='/tag/cloud'>#cloud</a>,
+        
+            <a href='/tag/aws'>#aws</a>,
+        
+            <a href='/tag/amazon'>#amazon</a>,
+        
+            <a href='/tag/cloudformation'>#cloudformation</a>,
+        
+            <a href='/tag/sam'>#sam</a>,
+        
+            <a href='/tag/cdk'>#cdk</a>,
+        
+            <a href='/tag/amplify'>#amplify</a>,
+        
+            <a href='/tag/golang'>#golang</a>,
+        
+            <a href='/tag/react'>#react</a>,
+        
+            <a href='/tag/graphql'>#graphql</a>,
+        
+            <a href='/tag/boilerplate'>#boilerplate</a>,
+        
+            <a href='/tag/generator'>#generator</a>
+        
+    
+    
+</section>
+
+        </header>
+
+        <section class="post-content">
+            <p>Recently I have been playing around with a few little side projects, and trying out different ways of getting them IntoTheCloud(tm). If you know me, you know that I'm pretty big on increasing efficiency, reducing boilerplate/time to start, automation, infrastructure as code (IaC), and similar fun things.</p>
+<p>With these explorations I have been looking to see how I can go from 'cool project idea' to having a PoC <a href="https://aws.amazon.com/serverless/">serverless</a> application running InTheCloud(tm) with as little time, effort, boilerplate, and ongoing cost required; with the hope that if it is quick/easy enough, and the patterns simple enough, I will actually get around to hacking on more of my side projects (or it will be quicker and cheaper to get clients projects up and running).</p>
+<h2><a name="aws"></a>AWS</h2>
+<p>For this particular exploration I have been playing around a lot in <a href="https://aws.amazon.com/">AWS</a> (Amazon's Cloud), with a particular focus on <a href="https://aws.amazon.com/serverless/">serverless</a> patterns. As you probably know, AWS is huge, basically runs a good chunk of the internet, and seemingly <a href="https://aws.amazon.com/products/">has a product line for every possible thing you could dream of</a>.</p>
+<p>Since I was looking to speed up my 'new project boilerplate', I decided to focus in on the following projects/services:</p>
+<ul>
+<li><a href="https://aws.amazon.com/cloudformation/">AWS CloudFormation</a> (<a href="#cloudformation">see below</a>)</li>
+<li><a href="https://github.com/awslabs/serverless-application-model">AWS Serverless Application Model (SAM)</a> (<a href="#sam">see below</a>)</li>
+<li><a href="https://github.com/awslabs/aws-cdk">AWS Cloud Development Kit (CDK)</a> (<a href="#cdk">see below</a>)</li>
+<li><a href="https://aws-amplify.github.io/">AWS Amplify</a> (<a href="#amplify">see below</a>)</li>
+</ul>
+<p>I'll go into a bit more detail on each of these below, but since I saw so much potential crossover/overlap between them, I opened a few issues on their respective repositories. You might find more interesting tips, tricks, and aspects in those threads too:</p>
+<ul>
+<li><a href="https://github.com/awslabs/aws-sam-cli/issues/663">awslabs/aws-sam-cli#663</a></li>
+<li><a href="https://github.com/awslabs/aws-cdk/issues/703">awslabs/aws-cdk#703</a></li>
+<li><a href="https://github.com/aws-amplify/amplify-cli/issues/160">aws-amplify/amplify-cli#160</a></li>
+</ul>
+<h2><a name="cloudformation"></a>AWS CloudFormation</h2>
+<blockquote>
+<p><a href="https://aws.amazon.com/cloudformation/">AWS CloudFormation</a> provides a common language for you to describe and provision all the infrastructure resources in your cloud environment. CloudFormation allows you to use a simple text file to model and provision, in an automated and secure manner, all the resources needed for your applications across all regions and accounts. This file serves as the single source of truth for your cloud environment.</p>
+</blockquote>
+<p>Basically, <a href="https://aws.amazon.com/cloudformation/">CloudFormation</a> is a bunch of JSON or YAML that defines all of the AWS resources/projects you want to use, how to configure them, and how to tie it all together. Then you can just push it ToTheCloud(tm), some kind of magic happens while you go make coffee, and you're done. It's AWS's basic Infrastructure as Code (IaC) service.</p>
+<p>In reality, CloudFormation templates can VERY quickly get massively out of hand, huge, confusing, and pretty hard to cognitively reason about. It's great as an underlying technology layer.. but it isn't really optimised for human consumption (particularly the JSON format). Thankfully some of the other projects I will talk about a little later aim to solve that human interface problem.</p>
+<p>Within CloudFormation there are a few high level concepts that it's good to be aware of:</p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacks.html">Stack</a>: This ties together all of your resources in an <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html">AWS Region</a> into a single unit.</li>
+<li><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html">Nested Stack</a>: A stack created within another stack. Allows you to seperate common patterns into their own templates and tie them all together.</li>
+<li><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.html">StackSet</a>: This ties together multiple Stacks, and allows you to manage them across multiple regions and accounts.</li>
+</ul>
+<p>Since Stacks by themselves are single region, you can run into some weird problems depending on the services you want to use. For example, when I want to deploy my application in <code>ap-southeast-2</code>, but want to use <a href="https://aws.amazon.com/cloudfront/">AWS CloudFront</a> (<a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cnames-and-https-requirements.html#https-requirements-aws-region">which runs in <code>us-east-1</code></a>) with a HTTPS certificate issued through <a href="https://aws.amazon.com/certificate-manager/">AWS Certificate Manager</a>, I can't natively do this within a single stack.</p>
+<p>There are workarounds such as <a href="https://github.com/awslabs/serverless-application-model/issues/565#issuecomment-419129580">using custom resources</a> to manage the deployment, or <a href="https://github.com/awslabs/serverless-application-model/issues/565#issuecomment-419608229">using a StackSet</a> with <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/outputs-section-structure.html">exported outputs</a> and <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-importvalue.html"><code>Fn::ImportValue</code></a> to deploy the related components across different regions; but sometimes it can take a little digging to figure out the best way to do it.</p>
+<p>If you're interested in trying the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-custom-resources.html">Custom Resource</a> approach, the following was how one person explained their implementation to me:</p>
+<blockquote>
+<p>It's a bit complicated due to specifics of ACM certificate issuance. The general way it works is:</p>
+<ul>
+<li>
+<p>CloudFormation creates a custom resource that has the same &quot;signature&quot; as an ACM certificate. It takes the same parameters and has the same return values (Ref and attribute values).</p>
+</li>
+<li>
+<p>The custom resource invokes a Lambda function in the account. This function requests a new certificate from ACM in us-east-1.</p>
+</li>
+<li>
+<p>The Lambda function then sends a message to an SQS queue in the account. This queue is subscribed by the same Lambda function. The queue is effectively a &quot;while&quot; loop to reinvoke the function every 30 seconds to check whether the certificate has been issued.</p>
+</li>
+<li>
+<p>Every time the Lambda function is invoked by the queued message:</p>
+<ul>
+<li>If the certificate has been issued, the function responds with a success back to CloudFormation with the appropriate return values. The function returns successfully, which removes the message from the SQS queue.</li>
+<li>If the certificate issuance failed, the function responds with a failure back to CloudFormation with an appropriate message. The function returns successfully, which removes the message from the SQS queue.</li>
+<li>If the certificate is still awaiting verification, the function does nothing and throws an error. The error causes SQS to keep the message in the queue and retry 30 seconds later.</li>
+</ul>
+</li>
+<li>
+<p>Meanwhile, the ACM certificate verification occurs (a human approves it via an email sent to the domain owner, or a DNS record is added to the domain to verify the certificate).</p>
+</li>
+</ul>
+</blockquote>
+<p>While it is pretty convoluted setup for a single project, I expect that if designed well this could be wrapped up into a simple open source/deployable component that everyone could make use of rather easily. Perhaps something for the <a href="https://aws.amazon.com/serverless/serverlessrepo/">AWS Serverless Application Repository</a> or as a <a href="https://aws.amazon.com/blogs/devops/construct-your-own-launch-stack-url/">Launch Stack Button</a>?</p>
+<h2><a name="sam"></a>AWS Severless Application Model (SAM)</h2>
+<blockquote>
+<p>The <a href="https://docs.aws.amazon.com/lambda/latest/dg/serverless_app.html">AWS Serverless Application Model (AWS SAM)</a> is a model to define serverless applications. AWS SAM is natively supported by AWS CloudFormation and defines simplified syntax for expressing serverless resources. The specification currently covers APIs, Lambda functions and Amazon DynamoDB tables.</p>
+</blockquote>
+<p>AWS SAM (<a href="https://github.com/awslabs/serverless-application-model">GitHub</a>, <a href="https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md">Spec/Usage</a>, <a href="https://github.com/awslabs/serverless-application-model/tree/master/examples">Examples</a>, <a href="https://awslabs.github.io/serverless-application-model/">Site</a>, <a href="https://github.com/awslabs/aws-sam-cli">CLI</a>, <a href="https://github.com/awslabs/aws-sam-cli/tree/master/samcli/local/init/templates">Templates</a>) seems to have come about because using CloudFormation directly was just too verbose and time consuming for some of the more common serverless usecases. By wrapping these cases up in a simplified/abstracted way makes it easier to get started, and therefore more likely for people to use the serverless resources AWS provides. It similarly follows the CloudFormation model of defining your resources in YAML, and uses a <a href="https://pypi.org/project/aws-sam-translator/">translator</a> (<a href="https://github.com/awslabs/serverless-application-model/tree/master/samtranslator">GitHub</a>) to build the raw underlying CloudFormation template.</p>
+<p>While AWS SAM seems great for these common usecases, there are definitely areas where you will need to fall back to using native CloudFormation (which you can thankfully use directly within a SAM template). There are also a number of areas where limitations in what SAM allows you to configure means <a href="https://github.com/awslabs/serverless-application-model/issues/566#issuecomment-419311289">you may not be able to use it's simplified abstractions</a>. These are likely to improve over time as <a href="https://github.com/awslabs/serverless-application-model/issues">people run into the issues</a>, and the maintainer team implements/improves features.</p>
+<p>What is really nice is just how simple it is to get a new project off the ground:</p>
+<ul>
+<li>Have a look at <a href="https://github.com/awslabs/aws-sam-cli#get-started">Get Started</a> and <a href="https://github.com/awslabs/aws-sam-cli/blob/develop/docs/installation.rst#using-pip">install/upgrade the CLI</a>: <code>pip install --upgrade aws-sam-cli</code></li>
+<li><a href="https://github.com/awslabs/aws-sam-cli/blob/develop/docs/usage.rst">Init your new application</a>: <code>sam init --runtime nodejs8.10 --name foo-app</code>
+<ul>
+<li>There are MANY supported runtimes (<code>sam init --help</code>).. so choose your favourite: <code>[python3.6|python2.7|python|nodejs6.10|nodejs8.10|nodejs4.3|nodejs|dotnetcore2.0|dotnetcore1.0|dotnetcore|dotnet|go1.x|go|java8|java]</code></li>
+</ul>
+</li>
+<li>Pull down your app dependencies: <code>cd foo-app/hello_world &amp;&amp; npm install</code></li>
+<li>Run your API locally (<code>sam local --help</code>): <code>cd ../ &amp;&amp; sam local start-api</code></li>
+<li>View your application in all of it's glory: <a href="http://127.0.0.1:3000/hello">http://127.0.0.1:3000/hello</a></li>
+</ul>
+<p><a name="sam-example"></a>If you have a look at the generated SAM template (<code>template.yaml</code>), you'll see that the entire stack is only ~45 lines (including newlines and comments), with the main function code only taking up ~15 lines. Not bad to get a PoC application running:</p>
+<pre lang="yaml"><code>HelloWorldFunction:
+  Type: AWS::Serverless::Function
+  Properties:
+    CodeUri: hello_world/
+    Handler: app.lambdaHandler
+    Runtime: nodejs8.10
+    Environment:
+      Variables:
+        PARAM1: VALUE
+    Events:
+      HelloWorld:
+        Type: Api
+        Properties:
+          Path: /hello
+          Method: get
+</code></pre>
+<p>Once we're ready to <a href="https://github.com/awslabs/aws-sam-cli/blob/develop/docs/deploying_serverless_applications.rst">deploy this to the cloud</a>, we have just a couple more commands to run:</p>
+<ul>
+<li>Make sure our template is valid: <code>sam validate</code></li>
+<li>Package any external code and upload to S3 (bucket must already exist): <code>sam package --template-file ./template.yaml --output-template-file ./packaged.yaml --s3-bucket FOO-PKGS-BUCKET</code></li>
+<li>Deploy our stack: <code>sam deploy --template-file ./packaged.yaml --stack-name Foo-App --capabilities CAPABILITY_IAM</code></li>
+</ul>
+<p>Now if you're like me and enjoy writing your backend in <a href="https://golang.org/">Golang</a>, then you may find the default template (<code>sam init --runtime go1.x --name foo-app</code>) a little lacking (eg. no <a href="https://github.com/golang/dep"><code>dep</code></a>, basic Makefile, etc). Thankfully we have the ability to pass a <code>--location</code> flag to tell it to use a different template project.</p>
+<p>But how do we know what the template project should look like? Digging into the code we find the <a href="https://github.com/awslabs/aws-sam-cli/blob/6164d6d2e7351a849ad3d79973ac18b8d3d1d371/samcli/local/init/__init__.py#L35"><code>generate_project</code></a> function, which accepts the <code>location</code> parameter. <a href="https://github.com/awslabs/aws-sam-cli/blob/6164d6d2e7351a849ad3d79973ac18b8d3d1d371/samcli/local/init/__init__.py#L68">If the parameter is defined it will be used</a>, otherwise it is looked up in the <a href="https://github.com/awslabs/aws-sam-cli/blob/6164d6d2e7351a849ad3d79973ac18b8d3d1d371/samcli/local/init/__init__.py#L16-L32"><code>RUNTIME_TEMPLATE_MAPPING</code></a>, which links the runtime you specified (eg. <code>go1.x</code>) to the template project to use (eg. <a href="https://github.com/awslabs/aws-sam-cli/blob/6164d6d2e7351a849ad3d79973ac18b8d3d1d371/samcli/local/init/__init__.py#L28"><code>cookiecutter-aws-sam-hello-golang</code></a>). These templates are looked up in the <a href="https://github.com/awslabs/aws-sam-cli/blob/6164d6d2e7351a849ad3d79973ac18b8d3d1d371/samcli/local/init/__init__.py#L13-L14"><code>_templates</code> variable path</a>, which after some digging I managed to <a href="https://github.com/awslabs/aws-sam-cli/tree/6164d6d2e7351a849ad3d79973ac18b8d3d1d371/samcli/local/init/templates">locate in the repo at <code>aws-sam-cli/samcli/local/init/templates/</code></a>. There also appear to be a few more templates on the <a href="https://github.com/aws-samples?utf8=%E2%9C%93&amp;q=cookiecutter&amp;type=&amp;language=">aws-samples GitHub</a>.</p>
+<p>Having a look at the <a href="https://github.com/awslabs/aws-sam-cli/tree/6164d6d2e7351a849ad3d79973ac18b8d3d1d371/samcli/local/init/templates/cookiecutter-aws-sam-hello-golang">Golang template project</a>, it appears that these are <a href="https://github.com/audreyr/cookiecutter">Cookiecutter</a> (<a href="https://cookiecutter.readthedocs.io/en/latest/">docs</a>) templates. So to make our own customised SAM Golang starter template, after <a href="https://cookiecutter.readthedocs.io/en/latest/installation.html#install-cookiecutter">installing Cookiecutter</a> (<code>pip install --upgrade cookiecutter</code>), we can copy the <a href="https://github.com/awslabs/aws-sam-cli/tree/master/samcli/local/init/templates/cookiecutter-aws-sam-hello-golang">existing template</a>, <a href="https://cookiecutter.readthedocs.io/en/latest/usage.html#make-your-changes">make our desired changes</a>, and save it somewhere useful for future use (such as GitHub). Then when we want to use it in a new project:</p>
+<ul>
+<li><code>sam init --runtime go1.x --location gh:0xdevalias/TODO-cookiecutter-aws-sam-golang --name foo-app</code></li>
+</ul>
+<p>While I haven't abstracted out my patterns into a custom starter template yet, this may be something I end up doing in future, so make sure to <a href="https://github.com/0xdevalias?utf8=%E2%9C%93&amp;tab=repositories&amp;q=cookiecutter-&amp;type=&amp;language=">keep an eye on my GitHub</a>.</p>
+<h2><a name="cdk"></a>AWS Cloud Development Kit (CDK)</h2>
+<blockquote>
+<p>The <a href="https://github.com/awslabs/aws-cdk">AWS Cloud Development Kit (AWS CDK)</a> is an open-source software development framework to define cloud infrastructure in code and provision it through AWS CloudFormation. The CDK integrates fully with AWS services and offers a higher level object-oriented abstraction to define AWS resources imperatively. Using the CDK’s library of infrastructure constructs, you can easily encapsulate AWS best practices in your infrastructure definition and share it without worrying about boilerplate logic. The CDK improves the end-to-end development experience because you get to use the power of modern programming languages to define your AWS infrastructure in a predictable and efficient manner. The CDK is currently available for Java, JavaScript, and TypeScript.</p>
+</blockquote>
+<p>AWS CDK (<a href="https://github.com/awslabs/aws-cdk">GitHub</a>, <a href="https://github.com/awslabs/aws-cdk/blob/master/CHANGELOG.md">Changelog</a>, <a href="https://awslabs.github.io/aws-cdk/">Site</a>, <a href="https://awslabs.github.io/aws-cdk/reference.html">Reference</a>, Examples: <a href="https://awslabs.github.io/aws-cdk/examples.html">1</a>, <a href="https://github.com/awslabs/aws-cdk/tree/master/examples">2</a>) moves away from directly constructing raw YAML/JSON by hand, and takes more of a 'generator code' approach, providing a development kit of libraries that you can use to describe how your cloud infrastructure should look, connect, and interact. Once it's all defined in code, you can use it to generate the CloudFormation / <a href="https://awslabs.github.io/aws-cdk/refs/_aws-cdk_aws-sam.html">AWS SAM</a> YAML, deploy it to the cloud, and everything else you would come to expect from these sorts of tools.</p>
+<p>The CDK is divided up into a number of libraries, with <a href="https://awslabs.github.io/aws-cdk/reference.html">each representing an AWS service</a>. Each of these libraries is broken up into two different levels of <a href="https://awslabs.github.io/aws-cdk/constructs.html">Constructs</a>:</p>
+<ul>
+<li><a href="https://awslabs.github.io/aws-cdk/cloudformation.html">CloudFormation Resource</a>: low-level constructs that provide a direct, one-to-one, mapping to an AWS CloudFormation resource, as listed in the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">AWS CloudFormation Resource Types Reference</a>.</li>
+<li><a href="https://awslabs.github.io/aws-cdk/aws-construct-lib.html">AWS Construct Library</a>: handwritten by AWS and come with convenient defaults and additional knowledge about the inner workings of the AWS resources they represent. In general, you will be able to express your intent without worrying about the details too much, and the correct resources will automatically be defined for you.</li>
+</ul>
+<p>Where possible you should be able to use the higher level constructs to get things done (and these will only get better over time), but it's nice to know that we have an easy way to drop down to the lower-level functionality when we need to. There also appears to be the ability to create new Construct libs (<code>cdk init --list</code>, <a href="https://github.com/awslabs/aws-cdk/tree/master/packages/aws-cdk/lib/init-templates/lib">template</a>), so it's possible you could build your own custom construct abstractions with this. Another area for future exploration.</p>
+<p>As is pretty standard by now, you define a <a href="https://awslabs.github.io/aws-cdk/stacks.html">stack</a> which contains all of the features and services you want to use, then configure the <a href="https://awslabs.github.io/aws-cdk/environments.html#environments">environment</a> to define where it should be deployed. You can define multiple stacks within your <a href="https://awslabs.github.io/aws-cdk/apps.html">CDK App</a>, which means we have a nice way to handle cross-region deployments. There is built in support for uploading <a href="https://awslabs.github.io/aws-cdk/assets.html">assets</a> (<a href="https://awslabs.github.io/aws-cdk/refs/_aws-cdk_assets.html#id2">ref</a>) that your application may require (eg. lambda code, etc), as well as <a href="https://awslabs.github.io/aws-cdk/applets.html">applets</a> for running custom code as part of your build (eg. compiling code/assets).</p>
+<p><a href="https://awslabs.github.io/aws-cdk/getting-started.html">Getting started</a> with a new project is pretty simple (note: if you don't have default creds configured, make sure to use <code>AWS_PROFILE</code>/<code>--profile</code> <a href="https://github.com/awslabs/aws-cdk/issues/130#issuecomment-421508274">or things will hang</a>):</p>
+<ul>
+<li><a href="https://awslabs.github.io/aws-cdk/getting-started.html#install-the-command-line-toolkit">Install the CDK CLI</a>: <code>npm install -g aws-cdk</code></li>
+<li>Check what templates/languages are available: <code>cdk init --list</code></li>
+<li>Init a new app: <code>mkdir foo &amp;&amp; cd foo &amp;&amp; cdk init app --language=typescript</code></li>
+<li><a href="https://awslabs.github.io/aws-cdk/getting-started.html#compile-the-code">Compile CDK App Typescript</a>: <code>npm run build</code> (or <code>npm run watch</code> in another terminal)</li>
+<li><a href="https://awslabs.github.io/aws-cdk/getting-started.html#list-the-stacks-in-the-app">List the stacks</a>: <code>cdk ls --long</code></li>
+<li><a href="https://awslabs.github.io/aws-cdk/getting-started.html#synthesize-an-cfn-template">Synthesize the code to CloudFormation YAML</a>: <code>cdk synth</code> or <code>cdk synth FooStack</code></li>
+</ul>
+<p>When you're happy and think you're ready to deploy:</p>
+<ul>
+<li><a href="https://awslabs.github.io/aws-cdk/getting-started.html#preparing-for-deployment">Diff to see changes</a> (and make sure you're still happy): <code>cdk diff</code></li>
+<li><a href="https://awslabs.github.io/aws-cdk/getting-started.html#deploying-the-stack">Deploy</a>: <code>cdk deploy</code></li>
+</ul>
+<p>Following along from our previous <a href="#sam-example">AWS SAM example</a>, we can create an equivalent <a href="https://github.com/awslabs/aws-cdk/issues/716">example SAM function</a> (<a href="https://awslabs.github.io/aws-cdk/refs/_aws-cdk_aws-sam.html">ref</a>) in <code>./bin/foo.ts</code> with code such as the following:</p>
+<pre lang="typescript"><code>import sam = require('@aws-cdk/aws-serverless');
+import lambda = require('@aws-cdk/aws-lambda');
+</code></pre>
+<pre lang="typescript"><code>const helloWorld = new sam.cloudformation.FunctionResource(this, &quot;HelloWorldFunction&quot;, {
+  codeUri: &quot;hello_world/&quot;,
+  handler: &quot;app.lambdaHandler&quot;,
+  runtime: lambda.Runtime.NodeJS810.name,
+  environment: {
+    variables: {
+      PARAM1: &quot;VALUE&quot;
+    }
+  },
+  events: {
+    HelloWorld: {
+      type: &quot;Api&quot;,
+      properties: {
+        path: &quot;/hello&quot;,
+        method: &quot;get&quot;,
+      }
+    }
+  }
+});
+</code></pre>
+<p>Remember you will need to <code>npm install</code> any additional packages you need before you can use them:</p>
+<pre><code>npm i @aws-cdk/aws-serverless @aws-cdk/aws-lambda
+</code></pre>
+<p>Once we compile (<code>npm run build</code>) and synthesize (<code>cdk synth</code>), we can see we end up with equivalent YAML to our <a href="#sam-example">previous SAM example</a>:</p>
+<pre lang="yaml"><code>HelloWorldFunction:
+  Type: 'AWS::Serverless::Function'
+  Properties:
+    CodeUri: hello_world/
+    Handler: app.lambdaHandler
+    Runtime: nodejs8.10
+    Environment:
+      Variables:
+        PARAM1: VALUE
+    Events:
+      HelloWorld:
+        Properties:
+          Method: get
+          Path: /hello
+        Type: Api
+</code></pre>
+<p>While CDK is <a href="https://aws.amazon.com/blogs/developer/aws-cdk-developer-preview/">quite a new project (Aug 2018)</a>, we can already see that it is quite powerful to work with.</p>
+<h2><a name="amplify"></a>Amplify</h2>
+<blockquote>
+<p><a href="https://aws-amplify.github.io/">Amplify</a> is an open source project which is focused on mobile and web developers building applications. This consists of a library, UI components, and a CLI toolchain. The design follows a category based model allowing developers to perform advanced use cases with declarative client APIs so that they can focus on their application code (e.g. Auth.signIn() or API.graphql()). This allows developers to focus on their business use cases and less time on re-implementing the most common use cases around mobile or web app development (Auth flows, Storage and API interaction, Analytics, etc.) (<a href="https://github.com/aws-amplify/amplify-cli/issues/160#issuecomment-421100213">Source</a>)</p>
+</blockquote>
+<p><a href="https://aws-amplify.github.io/">AWS Amplify</a> (<a href="https://github.com/aws-amplify">GitHub</a>) combines a number of different complementary aspects to simplify modern mobile and web development:</p>
+<ul>
+<li><a href="https://github.com/aws-amplify/amplify-cli">CLI</a>: uses AWS CloudFormation and nested stacks to define and provision commonly required backend services and features</li>
+<li>Library / <a href="https://aws-amplify.github.io/media/ui_library">UI Components</a>: These appear to be broken down based on platform
+<ul>
+<li><a href="https://aws-amplify.github.io/amplify-js/media/quick_start?platform=react">Web / JavaScript / React Native</a> (<a href="https://github.com/aws-amplify/amplify-js">GitHub</a>)</li>
+<li><a href="https://docs.aws.amazon.com/aws-mobile/latest/developerguide/getting-started.html#ios-swift">iOS</a></li>
+<li><a href="https://docs.aws.amazon.com/aws-mobile/latest/developerguide/getting-started.html#android-java">Android</a></li>
+</ul>
+</li>
+</ul>
+<p>Of all of the projects I have explored today, this is the one I have the least experience with, so I may not have fully come to understand/appreciate the depth of it yet. In a bit of a difference from the previous projects, this seems to take more of a 'full-stack' approach to solving common application needs.</p>
+<p>One of the nice things about the <a href="https://github.com/aws-amplify/amplify-cli">Amplify CLI</a> is how it aims to provide simple menu-driven options for getting everything going:</p>
+<ul>
+<li><a href="https://github.com/aws-amplify/amplify-cli#install-the-cli">Install the CLI</a>: <code>npm install -g @aws-amplify/cli</code></li>
+<li>Init a new project: <code>amplify init</code> and follow the menu choices</li>
+</ul>
+<pre><code>⇒  amplify init
+Note: It is recommended to run this command from the root of your app directory
+? Choose your default editor: None
+? Choose the type of app that you're building: javascript
+Please tell us about your project
+? What javascript framework are you using: react
+? Source Directory Path:  src
+? Distribution Directory Path: build
+? Build Command:  npm run-script build
+? Start Command: npm run-script start
+
+Using default provider awscloudformation
+
+Initializing project in the cloud...
+..snip..
+Your project has been successfully initialized and connected to the cloud!
+</code></pre>
+<ul>
+<li>Choose a category (feature) you want to add (<code>amplify --help</code>), and select it: eg. <code>amplify function add</code></li>
+</ul>
+<pre><code>⇒  amplify function add
+Using service: Lambda, provided by: awscloudformation
+? Provide a friendly name for your resource to be used as a label for this category in the project: HelloWorld
+? Provide the AWS Lambda function name: HelloWorld
+? Choose the function template that you want to use: Serverless express function (Integration with Amazon API Gateway)
+? Do you want to edit the local lambda function now? false
+Successfully added resource HelloWorld locally.
+</code></pre>
+<p>At this point you should be able to see the generated files in <code>./amplify/backend/function/HelloWorld</code>. Of particular note is the generated CloudFormation JSON (<code>HelloWorld-cloudformation-template.json</code>). While it is nice that it is automatically generated, using the JSON form, and not appearing to leverage SAM means that it ends up being quite a verbose file to cognitively reason about. I believe the intention is that you don't modify this directly (and I read somewhere that even if you do it may be overwritten?). If nothing else, it serves as a decent reference implementation for this kind of feature, that you could then translate back to your preferred method (eg. SAM/CDK).</p>
+<p>Digging into the source, it appears these templates are located within the <a href="amplify-category-function">specific subpackage</a> of the CLI, in the <a href="https://github.com/aws-amplify/amplify-cli/tree/master/packages/amplify-category-function/provider-utils/awscloudformation">cloudformation provider</a> (eg. <a href="https://github.com/aws-amplify/amplify-cli/blob/master/packages/amplify-category-function/provider-utils/awscloudformation/cloudformation-templates/lambda-cloudformation-template.json.ejs">the function template used above</a>).</p>
+<p>While currently there only appears to be a single 'provider' (<a href="https://github.com/aws-amplify/amplify-cli/tree/master/packages/amplify-provider-awscloudformation"><code>amplify-provider-awscloudformation</code></a>), language around the websites/repos implies that in future they would like to support additional providers, so it <a href="https://github.com/aws-amplify/amplify-cli/issues/171">may be possible to implement CDK</a> and/or SAM into this flow, for a 'best of all worlds' situation.</p>
+<p>Implementing the most basic use case (<code>function</code>) as we did above isn't really where Amplify shines. For example, you can add an <a href="https://aws-amplify.github.io/amplify-js/media/authentication_guide">authentication system</a> (<a href="https://aws-amplify.github.io/amplify-js/api/classes/authclass.html">JS Ref</a>) to your backend with just <code>amplify auth add</code>, or a new <a href="https://aws-amplify.github.io/amplify-js/media/api_guide">GraphQL/REST api</a> with <code>amplify api add</code>, and similar simplicity for other common features and patterns.</p>
+<p>Moving from the backend infrastructure, Amplify also features libraries and UI components to consume these features in your application. For example, getting up and running with React (<a href="https://aws-amplify.github.io/amplify-js/media/react_guide">1</a>, <a href="https://aws-amplify.github.io/amplify-js/media/quick_start?platform=react">2</a>) can be as simple as:</p>
+<pre><code>create-react-app my-app
+cd my-app
+npm install --save aws-amplify
+npm install --save aws-amplify-react
+
+amplify init
+</code></pre>
+<p>And then a <a href="https://aws-amplify.github.io/amplify-js/media/quick_start#step-4-set-up-your-backend">few little code changes</a> to wire things into place.</p>
+<p>As part of all of this, you get access to the <a href="https://aws-amplify.github.io/amplify-js/media/ui_guide">UI Components</a>, which should dramatically reduce the amount of boilerplate wiring up required to make use of these common application patterns.</p>
+<p>I feel like I haven't even begun to dive deep enough into the <a href="https://aws-amplify.github.io/amplify-js/api/">frontend JS</a>/<a href="https://aws-amplify.github.io/amplify-js/media/ui_guide">UI component libraries</a> to do them justice, so I will leave that as an excerise to the reader (or a future blog post).</p>
+<p>As mentioned in previous sections, this is also quite a new project (<a href="https://aws.amazon.com/blogs/mobile/announcing-aws-amplify-and-the-aws-mobile-cli/">Amplify (Nov 2017)</a>, <a href="https://aws.amazon.com/blogs/mobile/announcing-the-aws-amplify-cli-toolchain/">CLI (Aug 2018)</a>), so I'm sure things are going to get much better as time goes on.</p>
+<h2><a name="conclusion"></a>Conclusion</h2>
+<p>We explored a number of different AWS serverless friendly projects and options, and how they may be able to be leveraged together synergistically, or to do similar things as each other. This is still an area I am actively exploring, and a lot of the projects are still quite young, so I'm excited to see what improvements and new efficient patterns come out of this! Maybe I will write a more specific follow up blog at some point detailing how I actually end up using some of these technologies in practice.</p>
+<h2><a name="where-next"></a>Where Next?</h2>
+<p>You could <a href="https://aws.amazon.com/serverless/">learn more about serverless</a> and <a href="https://aws.amazon.com/serverless/build-a-web-app/">build a web app</a>, put together a modern frontend with <a href="https://github.com/facebook/create-react-app">Create React App</a> + <a href="https://redux.js.org/introduction">Redux</a> + <a href="https://redux-saga.js.org/">Redux-Saga</a>, design a serverless Golang backend with <a href="https://aws.amazon.com/sdk-for-go/">AWS SDK for Golang</a> + <a href="https://github.com/gorilla/mux">Gorilla Mux</a> + <a href="https://github.com/awslabs/aws-lambda-go-api-proxy#other-frameworks">AWS Lambda Go Api Proxy</a>, read more about Authentication with <a href="https://aws.amazon.com/cognito/">AWS Cognito</a>, learn about <a href="https://graphql.org/">GraphQL</a>.. so many interesting things out there to learn about and play with!</p>
+<p>What are you planning to build? Have any tips or suggestions? A story of how this helped (or hindered) you on a project? I'd love to hear about it in the comments below!</p>
+
+        </section>
+
+        <footer class="post-footer">
+
+            <!-- #author-->
+
+            
+	<figure class="author-image">
+	    <a class="img" href="/author/devalias" style="background-image: url(/assets/images/authors/devalias.png)"><span class="hidden">devalias's Picture</span></a>
+	</figure>
+
+
+            <section class="author">
+                <h4>
+                    
+                        <a href="/author/devalias">Glenn 'devalias' Grant</a>
+                    
+                </h4>
+
+                
+                    <p> Glenn is a full-stack, polyglot developer with an acute interest in the offensive side of security; as well as technology, efficiency, biohacking, health, personal growth and a whole lot more.</p>
+                
+                <div class="author-meta">
+    
+        <span class="author-location">
+            <i class="fas fa-location-arrow"></i>
+            Australia
+        </span>
+    
+    
+        <span class="author-link">
+            <a href="http://www.devalias.net/">
+                <i class="fas fa-external-link-alt"></i>
+                devalias.net
+            </a>
+        </span>
+    
+    
+</div>
+
+                <div class="author-social">
+    <a href="/author/devalias/rss.xml" title="RSS Feed"><i class="fas fa-rss-square fa-1x"></i></a>
+    
+        <a href="https://keybase.io/devalias" title="Keybase" target="_blank"><i class="fas fa-key fa-1x"></i></a>
+    
+    
+        <a href="https://www.linkedin.com/in/glenn-devalias-grant" title="LinkedIn" target="_blank"><i class="fab fa-linkedin fa-1x"></i></a>
+    
+    
+        <a href="https://twitter.com/_devalias" title="Twitter" target="_blank"><i class="fab fa-twitter-square fa-1x"></i></a>
+    
+    
+        <a href="https://instagram.com/_devalias" title="Instagram" target="_blank"><i class="fab fa-instagram fa-1x"></i></a>
+    
+    
+        <a href="https://medium.com/@devalias" title="Medium" target="_blank"><i class="fab fa-medium fa-1x"></i></a>
+    
+    
+        <a href="https://github.com/0xdevalias" title="Github" target="_blank"><i class="fab fa-github-square fa-1x"></i></a>
+    
+    
+    
+    
+        <a href="https://speakerdeck.com/0xdevalias" title="SpeakerDeck" target="_blank">
+            <!-- TODO: Correctly handle size differences -->
+            <!-- SVG Source: https://github.com/FortAwesome/Font-Awesome/issues/1688#issuecomment-266479369 -->
+            
+                <!-- Includes hacky resizing to make it work for this size.. -->
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="15" height="20" viewBox="5 -7 16.875 35">
+                    <path d="M25.6 3.8c-1-1-2.199-1.5-3.6-1.5h-16.9c-1.4 0-2.6 0.5-3.6 1.5s-1.5 2.2-1.5 3.6v17.2c0 1.4 0.5 2.5 1.5 3.5s2.2 1.5 3.6 1.5h16.8c1.398 0 2.6-0.5 3.6-1.5s1.5-2.2 1.5-3.6v-17.1c0-1.4-0.4-2.6-1.4-3.6zM22.286 20.188c0 1.313-1.063 2.375-2.375 2.375h-12.437c-1.311 0-2.375-1.063-2.375-2.375v-8.375c0-1.312 1.063-2.375 2.375-2.375h12.437c1.311 0 2.375 1.063 2.375 2.375v8.375z"></path>
+                    <path d="M12.75 18.49v-4.977l-4.277 2.487z"></path>
+                    <path d="M14.684 18.516l4.228-2.516-4.228-2.514z"></path>
+                </svg>
+            
+        </a>
+    
+    
+        <a href="https://www.slideshare.net/GlenndevaliasGrant" title="SlideShare" target="_blank"><i class="fab fa-slideshare fa-1x"></i></a>
+    
+    
+        <a href="https://www.reddit.com/user/_devalias" title="Reddit" target="_blank"><i class="fab fa-reddit-square fa-1x"></i></a>
+    
+    
+        <a href="https://news.ycombinator.com/user?id=alias1" title="Hacker News" target="_blank"><i class="fab fa-hacker-news-square fa-1x"></i></a>
+    
+    
+        <a href="https://stackoverflow.com/users/1137085/devalias" title="StackOverflow" target="_blank"><i class="fab fa-stack-overflow fa-1x"></i></a>
+    
+    
+        <a href="https://stackexchange.com/users/1156663/devalias" title="StackExchange" target="_blank"><i class="fab fa-stack-exchange fa-1x"></i></a>
+    
+</div>
+
+            </section>
+
+            <!-- /author  -->
+
+            
+
+
+
+
+
+<section class="share">
+    <h4>Share this post</h4>
+
+    
+    <a href="http://twitter.com/share?text=Forming+Serverless+Clouds+with+AWS%3A+CloudFormation%2C+SAM%2C+CDK%2C+Amplify&amp;url=https%3A%2F%2Fwww.devalias.net%2Fdevalias%2F2018%2F09%2F15%2Fforming-serverless-clouds-aws-cloudformation-sam-cdk-amplify%2F&amp;via=_devalias" title="Share on Twitter" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"><i class="fab fa-twitter-square fa-2x"></i></a>
+
+    
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Fwww.devalias.net%2Fdevalias%2F2018%2F09%2F15%2Fforming-serverless-clouds-aws-cloudformation-sam-cdk-amplify%2F&amp;title=Forming+Serverless+Clouds+with+AWS%3A+CloudFormation%2C+SAM%2C+CDK%2C+Amplify&amp;&source=https%3A%2F%2Fwww.linkedin.com%2Fin%2Fglenn-devalias-grant%2F" title="Share on LinkedIn" onclick="window.open(this.href, 'linkedin-share', 'width=520,height=570');return false;"><i class="fab fa-linkedin fa-2x"></i></a>
+
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.devalias.net%2Fdevalias%2F2018%2F09%2F15%2Fforming-serverless-clouds-aws-cloudformation-sam-cdk-amplify%2F" title="Share on Facebook" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;"><i class="fab fa-facebook-square fa-2x"></i></a>
+
+    <a href="https://plus.google.com/share?url=https%3A%2F%2Fwww.devalias.net%2Fdevalias%2F2018%2F09%2F15%2Fforming-serverless-clouds-aws-cloudformation-sam-cdk-amplify%2F"  title="Share on Google+" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;"><i class="fab fa-google-plus-square fa-2x"></i></a>
+</section>
+
+
+            
+                
+                    <!-- Add Disqus Comments -->
+                    <div id="disqus_thread"></div>
+<script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'devalias'; // required: replace example with your forum shortname
+        var disqus_identifier = '/devalias/2018/09/15/forming-serverless-clouds-aws-cloudformation-sam-cdk-amplify/';
+        var disqus_url = 'https://www.devalias.net/devalias/2018/09/15/forming-serverless-clouds-aws-cloudformation-sam-cdk-amplify/';
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="https://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>
+
+                
+            
+
+            
+
+        </footer>
+
+    </article>
+
+</main>
+
+<aside class="read-next">
+
+    <!-- [[! next_post ]] -->
+    
+    <!-- [[! /next_post ]] -->
+    <!-- [[! prev_post ]] -->
+    
+        <a class="read-next-story prev no-cover" href="/devalias/2018/08/19/presenting-at-def-con-26-bug-bounty-hunting-on-steroids/">
+            <section class="post">
+                <h2>Presenting at DEF CON 26 - Bug Bounty Hunting on Steroids</h2>
+                <p>(Update: The talk recording is now up on YouTube, latest links to related content in this tweet)
+</p>
+            </section>
+        </a>
+    
+    <!-- [[! /prev_post ]] -->
+</aside>
+
+<!-- /Layout: Post -->
+
+
+        <footer class="site-footer clearfix">
+            <section class="copyright">
+                <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">devalias.net</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://www.devalias.net/" property="cc:attributionName" rel="cc:attributionURL">Glenn 'devalias' Grant</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+            </section>
+            <section class="poweredby">
+                <div>
+                    <strong>Build:</strong> 41e8aad
+                    <a href="https://github.com/0xdevalias/devalias.net/tree/master/_posts/2018-09-15-forming-serverless-clouds-aws-cloudformation-sam-cdk-amplify.md" target="_blank">
+                        <i class="fas fa-edit"></i>
+                        Edit on GitHub
+                    </a>
+                </div>
+                Proudly published with
+                <a href="https://jekyllrb.com/" target="_blank">Jekyll</a>
+                using
+                <a href="https://github.com/biomadeira/jasper" target="_blank">Jasper</a>
+                to
+                <a href="https://github.com/" target="_blank">GitHub</a>
+            </section>
+        </footer>
+    </div>
+    <!-- [[! Ghost outputs important scripts and data with this tag ]] -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <!-- [[! The main JavaScript file for Casper ]] -->
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="/assets/js/index.js"></script>
+
+        <!-- Google Analytics Tracking code -->
+     <script>
+	    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	    ga('create', 'UA-27970144-1', 'auto');
+	    ga('send', 'pageview');
+     </script>
+    
+    
+</body>
+</html>

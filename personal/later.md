@@ -23,3 +23,5 @@ redirect_from: /saved/
 * https://app.astralapp.com/dashboard (GitHub)
 * https://read.amazon.com/notebook
 * https://disqus.com/by/devalias/
+* https://wordpress.com/read
+  * https://wordpress.com/activities/likes

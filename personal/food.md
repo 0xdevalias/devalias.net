@@ -32,7 +32,7 @@ redirect_from: /food/
 * Household
   * https://au.whogivesacrap.org/
 * Paleo, keto, 'Green', 'eco-conscious', etc
-  * [http://www.optimoz.com.au/](http://www.optimoz.com.au/?rfsn=75133.2391a) (Bulletproof, Keto, Paleo, etc)
+  * [http://www.optimoz.com.au/](http://www.optimoz.com.au?aff=12) (Bulletproof, Keto, Paleo, etc)
   * https://shop.thesourcebulkfoods.com.au/ ([shipping](https://shop.thesourcebulkfoods.com.au/shipping/))
   * https://www.sproutmarket.com.au/ ([shipping](https://www.sproutmarket.com.au/shipping.html))
     * https://www.sproutmarket.com.au/hemp-mylk-base.html

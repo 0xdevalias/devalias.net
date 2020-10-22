@@ -25,6 +25,7 @@ redirect_from: /food/
   * https://www.bulkspices.com.au/
 * Mushrooms
   * [http://teelixir.com/](http://teelixir.com/?aff=15)
+    * http://teelixir.refr.cc/MQFBFG3 (20% off)
 * Groceries
   * https://www.woolworths.com.au/
   * https://au.iherb.com/c/grocery

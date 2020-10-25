@@ -16,6 +16,8 @@ redirect_from: /saved/
   * https://medium.com/@devalias/has-recommended
   * https://medium.com/@devalias/highlights
   * https://medium.com/@devalias/responses
+* https://app.hackernoon.com/bookmarks
+  * https://app.hackernoon.com/dashboard/history
 * https://www.youtube.com/playlist?list=WL
 * https://www.facebook.com/saved
 * https://twitter.com/i/bookmarks

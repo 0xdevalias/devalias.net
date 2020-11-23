@@ -1,0 +1,6 @@
+# https://github.com/github/linguist#using-gitattributes
+assets/css/ghost.min.css    linguist-vendored
+assets/css/screen.css       linguist-vendored
+assets/css/syntax.css       linguist-vendored
+assets/fonts                linguist-vendored
+assets/js/jquery.fitvids.js linguist-vendored

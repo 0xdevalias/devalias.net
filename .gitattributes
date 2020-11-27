@@ -4,3 +4,9 @@ assets/css/screen.css       linguist-vendored
 assets/css/syntax.css       linguist-vendored
 assets/fonts                linguist-vendored
 assets/js/jquery.fitvids.js linguist-vendored
+
+# https://joshuatz.com/posts/2019/how-to-get-github-to-recognize-a-pure-markdown-repo/
+*.md                        linguist-detectable
+*.md                        linguist-language=Markdown
+README.md                   linguist-detectable=false
+PUBLISHING.md               linguist-detectable=false

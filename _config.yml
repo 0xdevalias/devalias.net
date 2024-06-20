@@ -53,7 +53,7 @@ repository: 0xdevalias/devalias.net
 #   alexa: 1234
 #   yandex: 1234
 
-google_analytics: UA-27970144-1
+google_analytics: G-3FW5B1CS26
 disqus_shortname: devalias
 
 # Front Matter defaults (http://jekyllrb.com/docs/configuration/#front-matter-defaults)

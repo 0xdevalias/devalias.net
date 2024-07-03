@@ -96,6 +96,7 @@ exclude:
   - "TODO.txt"
   - "ojekyll.txt"
   - "bin/"
+  - "Makefile"
 
 # TODO: Enable these checks + fix any errors associated with them
 # liquid:

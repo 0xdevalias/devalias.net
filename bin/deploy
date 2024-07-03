@@ -1,3 +1,50 @@
-#!/bin/sh
+#!/usr/bin/env zsh
 
+set -e
+
+# Variables
+SITE_DIR="_site"
+REPO_URL="https://github.com/0xdevalias/devalias.net"
+BRANCH="gh-pages"
+
+# Function to check if the site directory is a valid git repository with the correct branch
+check_site_setup() {
+  if [ -d "$SITE_DIR" ] && [ -d "$SITE_DIR/.git" ]; then
+    if git -C "$SITE_DIR" rev-parse --verify "$BRANCH" > /dev/null 2>&1; then
+      return 0
+    fi
+  fi
+  return 1
+}
+
+# Function to check for changes in the site directory
+check_for_changes() {
+  if git -C "$SITE_DIR" diff --quiet && git -C "$SITE_DIR" diff --cached --quiet; then
+    return 1
+  fi
+  return 0
+}
+
+# Main script logic
+if ! check_site_setup; then
+  echo "ERROR: $SITE_DIR directory does not exist or is not a proper git repository."
+  echo
+  echo "Please set up the $SITE_DIR directory as a clone of the $BRANCH branch."
+  echo
+  echo "You can do this automatically by running:"
+  echo "  bin/build"
+  echo
+  echo "Or manually with the following commands:"
+  echo "  rm -rf $SITE_DIR"
+  echo "  git clone -b $BRANCH $REPO_URL $SITE_DIR"
+  exit 1
+fi
+
+# Check for changes before deployment
+if ! check_for_changes; then
+  echo "No changes to deploy."
+  exit 0
+fi
+
+# Deploy the Jekyll site
 bundle exec jekyll deploy $@

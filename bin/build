@@ -1,3 +1,63 @@
-#!/bin/sh
+#!/usr/bin/env zsh
 
+set -e
+
+# Variables
+SITE_DIR="_site"
+REPO_URL="https://github.com/0xdevalias/devalias.net"
+BRANCH="gh-pages"
+
+# Function to prompt the user for yes/no input with a default response
+prompt_yes_no() {
+  local prompt=$1
+  local default=${2:-Y}
+
+  local yn
+  while true; do
+    if [[ $default == [Yy]* ]]; then
+      echo -n "$prompt [Y/n]: "
+      read yn
+      yn=${yn:-Y}
+    else
+      echo -n "$prompt [y/N]: "
+      read yn
+      yn=${yn:-N}
+    fi
+
+    case $yn in
+      [Yy]* ) return 0;;
+      [Nn]* ) return 1;;
+      * ) echo "Please answer yes or no.";;
+    esac
+  done
+}
+
+# Function to check if the site directory is a valid git repository with the correct branch
+check_site_setup() {
+  if [ -d "$SITE_DIR" ] && [ -d "$SITE_DIR/.git" ]; then
+    if (cd "$SITE_DIR" && git rev-parse --verify "$BRANCH" > /dev/null 2>&1); then
+      return 0
+    fi
+  fi
+  return 1
+}
+
+# Function to clone the branch into the site directory
+setup_site_clone() {
+  rm -rf "$SITE_DIR"
+  git clone -b "$BRANCH" "$REPO_URL" "$SITE_DIR"
+}
+
+# Main script logic
+if ! check_site_setup; then
+  echo "WARNING: $SITE_DIR directory does not exist or is not a proper git repository."
+  if prompt_yes_no "Would you like to set up the $SITE_DIR directory as a clone of the $BRANCH branch?" Y; then
+    setup_site_clone
+  else
+    echo "Error: $SITE_DIR directory is not set up. Aborting build."
+    exit 1
+  fi
+fi
+
+# Build the Jekyll site
 JEKYLL_ENV=production bundle exec jekyll build --lsi --profile $@

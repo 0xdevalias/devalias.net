@@ -91,12 +91,9 @@ keep_files:
   - .nojekyll # To prevent GitHub re-processing
 
 exclude:
-  - "PUBLISHING.md"
   - "README.md"
   - "TODO.txt"
-  - "ojekyll.txt"
   - "bin/"
-  - "Makefile"
 
 # TODO: Enable these checks + fix any errors associated with them
 # liquid:

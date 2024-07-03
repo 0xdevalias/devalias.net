@@ -60,4 +60,5 @@ if ! check_site_setup; then
 fi
 
 # Build the Jekyll site
-JEKYLL_ENV=production bundle exec jekyll build --lsi --profile $@
+# JEKYLL_ENV=production bundle exec jekyll build --lsi --profile $@
+JEKYLL_ENV=production bundle exec jekyll build --profile $@

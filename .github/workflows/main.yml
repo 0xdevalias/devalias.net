@@ -1,15 +1,55 @@
-# name: Jekyll deploy
+# References
+#  https://github.com/limjh16/jekyll-action-ts/blob/master/.github/workflows/workflow.yml
 
-# on: [push]
+name: Build and deploy Jekyll site
 
-# jobs:
-#   build_and_deploy:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - uses: actions/checkout@v1
-#       - name: Build & Deploy to GitHub Pages
-#         env: 
-#           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#           GITHUB_REPOSITORY: ${{ secrets.GITHUB_REPOSITORY }}
-#           GITHUB_ACTOR: ${{ secrets.GITHUB_ACTOR }}
-#         uses: BryanSchuetz/jekyll-deploy-gh-pages@master
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - master
+      - jekyll-build-deploy-workflow
+    paths-ignore:
+      - .cache/**
+      # - .github/**
+      - _drafts/**
+      - _draftsOldTumblr/**
+      - _writing/**
+      - README.md
+      - PUBLISHING.md
+
+jobs:
+  jekyll:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📂 checkout
+        uses: actions/checkout@v2
+
+      - name: 💎 setup ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: .ruby-version
+
+      - name: 🔨 install system dependencies
+        run: sudo apt-get install libgsl-dev
+
+      - name: 🔨 install dependencies & build site
+        uses: limjh16/jekyll-action-ts@v2
+        with:
+          enable_cache: true
+#           format_output: true
+          custom_opts: '--lsi --profile'
+        env:
+          JEKYLL_GITHUB_TOKEN: ${{ secrets.JEKYLL_GITHUB_TOKEN_PAT }}
+
+      - id: currentdate
+        name: 📅 get current date and time
+        run: echo "::set-output name=date_str::$(date)"
+
+      - name: 🚀 deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_site
+          publish_branch: jekyll-build-deploy-workflow-gh-pages
+          commit_message: "Update site: ${{ steps.currentdate.outputs.date_str }}"
